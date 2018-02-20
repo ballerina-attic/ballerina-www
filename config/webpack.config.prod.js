@@ -3,7 +3,6 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -13,6 +12,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
+const commonConfig = require('./webpack.config.common');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -103,12 +103,8 @@ module.exports = {
       // please link the files into your node_modules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-      // Copies Monaco Editor
-      new CopyWebpackPlugin([
-        {
-            from: 'node_modules/monaco-editor/min/vs',
-            to: 'vs',
-        }]),
+      // Common Configs
+      ...commonConfig.plugins
     ],
   },
   module: {
