@@ -6,6 +6,8 @@ import CodeEditor from './components/editor/CodeEditor';
 import SamplesList from './components/navigation/SamplesList'
 import './BallerinaWidget.css';
 import { fetchSamples } from './samples/provider'
+import Console from './components/console/Console'
+import RunButton from './components/controls/RunButton';
 
 class BallerinaWidget extends Component {
 
@@ -15,6 +17,7 @@ class BallerinaWidget extends Component {
       samples: [],
       selectedIndex: 0,
     }
+    this.consoleRef = undefined;
     this.onSampleSelect = this.onSampleSelect.bind(this);
   }
 
@@ -24,6 +27,7 @@ class BallerinaWidget extends Component {
         this.setState({ 
           samples
         });
+        this.consoleRef.append('Samples Loaded.');
       })
   }
 
@@ -52,6 +56,20 @@ class BallerinaWidget extends Component {
           <Segment>
             <div className="ballerina-code-editor">
               <CodeEditor content={sample.source} />
+            </div>
+          </Segment>
+        }
+        {sample &&
+          <Segment>
+            <div className="ballerina-widget-console">
+              <Console
+                ref={(consoleRef) => {
+                  this.consoleRef = consoleRef;
+                }}
+              />
+            </div>
+            <div className="ballerina-widget-controls">
+              <RunButton />
             </div>
           </Segment>
         }
