@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import CodeEditor from './editor/CodeEditor';
+import {
+  Container, Segment
+} from 'semantic-ui-react'
+import CodeEditor from './components/editor/CodeEditor';
 import './BallerinaWidget.css';
 
 class BallerinaWidget extends Component {
   render() {
     return (
-      <div className="ballerina-widget">
+    <Container text>
+      <Segment.Group>
+        <Segment>
           <div className="ballerina-code-editor">
-              <CodeEditor />
+            <CodeEditor />
           </div>
-      </div>
+        </Segment>
+      </Segment.Group>
+    </Container>
     );
   }
 }

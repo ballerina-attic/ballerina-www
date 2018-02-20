@@ -1,4 +1,4 @@
-
+const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports.plugins = [
@@ -9,3 +9,8 @@ module.exports.plugins = [
         to: 'vs',
     }]),
 ];
+
+module.exports.alias = {
+    'ballerina-grammar': path.join(__dirname, '../../web/src/plugins/ballerina/utils/monarch-grammar'),
+    'ballerina-config': path.join(__dirname, '../../web/src/plugins/ballerina/utils/monaco-lang-config')
+}

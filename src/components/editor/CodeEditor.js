@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import MonacoEditor from 'react-monaco-editor';
 import Theme from './theme';
 import './CodeEditor.css';
-//import Grammar from './../utils/monarch-grammar';
-//import BAL_LANG_CONFIG from '../utils/monaco-lang-config';
+import Grammar from 'ballerina-grammar';
+import BAL_LANG_CONFIG from 'ballerina-config';
 
 const BAL_LANGUAGE = 'ballerina-lang';
 const BAL_WIDGET_MONACO_THEME = 'bal-widget-monaco-theme';
@@ -12,14 +12,14 @@ const MONACO_OPTIONS = {
     autoIndent: true,
     fontSize: 14,
     contextmenu: false,
-    renderIndentGuides: true,
+    renderIndentGuides: false,
     autoClosingBrackets: true,
-    matchBrackets: true,
+    matchBrackets: false,
     automaticLayout: true,
     glyphMargin: false,
-    folding: true,
-    lineDecorationsWidth: 0,
-    lineNumbersMinChars: 2,
+    folding: false,
+    lineDecorationsWidth: 10,
+    lineNumbersMinChars: 0,
     minimap: {
         enabled: false
     },
@@ -45,6 +45,21 @@ class CodeEditor extends React.Component {
         this.monaco = undefined;
         this.editorInstance = undefined;
         this.editorDidMount = this.editorDidMount.bind(this);
+        this.editorWillMount = this.editorWillMount.bind(this);
+    }
+
+    /**
+     * Life-cycle hook for editor will mount
+     * 
+     * @param {Object} monaco Monaco API
+     */
+    editorWillMount(monaco) {
+        this.monaco = monaco;
+        monaco.languages.register({ id: BAL_LANGUAGE });
+        monaco.editor.defineTheme(BAL_WIDGET_MONACO_THEME, Theme);
+        monaco.editor.setTheme('vs');
+        monaco.languages.setMonarchTokensProvider(BAL_LANGUAGE, Grammar);
+        monaco.languages.setLanguageConfiguration(BAL_LANGUAGE, BAL_LANG_CONFIG);
     }
 
     /**
@@ -54,13 +69,7 @@ class CodeEditor extends React.Component {
      * @param {Object} monaco Monaco API
      */
     editorDidMount(editorInstance, monaco) {
-        this.monaco = monaco;
         this.editorInstance = editorInstance;
-        monaco.languages.register({ id: BAL_LANGUAGE });
-        monaco.editor.defineTheme(BAL_WIDGET_MONACO_THEME, Theme);
-        monaco.editor.setTheme('vs');
-        // monaco.languages.setMonarchTokensProvider(BAL_LANGUAGE, Grammar);
-        // monaco.languages.setLanguageConfiguration(BAL_LANGUAGE, BAL_LANG_CONFIG);
     }
 
     /**
@@ -71,8 +80,8 @@ class CodeEditor extends React.Component {
             <div className='monaco-editor'>
                 <MonacoEditor
                     language={BAL_LANGUAGE}
-                    theme='vs-dark'
                     value={this.props.content}
+                    editorWillMount={this.editorWillMount}
                     editorDidMount={this.editorDidMount}
                     onChange={(newValue) => {
                         this.props.onChange(newValue);
