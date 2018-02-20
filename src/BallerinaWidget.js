@@ -7,7 +7,7 @@ class BallerinaWidget extends Component {
     return (
       <div className="ballerina-widget">
           <div className="ballerina-code-editor">
-              <CodeEditor width={960} height={400} />
+              <CodeEditor />
           </div>
       </div>
     );
