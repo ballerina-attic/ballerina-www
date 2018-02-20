@@ -58,9 +58,14 @@ class CodeEditor extends React.Component {
                         autoClosingBrackets: true,
                         matchBrackets: true,
                         automaticLayout: true,
-                        glyphMargin: true,
+                        glyphMargin: false,
                         folding: true,
                         lineNumbersMinChars: 2,
+                        minimap: {
+                            enabled: false
+                        },
+                        lineNumbers: 'off',
+                        theme: 'hc-black',
                     }}
                     width={width}
                     height={height}
