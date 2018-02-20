@@ -70,16 +70,5 @@ service<http> ATMLocator {
     }
 }
 `
-    },
-    {
-        "name": "Talking to end-points",
-        "source":""
-    },
-    {
-        "name": "Talking to end-points",
-        "source":""
-    }
-    
-    
-    ]
+    }]
 }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
-  Container, Segment
+  Container, Segment, Grid, Header
 } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css';
 import CodeEditor from './components/editor/CodeEditor';
 import SamplesList from './components/navigation/SamplesList'
 import './BallerinaWidget.css';
@@ -46,38 +47,52 @@ class BallerinaWidget extends Component {
                     : undefined;
     return (
     <Container text>
-      <Segment.Group>
-        <Segment>
-            <div className="ballerina-samples-navigator">
-              <SamplesList samples={samples} onSelect={this.onSampleSelect} />
-            </div>
-        </Segment>
-        {sample &&
+      {sample &&
+        <Segment.Group>
+          <Segment>
+              <Grid container stackable>
+                <Grid.Column width={10}>
+                  <div className="ballerina-widget-sample-name">
+                    <Header as='h3'>{sample.name}</Header>
+                  </div>
+                </Grid.Column>
+                <Grid.Column width={6}>
+                  <div className="ballerina-samples-navigator">
+                    <SamplesList samples={samples} onSelect={this.onSampleSelect} />
+                  </div>
+                </Grid.Column>
+              </Grid>  
+          </Segment>
           <Segment>
             <div className="ballerina-code-editor">
               <CodeEditor content={sample.source} />
             </div>
           </Segment>
-        }
-        {sample &&
           <Segment>
-            <div className="ballerina-widget-console">
-              <Console
-                ref={(consoleRef) => {
-                  this.consoleRef = consoleRef;
-                }}
-              />
-            </div>
-            <div className="ballerina-widget-controls">
-              <RunButton />
-            </div>
-          </Segment>
-        }
+            <Grid container stackable>
+              <Grid.Column width={13}>
+                <div className="ballerina-widget-console">
+                  <Console
+                    ref={(consoleRef) => {
+                      this.consoleRef = consoleRef;
+                    }}
+                  />
+                </div>
+              </Grid.Column>
+              <Grid.Column width={3}>
+                  <div className="ballerina-widget-controls">
+                    <RunButton />
+                  </div>
+              </Grid.Column>
+            </Grid>
+          </Segment> 
+      </Segment.Group>
+      }
         {!sample &&
           <p>No samples are available to display.</p>
         }
-      </Segment.Group>
     </Container>
+    
     );
   }
 }
