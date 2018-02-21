@@ -1,12 +1,21 @@
-import { data } from './data';
+import { samples } from './data.json';
+import axios from 'axios';
+
+const SAMPLE_FOLDER = 'resources/samples';
 
 export function fetchSamples() {
     return new Promise((resolve, reject) => {
-        const { samples } = data;
         if (samples && samples.length > 0) {
             resolve(samples);
         } else {
             reject('Samples are not found');
         }
     });
+}
+
+export function fetchSample(fileName) {
+    return axios(SAMPLE_FOLDER + '/' + fileName)
+                .then((response) => {
+                    return response.data;
+                });
 }

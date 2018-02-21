@@ -6,7 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 import CodeEditor from './components/editor/CodeEditor';
 import SamplesList from './components/navigation/SamplesList'
 import './BallerinaWidget.css';
-import { fetchSamples } from './samples/provider'
+import { fetchSamples, fetchSample } from './samples/provider'
 import Console from './components/console/Console'
 import RunButton from './components/controls/RunButton';
 
@@ -20,6 +20,7 @@ class BallerinaWidget extends Component {
     }
     this.consoleRef = undefined;
     this.onSampleSelect = this.onSampleSelect.bind(this);
+    this.onCurrentSampleContentChange = this.onCurrentSampleContentChange.bind(this);
   }
 
   componentDidMount() {
@@ -28,14 +29,32 @@ class BallerinaWidget extends Component {
         this.setState({ 
           samples
         });
+        this.onSampleSelect(0);
         this.consoleRef.append('Samples Loaded.');
       })
   }
 
   onSampleSelect(selectedIndex) {
-    this.setState({
-      selectedIndex
-    });
+    const sample = this.state.samples[selectedIndex];
+    if (sample.content) {
+      this.setState({
+        selectedIndex
+      });
+    } else {
+      const { source } = sample;
+      fetchSample(source)
+        .then((data) => {
+           sample.content = data;
+           this.setState({
+            selectedIndex
+          });
+        })
+    }
+  }
+
+  onCurrentSampleContentChange(newContent) {
+    const sample = this.state.samples[this.state.selectedIndex];
+    sample.content = newContent;
   }
 
   render() {
@@ -65,7 +84,10 @@ class BallerinaWidget extends Component {
           </Segment>
           <Segment>
             <div className="ballerina-code-editor">
-              <CodeEditor content={sample.source} />
+              <CodeEditor
+                content={sample.content || ''}
+                onChange={this.onCurrentSampleContentChange}
+              />
             </div>
           </Segment>
           <Segment>
