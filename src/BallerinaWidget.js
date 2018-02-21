@@ -65,7 +65,7 @@ class BallerinaWidget extends Component {
                     ? samples[selectedIndex]
                     : undefined;
     return (
-    <Container text>
+    <Container className="ballerina-playground" text>
       {sample &&
         <Segment.Group>
           <Segment>
@@ -92,7 +92,7 @@ class BallerinaWidget extends Component {
           </Segment>
           <Segment>
             <Grid container stackable>
-              <Grid.Column width={13}>
+              <Grid.Column className="ballerina-widget-console-wrapper" width={13}>
                 <div className="ballerina-widget-console">
                   <Console
                     ref={(consoleRef) => {
