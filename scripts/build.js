@@ -95,7 +95,7 @@ measureFileSizesBeforeBuild(paths.appBuild)
     },
     err => {
       console.log(chalk.red('Failed to compile.\n'));
-      printBuildError(err);
+      printBuildError(err.stack);
       process.exit(1);
     }
   );

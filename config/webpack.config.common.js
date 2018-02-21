@@ -6,11 +6,11 @@ module.exports.plugins = [
     new CopyWebpackPlugin([
     {
         from: 'samples',
-        to: 'resources/samples',
+        to: 'resources/samples'
     },
     {
         from: 'node_modules/monaco-editor/min/vs',
-        to: 'vs',
+        to: 'vs'
     }]),
 ];
 
