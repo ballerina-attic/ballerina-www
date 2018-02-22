@@ -15,6 +15,9 @@ module.exports.plugins = [
 ];
 
 module.exports.alias = {
+    'log': path.join(__dirname, '../../web/src/core/log/log'),
+    'event_channel': path.join(__dirname, '../../web/src/core/event/channel'),
+    'launch-manager': path.join(__dirname, '../../web/src/plugins/debugger/LaunchManager'),
     'ballerina-grammar': path.join(__dirname, '../../web/src/plugins/ballerina/utils/monarch-grammar'),
     'ballerina-config': path.join(__dirname, '../../web/src/plugins/ballerina/utils/monaco-lang-config')
 }

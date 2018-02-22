@@ -15,6 +15,7 @@ const MONACO_OPTIONS = {
     folding: false,
     lineDecorationsWidth: 10,
     lineNumbersMinChars: 0,
+    scrollBeyondLastLine: false,
     minimap: {
         enabled: false
     },
@@ -64,6 +65,15 @@ class Console extends React.Component {
      */
     editorDidMount(editorInstance, monaco) {
         this.editorInstance = editorInstance;
+    }
+
+    /**
+     * set
+     */
+    clearAndPrint(content) {
+        this.setState({
+          content,
+        });
     }
 
     /**

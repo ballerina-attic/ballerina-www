@@ -20,6 +20,7 @@ const MONACO_OPTIONS = {
     folding: false,
     lineDecorationsWidth: 10,
     lineNumbersMinChars: 0,
+    scrollBeyondLastLine: false,
     minimap: {
         enabled: false
     },

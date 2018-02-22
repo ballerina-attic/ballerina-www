@@ -30,7 +30,6 @@ class BallerinaWidget extends Component {
           samples
         });
         this.onSampleSelect(0);
-        this.consoleRef.append('Samples Loaded.');
       })
   }
 
@@ -50,11 +49,13 @@ class BallerinaWidget extends Component {
           });
         })
     }
+    this.consoleRef.clear();
   }
 
   onCurrentSampleContentChange(newContent) {
     const sample = this.state.samples[this.state.selectedIndex];
     sample.content = newContent;
+    this.forceUpdate();
   }
 
   render() {
@@ -103,7 +104,7 @@ class BallerinaWidget extends Component {
               </Grid.Column>
               <Grid.Column width={3}>
                   <div className="ballerina-widget-controls">
-                    <RunButton />
+                    <RunButton sample={sample} consoleRef={this.consoleRef} />
                   </div>
               </Grid.Column>
             </Grid>
