@@ -17,7 +17,7 @@ class RunButton extends React.Component {
         this.onRun = this.onRun.bind(this);
         LaunchManager.init(LAUNCHER_URL)
         LaunchManager.on(EVENTS.CONSOLE_MESSAGE_RECEIVED, (data) => {
-            this.appendToConsole(data.message);
+            this.setConsoleText(data.message);
         });
         LaunchManager.on(EVENTS.EXECUTION_ENDED, () => {
             this.setState({
