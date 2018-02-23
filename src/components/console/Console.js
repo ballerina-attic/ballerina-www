@@ -91,7 +91,7 @@ class Console extends React.Component {
     clear() {
       this.setState({
         content: ''
-      })
+      });
   }
 
     /**

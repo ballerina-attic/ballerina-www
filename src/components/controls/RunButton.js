@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'semantic-ui-react'
 import Console from '../console/Console';
-import LaunchManager from 'launch-manager';
+import LaunchManager, { COMMANDS, EVENTS, MSG_TYPES } from 'launch-manager';
 
 // TODO: Read this from an env config
 const LAUNCHER_URL = 'ws://127.0.0.1:9091/composer/ballerina/launcher';
@@ -13,16 +13,24 @@ class RunButton extends React.Component {
         this.state = {
             runInProgress: false,
         }
+        this.onStop = this.onStop.bind(this);
         this.onRun = this.onRun.bind(this);
         LaunchManager.init(LAUNCHER_URL)
-        LaunchManager.on('print-message', (data) => {
-            this.setConsoleText(data.message);
+        LaunchManager.on(EVENTS.CONSOLE_MESSAGE_RECEIVED, (data) => {
+            this.appendToConsole(data.message);
         });
-        LaunchManager.on('execution-ended', () => {
+        LaunchManager.on(EVENTS.EXECUTION_ENDED, () => {
             this.setState({
                 runInProgress: false,
             });
         });
+    }
+
+    clearConsole() {
+        const { consoleRef } = this.props;
+        if (consoleRef) {
+            consoleRef.clear();
+        }
     }
 
     appendToConsole(messsage, type = 'INFO') {
@@ -35,7 +43,7 @@ class RunButton extends React.Component {
     setConsoleText(messsage, type = 'INFO') {
         const { consoleRef } = this.props;
         if (consoleRef) {
-            consoleRef.append(messsage);
+            consoleRef.clearAndPrint(messsage);
         }
     }
 
@@ -50,14 +58,21 @@ class RunButton extends React.Component {
         }
     }
 
+    onStop() {
+        LaunchManager.stop();
+    }
+
     render() {
         const { sample } = this.props;
+        const { runInProgress } = this.state;
         return (
-            <Button
-                onClick={this.onRun}
-                disabled={this.state.runInProgress || !(sample && sample.content)} >
-                Run
-            </Button>
+            <div>
+                <Button
+                    onClick={runInProgress ? this.onStop : this.onRun}
+                    disabled={!(sample && sample.content)} >
+                    { runInProgress ? 'Stop' : 'Run' }
+                </Button>
+            </div>
         );
     }
 }
