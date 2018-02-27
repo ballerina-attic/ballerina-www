@@ -69,19 +69,13 @@ class BallerinaWidget extends Component {
     <Container className="ballerina-playground" text>
       {sample &&
         <Segment.Group>
-          <Segment>
-              <Grid container stackable>
-                <Grid.Column width={16}>
-                  <div className="ballerina-widget-sample-name">
-                    <Header as='h4'>Example : {sample.name}</Header>
-                  </div>
-                </Grid.Column>
-              </Grid>  
-          </Segment>
-          <Segment>
-            <div className="ballerina-widget-diagram">
+          <div className="ballerina-widget-sample-name">
+            <Header as='h4'>Example : &lt;{sample.name}&gt;</Header>
+          </div>
+          <div className="ballerina-widget-diagram">
               <img src="sample-diagram.png" />
-            </div>
+          </div>
+          <Segment>
             <div className="ballerina-code-editor">
               <CodeEditor
                 content={sample.content || ''}
@@ -96,20 +90,18 @@ class BallerinaWidget extends Component {
               />
             </div>
           </Segment>
-          <Segment>
-            <Grid container stackable>
-              <Grid.Column width={13}>
-                <div className="ballerina-samples-navigator">
-                  <SamplesList samples={samples} onSelect={this.onSampleSelect} />
+          <Grid container stackable>
+            <Grid.Column width={13}>
+              <div className="ballerina-samples-navigator">
+                <SamplesList samples={samples} onSelect={this.onSampleSelect} />
+              </div>
+            </Grid.Column>
+            <Grid.Column width={3}>
+                <div className="ballerina-widget-controls">
+                  <RunButton sample={sample} consoleRef={this.consoleRef} />
                 </div>
-              </Grid.Column>
-              <Grid.Column width={3}>
-                  <div className="ballerina-widget-controls">
-                    <RunButton sample={sample} consoleRef={this.consoleRef} />
-                  </div>
-              </Grid.Column>    
-            </Grid>  
-          </Segment>
+            </Grid.Column>    
+          </Grid>  
       </Segment.Group>
       }
         {!sample &&
