@@ -17,7 +17,7 @@ class RunButton extends React.Component {
         this.onRun = this.onRun.bind(this);
         LaunchManager.init(LAUNCHER_URL)
         LaunchManager.on(EVENTS.CONSOLE_MESSAGE_RECEIVED, (data) => {
-            this.setConsoleText(data.message);
+            this.appendToConsole(data.message);
         });
         LaunchManager.on(EVENTS.EXECUTION_ENDED, () => {
             this.setState({
@@ -60,6 +60,13 @@ class RunButton extends React.Component {
 
     onStop() {
         LaunchManager.stop();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.sample !== nextProps.sample
+            && this.state.runInProgress) {
+            this.onStop();
+        }
     }
 
     render() {
