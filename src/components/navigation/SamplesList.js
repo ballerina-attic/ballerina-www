@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import './SamplesList.css';
 
 class SamplesList extends React.Component {
@@ -13,11 +14,11 @@ class SamplesList extends React.Component {
         this.onChange = this.onChange.bind(this);
     }
 
-    onChange(evt, { value }) {
+    onChange(evt, data ) {
         this.setState({
-            selectedIndex: value
+            selectedIndex: data.index
         });
-        this.props.onSelect(value);
+        this.props.onSelect(data.index);
     }
 
     render() {
@@ -28,17 +29,14 @@ class SamplesList extends React.Component {
                 value: index
             };
         });
+        const activeItem = this.state.selectedIndex;
         return (
         <div className="samples-navigation-list">
-            <Dropdown
-                placeholder='Sample'
-                fluid
-                search
-                selection
-                options={options}
-                value={this.state.selectedIndex}
-                onChange={this.onChange}
-            />
+            <Menu text vertical>
+                { options.map(e => {
+                    return <Menu.Item name={e.text} index={e.value} active={activeItem === e.value} onClick={this.onChange} />
+                })}
+            </Menu>
         </div>
         );
     }

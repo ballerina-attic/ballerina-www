@@ -71,44 +71,45 @@ class BallerinaWidget extends Component {
         <Segment.Group>
           <Segment>
               <Grid container stackable>
-                <Grid.Column width={10}>
+                <Grid.Column width={16}>
                   <div className="ballerina-widget-sample-name">
-                    <Header as='h3'>{sample.name}</Header>
-                  </div>
-                </Grid.Column>
-                <Grid.Column width={6}>
-                  <div className="ballerina-samples-navigator">
-                    <SamplesList samples={samples} onSelect={this.onSampleSelect} />
+                    <Header as='h4'>Example : {sample.name}</Header>
                   </div>
                 </Grid.Column>
               </Grid>  
           </Segment>
           <Segment>
+            <div className="ballerina-widget-diagram">
+              <img src="sample-diagram.png" />
+            </div>
             <div className="ballerina-code-editor">
               <CodeEditor
                 content={sample.content || ''}
                 onChange={this.onCurrentSampleContentChange}
               />
             </div>
+            <div className="ballerina-widget-console">
+              <Console
+                ref={(consoleRef) => {
+                  this.consoleRef = consoleRef;
+                }}
+              />
+            </div>
           </Segment>
           <Segment>
             <Grid container stackable>
-              <Grid.Column className="ballerina-widget-console-wrapper" width={13}>
-                <div className="ballerina-widget-console">
-                  <Console
-                    ref={(consoleRef) => {
-                      this.consoleRef = consoleRef;
-                    }}
-                  />
+              <Grid.Column width={13}>
+                <div className="ballerina-samples-navigator">
+                  <SamplesList samples={samples} onSelect={this.onSampleSelect} />
                 </div>
               </Grid.Column>
               <Grid.Column width={3}>
                   <div className="ballerina-widget-controls">
                     <RunButton sample={sample} consoleRef={this.consoleRef} />
                   </div>
-              </Grid.Column>
-            </Grid>
-          </Segment> 
+              </Grid.Column>    
+            </Grid>  
+          </Segment>
       </Segment.Group>
       }
         {!sample &&
