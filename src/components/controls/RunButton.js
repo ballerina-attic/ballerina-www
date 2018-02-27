@@ -17,14 +17,12 @@ class RunButton extends React.Component {
         this.onRun = this.onRun.bind(this);
         LaunchManager.init(LAUNCHER_URL)
         LaunchManager.on(EVENTS.CONSOLE_MESSAGE_RECEIVED, ({ type, message }) => {
-            if (type === 'ERROR') {
+            if (message === 'running program completed' || message === 'program terminated') {
                 this.appendToConsole(message);
-            }
-            if (type === 'DATA') {
+            } else if (type === 'ERROR' || type === 'DATA') {
+                this.appendToConsole(message);
+            } else if (type === 'INFO') {
                 this.setConsoleText(message);
-            }
-            if (message === 'Execution Ended.') {
-                this.appendToConsole(message);
             }
         });
         LaunchManager.on(EVENTS.EXECUTION_ENDED, () => {
