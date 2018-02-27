@@ -1,33 +1,20 @@
-package routingServices.samples;
-
 import ballerina.net.http;
+import ballerina.io;
 
-@http:configuration {basePath:"/cbr"}
-service<http> contentBasedRouting {
-
-    @http:resourceConfig {
-        methods:["POST"],
-        path:"/"
+function main (string[] args) {
+    endpoint<http:HttpClient> weatherEP {
+        create http:HttpClient("http://samples.openweathermap.org", {});
     }
-    resource cbrResource (http:Connection conn, http:InRequest req) {
-        endpoint<http:HttpClient> nasdaqEP {
-            create http:HttpClient("http://localhost:9090/nasdaqStocks", {});
-        }
-        endpoint<http:HttpClient> nyseEP {
-            create http:HttpClient("http://localhost:9090/nyseStocks", {});
-        }
-        string nyseString = "nyse";
-        json jsonMsg = req.getJsonPayload();
-        var nameString, _ = (string)jsonMsg.name;
-
-        http:OutRequest clientRequest = {};
-        http:InResponse clientResponse = {};
-        http:HttpConnectorError err;
-        if (nameString == nyseString) {
-            clientResponse, err = nyseEP.post("/stocks", clientRequest);
-        } else {
-            clientResponse, err = nasdaqEP.post("/stocks", clientRequest);
-        }
-        _ = conn.forward(clientResponse);
+    http:OutRequest newRequest = {};
+    http:InResponse clientResponse = {};
+    http:HttpConnectorError err;
+    float lat = 35;
+    float lon = 139;
+    string resourceURL = string `/data/2.5/weather?lat={{lat}}&lon={{lon}}&appid=b1b1`;
+    clientResponse, err = weatherEP.get(resourceURL, newRequest);
+    if (err != null) {
+        io:println("Error " + err.message);
+    } else {
+        io:println(clientResponse.getStringPayload());
     }
 }
