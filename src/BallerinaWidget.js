@@ -73,7 +73,7 @@ class BallerinaWidget extends Component {
             <Header as='h4'>Example : &lt;{sample.name}&gt;</Header>
           </div>
           <div className="ballerina-widget-diagram">
-              <img src="sample-diagram.png" />
+              <img src="resources/samples/images/sample-diagram.png" />
           </div>
           <Segment>
             <div className="ballerina-code-editor">
