@@ -17,13 +17,24 @@ class RunButton extends React.Component {
         this.onRun = this.onRun.bind(this);
         LaunchManager.init(LAUNCHER_URL)
         LaunchManager.on(EVENTS.CONSOLE_MESSAGE_RECEIVED, ({ type, message }) => {
-            if (message === 'running program completed' || message === 'program terminated') {
-                this.appendToConsole(message);
+            if (message === 'running program completed' || message === 'program terminated'
+                    || message === 'running program') {
             } else if (type === 'ERROR' || type === 'DATA') {
                 this.appendToConsole(message);
             } else if (type === 'INFO') {
                 this.setConsoleText(message);
+            } else if (type === 'BUILD_ERROR') {
+                this.appendToConsole(message);
+                this.setState({
+                    runInProgress: false,
+                });
             }
+        });
+        LaunchManager.on(EVENTS.SESSION_ERROR, (err) => {
+            this.setConsoleText('Error connecting to remote server ');
+            this.setState({
+                runInProgress: false,
+            });
         });
         LaunchManager.on(EVENTS.EXECUTION_ENDED, () => {
             this.setState({
@@ -53,19 +64,32 @@ class RunButton extends React.Component {
         }
     }
 
+    onError(err) {
+        this.setConsoleText(err);
+    }
+
     onRun() {
         const { sample } = this.props;
         if (sample && sample.content) {
+            const { content, source } = sample;
             this.setConsoleText('Waiting on remote server...');
             this.setState({
                 runInProgress: true,
             });
-            LaunchManager.sendRunSourceMessage(sample.content);
+            try {
+                LaunchManager.sendRunSourceMessage('samples', source, content);
+            } catch (err) {
+                this.onError(err);
+            }
         }
     }
 
     onStop() {
-        LaunchManager.stop();
+        try {
+            LaunchManager.stop();
+        } catch (err) {
+            this.onError(err);
+        }
     }
 
     componentWillReceiveProps(nextProps) {
