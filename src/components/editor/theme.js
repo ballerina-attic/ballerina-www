@@ -1,15 +1,11 @@
 export default {
     base: 'vs',
     inherit: true,
-    rules: [{ background: 'EDF9FA' }],
+    rules: [{ background: 'f5f6f6' }],
     colors: {
-        'editor.foreground': '#000000',
-        'editor.background': '#EDF9FA',
-        'editorCursor.foreground': '#8B0000',
-        'editor.lineHighlightBackground': '#0000FF20',
-        'editorLineNumber.foreground': '#008800',
-        'editor.selectionBackground': '#88000030',
-        'editor.inactiveSelectionBackground': '#88000015'
+        'editorGutter.background': '#d4d6d7',
+        'editor.background': '#f5f6f6',
+        'editorLineNumber.foreground': '#8a898a',
     }
 }
 

@@ -8,8 +8,6 @@
 
 .ballerina-code-editor {
     height: 300px;
-    padding: 3px;
-    border: 1px solid rgba(34,36,38,.15);
 }
 
 .ballerina-code-editor.active {
@@ -21,9 +19,13 @@
 }
 
 .ballerina-widget-console {
-    padding: 3px;
-    height: 100px;
-    border: 1px solid rgba(34,36,38,.15);
+    height: 130px;
+    background-color: #585a5e;
+    color: #3ad1ca;
+    font-family:  Menlo, Monaco, "Courier New", monospace;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    word-wrap: break-word;
 }
 
 .ui.grid>.column:not(.row).ballerina-widget-console-wrapper {
@@ -51,10 +53,16 @@
 
 .ballerina-widget-sample-name {
     padding: 10px 20px;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.ballerina-samples-navigator {
+    margin-top: 20px;
 }
 
 .ballerina-widget-controls{
-    padding-top: 20px;
+    margin-top: 20px;
 }
 
 .ui.basic.button {

@@ -15,6 +15,7 @@ function main (string[] args) {
     if (err != null) {
         io:println("Error " + err.message);
     } else {
+        io:println("Received data from weather API");
         io:println(clientResponse.getStringPayload());
     }
 }

@@ -7,6 +7,7 @@ import CodeEditor from './components/editor/CodeEditor';
 import SamplesList from './components/navigation/SamplesList'
 import './BallerinaWidget.css';
 import { fetchSamples, fetchSample } from './samples/provider'
+import CURLEditor from './components/curl/CURLEditor';
 import Console from './components/console/Console'
 import RunButton from './components/controls/RunButton';
 
@@ -70,7 +71,7 @@ class BallerinaWidget extends Component {
       {sample &&
         <Segment.Group>
           <div className="ballerina-widget-sample-name">
-            <Header as='h4'>Example : &lt;{sample.name}&gt;</Header>
+            <span>Example : &lt;{sample.source}&gt;</span>
           </div>
           <div className="ballerina-widget-diagram">
               <img src="resources/samples/images/sample-diagram.png" />
@@ -81,6 +82,9 @@ class BallerinaWidget extends Component {
                 content={sample.content || ''}
                 onChange={this.onCurrentSampleContentChange}
               />
+            </div>
+            <div className="ballerina-curl-editor">
+              <CURLEditor />
             </div>
             <div className="ballerina-widget-console">
               <Console

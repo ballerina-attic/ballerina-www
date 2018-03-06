@@ -10,22 +10,18 @@ const BAL_LANGUAGE = 'ballerina-lang';
 const BAL_WIDGET_MONACO_THEME = 'bal-widget-monaco-theme';
 const MONACO_OPTIONS = {
     autoIndent: true,
-    fontSize: 14,
+    fontSize: 12,
     contextmenu: false,
     renderIndentGuides: false,
     autoClosingBrackets: true,
-    matchBrackets: false,
+    matchBrackets: true,
     automaticLayout: true,
-    glyphMargin: false,
-    folding: false,
-    lineDecorationsWidth: 10,
-    lineNumbersMinChars: 0,
+    folding: true,
+    lineNumbersMinChars: 3,
     scrollBeyondLastLine: false,
     minimap: {
         enabled: false
     },
-    lineNumbers: 'off',
-    theme: 'vs',
     renderLineHighlight: 'none',
     scrollbar: {
         useShadows: false,
@@ -58,7 +54,6 @@ class CodeEditor extends React.Component {
         this.monaco = monaco;
         monaco.languages.register({ id: BAL_LANGUAGE });
         monaco.editor.defineTheme(BAL_WIDGET_MONACO_THEME, Theme);
-        monaco.editor.setTheme('vs');
         monaco.languages.setMonarchTokensProvider(BAL_LANGUAGE, Grammar);
         monaco.languages.setLanguageConfiguration(BAL_LANGUAGE, BAL_LANG_CONFIG);
     }
@@ -88,6 +83,7 @@ class CodeEditor extends React.Component {
                         this.props.onChange(newValue);
                     }}
                     options={MONACO_OPTIONS}
+                    theme={BAL_WIDGET_MONACO_THEME}
                 />
             </div>
         );
