@@ -132,7 +132,7 @@
         extensions: ['.js', '.json', '.jsx'],
         modules: ['./node_modules'],
         alias: {
-            'composer': path.join(__dirname, '../../ballerina/composer/modules/web/src'),
+            'composer': path.join(__dirname, '../ballerina/composer/modules/web/src'),
             'log': 'composer/core/log/log',
             'event_channel': 'composer/core/event/channel',
             'launch-manager': 'composer/plugins/debugger/LaunchManager',
