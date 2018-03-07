@@ -5,7 +5,7 @@ import {
 import 'semantic-ui-css/semantic.min.css';
 import CodeEditor from './components/editor/CodeEditor';
 import SamplesList from './components/navigation/SamplesList'
-import './BallerinaWidget.css';
+import './BallerinaWidget.scss';
 import { fetchSamples, fetchSample } from './samples/provider'
 import CURLEditor from './components/curl/CURLEditor';
 import Console from './components/console/Console'
@@ -67,45 +67,39 @@ class BallerinaWidget extends Component {
                     ? samples[selectedIndex]
                     : undefined;
     return (
-    <Container className="ballerina-playground" text>
+    <Container className="ballerina-playground">
       {sample &&
         <Segment.Group>
-          <div className="ballerina-widget-sample-name">
-            <span>Example : &lt;{sample.source}&gt;</span>
-          </div>
-          <div className="ballerina-widget-diagram">
-              <img src="resources/samples/images/sample-diagram.png" />
-          </div>
-          <Segment>
-            <div className="ballerina-code-editor">
-              <CodeEditor
-                content={sample.content || ''}
-                onChange={this.onCurrentSampleContentChange}
-              />
-            </div>
-            <div className="ballerina-curl-editor">
-              <CURLEditor />
-            </div>
-            <div className="ballerina-widget-console">
-              <Console
-                ref={(consoleRef) => {
-                  this.consoleRef = consoleRef;
-                }}
-              />
-            </div>
+          <Segment className="sample-title">
+              <span>Example : &lt;{sample.source}&gt;</span>
           </Segment>
-          <Grid container stackable>
-            <Grid.Column width={13}>
-              <div className="ballerina-samples-navigator">
-                <SamplesList samples={samples} onSelect={this.onSampleSelect} />
+          <Segment className="sample-image">
+                <img src="resources/samples/images/sample-diagram.png" />
+          </Segment>
+          <Segment className="code-editor">
+            <CodeEditor
+              content={sample.content || ''}
+              onChange={this.onCurrentSampleContentChange}
+            />
+          </Segment>
+          <Segment className="curl-editor">
+            <CURLEditor />
+          </Segment>
+          <Segment className="console">
+            <Console
+              ref={(consoleRef) => {
+                this.consoleRef = consoleRef;
+              }}
+            />
+          </Segment>
+          <Segment className="controls">
+              <div className="navigator">
+                  <SamplesList samples={samples} onSelect={this.onSampleSelect} />
               </div>
-            </Grid.Column>
-            <Grid.Column width={3}>
-                <div className="ballerina-widget-controls">
-                  <RunButton sample={sample} consoleRef={this.consoleRef} />
-                </div>
-            </Grid.Column>    
-          </Grid>  
+              <div className="other">
+                    <RunButton sample={sample} consoleRef={this.consoleRef} />
+              </div>    
+          </Segment>
       </Segment.Group>
       }
         {!sample &&
