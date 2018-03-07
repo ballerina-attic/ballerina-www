@@ -110,7 +110,7 @@
                 from: 'public'
             },
             {
-                from: 'samples',
+                from: '../playground-examples',
                 to: 'resources/samples'
             },
             {
@@ -132,11 +132,12 @@
         extensions: ['.js', '.json', '.jsx'],
         modules: ['./node_modules'],
         alias: {
-            'log': path.join(__dirname, '../../web/src/core/log/log'),
-            'event_channel': path.join(__dirname, '../../web/src/core/event/channel'),
-            'launch-manager': path.join(__dirname, '../../web/src/plugins/debugger/LaunchManager'),
-            'ballerina-grammar': path.join(__dirname, '../../web/src/plugins/ballerina/utils/monarch-grammar'),
-            'ballerina-config': path.join(__dirname, '../../web/src/plugins/ballerina/utils/monaco-lang-config')
+            'composer': path.join(__dirname, '../../ballerina/composer/modules/web/src'),
+            'log': 'composer/core/log/log',
+            'event_channel': 'composer/core/event/channel',
+            'launch-manager': 'composer/plugins/debugger/LaunchManager',
+            'ballerina-grammar': 'composer/plugins/ballerina/utils/monarch-grammar',
+            'ballerina-config': 'composer/plugins/ballerina/utils/monaco-lang-config'
         }
      },
  
