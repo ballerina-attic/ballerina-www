@@ -3,9 +3,9 @@ export default {
     inherit: true,
     rules: [{ background: 'f5f6f6' }],
     colors: {
-        'editorGutter.background': '#d4d6d7',
-        'editor.background': '#f5f6f6',
-        'editorLineNumber.foreground': '#8a898a',
+        'editorGutter.background': '#D4D6D7',
+        'editor.background': '#E6EAEB',
+        'editorLineNumber.foreground': '#585556',
     }
 }
 

@@ -67,7 +67,20 @@
          {
              test: /\.scss$/,
              exclude: isExternal,
-             loader: 'style-loader!css-loader!sass-loader',
+             use: extractCSSBundle.extract({
+                fallback: 'style-loader',
+                use: [{
+                    loader: 'css-loader',
+                    options: {
+                        sourceMap: true,
+                    },
+                }, {
+                    loader: 'sass-loader',
+                    options: {
+                        sourceMap: true,
+                    },
+                }],
+            })
          },
          {
              test: /\.css$/,

@@ -10,14 +10,14 @@ const BAL_LANGUAGE = 'ballerina-lang';
 const BAL_WIDGET_MONACO_THEME = 'bal-widget-monaco-theme';
 const MONACO_OPTIONS = {
     autoIndent: true,
-    fontSize: 12,
+    fontFamily: "Monaco",
+    fontSize: 11,
     contextmenu: false,
     renderIndentGuides: false,
     autoClosingBrackets: true,
     matchBrackets: true,
     automaticLayout: true,
-    folding: true,
-    lineNumbersMinChars: 3,
+    lineNumbersMinChars: 4,
     scrollBeyondLastLine: false,
     minimap: {
         enabled: false

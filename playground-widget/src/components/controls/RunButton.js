@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button } from 'semantic-ui-react'
 import Console from '../console/Console';
 import LaunchManager, { COMMANDS, EVENTS, MSG_TYPES } from 'launch-manager';
+import './RunButton.scss';
 
 // TODO: Read this from an env config
 const LAUNCHER_URL = 'ws://127.0.0.1:9091/composer/ballerina/launcher';
@@ -105,6 +106,7 @@ class RunButton extends React.Component {
         return (
             <div>
                 <Button
+                    className="run-button"
                     onClick={runInProgress ? this.onStop : this.onRun}
                     fluid
                     basic
