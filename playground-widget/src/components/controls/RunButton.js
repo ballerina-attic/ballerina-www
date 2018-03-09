@@ -104,16 +104,14 @@ class RunButton extends React.Component {
         const { sample } = this.props;
         const { runInProgress } = this.state;
         return (
-            <div>
-                <Button
-                    className="run-button"
-                    onClick={runInProgress ? this.onStop : this.onRun}
-                    fluid
-                    basic
-                    disabled={!(sample && sample.content)} >
-                    { runInProgress ? 'Stop' : 'Run' }
-                </Button>
-            </div>
+            <Button
+                className="run-button"
+                onClick={runInProgress ? this.onStop : this.onRun}
+                fluid
+                basic
+                disabled={!(sample && sample.content)} >
+                { runInProgress ? 'Stop' : 'Run' }
+            </Button>
         );
     }
 }

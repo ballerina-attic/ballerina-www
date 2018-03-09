@@ -22,7 +22,7 @@ class Console extends React.Component {
     render() {
         return (
             <div className='curl-editor'>
-                arguments, e.g. val 1, val 2 
+                <span>arguments, e.g. val 1, val 2</span> 
             </div>
         );
     }

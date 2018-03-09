@@ -10,6 +10,7 @@ import { fetchSamples, fetchSample } from './samples/provider'
 import CURLEditor from './components/curl/CURLEditor';
 import Console from './components/console/Console'
 import RunButton from './components/controls/RunButton';
+import ShareButton from './components/controls/ShareButton';
 
 class BallerinaWidget extends Component {
 
@@ -69,12 +70,15 @@ class BallerinaWidget extends Component {
     return (
     <Container className="ballerina-playground">
       {sample &&
-        <Segment.Group>
+      <div className="playground-widget">
+        <Segment.Group className="header">
           <Segment className="sample-title">
               <span>Example : &lt;{sample.source}&gt;</span>
           </Segment>
+        </Segment.Group>
+        <Segment.Group className="body">
           <Segment className="sample-image">
-                <img src="resources/samples/images/sample-diagram.png" />
+                <img src={`resources/samples/images/${sample.image}`} />
           </Segment>
           <Segment className="code-editor">
             <CodeEditor
@@ -92,15 +96,19 @@ class BallerinaWidget extends Component {
               }}
             />
           </Segment>
+        </Segment.Group>
+        <Segment.Group className="footer">
           <Segment className="controls">
               <div className="navigator">
                   <SamplesList samples={samples} onSelect={this.onSampleSelect} />
               </div>
               <div className="other">
                     <RunButton sample={sample} consoleRef={this.consoleRef} />
+                    <ShareButton />
               </div>    
           </Segment>
-      </Segment.Group>
+        </Segment.Group>
+        </div>
       }
         {!sample &&
           <p>No samples are available to display.</p>
