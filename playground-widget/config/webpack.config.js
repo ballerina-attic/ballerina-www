@@ -144,6 +144,7 @@
         })
      ],
      devServer: {
+         port: 3000,
          contentBase: path.join(__dirname, "../build"),
      },
      node: { module: 'empty', net: 'empty', fs: 'empty' },
