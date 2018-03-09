@@ -1,3 +1,16 @@
+$default-text-size: 0.8em;
+$control-text-size: 1em;
+
+@font-face {
+    font-family: "Calibre-Semibold";
+    src:
+      url("../fonts/calibre-semibold-webfont.woff") format("woff"),
+      url("../fonts/calibre-semibold-webfont.eot") format("embedded-opentype"),
+      url("../fonts/calibre-semibold-webfont.ttf") format("truetype"),
+      url("../fonts/calibre-semibold-webfont.svg") format("svg");
+  }
+
+
 .ballerina-playground {
     &.ui.container {
         width: 709px!important;
@@ -37,7 +50,7 @@
                     padding-bottom: 8px;
                     padding-left: 27px;
                     span {
-                        font-size: 11px;
+                        font-size: $default-text-size;
                         font-family: "Monaco";
                         font-weight: initial;
                     }
@@ -51,13 +64,14 @@
                     }
                 }
                 &.code-editor {
+                    position: relative;
                     padding: 18px 18px 0 18px;
                     height: 300px;
                 }
                 &.curl-editor {
                     height: 28px;
                     padding: 0 18px 0 18px;
-                    font-size: 11px;
+                    font-size: $default-text-size;
                     font-family: "Monaco";
                     line-height: 28px;
                     vertical-align: middle;
@@ -69,7 +83,7 @@
                     .console-area {
                         background-color: #585a5e;
                         color: #3ad1ca;
-                        font-size: 11px;
+                        font-size: $default-text-size;
                         font-family: "Monaco";
                         overflow-y: hidden;
                         overflow-x: hidden;
@@ -77,16 +91,17 @@
                     }
                 }
                 &.controls {
+                    font-family: "Calibre-Semibold";
                     color: #585A5E;
                     margin-top: 17px;
                     .navigator {
                         margin-left: 32px;
-                        font-size: 11px;
+                        font-size: $default-text-size;
                         float: left;
                         line-height: 11px;
                     }
                     .other {
-                        font-size: 12px;
+                        font-size: $control-text-size;
                         float: right;
                         .run-button {
                             float: right;
@@ -96,6 +111,8 @@
                             margin-right: 14px;
                         }
                         button {
+                            font-family: "Calibre-Semibold";
+                            font-size: 1em;
                             box-shadow: none;
                             border-color: #A6A8AB;
                             &, &:hover, &:active, &:focus {

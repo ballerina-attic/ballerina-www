@@ -9,6 +9,7 @@ import './BallerinaWidget.scss';
 import { fetchSamples, fetchSample } from './samples/provider'
 import CURLEditor from './components/curl/CURLEditor';
 import Console from './components/console/Console'
+import ViewSelectPanel, { VIEWS } from './components/controls/ViewSelectPanel';
 import RunButton from './components/controls/RunButton';
 import ShareButton from './components/controls/ShareButton';
 
@@ -18,7 +19,8 @@ class BallerinaWidget extends Component {
     super(...args);
     this.state = {
       samples: [],
-      selectedIndex: 0,
+      selectedSampleIndex: 0,
+      selectedView: VIEWS.SOURCE
     }
     this.consoleRef = undefined;
     this.onSampleSelect = this.onSampleSelect.bind(this);
@@ -35,11 +37,11 @@ class BallerinaWidget extends Component {
       })
   }
 
-  onSampleSelect(selectedIndex) {
-    const sample = this.state.samples[selectedIndex];
+  onSampleSelect(selectedSampleIndex) {
+    const sample = this.state.samples[selectedSampleIndex];
     if (sample.content) {
       this.setState({
-        selectedIndex
+        selectedSampleIndex
       });
     } else {
       const { source } = sample;
@@ -47,7 +49,7 @@ class BallerinaWidget extends Component {
         .then((data) => {
            sample.content = data;
            this.setState({
-            selectedIndex
+            selectedSampleIndex
           });
         })
     }
@@ -55,17 +57,17 @@ class BallerinaWidget extends Component {
   }
 
   onCurrentSampleContentChange(newContent) {
-    const sample = this.state.samples[this.state.selectedIndex];
+    const sample = this.state.samples[this.state.selectedSampleIndex];
     sample.content = newContent;
     this.forceUpdate();
   }
 
   render() {
-    const { samples, selectedIndex } = this.state;
+    const { samples, selectedSampleIndex, selectedView } = this.state;
     const sample = samples && (samples.length > 0) 
-                        && (selectedIndex >= 0)
-                        && (samples.length - 1 >= selectedIndex)
-                    ? samples[selectedIndex]
+                        && (selectedSampleIndex >= 0)
+                        && (samples.length - 1 >= selectedSampleIndex)
+                    ? samples[selectedSampleIndex]
                     : undefined;
     return (
     <Container className="ballerina-playground">
@@ -81,10 +83,20 @@ class BallerinaWidget extends Component {
                 <img src={`resources/samples/images/${sample.image}`} />
           </Segment>
           <Segment className="code-editor">
-            <CodeEditor
-              content={sample.content || ''}
-              onChange={this.onCurrentSampleContentChange}
+            <ViewSelectPanel
+                selectedView={selectedView}
+                onViewSwitch={
+                  (selectedView) => {
+                    this.setState({ selectedView });
+                  }
+                }
             />
+            {selectedView === VIEWS.SOURCE &&
+              <CodeEditor
+                content={sample.content || ''}
+                onChange={this.onCurrentSampleContentChange}
+              />
+            }
           </Segment>
           <Segment className="curl-editor">
             <CURLEditor />
