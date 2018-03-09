@@ -4,11 +4,21 @@ $control-text-size: 1em;
 @font-face {
     font-family: "Calibre-Semibold";
     src:
+      url("../fonts/calibre-semibold-webfont.woff2") format("woff2"),
       url("../fonts/calibre-semibold-webfont.woff") format("woff"),
       url("../fonts/calibre-semibold-webfont.eot") format("embedded-opentype"),
       url("../fonts/calibre-semibold-webfont.ttf") format("truetype"),
       url("../fonts/calibre-semibold-webfont.svg") format("svg");
-  }
+}
+@font-face {
+    font-family: "Monaco";
+    src:
+      url("../fonts/Monaco.woff2") format("woff2"),
+      url("../fonts/Monaco.woff") format("woff"),
+      url("../fonts/Monaco.eot") format("embedded-opentype"),
+      url("../fonts/Monaco.ttf") format("truetype"),
+      url("../fonts/Monaco.svg") format("svg");
+}
 
 
 .ballerina-playground {
@@ -16,7 +26,7 @@ $control-text-size: 1em;
         width: 709px!important;
         height: 746px!important;
         background-color: #E6EAEB;
-        padding-top: 86px;
+        padding-top: 50px;
         padding-left: 113px;
     }
 }
@@ -47,7 +57,7 @@ $control-text-size: 1em;
                 &.sample-title {
                     color: #585556;
                     background: none;
-                    padding-bottom: 8px;
+                    padding-bottom: 4px;
                     padding-left: 27px;
                     span {
                         font-size: $default-text-size;

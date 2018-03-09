@@ -12,6 +12,7 @@ import Console from './components/console/Console'
 import ViewSelectPanel, { VIEWS } from './components/controls/ViewSelectPanel';
 import RunButton from './components/controls/RunButton';
 import ShareButton from './components/controls/ShareButton';
+import PopOutButton from './components/controls/PopOutButton';
 
 class BallerinaWidget extends Component {
 
@@ -76,6 +77,7 @@ class BallerinaWidget extends Component {
         <Segment.Group className="header">
           <Segment className="sample-title">
               <span>Example : &lt;{sample.source}&gt;</span>
+              <PopOutButton />
           </Segment>
         </Segment.Group>
         <Segment.Group className="body">
