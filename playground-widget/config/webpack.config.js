@@ -29,6 +29,9 @@
  const extractCSSBundle = new ExtractTextPlugin({ filename: './[name]-[hash].css', allChunks: true });
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
+
+ const moduleRoot = path.resolve(__dirname, '../');
+ const buildPath = path.resolve(__dirname, '../build')
  
  const isExternal = function(modulePath) {
      return modulePath.includes('node_modules');
@@ -41,7 +44,7 @@
      },
      output: {
          filename: '[name]-[hash].js',
-         path: path.resolve(__dirname, '../build'),
+         path: buildPath,
      },
      module: {
          rules: [{
@@ -115,7 +118,7 @@
      },
      plugins: [
          new ProgressBarPlugin(),
-         new CleanWebpackPlugin(['../build'], {watch: true, exclude:['themes']}),
+         new CleanWebpackPlugin([buildPath], { watch: true, root: moduleRoot }),
          extractCSSBundle,
          new WriteFilePlugin(),
          new CopyWebpackPlugin([
@@ -138,7 +141,7 @@
      ],
      devServer: {
          port: 3000,
-         contentBase: path.join(__dirname, "../build"),
+         contentBase: path.join(__dirname, buildPath),
      },
      node: { module: 'empty', net: 'empty', fs: 'empty' },
      devtool: 'source-map',

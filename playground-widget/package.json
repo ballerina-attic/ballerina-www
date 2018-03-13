@@ -48,6 +48,10 @@
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.config.js --hot --inline --progress --host 0.0.0.0",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.config.js",
+    "build-docker": "npm run build && npm run copy-www-dir && npm run build-ballerina && npm run copy-bal-dist",
+    "build-ballerina": "cd ballerina && mvn clean install -Dfindbugs.skip=true -Dcheckstyle.skip=true -Dmaven.test.skip=true",
+    "copy-www-dir": "cp -r build docker/www ",
+    "copy-bal-dist": "cd ballerina && find distribution/zip/ballerina-tools/target/ -name *.zip -exec cp {} ../docker/ \\;",
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
@@ -61,7 +65,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-runtime": "6.26.0",
     "classnames": "^2.2.5",
-    "clean-webpack-plugin": "^0.1.18",
+    "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.1.3",
     "node-sass": "^4.7.2",
     "progress-bar-webpack-plugin": "^1.11.0",

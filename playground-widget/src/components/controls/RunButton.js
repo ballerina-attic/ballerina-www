@@ -5,8 +5,9 @@ import Console from '../console/Console';
 import LaunchManager, { COMMANDS, EVENTS, MSG_TYPES } from 'launch-manager';
 import './RunButton.scss';
 
+const ORIGIN = window.location.hostname + (window.location.port ? ':' + window.location.port: '');
 // TODO: Read this from an env config
-const LAUNCHER_URL = 'ws://203.94.95.150:9091/composer/ballerina/launcher';
+const LAUNCHER_URL = `ws://${ORIGIN}/composer/ballerina/launcher`;
 
 class RunButton extends React.Component {
     constructor(...args) {
