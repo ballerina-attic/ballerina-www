@@ -39,7 +39,9 @@ ENV PATH $BALLERINA_HOME/bin:$PATH
 
 COPY www /var/www/html/
 COPY composer /ballerina/runtime/bin/
+COPY ballerina /ballerina/runtime/bin/
 RUN chmod +x /ballerina/runtime/bin/composer
+RUN chmod +x /ballerina/runtime/bin/ballerina
 COPY composer-config.yml /ballerina/runtime/resources/composer/conf/
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
