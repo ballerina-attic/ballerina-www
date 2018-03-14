@@ -13,27 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # -----------------------------------------------------------------------
-FROM openjdk:latest
+FROM openjdk:jre-alpine
 
-RUN apt-get update
-RUN apt-get -y install apache2
+RUN apk update && apk add bash
 
-env APACHE_RUN_USER    www-data
-env APACHE_RUN_GROUP   www-data
-env APACHE_PID_FILE    /var/run/apache2.pid
-env APACHE_RUN_DIR     /var/run/apache2
-env APACHE_LOCK_DIR    /var/lock/apache2
-env APACHE_LOG_DIR     /var/log/apache2
-
-RUN mkdir $APACHE_RUN_DIR
 COPY ballerina-tools*.zip /root/
-RUN unzip /root/ballerina-tools*.zip -d /ballerina/ > /dev/null 2>&1 \
+RUN mkdir /ballerina \
+    && unzip /root/ballerina-tools*.zip -d /ballerina/ \
     && mv /ballerina/ballerina* /ballerina/runtime \
-    && mkdir -p /ballerina/runtime/logs \
-    && rm -rf /root/${BALLERINA_DIST} > /dev/null 2>&1
+    && mkdir -p /ballerina/runtime/logs
 
-
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/jre
 ENV BALLERINA_HOME /ballerina/runtime
 ENV PATH $BALLERINA_HOME/bin:$PATH
 
