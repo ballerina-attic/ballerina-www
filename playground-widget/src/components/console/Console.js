@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Scrollbars } from 'react-custom-scrollbars';
 import './Console.css';
 
 /**
@@ -50,7 +51,9 @@ class Console extends React.Component {
     render() {
         return (
             <div className='console-area'>
-                <pre>{this.state.content}</pre>
+                <Scrollbars style={{ width: 476, height: 82 }}>
+                    <pre>{this.state.content}</pre>
+                </Scrollbars>
             </div>
         );
     }
