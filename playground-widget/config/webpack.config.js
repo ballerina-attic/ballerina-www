@@ -185,6 +185,7 @@
             mangle: {
                 keep_fnames: true,
             },
+            keep_fnames: true,
         }
     }));
     config.plugins.push(new webpack.DefinePlugin({
