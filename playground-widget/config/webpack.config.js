@@ -115,6 +115,10 @@
                  },
              ],
          },
+         {
+            test: /\.bal$/,
+            use: 'raw-loader'
+          }
          ],
      },
      plugins: [
@@ -129,10 +133,6 @@
             },
             {
                 from: 'public'
-            },
-            {
-                from: '../playground-examples',
-                to: 'resources/samples'
             },
             {
                 from: 'node_modules/monaco-editor/min/vs',
@@ -154,6 +154,7 @@
         extensions: ['.js', '.json', '.jsx'],
         modules: ['./node_modules'],
         alias: {
+            'samples': path.join(moduleRoot, '..', 'playground-examples'),
             'composer': path.join(composerWebRoot, 'src'),
             'scss': path.join(composerWebRoot, 'scss'),
             'log': 'composer/core/log/log',
