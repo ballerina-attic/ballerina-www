@@ -13,6 +13,7 @@ import ViewSelectPanel, { VIEWS } from './components/controls/ViewSelectPanel';
 import RunButton from './components/controls/RunButton';
 import ShareButton from './components/controls/ShareButton';
 import PopOutButton from './components/controls/PopOutButton';
+import DesignView from './components/design-view/DesignView';
 
 class BallerinaWidget extends Component {
 
@@ -42,7 +43,8 @@ class BallerinaWidget extends Component {
     const sample = this.state.samples[selectedSampleIndex];
     if (sample.content) {
       this.setState({
-        selectedSampleIndex
+        selectedSampleIndex,
+        selectedView: VIEWS.SOURCE
       });
     } else {
       const { source } = sample;
@@ -50,7 +52,8 @@ class BallerinaWidget extends Component {
         .then((data) => {
            sample.content = data;
            this.setState({
-            selectedSampleIndex
+            selectedSampleIndex,
+            selectedView: VIEWS.SOURCE
           });
         })
     }
@@ -71,7 +74,7 @@ class BallerinaWidget extends Component {
                     ? samples[selectedSampleIndex]
                     : undefined;
     return (
-    <Container className="ballerina-playground">
+    <Container className="ballerina-playground ballerina-editor">
       {sample &&
       <div className="playground-widget">
         <Segment.Group className="header">
@@ -97,6 +100,11 @@ class BallerinaWidget extends Component {
               <CodeEditor
                 content={sample.content || ''}
                 onChange={this.onCurrentSampleContentChange}
+              />
+            }
+            {selectedView === VIEWS.COMPOSER &&
+              <DesignView
+                content={sample.content || ''}
               />
             }
           </Segment>

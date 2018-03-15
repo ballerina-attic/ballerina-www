@@ -31,7 +31,8 @@
  const isProductionBuild = process.env.NODE_ENV === 'production';
 
  const moduleRoot = path.resolve(__dirname, '../');
- const buildPath = path.resolve(__dirname, '../build')
+ const buildPath = path.resolve(__dirname, '../build');
+ const composerWebRoot = path.join(__dirname, '../ballerina/composer/modules/web');
  
  const isExternal = function(modulePath) {
      return modulePath.includes('node_modules');
@@ -149,12 +150,21 @@
         extensions: ['.js', '.json', '.jsx'],
         modules: ['./node_modules'],
         alias: {
-            'composer': path.join(__dirname, '../ballerina/composer/modules/web/src'),
+            'composer': path.join(composerWebRoot, 'src'),
+            'scss': path.join(composerWebRoot, 'scss'),
             'log': 'composer/core/log/log',
             'event_channel': 'composer/core/event/channel',
             'launch-manager': 'composer/plugins/debugger/LaunchManager',
             'ballerina-grammar': 'composer/plugins/ballerina/utils/monarch-grammar',
-            'ballerina-config': 'composer/plugins/ballerina/utils/monaco-lang-config'
+            'ballerina-config': 'composer/plugins/ballerina/utils/monaco-lang-config',
+            'Diagram': 'composer/plugins/ballerina/diagram/diagram',
+            'src/plugins': 'composer/plugins',
+            'plugins': 'composer/plugins',
+            'font-ballerina': path.join(composerWebRoot, 'font/dist/font-ballerina'),
+            'api-client':  'composer/api-client',
+            'images': path.join(composerWebRoot, 'public/images'),
+            'TreeBuilder': 'composer/plugins/ballerina/model/tree-builder',
+            'PackageScopedEnvironment': 'composer/plugins/ballerina/env/package-scoped-environment'
         }
      },
  
