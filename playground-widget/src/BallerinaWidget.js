@@ -14,6 +14,7 @@ import RunButton from './components/controls/RunButton';
 import ShareButton from './components/controls/ShareButton';
 import PopOutButton from './components/controls/PopOutButton';
 import DesignView from './components/design-view/DesignView';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 class BallerinaWidget extends Component {
 
@@ -22,7 +23,8 @@ class BallerinaWidget extends Component {
     this.state = {
       samples: [],
       selectedSampleIndex: 0,
-      selectedView: VIEWS.SOURCE
+      selectedView: VIEWS.SOURCE,
+      curlVisible: false,
     }
     this.consoleRef = undefined;
     this.onSampleSelect = this.onSampleSelect.bind(this);
@@ -44,7 +46,8 @@ class BallerinaWidget extends Component {
     if (sample.content) {
       this.setState({
         selectedSampleIndex,
-        selectedView: VIEWS.SOURCE
+        selectedView: VIEWS.SOURCE,
+        curlVisible: false
       });
     } else {
       const { source, image } = sample;
@@ -56,7 +59,8 @@ class BallerinaWidget extends Component {
               sample.imageContent = data.content;
               this.setState({
                 selectedSampleIndex,
-                selectedView: VIEWS.SOURCE
+                selectedView: VIEWS.SOURCE,
+                curlVisible: false
               });
             });
         })
@@ -77,6 +81,7 @@ class BallerinaWidget extends Component {
                         && (samples.length - 1 >= selectedSampleIndex)
                     ? samples[selectedSampleIndex]
                     : undefined;
+    const consoleHeight = this.state.curlVisible ? 100 : 128;
     return (
     <Container className="ballerina-playground ballerina-editor">
       {sample &&
@@ -112,13 +117,27 @@ class BallerinaWidget extends Component {
               />
             }
           </Segment>
-          <Segment className="curl-editor">
-            <CURLEditor />
-          </Segment>
-          <Segment className="console">
+          <CSSTransitionGroup
+            transitionName="curl-slide"
+            transitionEnterTimeout={300}
+            transitionLeaveTimeout={1}
+          >
+            {this.state.curlVisible &&
+              <Segment className="curl-editor">
+                <CURLEditor />
+              </Segment>
+            }
+          </CSSTransitionGroup>
+          <Segment className="console" style={{ height: consoleHeight }}>
             <Console
               ref={(consoleRef) => {
                 this.consoleRef = consoleRef;
+              }}
+              curlVisible={this.state.curlVisible}
+              onTryItClick={() => {
+                this.setState({
+                  curlVisible: true
+                })
               }}
             />
           </Segment>

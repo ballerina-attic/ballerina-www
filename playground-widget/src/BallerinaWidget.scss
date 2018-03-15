@@ -31,6 +31,20 @@ $control-text-size: 1em;
     }
 }
 
+.curl-slide-enter {
+    height: 0px;
+}
+
+.curl-slide-enter.curl-slide-enter-active {
+    height: 28px;
+    transition: height .3s ease;
+}
+
+.curl-slide-leave.curl-slide-leave-active {
+    height: 0px;
+    transition: height .01s ease;
+}
+
 .playground-widget {
     .ui {
         &.segments {
@@ -89,7 +103,6 @@ $control-text-size: 1em;
                 }
                 &.console {
                     padding: 0 18px 18px 18px;
-                    height: 100px;
                     .console-area {
                         background-color: #585a5e;
                         color: #3ad1ca;

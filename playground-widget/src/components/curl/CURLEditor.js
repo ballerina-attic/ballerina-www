@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './CURLEditor.css';
+import tryItRefreshBtn from './try-it-refresh.svg';
 /**
  * CURL editor
  */
@@ -22,7 +23,8 @@ class Console extends React.Component {
     render() {
         return (
             <div className='curl-editor'>
-                <span>arguments, e.g. val 1, val 2</span> 
+                <div className="curl-string">{`curl -X POST --data "Hello" http://0.0.0.0:9090/echo`}</div>
+                <div className="curl-btn"><img className="try-it-refresh-btn" src={tryItRefreshBtn} /></div>
             </div>
         );
     }
