@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { Button } from 'semantic-ui-react'
 import Console from '../console/Console';
 import LaunchManager, { COMMANDS, EVENTS, MSG_TYPES } from 'launch-manager';
+import { getLauncherURL } from '../../utils';
 import './RunButton.scss';
 
-const ORIGIN = window.location.hostname + (window.location.port ? ':' + window.location.port: '');
-// TODO: Read this from an env config
-const LAUNCHER_URL = `ws://${ORIGIN}/composer/ballerina/launcher`;
 
 class RunButton extends React.Component {
     constructor(...args) {
@@ -17,7 +15,7 @@ class RunButton extends React.Component {
         }
         this.onStop = this.onStop.bind(this);
         this.onRun = this.onRun.bind(this);
-        LaunchManager.init(LAUNCHER_URL)
+        LaunchManager.init(getLauncherURL());
         LaunchManager.on(EVENTS.CONSOLE_MESSAGE_RECEIVED, ({ type, message }) => {
             if (message === 'running program completed' || message === 'program terminated'
                     || message === 'running program') {

@@ -8,14 +8,10 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import PackageScopedEnvironment from 'PackageScopedEnvironment';
 import { Scrollbars } from 'react-custom-scrollbars';
+import { getParserURL } from '../../utils';
 import 'scss/modules/ballerina-editor.scss';
 import 'font-ballerina/css/font-ballerina.css';
 import './DesignView.css';
-
-
-const ORIGIN = window.location.hostname + (window.location.port ? ':' + window.location.port: '');
-// TODO: Read this from an env config
-const PARSER_URL = `http://${ORIGIN}/composer/ballerina/parser/file/validate-and-parse`;
 
 /**
  * Invoke parser service for the given content
@@ -31,7 +27,7 @@ function parseContent(content) {
         includePackageInfo: true,
         content,
     };
-    return axios.post(PARSER_URL, payload,
+    return axios.post(getParserURL(), payload,
             { 
                 headers: {
                     'content-type': 'application/json; charset=utf-8',
