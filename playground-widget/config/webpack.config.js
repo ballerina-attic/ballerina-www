@@ -29,7 +29,9 @@
  const extractCSSBundle = new ExtractTextPlugin({ filename: './[name]-[hash].css', allChunks: true });
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
- const backendHOST = isProductionBuild ? undefined : 'localhost:9091'
+ const backendHost = isProductionBuild ? undefined : 'localhost';
+ const wsPort = '9091';
+ const httpsPort = '9091';
 
  const moduleRoot = path.resolve(__dirname, '../');
  const buildPath = path.resolve(__dirname, '../build');
@@ -145,7 +147,9 @@
             inject: false,
         }),
         new webpack.DefinePlugin({
-            BACKEND_HOST: JSON.stringify(backendHOST)
+            BACKEND_HOST: JSON.stringify(backendHost),
+            WS_PORT: JSON.stringify(wsPort),
+            HTTPS_PORT: JSON.stringify(httpsPort),
         })
      ],
      devServer: {
