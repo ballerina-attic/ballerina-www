@@ -18,14 +18,18 @@ service<http> OrderService {
         var order_content, err = (string )orders_map[orderId];
 
         if (err == null) {
+            // set content of the order as the message payload.
             res.setStringPayload(order_content);
             log:printInfo("Order retrieved : Order ID - " + orderId);
         } else {
             string error_message = "Invalid order : Order ID - " + orderId;
+            // Set 500 status code for invalid orders.
             res.statusCode = 500;
             res.setStringPayload(error_message);
             log:printInfo(error_message);
         }
+
+        // Respond back to the client.
         _ = conn.respond(res);
     }
 }
