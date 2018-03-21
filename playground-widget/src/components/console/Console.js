@@ -61,19 +61,19 @@ class Console extends React.Component {
      * @inheritDoc
      */
     render() {
-        const consoleAreaHeight = this.props.curlVisible ? 48 : 76;
+        const consoleAreaHeight = this.props.curlVisible ? 104 : 132;
         return (
             <div className='console-area'>
                 <Scrollbars style={{ width: 448, height: consoleAreaHeight }}>
                     {this.state.messages.map((msg) => {
-                        if (msg.startsWith('started services at')) {
-                            return (
-                                <div>{msg}
-                                    <span>
-                                        <a className="try-it-btn" onClick={this.onTryItClick}>try-it</a>
-                                    </span>
-                                </div>);
-                        }
+                        // if (msg.startsWith('started services at')) {
+                        //     return (
+                        //         <div>{msg}
+                        //             <span>
+                        //                 <a className="try-it-btn" onClick={this.onTryItClick}>try-it</a>
+                        //             </span>
+                        //         </div>);
+                        // }
                         return (<div>{msg}</div>)
                     })}
                 </Scrollbars>

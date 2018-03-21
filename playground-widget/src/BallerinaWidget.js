@@ -24,7 +24,7 @@ class BallerinaWidget extends Component {
       samples: [],
       selectedSampleIndex: 0,
       selectedView: VIEWS.SOURCE,
-      curlVisible: false,
+      curlVisible: true,
     }
     this.consoleRef = undefined;
     this.onSampleSelect = this.onSampleSelect.bind(this);
@@ -46,8 +46,7 @@ class BallerinaWidget extends Component {
     if (sample.content) {
       this.setState({
         selectedSampleIndex,
-        selectedView: VIEWS.SOURCE,
-        curlVisible: false
+        selectedView: VIEWS.SOURCE
       });
     } else {
       const { source, image } = sample;
@@ -59,8 +58,7 @@ class BallerinaWidget extends Component {
               sample.imageContent = data.content;
               this.setState({
                 selectedSampleIndex,
-                selectedView: VIEWS.SOURCE,
-                curlVisible: false
+                selectedView: VIEWS.SOURCE
               });
             });
         })
@@ -81,7 +79,7 @@ class BallerinaWidget extends Component {
                         && (samples.length - 1 >= selectedSampleIndex)
                     ? samples[selectedSampleIndex]
                     : undefined;
-    const consoleHeight = this.state.curlVisible ? 100 : 128;
+    const consoleHeight = this.state.curlVisible ? 140 : 168;
     return (
     <Container className="ballerina-playground ballerina-editor">
       {sample &&
@@ -89,7 +87,7 @@ class BallerinaWidget extends Component {
         <Segment.Group className="header">
           <Segment className="sample-title">
               <span>Example : &lt;{sample.source}&gt;</span>
-              <PopOutButton />
+              {/* <PopOutButton /> */}
           </Segment>
         </Segment.Group>
         <Segment.Group className="body">
@@ -135,9 +133,6 @@ class BallerinaWidget extends Component {
               }}
               curlVisible={this.state.curlVisible}
               onTryItClick={() => {
-                this.setState({
-                  curlVisible: true
-                })
               }}
             />
           </Segment>
@@ -148,8 +143,11 @@ class BallerinaWidget extends Component {
                   <SamplesList samples={samples} onSelect={this.onSampleSelect} />
               </div>
               <div className="other">
-                    <RunButton sample={sample} consoleRef={this.consoleRef} />
-                    <ShareButton />
+                    <RunButton
+                      sample={sample}
+                      consoleRef={this.consoleRef}
+                    />
+                    {/* <ShareButton /> */}
               </div>    
           </Segment>
         </Segment.Group>

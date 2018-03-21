@@ -22,7 +22,7 @@ class RunButton extends React.Component {
             } else if (type === 'ERROR' || type === 'DATA') {
                 this.appendToConsole(message);
             } else if (type === 'INFO') {
-                this.setConsoleText(message);
+                this.appendToConsole(message);
             } else if (type === 'BUILD_ERROR') {
                 this.appendToConsole(message);
                 this.setState({
@@ -65,19 +65,23 @@ class RunButton extends React.Component {
     }
 
     onError(err) {
+        const { onError } = this.props;
         this.setConsoleText(err);
+        onError(err);
     }
 
     onRun() {
-        const { sample } = this.props;
+        const { sample, onRun } = this.props;
         if (sample && sample.content) {
             const { content, source } = sample;
+            this.clearConsole();
             this.setConsoleText('Waiting on remote server...');
             this.setState({
                 runInProgress: true,
             });
             try {
                 LaunchManager.sendRunSourceMessage('samples', source, content);
+                onRun(sample);
             } catch (err) {
                 this.onError(err);
             }
@@ -85,8 +89,10 @@ class RunButton extends React.Component {
     }
 
     onStop() {
+        const { sample, onStop } = this.props;
         try {
             LaunchManager.stop();
+            onStop(sample);
         } catch (err) {
             this.onError(err);
         }
@@ -120,12 +126,18 @@ RunButton.propTypes = {
         name: PropTypes.string.isRequired,
         source: PropTypes.string.isRequired
     }),
-    consoleRef: PropTypes.instanceOf(Console)
+    consoleRef: PropTypes.instanceOf(Console),
+    onStop: PropTypes.func,
+    onRun: PropTypes.func,
+    onError: PropTypes.func
 };
 
 RunButton.defaultProps = {
     sample: undefined,
     consoleRef: undefined,
+    onStop: () => {},
+    onRun: () => {},
+    onError: () => {},
 };
   
 export default RunButton;
