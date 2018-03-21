@@ -31,7 +31,7 @@
  const isProductionBuild = process.env.NODE_ENV === 'production';
  const backendHost = isProductionBuild ? undefined : 'localhost';
  const wsPort = '9091';
- const httpsPort = '9091';
+ const httpPort = '9091';
 
  const moduleRoot = path.resolve(__dirname, '../');
  const buildPath = path.resolve(__dirname, '../build');
@@ -149,12 +149,12 @@
         new webpack.DefinePlugin({
             BACKEND_HOST: JSON.stringify(backendHost),
             WS_PORT: JSON.stringify(wsPort),
-            HTTPS_PORT: JSON.stringify(httpsPort),
+            HTTP_PORT: JSON.stringify(httpPort),
         })
      ],
      devServer: {
          port: 3000,
-         contentBase: path.join(__dirname, buildPath),
+         contentBase: path.join(__dirname, buildPath)
      },
      node: { module: 'empty', net: 'empty', fs: 'empty' },
      devtool: 'source-map',
