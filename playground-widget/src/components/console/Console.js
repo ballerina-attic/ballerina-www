@@ -74,7 +74,7 @@ class Console extends React.Component {
                         //             </span>
                         //         </div>);
                         // }
-                        return (<div>{msg}</div>)
+                        return (<div className="console-line">{msg}</div>)
                     })}
                 </Scrollbars>
             </div>

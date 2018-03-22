@@ -15,7 +15,7 @@
 # -----------------------------------------------------------------------
 FROM openjdk:jre-alpine
 
-RUN apk update && apk add bash
+RUN apk update && apk add bash && apk add curl
 
 COPY ballerina-tools*.zip /root/
 RUN mkdir /ballerina \

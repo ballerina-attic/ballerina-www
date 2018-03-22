@@ -25,7 +25,7 @@ const MONACO_OPTIONS = {
     },
     renderLineHighlight: 'none',
     scrollbar: {
-        useShadows: false,
+        useShadows: true,
     },
     hideCursorInOverviewRuler: true,
 }

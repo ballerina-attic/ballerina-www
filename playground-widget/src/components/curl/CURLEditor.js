@@ -14,17 +14,37 @@ class Console extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          content: ''
+          content: this.props.sample.curl
         }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            content: nextProps.sample.curl
+        });
     }
 
     /**
      * @inheritDoc
      */
     render() {
+        const { sample } = this.props;
+        const { content } = this.state;
         return (
             <div className='curl-editor'>
-                <div className="curl-string">{`curl -X POST --data "Hello" http://0.0.0.0:9090/echo`}</div>
+                <div className="curl-string">
+                        <input
+                            type="text"
+                            value={content}
+                            onChange={(evt) => {
+                                sample.curl = evt.target.value;
+                                this.setState({
+                                    content: evt.target.value
+                                });
+                            }}
+                            spellcheck="false"
+                        />
+                </div>
                 {/* <div className="curl-btn"><img className="try-it-refresh-btn" src={tryItRefreshBtn} /></div> */}
             </div>
         );
@@ -33,10 +53,16 @@ class Console extends React.Component {
 
 Console.propTypes = {
     onChange: PropTypes.func,
+    sample: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        source: PropTypes.string.isRequired,
+        curl: PropTypes.string,
+    }),
 };
 
 Console.defaultProps = {
     onChange: () => {},
+    sample: {}
 };
 
 export default Console;

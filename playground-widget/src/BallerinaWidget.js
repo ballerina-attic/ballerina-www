@@ -122,7 +122,9 @@ class BallerinaWidget extends Component {
           >
             {this.state.curlVisible &&
               <Segment className="curl-editor">
-                <CURLEditor />
+                <CURLEditor
+                  sample={sample}
+                />
               </Segment>
             }
           </CSSTransitionGroup>

@@ -31,7 +31,7 @@ class RunButton extends React.Component {
             }
         });
         LaunchManager.on(EVENTS.SESSION_ERROR, (err) => {
-            this.setConsoleText('Error connecting to remote server ');
+            this.setConsoleText('error connecting to remote server ');
             this.setState({
                 runInProgress: false,
             });
@@ -73,14 +73,14 @@ class RunButton extends React.Component {
     onRun() {
         const { sample, onRun } = this.props;
         if (sample && sample.content) {
-            const { content, source } = sample;
+            const { content, source, curl } = sample;
             this.clearConsole();
-            this.setConsoleText('Waiting on remote server...');
+            this.setConsoleText('waiting on remote server...');
             this.setState({
                 runInProgress: true,
             });
             try {
-                LaunchManager.sendRunSourceMessage('samples', source, content);
+                LaunchManager.sendRunSourceMessage('samples', source, content, curl);
                 onRun(sample);
             } catch (err) {
                 this.onError(err);
