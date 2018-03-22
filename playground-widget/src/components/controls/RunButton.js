@@ -18,7 +18,8 @@ class RunButton extends React.Component {
         LaunchManager.init(getLauncherURL());
         LaunchManager.on(EVENTS.CONSOLE_MESSAGE_RECEIVED, ({ type, message }) => {
             if (message === 'running program completed' || message === 'program terminated'
-                    || message === 'running program') {
+                    || message === 'running program'
+                    || message.startsWith('executing curl')) {
             } else if (type === 'ERROR' || type === 'DATA') {
                 this.appendToConsole(message);
             } else if (type === 'INFO') {
