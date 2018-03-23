@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  {%- block site_meta %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+  {% if page and page.is_homepage %}<meta name="description" content="{{ config.site_description }}">{% endif %}
+  {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
+  {% if config.site_favicon %}<link rel="shortcut icon" href="{{ base_url }}/{{ config.site_favicon }}">
+  {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
+  {%- endblock %}
+
+  {%- block htmltitle %}
+  <title>{% if page and page.title and not page.is_hompage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+  {%- endblock %}
+  
+  {%- block styles %}
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="{{ base_url }}/js/vs/grammer.js"></script>
+<script src="{{ base_url }}/js/vs/loader.js"></script>
+
+<!--<script src="{{ base_url }}/js/vs/editor/editor.main.nls.js"></script>
+<script src="{{ base_url }}/js/vs/editor/editor.main.js"></script>-->
+
+<script>
+    
+
+
+
+
+    
+</script>
+
+
+
+
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.typekit.net/son4ymv.css">
+<!-- <link rel="stylesheet" href="{{ base_url }}/js/vs/editor/editor.main.css">-->
+
+
+   <link rel="stylesheet" href="{{ base_url }}/css/ballerina-io.css">
+  {%- for path in extra_css %}
+<!--  <link href="{{ path }}" rel="stylesheet">-->
+  {%- endfor %}
+  {%- endblock %}
+
+  {%- block libs %}
+  {% if page %}
+  <script>
+    // Current page data
+    var mkdocs_page_name = {{ page.title|tojson|safe }};
+    var mkdocs_page_input_path = {{ page.input_path|tojson|safe }};
+    var mkdocs_page_url = {{ page.abs_url|tojson|safe }};
+  </script>
+  {% endif %}
+
+  {%- endblock %}
+
+  {%- block extrahead %} {% endblock %}
+
+  {%- block analytics %}
+  {% if config.google_analytics %}
+
+  {% endif %}
+  {%- endblock %}
+  
+
+  
+  
+</head>
+
+<body class="cBallerina-io" role="document">
+
+      {% include "navigation.html" %}
+    
+     {{ page.content }}
+     
+       {% include "footer.html" %}
+    
+
+<!--  {%- block scripts %}
+    <script src="{{ base_url }}/js/theme.js"></script>
+    {%- for path in extra_javascript %}
+      <script src="{{ path }}"></script>
+    {%- endfor %}
+  {%- endblock %}-->
+
+
+
+
+
+
+<script>
+       $(document).ready(function () {
+             
+         $(".cRuntimeContent").addClass('cShow');
+         
+         $(".cRUNTIME").click(function() {
+         $(".cRuntimeContent").addClass('cShow');
+         $(".cDeploymentContent").removeClass('cShow');
+         $(".cLifecycleContent").removeClass('cShow');
+
+             });
+             
+             
+         $(".cDEPLOYMENT").click(function() {
+         $(".cRuntimeContent").removeClass('cShow');
+         $(".cDeploymentContent").addClass('cShow');
+         $(".cLifecycleContent").removeClass('cShow');
+
+             });
+             
+             
+         $(".cLIFECYCLE").click(function() {
+         $(".cRuntimeContent").removeClass('cShow');
+         $(".cDeploymentContent").removeClass('cShow');
+         $(".cLifecycleContent").addClass('cShow');
+
+             });
+             
+             
+             
+             
+           });
+           
+           
+       
+           
+    
+    require.config({ paths: { 'vs': '../js/vs/' }});
+	require(['vs/editor/editor.main'], function() {
+            monaco.languages.register({ id:'ballerina' });
+            monaco.languages.setMonarchTokensProvider('ballerina', ballerina_grammar);
+            
+            monaco.editor.defineTheme('myTheme',  ballerina_theme);
+            monaco.editor.setTheme('myTheme');
+
+            var editor1 = monaco.editor.create(document.getElementById("ballerina_grammar"), {
+                   value: "function hello() {\n\talert('Hello world!');\n}",
+                   language: "ballerina"
+
+
+                });
+
+var editor1 = monaco.editor.create(document.getElementById("ballerina_grammar_2"), {
+                   value: "function hello() {\n\talert('Hello world 2 !');\n}",
+                   language: "ballerina"
+
+
+                });
+    
+});
+    
+
+  </script>
+
+
+
+</body>
+</html>
+{% if page and page.is_homepage %}
+<!--
+MkDocs version : {{ mkdocs_version }}
+Build Date UTC : {{ build_date_utc }}
+-->
+{% endif %}
