@@ -1,27 +1,76 @@
+$default-text-size: 0.8em;
+$control-text-size: 1em;
+
+@font-face {
+    font-family: "Calibre-Semibold";
+    src:
+      url("../fonts/CalibreWeb-Semibold.woff2") format("woff2"),
+      url("../fonts/CalibreWeb-Semibold.woff") format("woff"),
+      url("../fonts/CalibreWeb-Semibold.eot") format("embedded-opentype");
+}
+@font-face {
+    font-family: "Monaco";
+    src:
+      url("../fonts/monaco-webfont.woff") format("woff2");
+}
+
+
 .ballerina-playground {
     &.ui.container {
         width: 709px!important;
         height: 746px!important;
         background-color: #E6EAEB;
-        padding-top: 86px;
-        padding-left: 113px;
+        padding-top: 50px;/* 0 */
+        padding-left: 113px; /* 43 */
     }
+}
+
+.curl-slide-enter {
+    height: 0px;
+}
+
+.curl-slide-enter.curl-slide-enter-active {
+    height: 28px;
+    transition: height .3s ease;
+}
+
+.curl-slide-leave.curl-slide-leave-active {
+    height: 0px;
+    transition: height .01s ease;
+}
+
+.playground-widget {
     .ui {
         &.segments {
             width: 512px;
             border: none;
             border-top: none;
-            box-shadow: none;
+            box-shadow: -5px 5px 30px -12px #585a5e;
+            &.header {
+                box-shadow: none;
+                margin-bottom: 0;
+            }
+            &.body {
+                margin-top: 0;
+            }
+            &.footer {
+                box-shadow: none;
+            }
             .segment {
                 padding: 0;
                 border: none;
+                &:last-child {
+                    border-radius: 0;
+                }
                 &.sample-title {
+                    color: #585556;
                     background: none;
-                    padding-bottom: 8px;
+                    padding-bottom: 4px;
                     padding-left: 27px;
                     span {
-                        font-size: 11px;
+                        font-size: $default-text-size;
                         font-family: "Monaco";
+                        font-weight: initial;
                     }
                 }
                 &.sample-image {
@@ -33,25 +82,24 @@
                     }
                 }
                 &.code-editor {
+                    position: relative;
                     padding: 18px 18px 0 18px;
                     height: 300px;
                 }
                 &.curl-editor {
                     height: 28px;
                     padding: 0 18px 0 18px;
-                    font-size: 11px;
+                    font-size: $default-text-size;
                     font-family: "Monaco";
-                    line-height: 28px;
                     vertical-align: middle;
-                    font-weight: 100;
+                    font-weight: initial;
                 }
                 &.console {
                     padding: 0 18px 18px 18px;
-                    height: 100px;
                     .console-area {
                         background-color: #585a5e;
                         color: #3ad1ca;
-                        font-size: 11px;
+                        font-size: $default-text-size;
                         font-family: "Monaco";
                         overflow-y: hidden;
                         overflow-x: hidden;
@@ -59,17 +107,34 @@
                     }
                 }
                 &.controls {
+                    font-family: "Calibre-Semibold";
                     color: #585A5E;
                     margin-top: 17px;
                     .navigator {
                         margin-left: 32px;
-                        font-size: 11px;
+                        font-size: $default-text-size;
                         float: left;
                         line-height: 11px;
                     }
                     .other {
-                        font-size: 12px;
+                        font-size: $control-text-size;
                         float: right;
+                        .run-button {
+                            float: right;
+                        }
+                        .share-button {
+                            float: right;
+                            margin-right: 14px;
+                        }
+                        button {
+                            font-family: "Calibre-Semibold";
+                            font-size: 1em;
+                            box-shadow: none;
+                            border-color: #A6A8AB;
+                            &, &:hover, &:active, &:focus {
+                                color: #585A5E!important;
+                            }
+                        }
                     }
                 }
             }

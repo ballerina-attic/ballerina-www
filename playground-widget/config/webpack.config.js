@@ -29,6 +29,13 @@
  const extractCSSBundle = new ExtractTextPlugin({ filename: './[name]-[hash].css', allChunks: true });
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
+ const backendHost = isProductionBuild ? undefined : 'localhost';
+ const wsPort = '9091';
+ const httpPort = '9091';
+
+ const moduleRoot = path.resolve(__dirname, '../');
+ const buildPath = path.resolve(__dirname, '../build');
+ const composerWebRoot = path.join(__dirname, '../ballerina/composer/modules/web');
  
  const isExternal = function(modulePath) {
      return modulePath.includes('node_modules');
@@ -41,7 +48,7 @@
      },
      output: {
          filename: '[name]-[hash].js',
-         path: path.resolve(__dirname, '../build'),
+         path: buildPath,
      },
      module: {
          rules: [{
@@ -96,8 +103,8 @@
              }),
          },
          {
-             test: /\.(png|jpg|svg|cur|gif|eot|svg|ttf|woff|woff2)$/,
-             use: ['url-loader'],
+            test: /\.(png|jpg|svg|cur|gif|eot|svg|ttf|woff|woff2)$/,
+            use: ['url-loader'],
          },
          {
              test: /\.jsx$/,
@@ -111,20 +118,24 @@
                  },
              ],
          },
+         {
+            test: /\.bal$/,
+            use: 'raw-loader'
+          }
          ],
      },
      plugins: [
          new ProgressBarPlugin(),
-         new CleanWebpackPlugin(['../build'], {watch: true, exclude:['themes']}),
+         new CleanWebpackPlugin([buildPath], { watch: true, root: moduleRoot }),
          extractCSSBundle,
          new WriteFilePlugin(),
          new CopyWebpackPlugin([
             {
-                from: 'public'
+                from: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
+                to: 'fonts',
             },
             {
-                from: '../playground-examples',
-                to: 'resources/samples'
+                from: 'public'
             },
             {
                 from: 'node_modules/monaco-editor/min/vs',
@@ -134,10 +145,16 @@
          new HtmlWebpackPlugin({
             template: 'src/index.ejs',
             inject: false,
+        }),
+        new webpack.DefinePlugin({
+            BACKEND_HOST: JSON.stringify(backendHost),
+            WS_PORT: JSON.stringify(wsPort),
+            HTTP_PORT: JSON.stringify(httpPort),
         })
      ],
      devServer: {
-         contentBase: path.join(__dirname, "../build"),
+         port: 3000,
+         contentBase: path.join(__dirname, buildPath)
      },
      node: { module: 'empty', net: 'empty', fs: 'empty' },
      devtool: 'source-map',
@@ -145,12 +162,22 @@
         extensions: ['.js', '.json', '.jsx'],
         modules: ['./node_modules'],
         alias: {
-            'composer': path.join(__dirname, '../ballerina/composer/modules/web/src'),
+            'samples': path.join(moduleRoot, '..', 'playground-examples'),
+            'composer': path.join(composerWebRoot, 'src'),
+            'scss': path.join(composerWebRoot, 'scss'),
             'log': 'composer/core/log/log',
             'event_channel': 'composer/core/event/channel',
             'launch-manager': 'composer/plugins/debugger/LaunchManager',
             'ballerina-grammar': 'composer/plugins/ballerina/utils/monarch-grammar',
-            'ballerina-config': 'composer/plugins/ballerina/utils/monaco-lang-config'
+            'ballerina-config': 'composer/plugins/ballerina/utils/monaco-lang-config',
+            'Diagram': 'composer/plugins/ballerina/diagram/diagram',
+            'src/plugins': 'composer/plugins',
+            'plugins': 'composer/plugins',
+            'font-ballerina': path.join(composerWebRoot, 'font/dist/font-ballerina'),
+            'api-client':  'composer/api-client',
+            'images': path.join(composerWebRoot, 'public/images'),
+            'TreeBuilder': 'composer/plugins/ballerina/model/tree-builder',
+            'PackageScopedEnvironment': 'composer/plugins/ballerina/env/package-scoped-environment'
         }
      },
  
@@ -166,6 +193,7 @@
             mangle: {
                 keep_fnames: true,
             },
+            keep_fnames: true,
         }
     }));
     config.plugins.push(new webpack.DefinePlugin({

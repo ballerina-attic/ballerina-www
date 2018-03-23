@@ -1,6 +1,9 @@
 import React from 'react';
+import _ from 'lodash';
 import PropTypes from 'prop-types';
+import { Scrollbars } from 'react-custom-scrollbars';
 import './Console.css';
+
 
 /**
  * Console component
@@ -13,44 +16,88 @@ class Console extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          content: ''
-        }
+            messages: []
+        };
+        this.messageCache = [];
+        this.appendDebounced =  _.debounce(() => {
+            this.setState({ messages: this.messageCache });
+            if (this.scrollBar) {
+                setTimeout(() => {
+                    this.scrollBar.scrollToBottom();
+                }, 200);
+            }
+        },
+        400);
+        this.onTryItClick = this.onTryItClick.bind(this);
+        this.scrollBar = undefined;
     }
 
     /**
      * set
      */
-    clearAndPrint(content) {
-        this.setState({
-          content,
-        });
+    clearAndPrint(msg) {
+        this.messageCache = [];
+        this.messageCache.push(msg)
+        this.appendDebounced();
     }
 
     /**
      * append to console
      */
-    append(content) {
-        this.setState({
-          content: this.state.content + '\n' + content
-        })
+    append(msg) {
+        this.messageCache.push(msg);
+        this.appendDebounced();
     }
 
     /**
      * clear console
      */
     clear() {
-      this.setState({
-        content: ''
-      });
-  }
+        this.messageCache = [];
+        this.setState({
+            messages: [],
+        });
+    }
+
+    onTryItClick() {
+        this.props.onTryItClick();
+    }
 
     /**
      * @inheritDoc
      */
     render() {
+        const consoleAreaHeight = this.props.curlVisible ? 102 : 132;
         return (
             <div className='console-area'>
-                <pre>{this.state.content}</pre>
+                <Scrollbars 
+                    style={{ width: 455, height: consoleAreaHeight }}
+                    ref={(scrollBar) => {
+                        this.scrollBar = scrollBar;
+                    }}
+                >
+                    {this.state.messages.map((msg, index, msgs) => {
+                        if (msg === 'building...' && msgs.length > (index + 1)
+                                && msgs[index + 1].startsWith('build completed in')) {
+                            return (<span/>);
+                        }
+                        if (msg.startsWith('build completed in')) {
+                            return (<div className="console-line">{'building...   ' + msg}</div>)
+                        }
+                        if (msg.startsWith('executing curl completed in')) {
+                            return (<div className="console-line">{'edit the curl cmd & run again'}</div>)
+                        }
+                        // if (msg.startsWith('started services at')) {
+                        //     return (
+                        //         <div>{msg}
+                        //             <span>
+                        //                 <a className="try-it-btn" onClick={this.onTryItClick}>try-it</a>
+                        //             </span>
+                        //         </div>);
+                        // }
+                        return (<div className="console-line">{msg}</div>)
+                    })}
+                </Scrollbars>
             </div>
         );
     }
@@ -58,5 +105,7 @@ class Console extends React.Component {
 
 Console.propTypes = {
     onChange: PropTypes.func,
+    onTryItClick: PropTypes.func,
+    curlVisible: PropTypes.bool,
 };
 export default Console;

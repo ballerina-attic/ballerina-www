@@ -1,9 +1,21 @@
+const TEXT_COLOR = '585556';
+
 export default {
     base: 'vs',
     inherit: true,
-    rules: [{ background: 'f5f6f6' }],
+    rules: [
+        { background: 'E6EAEB' },
+        { token: 'identifier', foreground: TEXT_COLOR },
+        { token: 'delimiter', foreground: TEXT_COLOR },
+        { token: 'type', foreground: '23B8B1' },
+        { token: 'keyword', foreground: '28AAE1' },
+        { token: 'annotation', foreground: '005BD1' },
+        { token: 'string', foreground: '4787C7' },
+    ],
     colors: {
         'editorGutter.background': '#D4D6D7',
+        'input.foreground': '#585556',
+        'input.foreground': '#E6EAEB',
         'editor.background': '#E6EAEB',
         'editorLineNumber.foreground': '#585556',
     }

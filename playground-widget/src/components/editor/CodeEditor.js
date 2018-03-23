@@ -5,6 +5,7 @@ import Theme from './theme';
 import './CodeEditor.css';
 import Grammar from 'ballerina-grammar';
 import BAL_LANG_CONFIG from 'ballerina-config';
+import { Dimmer, Loader } from 'semantic-ui-react'
 
 const BAL_LANGUAGE = 'ballerina-lang';
 const BAL_WIDGET_MONACO_THEME = 'bal-widget-monaco-theme';
@@ -24,7 +25,7 @@ const MONACO_OPTIONS = {
     },
     renderLineHighlight: 'none',
     scrollbar: {
-        useShadows: false,
+        useShadows: true,
     },
     hideCursorInOverviewRuler: true,
 }
@@ -39,6 +40,9 @@ class CodeEditor extends React.Component {
      */
     constructor(props) {
         super(props);
+        this.state = {
+            editorMounted: false
+        };
         this.monaco = undefined;
         this.editorInstance = undefined;
         this.editorDidMount = this.editorDidMount.bind(this);
@@ -66,6 +70,9 @@ class CodeEditor extends React.Component {
      */
     editorDidMount(editorInstance, monaco) {
         this.editorInstance = editorInstance;
+        this.setState({
+            editorMounted: true
+        });
     }
 
     /**
@@ -74,6 +81,11 @@ class CodeEditor extends React.Component {
     render() {
         return (
             <div className='monaco-editor'>
+                {!this.state.editorMounted &&
+                    <Dimmer active inverted>
+                        <Loader inverted />
+                    </Dimmer>
+                }
                 <MonacoEditor
                     language={BAL_LANGUAGE}
                     value={this.props.content}
