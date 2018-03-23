@@ -10,7 +10,7 @@ Google's trademarks and other brand features are not included in this license. P
 In some cases, a page may include content consisting of images, audio or video material, or a link to content on a different webpage (such as videos or slide decks). This content is not covered by the license, unless specifically noted.
 
 ## Attribution
-Proper attribution is required when you reuse or create modified versions of content that appears on a page made available under the terms of the Creative Commons Attribution license. The complete requirements for attribution can be found in section 4 of the Creative Commons legal code.
+Proper attribution is required when you reuse or create modified versions of content that appears on a page made available under the terms of the Creative Commons Attribution license. The complete requirements for attribution can be found in section 4 of the [Creative Commons legal code](http://creativecommons.org/licenses/by/3.0/legalcode).
 
 In practice we ask that you provide attribution to Google to the best of the ability of the medium in which you are producing the work.
 
