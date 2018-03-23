@@ -1,6 +1,6 @@
 # Ballerina.io License
 
-Except as detailed below, the content of this page is licensed under the Creative Commons Attribution 3.0 License.
+Except as detailed below, the content of this page is licensed under the [Creative Commons Attribution 3.0 License](https://creativecommons.org/licenses/by/3.0/us/).
 
 ## What is not licensed?
 We say "nearly everything" as there are a few simple conditions that apply.
