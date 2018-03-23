@@ -79,7 +79,7 @@ class BallerinaWidget extends Component {
                         && (samples.length - 1 >= selectedSampleIndex)
                     ? samples[selectedSampleIndex]
                     : undefined;
-    const consoleHeight = this.state.curlVisible ? 132 : 168;
+    const consoleHeight = this.state.curlVisible ? 140 : 168;
     return (
     <Container className="ballerina-playground ballerina-editor">
       {sample &&
@@ -115,19 +115,13 @@ class BallerinaWidget extends Component {
               />
             }
           </Segment>
-          <CSSTransitionGroup
-            transitionName="curl-slide"
-            transitionEnterTimeout={300}
-            transitionLeaveTimeout={1}
-          >
-            {this.state.curlVisible &&
-              <Segment className="curl-editor">
-                <CURLEditor
-                  sample={sample}
-                />
-              </Segment>
-            }
-          </CSSTransitionGroup>
+          {this.state.curlVisible &&
+            <Segment className="curl-editor">
+              <CURLEditor
+                sample={sample}
+              />
+            </Segment>
+          }
           <Segment className="console" style={{ height: consoleHeight }}>
             <Console
               ref={(consoleRef) => {
