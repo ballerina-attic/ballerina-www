@@ -21,9 +21,15 @@ class Console extends React.Component {
         this.messageCache = [];
         this.appendDebounced =  _.debounce(() => {
             this.setState({ messages: this.messageCache });
+            if (this.scrollBar) {
+                setTimeout(() => {
+                    this.scrollBar.scrollToBottom();
+                }, 200);
+            }
         },
         400);
         this.onTryItClick = this.onTryItClick.bind(this);
+        this.scrollBar = undefined;
     }
 
     /**
@@ -61,11 +67,26 @@ class Console extends React.Component {
      * @inheritDoc
      */
     render() {
-        const consoleAreaHeight = this.props.curlVisible ? 114 : 132;
+        const consoleAreaHeight = this.props.curlVisible ? 102 : 132;
         return (
             <div className='console-area'>
-                <Scrollbars style={{ width: 455, height: consoleAreaHeight }}>
-                    {this.state.messages.map((msg) => {
+                <Scrollbars 
+                    style={{ width: 455, height: consoleAreaHeight }}
+                    ref={(scrollBar) => {
+                        this.scrollBar = scrollBar;
+                    }}
+                >
+                    {this.state.messages.map((msg, index, msgs) => {
+                        if (msg === 'building...' && msgs.length > (index + 1)
+                                && msgs[index + 1].startsWith('build completed in')) {
+                            return (<span/>);
+                        }
+                        if (msg.startsWith('build completed in')) {
+                            return (<div className="console-line">{'building...   ' + msg}</div>)
+                        }
+                        if (msg.startsWith('executing curl completed in')) {
+                            return (<div className="console-line">{'edit the curl cmd & run again'}</div>)
+                        }
                         // if (msg.startsWith('started services at')) {
                         //     return (
                         //         <div>{msg}

@@ -79,7 +79,7 @@ class BallerinaWidget extends Component {
                         && (samples.length - 1 >= selectedSampleIndex)
                     ? samples[selectedSampleIndex]
                     : undefined;
-    const consoleHeight = this.state.curlVisible ? 144 : 168;
+    const consoleHeight = this.state.curlVisible ? 132 : 168;
     return (
     <Container className="ballerina-playground ballerina-editor">
       {sample &&
