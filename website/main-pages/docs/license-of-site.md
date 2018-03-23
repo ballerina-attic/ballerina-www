@@ -5,7 +5,7 @@ Except as detailed below, the content of this page is licensed under the [Creati
 ## What is not licensed?
 We say "nearly everything" as there are a few simple conditions that apply.
 
-Google's trademarks and other brand features are not included in this license. Please see our standard guidelines for third party use of Google brand features for information about this usage.
+Ballerina's trademarks and other brand features are not included in this license. Please see our standard guidelines for third party use of Ballerina brand features for information about this usage.
 
 In some cases, a page may include content consisting of images, audio or video material, or a link to content on a different webpage (such as videos or slide decks). This content is not covered by the license, unless specifically noted.
 
