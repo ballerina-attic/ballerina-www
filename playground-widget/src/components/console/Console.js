@@ -67,11 +67,11 @@ class Console extends React.Component {
      * @inheritDoc
      */
     render() {
-        const consoleAreaHeight = this.props.curlVisible ? 102 : 132;
+        const consoleAreaHeight = this.props.curlVisible ? 106 : 132;
         return (
             <div className='console-area'>
                 <Scrollbars 
-                    style={{ width: 455, height: consoleAreaHeight }}
+                    style={{ width: 460, height: consoleAreaHeight }}
                     ref={(scrollBar) => {
                         this.scrollBar = scrollBar;
                     }}
@@ -82,10 +82,14 @@ class Console extends React.Component {
                             return (<span/>);
                         }
                         if (msg.startsWith('build completed in')) {
-                            return (<div className="console-line">{'building...   ' + msg}</div>)
+                            return (<div className="console-line">{'building...   ' + msg.replace('build', '')}</div>)
                         }
                         if (msg.startsWith('executing curl completed in')) {
-                            return (<div className="console-line">{'edit the curl cmd & run again'}</div>)
+                            return (
+                            <div>
+                                <div className="console-line">{msg.replace('executing', '')}</div>
+                                <div className="console-line">{'you can edit the code or curl and try again'}</div>
+                            </div>);
                         }
                         // if (msg.startsWith('started services at')) {
                         //     return (

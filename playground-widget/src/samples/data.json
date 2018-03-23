@@ -7,9 +7,9 @@
         "curl": "curl -s -X GET http://playground.localhost/order/1"
     },
     {
-        "name": "Talking to end-points",
-        "source": "talking-to-endpoints.bal",
+        "name": "Data Integration",
+        "source": "data-integration/data_service.bal",
         "image": "talking-to-endpoints.svg",
-        "curl": ""
+        "curl": "curl -s -X POST -d \"{\"name\":\"John Doe\", \"age\":48}\" \"http://localhost:9090/customer\" -H \"Content-Type:application/json\""
     }]
 }

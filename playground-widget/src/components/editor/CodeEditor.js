@@ -18,7 +18,7 @@ const MONACO_OPTIONS = {
     autoClosingBrackets: true,
     matchBrackets: true,
     automaticLayout: true,
-    lineNumbersMinChars: 4,
+    lineNumbersMinChars: 3,
     scrollBeyondLastLine: false,
     minimap: {
         enabled: false
@@ -28,6 +28,7 @@ const MONACO_OPTIONS = {
         useShadows: true,
     },
     hideCursorInOverviewRuler: true,
+    lineHeight: 14
 }
 
 /**
