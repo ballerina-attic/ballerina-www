@@ -173,3 +173,27 @@ colors: {
 'editorLineNumber.foreground': '#585556',
 }
 }
+
+
+
+var codeEditor = {
+autoIndent: true,
+fontFamily: "Monaco",
+fontSize: 11,
+contextmenu: false,
+renderIndentGuides: false,
+autoClosingBrackets: true,
+matchBrackets: true,
+automaticLayout: true,
+lineNumbersMinChars: 3,
+scrollBeyondLastLine: false,
+minimap: {
+enabled: false
+},
+renderLineHighlight: 'none',
+scrollbar: {
+useShadows: true,
+},
+hideCursorInOverviewRuler: true,
+lineHeight: 14
+}
