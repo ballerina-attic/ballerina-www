@@ -4,15 +4,23 @@
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Left-col ">
          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-main-content-wraper">
-            <p class="cMainParagraph">A statically typed,interaction-centric <br/>
-               language and platform for building <br/>
-               cloud native services that integrate API and streaming endpoints.
+            <p class="cMainParagraph">A programming language and <br/>runtime co-designed 
+                to be agile and integration simple.
             </p>
-            <p class="cGreenTitle "><a href="">LEARN HOW IT WORKS ></a></p>
+            <p class="cGreenTitle "><a href="#why-did-we-build-ballerina">WHY WE BUILT BALLERINA ></a></p>
             <hr class="cHr">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol">
-               <p>With a trillion programmable endpoints emerging, every developer is an integrator. Ballerina’s language constructs make it easy to create new APIs and data streams that can asynchronously and reliably interact with endpoints
-               <p>Network-bound data is type-safe and network interaction occurs with reactive connectors. Ballerina compiles code into cloud native services that are gateway, message broker, and transaction aware.</p>
+             
+            <p>The future apps we will write increasingly depend upon programmable endpoints. Integration is the discipline of resilient communication between endpoints. Integration is a domain of hard problems. 
+            </p>
+<p>Ballerina is a simple programming language whose syntax and runtime addresses the hard problems of integration. As a Turing complete language, Ballerina enables agility with edit, build, run cycles. Ballerina code is compiled into services that include transactions, embedded brokers and gateway runtimes.
+            
+</p> 
+            
+            
+            
+            
+            
             </div>
          </div>
       </div>
@@ -22,7 +30,7 @@
       </div>
    </div>
 </div>
-<div class="row cBallerina-io-White-row">
+<div class="row cBallerina-io-White-row" id="why-did-we-build-ballerina">
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-content-wraper">
