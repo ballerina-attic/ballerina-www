@@ -14,7 +14,7 @@ We encourage all Ballerina users to subscribe to this mailing list so that they 
 
 These are the release notes for all the major released versions of Ballerina:
 
-Ballerina 1 (May 2018)
+* Ballerina 1 (May 2018)
 
 ## Source Code
 
