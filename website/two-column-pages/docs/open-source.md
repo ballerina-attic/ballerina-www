@@ -20,43 +20,20 @@ These are the release notes for all the major released versions of Ballerina:
 
 The Ballerina source code is completely hosted in the [Ballerina GitHub repository](https://github.com/ballerina-lang/ballerina). You can build Ballerina from source by following the instructions provided in the [README file](https://github.com/ballerina-lang/ballerina/blob/master/README.md).
 
+The [ballerina-dev@googlegroups.com](ballerina-dev@googlegroups.com) mailing list is for discussing code changes to the Ballerina project.
+
 ## Reporting Issues
 
 If you notice any bugs or inconsistencies in the Ballerina code or documentation, please raise an issue on our issue tracker. Kindly note that you should check if there is an existing issue before creating a new one.
 
-Security-related issues should be reported to security@golang.org. See the security policy for more details.
+Sensitive security-related issues should be reported to security@ballerina.io. See the [Security Policy](http://ballerina.io/security) for details.
 
-Community-related issues should be reported to conduct@golang.org. See the Code of Conduct for more details.
+Sensitive community-related issues should be reported to conduct@ballerina.io. See the [Code of Conduct](https://github.com/ballerina-lang/ballerina/blob/master/CODE_OF_CONDUCT) for more details.
 
 ## Contributing Code
 
-Setup the developer environment
+As an open source project, Ballerina welcomes contributions from the community.
 
-Setup git
+To start contributing, read these contribution guidelines for information on how you should go about contributing to our project.
 
-Contributor License Agreement
-
-Making a contribution
-
-
-
-
-Developer and Code Review Mailing List
-The golang-dev mailing list is for discussing code changes to the Go project. The golang-codereviews mailing list is for actual reviewing of the code changes (CLs).
-
-For general discussion of Go programming, see golang-nuts.
-
-Checkins Mailing List
-A mailing list that receives a message summarizing each checkin to the Go repository.
-
-Build Status
-View the status of Go builds across the supported operating systems and architectures.
-
-How you can help ¶
-
-Contributing code
-Go is an open source project and we welcome contributions from the community.
-
-To get started, read these contribution guidelines for information on design, testing, and our code review process.
-
-Check the tracker for open issues that interest you. Those labeled help wanted are particularly in need of outside help.
+Check the tracker for open issues that interest you. We look forward to receiving your contributions.
