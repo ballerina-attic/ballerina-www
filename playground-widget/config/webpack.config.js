@@ -140,6 +140,10 @@
             {
                 from: 'node_modules/monaco-editor/min/vs',
                 to: 'vs'
+            },
+            {
+                from: 'node_modules/semantic-ui-css/themes',
+                to: 'themes'
             }
          ]),
          new HtmlWebpackPlugin({
