@@ -42,9 +42,8 @@ The [API Documentation](https://ballerinalang.org/docs/api/0.964.0/) describes t
 
 ## Articles 
 
-(link to blog articles + 3rd parties)
+There are various [articles](https://medium.com/@ballerinalang) available that are written about various aspects of Ballerina. These can help you learn more.
 
 ## Talks 
 
-(links to videos)
-
+There are talks available about Ballerina in our video channel.
