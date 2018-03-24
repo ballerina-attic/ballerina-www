@@ -46,4 +46,4 @@ There are various [articles](https://medium.com/@ballerinalang) available that a
 
 ## Talks 
 
-There are talks available about Ballerina in our video channel.
+There are talks available about Ballerina in our [video channel](https://www.youtube.com/channel/UCBMvET-T1YshLrJRLpuKJ5g).
