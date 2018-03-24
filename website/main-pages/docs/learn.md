@@ -24,4 +24,27 @@ Ballerina by Guide is a series of long form examples that showcase a complete li
 
 The How to Structure Ballerina Code topic expands on the structure of programs, directories, packages, and repositories.
 
-## 
+## Editors, IDEs and the Ballerina Composer
+
+[Editors, IDEs and the Ballerina Composer](https://github.com/ballerina-lang/ballerina/blob/master/docs/tools-ides-ballerina-composer.md) is a topic that introduces you to several tools that can help create, document, and test your code. These tools can be various editors, IDEs, and a graphical visualization tool for your code called the Ballerina Composer.
+
+## Language Specification
+
+The Language Specification is a set of documents that explain more about the inner workings of the Ballerina language itself.  
+
+## Command Documentation
+
+The Command Documentation includes a summary of all the commands available in Ballerina and provides links to each command in GitHub.
+
+## Package & API Documentation
+
+The [API Documentation](https://ballerinalang.org/docs/api/0.964.0/) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
+
+## Articles 
+
+(link to blog articles + 3rd parties)
+
+## Talks 
+
+(links to videos)
+
