@@ -166,7 +166,8 @@
         extensions: ['.js', '.json', '.jsx'],
         modules: ['./node_modules'],
         alias: {
-            'samples': path.join(moduleRoot, '..', 'playground-examples'),
+            'samples/images': path.join(moduleRoot, '..', 'playground-examples', 'images'),
+            'samples': path.join(moduleRoot, 'guides', 'playground-hello-service'),
             'composer': path.join(composerWebRoot, 'src'),
             'scss': path.join(composerWebRoot, 'scss'),
             'log': 'composer/core/log/log',
