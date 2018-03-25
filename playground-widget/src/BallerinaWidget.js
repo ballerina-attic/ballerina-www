@@ -91,12 +91,12 @@ class BallerinaWidget extends Component {
               window.open(sample.url,'_blank');
             }}
           >
+              <span className="sample-file-name">Example : &lt;{sample.source}&gt;</span>
               <span
                 className="sample-btn"
               >
-                <Icon name='github' size='large' />
+                <Icon name='github' />
               </span>
-              <span className="sample-file-name">Example : &lt;{sample.source}&gt;</span>
               {/* <PopOutButton /> */}
           </Segment>
         </Segment.Group>
