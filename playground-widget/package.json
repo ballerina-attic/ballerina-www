@@ -49,7 +49,8 @@
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.config.js --hot --inline --progress --host 0.0.0.0",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.config.js",
-    "build-docker": "npm run build && npm run copy-www-dir && npm run build-ballerina && npm run copy-bal-dist",
+    "build-all": "npm run build-ballerina && npm run build && npm run build-docker",
+    "build-docker": "npm run copy-bal-dist && npm run copy-www-dir",
     "build-ballerina": "cd ballerina && mvn clean install -Dfindbugs.skip=true -Dcheckstyle.skip=true -Dmaven.test.skip=true",
     "copy-www-dir": "cp -r build docker/www ",
     "copy-misc": "cp guides/playground-hello-service/data-service/CUSTOMER_DB.h2.db docker/ && cp guides/playground-hello-service/invoke-service/backend_time_service.bal docker/",

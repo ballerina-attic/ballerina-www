@@ -1,11 +1,13 @@
-const HOST =  BACKEND_HOST 
+
+
+const isProduction = process.env.NODE_ENV === 'production';
+
+const HOST =  isProduction 
                     ? BACKEND_HOST
-                    : window.location.hostname;
+                    : 'localhost:9091';
 
-const useSSL = process.env.NODE_ENV === 'production';
-
-const LAUNCHER_URL = `ws${useSSL ? 's' : ''}://${HOST}:${WS_PORT}/composer/ballerina/launcher`;
-const PARSER_URL = `http${useSSL ? 's' : ''}://${HOST}:${HTTP_PORT}/composer/ballerina/parser/file/validate-and-parse`;
+const LAUNCHER_URL = `ws${isProduction ? 's' : ''}://${HOST}/composer/ballerina/launcher`;
+const PARSER_URL = `http${isProduction ? 's' : ''}://${HOST}/composer/ballerina/parser/file/validate-and-parse`;
 
 export function getLauncherURL() {
     return LAUNCHER_URL;

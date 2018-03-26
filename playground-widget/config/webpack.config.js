@@ -26,12 +26,10 @@
  const HtmlWebpackPlugin = require('html-webpack-plugin');
  const CleanWebpackPlugin = require('clean-webpack-plugin');
  
- const extractCSSBundle = new ExtractTextPlugin({ filename: './[name]-[hash].css', allChunks: true });
+ const extractCSSBundle = new ExtractTextPlugin({ filename: './[name].css', allChunks: true });
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
- const backendHost = isProductionBuild ? undefined : 'localhost';
- const wsPort = '9091';
- const httpPort = '9091';
+ const backendHost = 'playground.ballerina.io';
 
  const moduleRoot = path.resolve(__dirname, '../');
  const buildPath = path.resolve(__dirname, '../build');
@@ -44,11 +42,14 @@
  const config = {
      target: 'web',
      entry: {
-         bundle: './src/index.js',
+         'playground-app': './src/index.js',
+         'playground-lib': './src/lib.js',
      },
      output: {
-         filename: '[name]-[hash].js',
+         filename: '[name].js',
          path: buildPath,
+         libraryTarget: 'var',
+         library: 'PlaygroundWidget'
      },
      module: {
          rules: [{
@@ -152,8 +153,6 @@
         }),
         new webpack.DefinePlugin({
             BACKEND_HOST: JSON.stringify(backendHost),
-            WS_PORT: JSON.stringify(wsPort),
-            HTTP_PORT: JSON.stringify(httpPort),
         })
      ],
      devServer: {
