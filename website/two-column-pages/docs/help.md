@@ -1,30 +1,31 @@
-#level 1
-##level 2
-###level 3
-#### level 4
-Some text
-```ballerina
-hello() {
-	alert('Hello world 2 !');
-}
-```
+# Help
 
+## Ballerina Forum
 
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+Ballerina uses stack overflow as its discussion forum for developers.
+    
+## Ballerina Slack
 
-1. First ordered list item
-2. Another item
-⋅⋅* Unordered sub-list. 
-1. Actual numbers don't matter, just that it's a number
-⋅⋅1. Ordered sub-list
-4. And another item.
+Reach out to us on our [Slack channel](https://ballerina-platform.slack.com/) and integrate with our community.
 
-⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
+## Ballerina Blog
 
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+Ballerina's official blog.
+ 
+## Twitter
 
-* Unordered list can use asterisks
-- Or minuses
-+ Or pluses
+Ballerina's official Twitter account.
+
+## Reddit
+
+Ballerina subreddit is a place to discuss Ballerina and keep updated on news.
+
+## Events
+
+The following are the upcoming events planned out for Ballerina.
+
+* KubeCon (May 2018)
+
+## Code of Conduct
+
+For guidelines on participating in Ballerina community spaces and a reporting process for handling issues, see the [code of conduct](https://github.com/ballerina-lang/ballerina/blob/master/CODE_OF_CONDUCT).
