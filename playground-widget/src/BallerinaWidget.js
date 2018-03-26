@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Container, Segment, Grid, Header
+  Container, Segment, Grid, Header, Icon
 } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 import CodeEditor from './components/editor/CodeEditor';
@@ -85,8 +85,18 @@ class BallerinaWidget extends Component {
       {sample &&
       <div className="playground-widget">
         <Segment.Group className="header">
-          <Segment className="sample-title">
-              <span>Example : &lt;{sample.source}&gt;</span>
+          <Segment
+            className="sample-title"
+            onClick={() => {
+              window.open(sample.url,'_blank');
+            }}
+          >
+              <span className="sample-file-name">Example : &lt;{sample.source}&gt;</span>
+              <span
+                className="sample-btn"
+              >
+                <Icon name='github' />
+              </span>
               {/* <PopOutButton /> */}
           </Segment>
         </Segment.Group>

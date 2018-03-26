@@ -1,15 +1,31 @@
 {
     "samples":
     [{
-        "name": "HTTP Service",
-        "source": "http-service/order_service.bal",
-        "image": "create-http-service.svg",
-        "curl": "curl -s -X GET http://playground.localhost/order/1"
+        "name": "Hello Service",
+        "source": "hello-service/hello_service.bal",
+        "image": "http-service.svg",
+        "curl": "curl -s http://playground.localhost/hello/sayHello",
+        "url": "https://github.com/ballerina-guides/playground-hello-service/tree/master/hello-service"
     },
     {
-        "name": "Data Integration",
-        "source": "data-integration/data_service.bal",
+        "name": "RESTFUL Service",
+        "source": "restful-service/restful_service.bal",
+        "image": "http-service.svg",
+        "curl": "curl -s -X POST -d 'Ballerina' http://playground.localhost/greeting",
+        "url": "https://github.com/ballerina-guides/playground-hello-service/tree/master/restful-service"
+    },
+    {
+        "name": "Invoke Service",
+        "source": "invoke-service/invoking_service.bal",
         "image": "talking-to-endpoints.svg",
-        "curl": "curl -s -X POST -d \"{\"name\":\"John Doe\", \"age\":48}\" \"http://localhost:9090/customer\" -H \"Content-Type:application/json\""
+        "curl": "curl -s http://playground.localhost/time",
+        "url": "https://github.com/ballerina-guides/playground-hello-service/tree/master/invoke-service"
+    },
+    {
+        "name": "Data Service",
+        "source": "data-service/data_service.bal",
+        "image": "data-service.svg",
+        "curl": "curl -s http://playground.localhost/customer",
+        "url": "https://github.com/ballerina-guides/playground-hello-service/tree/master/data-service"
     }]
 }
