@@ -145,19 +145,19 @@
             monaco.editor.defineTheme('myTheme',  ballerina_theme);
             monaco.editor.setTheme('myTheme');
 
-            var editor1 = monaco.editor.create(document.getElementById("ballerina_grammar"), {
-                   value: "function hello() {\n\talert('Hello world!');\n}",
-                   language: "ballerina"
-
-
-                });
-
-var editor1 = monaco.editor.create(document.getElementById("ballerina_grammar_2"), {
+            var editor1 = monaco.editor.create(document.getElementById("ballerina_grammar"),Object.assign({
                    value: "function hello() {\n\talert('Hello world 2 !');\n}",
                    language: "ballerina"
 
 
-                });
+                }, codeEditor));
+
+var editor2 = monaco.editor.create(document.getElementById("ballerina_grammar_2"), Object.assign({
+                   value: "function hello() {\n\talert('Hello world 2 !');\n}",
+                   language: "ballerina"
+
+
+                }, codeEditor));
     
 });
     

@@ -37,7 +37,7 @@
    <script src="{{ base_url }}/js/jquery-2.1.1.min.js"></script>
   <script src="{{ base_url }}/js/modernizr-2.8.3.min.js"></script>
   <script type="text/javascript" src="{{ base_url }}/js/highlight.pack.js"></script>
-  
+  <link rel="stylesheet" href="https://use.typekit.net/son4ymv.css"/>
       
   
        <link rel="stylesheet" href="{{ base_url }}/css/theme.css" type="text/css" />
@@ -94,20 +94,20 @@
                       <div class="cBlallerina-io-docs-left-nav-box">
                           <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div> 
                           
-                          
-                      <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-                         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                              {%- block site_nav %}
-                              <ul class="current">
-                           
-                                  {% for nav_item in nav %}
-                                  <li>{% include "toc.html" %}<li>
-                                      {% endfor %}
-                              </ul>
-                              {%- endblock %}
-                          </div>
-                          &nbsp;
-                      </nav>
+                   
+
+     
+<ul>
+             
+            {% for toc_item in page.toc %}
+                <li class="toctree-l3"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+                {% for toc_item in toc_item.children %}
+                 <li><a class="toctree-l4" href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+                {% endfor %}
+            {% endfor %}
+            </ul>
+     
+     
                       </div>
                   </div>
               </div>
@@ -127,7 +127,7 @@
        
           <div role="main">
             <div class="section">
-                <h1>{{ page.title }}</h1>
+<!--                <h1>{{ page.title }}</h1>-->
               {% block content %}
                 {{ page.content }}
               {% endblock %}
