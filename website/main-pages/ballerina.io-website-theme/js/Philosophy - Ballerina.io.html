@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  
+  
+  <meta name="author" content="WSO2, Inc.">
+  <link rel="shortcut icon" href="https://stage.ballerina.io/img/favicon.ico">
+  <title>Philosophy - Ballerina.io</title>
+<script src="Philosophy%20-%20Ballerina.io_files/jquery-3.js"></script>
+<script src="Philosophy%20-%20Ballerina.io_files/grammer.js"></script>
+<script src="Philosophy%20-%20Ballerina.io_files/loader.js"></script>
+
+<!--<script src="../js/vs/editor/editor.main.nls.js"></script>
+<script src="../js/vs/editor/editor.main.js"></script>-->
+
+<script>
+    
+
+
+
+
+    
+</script>
+
+
+
+
+      <link rel="stylesheet" href="Philosophy%20-%20Ballerina.io_files/bootstrap.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="Philosophy%20-%20Ballerina.io_files/bootstrap-theme.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="Philosophy%20-%20Ballerina.io_files/bootstrap.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="Philosophy%20-%20Ballerina.io_files/son4ymv.html">
+<!-- <link rel="stylesheet" href="../js/vs/editor/editor.main.css">-->
+
+
+   <link rel="stylesheet" type="text/css" data-name="vs/editor/editor.main" href="Philosophy%20-%20Ballerina.io_files/editor.css"><link rel="stylesheet" href="Philosophy%20-%20Ballerina.io_files/ballerina-io.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Philosophy";
+    var mkdocs_page_input_path = "philosophy.md";
+    var mkdocs_page_url = "/philosophy/";
+  </script>
+   
+  
+  
+
+  
+  
+<script async="async" type="text/javascript" src="Philosophy%20-%20Ballerina.io_files/editor.js"></script><script async="async" type="text/javascript" src="Philosophy%20-%20Ballerina.io_files/editor_002.js"></script><style type="text/css" media="screen" class="monaco-colors">.monaco-editor .minimap-slider, .monaco-editor .minimap-slider .minimap-slider-horizontal { background: rgba(100, 100, 100, 0.2); }
+.monaco-editor .minimap-slider:hover, .monaco-editor .minimap-slider:hover .minimap-slider-horizontal { background: rgba(100, 100, 100, 0.35); }
+.monaco-editor .minimap-slider.active, .monaco-editor .minimap-slider.active .minimap-slider-horizontal { background: rgba(0, 0, 0, 0.3); }
+.monaco-editor .minimap-shadow-visible { box-shadow: #dddddd -6px 0 6px -6px inset; }
+.monaco-editor .scroll-decoration { box-shadow: #dddddd 0 6px 6px -6px inset; }
+.monaco-editor .focused .selected-text { background-color: #add6ff; }
+.monaco-editor .selected-text { background-color: #e5ebf1; }
+.monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input { background-color: #e6eaeb; }
+.monaco-editor, .monaco-editor .inputarea.ime-input { color: #000000; }
+.monaco-editor .margin { background-color: #d4d6d7; }
+.monaco-editor .rangeHighlight { background-color: rgba(253, 255, 0, 0.2); }
+.vs-whitespace { color: rgba(51, 51, 51, 0.2) !important; }
+.monaco-editor .view-overlays .current-line { border: 2px solid #eeeeee; }
+.monaco-editor .margin-view-overlays .current-line-margin { border: 2px solid #eeeeee; }
+.monaco-editor .lines-content .cigr { background-color: #d3d3d3; }
+.monaco-editor .line-numbers { color: #585556; }
+.monaco-editor .view-ruler { background-color: #d3d3d3; }
+.monaco-editor .cursor { background-color: #000000; border-color: #000000; color: #ffffff; }
+.monaco-editor .squiggly-c-error { background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%206%203'%20enable-background%3D'new%200%200%206%203'%20height%3D'3'%20width%3D'6'%3E%3Cg%20fill%3D'%23d60a0a'%3E%3Cpolygon%20points%3D'5.5%2C0%202.5%2C3%201.1%2C3%204.1%2C0'%2F%3E%3Cpolygon%20points%3D'4%2C0%206%2C2%206%2C0.6%205.4%2C0'%2F%3E%3Cpolygon%20points%3D'0%2C2%201%2C3%202.4%2C3%200%2C0.6'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat-x bottom left; }
+.monaco-editor .squiggly-b-warning { background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%206%203'%20enable-background%3D'new%200%200%206%203'%20height%3D'3'%20width%3D'6'%3E%3Cg%20fill%3D'%23117711'%3E%3Cpolygon%20points%3D'5.5%2C0%202.5%2C3%201.1%2C3%204.1%2C0'%2F%3E%3Cpolygon%20points%3D'4%2C0%206%2C2%206%2C0.6%205.4%2C0'%2F%3E%3Cpolygon%20points%3D'0%2C2%201%2C3%202.4%2C3%200%2C0.6'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat-x bottom left; }
+.monaco-editor .squiggly-a-info { background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%206%203'%20enable-background%3D'new%200%200%206%203'%20height%3D'3'%20width%3D'6'%3E%3Cg%20fill%3D'%23008000'%3E%3Cpolygon%20points%3D'5.5%2C0%202.5%2C3%201.1%2C3%204.1%2C0'%2F%3E%3Cpolygon%20points%3D'4%2C0%206%2C2%206%2C0.6%205.4%2C0'%2F%3E%3Cpolygon%20points%3D'0%2C2%201%2C3%202.4%2C3%200%2C0.6'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat-x bottom left; }
+.monaco-editor.vs .valueSetReplacement { outline: solid 2px #b9b9b9; }
+.monaco-diff-editor .diff-review-line-number { color: #585556; }
+.monaco-diff-editor .diff-review-shadow { box-shadow: #dddddd 0 -6px 6px -6px inset; }
+.monaco-editor .line-insert, .monaco-editor .char-insert { background-color: rgba(155, 185, 85, 0.2); }
+.monaco-diff-editor .line-insert, .monaco-diff-editor .char-insert { background-color: rgba(155, 185, 85, 0.2); }
+.monaco-editor .inline-added-margin-view-zone { background-color: rgba(155, 185, 85, 0.2); }
+.monaco-editor .line-delete, .monaco-editor .char-delete { background-color: rgba(255, 0, 0, 0.2); }
+.monaco-diff-editor .line-delete, .monaco-diff-editor .char-delete { background-color: rgba(255, 0, 0, 0.2); }
+.monaco-editor .inline-deleted-margin-view-zone { background-color: rgba(255, 0, 0, 0.2); }
+.monaco-diff-editor.side-by-side .editor.modified { box-shadow: -6px 0 5px -5px #dddddd; }
+.monaco-editor .bracket-match { background-color: rgba(0, 100, 0, 0.1); }
+.monaco-editor .bracket-match { border: 1px solid #b9b9b9; }
+.monaco-editor .codelens-decoration { color: #999999; }
+.monaco-editor .codelens-decoration > a:hover { color: #0000ff !important; }
+.monaco-editor .findOptionsWidget { background-color: #efeff2; }
+.monaco-editor .findOptionsWidget { box-shadow: 0 2px 8px #a8a8a8; }
+.monaco-editor .findMatch { background-color: rgba(234, 92, 0, 0.33); }
+.monaco-editor .currentFindMatch { background-color: #a8ac94; }
+.monaco-editor .findScope { background-color: rgba(180, 180, 180, 0.3); }
+.monaco-editor .find-widget { background-color: #efeff2; }
+.monaco-editor .find-widget { box-shadow: 0 2px 8px #a8a8a8; }
+.monaco-editor .find-widget.no-results .matchesCount { color: #a1260d; }
+.monaco-editor .find-widget .monaco-sash { background-color: #c8c8c8; width: 3px !important; margin-left: -4px;}
+.monaco-editor .hoverHighlight { background-color: rgba(173, 214, 255, 0.15); }
+.monaco-editor .monaco-editor-hover { background-color: #efeff2; }
+.monaco-editor .monaco-editor-hover { border: 1px solid #c8c8c8; }
+.monaco-editor .monaco-editor-hover .hover-row:not(:first-child):not(:empty) { border-top: 1px solid rgba(200, 200, 200, 0.5); }
+.monaco-editor .monaco-editor-hover a { color: #4080d0; }
+.monaco-editor .monaco-editor-hover code { background-color: rgba(220, 220, 220, 0.4); }
+.monaco-editor .detected-link-active { color: #0000ff !important; }
+.monaco-editor .monaco-editor-overlaymessage .anchor { border-top-color: #007acc; }
+.monaco-editor .monaco-editor-overlaymessage .message { border: 1px solid #007acc; }
+.monaco-editor .monaco-editor-overlaymessage .message { background-color: #d6ecf2; }
+.monaco-editor .parameter-hints-widget { border: 1px solid #c8c8c8; }
+.monaco-editor .parameter-hints-widget.multiple .body { border-left: 1px solid rgba(200, 200, 200, 0.5); }
+.monaco-editor .parameter-hints-widget .signature.has-docs { border-bottom: 1px solid rgba(200, 200, 200, 0.5); }
+.monaco-editor .parameter-hints-widget { background-color: #efeff2; }
+.monaco-editor .parameter-hints-widget a { color: #4080d0; }
+.monaco-editor .parameter-hints-widget code { background-color: rgba(220, 220, 220, 0.4); }
+.monaco-editor .suggest-widget .monaco-list .monaco-list-row .monaco-highlighted-label .highlight { color: #007acc; }
+.monaco-editor .suggest-widget { color: #000000; }
+.monaco-editor .suggest-widget a { color: #4080d0; }
+.monaco-editor .suggest-widget code { background-color: rgba(220, 220, 220, 0.4); }
+.monaco-editor .focused .selectionHighlight { background-color: rgba(173, 214, 255, 0.3); }
+.monaco-editor .selectionHighlight { background-color: rgba(173, 214, 255, 0.15); }
+.monaco-editor .wordHighlight { background-color: rgba(87, 87, 87, 0.25); }
+.monaco-editor .wordHighlightStrong { background-color: rgba(14, 99, 156, 0.25); }
+.monaco-editor .accessibilityHelpWidget { background-color: #efeff2; }
+.monaco-editor .accessibilityHelpWidget { box-shadow: 0 2px 8px #a8a8a8; }
+.monaco-editor .tokens-inspect-widget { border: 1px solid #c8c8c8; }
+.monaco-editor .tokens-inspect-widget .tokens-inspect-separator { background-color: #c8c8c8; }
+.monaco-editor .tokens-inspect-widget { background-color: #efeff2; }
+.monaco-editor .reference-zone-widget .ref-tree .referenceMatch { background-color: rgba(234, 92, 0, 0.3); }
+.monaco-editor .reference-zone-widget .preview .reference-decoration { background-color: rgba(245, 216, 2, 0.87); }
+.monaco-editor .reference-zone-widget .ref-tree { background-color: #f3f3f3; }
+.monaco-editor .reference-zone-widget .ref-tree { color: #646465; }
+.monaco-editor .reference-zone-widget .ref-tree .reference-file { color: #1e1e1e; }
+.monaco-editor .reference-zone-widget .ref-tree .monaco-tree.focused .monaco-tree-rows > .monaco-tree-row.selected:not(.highlighted) { background-color: rgba(51, 153, 255, 0.2); }
+.monaco-editor .reference-zone-widget .ref-tree .monaco-tree.focused .monaco-tree-rows > .monaco-tree-row.selected:not(.highlighted) { color: #6c6c6c !important; }
+.monaco-editor .reference-zone-widget .preview .monaco-editor .monaco-editor-background,.monaco-editor .reference-zone-widget .preview .monaco-editor .inputarea.ime-input {	background-color: #f2f8fc;}
+.monaco-editor .reference-zone-widget .preview .monaco-editor .margin {	background-color: #f2f8fc;}
+.monaco-editor .goto-definition-link { color: #0000ff !important; }
+
+.mtk1 { color: #000000; }
+.mtk2 { color: #f5f6f6; }
+.mtk3 { color: #808080; }
+.mtk4 { color: #ff0000; }
+.mtk5 { color: #0451a5; }
+.mtk6 { color: #0000ff; }
+.mtk7 { color: #09885a; }
+.mtk8 { color: #008000; }
+.mtk9 { color: #dd0000; }
+.mtk10 { color: #383838; }
+.mtk11 { color: #cd3131; }
+.mtk12 { color: #863b00; }
+.mtk13 { color: #af00db; }
+.mtk14 { color: #800000; }
+.mtk15 { color: #e00000; }
+.mtk16 { color: #3030c0; }
+.mtk17 { color: #666666; }
+.mtk18 { color: #778899; }
+.mtk19 { color: #ff00ff; }
+.mtk20 { color: #a31515; }
+.mtk21 { color: #4f76ac; }
+.mtk22 { color: #008080; }
+.mtk23 { color: #001188; }
+.mtk24 { color: #4864aa; }
+.mtki { font-style: italic; }
+.mtkb { font-weight: bold; }
+.mtku { text-decoration: underline; }</style><style type="text/css" media="screen"></style></head>
+
+<body class="cBallerina-io" role="document">
+
+      <div class="row cBallerina-io-top-row">
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
+      <div class="cTopLine"></div>
+   </div>
+</div>
+<div class="row cBallerina-io-Nav">
+   <div class="container">
+      <!--               <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6">
+         <p>Cloud Native Programming Language<br/>
+         & Integration Framework</p>
+         </div>-->
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+         <nav class="navbar">
+            <div>
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">☰</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+                  <p class="navbar-brand" href="#">Cloud Native Programming Language<br>
+                     &amp; Integration Framework
+                     <a class="cMobileLogo" href="https://stage.ballerina.io/"><img src="Philosophy%20-%20Ballerina.io_files/ballerina-logo.svg" alt="Ballerina"></a>
+                  </p>
+               </div>
+               <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav cTopNav">
+                     <li class="active toctree-l1">
+                        <a href="https://stage.ballerina.io/learn">Learn</a>
+                     </li>
+                     <li class="toctree-l1"><a href="https://stage.ballerina.io/philosophy">Philosophy</a></li>
+                     <li class="toctree-l1"><a href="https://stage.ballerina.io/open-source">Open Source</a></li>
+                     <li class="toctree-l1"><a href="https://stage.ballerina.io/help">Help </a></li>
+                     <li class="toctree-l1"><a href="#"> Blog </a></li>
+                  </ul>
+               </div>
+               <!--/.nav-collapse -->
+            </div>
+         </nav>
+      </div>
+   </div>
+</div>
+<div class="row cBallerina-io-Logo-row">
+   <div class="container">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
+         <a class="cLogo" href="https://stage.ballerina.io/"><img src="Philosophy%20-%20Ballerina.io_files/ballerina-logo.svg" alt="Ballerina"></a>
+      </div>
+   </div>
+</div>
+    
+     <div class="row cBallerina-io-Gray-row cPhilosophy">
+   <div class="container">
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Left-col ">
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-main-content-wraper">
+            <p class="cMainParagraph">A programming language and <br>runtime co-designed 
+                to be agile and integration simple.
+            </p>
+            <p class="cGreenTitle "><a href="#why-did-we-build-ballerina">WHY WE BUILT BALLERINA &gt;</a></p>
+            <hr class="cHr">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol">
+
+            <p>The future apps we will write increasingly depend upon 
+programmable endpoints. Integration is the discipline of resilient 
+communication between endpoints. Integration is a domain of hard 
+problems. 
+            </p>
+<p>Ballerina is a simple programming language whose syntax and runtime 
+addresses the hard problems of integration. As a Turing complete 
+language, Ballerina enables agility with edit, build, run cycles. 
+Ballerina code is compiled into services that include transactions, 
+embedded brokers and gateway runtimes.
+
+</p> 
+
+
+
+
+
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Right-col cPhilosophyWidget">
+         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="Philosophy%20-%20Ballerina.io_files/philosophy-01-a.png">
+         <!--         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-diagrams-for-site.png"/>-->
+      </div>
+   </div>
+</div>
+
+<div class="row cBallerina-io-White-row" id="why-did-we-build-ballerina">
+   <div class="container">
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite">
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-content-wraper">
+            <h2 class="cMainH2Title">Why did we build Ballerina? </h2>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
+               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing 
+elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna 
+aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+ tation ullamcorper suscipit.Lorem ipsum dolor sit amet, consectetuer 
+adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet 
+dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis 
+nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex 
+ea commodo consequat. Duis </p>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget">
+         <div class="cPhil-green">
+            <span>XML Integration ! = Agile</span>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-8 cBallerina-io-Home-Right-col cPhilosophy-Logics">
+         <div class="cPhil-title-boxes">
+            <div class="cPhil-title-boxes-container">
+               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                  <h3>LOGIC <br>LANGUAGES</h3>
+               </div>
+               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+ elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna 
+aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+ tation ullamcorper suscipit.Lorem ipsum dolor sit amet,</p>
+               </div>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes">
+            <div class="cPhil-title-boxes-container">
+               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                  <h3>ESBs</h3>
+               </div>
+               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+ elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna 
+aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+ tation ullamcorper suscipit.Lorem ipsum dolor sit amet,</p>
+               </div>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes">
+            <div class="cPhil-title-boxes-container">
+               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                  <h3>MICROSERVICES <br>FRAMEWORKS</h3>
+               </div>
+               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+ elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna 
+aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+ tation ullamcorper suscipit.Lorem ipsum dolor sit amet,</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
+   <div class="container">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+         <h2 class="cMainH2Title">How Ballerina works</h2>
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol ">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
+               euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim 
+               veniam, quis nostrud exerci tation ullamcorper suscipit.
+            </p>
+            <p class="cGreenTitle"><a href="">LEARN HOW IT WORKS &gt;</a></p>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cPhilosophyWidget">
+         <div class="cPhilosophyWidgetContainer">
+            <ul class="nav nav-pills cPhilosophyWidgetControls">
+               <li class="cRUNTIME active">
+                  <a href="#1a" data-toggle="tab">RUNTIME</a>
+               </li>
+               <li class="cDEPLOYMENT">
+                  <a href="#2a" data-toggle="tab">DEPLOYMENT</a>
+               </li>
+               <li class="cLIFECYCLE">
+                  <a href="#3a" data-toggle="tab">LIFECYCLE</a>
+               </li>
+            </ul>
+            <div class="tab-content clearfix cPhilosophyWidgetInnerBox ">
+               <div class="tab-pane active" id="1a">
+                  <img src="Philosophy%20-%20Ballerina.io_files/philosophy-diagrams-for-site-02.svg">
+               </div>
+               <div class="tab-pane" id="2a">
+                  <img src="Philosophy%20-%20Ballerina.io_files/philosophy-diagrams-for-site-03.svg">
+               </div>
+               <div class="tab-pane" id="3a">
+                  <img src="Philosophy%20-%20Ballerina.io_files/philosophy-diagrams-for-site-04.svg">
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cRuntimeContent cShow">
+         <p class="cGreenTitle" style="margin-left: 33px;"><a>RUNTIME ARCHITECTURE </a></p>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+               <h3>BALLERINA API GATEWAY</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               </p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+               <h3>BALLERINA STREAM</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet 
+               </p>
+               <h3>BALLERINA MESSAGE BROKER</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree
+               </p>
+               <h3>BALLERINA SERVICE</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree
+               </p>
+               <h3>BALLERINA TRANSACTION COORDINATOR</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree
+               </p>
+               <h3>LEGACY JAVA CODE</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit </p>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cDeploymentContent">
+         <p class="cGreenTitle" style="margin-left: 33px;"><a>DEPLOYMENT ARCHITECTURE</a></p>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+               <h3>CLIENTS</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               </p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+               <h3>SERVICE MESH</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               </p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+               <h3>ORCHESTRATOR</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               </p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+               <h3>BALLERINA SERVER</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLifecycleContent">
+         <p class="cGreenTitle" style="margin-left: 33px;"><a>LIFECYCLE ARCHITECTURE</a></p>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+               <h3>BALLERINA TOOLS</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               </p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+               <h3>BALLERINA BUILD</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               </p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+               <h3>CI/CD DEPLOYMENT</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               </p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+               <h3>REGISTRIES</h3>
+               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
+                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="row cBallerina-io-White-row">
+   <div class="container">
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h2 class="cMainH2Title">Cloud Native Programming Language? </h2>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
+               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
+                  euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim 
+                  veniam, quis nostrud exerci tation ullamcorper suscipit. 
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cCloudNative">
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cCloudNativeControls">
+            <ul>
+               <li id="CN-1">INTERACTION-CENTRIC SYNTAX </li>
+               <li id="CN-2">TRANSACTION SYNTAX </li>
+               <li id="CN-3">ANNOTATIONS</li>
+            </ul>
+         </div>
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cCloudNativeControls">
+            <ul>
+               <li id="CN-4">STRONGLY TYPED AND COMPILED</li>
+               <li id="CN-5">NETWORK-BOUND CONSTRUCTS</li>
+               <li id="CN-6">NETWORK / UNTRUSTED DATA VERIFICATION</li>
+            </ul>
+         </div>
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="cCloudNativeCode">
+               <div id="ballerina_grammar" data-keybinding-context="1" data-mode-id="ballerina"><div class="monaco-editor ff mac  vs" style="width: 465px; height: 400px;" data-uri="inmemory://model/1"><div data-mprt="3" class="overflow-guard" style="width: 465px; height: 400px;"><div class="margin" style="position: absolute; will-change: transform; top: 0px; height: 400px; width: 46px;" role="presentation" aria-hidden="true"><div class="glyph-margin" style="left: 0px; width: 0px; height: 400px;"></div><div class="margin-view-zones" style="position: absolute;" role="presentation" aria-hidden="true"></div><div class="margin-view-overlays" style="position: absolute; width: 46px; font-family: Monaco; font-weight: normal; font-size: 11px; line-height: 14px; letter-spacing: 0px; height: 400px;" role="presentation" aria-hidden="true"><div style="position:absolute;top:0px;width:100%;height:14px;"><div class="current-line" style="width:46px; height:14px;"></div><div class="cldr folding" style="left:20px;width:26px;"></div><div class="line-numbers" style="left:0px;width:20px;">1</div></div><div style="position:absolute;top:14px;width:100%;height:14px;"><div class="line-numbers" style="left:0px;width:20px;">2</div></div><div style="position:absolute;top:28px;width:100%;height:14px;"><div class="line-numbers" style="left:0px;width:20px;">3</div></div></div></div><div class="monaco-scrollable-element editor-scrollable vs mac" role="presentation" style="position: absolute; overflow: hidden; left: 46px; width: 419px; height: 400px;" data-mprt="5"><div class="lines-content monaco-editor-background" style="position: absolute; overflow: hidden; width: 1000000px; height: 1000000px; touch-action: none; will-change: transform; top: 0px; left: 0px;"><div class="view-overlays" style="position: absolute; height: 0px; width: 419px;" role="presentation" aria-hidden="true"><div style="position:absolute;top:0px;width:100%;height:14px;"></div><div style="position:absolute;top:14px;width:100%;height:14px;"></div><div style="position:absolute;top:28px;width:100%;height:14px;"></div></div><div role="presentation" aria-hidden="true" class="view-rulers"></div><div class="view-zones" style="position: absolute;" role="presentation" aria-hidden="true"></div><div class="view-lines" style="position: absolute; font-family: Monaco; font-weight: normal; font-size: 11px; line-height: 14px; letter-spacing: 0px; width: 419px; height: 400px;" role="presentation" aria-hidden="true" data-mprt="7"><div style="top:0px;height:14px;" class="view-line"><span><span class="mtk6">function</span><span class="mtk11">&nbsp;</span><span class="mtk1">hello()</span><span class="mtk11">&nbsp;</span><span class="mtk1">{</span></span></div><div style="top:14px;height:14px;" class="view-line"><span><span class="mtk11">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk1">alert(</span><span class="mtk11">'</span><span class="mtk1">Hello</span><span class="mtk11">&nbsp;</span><span class="mtk1">world</span><span class="mtk11">&nbsp;</span><span class="mtk7">2</span><span class="mtk11">&nbsp;</span><span class="mtk1">!</span><span class="mtk11">'</span><span class="mtk1">);</span></span></div><div style="top:28px;height:14px;" class="view-line"><span><span class="mtk1">}</span></span></div></div><div data-mprt="1" class="contentWidgets" style="position: absolute; top: 0px;"><div class="lightbulb-glyph" title="Show Fixes (⌘.)" style="position: absolute; visibility: hidden; max-width: 419px;" widgetid="LightBulbWidget"></div></div><div role="presentation" aria-hidden="true" class="cursors-layer cursor-line-style cursor-solid"><div class="cursor" style="height: 14px; top: 0px; left: 0px; font-family: Monaco; font-weight: normal; font-size: 11px; line-height: 14px; letter-spacing: 0px; display: block; visibility: hidden; width: 1.8px;"></div></div></div><div role="presentation" aria-hidden="true" class="invisible scrollbar horizontal" style="position: absolute; width: 405px; height: 10px; left: 0px; bottom: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px; will-change: transform; width: 405px;"></div></div><canvas class="decorationsOverviewRuler" style="position: absolute; will-change: transform; top: 0px; right: 0px; width: 14px; height: 400px;" aria-hidden="true" width="31" height="888"></canvas><div role="presentation" aria-hidden="true" class="invisible scrollbar vertical" style="position: absolute; width: 14px; height: 400px; right: 0px; top: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 14px; will-change: transform; height: 400px;"></div></div></div><div role="presentation" aria-hidden="true" style="width: 465px;"></div><textarea data-mprt="6" class="inputarea" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" aria-label="Editor content;Press Alt+F1 for Accessibility Options." role="textbox" aria-multiline="true" aria-haspopup="false" aria-autocomplete="both" style="font-size: 1px; line-height: 14px; top: 0px; left: 46px; width: 0px; height: 0px;" wrap="off">function hello() {
+	alert('Hello world 2 !');
+}</textarea><div style="position: absolute; top: 0px; left: 0px; width: 0px; height: 0px;"></div><div data-mprt="4" class="overlayWidgets" style="width: 465px;"><div class="accessibilityHelpWidget" style="display: none; position: absolute;" role="dialog" aria-hidden="true" widgetid="editor.contrib.accessibilityHelpWidget"><div role="document"></div></div><div class="monaco-editor-hover hidden" aria-hidden="true" role="presentation" style="position: absolute;" widgetid="editor.contrib.modesGlyphHoverWidget"></div></div><div data-mprt="8" class="minimap slider-mouseover" style="position: absolute; left: 0px; width: 0px; height: 400px;" role="presentation" aria-hidden="true"><div class="minimap-shadow-hidden" style="height: 400px;"></div><canvas style="position: absolute; left: 0px; width: 0.45px; height: 399.6px;" width="1" height="888"></canvas><div style="position: absolute; will-change: transform; width: 0px;" class="minimap-slider"><div style="position: absolute; width: 0px; height: 0px;" class="minimap-slider-horizontal"></div></div></div></div><div data-mprt="2" class="overflowingContentWidgets"><div style="height: 14px; box-shadow: rgb(168, 168, 168) 0px 2px 8px; position: absolute; visibility: hidden; max-width: 1511px;" class="monaco-editor rename-box" widgetid="__renameInputWidget"><input class="rename-input" aria-label="Rename input. Type new name and press Enter to commit." style="font-family: Monaco; font-weight: normal; font-size: 11px; background-color: rgb(255, 255, 255); color: rgb(108, 108, 108); border-width: 0px; border-style: none;" type="text"></div><div class="monaco-editor-hover hidden" tabindex="0" style="position: absolute; visibility: hidden; max-width: 1511px;" widgetid="editor.contrib.modesContentHoverWidget"><div class="monaco-scrollable-element  mac" role="presentation" style="position: relative; overflow: hidden;"><div class="monaco-editor-hover-content" style="overflow: hidden; font-size: 11px; line-height: 14px; max-height: 250px;"></div><div role="presentation" aria-hidden="true" class="invisible scrollbar horizontal" style="position: absolute;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px; will-change: transform;"></div></div><div role="presentation" aria-hidden="true" class="invisible scrollbar vertical" style="position: absolute;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 10px; will-change: transform;"></div></div><div class="shadow"></div><div class="shadow"></div><div class="shadow top-left-corner"></div></div></div></div><div class="context-view builder-hidden" aria-hidden="true"></div></div></div>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cCloudNativeContainer">
+         <div class="cPhil-title-boxes cCloudNative">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+               <p>APIs, events and streams as first class syntax</p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cCloudNative">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+               <p>Network-bound constructs including circuit-breakers and load balancing</p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cCloudNative">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+               <p>Type inference and type safety</p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cCloudNative">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+               <p>JSON and XML as native types</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
+   <div class="container">
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h2 class="cMainH2Title">Integration Framework </h2>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
+               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing 
+elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna 
+aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+ tation ullamcorper suscipit. </p>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cCloudNative">
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cCloudNativeControls">
+            <ul>
+               <li id="IN-1">INTEGRATION FRAMEWORK </li>
+               <li id="IN-2">TYPE SAFE ENDPOINT INTEGRATION</li>
+               <li id="IN-3">CONNECTOR PACKAGES</li>
+               <li id="IN-4">DISTRIBUTED TRANSACTIONS</li>
+               <li id="IN-5">SIDECAR TRANSACTIONS</li>
+            </ul>
+         </div>
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cCloudNativeControls">
+            <ul>
+               <li id="IN-6">CIRCUIT BREAKER</li>
+               <li id="IN-7">LOAD BALANCING</li>
+               <li id="IN-8">DATA TRANSFORMATION</li>
+               <li id="IN-9">SECURE BY DESIGN</li>
+            </ul>
+         </div>
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="cIntegrationCode">
+               <div id="ballerina_grammar_2" data-keybinding-context="1" data-mode-id="ballerina"><div class="monaco-editor ff mac  vs" style="width: 465px; height: 400px;" data-uri="inmemory://model/2"><div data-mprt="3" class="overflow-guard" style="width: 465px; height: 400px;"><div class="margin" style="position: absolute; will-change: transform; top: 0px; height: 400px; width: 46px;" role="presentation" aria-hidden="true"><div class="glyph-margin" style="left: 0px; width: 0px; height: 400px;"></div><div class="margin-view-zones" style="position: absolute;" role="presentation" aria-hidden="true"></div><div class="margin-view-overlays" style="position: absolute; width: 46px; font-family: Monaco; font-weight: normal; font-size: 11px; line-height: 14px; letter-spacing: 0px; height: 400px;" role="presentation" aria-hidden="true"><div style="position:absolute;top:0px;width:100%;height:14px;"><div class="current-line" style="width:46px; height:14px;"></div><div class="cldr folding" style="left:20px;width:26px;"></div><div class="line-numbers" style="left:0px;width:20px;">1</div></div><div style="position:absolute;top:14px;width:100%;height:14px;"><div class="line-numbers" style="left:0px;width:20px;">2</div></div><div style="position:absolute;top:28px;width:100%;height:14px;"><div class="line-numbers" style="left:0px;width:20px;">3</div></div></div></div><div class="monaco-scrollable-element editor-scrollable vs mac" role="presentation" style="position: absolute; overflow: hidden; left: 46px; width: 419px; height: 400px;" data-mprt="5"><div class="lines-content monaco-editor-background" style="position: absolute; overflow: hidden; width: 1000000px; height: 1000000px; touch-action: none; will-change: transform; top: 0px; left: 0px;"><div class="view-overlays" style="position: absolute; height: 0px; width: 419px;" role="presentation" aria-hidden="true"><div style="position:absolute;top:0px;width:100%;height:14px;"></div><div style="position:absolute;top:14px;width:100%;height:14px;"></div><div style="position:absolute;top:28px;width:100%;height:14px;"></div></div><div role="presentation" aria-hidden="true" class="view-rulers"></div><div class="view-zones" style="position: absolute;" role="presentation" aria-hidden="true"></div><div class="view-lines" style="position: absolute; font-family: Monaco; font-weight: normal; font-size: 11px; line-height: 14px; letter-spacing: 0px; width: 419px; height: 400px;" role="presentation" aria-hidden="true" data-mprt="7"><div style="top:0px;height:14px;" class="view-line"><span><span class="mtk6">function</span><span class="mtk11">&nbsp;</span><span class="mtk1">hello()</span><span class="mtk11">&nbsp;</span><span class="mtk1">{</span></span></div><div style="top:14px;height:14px;" class="view-line"><span><span class="mtk11">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="mtk1">alert(</span><span class="mtk11">'</span><span class="mtk1">Hello</span><span class="mtk11">&nbsp;</span><span class="mtk1">world</span><span class="mtk11">&nbsp;</span><span class="mtk7">2</span><span class="mtk11">&nbsp;</span><span class="mtk1">!</span><span class="mtk11">'</span><span class="mtk1">);</span></span></div><div style="top:28px;height:14px;" class="view-line"><span><span class="mtk1">}</span></span></div></div><div data-mprt="1" class="contentWidgets" style="position: absolute; top: 0px;"><div class="lightbulb-glyph" title="Show Fixes (⌘.)" style="position: absolute; visibility: hidden; max-width: 419px;" widgetid="LightBulbWidget"></div></div><div role="presentation" aria-hidden="true" class="cursors-layer cursor-line-style cursor-solid"><div class="cursor" style="height: 14px; top: 0px; left: 0px; font-family: Monaco; font-weight: normal; font-size: 11px; line-height: 14px; letter-spacing: 0px; display: block; visibility: hidden; width: 1.8px;"></div></div></div><div role="presentation" aria-hidden="true" class="invisible scrollbar horizontal" style="position: absolute; width: 405px; height: 10px; left: 0px; bottom: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px; will-change: transform; width: 405px;"></div></div><canvas class="decorationsOverviewRuler" style="position: absolute; will-change: transform; top: 0px; right: 0px; width: 14px; height: 400px;" aria-hidden="true" width="31" height="888"></canvas><div role="presentation" aria-hidden="true" class="invisible scrollbar vertical" style="position: absolute; width: 14px; height: 400px; right: 0px; top: 0px;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 14px; will-change: transform; height: 400px;"></div></div></div><div role="presentation" aria-hidden="true" style="width: 465px;"></div><textarea data-mprt="6" class="inputarea" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" aria-label="Editor content;Press Alt+F1 for Accessibility Options." role="textbox" aria-multiline="true" aria-haspopup="false" aria-autocomplete="both" style="font-size: 1px; line-height: 14px; top: 0px; left: 46px; width: 0px; height: 0px;" wrap="off">function hello() {
+	alert('Hello world 2 !');
+}</textarea><div style="position: absolute; top: 0px; left: 0px; width: 0px; height: 0px;"></div><div data-mprt="4" class="overlayWidgets" style="width: 465px;"><div class="accessibilityHelpWidget" style="display: none; position: absolute;" role="dialog" aria-hidden="true" widgetid="editor.contrib.accessibilityHelpWidget"><div role="document"></div></div><div class="monaco-editor-hover hidden" aria-hidden="true" role="presentation" style="position: absolute;" widgetid="editor.contrib.modesGlyphHoverWidget"></div></div><div data-mprt="8" class="minimap slider-mouseover" style="position: absolute; left: 0px; width: 0px; height: 400px;" role="presentation" aria-hidden="true"><div class="minimap-shadow-hidden" style="height: 400px;"></div><canvas style="position: absolute; left: 0px; width: 0.45px; height: 399.6px;" width="1" height="888"></canvas><div style="position: absolute; will-change: transform; width: 0px;" class="minimap-slider"><div style="position: absolute; width: 0px; height: 0px;" class="minimap-slider-horizontal"></div></div></div></div><div data-mprt="2" class="overflowingContentWidgets"><div style="height: 14px; box-shadow: rgb(168, 168, 168) 0px 2px 8px; position: absolute; visibility: hidden; max-width: 1511px;" class="monaco-editor rename-box" widgetid="__renameInputWidget"><input class="rename-input" aria-label="Rename input. Type new name and press Enter to commit." style="font-family: Monaco; font-weight: normal; font-size: 11px; background-color: rgb(255, 255, 255); color: rgb(108, 108, 108); border-width: 0px; border-style: none;" type="text"></div><div class="monaco-editor-hover hidden" tabindex="0" style="position: absolute; visibility: hidden; max-width: 1511px;" widgetid="editor.contrib.modesContentHoverWidget"><div class="monaco-scrollable-element  mac" role="presentation" style="position: relative; overflow: hidden;"><div class="monaco-editor-hover-content" style="overflow: hidden; font-size: 11px; line-height: 14px; max-height: 250px;"></div><div role="presentation" aria-hidden="true" class="invisible scrollbar horizontal" style="position: absolute;"><div class="slider" style="position: absolute; top: 0px; left: 0px; height: 10px; will-change: transform;"></div></div><div role="presentation" aria-hidden="true" class="invisible scrollbar vertical" style="position: absolute;"><div class="slider" style="position: absolute; top: 0px; left: 0px; width: 10px; will-change: transform;"></div></div><div class="shadow"></div><div class="shadow"></div><div class="shadow top-left-corner"></div></div></div></div><div class="context-view builder-hidden" aria-hidden="true"></div></div></div>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cIntegrationFramework">
+         <div class="cPhil-title-boxes cCloudNative">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+               <p>APIs, events and streams as first class syntax</p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cCloudNative">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+               <p>Network-bound constructs including circuit-breakers and load balancing</p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cCloudNative">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+               <p>Type inference and type safety</p>
+            </div>
+         </div>
+         <div class="cPhil-title-boxes cCloudNative">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+               <p>JSON and XML as native types</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="row cBallerina-io-White-row">
+   <div class="container">
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h2 class="cMainH2Title">All of our language features </h2>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
+               <p>Ballerina is a general purpose, concurrent and 
+strongly typed programming language with both textual and graphical 
+syntaxes, optimized for integration. Ballerina by Example is a hands-on 
+introduction to Ballerina using annotated example programs. </p>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative">
+            <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12">
+         <div class="cLanguageFeaturesContainer">
+            <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
+               <ul>
+                  <li class="cTableTitle">Language Constructs</li>
+                  <li>Hello World</li>
+                  <li>Hello World Parallel </li>
+                  <li>Hello World Service</li>
+                  <li>Value Type</li>
+                  <li>Constants</li>
+                  <li>Global Variables</li>
+                  <li>While</li>
+                  <li>IF Else</li>
+                  <li>Ternary</li>
+                  <li>Functions</li>
+                  <li>Multiple Return Values Named Returns</li>
+                  <li>Errors</li>
+                  <li>Var</li>
+                  <li class="cTableTitle">Language Constructs</li>
+                  <li>Type Casting Type Conversion Typeof </li>
+                  <li>Structs </li>
+                  <li>Maps </li>
+                  <li>Arrays </li>
+                  <li>Array of Arrays Vector </li>
+                  <li>Table </li>
+                  <li>&nbsp;</li>
+                  <li>&nbsp;</li>
+                  <li>&nbsp;</li>
+                  <li>&nbsp;</li>
+               </ul>
+            </div>
+            <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
+               <ul>
+                  <li class="cTableTitle"> Language Constructs</li>
+                  <li>JSON Literals</li>
+                  <li>JSON Arrays JSON/Struct/Map Conversion </li>
+                  <li>Constrained JSON</li>
+                  <li>XML</li>
+                  <li>XML Namespaces</li>
+                  <li>XML Literal</li>
+                  <li>XML Attributes</li>
+                  <li class="cTableTitle">Language Constructs</li>
+                  <li>JSON To XML Conversion </li>
+                  <li>XML To JSON Conversion </li>
+                  <li>Foreach</li>
+                  <li>Iterable Operations </li>
+                  <li>Worker</li>
+                  <li>Worker Interaction </li>
+                  <li>Fork/Join</li>
+                  <li>Fork/Join Condition Some </li>
+                  <li>Fork/Join Variable Access</li>
+                  <li class="cTableTitle">Language Constructs</li>
+                  <li>Table with SQL Connector</li>
+                  <li>Transactions</li>
+                  <li>Distributed Transactions</li>
+                  <li>Transformers</li>
+                  <li>Transform JSON </li>
+                  <li>Strings</li>
+               </ul>
+            </div>
+            <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
+               <ul>
+                  <li class="cTableTitle">Language Constructs</li>
+                  <li>Blob Type</li>
+                  <li>Date Time</li>
+                  <li>File API</li>
+                  <li>Throw</li>
+                  <li>Try/Catch/Finally</li>
+                  <li>Base Path and Path </li>
+                  <li>Query/Path/Matrix Param</li>
+                  <li class="cTableTitle">Language Constructs</li>
+                  <li>Header Based Routing </li>
+                  <li>Produces/Consumes </li>
+                  <li>HTTP Sessions</li>
+                  <li>HTTP Client Connector </li>
+                  <li>HTTP Trace Logs </li>
+                  <li>HTTP 100 Continue</li>
+                  <li class="cTableTitle">Language Constructs</li>
+                  <li>HTTPS Server/Client Connectors </li>
+                  <li>HTTP Disable Chunking</li>
+                  <li>HTTP to WebSocket Upgrade </li>
+                  <li>HTTP CORS</li>
+                  <li>HTTP Circuit Breaker</li>
+                  <li>HTTP Data Binding</li>
+                  <li>HTTP Failover</li>
+                  <li>HTTP Load Balancer</li>
+                  <li>HTTP Forwarded Extension Log API</li>
+               </ul>
+            </div>
+            <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
+               <ul>
+                  <li class="cTableTitle">Language Constructs</li>
+                  <li>Lambda</li>
+                  <li>WebSocket Basic Sample</li>
+                  <li>WebSocket Chat Application </li>
+                  <li>WebSocket Proxy Server</li>
+                  <li>Passthrough</li>
+                  <li>Mutual SSL</li>
+                  <li>Caching</li>
+                  <li>Byte I/O</li>
+                  <li>Character I/O</li>
+                  <li>Record I/O</li>
+                  <li>Math Functions</li>
+                  <li>Task Timer</li>
+                  <li>Task Appointment</li>
+                  <li>Config API</li>
+                  <li>String Template</li>
+                  <li>HTTP Redirects</li>
+                  <li>Inbound Request with Multiparts </li>
+                  <li>Outbound Request with Multiparts </li>
+                  <li>Encode Nested BodyParts in Multipart </li>
+                  <li>Decode Nested BodyParts in Multipart</li>
+                  <li>Inbound Response with Multiparts </li>
+                  <li>Outbound Response with Multiparts</li>
+                  <li>&nbsp;</li>
+                  <li>&nbsp;</li>
+               </ul>
+            </div>
+         </div>
+            </div>
+         <div class="clearfix"></div>
+      </div>
+   </div>
+</div>
+
+<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
+   <div class="container">
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h2 class="cMainH2Title">Open Source</h2>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
+               <p>Apache-licensed software and community-driven projects. </p>
+            </div>
+         </div>
+      </div>
+       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative">
+           <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12">
+         <div class="cOpenSourceContainer">
+
+             <table class="OpenSourceTable">
+
+                 <tbody><tr>
+                     <td class="cType">Ballerina</td>
+                     <td>A programming language and service runtime for orchestration and composition of endpoints</td>
+                     <td class="cGitLink"><a href="">GitHub</a></td>
+                 </tr>
+                  <tr>
+                     <td>Ballerina.io</td>
+                     <td>The home of the Ballerina Platform</td>
+                     <td><a href="">GitHub</a></td>
+                 </tr>
+                  <tr>
+                     <td>Ballerina for Java</td>
+                     <td>A microservice framework to expose legacy Java as Ballerina-ready services</td>
+                     <td><a href="">GitHub</a></td>
+                 </tr>
+
+
+
+                 <tr>
+                     <td>Ballerina Sidecar</td>
+                     <td>A container that attaches transactions and resilience to running services</td>
+                     <td><a href="">GitHub</a></td>
+                 </tr>
+                 <tr>
+                     <td>Ballerina API Gateway</td>
+                     <td>enforce security and runtime policies</td>
+                     <td><a href="">GitHub</a></td>
+                 </tr>
+                 <tr>
+                     <td>Ballerina Message Broker</td>
+                     <td>Scalable broker for persistent and asynchronous messaging</td>
+                     <td><a href="">GitHub</a></td>
+                 </tr>
+                 <tr>
+                     <td>Ballerina Transaction Coordinator</td>
+                     <td>Manage distributed transactions for microservices</td>
+                     <td><a href="">GitHub</a></td>
+                 </tr>
+
+
+
+
+             </tbody></table>
+
+         </div>
+         </div>
+         <div class="clearfix"></div>
+      </div>
+   </div>
+</div>
+     
+       <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
+<div class="container">
+                
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-left-col cBallerinaFooterLinks">
+                    <ul>
+                        <li><a href="https://github.com/ballerina-lang/ballerina/blob/master/LICENSE">LICENSING OF CODE</a></li>
+                        <li><a href="https://stage.ballerina.io/license-of-site">LICENSING OF SITE</a></li>
+                        <li><a href="https://stage.ballerina.io/terms-of-service">TERMS OF SERVICE</a></li>
+                        <li><a href="https://stage.ballerina.io/terms-of-service">PRIVACY POLICY</a></li>
+                        
+                        
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-middle-col cBallerinaFooterSignUp">
+                    <p><span>CONNECT</span><br>
+                        Newsletter Signup: </p>
+                    <div class="cFormContainer">
+                        <form>
+                           <input maxlength="90" id="emailUser" name="email" placeholder="Email" title="Email" type="text">
+                        </form>
+                    </div>
+                    <div class="cSocialmedia">
+                        <ul>
+                            <li>
+                                <a href=""><img src="Philosophy%20-%20Ballerina.io_files/github.svg"></a>
+                            </li>
+                            <li><a href=""><img src="Philosophy%20-%20Ballerina.io_files/stackoverflow.svg"></a></li>
+                            <li><a href=""><img src="Philosophy%20-%20Ballerina.io_files/twitter.svg"></a></li>
+                            <li><a href=""><img src="Philosophy%20-%20Ballerina.io_files/m.svg"></a></li>
+</ul>
+                    </div>
+                </div>
+                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-right-col">
+                     <p>In the creation of Ballerina, there were so many
+ technologies that inspired us, we wanted to take a moment to say thank 
+you here (and forgive us if we missed one):
+dolor sit amet, consectetuer, adipiscing elit, sed diam, nonummy nibh 
+euismod, tincidunt ut, laoreet, dolore magna, aliquam erat, volutpat. Ut
+ wisi enim ad minim veniam, quis nostrud exerci tation ul.</p>
+                </div>
+                
+            </div>
+        </div>
+    
+
+<!--
+    <script src="../js/theme.js"></script>-->
+
+
+
+
+
+
+<script>
+       $(document).ready(function () {
+             
+         $(".cRuntimeContent").addClass('cShow');
+         
+         $(".cRUNTIME").click(function() {
+         $(".cRuntimeContent").addClass('cShow');
+         $(".cDeploymentContent").removeClass('cShow');
+         $(".cLifecycleContent").removeClass('cShow');
+
+             });
+             
+             
+         $(".cDEPLOYMENT").click(function() {
+         $(".cRuntimeContent").removeClass('cShow');
+         $(".cDeploymentContent").addClass('cShow');
+         $(".cLifecycleContent").removeClass('cShow');
+
+             });
+             
+             
+         $(".cLIFECYCLE").click(function() {
+         $(".cRuntimeContent").removeClass('cShow');
+         $(".cDeploymentContent").removeClass('cShow');
+         $(".cLifecycleContent").addClass('cShow');
+
+             });
+             
+             
+             
+             
+           });
+           
+           
+       
+           
+    
+    require.config({ paths: { 'vs': '../js/vs/' }});
+	require(['vs/editor/editor.main'], function() {
+            monaco.languages.register({ id:'ballerina' });
+            monaco.languages.setMonarchTokensProvider('ballerina', ballerina_grammar);
+            
+            monaco.editor.defineTheme('myTheme',  ballerina_theme);
+            monaco.editor.setTheme('myTheme');
+
+            var editor1 = monaco.editor.create(document.getElementById("ballerina_grammar"),Object.assign({
+                   value: "function hello() {\n\talert('Hello world 2 !');\n}",
+                   language: "ballerina"
+
+
+                }, codeEditor));
+
+var editor2 = monaco.editor.create(document.getElementById("ballerina_grammar_2"), Object.assign({
+                   value: "function hello() {\n\talert('Hello world 2 !');\n}",
+                   language: "ballerina"
+
+
+                }, codeEditor));
+    
+});
+    
+
+  </script>
+
+
+
+
+
+<div class="ff-ext--bootstrapResponsiveHelper" style="width: 100%; height: 0px;"><div class="visible-xs-block"></div><div class="visible-sm-block"></div><div class="visible-md-block"></div><div class="visible-lg-block"></div></div><div class="monaco-aria-container"><div class="monaco-alert" role="alert" aria-atomic="true"></div><div class="monaco-status" role="status" aria-atomic="true"></div></div></body></html>
