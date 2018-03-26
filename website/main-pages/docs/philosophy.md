@@ -1,95 +1,90 @@
-
-
+<link rel="stylesheet" href="../css/philosophy-page.css"></link>
 <div class="row cBallerina-io-Gray-row cPhilosophy">
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Left-col ">
          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-main-content-wraper">
-            <p class="cMainParagraph">A programming language and <br/>runtime co-designed 
-                to be agile and integration simple.
+            <p class="cMainParagraph">A programming language and runtime <br/>co-designed 
+               to be agile and integration simple.
             </p>
             <p class="cGreenTitle "><a href="#why-did-we-build-ballerina">WHY WE BUILT BALLERINA ></a></p>
             <hr class="cHr">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol">
-             
-            <p>The future apps we will write increasingly depend upon programmable endpoints. Integration is the discipline of resilient communication between endpoints. Integration is a domain of hard problems. 
-            </p>
-<p>Ballerina is a simple programming language whose syntax and runtime addresses the hard problems of integration. As a Turing complete language, Ballerina enables agility with edit, build, run cycles. Ballerina code is compiled into services that include transactions, embedded brokers and gateway runtimes.
-            
-</p> 
-            
-            
-            
-            
-            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol">
+               <p>The future apps we write increasingly depend upon programmable endpoints. The discipline of resilient communication between endpoints is integration. It is a domain of hard problems. 
+               </p>
+               <p>Ballerina is a simple programming language whose syntax and runtime address the hard problems of integration. As a Turing complete language, Ballerina enables agility with edit, build, run cycles. Ballerina code is compiled into services that include transactions, embedded brokers and gateway runtimes.
+               </p>
             </div>
          </div>
       </div>
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Right-col cPhilosophyWidget">
-         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-01-a.png"/>
+         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-diagrams-top.png"/>
          <!--         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-diagrams-for-site.png"/>-->
       </div>
    </div>
 </div>
 <div class="row cBallerina-io-White-row" id="why-did-we-build-ballerina">
    <div class="container">
-      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite">
+      <div class="col-xs-12 col-sm-16 col-md-12 col-lg-12 cPhilosophyWhite">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-content-wraper">
             <h2 class="cMainH2Title">Why did we build Ballerina? </h2>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
-               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis </p>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol ">
+               <p> Our team has worked on thousands of integration projects over two decades. We’ve seen and used almost every integration technique out there. They always end up on one side or the other of the integration gap.
+               </p>
+               <p>Integration can either be done with integration products which simplify integration but are not agile, or with general purpose programming languages that are agile, but not integration simple.</p>
+             <p>
+                  Ballerina is designed to overcome the integration gap. We co-designed the language and runtime together to create an approach that is both agile and integration simple.
+               </p>
+</div>
+         </div>
+      </div>
+      <div class="cPhilosophy-widget-container">
+         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget  cPhilosophy-widget-left">
+            <div class="cPhil-Gray">
+               <h4>Integration<br/>
+                  Products
+               </h4>
+               <p>Integration products scale integration using configuration, not code. These products include ESBs, EAI, BPM, and DSLs. These approaches are integration simple, but not agile. They disrupt developer flow: the edit, build, run, test cycle.</p>
+               <h4>Not<br/>
+                  Agile
+               </h4>
+            </div>
+         </div>
+         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget cPhilosophy-widget-middle">
+            <div class="cPhil-green">
+               <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 cPhil-green-left">
+               </div>
+               <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 cPhil-green-middle">
+                  <span>
+                  The<br/>
+                  Integration<br/>
+                  Gap<br/>
+                  </span>
+               </div>
+               <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 cPhil-green-right">
+               </div>
+            </div>
+         </div>
+         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget cPhilosophy-widget-right">
+            <div class="cPhil-Gray">
+               <h4>General Purpose <br/>Programming Languages</h4>
+               <p>With languages like Java/Spring or JavaScript/Node, developers have flow, but take responsibility for solving the hard problems of integration. Developers write their own integration logic or use bolt-on frameworks. This approach is agile, but not integration simple. </p>
+               <h4>Not<br/>
+                  Integration Simple
+               </h4>
             </div>
          </div>
       </div>
-      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget">
-         <div class="cPhil-green">
-            <span>XML Integration ! = Agile</span>
-         </div>
-      </div>
-      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-8 cBallerina-io-Home-Right-col cPhilosophy-Logics">
-         <div class="cPhil-title-boxes">
-            <div class="cPhil-title-boxes-container">
-               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                  <h3>LOGIC <br/>LANGUAGES</h3>
-               </div>
-               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.Lorem ipsum dolor sit amet,</p>
-               </div>
-            </div>
-         </div>
-         <div class="cPhil-title-boxes">
-            <div class="cPhil-title-boxes-container">
-               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                  <h3>ESBs</h3>
-               </div>
-               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.Lorem ipsum dolor sit amet,</p>
-               </div>
-            </div>
-         </div>
-         <div class="cPhil-title-boxes">
-            <div class="cPhil-title-boxes-container">
-               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
-                  <h3>MICROSERVICES <br/>FRAMEWORKS</h3>
-               </div>
-               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit.Lorem ipsum dolor sit amet,</p>
-               </div>
-            </div>
-         </div>
-      </div>
+      
    </div>
 </div>
 <div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
    <div class="container">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cPhilosophyWhite cHowballerinaworks">
          <h2 class="cMainH2Title">How Ballerina works</h2>
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol ">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
-               euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim 
-               veniam, quis nostrud exerci tation ullamcorper suscipit.
+            <p>Ballerina's syntax, code, and compiler create runtime services and deployment artifacts that are cloud native ready for deployment within your IaaS, orchestrator, or service mesh of choice. The developer experience is designed to maintain flow, where the edit, build, debug cycle is rapid and integrated to your team's lifecycle toolchain. 
             </p>
-            <p class="cGreenTitle"><a href="">LEARN HOW IT WORKS ></a></p>
-         </div>
+          </div>
       </div>
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cPhilosophyWidget">
          <div class="cPhilosophyWidgetContainer">
@@ -118,105 +113,86 @@
          </div>
       </div>
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cRuntimeContent">
-         <p class="cGreenTitle" style="margin-left: 33px;"><a>RUNTIME ARCHITECTURE </a></p>
-         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+          <p class="cGreenTitle cPhil-box-titles">RUNTIME ARCHITECTURE</p>
+        <div class="cPhil-title-boxes cPhil-title-boxes-white">
             <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                <h3>BALLERINA API GATEWAY</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               </p>
+               <p>Enforces performance and identity policies for running services. Configured and deployed through code annotations. Can run embedded in-line with a service, as a containered proxy managing multiple services, or with an API management solution like WSO2 API Manager.</p>
+            </div>
+         </div>
+          <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>BALLERINA SERVICE</h3>
+               <p>Represent your API and execution logic. Services operate over different protocols and the internal code structure is compiled into API interfaces with support for OpenAPI and Swagger. Services communicate with endpoints, whether they are the calling client or other services.
+               </p> 
             </div>
          </div>
          <div class="cPhil-title-boxes cPhil-title-boxes-white">
             <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-               <h3>BALLERINA STREAM</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet 
+            <h3>BALLERINA BRIDGE</h3>
+               <p>Enables legacy code and services to participate with Ballerina services in distributed transactions. The bridge wraps your existing service with a localhost proxy that enlists and brokers distributed transactions with invoking Ballerina services.</p>
+               </div>
+         </div>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>MESSAGE BROKER, TRANSACTION COORDINATOR, AND IDENTITY BROKER</h3>
+               <p>Provide brokered infrastructure capabilities to Ballerina services participating in transactions, event-driven communications, or authentication flows. These components are embedded within services for single service deployments or can be separately deployed and scaled for managing multiple services.
                </p>
-               <h3>BALLERINA MESSAGE BROKER</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree
-               </p>
-               <h3>BALLERINA SERVICE</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree
-               </p>
-               <h3>BALLERINA TRANSACTION COORDINATOR</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoree
-               </p>
-               <h3>LEGACY JAVA CODE</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit </p>
             </div>
          </div>
-      </div>
+     </div>
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cDeploymentContent">
-         <p class="cGreenTitle" style="margin-left: 33px;"><a>DEPLOYMENT ARCHITECTURE</a></p>
-         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+          <p class="cGreenTitle cPhil-box-titles">DEPLOYMENT ARCHITECTURE</p>
+       <div class="cPhil-title-boxes cPhil-title-boxes-white">
             <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-               <h3>CLIENTS</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               </p>
-            </div>
-         </div>
-         <div class="cPhil-title-boxes cPhil-title-boxes-white">
-            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-               <h3>SERVICE MESH</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               </p>
+               <h3>IAAS</h3>
+               <p>Using code annotations and the build system, Ballerina services and other runtime components like the API gateway can be packaged for deployment into any cloud native environment. On IaaS environments, Ballerina services can run as a VM or a container, with images optionall pushed to a registry during build.</p>
             </div>
          </div>
          <div class="cPhil-title-boxes cPhil-title-boxes-white">
             <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                <h3>ORCHESTRATOR</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               </p>
+               <p>Code annotations trigger compiler extensions that generate artifact packages of Ballerina components for different orchestrators such as Kubernetes or Cloud Foundry. Vendors or DevOps can add custom code annotations to generate environment-specific deployments, such as a custom blue-green deployment algorithm.</p>
             </div>
          </div>
          <div class="cPhil-title-boxes cPhil-title-boxes-white">
             <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-               <h3>BALLERINA SERVER</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               </p>
+               <h3>SERVICE MESH</h3>
+               <p>Ballerina services can optionally delegate circuit breaking and transaction flow logic to a service mesh like Istio or Envoy if present. Ballerina services embed equivalent capabilities, if a service mesh is missing.</p>
             </div>
          </div>
-      </div>
-      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLifecycleContent">
-         <p class="cGreenTitle" style="margin-left: 33px;"><a>LIFECYCLE ARCHITECTURE</a></p>
-         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+          <div class="cPhil-title-boxes cPhil-title-boxes-white">
             <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                <h3>BALLERINA TOOLS</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               </p>
+               <p>Get intellisense like autocomplete and debugging within VS Code and IntelliJ using our language server. Ballerina's keywords and syntax structure is designed to represent sequence diagrams. Visualize and edit Ballerina code with Ballerina Composer. Bonus - it also visualizes runtime dev traces.</p>
+            </div>
+         </div>
+       </div>
+       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLifecycleContent">
+           <p class="cGreenTitle cPhil-box-titles">LIFECYCLE ARCHITECTURE</p>
+        <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+               <h3>BALLERINA TOOLS</h3>
+               <p>Get intellisense like autocomplete and debugging within VS Code and IntelliJ using our language server. Ballerina's keywords and syntax structure is designed to represent sequence diagrams. Visualize and edit Ballerina code with Ballerina Composer. Bonus - it also visualizes runtime dev traces.</p>
             </div>
          </div>
          <div class="cPhil-title-boxes cPhil-title-boxes-white">
             <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                <h3>BALLERINA BUILD</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               </p>
+               <p>Compiles services into optimized byte code for execution with a memory-tuned BVM. Project structure, dependency management, package management, and unit testing with Testerina are provided. Build locks make it easy to recreate services and deployments. Generate executables (.balx) or libraries (.balo). </p>
             </div>
          </div>
          <div class="cPhil-title-boxes cPhil-title-boxes-white">
             <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                <h3>CI/CD DEPLOYMENT</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+               <p>Deployment code annotations trigger build extensions that generate artifacts for continuous integration, continuous delivery, or orchestrator environments. Push build artifacts to your CI / CD system or skip it entirely. 
                </p>
             </div>
          </div>
          <div class="cPhil-title-boxes cPhil-title-boxes-white">
             <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                <h3>REGISTRIES</h3>
-               <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse Lorem ipsum dolor sit 
-                  amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               </p>
+               <p>Use or combine endpoint connectors, custom annotations and code functions as shareable packages. Push and pull versioned packages with Ballerina Central, a shared global repository. </p>
             </div>
          </div>
       </div>
@@ -349,126 +325,126 @@
          </div>
       </div>
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative">
-            <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12">
-         <div class="cLanguageFeaturesContainer">
-            <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
-               <ul>
-                  <li class="cTableTitle">Language Constructs</li>
-                  <li>Hello World</li>
-                  <li>Hello World Parallel </li>
-                  <li>Hello World Service</li>
-                  <li>Value Type</li>
-                  <li>Constants</li>
-                  <li>Global Variables</li>
-                  <li>While</li>
-                  <li>IF Else</li>
-                  <li>Ternary</li>
-                  <li>Functions</li>
-                  <li>Multiple Return Values Named Returns</li>
-                  <li>Errors</li>
-                  <li>Var</li>
-                  <li class="cTableTitle">Language Constructs</li>
-                  <li>Type Casting Type Conversion Typeof </li>
-                  <li>Structs </li>
-                  <li>Maps </li>
-                  <li>Arrays </li>
-                  <li>Array of Arrays Vector </li>
-                  <li>Table </li>
-                  <li>&nbsp;</li>
-                  <li>&nbsp;</li>
-                  <li>&nbsp;</li>
-                  <li>&nbsp;</li>
-               </ul>
-            </div>
-            <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
-               <ul>
-                  <li class="cTableTitle"> Language Constructs</li>
-                  <li>JSON Literals</li>
-                  <li>JSON Arrays JSON/Struct/Map Conversion </li>
-                  <li>Constrained JSON</li>
-                  <li>XML</li>
-                  <li>XML Namespaces</li>
-                  <li>XML Literal</li>
-                  <li>XML Attributes</li>
-                  <li class="cTableTitle">Language Constructs</li>
-                  <li>JSON To XML Conversion </li>
-                  <li>XML To JSON Conversion </li>
-                  <li>Foreach</li>
-                  <li>Iterable Operations </li>
-                  <li>Worker</li>
-                  <li>Worker Interaction </li>
-                  <li>Fork/Join</li>
-                  <li>Fork/Join Condition Some </li>
-                  <li>Fork/Join Variable Access</li>
-                  <li class="cTableTitle">Language Constructs</li>
-                  <li>Table with SQL Connector</li>
-                  <li>Transactions</li>
-                  <li>Distributed Transactions</li>
-                  <li>Transformers</li>
-                  <li>Transform JSON </li>
-                  <li>Strings</li>
-               </ul>
-            </div>
-            <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
-               <ul>
-                  <li class="cTableTitle">Language Constructs</li>
-                  <li>Blob Type</li>
-                  <li>Date Time</li>
-                  <li>File API</li>
-                  <li>Throw</li>
-                  <li>Try/Catch/Finally</li>
-                  <li>Base Path and Path </li>
-                  <li>Query/Path/Matrix Param</li>
-                  <li class="cTableTitle">Language Constructs</li>
-                  <li>Header Based Routing </li>
-                  <li>Produces/Consumes </li>
-                  <li>HTTP Sessions</li>
-                  <li>HTTP Client Connector </li>
-                  <li>HTTP Trace Logs </li>
-                  <li>HTTP 100 Continue</li>
-                  <li class="cTableTitle">Language Constructs</li>
-                  <li>HTTPS Server/Client Connectors </li>
-                  <li>HTTP Disable Chunking</li>
-                  <li>HTTP to WebSocket Upgrade </li>
-                  <li>HTTP CORS</li>
-                  <li>HTTP Circuit Breaker</li>
-                  <li>HTTP Data Binding</li>
-                  <li>HTTP Failover</li>
-                  <li>HTTP Load Balancer</li>
-                  <li>HTTP Forwarded Extension Log API</li>
-               </ul>
-            </div>
-            <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
-               <ul>
-                  <li class="cTableTitle">Language Constructs</li>
-                  <li>Lambda</li>
-                  <li>WebSocket Basic Sample</li>
-                  <li>WebSocket Chat Application </li>
-                  <li>WebSocket Proxy Server</li>
-                  <li>Passthrough</li>
-                  <li>Mutual SSL</li>
-                  <li>Caching</li>
-                  <li>Byte I/O</li>
-                  <li>Character I/O</li>
-                  <li>Record I/O</li>
-                  <li>Math Functions</li>
-                  <li>Task Timer</li>
-                  <li>Task Appointment</li>
-                  <li>Config API</li>
-                  <li>String Template</li>
-                  <li>HTTP Redirects</li>
-                  <li>Inbound Request with Multiparts </li>
-                  <li>Outbound Request with Multiparts </li>
-                  <li>Encode Nested BodyParts in Multipart </li>
-                  <li>Decode Nested BodyParts in Multipart</li>
-                  <li>Inbound Response with Multiparts </li>
-                  <li>Outbound Response with Multiparts</li>
-                  <li>&nbsp;</li>
-                  <li>&nbsp;</li>
-               </ul>
+         <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12">
+            <div class="cLanguageFeaturesContainer">
+               <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
+                  <ul>
+                     <li class="cTableTitle">Language Constructs</li>
+                     <li>Hello World</li>
+                     <li>Hello World Parallel </li>
+                     <li>Hello World Service</li>
+                     <li>Value Type</li>
+                     <li>Constants</li>
+                     <li>Global Variables</li>
+                     <li>While</li>
+                     <li>IF Else</li>
+                     <li>Ternary</li>
+                     <li>Functions</li>
+                     <li>Multiple Return Values Named Returns</li>
+                     <li>Errors</li>
+                     <li>Var</li>
+                     <li class="cTableTitle">Language Constructs</li>
+                     <li>Type Casting Type Conversion Typeof </li>
+                     <li>Structs </li>
+                     <li>Maps </li>
+                     <li>Arrays </li>
+                     <li>Array of Arrays Vector </li>
+                     <li>Table </li>
+                     <li>&nbsp;</li>
+                     <li>&nbsp;</li>
+                     <li>&nbsp;</li>
+                     <li>&nbsp;</li>
+                  </ul>
+               </div>
+               <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
+                  <ul>
+                     <li class="cTableTitle"> Language Constructs</li>
+                     <li>JSON Literals</li>
+                     <li>JSON Arrays JSON/Struct/Map Conversion </li>
+                     <li>Constrained JSON</li>
+                     <li>XML</li>
+                     <li>XML Namespaces</li>
+                     <li>XML Literal</li>
+                     <li>XML Attributes</li>
+                     <li class="cTableTitle">Language Constructs</li>
+                     <li>JSON To XML Conversion </li>
+                     <li>XML To JSON Conversion </li>
+                     <li>Foreach</li>
+                     <li>Iterable Operations </li>
+                     <li>Worker</li>
+                     <li>Worker Interaction </li>
+                     <li>Fork/Join</li>
+                     <li>Fork/Join Condition Some </li>
+                     <li>Fork/Join Variable Access</li>
+                     <li class="cTableTitle">Language Constructs</li>
+                     <li>Table with SQL Connector</li>
+                     <li>Transactions</li>
+                     <li>Distributed Transactions</li>
+                     <li>Transformers</li>
+                     <li>Transform JSON </li>
+                     <li>Strings</li>
+                  </ul>
+               </div>
+               <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
+                  <ul>
+                     <li class="cTableTitle">Language Constructs</li>
+                     <li>Blob Type</li>
+                     <li>Date Time</li>
+                     <li>File API</li>
+                     <li>Throw</li>
+                     <li>Try/Catch/Finally</li>
+                     <li>Base Path and Path </li>
+                     <li>Query/Path/Matrix Param</li>
+                     <li class="cTableTitle">Language Constructs</li>
+                     <li>Header Based Routing </li>
+                     <li>Produces/Consumes </li>
+                     <li>HTTP Sessions</li>
+                     <li>HTTP Client Connector </li>
+                     <li>HTTP Trace Logs </li>
+                     <li>HTTP 100 Continue</li>
+                     <li class="cTableTitle">Language Constructs</li>
+                     <li>HTTPS Server/Client Connectors </li>
+                     <li>HTTP Disable Chunking</li>
+                     <li>HTTP to WebSocket Upgrade </li>
+                     <li>HTTP CORS</li>
+                     <li>HTTP Circuit Breaker</li>
+                     <li>HTTP Data Binding</li>
+                     <li>HTTP Failover</li>
+                     <li>HTTP Load Balancer</li>
+                     <li>HTTP Forwarded Extension Log API</li>
+                  </ul>
+               </div>
+               <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
+                  <ul>
+                     <li class="cTableTitle">Language Constructs</li>
+                     <li>Lambda</li>
+                     <li>WebSocket Basic Sample</li>
+                     <li>WebSocket Chat Application </li>
+                     <li>WebSocket Proxy Server</li>
+                     <li>Passthrough</li>
+                     <li>Mutual SSL</li>
+                     <li>Caching</li>
+                     <li>Byte I/O</li>
+                     <li>Character I/O</li>
+                     <li>Record I/O</li>
+                     <li>Math Functions</li>
+                     <li>Task Timer</li>
+                     <li>Task Appointment</li>
+                     <li>Config API</li>
+                     <li>String Template</li>
+                     <li>HTTP Redirects</li>
+                     <li>Inbound Request with Multiparts </li>
+                     <li>Outbound Request with Multiparts </li>
+                     <li>Encode Nested BodyParts in Multipart </li>
+                     <li>Decode Nested BodyParts in Multipart</li>
+                     <li>Inbound Response with Multiparts </li>
+                     <li>Outbound Response with Multiparts</li>
+                     <li>&nbsp;</li>
+                     <li>&nbsp;</li>
+                  </ul>
+               </div>
             </div>
          </div>
-            </div>
          <div class="clearfix"></div>
       </div>
    </div>
@@ -483,60 +459,49 @@
             </div>
          </div>
       </div>
-       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative">
-           <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12">
-         <div class="cOpenSourceContainer">
-            
-             <table class="OpenSourceTable">
-                 
-                 <tr>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative">
+         <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12">
+            <div class="cOpenSourceContainer">
+               <table class="OpenSourceTable">
+                  <tr>
                      <td class="cType">Ballerina</td>
                      <td>A programming language and service runtime for orchestration and composition of endpoints</td>
-                     <td class="cGitLink"><a href="">GitHub</a></td>
-                 </tr>
+                     <td class="cGitLink"><a href=""></a></td>
+                  </tr>
                   <tr>
                      <td>Ballerina.io</td>
                      <td>The home of the Ballerina Platform</td>
-                     <td><a href="">GitHub</a></td>
-                 </tr>
+                     <td class="cGitLink"><a href=""></a></td>
+                  </tr>
                   <tr>
                      <td>Ballerina for Java</td>
                      <td>A microservice framework to expose legacy Java as Ballerina-ready services</td>
-                     <td><a href="">GitHub</a></td>
-                 </tr>
-                 
-                 
-                 
-                 <tr>
+                     <td class="cGitLink"><a href=""></a></td>
+                  </tr>
+                  <tr>
                      <td>Ballerina Sidecar</td>
                      <td>A container that attaches transactions and resilience to running services</td>
-                     <td><a href="">GitHub</a></td>
-                 </tr>
-                 <tr>
+                     <td class="cGitLink"><a href=""></a></td>
+                  </tr>
+                  <tr>
                      <td>Ballerina API Gateway</td>
                      <td>enforce security and runtime policies</td>
-                     <td><a href="">GitHub</a></td>
-                 </tr>
-                 <tr>
+                     <td class="cGitLink"><a href=""></a></td>
+                  </tr>
+                  <tr>
                      <td>Ballerina Message Broker</td>
                      <td>Scalable broker for persistent and asynchronous messaging</td>
-                     <td><a href="">GitHub</a></td>
-                 </tr>
-                 <tr>
+                     <td class="cGitLink" ><a href=""></a></td>
+                  </tr>
+                  <tr>
                      <td>Ballerina Transaction Coordinator</td>
                      <td>Manage distributed transactions for microservices</td>
-                     <td><a href="">GitHub</a></td>
-                 </tr>
-                 
-                 
-                 
-                 
-             </table>
-            
-         </div>
+                     <td class="cGitLink"><a href=""></a></td>
+                  </tr>
+               </table>
+            </div>
          </div>
          <div class="clearfix"></div>
       </div>
    </div>
 </div>
-
