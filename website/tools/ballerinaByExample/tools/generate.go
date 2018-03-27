@@ -16,9 +16,9 @@ import (
 )
 
 var cacheDir = "/tmp/gobyexample-cache"
-var siteDir = "tools/ballerinaByExample/public"
 var pygmentizeBin = "tools/ballerinaByExample/vendor/pygments/pygmentize"
-var examplesDir = "target/dependencies/ballerina-examples-zip/"+os.Args[1];
+var examplesDir = os.Args[1];
+var siteDir = os.Args[2];
 
 var descFileContent = ""
 var completeCode = ""
@@ -271,11 +271,15 @@ func parseExamples() []*Example {
             fileDirPath := examplesDir + "/examples/" + exampleId + "/"
 
             descFilePath := fileDirPath + exampleId + ".description"
-            rearrangedPaths = appendFilePath(rearrangedPaths, descFilePath);
 
             balFilePath := fileDirPath + exampleId + ".bal"
-            rearrangedPaths = appendFilePath(rearrangedPaths, balFilePath);
+            if !isFileExist(balFilePath) {
+                continue;
+            }
+            rearrangedPaths = appendFilePath(rearrangedPaths, descFilePath);
 
+            rearrangedPaths = appendFilePath(rearrangedPaths, balFilePath);
+            
             shFilePath := fileDirPath + exampleId + ".sh"
             if isFileExist(shFilePath) {
                 rearrangedPaths = append(rearrangedPaths, shFilePath)

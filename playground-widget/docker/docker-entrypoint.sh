@@ -15,4 +15,5 @@
 
 cd /services/ 
 exec ballerina run backend_time_service.bal &
+exec ballerina run legacy_service.bal &
 exec composer
