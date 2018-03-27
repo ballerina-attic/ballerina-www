@@ -65,14 +65,62 @@
                         </goals>
                         <configuration>
                             <includeArtifactIds>
-                                ballerina-tools,ballerina-examples,playground-hello-service
+                                ballerina-tools, ballerina-examples, playground-hello-service
                             </includeArtifactIds>
                             <outputDirectory>${project.build.directory}/dependencies
                             </outputDirectory>
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>true</overWriteSnapshots>
-                            <useSubDirectoryPerArtifact>true</useSubDirectoryPerArtifact>
+                            <useSubDirectoryPerArtifact>false</useSubDirectoryPerArtifact>
+                            <stripClassifier>true</stripClassifier>
                             <stripVersion>true</stripVersion>
+                        </configuration>
+                    </execution>
+                    <!--<execution>-->
+                        <!--<id>unpack-dependencies</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>unpack</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<artifactItems>-->
+                                <!--<artifactItem>-->
+                                    <!--<groupId>org.ballerinalang</groupId>-->
+                                    <!--<artifactId>ballerina-examples</artifactId>-->
+                                    <!--<type>zip</type>-->
+                                    <!--<version>${ballerina.version}</version>-->
+                                    <!--<outputDirectory>${project.build.directory}/dependencies/examples</outputDirectory>-->
+                                <!--</artifactItem>-->
+                            <!--</artifactItems>-->
+                            <!--<outputDirectory>-->
+                                <!--${project.build.directory}/dependencies-->
+                            <!--</outputDirectory>-->
+                            <!--<overWriteReleases>false</overWriteReleases>-->
+                            <!--<overWriteSnapshots>true</overWriteSnapshots>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>copy-files</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target name="Copy needed files">
+                                 <copy todir="${bbe.source.dir}">
+                                    <fileset 
+                                    dir="${project.build.directory}/dependencies/ballerina-examples-${ballerina.version}">
+                                        <include name="**/*.*"/>
+                                    </fileset>
+                                </copy>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
@@ -83,7 +131,7 @@
                 <version>1.5.0</version>
                 <executions>
                     <execution>
-                        <id>build-website</id>
+                        <id>build-bbe</id>
                         <goals>
                             <goal>exec</goal>
                         </goals>
@@ -91,8 +139,10 @@
                         <configuration>
                             <executable>sh</executable>
                             <arguments>
-                                <argument>tools/build.sh</argument>
-                                <argument>${ballerina.version}</argument>
+                                <argument>tools/build-bbe.sh</argument>
+                                <argument>${bbe.source.dir}</argument>
+                                <argument>${bbe.site.dir}</argument>
+                                <argument>${go.working.dir}</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -100,4 +150,10 @@
             </plugin>
         </plugins>
     </build>
+    <properties>
+        <bbe.source.dir>${project.build.directory}/sources/examples</bbe.source.dir>
+        <webroot.dir>${project.build.directory}/webroot</webroot.dir>
+        <bbe.site.dir>${webroot.dir}/learn/by-example</bbe.site.dir>
+        <go.working.dir>${project.build.directory}/go-tool</go.working.dir>
+    </properties>
 </project>
