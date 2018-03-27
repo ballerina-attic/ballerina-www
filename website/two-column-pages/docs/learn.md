@@ -36,7 +36,7 @@ The Language Specification is a set of documents that explain more about the inn
 
 The Command Documentation includes a summary of all the commands available in Ballerina and provides links to each command in GitHub.
 
-## Package & API Documentation
+## Package and API Documentation
 
 The [API Documentation](https://ballerinalang.org/docs/api/0.964.0/) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
 
