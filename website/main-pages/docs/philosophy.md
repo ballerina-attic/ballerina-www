@@ -1,3 +1,4 @@
+<script src="../js/philosophy.js"></script>
 <link rel="stylesheet" href="../css/philosophy-page.css"></link>
 <div class="row cBallerina-io-Gray-row cPhilosophy">
    <div class="container">
@@ -6,7 +7,7 @@
             <p class="cMainParagraph">A programming language and runtime <br/>co-designed 
                to be agile and integration simple.
             </p>
-            <p class="cGreenTitle "><a href="#why-did-we-build-ballerina">WHY WE BUILT BALLERINA ></a></p>
+            <p class="cGreenTitle "><a href="/downloads">Download ></a></p>
             <hr class="cHr">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol">
                <p>The future apps we write increasingly depend upon programmable endpoints. The discipline of resilient communication between endpoints is integration. It is a domain of hard problems. 
@@ -17,7 +18,7 @@
          </div>
       </div>
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Right-col cPhilosophyWidget">
-         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-diagrams-top.png"/>
+         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-top.png"/>
          <!--         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-diagrams-for-site.png"/>-->
       </div>
    </div>
@@ -44,9 +45,7 @@
                   Products
                </h4>
                <p>Integration products scale integration using configuration, not code. These products include ESBs, EAI, BPM, and DSLs. These approaches are integration simple, but not agile. They disrupt developer flow: the edit, build, run, test cycle.</p>
-               <h4>Not<br/>
-                  Agile
-               </h4>
+               <div class="ch4Container"><h4>Not Agile </h4></div>
             </div>
          </div>
          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget cPhilosophy-widget-middle">
@@ -64,13 +63,11 @@
                </div>
             </div>
          </div>
-         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget cPhilosophy-widget-right">
+         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget">
             <div class="cPhil-Gray">
                <h4>General Purpose <br/>Programming Languages</h4>
                <p>With languages like Java/Spring or JavaScript/Node, developers have flow, but take responsibility for solving the hard problems of integration. Developers write their own integration logic or use bolt-on frameworks. This approach is agile, but not integration simple. </p>
-               <h4>Not<br/>
-                  Integration Simple
-               </h4>
+               <div class="ch4Container"><h4>Not Integration Simple </h4></div>
             </div>
          </div>
       </div>
@@ -326,124 +323,16 @@
       </div>
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative">
          <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12">
-            <div class="cLanguageFeaturesContainer">
-               <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
-                  <ul>
-                     <li class="cTableTitle">Language Constructs</li>
-                     <li>Hello World</li>
-                     <li>Hello World Parallel </li>
-                     <li>Hello World Service</li>
-                     <li>Value Type</li>
-                     <li>Constants</li>
-                     <li>Global Variables</li>
-                     <li>While</li>
-                     <li>IF Else</li>
-                     <li>Ternary</li>
-                     <li>Functions</li>
-                     <li>Multiple Return Values Named Returns</li>
-                     <li>Errors</li>
-                     <li>Var</li>
-                     <li class="cTableTitle">Language Constructs</li>
-                     <li>Type Casting Type Conversion Typeof </li>
-                     <li>Structs </li>
-                     <li>Maps </li>
-                     <li>Arrays </li>
-                     <li>Array of Arrays Vector </li>
-                     <li>Table </li>
-                     <li>&nbsp;</li>
-                     <li>&nbsp;</li>
-                     <li>&nbsp;</li>
-                     <li>&nbsp;</li>
-                  </ul>
-               </div>
-               <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
-                  <ul>
-                     <li class="cTableTitle"> Language Constructs</li>
-                     <li>JSON Literals</li>
-                     <li>JSON Arrays JSON/Struct/Map Conversion </li>
-                     <li>Constrained JSON</li>
-                     <li>XML</li>
-                     <li>XML Namespaces</li>
-                     <li>XML Literal</li>
-                     <li>XML Attributes</li>
-                     <li class="cTableTitle">Language Constructs</li>
-                     <li>JSON To XML Conversion </li>
-                     <li>XML To JSON Conversion </li>
-                     <li>Foreach</li>
-                     <li>Iterable Operations </li>
-                     <li>Worker</li>
-                     <li>Worker Interaction </li>
-                     <li>Fork/Join</li>
-                     <li>Fork/Join Condition Some </li>
-                     <li>Fork/Join Variable Access</li>
-                     <li class="cTableTitle">Language Constructs</li>
-                     <li>Table with SQL Connector</li>
-                     <li>Transactions</li>
-                     <li>Distributed Transactions</li>
-                     <li>Transformers</li>
-                     <li>Transform JSON </li>
-                     <li>Strings</li>
-                  </ul>
-               </div>
-               <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
-                  <ul>
-                     <li class="cTableTitle">Language Constructs</li>
-                     <li>Blob Type</li>
-                     <li>Date Time</li>
-                     <li>File API</li>
-                     <li>Throw</li>
-                     <li>Try/Catch/Finally</li>
-                     <li>Base Path and Path </li>
-                     <li>Query/Path/Matrix Param</li>
-                     <li class="cTableTitle">Language Constructs</li>
-                     <li>Header Based Routing </li>
-                     <li>Produces/Consumes </li>
-                     <li>HTTP Sessions</li>
-                     <li>HTTP Client Connector </li>
-                     <li>HTTP Trace Logs </li>
-                     <li>HTTP 100 Continue</li>
-                     <li class="cTableTitle">Language Constructs</li>
-                     <li>HTTPS Server/Client Connectors </li>
-                     <li>HTTP Disable Chunking</li>
-                     <li>HTTP to WebSocket Upgrade </li>
-                     <li>HTTP CORS</li>
-                     <li>HTTP Circuit Breaker</li>
-                     <li>HTTP Data Binding</li>
-                     <li>HTTP Failover</li>
-                     <li>HTTP Load Balancer</li>
-                     <li>HTTP Forwarded Extension Log API</li>
-                  </ul>
-               </div>
-               <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures">
-                  <ul>
-                     <li class="cTableTitle">Language Constructs</li>
-                     <li>Lambda</li>
-                     <li>WebSocket Basic Sample</li>
-                     <li>WebSocket Chat Application </li>
-                     <li>WebSocket Proxy Server</li>
-                     <li>Passthrough</li>
-                     <li>Mutual SSL</li>
-                     <li>Caching</li>
-                     <li>Byte I/O</li>
-                     <li>Character I/O</li>
-                     <li>Record I/O</li>
-                     <li>Math Functions</li>
-                     <li>Task Timer</li>
-                     <li>Task Appointment</li>
-                     <li>Config API</li>
-                     <li>String Template</li>
-                     <li>HTTP Redirects</li>
-                     <li>Inbound Request with Multiparts </li>
-                     <li>Outbound Request with Multiparts </li>
-                     <li>Encode Nested BodyParts in Multipart </li>
-                     <li>Decode Nested BodyParts in Multipart</li>
-                     <li>Inbound Response with Multiparts </li>
-                     <li>Outbound Response with Multiparts</li>
-                     <li>&nbsp;</li>
-                     <li>&nbsp;</li>
-                  </ul>
-               </div>
-            </div>
+             <div class="cLanguageFeaturesContainer">
+                 <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet0">
+                 </div>
+                 <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet1">
+                 </div>
+                 <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet2">
+                 </div>
+                 <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet3">
+                 </div>
+             </div>
          </div>
          <div class="clearfix"></div>
       </div>

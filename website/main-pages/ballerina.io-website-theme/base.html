@@ -129,6 +129,12 @@
              });
              
              
+         $(".cSerachIcon").click(function() {
+         $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
+        
+
+             });
+             
              
              
            });
@@ -160,6 +166,31 @@ var editor2 = monaco.editor.create(document.getElementById("ballerina_grammar_2"
                 }, codeEditor));
     
 });
+
+
+
+
+$(function () {
+                
+                var pathname = window.location.pathname;  
+
+                  if(pathname.indexOf("learn") != -1){
+$("#learnli").addClass("cActive");
+} 
+else if(pathname.indexOf("blog") != -1){
+$("#blogli").addClass("cActive");
+}                 
+else if(pathname.indexOf("philosophy") != -1){
+$("#philosophyli").addClass("cActive");
+}
+else if(pathname.indexOf("open") != -1){
+$("#openli").addClass("cActive");
+}
+else if(pathname.indexOf("help") != -1){
+$("#helpli").addClass("cActive");
+}
+               
+            });
     
 
   </script>

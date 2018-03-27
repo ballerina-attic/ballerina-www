@@ -126,29 +126,34 @@ ul.cPhilosophyWidgetControls  {
     position: absolute;
 position: absolute;
 top: 35px;
-left: -36px;
+left: -52px;
 
 }
 
 .nav-pills > li.cRUNTIME {
-    top: 0;
+    top: 15px;
     left: 2px;
+    width: 130px;
 } 
 .nav-pills > li.cDEPLOYMENT {
-    top: 99px;
+    top: 145px;
+    width: 130px;
     
 }
 
 .nav-pills > li.cLIFECYCLE {
-    top: 199px;
+    top: 274px;
+    width: 130px;
 }
 
 
 .cPhilosophyWidgetControls li {
-    box-shadow: -5px -7px 8px rgba(0, 0, 0, 0.2)
+    box-shadow: -5px -7px 8px rgba(0, 0, 0, 0.2);
+    
+/*    box-shadow: -5px -14px 19px rgba(0, 0, 0, 0.2);*/
 }
 .cPhilosophyWidgetControls li > a {
-    width: 100px;
+    width: 130px;
     border: 1px solid #ffffff;
     padding: 0;
     margin: 0;
@@ -157,7 +162,7 @@ left: -36px;
     border-radius: 0;
     font-family: "CalibreWeb-Semibold";
     font-size: 12px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     background: #e7eaeb;
     line-height: 25px;
     color: #585556;
@@ -167,6 +172,17 @@ left: -36px;
 box-shadow: inset 0px 53px 5px -37px rgba(0,0,0,0.38);*/
     
 }
+
+.cPhilosophyWidgetControls li > a:hover {
+    background: #e7eaeb !important;
+}
+.cPhilosophyWidgetControls li.active > a:hover {
+    background: #ffffff !important;
+}
+
+/*.cPhilosophyWidgetControls li > a:hover , .cPhilosophyWidgetControls li:hover {
+    box-shadow: none !important
+} */
 
 .cPhil-title-boxes-container.cPhil-title-boxes-container-white h3 {
     color: #585556;
@@ -279,6 +295,9 @@ transition: all 0.2s ease 0s
 }
 
 .cLanguageFeatures li a {
+    color: #57595d !important;
+}
+.cLanguageFeatures li a:hover {
     
 }
 
@@ -336,7 +355,7 @@ transition: all 0.2s ease 0s
     color: #ffffff;
     display: inline-block;
     width: 100%;
-    min-height: 396px;
+    min-height: 375px;
     
 }
 
@@ -346,20 +365,39 @@ transition: all 0.2s ease 0s
     
 }
 .cPhil-Gray {
-    background-color: #f5f6f6;
+    background-color: #e7eaeb;
 }
 
+
+
+
 .cPhil-Gray h4 {
-    color: #20b6af;
-    background: #e7eaeb;
-    padding: 24px 25px;
-    width: 100%;
-    margin: 0;
-    font-size: 26px;
-    text-align: left;
-    font-weight: 200;
-    line-height: 36px;
+   color: #57595d;
+background: #e7eaeb;
+padding: 24px 25px;
+width: 100%;
+margin: 0;
+font-size: 20px;
+text-align: left;
+font-weight: 600;
+line-height: 24px;
+font-family: "CalibreWeb-Semibold";
+text-transform: uppercase;
+letter-spacing: 1px;
 }
+
+.ch4Container {
+    padding: 25px;
+}
+
+.ch4Container h4 {
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    border: 1px solid #57595d;
+    
+}
+
 
 .cPhil-Gray p {
     padding: 24px 25px;
@@ -371,8 +409,22 @@ transition: all 0.2s ease 0s
 
 
 .cPhil-green span {
-    padding: 140px 0 40px 0;
+/*    padding: 140px 0 40px 0;
     display: inline-block;
+    */
+       margin: 75px 0 40px 0;
+    display: inline-block;
+/*    width: 100%;
+    padding-left: 30px;
+    background-image: url("../img/arrow-left-gray.svg");
+    background-repeat: no-repeat;*/
+/*    background-position: 15px center;*/
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    padding: 53px;
+    height: 230px;
+    width: 230px;
+    
     
 /*        width: 100%;
      padding-left: 30px;
@@ -390,7 +442,7 @@ transition: all 0.2s ease 0s
       background-image: url("../img/white-arrow.svg");
     background-repeat: no-repeat;
 
-    min-height:  396px;
+    min-height:  375px;
 }
 
 .cPhil-green-left {
@@ -414,9 +466,12 @@ transition: all 0.2s ease 0s
 }
 .cPhilosophy-widget-container {
     display: inline-block;
-    padding-bottom: 60px;
+    padding-bottom: 0px;
 }
 
 .cPhilosophyWhite-widget-bottom-text {
     padding-bottom: 0;
 }
+
+
+

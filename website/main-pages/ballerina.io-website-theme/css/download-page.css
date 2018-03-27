@@ -3,7 +3,7 @@ body { font-family: "pragmatica",sans-serif; }
 .cDownloadsHeader p { font-size: 14px; line-height: 20px; }
 .cDownloadsHeader a { font-size: 14px; color: #22b7b1; font-weight: 600; font-family: "CalibreWeb-Semibold";  }
 h2 { font-size: 25px; line-height: 30px; font-weight: 300; margin: 21px 0 25px; letter-spacing: 0; }
-a.cDownload { display: block; width: 91%; font-size: 25px; font-weight: 300; background-color: #57595d; color: #ffffff; padding: 15px 10px 20px 67px; background-image: url("../img/download-bg.svg"); background-repeat: no-repeat; background-position: left 25px top 18px; }
+a.cDownload { display: block; width: 91%;  transition: all 0.2s ease 0s; font-size: 25px; font-weight: 300; background-color: #57595d; color: #ffffff; padding: 15px 10px 20px 67px; background-image: url("../img/download-bg.svg"); background-repeat: no-repeat; background-position: left 25px top 18px; }
 .cDownloadLeft a.cDownload { float: left; }
 .cDownloadRight a.cDownload { float: right; }
 .cDownloadMiddle a.cDownload { margin: auto; }
@@ -21,6 +21,14 @@ a.cDownload .cSize { font-family: "Monaco"; font-size: 7px; color: #d9dadb; }
 .cInstallers table tr td { padding: 3px 7px 3px 7px; font-size: 10px; font-weight: 400; color: #585a5e; border-bottom: solid .5px #a7a8ab; }
 .cInstallers table tr td a { color: #22b7b1; }
 .cInstallers table tr td a.cLinkBlack { color: #585a5e; }
+
+
+a.cDownload:hover {
+    background-image: url("../img/download-bg-white.svg");
+    background-color: #22b7b1;
+    background-image: url("../img/download-bg-white.svg");
+    transition: all 0.2s ease 0s;
+}
 
 @media screen and (max-width: 1199px) {
     .cDownloadLeft { width: 275px; padding-bottom: 30px; }
