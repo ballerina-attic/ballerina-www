@@ -1,5 +1,6 @@
 #Generate guides
-cp tools/guides_mkdocs.yml target/dependencies/mkdocs.yml
-cd target/dependencies;mkdocs build;cd ../../
-for d in target/dependencies/site/*/ ; do (mv "$d"README/index.html "$d"); done
-mv target/dependencies/site/ webroot/guides
+echo ".....Building guide pages....."
+mkdocs build;
+for d in site/*/ ; do (mv "$d"README/index.html "$d"); done
+rsync -ir site/ $1/
+echo ".....Completed building guide pages....."

@@ -65,7 +65,7 @@
                         </goals>
                         <configuration>
                             <includeArtifactIds>
-                                ballerina-tools, ballerina-examples, playground-hello-service
+                                ballerina-tools, ballerina-examples
                             </includeArtifactIds>
                             <outputDirectory>${project.build.directory}/dependencies
                             </outputDirectory>
@@ -76,29 +76,26 @@
                             <stripVersion>true</stripVersion>
                         </configuration>
                     </execution>
-                    <!--<execution>-->
-                        <!--<id>unpack-dependencies</id>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>unpack</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<artifactItems>-->
-                                <!--<artifactItem>-->
-                                    <!--<groupId>org.ballerinalang</groupId>-->
-                                    <!--<artifactId>ballerina-examples</artifactId>-->
-                                    <!--<type>zip</type>-->
-                                    <!--<version>${ballerina.version}</version>-->
-                                    <!--<outputDirectory>${project.build.directory}/dependencies/examples</outputDirectory>-->
-                                <!--</artifactItem>-->
-                            <!--</artifactItems>-->
-                            <!--<outputDirectory>-->
-                                <!--${project.build.directory}/dependencies-->
-                            <!--</outputDirectory>-->
-                            <!--<overWriteReleases>false</overWriteReleases>-->
-                            <!--<overWriteSnapshots>true</overWriteSnapshots>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
+                    <execution>
+                        <id>unpack-guides</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeArtifactIds>
+                                playground-hello-service
+                            </includeArtifactIds>
+                            <outputDirectory>
+                                ${project.build.directory}/dependencies/guides
+                            </outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                            <useSubDirectoryPerArtifact>false</useSubDirectoryPerArtifact>
+                            <stripClassifier>true</stripClassifier>
+                            <stripVersion>true</stripVersion>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
@@ -113,13 +110,26 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <target name="Copy needed files">
+                            <target name="Copy BBE and Guide files">
                                  <copy todir="${bbe.source.dir}">
                                     <fileset 
                                     dir="${project.build.directory}/dependencies/ballerina-examples-${ballerina.version}">
                                         <include name="**/*.*"/>
                                     </fileset>
                                 </copy>
+                                <copy todir="${guides.source.dir}/playground">
+                                    <fileset 
+                                    dir="${project.build.directory}/dependencies/guides/playground-hello-service-${ballerina.version}">
+                                        <include name="**/*.*"/>
+                                    </fileset>
+                                </copy>
+                                <copy todir="${guides.source.dir}">
+                                    <fileset 
+                                    dir="${basedir}/tools/guides">
+                                        <include name="**/*.*"/>
+                                    </fileset>
+                                </copy>
+                                
                             </target>
                         </configuration>
                     </execution>
@@ -184,6 +194,21 @@
                         <phase>package</phase>
                         <configuration>
                             <executable>sh</executable>
+                            <workingDirectory>${guides.source.dir}</workingDirectory>
+                            <arguments>
+                                <argument>build.sh</argument>
+                                <argument>${guides.site.dir}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>build-guide-pages</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <executable>sh</executable>
                             <workingDirectory>${main.source.dir}</workingDirectory>
                             <arguments>
                                 <argument>build.sh</argument>
@@ -197,8 +222,10 @@
     </build>
     <properties>
         <bbe.source.dir>${project.build.directory}/sources/examples</bbe.source.dir>
+        <guides.source.dir>${project.build.directory}/sources/guides</guides.source.dir>
         <webroot.dir>${project.build.directory}/webroot</webroot.dir>
         <bbe.site.dir>${webroot.dir}/learn/by-example</bbe.site.dir>
+        <guides.site.dir>${webroot.dir}/guides</guides.site.dir>
         <main.source.dir>${basedir}/main-pages</main.source.dir>
         <two.column.source.dir>${basedir}/two-column-pages</two.column.source.dir>
         <three.column.source.dir>${basedir}/three-column-pages</three.column.source.dir>
