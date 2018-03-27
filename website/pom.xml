@@ -146,6 +146,51 @@
                             </arguments>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>build-two-column-pages</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <executable>sh</executable>
+                            <workingDirectory>${two.column.source.dir}</workingDirectory>
+                            <arguments>
+                                <argument>build.sh</argument>
+                                <argument>${webroot.dir}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>build-three-column-pages</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <executable>sh</executable>
+                            <workingDirectory>${three.column.source.dir}</workingDirectory>
+                            <arguments>
+                                <argument>build.sh</argument>
+                                <argument>${webroot.dir}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>build-main-pages</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <executable>sh</executable>
+                            <workingDirectory>${main.source.dir}</workingDirectory>
+                            <arguments>
+                                <argument>build.sh</argument>
+                                <argument>${webroot.dir}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>
@@ -154,6 +199,9 @@
         <bbe.source.dir>${project.build.directory}/sources/examples</bbe.source.dir>
         <webroot.dir>${project.build.directory}/webroot</webroot.dir>
         <bbe.site.dir>${webroot.dir}/learn/by-example</bbe.site.dir>
+        <main.source.dir>${basedir}/main-pages</main.source.dir>
+        <two.column.source.dir>${basedir}/two-column-pages</two.column.source.dir>
+        <three.column.source.dir>${basedir}/three-column-pages</three.column.source.dir>
         <go.working.dir>${project.build.directory}/go-tool</go.working.dir>
     </properties>
 </project>
