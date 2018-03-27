@@ -74,14 +74,14 @@ class RunButton extends React.Component {
     onRun() {
         const { sample, onRun } = this.props;
         if (sample && sample.content) {
-            const { content, source, curl } = sample;
+            const { content, source, curl, noOfCurlExecutions = 1 } = sample;
             this.clearConsole();
             this.setConsoleText('waiting on remote server...');
             this.setState({
                 runInProgress: true,
             });
             try {
-                LaunchManager.sendRunSourceMessage('samples', source, content, curl);
+                LaunchManager.sendRunSourceMessage('samples', source, content, curl, noOfCurlExecutions);
                 onRun(sample);
             } catch (err) {
                 this.onError(err);

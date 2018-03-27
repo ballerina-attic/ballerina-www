@@ -91,6 +91,9 @@ class Console extends React.Component {
                                 <div className="console-line">{'you can edit the code or curl and try again'}</div>
                             </div>);
                         }
+                        if (msg.startsWith('CURL-OUTPUT:')) {
+                            return (<div className="console-line curl-output">{msg.replace('CURL-OUTPUT:', '')}</div>)
+                        }
                         // if (msg.startsWith('started services at')) {
                         //     return (
                         //         <div>{msg}

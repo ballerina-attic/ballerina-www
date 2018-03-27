@@ -53,7 +53,7 @@
     "build-docker": "npm run copy-bal-dist && npm run copy-www-dir",
     "build-ballerina": "cd ballerina && mvn clean install -Dfindbugs.skip=true -Dcheckstyle.skip=true -Dmaven.test.skip=true",
     "copy-www-dir": "cp -r build docker/www ",
-    "copy-misc": "cp guides/playground-hello-service/data-service/CUSTOMER_DB.h2.db docker/ && cp guides/playground-hello-service/invoke-service/backend_time_service.bal docker/",
+    "copy-misc": "cp guides/playground-hello-service/data-service/CUSTOMER_DB.h2.db docker/ && cp guides/playground-hello-service/invoke-service/backend_time_service.bal docker/ && cp guides/playground-hello-service/circuit-breaker/legacy_service.bal docker/",
     "copy-bal-dist": "cd ballerina && find distribution/zip/ballerina-tools/target/ -name *.zip -exec cp {} ../docker/ \\;",
     "test": "node scripts/test.js --env=jsdom"
   },
