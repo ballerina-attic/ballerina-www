@@ -18,7 +18,7 @@ import (
 var cacheDir = "/tmp/gobyexample-cache"
 var siteDir = "tools/ballerinaByExample/public"
 var pygmentizeBin = "tools/ballerinaByExample/vendor/pygments/pygmentize"
-var examplesDir = "target/dependencies/ballerina-examples-zip/ballerina-examples-0.964.1-SNAPSHOT";
+var examplesDir = "target/dependencies/ballerina-examples-zip/"+os.Args[1];
 
 var descFileContent = ""
 var completeCode = ""
