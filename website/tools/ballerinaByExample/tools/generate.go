@@ -142,6 +142,7 @@ type Example struct {
     Id, Name                    string
     GoCode, GoCodeHash, UrlHash string
     Segs                        [][]*Seg
+    Descs			string
     NextExample                 *Example
     PrevExample                 *Example
     FullCode			string
@@ -218,7 +219,7 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
         seg.CodeRun = strings.Contains(seg.Code, "package main")
     }
     if strings.HasSuffix(sourcePath, ".bal") {
-        segs[0].Docs = descFileContent
+        //segs[0].Docs = descFileContent
         descFileContent = "";
     }
     return segs, filecontent
@@ -302,6 +303,7 @@ func parseExamples() []*Example {
                     // directory, it will be read first. then we don't need this check.What we do
                     if strings.HasSuffix(sourcePath, ".description") {
                         descFileContent = sourceSegs[0].Docs;
+			example.Descs = descFileContent;
                     } else {
                         example.Segs = append(example.Segs, sourceSegs)
                     }

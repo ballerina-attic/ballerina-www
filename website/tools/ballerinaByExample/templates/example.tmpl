@@ -57,74 +57,297 @@
          })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
       </script>
     
-     <link href="https://b.content.wso2.com/sites/all/bootstrap/css/bootstrap.css?230617" rel="stylesheet">
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/jquery.js?230617"></script>
-      <script src="https://b.content.wso2.com/sites/all/bootstrap/js/bootstrap.js?230617"></script>
-      
-      <script src="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.js"></script>
-<script  defer="defer" src="https://wso2.cachefly.net/wso2/sites/all/ballerina/js/ballerina.js"></script>
-    <link rel=stylesheet href="site.css">
-    <link href="https://fonts.googleapis.com/css?family=Cairo:200,300,400,600,700,900" rel="stylesheet">
-    <link rel=stylesheet href="https://b.content.wso2.com/sites/all/ballerina/ballerina-example.css">
-    
+     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.typekit.net/son4ymv.css">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel=stylesheet href="/css/ballerina-io.css">
+    <link rel=stylesheet href="/css/ballerina-io-bbe.css">
     
   </head>
-  <body>
-        <div class="row cBallerinaNav" id="iBallerinaNavigation">
-
-        </div>
-      <div class="row cBallerinaBySampleRow">
+  <body class="cBallerina-io">
+         
+<div class="row cBallerina-io-top-row">
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
+      <div class="cTopLine"></div>
+   </div>
+</div>
+<div class="row cBallerina-io-Nav">
+   <div class="container">
+      <!--               <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6">
+         <p>Cloud Native Programming Language<br/>
+         & Integration Framework</p>
+         </div>-->
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+         <nav class="navbar">
+            <div>
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">&#9776</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+                  <p class="navbar-brand" href="#">Cloud Native Programming Language<br/>
+                     
+                     <a class="cMobileLogo" href="/" ><img src="/img/ballerina-logo.svg" alt="Ballerina"/></a>
+                  </p>
+               </div>
+               <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav cTopNav">
+                     <li class="active toctree-l1">
+                        <a href="/learn">Learn</a>
+                     </li>
+                     <li class="toctree-l1"><a href="/philosophy">Philosophy</a></li>
+                     <li class="toctree-l1"><a href="/open-source">Open Source</a></li>
+                     <li class="toctree-l1"><a href="/help">Help </a></li>
+                     <li class="toctree-l1"><a href="#"> Blog </a></li>
+                  </ul>
+               </div>
+               <!--/.nav-collapse -->
+            </div>
+         </nav>
+      </div>
+   </div>
+</div>
+<div class="row cBallerina-io-Logo-row">
+   <div class="container">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
+         <a class="cLogo" href="/" ><img src="/img/ballerina-logo.svg" alt="Ballerina"/></a>
+      </div>
+   </div>
+</div>
+      <div class="row cBallerina-io-Gray-row">
           <div class="container cBallerinaBySampleContainer">
 			  <div class="FullCode">
 			  	{{.FullCode}}
 		  	  </div>	
               <div class="example" id="{{.Id}}">
-                  <div class="col-xs-11 col-sm-11 col-md-11">
-                      <h2><a href="./">Ballerina by Example</a>: {{.Name}}</h2>
+                  <div class="col-xs-11 col-sm-12 col-md-6 cBallerina-BBE-top-Container">
+                      <h2>{{.Name}}</h2>
+                      <p>{{.Descs}}</p>
+                      <div class="cBBE-links">
+                      <ul>
+                          <li>
+                              <a class="switch"><img src="/img/switch-sides-icon.svg"/></a>
+                          </li>
+                          <li>
+                              <a href=""><img src="/img/copy-icon.svg"/></a>
+                          </li>
+                          <li>
+                              <a href=""><img src="/img/github-logo-green.svg"/></a>
+                          </li>
+                      </ul>
+                      </div>
+                      
                   </div>
-                  <div class="col-xs-1 col-sm-1 col-md-1">
-                      <a href="./" class="cBackButton"><img src="http://b.content.wso2.com/sites/all/ballerina/backbutton.svg"/></a>
+                  <div class="col-xs-1 col-sm-12 col-md-6 cBallerina-BBE-top-Conrols-Container">
+                      <div class="cBreadcrums" >
+                          <ul>
+                              <li><a href="/">Home</a></li>
+                              <li>»</li>
+                              <li><a href="/learn">Lean</a></li>
+                              <li>»</li>
+                               <li>{{.Name}}</li>
+                          </ul>
+                      </div>
+ 
+                      <div class="cTopButtonContainer">
+                          {{if .PrevExample}}
+                          <div class="cButtonInfoContainer">
+                         <a class="prev" href="{{.PrevExample.Id}}.html">PREVIOUS EXAMPLE</a>
+                         <p>{{.PrevExample.Name}}</p>
+                          </div>
+                         {{end}}
+                          {{if .NextExample}}
+                          <div class="cButtonInfoContainer">
+                          <a class="next" href="{{.NextExample.Id}}.html">NEXT EXAMPLE</a>
+                          <p>{{.NextExample.Name}}</p>
+                          </div>
+                          {{end}}
+                      </div>
+                      
+                      
                   </div>
-                  <div class="col-xs-12 col-sm-12 col-md-12">
+                  <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
+
+                      <table class="cTopBorder-table">
+                          <tr>
+                              <td class="cCodeTD"></td>
+                              <td></td>
+                          </tr>
+                      </table>
 
                       {{range .Segs}}
 
-                      <table>
-                          {{range .}}
+                      <div>
+
+                          <table>
+                              {{range .}}
+                              <tr class="cTR">
+
+                                  <td class="code{{if .CodeEmpty}} empty{{end}}{{if .CodeLeading}} leading{{end}}">
+                                      {{.CodeRendered}}
+                                  </td>
+                                  <td class="docs">
+                                      <div class="cCodeDesription">
+                                      {{.DocsRendered}}
+                                      </div>
+                                  </td>
+                              </tr>
+                              {{end}}
+                          </table>
+                      </div>
+                      {{end}}
+
+
+                      <table class="cBottomBorder-table">
                           <tr>
-                              <td class="docs">
-                                  {{.DocsRendered}}
-                              </td>
-                              <td class="code{{if .CodeEmpty}} empty{{end}}{{if .CodeLeading}} leading{{end}}">
-                                  {{.CodeRendered}}
-                              </td>
+                              <td class="cCodeTD"></td>
+                              <td></td>
+
                           </tr>
-                          {{end}}
                       </table>
-					 
 
-                      {{end}}
-                      {{if .NextExample}}
-                      <p class="next">
-                          Next example: <a href="{{.NextExample.Id}}">{{.NextExample.Name}}</a>.
-                      </p>
-                      {{end}}
+                    
 
                   </div>
-                  <div class="col-xs-12 col-sm-12 col-md-12 cGOfooter">
-                      <p class="footer">
-                          by <a href="https://twitter.com/ballerinalang">@ballerinalang</a> | <a href="mailto:ballerina-dev@googlegroups.com">feedback</a> | <a href="https://github.com/ballerinalang/ballerina/tree/master/samples/ballerina-by-example/examples/{{.Id}}">source</a>
-                      </p>
-                      <p class="attrib">
-                          This site was generated using a <a href="https://github.com/mmcgrana/gobyexample/">tool</a> developed by <a href="https://twitter.com/mmcgrana">@mmcgrana</a>, licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC BY</a> / modified from original
-                      </p>
+                  
+                  <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeRight">
+                      
+                      
+                      <table class="cTopBorder-table">
+                          <tr>
+                              
+                              <td></td>
+                              <td class="cCodeTD"></td>
+
+                          </tr>
+                      </table>
+
+                      {{range .Segs}}
+
+                      <div>
+
+                          <table>
+                              {{range .}}
+                              <tr class="cTR">
+
+                                  
+                                  <td class="docs">
+                                      <div class="cCodeDesription">
+                                      {{.DocsRendered}}
+                                      </div>
+                                  </td>
+                                  <td class="code{{if .CodeEmpty}} empty{{end}}{{if .CodeLeading}} leading{{end}}">
+                                      {{.CodeRendered}}
+                                  </td>
+                              </tr>
+                              {{end}}
+                          </table>
+                      </div>
+                      {{end}}
+
+
+                      <table class="cBottomBorder-table">
+                          <tr>
+                              
+                              <td></td>
+                              <td class="cCodeTD"></td>
+
+                          </tr>
+                      </table>
+                      
+                      
+                  
                   </div>
+                  
+                  
+       
               </div>
               
           </div>
       </div>
-      <div class="row cBallerinaFooter" id="iBallerinaFooter">
-      </div>
+      
+      
+      
+      <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
+<div class="container">
+                
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-left-col cBallerinaFooterLinks">
+                    <ul>
+                         <li><a href="/downloads">Downloads</a></li>
+                        <li><a href="https://github.com/ballerina-lang/ballerina/blob/master/LICENSE">Code License</a></li>
+                        <li><a href="/license-of-site">Site License</a></li>
+                        <li><a href="/terms-of-service">TERMS OF SERVICE</a></li>
+                        <li><a href="/terms-of-service">PRIVACY POLICY</a></li>
+                      </ul>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-middle-col cBallerinaFooterSignUp">
+                    <p><span>Announcement List</span><br/>
+                     
+                    <div class="cFormContainer">
+                        <form>
+                            <div class="cFieldContainer">
+                           <input maxlength="90" value="" id="emailUser" name="email" placeholder="Email" title="Email" type="text">
+                            </div>
+                            <div class="cButtonContainer">
+                           <a class="cBallerinaButtons subscribeUserForm" href="" id="subscribeUserButton">Subscribe</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="cSocialmedia">
+                       <ul>
+                            <li>
+                                <a href="https://github.com/ballerina-platform"><img src="/img/github.svg"/></a>
+                            </li>
+                            <li><a href="https://stackoverflow.com/questions/tagged/ballerinalang"><img src="/img/stackoverflow.svg"/></a></li>
+                            <li><a href="https://twitter.com/ballerinaplat"><img src="/img/twitter.svg"/></a></li>
+                            <li><a href="https://ballerina-platform.slack.com"><img src="/img/slack.svg"/></a></li>
+</ul>
+                    </div>
+                </div>
+                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-right-col">
+                     <p>In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Go, Kotlin, Java, Rust, Bootstrap, JavaScript, Jenkins, NPM, Crates, Maven, Gradle, Kubernetes, Envoy, Docker, Microsoft VS Code, Jetbrains IntelliJ, Eclipse Che. </div>
+                
+            </div>
+        </div>
+
+
+      
+      
+
+      
+      
+      
+      
+      <script>
+      $(document).ready(function () {
+      $( "cTR:last" ).addClass('lastrpw');
+//      $( "cTR:first" ).addClass('firstrpw');
+      
+          
+      
+         
+         $(".switch").click(function() {
+         $(".cCodeRight").toggleClass('cShow');
+         $(".cCodeLeft").toggleClass('cHide');
+        
+
+             });
+      
+      
+      
+      });
+      </script>
+      
+      
+      
 	    
   </body>
 </html>
