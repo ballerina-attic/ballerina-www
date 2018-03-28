@@ -116,7 +116,7 @@ class RunButton extends React.Component {
                 fluid
                 basic
                 disabled={!(sample && sample.content)} >
-                { runInProgress ? 'Stop' : 'Run' }
+                <span>{ runInProgress ? 'Stop' : 'Run' }</span>
             </Button>
         );
     }

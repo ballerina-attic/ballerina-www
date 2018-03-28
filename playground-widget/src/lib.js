@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import BallerinaWidget from './BallerinaWidget';
 
-module.exports = function(divId) {
+export function renderOnDiv(divId) {
     ReactDOM.render(<BallerinaWidget />, document.getElementById(divId));
 }

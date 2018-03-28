@@ -94,6 +94,15 @@ class Console extends React.Component {
                         if (msg.startsWith('CURL-OUTPUT:')) {
                             return (<div className="console-line curl-output">{msg.replace('CURL-OUTPUT:', '')}</div>)
                         }
+                        if (msg.includes('CircuitBreaker failure threshold exceeded')) {
+                            return (<div className="console-line">{'Circuit tripped : CLOSE -> OPEN'}</div>)
+                        }
+                        if (msg.includes('CircuitBreaker reset timeout reached')) {
+                            return (<div className="console-line">{'Max circuit open timeout reached : OPEN -> HALF-OPEN'}</div>)
+                        }
+                        if (msg.includes('CircuitBreaker trial run  was successful')) {
+                            return (<div className="console-line">{'Circuit closed : HALF-OPEN -> CLOSE'}</div>)
+                        }
                         // if (msg.startsWith('started services at')) {
                         //     return (
                         //         <div>{msg}

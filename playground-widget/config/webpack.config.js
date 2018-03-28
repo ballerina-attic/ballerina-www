@@ -42,13 +42,12 @@
  const config = {
      target: 'web',
      entry: {
-         'playground-app': './src/index.js',
          'playground-lib': './src/lib.js',
      },
      output: {
          filename: '[name].js',
          path: buildPath,
-         libraryTarget: 'var',
+         libraryTarget: 'window',
          library: 'PlaygroundWidget'
      },
      module: {
