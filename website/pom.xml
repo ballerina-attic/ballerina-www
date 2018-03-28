@@ -42,12 +42,12 @@
             <type>zip</type>
             <version>${ballerina.version}</version>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.ballerinalang.platform</groupId>
             <artifactId>ballerina-playground-widget</artifactId>
             <type>zip</type>
             <version>${ballerina.version}</version>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.ballerinalang.guides</groupId>
             <artifactId>playground-hello-service</artifactId>
@@ -71,7 +71,7 @@
                         </goals>
                         <configuration>
                             <includeArtifactIds>
-                                ballerina-tools, ballerina-examples, ballerina-playground-widget
+                                ballerina-tools, ballerina-examples
                             </includeArtifactIds>
                             <outputDirectory>${project.build.directory}/dependencies
                             </outputDirectory>
@@ -135,7 +135,7 @@
                                         <include name="**/*.*"/>
                                     </fileset>
                                 </copy>
-                                <copy todir="${main.theme.dir}/js">
+                                <!-- <copy todir="${main.theme.dir}/js">
                                     <fileset 
                                         dir="${project.build.directory}/dependencies/ballerina-playground-widget-${ballerina.version}">
                                         <include name="playground-lib.js"/>
@@ -160,7 +160,7 @@
                                         dir="${project.build.directory}/dependencies/ballerina-playground-widget-${ballerina.version}/themes">
                                         <include name="**/*.*"/>
                                     </fileset>
-                                </copy>
+                                </copy> -->
                             </target>
                         </configuration>
                     </execution>
