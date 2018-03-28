@@ -315,7 +315,7 @@
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h2 class="cMainH2Title">All of our language features </h2>
+            <h2 class="cMainH2Title">Try the language with Ballerina by Examples</h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
                <p>Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration. Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. </p>
             </div>
@@ -339,6 +339,62 @@
    </div>
 </div>
 <div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
+   <div class="container">
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h2 class="cMainH2Title">Learn the language with guides</h2>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
+               <p>Apache-licensed software and community-driven projects. </p>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative">
+         <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12">
+            <div class="cOpenSourceContainer">
+               <table class="OpenSourceTable">
+                  <tr>
+                     <td class="cType">Ballerina</td>
+                     <td>A programming language and service runtime for orchestration and composition of endpoints</td>
+                     <td class="cGitLink"><a href=""></a></td>
+                  </tr>
+                  <tr>
+                     <td>Ballerina.io</td>
+                     <td>The home of the Ballerina Platform</td>
+                     <td class="cGitLink"><a href=""></a></td>
+                  </tr>
+                  <tr>
+                     <td>Ballerina for Java</td>
+                     <td>A microservice framework to expose legacy Java as Ballerina-ready services</td>
+                     <td class="cGitLink"><a href=""></a></td>
+                  </tr>
+                  <tr>
+                     <td>Ballerina Sidecar</td>
+                     <td>A container that attaches transactions and resilience to running services</td>
+                     <td class="cGitLink"><a href=""></a></td>
+                  </tr>
+                  <tr>
+                     <td>Ballerina API Gateway</td>
+                     <td>enforce security and runtime policies</td>
+                     <td class="cGitLink"><a href=""></a></td>
+                  </tr>
+                  <tr>
+                     <td>Ballerina Message Broker</td>
+                     <td>Scalable broker for persistent and asynchronous messaging</td>
+                     <td class="cGitLink" ><a href=""></a></td>
+                  </tr>
+                  <tr>
+                     <td>Ballerina Transaction Coordinator</td>
+                     <td>Manage distributed transactions for microservices</td>
+                     <td class="cGitLink"><a href=""></a></td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+         <div class="clearfix"></div>
+      </div>
+   </div>
+</div>
+<div class="row cBallerina-io-White-row cPhilosophy cPhilosophy2">
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
