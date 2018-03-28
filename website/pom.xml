@@ -43,6 +43,12 @@
             <version>${ballerina.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.ballerinalang.platform</groupId>
+            <artifactId>ballerina-playground-widget</artifactId>
+            <type>zip</type>
+            <version>${ballerina.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.ballerinalang.guides</groupId>
             <artifactId>playground-hello-service</artifactId>
             <type>zip</type>
@@ -65,7 +71,7 @@
                         </goals>
                         <configuration>
                             <includeArtifactIds>
-                                ballerina-tools, ballerina-examples
+                                ballerina-tools, ballerina-examples, ballerina-playground-widget
                             </includeArtifactIds>
                             <outputDirectory>${project.build.directory}/dependencies
                             </outputDirectory>
@@ -129,7 +135,32 @@
                                         <include name="**/*.*"/>
                                     </fileset>
                                 </copy>
-                                
+                                <copy todir="${main.theme.dir}/js">
+                                    <fileset 
+                                        dir="${project.build.directory}/dependencies/ballerina-playground-widget-${ballerina.version}">
+                                        <include name="playground-lib.js"/>
+                                        <include name="playground-lib.js.map"/>
+                                    </fileset>
+                                </copy>
+                                <copy todir="${main.theme.dir}/css">
+                                    <fileset 
+                                        dir="${project.build.directory}/dependencies/ballerina-playground-widget-${ballerina.version}">
+                                        <include name="playground-lib.css"/>
+                                        <include name="playground-lib.css.map"/>
+                                    </fileset>
+                                </copy>
+                                <copy todir="${main.theme.dir}/fonts">
+                                    <fileset 
+                                        dir="${project.build.directory}/dependencies/ballerina-playground-widget-${ballerina.version}/fonts">
+                                        <include name="**/*.*"/>
+                                    </fileset>
+                                </copy>
+                                <copy todir="${main.theme.dir}/css/themes">
+                                    <fileset 
+                                        dir="${project.build.directory}/dependencies/ballerina-playground-widget-${ballerina.version}/themes">
+                                        <include name="**/*.*"/>
+                                    </fileset>
+                                </copy>
                             </target>
                         </configuration>
                     </execution>
@@ -248,6 +279,7 @@
         <bbe.site.dir>${webroot.dir}/learn/by-example</bbe.site.dir>
         <guides.site.dir>${webroot.dir}/guides</guides.site.dir>
         <main.source.dir>${basedir}/main-pages</main.source.dir>
+        <main.theme.dir>${main.source.dir}/ballerina.io-website-theme</main.theme.dir>
         <two.column.source.dir>${basedir}/two-column-pages</two.column.source.dir>
         <three.column.source.dir>${basedir}/three-column-pages</three.column.source.dir>
         <go.working.dir>${project.build.directory}/go-tool</go.working.dir>

@@ -21,7 +21,7 @@ class ViewSelectPanel extends React.Component {
                 className="view-select-panel"
             >
                 <div 
-                    className={cn('btn', 'source-view-btn', { 'active': selectedView === VIEWS.SOURCE })}
+                    className={cn('widget-btn', 'source-view-btn', { 'active': selectedView === VIEWS.SOURCE })}
                     onClick={() => {
                         if (selectedView !== VIEWS.SOURCE) {
                             onViewSwitch(VIEWS.SOURCE);
@@ -31,7 +31,7 @@ class ViewSelectPanel extends React.Component {
                     <img src={viewSourceBtnIcon} />
                 </div>
                 <div 
-                    className={cn('btn', 'composer-view-btn', { 'active': selectedView === VIEWS.COMPOSER })}
+                    className={cn('widget-btn', 'composer-view-btn', { 'active': selectedView === VIEWS.COMPOSER })}
                     onClick={() => {
                         if (selectedView !== VIEWS.COMPOSER) {
                             onViewSwitch(VIEWS.COMPOSER);
@@ -41,7 +41,7 @@ class ViewSelectPanel extends React.Component {
                     <img src={viewComposerBtnIcon} />
                 </div>
                 <div  
-                    className={cn('btn', 'binary-view-btn', { 'active': selectedView === VIEWS.BINARY })}
+                    className={cn('widget-btn', 'binary-view-btn', { 'active': selectedView === VIEWS.BINARY })}
                     onClick={() => {
                         if (selectedView !== VIEWS.BINARY) {
                             onViewSwitch(VIEWS.BINARY);
