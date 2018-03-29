@@ -4,9 +4,7 @@
         <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cDownloadsHeader">
             <h1>Downloads</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
-                euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-                minim veniam.
+                After downloading a binary release suitable for your system, please follow the installation instructions. If you are building from source, follow the source <a href="https://github.com/ballerina-lang/ballerina/blob/master/README.md">installation instructions</a>.
             </p>            
             <div class="cFeaturedVersion">
                 <h2>Current version 0.964.0</h2>
