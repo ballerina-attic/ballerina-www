@@ -18,7 +18,7 @@
          </div>
       </div>
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Right-col cPhilosophyWidget">
-         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-top.png"/>
+         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-diagrams-top-image.png"/>
          <!--         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-diagrams-for-site.png"/>-->
       </div>
    </div>
@@ -311,7 +311,7 @@
       </div>
    </div>
 </div>
-<div class="row cBallerina-io-White-row">
+<div class="row cBallerina-io-White-row" id="ballerina-by-examples">
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -338,7 +338,7 @@
       </div>
    </div>
 </div>
-<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
+<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2" id="ballerina-by-guides">
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
