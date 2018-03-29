@@ -36,9 +36,8 @@
 
       <!-- <img style="margin-top: -14px; margin-left: 6px;" src="img/widget.jpg"/> -->
 
-                    <div class="embed-responsive-item" style="width: 100%;height: 693px;border: none; background:transparent; margin-top: -16px;">
-                            <div id="playground"></div>
-                    </div>
+                    <iframe class="embed-responsive-item" src="playground/index.html" style="width: 100%;height: 693px;border: none; background:transparent; margin-top: -16px;">
+                    </iframe>
 
 
                </div>
