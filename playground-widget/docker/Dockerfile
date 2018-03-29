@@ -33,6 +33,7 @@ RUN chmod +x /ballerina/runtime/bin/composer
 RUN chmod +x /ballerina/runtime/bin/ballerina
 COPY composer-config.yml /ballerina/runtime/resources/composer/conf/
 COPY netty-transports.yml /ballerina/runtime/resources/composer/services/
+COPY ballerinaKeystore.p12 /ballerina/runtime/bre/security/
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 COPY CUSTOMER_DB.h2.db /sample-db/
