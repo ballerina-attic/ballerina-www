@@ -26,7 +26,7 @@
  const HtmlWebpackPlugin = require('html-webpack-plugin');
  const CleanWebpackPlugin = require('clean-webpack-plugin');
  
- const extractCSSBundle = new ExtractTextPlugin({ filename: './[name].css', allChunks: true });
+ const extractCSSBundle = new ExtractTextPlugin({ filename: './[name]-[hash].css', allChunks: true });
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
  const backendHost = '203.94.95.170:9091';
@@ -42,13 +42,11 @@
  const config = {
      target: 'web',
      entry: {
-         'playground-lib': './src/lib.js',
+         'playground-app': './src/index.js',
      },
      output: {
-         filename: '[name].js',
+         filename: '[name]-[hash].js',
          path: buildPath,
-         libraryTarget: 'window',
-         library: 'PlaygroundWidget'
      },
      module: {
          rules: [{
