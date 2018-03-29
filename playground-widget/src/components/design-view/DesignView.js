@@ -9,7 +9,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import PackageScopedEnvironment from 'PackageScopedEnvironment';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { getParserURL } from '../../utils';
-import 'scss/modules/ballerina-editor.scss';
+import 'scss/playground.scss';
 import 'font-ballerina/css/font-ballerina.css';
 import './DesignView.css';
 

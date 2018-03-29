@@ -94,6 +94,9 @@ class Console extends React.Component {
                         if (msg.startsWith('CURL-OUTPUT:')) {
                             return (<div className="console-line curl-output">{msg.replace('CURL-OUTPUT:', '')}</div>)
                         }
+                        if (msg.startsWith('BVM-OUTPUT:')) {
+                            return (<div className="console-line bvm-output">{msg.replace('BVM-OUTPUT:', '')}</div>)
+                        }
                         if (msg.includes('CircuitBreaker failure threshold exceeded')) {
                             return (<div className="console-line">{'Circuit tripped : CLOSE -> OPEN'}</div>)
                         }
