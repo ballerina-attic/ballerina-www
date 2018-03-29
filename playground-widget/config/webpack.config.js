@@ -29,7 +29,7 @@
  const extractCSSBundle = new ExtractTextPlugin({ filename: './[name]-[hash].css', allChunks: true });
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
- const backendHost = '203.94.95.170:9091';
+ const backendHost = 'playground.ballerina.io';
 
  const moduleRoot = path.resolve(__dirname, '../');
  const buildPath = path.resolve(__dirname, '../build');
