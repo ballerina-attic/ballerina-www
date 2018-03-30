@@ -82,7 +82,8 @@ class Console extends React.Component {
                             return (<span/>);
                         }
                         if (msg.startsWith('build completed in')) {
-                            return (<div className="console-line">{'building...   ' + msg.replace('build', '')}</div>)
+                            return (<div className="console-line">{'building...   ' 
+                            + msg.replace('build completed in', 'deployed to kubernetes in')}</div>)
                         }
                         if (msg.startsWith('executing curl completed in')) {
                             return (
