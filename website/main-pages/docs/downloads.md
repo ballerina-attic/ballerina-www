@@ -12,7 +12,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cDownloadLeft">
-            <a href="https://stage2.ballerina.io/products/ballerina/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi" class="cDownload">
+            <a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi" class="cDownload">
                 <div>Windows</div>
                 <div class="cSize">bal.964.windows.amid64.msi(128mb)</div>
             </a>
@@ -24,13 +24,13 @@
             </a>
         </div>
         <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cDownloadMiddle">
-            <a href="https://stage2.ballerina.io/products/ballerina/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg" class="cDownload">
+            <a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg" class="cDownload">
                 <div>MacOS</div>
                 <div class="cSize">bal.964.mac.darwin64.pkg(82mb)</div>
             </a>
         </div>
         <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cDownloadRight">
-            <a href="https://stage2.ballerina.io/products/ballerina/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT.zip" class="cDownload">
+            <a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT.zip" class="cDownload">
                 <div>Source</div>
                 <div class="cSize">bal.964.src.amid64.msi(78mb)</div>
             </a>
