@@ -133,9 +133,7 @@
                       <p>{{.Descs}}</p>
                       <div class="cBBE-links">
                       <ul>
-                          <li>
-                              <a class="switch"><img src="/img/switch-sides-icon.svg"/></a>
-                          </li>
+                        
                           <li>
                               <a href=""><img src="/img/copy-icon.svg"/></a>
                           </li>
@@ -151,8 +149,9 @@
                           <ul>
                               <li><a href="/">Home</a></li>
                               <li>»</li>
-                              <li><a href="/learn">Lean</a></li>
+                              <li><a href="/learn">Learn</a></li>
                               <li>»</li>
+                              <li><a href="/philosophy#ballerina-by-examples">Ballerina By Example</a></li>
                                <li>{{.Name}}</li>
                           </ul>
                       </div>
@@ -160,14 +159,16 @@
                       <div class="cTopButtonContainer">
                           {{if .PrevExample}}
                           <div class="cButtonInfoContainer">
-                         <a class="prev" href="{{.PrevExample.Id}}.html">PREVIOUS EXAMPLE</a>
+                         <a class="prev" href="{{.PrevExample.Id}}.html">PREVIOUS
                          <p>{{.PrevExample.Name}}</p>
+                         </a>
                           </div>
                          {{end}}
                           {{if .NextExample}}
                           <div class="cButtonInfoContainer">
-                          <a class="next" href="{{.NextExample.Id}}.html">NEXT EXAMPLE</a>
+                          <a class="next" href="{{.NextExample.Id}}.html">NEXT
                           <p>{{.NextExample.Name}}</p>
+                          </a>
                           </div>
                           {{end}}
                       </div>
@@ -318,15 +319,7 @@
             </div>
         </div>
 
-
-      
-      
-
-      
-      
-      
-      
-      <script>
+ <script>
       $(document).ready(function () {
       $( "cTR:last" ).addClass('lastrpw');
 //      $( "cTR:first" ).addClass('firstrpw');
