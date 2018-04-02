@@ -4,9 +4,7 @@
         <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cDownloadsHeader">
             <h1>Downloads</h1>
             <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
-                euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-                minim veniam.
+                After downloading a binary release suitable for your system, please follow the installation instructions. If you are building from source, follow the <a href="https://github.com/ballerina-lang/ballerina/blob/master/README.md">source installation instructions</a>.
             </p>            
             <div class="cFeaturedVersion">
                 <h2>Current version 0.964.0</h2>
@@ -14,9 +12,9 @@
         </div>
         <div class="clearfix"></div>
         <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cDownloadLeft">
-            <a href="#" class="cDownload">
+            <a href="https://stage2.ballerina.io/products/ballerina/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi" class="cDownload">
                 <div>Windows</div>
-                <div class="cSize">bal.964.windows.amid64.msi(100mb)</div>
+                <div class="cSize">bal.964.windows.amid64.msi(128mb)</div>
             </a>
         </div>
         <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cDownloadMiddle">
@@ -26,15 +24,15 @@
             </a>
         </div>
         <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cDownloadMiddle">
-            <a href="#" class="cDownload">
+            <a href="https://stage2.ballerina.io/products/ballerina/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg" class="cDownload">
                 <div>MacOS</div>
-                <div class="cSize">bal.964.mac.darwin64.pkg(162mb)</div>
+                <div class="cSize">bal.964.mac.darwin64.pkg(82mb)</div>
             </a>
         </div>
         <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cDownloadRight">
-            <a href="#" class="cDownload">
+            <a href="https://stage2.ballerina.io/products/ballerina/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT.zip" class="cDownload">
                 <div>Source</div>
-                <div class="cSize">bal.964.src.amid64.msi(12mb)</div>
+                <div class="cSize">bal.964.src.amid64.msi(78mb)</div>
             </a>
         </div>
         <div class="col-xs-12 col-sm-16 col-md-12 col-lg-12">
