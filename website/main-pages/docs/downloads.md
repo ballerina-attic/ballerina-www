@@ -7,7 +7,7 @@
                 After downloading a binary release suitable for your system, please follow the installation instructions. If you are building from source, follow the <a href="https://github.com/ballerina-lang/ballerina/blob/master/README.md">source installation instructions</a>.
             </p>            
             <div class="cFeaturedVersion">
-                <h2>Current version 0.964.0</h2>
+                <h2>Current version: 0.964.0 (Mar 6, 2018)</h2>
             </div>
         </div>
         <div class="clearfix"></div>
