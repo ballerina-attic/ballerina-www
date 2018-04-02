@@ -65,6 +65,7 @@ td.code {
 .docs {
     padding-left: 30px;
     width: 40%;
+    vertical-align:top;
     
 } 
 
@@ -99,6 +100,7 @@ tr:hover .docs p {
 .cCodeRight .docs {
     padding-right: 30px;
     padding-left: 0;
+    
 }
 
 
@@ -140,7 +142,7 @@ tr:hover .docs p {
 
  tr:hover .cCodeLeft .cCodeDesription {
     padding-left: 14px;
-     background-image: url("/site/img/green-arrow.svg") !important;
+     background-image: url("/img/green-arrow.svg") !important;
      background-position: left center;
      background-repeat: no-repeat;
 }
@@ -186,16 +188,16 @@ table.cBottomBorder-table .cCodeTD {
 }
 
 .cBallerina-BBE-top-Container {
-    padding-bottom: 60px;
+    padding-bottom: 20px;
 }
 
 
 .cBreadcrums {
     display: inline-block;
-    width: 100%;
     margin-top: 28px;
     margin-bottom: 26px;
     padding-left: 5px;
+    float: left;
 }
 
 .cBreadcrums ul {
@@ -221,7 +223,7 @@ table.cBottomBorder-table .cCodeTD {
 }
 
  a.prev ,  a.next {
-    padding: 8px 0;
+    padding: 8px 30px;
     width: 300px;
     text-align: center;
     
@@ -233,22 +235,53 @@ table.cBottomBorder-table .cCodeTD {
     letter-spacing: 1px;
     color: #57595d;
     width: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
-gray-arrow-left.svg
-
+ 
+a.prev {
+    background-image: url("/img/gray-arrow-left.svg") !important;
+    background-position: left center;
+    
+}
 
 a.next {
     margin-right: 0;
+     background-image: url("/img/gray-arrow-right.svg") !important;
+     background-position: right center;
+   
 }
 .cBallerina-BBE-top-Conrols-Container {
 padding-left: 177px;
 }
 
+
+.cTopControlsContainer {
+    width: 100%;
+}
+
+.cLeftTD {
+    width: 60%;
+    vertical-align: top;
+}
+.cRightTD {
+    padding-left: 60px;
+    padding-top: 75px;
+}
+
+
 .cBBE-links {
-    margin-top: 28px;
+/*    margin-top: 28px;
 position: absolute;
-right: -134px;
+right: -134px;*/
+
+display: inline-block;
+
+margin-top: 28px;
+margin-bottom: 26px;
+padding-left: 5px;
+float: right;
 }
 
 .cBBE-links ul {
@@ -271,7 +304,7 @@ right: -134px;
    width: 46%;
 display: inline-block;
 float: left;
-margin-right: 14px;
+margin-left: 14px;
 }
 .cButtonInfoContainer p {
     padding-top: 10px;
