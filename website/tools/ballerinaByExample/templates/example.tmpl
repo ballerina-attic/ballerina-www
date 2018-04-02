@@ -65,6 +65,7 @@
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://use.typekit.net/son4ymv.css">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+     <script src="/js/ballerina-common.js"></script>
     <link rel=stylesheet href="/css/ballerina-io.css">
     <link rel=stylesheet href="/css/ballerina-io-bbe.css">
     
@@ -77,43 +78,8 @@
       <div class="cTopLine"></div>
    </div>
 </div>
-<div class="row cBallerina-io-Nav">
-   <div class="container">
-      <!--               <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6">
-         <p>Cloud Native Programming Language<br/>
-         & Integration Framework</p>
-         </div>-->
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-         <nav class="navbar">
-            <div>
-               <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">&#9776</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  </button>
-                  <p class="navbar-brand" href="#">Cloud Native Programming Language<br/>
-                     
-                     <a class="cMobileLogo" href="/" ><img src="/img/ballerina-logo.svg" alt="Ballerina"/></a>
-                  </p>
-               </div>
-               <div id="navbar" class="collapse navbar-collapse">
-                  <ul class="nav navbar-nav cTopNav">
-                     <li class="active toctree-l1">
-                        <a href="/learn">Learn</a>
-                     </li>
-                     <li class="toctree-l1"><a href="/philosophy">Philosophy</a></li>
-                     <li class="toctree-l1"><a href="/open-source">Open Source</a></li>
-                     <li class="toctree-l1"><a href="/help">Help </a></li>
-                     <li class="toctree-l1"><a href="#"> Blog </a></li>
-                  </ul>
-               </div>
-               <!--/.nav-collapse -->
-            </div>
-         </nav>
-      </div>
-   </div>
+<div class="row cBallerina-io-Nav" id="iMainNavigation">
+   
 </div>
 <div class="row cBallerina-io-Logo-row">
    <div class="container">
@@ -124,38 +90,21 @@
 </div>
       <div class="row cBallerina-io-Gray-row">
           <div class="container cBallerinaBySampleContainer">
-			  <div class="FullCode">
+              <div class="FullCode">
 			  	{{.FullCode}}
-		  	  </div>	
-              <div class="example" id="{{.Id}}">
-                  <div class="col-xs-11 col-sm-12 col-md-6 cBallerina-BBE-top-Container">
-                      <h2>{{.Name}}</h2>
-                      <p>{{.Descs}}</p>
-                      <div class="cBBE-links">
-                      <ul>
-                        
-                          <li>
-                              <a href=""><img src="/img/copy-icon.svg"/></a>
-                          </li>
-                          <li>
-                              <a href=""><img src="/img/github-logo-green.svg"/></a>
-                          </li>
-                      </ul>
-                      </div>
-                      
-                  </div>
-                  <div class="col-xs-1 col-sm-12 col-md-6 cBallerina-BBE-top-Conrols-Container">
-                      <div class="cBreadcrums" >
-                          <ul>
-                              <li><a href="/">Home</a></li>
-                              <li>»</li>
-                              <li><a href="/learn">Learn</a></li>
-                              <li>»</li>
-                              <li><a href="/philosophy#ballerina-by-examples">Ballerina By Example</a></li>
-                               <li>{{.Name}}</li>
-                          </ul>
-                      </div>
- 
+		</div>
+              
+              <div class="col-xs-12 col-sm-12 col-md-12">
+              
+              
+              <table class="cTopInfoContainer cTopControlsContainer">
+                  <tr>
+                      <td class="cLeftTD">
+                          <h2>{{.Name}}</h2>
+                          <p>{{.Descs}}</p>
+
+                      </td>
+                      <td class="cRightTD">
                       <div class="cTopButtonContainer">
                           {{if .PrevExample}}
                           <div class="cButtonInfoContainer">
@@ -172,10 +121,47 @@
                           </div>
                           {{end}}
                       </div>
-                      
-                      
-                  </div>
+                      </td>
+                  </tr>
+              </table>
+              
+              
+              
+              </div>
+              
+              
+              
+              <div class="example" id="{{.Id}}">
+
                   <div class="col-xs-12 col-sm-12 col-md-12 cBBETable-container cCodeLeft">
+                       <table class="cTopControlsContainer">
+                          <tr>
+                              <td class="cLeftTD">
+                                  <div class="cBreadcrums" >
+                                      <ul>
+                                          <li><a href="/">Home</a></li>
+                                          <li>»</li>
+                                          <li><a href="/learn">Learn</a></li>
+                                          <li>»</li>
+                                          <li><a href="/learn/by-example">By Example</a></li>
+                                          <li>»</li>
+                                          <li>{{.Name}}</li>
+                                      </ul>
+                                  </div>
+                                  <div class="cBBE-links">
+                                      <ul>
+                                          <li>
+                                              <a href=""><img src="/img/copy-icon.svg"/></a>
+                                          </li>
+                                          <li>
+                                              <a href=""><img src="/img/github-logo-green.svg"/></a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </td>
+                              <td></td>
+                          </tr>
+                      </table>
 
                       <table class="cTopBorder-table">
                           <tr>
