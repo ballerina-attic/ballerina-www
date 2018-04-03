@@ -7,7 +7,7 @@
                 After downloading a binary release suitable for your system, please follow the installation instructions. If you are building from source, follow the <a href="https://github.com/ballerina-lang/ballerina/blob/master/README.md">source installation instructions</a>.
             </p>            
             <div class="cFeaturedVersion">
-                <h2>Current version 0.964.0</h2>
+                <h2>Current version 0.970.0</h2>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -32,7 +32,7 @@
         <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cDownloadRight">
             <a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-source.zip" class="cDownload">
                 <div>Source</div>
-                <div class="cSize">bal.964.src.amid64.msi(78mb)</div>
+                <div class="cSize">bal.964.src.amid64.msi(39mb)</div>
             </a>
         </div>
         <div class="col-xs-12 col-sm-16 col-md-12 col-lg-12">
