@@ -199,7 +199,7 @@
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h2 class="cMainH2Title">Cloud Native Programming Language? </h2>
+            <h2 class="cMainH2Title">Cloud Native Programming Language </h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
                   euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim 
@@ -315,7 +315,7 @@
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h2 class="cMainH2Title">Try the language with Ballerina by Examples</h2>
+            <h2 class="cMainH2Title">Try the language with Ballerina by Example</h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
                <p>Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration. Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. </p>
             </div>
