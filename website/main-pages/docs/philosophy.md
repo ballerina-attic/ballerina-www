@@ -18,7 +18,7 @@
          </div>
       </div>
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Right-col cPhilosophyWidget">
-         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-top.png"/>
+         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-diagrams-top-image.png"/>
          <!--         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="../img/philosophy-diagrams-for-site.png"/>-->
       </div>
    </div>
@@ -199,7 +199,7 @@
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h2 class="cMainH2Title">Cloud Native Programming Language? </h2>
+            <h2 class="cMainH2Title">Cloud Native Programming Language </h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
                   euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim 
@@ -311,11 +311,11 @@
       </div>
    </div>
 </div>
-<div class="row cBallerina-io-White-row">
+<div class="row cBallerina-io-White-row" id="ballerina-by-examples">
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h2 class="cMainH2Title">Try the language with Ballerina by Examples</h2>
+            <h2 class="cMainH2Title">Try the language with Ballerina by Example</h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
                <p>Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration. Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. </p>
             </div>
@@ -338,7 +338,7 @@
       </div>
    </div>
 </div>
-<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
+<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2" id="ballerina-by-guides">
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
