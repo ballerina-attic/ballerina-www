@@ -42,7 +42,7 @@ The [API Documentation](https://ballerinalang.org/docs/api/0.964.0/) describes t
 
 ## Articles 
 
-There are various [articles](https://medium.com/@ballerinalang) available that are written about various aspects of Ballerina. These can help you learn more.
+There are various [articles](https://blog-stage.ballerina.io/) available that are written about various aspects of Ballerina. These can help you learn more.
 
 ## Talks 
 
