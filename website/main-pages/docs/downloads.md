@@ -30,7 +30,7 @@
             </a>
         </div>
         <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cDownloadRight">
-            <a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT.zip" class="cDownload">
+            <a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-source.zip" class="cDownload">
                 <div>Source</div>
                 <div class="cSize">bal.964.src.amid64.msi(78mb)</div>
             </a>
