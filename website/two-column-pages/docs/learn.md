@@ -14,7 +14,7 @@ The [Quick Tour](https://github.com/ballerina-lang/ballerina/blob/master/docs/qu
 
 ## Ballerina by Example
 
-[Ballerina by Example](https://ballerinalang.org/docs/by-example/) is one of the easiest ways to learn Ballerina. This consists of a series of example programs that provide annotations alongside the code for guidance on how to use the example.
+[Ballerina by Example](https://stage2.ballerina.io/learn/by-example/) is one of the easiest ways to learn Ballerina. This consists of a series of example programs that provide annotations alongside the code for guidance on how to use the example.
 
 ## Ballerina by Guide
 
