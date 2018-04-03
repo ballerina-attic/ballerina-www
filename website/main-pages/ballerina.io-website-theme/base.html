@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-  
+
   {% if page and page.is_homepage %}<meta name="description" content="{{ config.site_description }}">{% endif %}
   {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
   {% if config.site_favicon %}<link rel="shortcut icon" href="{{ base_url }}/{{ config.site_favicon }}">
@@ -18,22 +18,23 @@
   {%- block htmltitle %}
   <title>{% if page and page.title and not page.is_hompage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
   {%- endblock %}
-  
+
   {%- block styles %}
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="{{ base_url }}/js/vs/grammer.js"></script>
 <script src="{{ base_url }}/js/vs/loader.js"></script>
-
+<script>var base_url = "{{ base_url }}";</script>
+<script data-main="/mkdocs/js/search.js" src="/mkdocs/js/require.js"></script>
 <!--<script src="{{ base_url }}/js/vs/editor/editor.main.nls.js"></script>
 <script src="{{ base_url }}/js/vs/editor/editor.main.js"></script>-->
 
 <script>
-    
 
 
 
 
-    
+
+
 </script>
 
 
@@ -76,20 +77,20 @@
 
   {% endif %}
   {%- endblock %}
-  
 
-  
-  
+
+
+
 </head>
 
 <body class="cBallerina-io" role="document">
 
       {% include "navigation.html" %}
-    
+
      {{ page.content }}
-     
+
        {% include "footer.html" %}
-    
+
 
 <!--  {%- block scripts %}
     <script src="{{ base_url }}/js/theme.js"></script>
@@ -103,12 +104,12 @@
 
 
 <script>
-      
+
     require.config({ paths: { 'vs': '../js/vs/' }});
 	require(['vs/editor/editor.main'], function() {
             monaco.languages.register({ id:'ballerina' });
             monaco.languages.setMonarchTokensProvider('ballerina', ballerina_grammar);
-            
+
             monaco.editor.defineTheme('myTheme',  ballerina_theme);
             monaco.editor.setTheme('myTheme');
 
@@ -125,22 +126,22 @@ var editor2 = monaco.editor.create(document.getElementById("ballerina_grammar_2"
 
 
                 }, codeEditor));
-    
+
 });
 
 
 
 
 $(function () {
-                
-                var pathname = window.location.pathname;  
+
+                var pathname = window.location.pathname;
 
                   if(pathname.indexOf("learn") != -1){
 $("#learnli").addClass("cActive");
-} 
+}
 else if(pathname.indexOf("blog") != -1){
 $("#blogli").addClass("cActive");
-}                 
+}
 else if(pathname.indexOf("philosophy") != -1){
 $("#philosophyli").addClass("cActive");
 }
@@ -150,7 +151,7 @@ $("#openli").addClass("cActive");
 else if(pathname.indexOf("help") != -1){
 $("#helpli").addClass("cActive");
 }
-               
+
             });
 
   </script>

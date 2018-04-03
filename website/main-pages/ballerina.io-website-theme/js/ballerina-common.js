@@ -26,7 +26,7 @@ var menu = '<div class="container">'
 +'<li class="toctree-l1"><a class="cSerachIcon" href="#"><img src="/img/search.svg"/></a>'
 +'<div class="cSearchBoxTopMenu">'
 +'<div role="search">'
-+'<form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">'
++'<form id ="mkdocs-search-query" autocomplete="off" class="wy-form" action="./search.html" method="get">'
 +'<input type="text" name="q" placeholder="Search" />'
 +'</form>'
 +'</div></div>'
@@ -81,44 +81,44 @@ var footer =  '<div class="container">'
 $('#iMainNavigation').append(menu);
 $('#iBallerinaFooter').append(footer);
 
-    
-    
+
+
 });
 
 $(document).ready(function () {
-             
+
          $(".cRuntimeContent").addClass('cShow');
-         
+
          $(".cRUNTIME").click(function() {
          $(".cRuntimeContent").addClass('cShow');
          $(".cDeploymentContent").removeClass('cShow');
          $(".cLifecycleContent").removeClass('cShow');
 
              });
-             
-             
+
+
          $(".cDEPLOYMENT").click(function() {
          $(".cRuntimeContent").removeClass('cShow');
          $(".cDeploymentContent").addClass('cShow');
          $(".cLifecycleContent").removeClass('cShow');
 
              });
-             
-             
+
+
          $(".cLIFECYCLE").click(function() {
          $(".cRuntimeContent").removeClass('cShow');
          $(".cDeploymentContent").removeClass('cShow');
          $(".cLifecycleContent").addClass('cShow');
 
              });
-             
-             
+
+
          $(".cSerachIcon").click(function() {
          $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
-        
+
 
              });
-             
-             
-             
+
+
+
 });
