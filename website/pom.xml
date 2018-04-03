@@ -223,7 +223,7 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>build-main-pages</id>
+                        <id>build-guide-pages</id>
                         <goals>
                             <goal>exec</goal>
                         </goals>
@@ -238,7 +238,7 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>build-guide-pages</id>
+                        <id>build-main-pages</id>
                         <goals>
                             <goal>exec</goal>
                         </goals>
@@ -248,7 +248,7 @@
                             <workingDirectory>${main.source.dir}</workingDirectory>
                             <arguments>
                                 <argument>build.sh</argument>
-                                <argument>${webroot.dir}/learn/guide</argument>
+                                <argument>${webroot.dir}</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -282,7 +282,7 @@
         <guides.source.dir>${project.build.directory}/sources/guides</guides.source.dir>
         <webroot.dir>${project.build.directory}/webroot</webroot.dir>
         <bbe.site.dir>${webroot.dir}/learn/by-example</bbe.site.dir>
-        <guides.site.dir>${webroot.dir}/guides</guides.site.dir>
+        <guides.site.dir>${webroot.dir}/learn/guides</guides.site.dir>
         <main.source.dir>${basedir}/main-pages</main.source.dir>
         <main.theme.dir>${main.source.dir}/ballerina.io-website-theme</main.theme.dir>
         <two.column.source.dir>${basedir}/two-column-pages</two.column.source.dir>
