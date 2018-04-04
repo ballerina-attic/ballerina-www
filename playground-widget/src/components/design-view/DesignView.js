@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dimmer, Loader } from 'semantic-ui-react'
 import axios from 'axios';
-import Diagram from 'Diagram';
-import TreeBuilder from 'TreeBuilder'
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
-import PackageScopedEnvironment from 'PackageScopedEnvironment';
+// import Diagram from 'Diagram';
+// import TreeBuilder from 'TreeBuilder'
+// import { DragDropContext } from 'react-dnd';
+// import HTML5Backend from 'react-dnd-html5-backend';
+// import PackageScopedEnvironment from 'PackageScopedEnvironment';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { PARSER_API_URL } from '../../utils';
-import 'scss/playground.scss';
-import 'font-ballerina/css/font-ballerina.css';
+// import 'scss/playground.scss';
+// import 'font-ballerina/css/font-ballerina.css';
 import './DesignView.css';
 
 /**
