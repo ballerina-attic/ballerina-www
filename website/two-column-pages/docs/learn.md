@@ -18,7 +18,7 @@ The [Quick Tour](https://github.com/ballerina-lang/ballerina/blob/master/docs/qu
 
 ## Ballerina by Guide
 
-Ballerina by Guide is a series of long form examples that showcase a complete lifecycle of development with Ballerina including setting up the environment, using tools, build system, authoring code, running tests, and deploying within an architecture environment. Guides illustrate collaboration across multiple Ballerina Platform components, such as the language and the API gateway for example. Each guide exists in a separate repository of its own in a dedicated organization.
+Ballerina by Guide is a series of long form examples that showcase a complete lifecycle of integration development with Ballerina including setting up the environment, using tools, build system, authoring code, running tests, and deploying within an architecture environment. Guides illustrate how different language components work together, such as the language and the API gateway for example. 
 
 ## How to Structure Ballerina Code
 
