@@ -713,7 +713,7 @@ Hello World!
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative">
          <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12">
             <div class="cOpenSourceContainer">
-               <table class="OpenSourceTable">
+               <table class="OpenSourceTable" id="guidesTable">
                   <tr>
                      <td class="cType">Ballerina</td>
                      <td>A programming language and service runtime for orchestration and composition of endpoints</td>
