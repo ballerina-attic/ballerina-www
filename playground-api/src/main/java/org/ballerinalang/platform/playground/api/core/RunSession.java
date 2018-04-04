@@ -219,6 +219,8 @@ public class RunSession {
                     processID = Integer.parseInt(line);
                     killChildProcesses(processID);
                     kill(processID);
+                    pushMessageToClient(Constants.CONTROL_MSG, Constants.EXECUTION_STOPPED,
+                            "program terminated");
                 } catch (Throwable e) {
                     logger.error("Launcher was unable to kill process " + line + ".");
                 }
