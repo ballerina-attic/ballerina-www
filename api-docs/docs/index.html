@@ -2,19 +2,34 @@
 <html lang="en">
 <head>
 	<!-- Required meta tags -->
-    	<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    	<!-- Bootstrap CSS -->
-    	<link rel="stylesheet" href="docerina-theme/libs/bootstrap-3.0.0/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="docerina-theme/libs/bootstrap-3.0.0/css/bootstrap.min.css">
 
-        <!-- Roboto font CSS -->
-        <link rel="stylesheet" href="docerina-theme/css/roboto.css">
+    <!-- Roboto font CSS -->
+    <link rel="stylesheet" href="docerina-theme/css/roboto.css">
 
-    	<!-- custom CSS -->
-    	<link rel="stylesheet" href="docerina-theme/css/main.css">
+    <!-- Nanoscroller CSS -->
+    <link rel="stylesheet" href="docerina-theme/css/nanoscroller.css">
 
-    	<title>Ballerina API Documentation</title>
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="docerina-theme/css/main.css">
+
+    <!-- Jquery JS -->
+    <script src="docerina-theme/js/jquery.min.js"></script>
+
+    <!-- Nanoscroller JS -->
+    <script src="docerina-theme/js/jquery.nanoscroller.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.nano').nanoScroller();
+        });
+    </script>
+
+    <title>Ballerina API Documentation</title>
 </head>
 <body>
 	<!-- Wrapper -->
@@ -24,308 +39,328 @@
 		<div id="main">
 			<div class="inner">
 
-				<!-- Header -->
-				<header id="header">
-					<a href="index.html" class="logo"><span class="bold"> Ballerina </span> API Documentation</a>
-				</header>
+                <div id="header" class="navbar navbar-fixed-top">
+                    <div class="container-full">
+                        <a href="index.html"><strong>Ballerina</strong> API Documentation</a>
+                    </div>
+                </div>
 
 				<!-- Banner -->
 				<section>
-					<div class="content">
+                    <div id="index-content" class="nano">
+                        <div class="nano-content">
 						    <h2>Ballerina Packages</h2>
                             <ul>
                                 
                                 <li>
-                                    <a href="primitive-types.html">
+                                    <a href="auth.html">
                                         
-                                        
-                                            <span class="bold">Primitive Types</span>
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.auth.html">
-                                        
-                                            ballerina.<span class="bold">auth</span>
+                                            <span class="bold">auth</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.auth.authz.html">
+                                    <a href="auth.authz.html">
                                         
-                                            ballerina.<span class="bold">auth.authz</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.auth.authz.permissionstore.html">
-                                        
-                                            ballerina.<span class="bold">auth.authz.permissionstore</span>
+                                            <span class="bold">auth.authz</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.auth.basic.html">
+                                    <a href="auth.authz.permissionstore.html">
                                         
-                                            ballerina.<span class="bold">auth.basic</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.auth.userstore.html">
-                                        
-                                            ballerina.<span class="bold">auth.userstore</span>
+                                            <span class="bold">auth.authz.permissionstore</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.auth.utils.html">
+                                    <a href="auth.basic.html">
                                         
-                                            ballerina.<span class="bold">auth.utils</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.builtin.html">
-                                        
-                                            ballerina.<span class="bold">builtin</span>
+                                            <span class="bold">auth.basic</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.caching.html">
+                                    <a href="auth.jwtAuth.html">
                                         
-                                            ballerina.<span class="bold">caching</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.collections.html">
-                                        
-                                            ballerina.<span class="bold">collections</span>
+                                            <span class="bold">auth.jwtAuth</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.config.html">
+                                    <a href="auth.userstore.html">
                                         
-                                            ballerina.<span class="bold">config</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.data.sql.html">
-                                        
-                                            ballerina.<span class="bold">data.sql</span>
+                                            <span class="bold">auth.userstore</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.file.html">
+                                    <a href="auth.utils.html">
                                         
-                                            ballerina.<span class="bold">file</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.io.html">
-                                        
-                                            ballerina.<span class="bold">io</span>
+                                            <span class="bold">auth.utils</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.log.html">
+                                    <a href="builtin.html">
                                         
-                                            ballerina.<span class="bold">log</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.math.html">
-                                        
-                                            ballerina.<span class="bold">math</span>
+                                            <span class="bold">builtin</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.mime.html">
+                                    <a href="caching.html">
                                         
-                                            ballerina.<span class="bold">mime</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.net.http.html">
-                                        
-                                            ballerina.<span class="bold">net.http</span>
+                                            <span class="bold">caching</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.net.http.resiliency.html">
+                                    <a href="collections.html">
                                         
-                                            ballerina.<span class="bold">net.http.resiliency</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.net.http.swagger.html">
-                                        
-                                            ballerina.<span class="bold">net.http.swagger</span>
+                                            <span class="bold">collections</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.net.uri.html">
+                                    <a href="config.html">
                                         
-                                            ballerina.<span class="bold">net.uri</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.net.ws.html">
-                                        
-                                            ballerina.<span class="bold">net.ws</span>
+                                            <span class="bold">config</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.os.html">
+                                    <a href="data.sql.html">
                                         
-                                            ballerina.<span class="bold">os</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.reflect.html">
-                                        
-                                            ballerina.<span class="bold">reflect</span>
+                                            <span class="bold">data.sql</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.runtime.html">
+                                    <a href="file.html">
                                         
-                                            ballerina.<span class="bold">runtime</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.security.crypto.html">
-                                        
-                                            ballerina.<span class="bold">security.crypto</span>
+                                            <span class="bold">file</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.task.html">
+                                    <a href="http.html">
                                         
-                                            ballerina.<span class="bold">task</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.test.html">
-                                        
-                                            ballerina.<span class="bold">test</span>
+                                            <span class="bold">http</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.time.html">
+                                    <a href="http.swagger.html">
                                         
-                                            ballerina.<span class="bold">time</span>
-                                        
-                                        
-                                    </a>
-                                </li>
-                                
-                                <li>
-                                    <a href="ballerina.transactions.coordinator.html">
-                                        
-                                            ballerina.<span class="bold">transactions.coordinator</span>
+                                            <span class="bold">http.swagger</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.user.html">
+                                    <a href="internal.html">
                                         
-                                            ballerina.<span class="bold">user</span>
+                                            <span class="bold">internal</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                                 <li>
-                                    <a href="ballerina.util.html">
+                                    <a href="io.html">
                                         
-                                            ballerina.<span class="bold">util</span>
+                                            <span class="bold">io</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="jwt.html">
+                                        
+                                            <span class="bold">jwt</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="jwt.signature.html">
+                                        
+                                            <span class="bold">jwt.signature</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="log.html">
+                                        
+                                            <span class="bold">log</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="math.html">
+                                        
+                                            <span class="bold">math</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="mime.html">
+                                        
+                                            <span class="bold">mime</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="net.grpc.html">
+                                        
+                                            <span class="bold">net.grpc</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="net.uri.html">
+                                        
+                                            <span class="bold">net.uri</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="os.html">
+                                        
+                                            <span class="bold">os</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="reflect.html">
+                                        
+                                            <span class="bold">reflect</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="runtime.html">
+                                        
+                                            <span class="bold">runtime</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="security.crypto.html">
+                                        
+                                            <span class="bold">security.crypto</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="task.html">
+                                        
+                                            <span class="bold">task</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="test.html">
+                                        
+                                            <span class="bold">test</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="time.html">
+                                        
+                                            <span class="bold">time</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="transactions.html">
+                                        
+                                            <span class="bold">transactions</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="user.html">
+                                        
+                                            <span class="bold">user</span>
+                                        
+                                        
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="util.html">
+                                        
+                                            <span class="bold">util</span>
                                         
                                         
                                     </a>
                                 </li>
                                 
                             </ul>
-						<p></p>
-					</div>
+					    </div>
+                    </div>
 				</section>
 			</div>
 		</div>
