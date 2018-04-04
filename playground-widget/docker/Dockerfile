@@ -17,12 +17,12 @@ FROM openjdk:jre-alpine
 
 RUN apk update && apk add bash && apk add curl
 
-COPY ballerina.zip /root/
+COPY ballerina-tools.zip /root/
 RUN mkdir /ballerina \
-    && unzip /root/ballerina.zip -d /ballerina/ \
+    && unzip /root/ballerina-tools.zip -d /ballerina/ \
     && mv /ballerina/ballerina* /ballerina/runtime \
     && mkdir -p /ballerina/runtime/logs \
-    && rm /root/ballerina.zip
+    && rm /root/ballerina-tools.zip
 
 ENV BALLERINA_HOME /ballerina/runtime
 ENV PATH $BALLERINA_HOME/bin:$PATH
