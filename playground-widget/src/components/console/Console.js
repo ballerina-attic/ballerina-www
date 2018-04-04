@@ -77,6 +77,9 @@ class Console extends React.Component {
                     }}
                 >
                     {this.state.messages.map((msg, index, msgs) => {
+                        if (!msg) {
+                            return (<span/>);
+                        }
                         if (msg === 'building...' && msgs.length > (index + 1)
                                 && msgs[index + 1].startsWith('build completed in')) {
                             return (<span/>);

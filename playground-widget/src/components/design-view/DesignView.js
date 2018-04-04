@@ -8,7 +8,7 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import PackageScopedEnvironment from 'PackageScopedEnvironment';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { getParserURL } from '../../utils';
+import { PARSER_API_URL } from '../../utils';
 import 'scss/playground.scss';
 import 'font-ballerina/css/font-ballerina.css';
 import './DesignView.css';
@@ -27,7 +27,7 @@ function parseContent(content) {
         includePackageInfo: true,
         content,
     };
-    return axios.post(getParserURL(), payload,
+    return axios.post(PARSER_API_URL, payload,
             { 
                 headers: {
                     'content-type': 'application/json; charset=utf-8',
