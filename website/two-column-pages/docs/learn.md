@@ -42,8 +42,8 @@ The [API Documentation](https://ballerinalang.org/docs/api/0.964.0/) describes t
 
 ## Articles 
 
-There are various [articles](https://blog-stage.ballerina.io/) available that are written about various aspects of Ballerina. These can help you learn more.
+The following are various articles available that are written about various aspects of Ballerina. These can help you learn more.
 
 ## Talks 
 
-There are talks available about Ballerina in our [video channel](https://www.youtube.com/channel/UCBMvET-T1YshLrJRLpuKJ5g).
+The following are talks available about Ballerina.
