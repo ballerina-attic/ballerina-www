@@ -61,7 +61,7 @@ class DesignView extends React.Component {
      */
     getChildContext() {
         return {
-            environment: new PackageScopedEnvironment(),
+            // environment: new PackageScopedEnvironment(),
             getDiagramContainer: () => {
                 return this.container;
             },
@@ -73,10 +73,10 @@ class DesignView extends React.Component {
     }
 
     componentDidMount() {
-        parseContent(this.props.content)
-            .then(({ model }) => {
-                this.setState({ model: TreeBuilder.build(model) });
-            })
+        // parseContent(this.props.content)
+        //     .then(({ model }) => {
+        //         this.setState({ model: TreeBuilder.build(model) });
+        //     })
     }
 
     /**
@@ -97,7 +97,7 @@ class DesignView extends React.Component {
                 }
                 {this.state.model &&
                     <Scrollbars style={{ width: 476, height: 282 }}>
-                        <Diagram mode='action' model={this.state.model} width={476} height={282} />
+                        {/* <Diagram mode='action' model={this.state.model} width={476} height={282} /> */}
                     </Scrollbars>
                 }
             </div>
@@ -111,10 +111,10 @@ DesignView.propTypes = {
 
 
 DesignView.childContextTypes = {
-    environment: PropTypes.instanceOf(PackageScopedEnvironment).isRequired,
+    //environment: PropTypes.instanceOf(PackageScopedEnvironment).isRequired,
     getDiagramContainer: PropTypes.func.isRequired,
     getOverlayContainer: PropTypes.func.isRequired,
     fitToScreen: PropTypes.bool
 };
 
-export default DragDropContext(HTML5Backend)(DesignView);
+export default DesignView // DragDropContext(HTML5Backend)(DesignView);
