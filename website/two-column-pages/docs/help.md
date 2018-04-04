@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/help-page.css"></link>
+<link rel="stylesheet" href="/css/help-page.css"></link> 
 # Help
 
 | Contact Us | Description |
