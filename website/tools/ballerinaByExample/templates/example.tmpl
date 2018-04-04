@@ -177,7 +177,6 @@
                           <table class="cBBE-body">
                               {{range .}}
                               <tr class="cTR">
-
                                   <td class="code{{if .CodeEmpty}} empty{{end}}{{if .CodeLeading}} leading{{end}}">
                                       {{.CodeRendered}}
                                   </td>
@@ -269,7 +268,7 @@
 
  <script>
       $(document).ready(function () {
-      $( ".highlight:last" ).addClass('cOutput');
+      $( ".cBBE-body:last" ).addClass('cOutput');
 //      $( "cTR:first" ).addClass('firstrpw');
       
           
