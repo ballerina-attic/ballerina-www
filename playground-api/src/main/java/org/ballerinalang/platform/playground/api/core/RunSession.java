@@ -116,6 +116,8 @@ public class RunSession {
                 break;
             case "stop":
                 requestedToAbort = true;
+                pushMessageToClient(Constants.CONTROL_MSG, Constants.RUN_ABORTED,
+                        "aborted");
                 terminate();
                 break;
             default:
@@ -219,7 +221,7 @@ public class RunSession {
                     processID = Integer.parseInt(line);
                     killChildProcesses(processID);
                     kill(processID);
-                    pushMessageToClient(Constants.CONTROL_MSG, Constants.EXECUTION_STOPPED,
+                    pushMessageToClient(Constants.CONTROL_MSG, Constants.PROGRAM_TERMINATED,
                             "program terminated");
                 } catch (Throwable e) {
                     logger.error("Launcher was unable to kill process " + line + ".");

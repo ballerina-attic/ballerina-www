@@ -37,6 +37,8 @@ public class Constants {
     public static final String BUILD_STOPPED_WITH_ERRORS = "BUILD_STOPPED_WITH_ERRORS";
     public static final String EXECUTION_STARTED = "EXECUTION_STARTED";
     public static final String EXECUTION_STOPPED = "EXECUTION_STOPPED";
+    public static final String PROGRAM_TERMINATED = "PROGRAM_TERMINATED";
+    public static final String RUN_ABORTED = "RUN_ABORTED";
 
     // other msg codes
     public static final String INFO = "INFO";
