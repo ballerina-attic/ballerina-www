@@ -16,16 +16,13 @@ class RunButton extends React.Component {
         this.onStop = this.onStop.bind(this);
         this.onRun = this.onRun.bind(this);
         LaunchManager.init(getLauncherURL());
-        LaunchManager.on(EVENTS.CONSOLE_MESSAGE_RECEIVED, ({ type, message }) => {
+        LaunchManager.on(EVENTS.CONSOLE_MESSAGE_RECEIVED, ({ type, message, code }) => {
             if (message === 'running program completed' || message === 'program terminated'
                     || message === 'running program'
                     ) {
-            } else if (type === 'ERROR' || type === 'DATA') {
-                this.appendToConsole(message);
-            } else if (type === 'INFO') {
-                this.appendToConsole(message);
-            } else if (type === 'BUILD_ERROR') {
-                this.appendToConsole(message);
+            }
+            this.appendToConsole(message);
+            if (code === 'BUILD_ERROR') {
                 this.setState({
                     runInProgress: false,
                 });

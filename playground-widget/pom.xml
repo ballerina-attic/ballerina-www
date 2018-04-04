@@ -27,10 +27,49 @@
     </parent>
     <artifactId>ballerina-playground-widget</artifactId>
     <packaging>pom</packaging>
-    <name>Ballerina - Playground Wigdet</name>
+    <name>Ballerina - Playground Widget</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.ballerinalang</groupId>
+            <artifactId>ballerina</artifactId>
+            <type>zip</type>
+            <version>${ballerina.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ballerinalang.platform</groupId>
+            <artifactId>playground-api</artifactId>
+            <version>${ballerina.version}</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeArtifactIds>
+                                ballerina, playground-api
+                            </includeArtifactIds>
+                            <outputDirectory>${basedir}/docker
+                            </outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                            <useSubDirectoryPerArtifact>false</useSubDirectoryPerArtifact>
+                            <stripClassifier>true</stripClassifier>
+                            <stripVersion>true</stripVersion>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
