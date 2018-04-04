@@ -2,10 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'semantic-ui-react'
 import Console from '../console/Console';
-import LaunchManager, { COMMANDS, EVENTS, MSG_TYPES } from 'launch-manager';
-import { getLauncherURL } from '../../utils';
+import { RUN_API_URL } from '../../utils';
+import RunSession from '../../run-session';
 import './RunButton.scss';
 
+const MSG_CODES = {
+    BUILD_STARTED: "BUILD_STARTED",
+    CURL_EXEC_STARTED: "CURL_EXEC_STARTED",
+    CURL_EXEC_STOPPED: "CURL_EXEC_STOPPED",
+    BUILD_ERROR: "BUILD_ERROR",
+    BUILD_STOPPED: "BUILD_STOPPED",
+    BUILD_STOPPED_WITH_ERRORS: "BUILD_STOPPED_WITH_ERRORS",
+    EXECUTION_STARTED: "EXECUTION_STARTED",
+    EXECUTION_STOPPED: "EXECUTION_STOPPED",
+    PROGRAM_TERMINATED: "PROGRAM_TERMINATED",
+    RUN_ABORTED: "RUN_ABORTED",
+};
 
 class RunButton extends React.Component {
     constructor(...args) {
@@ -15,33 +27,7 @@ class RunButton extends React.Component {
         }
         this.onStop = this.onStop.bind(this);
         this.onRun = this.onRun.bind(this);
-        LaunchManager.init(getLauncherURL());
-        LaunchManager.on(EVENTS.CONSOLE_MESSAGE_RECEIVED, ({ type, message }) => {
-            if (message === 'running program completed' || message === 'program terminated'
-                    || message === 'running program'
-                    ) {
-            } else if (type === 'ERROR' || type === 'DATA') {
-                this.appendToConsole(message);
-            } else if (type === 'INFO') {
-                this.appendToConsole(message);
-            } else if (type === 'BUILD_ERROR') {
-                this.appendToConsole(message);
-                this.setState({
-                    runInProgress: false,
-                });
-            }
-        });
-        LaunchManager.on(EVENTS.SESSION_ERROR, (err) => {
-            this.setConsoleText('error connecting to remote server ');
-            this.setState({
-                runInProgress: false,
-            });
-        });
-        LaunchManager.on(EVENTS.EXECUTION_ENDED, () => {
-            this.setState({
-                runInProgress: false,
-            });
-        });
+        this.runSession = undefined;
     }
 
     clearConsole() {
@@ -81,8 +67,57 @@ class RunButton extends React.Component {
                 runInProgress: true,
             });
             try {
-                LaunchManager.sendRunSourceMessage('samples', source, content, curl, noOfCurlExecutions);
-                onRun(sample);
+                this.runSession = new RunSession(RUN_API_URL);
+                this.runSession.init({ 
+                    onMessage: ({ type, message, code }) => {
+                        switch (code) {
+                            case MSG_CODES.EXECUTION_STARTED:
+                                    break;
+                            case MSG_CODES.EXECUTION_STOPPED:
+                                    this.setState({
+                                        runInProgress: false,
+                                    });
+                                    break;
+                            case MSG_CODES.PROGRAM_TERMINATED:
+                                    this.setState({
+                                        runInProgress: false,
+                                    });
+                                    break;
+                            case MSG_CODES.BUILD_ERROR:
+                                    this.appendToConsole(message)
+                                    this.setState({
+                                        runInProgress: false,
+                                    });
+                                    break;
+                            case MSG_CODES.RUN_ABORTED:
+                                    this.appendToConsole(message)
+                                    this.setState({
+                                        runInProgress: false,
+                                    });
+                                    this.runSession.close();
+                                    break;
+                            default: this.appendToConsole(message);
+                        }
+                    }, 
+                    onOpen: () => {
+                        this.runSession.run(source, content, curl, noOfCurlExecutions);
+                        onRun(sample);
+                    },
+                    onClose: () => {
+                        this.setState({
+                            runInProgress: false,
+                        });
+                        this.runSession = undefined;
+                    }, 
+                    onError: (err) => {
+                        this.setConsoleText('error connecting to remote server ');
+                        this.setState({
+                            runInProgress: false,
+                        });
+                        this.onError(err);
+                        this.runSession = undefined;
+                    },
+                });
             } catch (err) {
                 this.onError(err);
             }
@@ -92,7 +127,9 @@ class RunButton extends React.Component {
     onStop() {
         const { sample, onStop } = this.props;
         try {
-            LaunchManager.stop();
+            if (this.runSession) {
+                this.runSession.stop();
+            }
             onStop(sample);
         } catch (err) {
             this.onError(err);

@@ -21,14 +21,15 @@ const MONACO_OPTIONS = {
     lineNumbersMinChars: 3,
     scrollBeyondLastLine: false,
     minimap: {
-        enabled: false
+        enabled: false,
     },
     renderLineHighlight: 'none',
     scrollbar: {
         useShadows: true,
     },
     hideCursorInOverviewRuler: true,
-    lineHeight: 14
+    lineHeight: 14,
+    overviewRulerLanes: 0,
 }
 
 /**

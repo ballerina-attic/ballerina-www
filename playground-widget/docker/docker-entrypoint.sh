@@ -16,4 +16,4 @@
 cd /services/ 
 exec ballerina run backend_time_service.bal &
 exec ballerina run legacy_service.bal &
-exec composer
+exec java -jar -Dballerina.home=/ballerina/runtime -Dtransports.netty.conf=/api/netty-transports.yml /api/playground-api.jar
