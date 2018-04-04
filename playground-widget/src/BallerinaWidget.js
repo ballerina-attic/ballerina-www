@@ -14,6 +14,7 @@ import RunButton from './components/controls/RunButton';
 import ShareButton from './components/controls/ShareButton';
 import PopOutButton from './components/controls/PopOutButton';
 import DesignView from './components/design-view/DesignView';
+import DownloadsView from './components/downloads-view/DownloadsView';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 class BallerinaWidget extends Component {
@@ -123,6 +124,9 @@ class BallerinaWidget extends Component {
               <DesignView
                 content={sample.content || ''}
               />
+            }
+            {selectedView === VIEWS.BINARY &&
+              <DownloadsView  />
             }
           </Segment>
           {this.state.curlVisible &&
