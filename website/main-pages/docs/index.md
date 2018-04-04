@@ -11,21 +11,21 @@
                    <p><a class="cGreenLink" href="/philosophy">SEE WHY ></a></p>
                    <div class="cHomeButtonContainer">
                    <a class="cBallerina-io-Home-main-download-button" href="downloads">Download Ballerina</a>
-                   </div>
-                   <p class="cBallerina-io-Home-OS">Distributions available for Linux, OS X and Windows.</p>
+                   </div>      
+                   <p class="cBallerina-io-Home-OS">Distributions available for Linux, OS X and Windows</p>
                    <hr class="cHr">
                    </div>
 
 
 
                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-instructions cLeft-pading-none">
-                       <p><span>CODE</span> with a statically-typed, interaction-centric programming language where microservices, APIs and streams are first-class constructs. Use your preferred IDE and CI/CD tools. Discover, consume, and share packages that integrate endpoints with Ballerina Central.</p>
+                       <p><span>CODE</span> with a statically-typed, interaction-centric programming language where microservices, APIs, and streams are first-class constructs. Use your preferred IDE and CI/CD tools. Discover, consume, and share packages that integrate endpoints with Ballerina Central.</p>
                    </div>
                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-instructions">
                        <p><span>BUILD</span> binaries, containers, and Kubernetes artifacts. Deploy as chaos-ready services on cloud and serverless infrastructure.</p>
                    </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-instructions">
-                        <p><span>INTEGRATE</span> distributed endpoints with simple syntax for resiliency, circuit breakers, transactions and events. </p>
+                        <p><span>INTEGRATE</span> distributed endpoints with simple syntax for resiliency, circuit breakers, transactions, and events. </p>
 
                    </div>
 

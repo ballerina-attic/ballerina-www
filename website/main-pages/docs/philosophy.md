@@ -12,7 +12,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol">
                <p>The future apps we write increasingly depend upon programmable endpoints. The discipline of resilient communication between endpoints is integration. It is a domain of hard problems. 
                </p>
-               <p>Ballerina is a simple programming language whose syntax and runtime address the hard problems of integration. As a Turing complete language, Ballerina enables agility with edit, build, run cycles. Ballerina code is compiled into services that include transactions, embedded brokers and gateway runtimes.
+               <p>Ballerina is a simple programming language whose syntax and runtime address the hard problems of integration. As a Turing complete language, Ballerina enables agility with edit, build, and run cycles. Ballerina code is compiled into services that include transactions, embedded brokers and gateway runtimes.
                </p>
             </div>
          </div>
@@ -31,7 +31,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol ">
                <p> Our team has worked on thousands of integration projects over two decades. We’ve seen and used almost every integration technique out there. They always end up on one side or the other of the integration gap.
                </p>
-               <p>Integration can either be done with integration products which simplify integration but are not agile, or with general purpose programming languages that are agile, but not integration simple.</p>
+               <p>Integration can either be done with integration products that simplify integration but are not agile, or with general purpose programming languages that are agile, but not integration simple.</p>
              <p>
                   Ballerina is designed to overcome the integration gap. We co-designed the language and runtime together to create an approach that is both agile and integration simple.
                </p>
@@ -199,7 +199,7 @@
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h2 class="cMainH2Title">Cloud Native Programming Language? </h2>
+            <h2 class="cMainH2Title">Cloud Native Programming Language </h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
                   euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim 
@@ -315,7 +315,7 @@
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h2 class="cMainH2Title">Try the language with Ballerina by Examples</h2>
+            <h2 class="cMainH2Title">Try the language with Ballerina by Example</h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
                <p>Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration. Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. </p>
             </div>

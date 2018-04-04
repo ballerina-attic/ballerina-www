@@ -1,6 +1,6 @@
 # Learn Ballerina
 
-[Ballerina](http://ballerina.io) is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration. It is designed to make it easier to write programs that integrate with data sources, services, and network-connected APIs of all kinds. 
+Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration. It is designed to make it easier to write programs that integrate with data sources, services, and network-connected APIs of all kinds. 
 
 Although Ballerina is optimized primarily for such programs, it can be used to program anything. However, it is recommended to use Ballerina if a significant portion of the program is related to integrating with data sources, services, or network-connected APIs.
 
@@ -14,7 +14,7 @@ The [Quick Tour](https://github.com/ballerina-lang/ballerina/blob/master/docs/qu
 
 ## Ballerina by Example
 
-[Ballerina by Example](https://ballerinalang.org/docs/by-example/) is one of the easiest ways to learn Ballerina. This consists of a series of example programs that provide annotations alongside the code for guidance on how to use the example.
+[Ballerina by Example](/learn/by-example/) is one of the easiest ways to learn Ballerina. This consists of a series of example programs that provide annotations alongside the code for guidance on how to use the example.
 
 ## Ballerina by Guide
 
@@ -42,7 +42,7 @@ The [API Documentation](https://ballerinalang.org/docs/api/0.964.0/) describes t
 
 ## Articles 
 
-There are various [articles](https://medium.com/@ballerinalang) available that are written about various aspects of Ballerina. These can help you learn more.
+There are various [articles](https://blog-stage.ballerina.io/) available that are written about various aspects of Ballerina. These can help you learn more.
 
 ## Talks 
 
