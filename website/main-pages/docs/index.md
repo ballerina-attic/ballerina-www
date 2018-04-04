@@ -11,7 +11,7 @@
                    <p><a class="cGreenLink" href="/philosophy">SEE WHY ></a></p>
                    <div class="cHomeButtonContainer">
                    <a class="cBallerina-io-Home-main-download-button" href="downloads">Download Ballerina</a>
-                   </div>
+                   </div>      
                    <p class="cBallerina-io-Home-OS">Distributions available for Linux, OS X and Windows</p>
                    <hr class="cHr">
                    </div>
