@@ -34,3 +34,88 @@ $(document).ready(function () {
 	    i++;
 	});
 });
+
+
+
+
+    require.config({ paths: { 'vs': '../js/vs/' }});
+	require(['vs/editor/editor.main'], function() {
+            monaco.languages.register({ id:'ballerina' });
+            monaco.languages.setMonarchTokensProvider('ballerina', ballerina_grammar);
+
+            monaco.editor.defineTheme('myTheme',  ballerina_theme);
+            monaco.editor.setTheme('myTheme');
+            
+            monaco.editor.colorizeElement(document.getElementById('code1'));
+            monaco.editor.colorizeElement(document.getElementById('code2'));
+            monaco.editor.colorizeElement(document.getElementById('code3'));
+            monaco.editor.colorizeElement(document.getElementById('code4'));
+            monaco.editor.colorizeElement(document.getElementById('code5'));
+            monaco.editor.colorizeElement(document.getElementById('code6'));
+            monaco.editor.colorizeElement(document.getElementById('code7'));
+            monaco.editor.colorizeElement(document.getElementById('code8'));
+            monaco.editor.colorizeElement(document.getElementById('code9'));
+            
+
+            
+
+});
+
+
+$(document).ready(function () {
+
+    $("#CN-1").click(function() {
+        $(".CN-1").addClass('cActiveBox');
+        $(".CN-2").removeClass('cActiveBox');
+        $(".CN-3").removeClass('cActiveBox');
+        $(".CN-4").removeClass('cActiveBox');
+        $(".CN-5").removeClass('cActiveBox');
+        $(".CN-6").removeClass('cActiveBox');
+    });
+    
+      $("#CN-2").click(function() {
+        $(".CN-1").removeClass('cActiveBox');
+        $(".CN-2").addClass('cActiveBox');
+        $(".CN-3").removeClass('cActiveBox');
+        $(".CN-4").removeClass('cActiveBox');
+        $(".CN-5").removeClass('cActiveBox');
+        $(".CN-6").removeClass('cActiveBox');
+    });
+    
+      $("#CN-3").click(function() {
+        $(".CN-1").removeClass('cActiveBox');
+        $(".CN-2").removeClass('cActiveBox');
+        $(".CN-3").addClass('cActiveBox');
+        $(".CN-4").removeClass('cActiveBox');
+        $(".CN-5").removeClass('cActiveBox');
+        $(".CN-6").removeClass('cActiveBox');
+    });
+    
+      $("#CN-4").click(function() {
+        $(".CN-1").removeClass('cActiveBox');
+        $(".CN-2").removeClass('cActiveBox');
+        $(".CN-3").removeClass('cActiveBox');
+        $(".CN-4").addClass('cActiveBox');
+        $(".CN-5").removeClass('cActiveBox');
+        $(".CN-6").removeClass('cActiveBox');
+    });
+    
+      $("#CN-5").click(function() {
+        $(".CN-1").removeClass('cActiveBox');
+        $(".CN-2").removeClass('cActiveBox');
+        $(".CN-3").removeClass('cActiveBox');
+        $(".CN-4").removeClass('cActiveBox');
+        $(".CN-5").addClass('cActiveBox');
+        $(".CN-6").removeClass('cActiveBox');
+    });
+    
+      $("#CN-6").click(function() {
+        $(".CN-1").removeClass('cActiveBox');
+        $(".CN-2").removeClass('cActiveBox');
+        $(".CN-3").removeClass('cActiveBox');
+        $(".CN-4").removeClass('cActiveBox');
+        $(".CN-5").removeClass('cActiveBox');
+        $(".CN-6").addClass('cActiveBox');
+    });
+
+});
