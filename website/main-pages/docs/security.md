@@ -14,7 +14,7 @@ If you wish to send secure messages to [security@ballerina.io](mailto:security@b
 
 Please use the following template in reporting vulnerabilities:
 
-- Vulnerable Ballerina products(s) and version(s)
+- Vulnerable Ballerina component(s) and version(s)
 - Overview: High-level overview of the issue and self-assessed severity
 - Description: Include the steps to reproduce
 - Impact: Self-assessed impact
