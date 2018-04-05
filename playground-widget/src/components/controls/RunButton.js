@@ -75,6 +75,7 @@ class RunButton extends React.Component {
                     onMessage: ({ type, message, code }) => {
                         switch (code) {
                             case MSG_CODES.DEP_SERVICE_EXECUTION_STARTED:
+                            case MSG_CODES.DEP_SERVICE_EXECUTION_ERROR:
                             case MSG_CODES.DEP_SERVICE_EXECUTION_STOPPED:
                             case MSG_CODES.EXECUTION_STARTED:
                                     break;
