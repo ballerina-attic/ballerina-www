@@ -1,39 +1,253 @@
 # Open Source
 
-Ballerina is an open source project that encourages contributors from the open source community.
+Ballerina is an open-source project under Apache license and the work of hundreds of contributors.
 
-Ballerina code is distributed under an [Apache license 2.0](https://github.com/ballerina-lang/ballerina/blob/master/LICENSE).
+We appreciate your help!
 
-## Announcements Mailing List
+# Getting Started
 
-The announcement mailing list is primarily used for important announcements, such as new releases and important updates.
+* Download Ballerina at [https://ballerina.io](http://ballerina.io) and go through the getting started tutorials at [https://ballerina.io/learn](https://ballerina.io/learn) 
 
-We encourage all Ballerina users to subscribe to this mailing list so that they can receive the latest announcements, updates and news.
+* Read our Code of Conduct
 
-## Release History
+* Join the conversations at:
 
-These are the release notes for all the major released versions of Ballerina:
+    * [StackOverflow](https://stackoverflow.com/questions/tagged/ballerina): to get help with Ballerina; use Ballerina tag for any your questions there,
 
-* Ballerina 1 (May 2018)
+    * [Slack](https://ballerina-platform.slack.com): for real-time discussions with the team and community,
 
-## Source Code
+    * [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev): developer team mailing list to discuss Ballerina roadmap, features and issues on the works, and so on,
 
-The Ballerina source code is completely hosted in the [Ballerina GitHub repository](https://github.com/ballerina-lang/ballerina). You can build Ballerina from source by following the instructions provided in the [README file](https://github.com/ballerina-lang/ballerina/blob/master/README.md).
+    * [GitHub](https://github.com/ballerina-lang/ballerina/issues): file issues, comment on other issues, send your pull requests. 
 
-The [ballerina-dev@googlegroups.com](ballerina-dev@googlegroups.com) mailing list is for discussing code changes to the Ballerina project.
+* Submit issues:
 
-## Reporting Issues
+    * Found a security flaw? Please email [security@ballerina.io](mailto:security@ballerina.io)
 
-If you notice any bugs or inconsistencies in the Ballerina code or documentation, please raise an issue on our issue tracker. Kindly note that you should check if there is an existing issue before creating a new one.
+    * Submitting a bug is just as important as contributing code. Go to the **Issues** tab of the GitHub repo and click the **New Issue** button to file a bug report.
 
-Sensitive security-related issues should be reported to security@ballerina.io. See the [Security Policy](http://ballerina.io/security) for details.
+* Start with easy fix issues:
 
-Sensitive community-related issues should be reported to conduct@ballerina.io. See the [Code of Conduct](https://github.com/ballerina-lang/ballerina/blob/master/CODE_OF_CONDUCT) for more details.
+    * Browse issues labeled [easyfix](https://github.com/ballerina-lang/ballerina/issues?q=is%3Aissue+is%3Aopen+label%3Aeasyfix),
 
-## Contributing Code
+    * Use comments on the issue itself to indicate that you will be working on it and get guidance and help.
 
-As an open source project, Ballerina welcomes contributions from the community.
+# Communicating with the team
 
-To start contributing, read these contribution guidelines for information on how you should go about contributing to our project.
+[Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev) is the main Ballerina project discussion forum.
 
-Check the tracker for open issues that interest you. We look forward to receiving your contributions.
+[StackOverflow](https://stackoverflow.com/questions/tagged/ballerina) is used for support, [Slack](https://ballerinalang.slack.com) for real-time communications, and [GitHub](https://github.com/ballerina-lang/ballerina/issues) for issues and code repositories.
+
+# Filing issues
+
+If you are unsure whether you have found a bug, please consider searching existing issues in github and asking in [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev).
+
+**IMPORTANT**: Sensitive **security-related** issues should be reported to security@ballerina.io. See the [security policy](https://ballerina.io/security) for details.
+
+To file non-security issues:
+
+1. Click the Issues tab in the github repository,
+
+2. Click the **New Issue** button,
+
+3. Fill out all sections in the issue template and submit.
+
+# Contributing site changes, docs, and examples
+
+# Contributing code
+
+## Accepting Contributor License Agreement (CLA)
+
+Before you submit your first contribution please accept our Contributor License Agreement (CLA) here. When you send your first Pull Request (PR), GitHub will ask you to accept the CLA.
+
+There is no need to do this before you send your first PR.
+
+Subsequent PRs will not require CLA acceptance.
+
+If for some (unlikely) reason at any time CLA changes, you will get presented with the new CLA text on your first PR after the change.
+
+## Obtaining the Source Code and Building the Project
+
+### Build Prerequisites
+
+1. **Install a Java Development Kit (JDK) version 8**
+
+​Building Ballerina requires a Java SE Development Kit (JDK) version 8 to be installed. You can download one from
+
+[http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 
+
+[http://openjdk.java.net/install/index.html](http://openjdk.java.net/install/index.html) 
+
+Note : Set an environment variable JAVA_HOME to the path name of the directory into which you installed the JDK release.
+
+1. **Install Maven 3.3+ or later **
+
+Install maven 3.3+ or later version. [https://maven.apache.org/install.html](https://maven.apache.org/install.html)
+
+Set the MAVEN_OPTS environment variable to avoid the Maven OutOfMemoryError.
+
+MAVEN_OPTS="-Xmx2048M -XX:MaxPermSize=1024m" 
+
+Make sure you have an active Internet connection to download dependencies while building.
+
+2. **Node (v8.9.x or latest LTS release) + npm (v5.6.0 or later)**
+
+3. **Docker **
+
+### Building from the source
+
+Clone this repository using the following command.
+
+git clone --recursive https://github.com/ballerinalang/ballerina
+
+
+If you download the sources, you need to update the git submodules using the following command.
+
+git submodule update --init 
+
+Run the Maven command mvn clean install from the **ballerina root directory**:
+
+<table>
+  <tr>
+    <td>Command</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>mvn clean install</td>
+    <td>Build and install the artifacts into the local repository.</td>
+  </tr>
+  <tr>
+    <td>mvn clean install -Dmaven.test.skip=true</td>
+    <td>Build and install the artifacts into the local repository, without running any of the unit tests.</td>
+  </tr>
+</table>
+
+
+Extract the Ballerina distribution created at distribution/zip/ballerina/target/ballerina-<version>-SNAPSHOT.zip.
+
+## Setting up your development environment
+
+### Setup IntelliJ IDEA
+
+#### Importing a Ballerina Project
+
+Import Any Ballerina Project to IntelliJ IDEA similar to any other maven project. 
+
+* Navigate to Import Project
+
+* Browse the filesystem and Select Ballerina Project's root pom.xml
+
+* In "Import Project from Maven" Wizard, set followings.
+
+    * Set "Import Maven Projects Automatically" .
+
+    * Set Project SDK as Java 1.8
+
+Optionally You can following maven command to build idea project.
+
+	mvn idea:idea
+
+([http://maven.apache.org/plugins/maven-idea-plugin/](http://maven.apache.org/plugins/maven-idea-plugin/))
+
+#### Useful IDEA Plugins
+
+* ANTLR 4 - [https://plugins.jetbrains.com/plugin/7358-antlr-v4-grammar-plugin](https://plugins.jetbrains.com/plugin/7358-antlr-v4-grammar-plugin) 
+
+* Ballerina - [https://plugins.jetbrains.com/plugin/9520-ballerina](https://plugins.jetbrains.com/plugin/9520-ballerina) (Need IDEA 2016.3 or newer)
+
+### Setup Eclipse
+
+#### Importing a Ballerina Project
+
+All Ballerina repositories are developed as maven projects. So you can import any Ballerina project to eclipse similar to any maven project. 
+
+* Navigate to File → Import..
+
+* Select "Existing Maven Projects" under “Maven”
+
+* Upon next, browse the file system, and open the maven module.
+
+#### Installing ANTLR4 plugin
+
+If you are working with the grammar, it would be useful to have [ANTLR 4 IDE](http://marketplace.eclipse.org/content/antlr-4-ide) plugin installed for eclipse. To install this using eclipse marketplace:
+
+* Navigate to, Help → Eclipse Marketplace
+
+* Search for "antlr4"
+
+* Install ANTLR 4 IDE plugin (which supports antlr 4.x version).
+
+To open the plugin views, navigate to:
+
+* Window → Show View → Other.. 
+
+* Under "ANTLR4" section, select and enable “Parse Tree” view and “Syntax Diagram” views.
+
+## Working With Ballerina Grammar. 
+
+Ballerina grammar has been implemented using [ANTLR4](http://www.antlr.org/). It is recommended to have some basic understanding on anltr4 grammar syntax and concepts, before working with the Ballerina grammar. "Parr, Terence (January 15, 2013), The Definitive ANTLR 4 Reference" is a good reference to get started with.
+
+Ballerina grammar can be found under [docs/grammar](https://github.com/ballerinalang/ballerina/tree/master/docs/grammar) in the Ballerina repository. It consists of two files:
+
+* BallerinaLexer.g4 - Contains the lexer rules for Ballerina grammar. Lexer is responsible for tokenizing an input Ballerina source code.
+
+* BallerinaParser.g4 - Contains the parser rules. Parser listens to the token stream generated by the lexer. High level grammar productions/abstractions are defined in the parser using those tokens.
+
+**Tips**
+
+* If you want to check and validate a grammar rule you just wrote, you can use the antlr4 plugin of your IDE. See [Setting up your development environment](#heading=h.gxu13uvhedxr)** **section for more details.
+
+### Generating parsers
+
+Once a change is done to the any of the grammar files, it is needed to re-generate the parsers. To generate parsers, we first need to download [antlr-complete-4.5.3.jar](http://www.antlr.org/download/antlr-4.5.3-complete.jar). Then navigate to <ballerina>/docs/grammar, and generate the lexer followed by the parser (order is important) using the following command:
+
+java -jar /home/supun/Downloads/antlr-4.5.3-complete.jar *.g4 -package org.wso2.ballerinalang.compiler.parser.antlr4 -o ../../compiler/ballerina-lang/src/main/java/org/wso2/ballerinalang/compiler/parser/antlr4/.
+
+Above command will auto generate some java classes. Out of the auto generated classes, [BallerinaParserBaseListener.java](https://github.com/ballerinalang/ballerina/blob/master/modules/ballerina-lang/src/main/java/org/wso2/ballerinalang/compiler/parser/antlr4/BallerinaParserBaseListener.java) in particular is important, as the Ballerina AST builder is written on top of it. Thus, If any new rules are added to the BallerinaParser.g4, above command will generate new methods in the BallerinaParserBaseListener.java, and you need to override those newly added methods inside [BLangParserListener.java](https://github.com/ballerinalang/ballerina/blob/master/modules/ballerina-lang/src/main/java/org/wso2/ballerinalang/compiler/parser/BLangParserListener.java) accordingly.
+
+## Ballerina Compiler 
+
+[https://medium.com/@sameera.jayasoma/ballerina-compiler-design-3406acc2476c](https://medium.com/@sameera.jayasoma/ballerina-compiler-design-3406acc2476c)
+
+## Ballerina VM
+
+[https://medium.com/@sameera.jayasoma/ballerina-runtime-evolution-f82305e4ab8e](https://medium.com/@sameera.jayasoma/ballerina-runtime-evolution-f82305e4ab8e)
+
+## Creating a Patch for Review
+
+### Fork the Repo
+
+### Make Your Changes
+
+### Add Unit Tests
+
+Ballerina is a programming language and integration platform that is 
+
+Build process automatically runs all the tests 
+
+### Commit to Your Fork
+
+We follow these commit message requirements:
+
+1. Separate subject from body with a blank line
+
+2. Limit the subject line to 50 characters
+
+3. Capitalize the subject line
+
+4. Do not end the subject line with a period
+
+5. Use the imperative mood in the subject line
+
+6. Wrap the body at 72 characters
+
+7. Use the body to explain what and why vs. how
+
+Please find details at: [https://chris.beams.io/posts/git-commit/](https://chris.beams.io/posts/git-commit/)
+
+# Proposing Changes To Ballerina
+
+Start with the discussion in the [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev).
+
+Once there is enough consensus around the proposal, you will likely be asked to file an **Issue** in GitHub and label it as **Proposal**, to continue the discussion on details there.
+
