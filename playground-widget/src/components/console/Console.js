@@ -76,7 +76,7 @@ class Console extends React.Component {
                     }}
                 >
                     {this.state.messages.map((msg, index, msgs) => {
-                        if (!msg || msg.startsWith('/ballerina/runtime/bin/ballerina: line 206:')) {
+                        if (!msg || msg.startsWith('BVM-OUTPUT:/ballerina/runtime/bin/ballerina: line 206:')) {
                             return (<span/>);
                         }
                         if (msg === 'building...' && msgs.length > (index + 1)
