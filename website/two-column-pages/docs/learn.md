@@ -10,7 +10,7 @@ The Getting Started section includes instructions on how to download Ballerina a
 
 ## Quick Tour
 
-The [Quick Tour](https://github.com/ballerina-lang/ballerina/blob/master/docs/quick-tour.md) gives you instructions on how to start Ballerina, run a simple code, and get a response within seconds. It also introduces the means to quickly get started and take Ballerina for its first spin.
+The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ballerina, run a simple code, and get a response within seconds. It also introduces the means to quickly get started and take Ballerina for its first spin.
 
 ## Ballerina by Example
 
