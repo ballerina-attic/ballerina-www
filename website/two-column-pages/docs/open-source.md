@@ -6,9 +6,9 @@ We appreciate your help!
 
 # Getting Started
 
-* Download Ballerina at [https://ballerina.io](http://ballerina.io) and go through the getting started tutorials at [https://ballerina.io/learn](https://ballerina.io/learn) 
+* [Download Ballerina] (http://ballerina.io/downloads) and go through the getting started tutorials at [https://ballerina.io/learn](https://ballerina.io/learn) 
 
-* Read our Code of Conduct
+* Read our [Code of Conduct](https://github.com/ballerina-platform/ballerina-lang/blob/master/CODE_OF_CONDUCT.md)
 
 * Join the conversations at:
 
