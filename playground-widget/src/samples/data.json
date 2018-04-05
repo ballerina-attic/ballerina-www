@@ -18,6 +18,7 @@
         "name": "External Service",
         "source": "invoke-service/invoking_service.bal",
         "image": "talking-to-endpoints.svg",
+        "dependantService": "backend_time_service",
         "curl": "curl -s http://playground.localhost/time",
         "url": "https://github.com/ballerina-guides/playground-hello-service/tree/master/invoke-service"
     },
@@ -32,6 +33,7 @@
         "name": "Circuit Breaker",
         "source": "circuit-breaker/resilient_service.bal",
         "image": "http-service.svg",
+        "dependantService": "legacy_service",
         "curl": "curl -s http://playground.localhost/resilient/time",
         "noOfCurlExecutions": 8,
         "url": "https://github.com/ballerina-guides/playground-hello-service/tree/master/circuit-breaker"

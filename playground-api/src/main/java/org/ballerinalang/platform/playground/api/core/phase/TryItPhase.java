@@ -29,7 +29,7 @@ import java.time.Duration;
 import java.time.Instant;
 
 /**
- * Build Phase of Run
+ * TryIt Phase of Run
  */
 public class TryItPhase implements Phase {
 

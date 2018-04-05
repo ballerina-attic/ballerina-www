@@ -32,7 +32,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Build Phase of Run
+ * Start Phase of Run
  */
 public class StartPhase implements Phase {
 
