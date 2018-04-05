@@ -70,7 +70,7 @@ public class StartDependantServicePhase implements Phase {
                     terminate();
                 }
             }
-        }, Constants.PROGRAM_TIMEOUT);
+        }, Constants.PROGRAM_TIMEOUT + 4000);
 
         new Thread(() -> {
             BufferedReader reader = null;

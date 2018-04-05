@@ -41,13 +41,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Represents a Run Session on playground
  */
 public class RunSession {
 
-    private Session transportSession;
+    private final Map<String, Path> buildCache;
+
+    private final Session transportSession;
 
     private RunCommand runCommand;
 
@@ -67,7 +70,8 @@ public class RunSession {
 
     private List<ConsoleMessageInterceptor> consoleMessageInterceptors;
 
-    public RunSession(Session transportSession) {
+    public RunSession(Session transportSession, Map<String, Path> buildCache) {
+        this.buildCache = buildCache;
         this.transportSession = transportSession;
         this.consoleMessageInterceptors = new ArrayList<>();
     }
@@ -188,6 +192,10 @@ public class RunSession {
         return sourceRoot;
     }
 
+    public void setBuildFile(Path buildFile) {
+        this.buildFile = buildFile;
+    }
+
     public Path getBuildFile() {
         return buildFile;
     }
@@ -222,6 +230,10 @@ public class RunSession {
             finalMessage = messageInterceptor.interceptConsoleMessage(finalMessage);
         }
         return finalMessage;
+    }
+
+    public Map<String, Path> getBuildCache() {
+        return buildCache;
     }
 
     private void createSourceFile() {

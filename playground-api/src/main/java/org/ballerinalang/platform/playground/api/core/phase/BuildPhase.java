@@ -25,6 +25,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.security.MessageDigest;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -54,12 +55,26 @@ public class BuildPhase implements Phase {
 
     @Override
     public void execute(RunSession runSession, Runnable next) throws Exception {
-        String[] cmdArray = getBuildCommandArray(runSession);
         Instant buildStart = Instant.now();
-        Process buildProcess = Runtime.getRuntime().exec(cmdArray, null, runSession.getSourceRoot().toFile());
         runSession.pushMessageToClient(Constants.CONTROL_MSG, Constants.BUILD_STARTED,
                 "building...");
+        byte[] bytesOfSource = runSession.getRunCommand().getSource().getBytes("UTF-8");
+        MessageDigest md5 = MessageDigest.getInstance("MD5");
+        String sourceMd5 = new String(md5.digest(bytesOfSource));
+        // run from cache
+        if (runSession.getBuildCache().containsKey(sourceMd5)
+                && runSession.getBuildCache().get(sourceMd5).toFile().exists()) {
+            runSession.setBuildFile(runSession.getBuildCache().get(sourceMd5));
+            Instant buildStop = Instant.now();
+            Duration buildTime = Duration.between(buildStart, buildStop);
+            runSession.pushMessageToClient(Constants.CONTROL_MSG, Constants.BUILD_STOPPED,
+                    "build completed in " + buildTime.toMillis() + "ms");
+            next.run();
+            return;
+        }
 
+        String[] cmdArray = getBuildCommandArray(runSession);
+        Process buildProcess = Runtime.getRuntime().exec(cmdArray, null, runSession.getSourceRoot().toFile());
         new Thread(() -> {
             BufferedReader reader = null;
             try {
@@ -73,6 +88,7 @@ public class BuildPhase implements Phase {
                 Instant buildStop = Instant.now();
                 Duration buildTime = Duration.between(buildStart, buildStop);
                 if (buildPassed) {
+                    runSession.getBuildCache().put(sourceMd5, runSession.getBuildFile());
                     runSession.pushMessageToClient(Constants.CONTROL_MSG, Constants.BUILD_STOPPED,
                             "build completed in " + buildTime.toMillis() + "ms");
                     next.run();
