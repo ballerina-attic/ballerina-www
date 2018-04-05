@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dimmer, Loader } from 'semantic-ui-react'
 import axios from 'axios';
-import Diagram from 'Diagram';
-import TreeBuilder from 'TreeBuilder'
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
-import PackageScopedEnvironment from 'PackageScopedEnvironment';
+// import Diagram from 'Diagram';
+// import TreeBuilder from 'TreeBuilder'
+// import { DragDropContext } from 'react-dnd';
+// import HTML5Backend from 'react-dnd-html5-backend';
+// import PackageScopedEnvironment from 'PackageScopedEnvironment';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { getParserURL } from '../../utils';
-import 'scss/playground.scss';
-import 'font-ballerina/css/font-ballerina.css';
+import { PARSER_API_URL } from '../../utils';
+// import 'scss/playground.scss';
+// import 'font-ballerina/css/font-ballerina.css';
 import './DesignView.css';
 
 /**
@@ -27,7 +27,7 @@ function parseContent(content) {
         includePackageInfo: true,
         content,
     };
-    return axios.post(getParserURL(), payload,
+    return axios.post(PARSER_API_URL, payload,
             { 
                 headers: {
                     'content-type': 'application/json; charset=utf-8',
@@ -61,7 +61,7 @@ class DesignView extends React.Component {
      */
     getChildContext() {
         return {
-            environment: new PackageScopedEnvironment(),
+            // environment: new PackageScopedEnvironment(),
             getDiagramContainer: () => {
                 return this.container;
             },
@@ -73,10 +73,10 @@ class DesignView extends React.Component {
     }
 
     componentDidMount() {
-        parseContent(this.props.content)
-            .then(({ model }) => {
-                this.setState({ model: TreeBuilder.build(model) });
-            })
+        // parseContent(this.props.content)
+        //     .then(({ model }) => {
+        //         this.setState({ model: TreeBuilder.build(model) });
+        //     })
     }
 
     /**
@@ -97,7 +97,7 @@ class DesignView extends React.Component {
                 }
                 {this.state.model &&
                     <Scrollbars style={{ width: 476, height: 282 }}>
-                        <Diagram mode='action' model={this.state.model} width={476} height={282} />
+                        {/* <Diagram mode='action' model={this.state.model} width={476} height={282} /> */}
                     </Scrollbars>
                 }
             </div>
@@ -111,10 +111,10 @@ DesignView.propTypes = {
 
 
 DesignView.childContextTypes = {
-    environment: PropTypes.instanceOf(PackageScopedEnvironment).isRequired,
+    //environment: PropTypes.instanceOf(PackageScopedEnvironment).isRequired,
     getDiagramContainer: PropTypes.func.isRequired,
     getOverlayContainer: PropTypes.func.isRequired,
     fitToScreen: PropTypes.bool
 };
 
-export default DragDropContext(HTML5Backend)(DesignView);
+export default DesignView // DragDropContext(HTML5Backend)(DesignView);

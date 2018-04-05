@@ -34,13 +34,13 @@
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-tools</artifactId>
             <type>zip</type>
-            <version>${ballerina.version}</version>
+            <version>${ballerina.release.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-examples</artifactId>
             <type>zip</type>
-            <version>${ballerina.version}</version>
+            <version>${ballerina.release.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ballerinalang</groupId>
@@ -131,7 +131,7 @@
                             <target name="Copy BBE and Guide files">
                                  <copy todir="${bbe.source.dir}">
                                     <fileset 
-                                    dir="${project.build.directory}/dependencies/ballerina-examples-${ballerina.version}">
+                                    dir="${project.build.directory}/dependencies/ballerina-examples-${ballerina.release.version}">
                                         <include name="**/*.*"/>
                                     </fileset>
                                 </copy>

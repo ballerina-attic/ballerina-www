@@ -26,6 +26,8 @@ public class RunCommand extends Command {
 
     private int noOfCurlExecutions;
 
+    private String dependantService;
+
     public String getSource() {
         return source;
     }
@@ -48,5 +50,13 @@ public class RunCommand extends Command {
 
     public void setNoOfCurlExecutions(int noOfCurlExecutions) {
         this.noOfCurlExecutions = noOfCurlExecutions;
+    }
+
+    public String getDependantService() {
+        return dependantService;
+    }
+
+    public void setDependantService(String dependantService) {
+        this.dependantService = dependantService;
     }
 }

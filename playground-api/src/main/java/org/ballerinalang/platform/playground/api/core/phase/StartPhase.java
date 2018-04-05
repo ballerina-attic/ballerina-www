@@ -32,7 +32,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Build Phase of Run
+ * Start Phase of Run
  */
 public class StartPhase implements Phase {
 
@@ -78,7 +78,8 @@ public class StartPhase implements Phase {
                         .defaultCharset()));
                 String line = "";
                 while ((line = reader.readLine()) != null) {
-                    if (line.startsWith("ballerina: initiating service(s) in")) {
+                    if (line.startsWith("ballerina: initiating service(s) in")
+                            || line.startsWith("ballerina: deploying service(s) in")) {
                         continue;
                     } else if (line.startsWith("ballerina: started HTTP/WS server connector")) {
                         updateHostAndPort(runSession, line);

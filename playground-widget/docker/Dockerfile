@@ -17,29 +17,27 @@ FROM openjdk:jre-alpine
 
 RUN apk update && apk add bash && apk add curl
 
-COPY ballerina-tools*.zip /root/
+COPY ballerina-tools.zip /root/
 RUN mkdir /ballerina \
-    && unzip /root/ballerina-tools*.zip -d /ballerina/ \
+    && unzip /root/ballerina-tools.zip -d /ballerina/ \
     && mv /ballerina/ballerina* /ballerina/runtime \
-    && mkdir -p /ballerina/runtime/logs
+    && mkdir -p /ballerina/runtime/logs \
+    && rm /root/ballerina-tools.zip
 
 ENV BALLERINA_HOME /ballerina/runtime
 ENV PATH $BALLERINA_HOME/bin:$PATH
 
-COPY www /var/www/html/
-COPY composer /ballerina/runtime/bin/
-COPY ballerina /ballerina/runtime/bin/
-RUN chmod +x /ballerina/runtime/bin/composer
-RUN chmod +x /ballerina/runtime/bin/ballerina
-COPY composer-config.yml /ballerina/runtime/resources/composer/conf/
-COPY netty-transports.yml /ballerina/runtime/resources/composer/services/
-COPY ballerinaKeystore.p12 /ballerina/runtime/bre/security/
+RUN mkdir /api/
+COPY netty-transports.yml /api/
+COPY ballerinaKeystore.p12 /api/
+COPY playground-api.jar /api/
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 COPY CUSTOMER_DB.h2.db /sample-db/
-COPY backend_time_service.bal /services/
-COPY legacy_service.bal /services/
+COPY backend_time_service.balx /services/
+COPY legacy_service.balx /services/
 
 EXPOSE 80
+EXPOSE 443
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]

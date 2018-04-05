@@ -4,13 +4,13 @@
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Left-col ">
          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-main-content-wraper">
-            <p class="cMainParagraph">A programming language and runtime <br/>co-designed 
+            <p class="cMainParagraph">A programming language and runtime <br/>co-designed
                to be agile and integration simple.
             </p>
             <p class="cGreenTitle "><a href="/downloads">Download ></a></p>
             <hr class="cHr">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol">
-               <p>The future apps we write increasingly depend upon programmable endpoints. The discipline of resilient communication between endpoints is integration. It is a domain of hard problems. 
+               <p>The future apps we write increasingly depend upon programmable endpoints. The discipline of resilient communication between endpoints is integration. It is a domain of hard problems.
                </p>
                <p>Ballerina is a simple programming language whose syntax and runtime address the hard problems of integration. As a Turing complete language, Ballerina enables agility with edit, build, and run cycles. Ballerina code is compiled into services that include transactions, embedded brokers and gateway runtimes.
                </p>
@@ -80,7 +80,7 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cPhilosophyWhite cHowballerinaworks">
          <h2 class="cMainH2Title">How Ballerina works</h2>
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol ">
-            <p>Ballerina's syntax, code, and compiler create runtime services and deployment artifacts that are cloud native ready for deployment within your IaaS, orchestrator, or service mesh of choice. The developer experience is designed to maintain flow, where the edit, build, debug cycle is rapid and integrated to your team's lifecycle toolchain. 
+            <p>Ballerina's syntax, code, and compiler create runtime services and deployment artifacts that are cloud native ready for deployment within your IaaS, orchestrator, or service mesh of choice. The developer experience is designed to maintain flow, where the edit, build, debug cycle is rapid and integrated to your team's lifecycle toolchain.
             </p>
          </div>
       </div>
@@ -183,7 +183,7 @@
          <div class="cPhil-title-boxes cPhil-title-boxes-white">
             <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                <h3>CI/CD DEPLOYMENT</h3>
-               <p>Deployment code annotations trigger build extensions that generate artifacts for continuous integration, continuous delivery, or orchestrator environments. Push build artifacts to your CI / CD system or skip it entirely. 
+               <p>Deployment code annotations trigger build extensions that generate artifacts for continuous integration, continuous delivery, or orchestrator environments. Push build artifacts to your CI / CD system or skip it entirely.
                </p>
             </div>
          </div>
@@ -202,9 +202,9 @@
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <h2 class="cMainH2Title">Cloud Native Programming Language </h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
-               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
-                  euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim 
-                  veniam, quis nostrud exerci tation ullamcorper suscipit. 
+               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                  euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+                  veniam, quis nostrud exerci tation ullamcorper suscipit.
                </p>
             </div>
          </div>
@@ -679,7 +679,7 @@ Hello World!
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <h2 class="cMainH2Title">Try the language with <br/>Ballerina by Example</h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
-               <p>Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration. Ballerina by Example is a hands-on introduction to Ballerina using annotated example programs. </p>
+               <p>Ballerina by Example enables you to have complete coverage over the language, while emphasizing incremental learning. This consists of a series of example programs that provide annotations alongside the code for guidance on how to use the example. </p>
             </div>
          </div>
       </div>
@@ -706,14 +706,14 @@ Hello World!
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <h2 class="cMainH2Title">Learn the language with guides</h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
-               <p>Apache-licensed software and community-driven projects. </p>
+               <p>Ballerina by Guide is a series of long form examples that showcase a complete lifecycle of integration development with Ballerina and illustrate how different language components work together.</p>
             </div>
          </div>
       </div>
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative">
          <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12">
             <div class="cOpenSourceContainer">
-               <table class="OpenSourceTable">
+               <table class="OpenSourceTable" id="guidesTable">
                   <tr>
                      <td class="cType">Ballerina</td>
                      <td>A programming language and service runtime for orchestration and composition of endpoints</td>

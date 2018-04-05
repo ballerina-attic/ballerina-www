@@ -19,15 +19,14 @@ class Console extends React.Component {
             messages: []
         };
         this.messageCache = [];
-        this.appendDebounced =  _.debounce(() => {
+        this.appendDebounced = () => {
             this.setState({ messages: this.messageCache });
             if (this.scrollBar) {
                 setTimeout(() => {
                     this.scrollBar.scrollToBottom();
                 }, 200);
             }
-        },
-        400);
+        };
         this.onTryItClick = this.onTryItClick.bind(this);
         this.scrollBar = undefined;
     }
@@ -77,6 +76,9 @@ class Console extends React.Component {
                     }}
                 >
                     {this.state.messages.map((msg, index, msgs) => {
+                        if (!msg || msg.startsWith('BVM-OUTPUT:/ballerina/runtime/bin/ballerina: line 206:')) {
+                            return (<span/>);
+                        }
                         if (msg === 'building...' && msgs.length > (index + 1)
                                 && msgs[index + 1].startsWith('build completed in')) {
                             return (<span/>);
@@ -92,29 +94,24 @@ class Console extends React.Component {
                                 <div className="console-line">{'you can edit the code or curl and try again'}</div>
                             </div>);
                         }
+                        if (msg.includes('CircuitBreaker failure threshold exceeded')) {
+                            return (<div className="console-line bvm-output">{'Circuit tripped : CLOSE -> OPEN'}</div>)
+                        }
+                        if (msg.includes('CircuitBreaker reset timeout reached')) {
+                            return (<div className="console-line bvm-output">{'Max circuit open timeout reached : OPEN -> HALF-OPEN'}</div>)
+                        }
+                        if (msg.includes('CircuitBreaker trial run  was successful')) {
+                            return (<div className="console-line bvm-output">{'Circuit closed : HALF-OPEN -> CLOSE'}</div>)
+                        }
+                        if (msg.includes('INFO [ballerina.net.http] - ')) {
+                            return (<div className="console-line bvm-output">{msg.split('INFO [ballerina.net.http] -')[1]}</div>)
+                        }
                         if (msg.startsWith('CURL-OUTPUT:')) {
                             return (<div className="console-line curl-output">{msg.replace('CURL-OUTPUT:', '')}</div>)
                         }
                         if (msg.startsWith('BVM-OUTPUT:')) {
                             return (<div className="console-line bvm-output">{msg.replace('BVM-OUTPUT:', '')}</div>)
                         }
-                        if (msg.includes('CircuitBreaker failure threshold exceeded')) {
-                            return (<div className="console-line">{'Circuit tripped : CLOSE -> OPEN'}</div>)
-                        }
-                        if (msg.includes('CircuitBreaker reset timeout reached')) {
-                            return (<div className="console-line">{'Max circuit open timeout reached : OPEN -> HALF-OPEN'}</div>)
-                        }
-                        if (msg.includes('CircuitBreaker trial run  was successful')) {
-                            return (<div className="console-line">{'Circuit closed : HALF-OPEN -> CLOSE'}</div>)
-                        }
-                        // if (msg.startsWith('started services at')) {
-                        //     return (
-                        //         <div>{msg}
-                        //             <span>
-                        //                 <a className="try-it-btn" onClick={this.onTryItClick}>try-it</a>
-                        //             </span>
-                        //         </div>);
-                        // }
                         return (<div className="console-line">{msg}</div>)
                     })}
                 </Scrollbars>
