@@ -142,7 +142,15 @@
             {
                 from: 'node_modules/semantic-ui-css/themes',
                 to: 'themes'
-            }
+            },
+            {
+                from: '../playground-examples/images',
+                to: 'resources/samples/images'
+            },
+            {
+                from: 'guides/playground-hello-service',
+                to: 'resources/samples'
+            },
          ]),
          new HtmlWebpackPlugin({
             template: 'src/index.ejs',

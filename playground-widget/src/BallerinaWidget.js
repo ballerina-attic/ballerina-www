@@ -6,7 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 import CodeEditor from './components/editor/CodeEditor';
 import SamplesList from './components/navigation/SamplesList'
 import './BallerinaWidget.scss';
-import { fetchSamples, fetchSample, fetchImage } from './samples/provider'
+import { fetchSamples, fetchSample } from './samples/provider'
 import CURLEditor from './components/curl/CURLEditor';
 import Console from './components/console/Console'
 import ViewSelectPanel, { VIEWS } from './components/controls/ViewSelectPanel';
@@ -52,14 +52,10 @@ class BallerinaWidget extends Component {
       const { source, image } = sample;
       fetchSample(source)
         .then((data) => {
-           sample.content = data.content;
-           fetchImage(image)
-            .then((data) => {
-              sample.imageContent = data.content;
-              this.setState({
-                selectedSampleIndex,
-                selectedView: VIEWS.SOURCE
-              });
+           sample.content = data;
+           this.setState({
+              selectedSampleIndex,
+              selectedView: VIEWS.SOURCE
             });
         })
     }
@@ -102,7 +98,7 @@ class BallerinaWidget extends Component {
         </Segment.Group>
         <Segment.Group className="body">
           <Segment className="sample-image">
-                <img src={sample.imageContent} />
+                <img src={'resources/samples/images/' + sample.image} />
           </Segment>
           <Segment className="code-editor">
             <ViewSelectPanel
