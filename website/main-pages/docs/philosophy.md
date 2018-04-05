@@ -677,7 +677,7 @@ Hello World!
    <div class="container">
       <div class="col-xs-12 col-sm-16 col-md-6 col-lg-12 cPhilosophyWhite cCloudNative ">
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h2 class="cMainH2Title">Try the language with Ballerina by Example</h2>
+            <h2 class="cMainH2Title">Try the language with <br/>Ballerina by Example</h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 cInnerPageContentCol ">
                <p>Ballerina by Example enables you to have complete coverage over the language, while emphasizing incremental learning. This consists of a series of example programs that provide annotations alongside the code for guidance on how to use the example. </p>
             </div>

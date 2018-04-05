@@ -6,11 +6,11 @@
             <h1>Downloads</h1>
             <p>
                 After downloading a binary release suitable for your system, please follow the installation instructions. If you are building from source, follow the <a href="https://github.com/ballerina-lang/ballerina/blob/master/README.md">source installation instructions</a>.
-            </p>            
+            </p> 
+<a href="/downloads/release-notes">Release history</a>           
             <div class="cFeaturedVersion">
                 <h2>Current version 0.970.0</h2>
             </div>
-            <a href="/downloads/release-notes">Release history</a>
         </div>
         <div class="clearfix"></div>
         <div class="col-xs-12 col-sm-16 col-md-3 col-lg-4 cDownloadLeft">
