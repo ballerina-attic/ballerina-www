@@ -49,16 +49,18 @@ class RunSession {
      * @param {String} source - source
      * @param {String} curl - curl command
      * @param {Number} noOfCurlExecutions - no of curl executions
+     * @param {String} dependantService - name of any dependantService
      *
      * @memberof LaunchManager
      */
-    run(fileName, source, curl, noOfCurlExecutions) {
+    run(fileName, source, curl, noOfCurlExecutions, dependantService) {
         this.sendMessage({
             command: 'run',
             fileName,
             source,
             curl,
             noOfCurlExecutions,
+            dependantService,
         });
     }
 

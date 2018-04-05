@@ -16,6 +16,9 @@ const MSG_CODES = {
     EXECUTION_STARTED: "EXECUTION_STARTED",
     EXECUTION_STOPPED: "EXECUTION_STOPPED",
     PROGRAM_TERMINATED: "PROGRAM_TERMINATED",
+    DEP_SERVICE_EXECUTION_STARTED: "DEP_SERVICE_EXECUTION_STARTED",
+    DEP_SERVICE_EXECUTION_ERROR: "DEP_SERVICE_EXECUTION_ERROR",
+    DEP_SERVICE_EXECUTION_STOPPED: "DEP_SERVICE_EXECUTION_STOPPED",
     RUN_ABORTED: "RUN_ABORTED",
 };
 
@@ -60,7 +63,7 @@ class RunButton extends React.Component {
     onRun() {
         const { sample, onRun } = this.props;
         if (sample && sample.content) {
-            const { content, source, curl, noOfCurlExecutions = 1 } = sample;
+            const { content, source, curl, noOfCurlExecutions = 1, dependantService = '' } = sample;
             this.clearConsole();
             this.setConsoleText('waiting on remote server...');
             this.setState({
@@ -71,6 +74,8 @@ class RunButton extends React.Component {
                 this.runSession.init({ 
                     onMessage: ({ type, message, code }) => {
                         switch (code) {
+                            case MSG_CODES.DEP_SERVICE_EXECUTION_STARTED:
+                            case MSG_CODES.DEP_SERVICE_EXECUTION_STOPPED:
                             case MSG_CODES.EXECUTION_STARTED:
                                     break;
                             case MSG_CODES.EXECUTION_STOPPED:
@@ -100,7 +105,7 @@ class RunButton extends React.Component {
                         }
                     }, 
                     onOpen: () => {
-                        this.runSession.run(source, content, curl, noOfCurlExecutions);
+                        this.runSession.run(source, content, curl, noOfCurlExecutions, dependantService);
                         onRun(sample);
                     },
                     onClose: () => {

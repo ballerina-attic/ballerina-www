@@ -21,6 +21,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.ballerinalang.platform.playground.api.core.interceptor.ConsoleMessageInterceptor;
 import org.ballerinalang.platform.playground.api.core.phase.BuildPhase;
+import org.ballerinalang.platform.playground.api.core.phase.StartDependantServicePhase;
 import org.ballerinalang.platform.playground.api.core.phase.StartPhase;
 import org.ballerinalang.platform.playground.api.core.phase.TryItPhase;
 import org.ballerinalang.platform.playground.api.dto.Command;
@@ -89,23 +90,56 @@ public class RunSession {
                 if (requestedToAbort) {
                     return;
                 }
-                StartPhase startPhase = new StartPhase();
-                try {
-                    startPhase.execute(this, () -> {
-                        if (requestedToAbort) {
-                            return;
-                        }
-                        TryItPhase tryItPhase = new TryItPhase();
-                        tryItPhase.execute(this, this::terminate);
-                    });
-                } catch (Exception e) {
-                    pushMessageToClient(Constants.ERROR_MSG, Constants.ERROR,
-                            "Error occurred running sample. " + e.getMessage());
+                String dependantService = runCommand.getDependantService();
+                if (dependantService != null && !dependantService.equals(StringUtils.EMPTY)) {
+                    StartDependantServicePhase dependantServicePhase = new StartDependantServicePhase();
+                    try {
+                        dependantServicePhase.execute(this, () -> {
+                            if (requestedToAbort) {
+                                dependantServicePhase.terminate();
+                                return;
+                            }
+                            StartPhase startPhase = new StartPhase();
+                            try {
+                                startPhase.execute(this, () -> {
+                                    if (requestedToAbort) {
+                                        return;
+                                    }
+                                    TryItPhase tryItPhase = new TryItPhase();
+                                    tryItPhase.execute(this, () -> {
+                                        dependantServicePhase.terminate();
+                                        this.terminate();
+                                    });
+                                });
+                            } catch (Exception e) {
+                                pushMessageToClient(Constants.ERROR_MSG, Constants.ERROR,
+                                        "Error occurred while running sample. " + e.getMessage());
+                            }
+
+                        });
+                    } catch (Exception e) {
+                        pushMessageToClient(Constants.ERROR_MSG, Constants.ERROR,
+                                "Error occurred while starting dependent service. " + e.getMessage());
+                    }
+                } else {
+                    StartPhase startPhase = new StartPhase();
+                    try {
+                        startPhase.execute(this, () -> {
+                            if (requestedToAbort) {
+                                return;
+                            }
+                            TryItPhase tryItPhase = new TryItPhase();
+                            tryItPhase.execute(this, this::terminate);
+                        });
+                    } catch (Exception e) {
+                        pushMessageToClient(Constants.ERROR_MSG, Constants.ERROR,
+                                "Error occurred while running sample. " + e.getMessage());
+                    }
                 }
             });
         } catch (Exception e) {
             pushMessageToClient(Constants.ERROR_MSG, Constants.ERROR,
-                    "Error occurred building sample. " + e.getMessage());
+                    "Error occurred while building sample. " + e.getMessage());
         }
     }
 
@@ -224,11 +258,11 @@ public class RunSession {
                     pushMessageToClient(Constants.CONTROL_MSG, Constants.PROGRAM_TERMINATED,
                             "program terminated");
                 } catch (Throwable e) {
-                    logger.error("Launcher was unable to kill process " + line + ".");
+                    logger.error("Unable to kill process " + line + ".");
                 }
             }
         } catch (Throwable e) {
-            logger.error("Launcher was unable to find the process ID for " + cmd + ".");
+            logger.error("Unable to find the process ID for " + cmd + ".");
         } finally {
             if (reader != null) {
                 IOUtils.closeQuietly(reader);
