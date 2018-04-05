@@ -30,6 +30,7 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,6 +41,7 @@ import java.util.Map;
 public class RunService {
 
     private Map<String, RunSession> runSessionMap = new HashMap<String, RunSession>();
+    private Map<String, Path> buildCache = new HashMap<>();
 
     private static final Logger logger = LoggerFactory.getLogger(RunService.class);
 
@@ -53,7 +55,7 @@ public class RunService {
 
     @OnOpen
     public void onOpen (Session session) {
-        runSessionMap.put(session.getId(), new RunSession(session));
+        runSessionMap.put(session.getId(), new RunSession(session, buildCache));
     }
 
     @OnMessage
