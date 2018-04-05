@@ -14,11 +14,11 @@ The [Quick Tour](https://github.com/ballerina-lang/ballerina/blob/master/docs/qu
 
 ## Ballerina by Example
 
-[Ballerina by Example](https://stage2.ballerina.io/learn/by-example/) is one of the easiest ways to learn Ballerina. This consists of a series of example programs that provide annotations alongside the code for guidance on how to use the example.
+[Ballerina by Example](/learn/by-example/) enables you to have complete coverage over the language, while emphasizing incremental learning. This is a series of commented example programs.
 
 ## Ballerina by Guide
 
-Ballerina by Guide is a series of long form examples that showcase a complete lifecycle of development with Ballerina including setting up the environment, using tools, build system, authoring code, running tests, and deploying within an architecture environment. Guides illustrate collaboration across multiple Ballerina Platform components, such as the language and the API gateway for example. Each guide exists in a separate repository of its own in a dedicated organization.
+Ballerina by Guide is a series of long form examples that showcase a complete lifecycle of integration development with Ballerina including setting up the environment, using tools, build system, authoring code, running tests, and deploying in an integration environment. Guides illustrate how different language components work together, such as the language and the API gateway for example. 
 
 ## How to Structure Ballerina Code
 
@@ -38,12 +38,4 @@ The Command Documentation includes a summary of all the commands available in Ba
 
 ## Package and API Documentation
 
-The [API Documentation](https://ballerinalang.org/docs/api/0.964.0/) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
-
-## Articles 
-
-There are various [articles](https://blog-stage.ballerina.io/) available that are written about various aspects of Ballerina. These can help you learn more.
-
-## Talks 
-
-There are talks available about Ballerina in our [video channel](https://www.youtube.com/channel/UCBMvET-T1YshLrJRLpuKJ5g).
+The [API Documentation](learn/api-docs/) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.

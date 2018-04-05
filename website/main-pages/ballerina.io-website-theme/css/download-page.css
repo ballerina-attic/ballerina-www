@@ -3,7 +3,7 @@ body { font-family: "pragmatica",sans-serif; }
 .cDownloadsHeader p { font-size: 14px; line-height: 20px; }
 .cDownloadsHeader a { font-size: 14px; color: #22b7b1; font-weight: 600; font-family: "CalibreWeb-Semibold";  }
 h2 { font-size: 25px; line-height: 30px; font-weight: 300; margin: 21px 0 25px; letter-spacing: 0; }
-a.cDownload { display: block; width: 91%;  transition: all 0.2s ease 0s; font-size: 25px; font-weight: 300; background-color: #57595d; color: #ffffff; padding: 15px 10px 20px 67px; background-image: url("../img/download-bg.svg"); background-repeat: no-repeat; background-position: left 25px top 18px; }
+a.cDownload { display: inline-block; width: 91%;  transition: all 0.2s ease 0s; font-size: 25px; font-weight: 300; background-color: #57595d; color: #ffffff; padding: 15px 10px 20px 67px; background-image: url("../img/download-bg.svg"); background-repeat: no-repeat; background-position: left 25px top 18px; }
 .cDownloadLeft a.cDownload { float: left; }
 .cDownloadRight a.cDownload { float: right; }
 .cDownloadMiddle a.cDownload { margin: auto; }
@@ -29,6 +29,54 @@ a.cDownload:hover {
     background-image: url("../img/download-bg-white.svg");
     transition: all 0.2s ease 0s;
 }
+
+
+ul.cDiwnloadSubLinks  {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+    margin: 0;
+}
+ul.cDiwnloadSubLinks li {
+    list-style: none;
+    float: left;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+ul.cDiwnloadSubLinks li a {
+    color: #22b7b1;
+}
+
+
+.cReleseNotesContainer {
+    padding: 30px;
+    background: #ffffff;
+}
+.cReleseNotesContainer h3 {
+    font-size: 20px;
+}
+
+.cReleseNotePannel {
+    height: 0px;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.2s ease 0s;
+}
+
+.cReleseNotePannel.cShowPlannel {
+    opacity: 1;
+    height: auto;
+    transition: all 0.2s ease 0s;
+}
+
+#iReleseNotes.cShowPlannel {
+    background-color: #ffffff;
+    padding: 20px;
+    transition: all 0.2s ease 0s;
+}
+
 
 @media screen and (max-width: 1199px) {
     .cDownloadLeft { width: 275px; padding-bottom: 30px; }

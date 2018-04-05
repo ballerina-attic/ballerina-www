@@ -1,13 +1,14 @@
 @font-face {
  font-family: CalibreWeb-Semibold;
- src: url(../ballerina-fonts/CalibreWeb-Regular.woff);
+ src: url(/ballerina-fonts/CalibreWeb-Regular.woff2);
         
-        ;
     
 }
 body.cBallerina-io  {
-  background-color: #e7eaeb;
+  background-color: #ffffff;
   font-family: "pragmatica",sans-serif;
+   background-image: url("/img/body-bg.svg");
+   background-repeat: repeat-x;
 }
 
 input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="date"], input[type="month"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="week"], input[type="number"], input[type="tel"], input[type="color"], input[type="search"] {
@@ -22,6 +23,9 @@ body.cBallerina-io .container {
     padding: 0;
 }
 
+.cBallerina-io-top-row {
+    background-color: #e7eaeb;
+}
 
 
 /*.col-lg-3 {
@@ -60,7 +64,7 @@ a:hover {
 }
 
 .cBallerina-io-Nav {
-    
+    background:#e7eaeb;
 }
 .cTagLine  {
     font-size: 16px !important;
@@ -77,7 +81,7 @@ a:hover {
 }
 
 .row.cBallerina-io-Logo-row {
-    
+     background-color: #e7eaeb;
 }
 
 .cBallerina-io-Logo-Container {
@@ -101,6 +105,10 @@ a.cLogo img {
     line-height: 12px;
     padding: 0px 16px;
     color: #57595d;
+}
+
+.navbar-nav > li > a:hover {
+   color: #3ad1ca !important;
 }
 
 .navbar-nav > li.cActive > a {
@@ -127,7 +135,7 @@ ul.navbar-nav {
 
 .navbar-brand {
     padding: 0;
-    margin: -5px 0 0 0;
+    margin: -4px 0 0 0;
 }
 .cSerachIcon {
     margin-top: -3px;
@@ -145,6 +153,7 @@ ul.navbar-nav {
      background-position: bottom center;
      margin-top: 30px;
      padding-bottom: 30px;
+     background-color: #e7eaeb;
 }
 
 .cBallerina-io-White-row {
@@ -277,6 +286,15 @@ a.cBallerina-io-Home-main-download-button {
     
 }
 
+.cBallerina-io-Home-main-download-button p {
+    color: #ffffff;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    line-height: 20px;
+}
+
+
 a.cBallerina-io-Home-main-download-button:hover {
     background-color: #22b7b1;
     background-image: url("../img/download-bg-white.svg");
@@ -299,7 +317,7 @@ margin-top: 10px;
 }
 .cBallerina-io-Home-main-instructions {
 /*    padding-left: 0;*/
-    margin-bottom: 20px;
+    margin-bottom: 19px;
     padding-left: 0;
 }
 
@@ -363,6 +381,7 @@ h2.cMainH2Title {
 }
 .cBallerinaFooterLinks ul {
     padding: 0;
+    margin-top: -2px;
 }
 .cBallerinaFooterLinks ul li {
  list-style: none;
@@ -429,7 +448,7 @@ padding-left: 2px;
  background-color: #e6e9ea;
 height: 29px;
 font-size: 14px;
-width: 160px;
+width: 140px;
 border: none;
 padding-left: 10px;
 padding: 5px;
@@ -464,6 +483,7 @@ background-color: #ffffff;
           color: #3ad1ca;
           font-weight: 800;
           display: inline-block;
+          letter-spacing: 3px;
        }
 
  .cFieldContainer {

@@ -36,4 +36,4 @@ Again, please link back to the original source page so that readers can refer to
 If you produce non-hypertext works, such as books, audio, or video, we ask that you make a best effort to include a spoken or written attribution in the spirit of the messages above.
 
 ## Contact
-If you have any comments regarding Ballerina.io license policies, please send us feedback.
+If you have any comments regarding Ballerina.io license policies, please send feedback to [legal@wso2.com](legal@wso2.com).
