@@ -2,7 +2,6 @@ import ballerina/net.http;
 import ballerina/io;
 
 json previousRes;
-boolean cbOpen = false;
 
 endpoint http:ServiceEndpoint listener {
   port:9090
@@ -45,10 +44,6 @@ service<http:Service> timeInfo bind listener {
 
       // Circuit breaker not tripped, process response
       http:Response res => {
-        if (cbOpen) {
-          io:println ("Circuit Breaker switched to CLOSE.");
-          cbOpen = false;
-        }
         if (res.statusCode == 200) {
           io:println("Remote service invocation successful."+
                    " Actual data received: ");
@@ -62,11 +57,6 @@ service<http:Service> timeInfo bind listener {
 
       // Circuit breaker tripped and generates error
       http:HttpConnectorError err => {
-        if (!cbOpen) {
-          io:println ("Circuit Breaker switched to OPEN.");
-          cbOpen = true;
-        }
-
         http:Response errResponse = {};
         io:println("Circuit Breaker: " +
          "OPEN - Remote service invocation is suspended.");
