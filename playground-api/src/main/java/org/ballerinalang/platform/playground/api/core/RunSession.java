@@ -39,6 +39,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -62,6 +63,8 @@ public class RunSession {
 
     private Path buildFile;
 
+    private String sourceMD5;
+
     private String servicePort = StringUtils.EMPTY;
 
     private String serviceHost = StringUtils.EMPTY;
@@ -84,12 +87,18 @@ public class RunSession {
                     "Please set ballerina.home system property.");
             return;
         }
-        createSourceFile();
-        BuildPhase buildPhase = new BuildPhase();
-        if (requestedToAbort) {
-            return;
-        }
         try {
+            byte[] bytesOfSource = runCommand.getSource().getBytes("UTF-8");
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            String sourceMd5 = new String(md5.digest(bytesOfSource));
+            setSourceMD5(sourceMd5);
+            if (!useBuildCache()) {
+                createSourceFile();
+            }
+            BuildPhase buildPhase = new BuildPhase();
+            if (requestedToAbort) {
+                return;
+            }
             buildPhase.execute(this, () -> {
                 if (requestedToAbort) {
                     return;
@@ -145,6 +154,15 @@ public class RunSession {
             pushMessageToClient(Constants.ERROR_MSG, Constants.ERROR,
                     "Error occurred while building sample. " + e.getMessage());
         }
+    }
+
+    public boolean useBuildCache() {
+       return getBuildCache().containsKey(getSourceMD5())
+                && getBuildCache().get(getSourceMD5()).toFile().exists();
+    }
+
+    public Path getBuildFileFromCache() {
+        return getBuildCache().get(getSourceMD5());
     }
 
     public void processCommand(Command command) {
@@ -224,6 +242,14 @@ public class RunSession {
         this.serviceHost = serviceHost;
     }
 
+    public String getSourceMD5() {
+        return sourceMD5;
+    }
+
+    public void setSourceMD5(String sourceMD5) {
+        this.sourceMD5 = sourceMD5;
+    }
+
     public String processConsoleMessage(String consoleMessage) {
         String finalMessage = consoleMessage;
         for (ConsoleMessageInterceptor messageInterceptor: consoleMessageInterceptors) {
@@ -252,7 +278,7 @@ public class RunSession {
      * Terminate running ballerina program.
      */
     public void terminate() {
-        String cmd = getBuildFile().toString();
+        String cmd = useBuildCache() ? getBuildFileFromCache().toString() : getBuildFile().toString();
         int processID;
         String[] findProcessCommand = getFindProcessCommand(cmd);
         BufferedReader reader = null;
