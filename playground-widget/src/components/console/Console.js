@@ -98,7 +98,7 @@ class Console extends React.Component {
                             return (<div className="console-line bvm-output">{'Circuit tripped : CLOSE -> OPEN'}</div>)
                         }
                         if (msg.includes('CircuitBreaker reset timeout reached')) {
-                            return (<div className="console-line bvm-output">{'Max circuit open timeout reached : OPEN -> HALF-OPEN'}</div>)
+                            return (<div className="console-line bvm-output">{'Circuit open timeout reached : OPEN -> HALF-OPEN'}</div>)
                         }
                         if (msg.includes('CircuitBreaker trial run  was successful')) {
                             return (<div className="console-line bvm-output">{'Circuit closed : HALF-OPEN -> CLOSE'}</div>)

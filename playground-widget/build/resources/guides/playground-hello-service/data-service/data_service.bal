@@ -5,6 +5,7 @@ endpoint http:ServiceEndpoint listener {
     port:9090
 };
 
+
 @http:ServiceConfig {
     basePath:"/"
 }
@@ -19,7 +20,7 @@ service<http:Service> data_service bind listener {
         // Endpoints can connect to dbs with SQL connector
         endpoint sql:Client customerDB {
             database:sql:DB.H2_FILE,
-            host:"/sample-db/",
+            host:"./",
             port:10,
             name:"CUSTOMER_DB",
             username:"root",

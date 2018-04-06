@@ -39,14 +39,22 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Represents a Run Session on playground
  */
 public class RunSession {
+
+    private final Map<String, List<String>> outputCacheStore;
 
     private final Map<String, Path> buildCache;
 
@@ -62,6 +70,12 @@ public class RunSession {
 
     private Path buildFile;
 
+    private String sourceMD5;
+
+    private String outputCacheId;
+
+    private ConcurrentLinkedQueue<String> outputCache = new ConcurrentLinkedQueue<>();
+
     private String servicePort = StringUtils.EMPTY;
 
     private String serviceHost = StringUtils.EMPTY;
@@ -70,7 +84,9 @@ public class RunSession {
 
     private List<ConsoleMessageInterceptor> consoleMessageInterceptors;
 
-    public RunSession(Session transportSession, Map<String, Path> buildCache) {
+    public RunSession(Session transportSession, Map<String, Path> buildCache,
+                      Map<String, List<String>> outputCacheStore) {
+        this.outputCacheStore = outputCacheStore;
         this.buildCache = buildCache;
         this.transportSession = transportSession;
         this.consoleMessageInterceptors = new ArrayList<>();
@@ -84,12 +100,53 @@ public class RunSession {
                     "Please set ballerina.home system property.");
             return;
         }
-        createSourceFile();
-        BuildPhase buildPhase = new BuildPhase();
-        if (requestedToAbort) {
-            return;
-        }
         try {
+            byte[] bytesOfSource = runCommand.getSource().getBytes("UTF-8");
+            byte[] bytesOfCurl = runCommand.getCurl().getBytes("UTF-8");
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            String sourceMd5 = new String(md5.digest(bytesOfSource));
+            setSourceMD5(sourceMd5);
+            String curlMd5 = new String(md5.digest(bytesOfCurl));
+            String sourceAndCurlMd5 = new String(md5.digest((curlMd5 + sourceMd5).getBytes("UTF-8")));
+            setOutputCacheId(sourceAndCurlMd5);
+            if (useOutputCache()) {
+                List<String> cachedOutput = getCachedOutput();
+                String buildCompletedRegex = "build completed in [\\d]+ms";
+                String curlCompletedRegex = "executing curl completed in [\\d]+ms";
+                new Thread(() -> {
+                    for (String aCachedOutput : cachedOutput) {
+                        if (requestedToAbort) {
+                            break;
+                        }
+                        try {
+                            Matcher buildCompletedMsg = Pattern.compile(buildCompletedRegex).matcher(aCachedOutput);
+                            if (buildCompletedMsg.find()) {
+                                aCachedOutput = buildCompletedMsg
+                                        .replaceAll("build completed in "
+                                                + Math.round((Math.random() * 50 + 10)) +"ms");
+                            }
+                            Matcher curlCompletedMsg = Pattern.compile(curlCompletedRegex).matcher(aCachedOutput);
+                            if (curlCompletedMsg.find()) {
+                                aCachedOutput = curlCompletedMsg
+                                        .replaceAll("executing curl completed in "
+                                                + Math.round((Math.random() * 50 + 10)) +"ms");
+                            }
+                            transportSession.getBasicRemote().sendText(aCachedOutput);
+                            Thread.sleep(100);
+                        } catch (Exception e) {
+                            logger.error("Error while sending cached output", e);
+                        }
+                    }
+                }).start();
+                return;
+            }
+            if (!useBuildCache()) {
+                createSourceFile();
+            }
+            BuildPhase buildPhase = new BuildPhase();
+            if (requestedToAbort) {
+                return;
+            }
             buildPhase.execute(this, () -> {
                 if (requestedToAbort) {
                     return;
@@ -113,6 +170,10 @@ public class RunSession {
                                     tryItPhase.execute(this, () -> {
                                         dependantServicePhase.terminate();
                                         this.terminate();
+                                        if (!useOutputCache()) {
+                                            getOutputCacheStore().put(getOutputCacheId(),
+                                                    Arrays.asList(getOutputCache().toArray(new String[0])));
+                                        }
                                     });
                                 });
                             } catch (Exception e) {
@@ -133,7 +194,13 @@ public class RunSession {
                                 return;
                             }
                             TryItPhase tryItPhase = new TryItPhase();
-                            tryItPhase.execute(this, this::terminate);
+                            tryItPhase.execute(this, () -> {
+                                this.terminate();
+                                if (!useOutputCache()) {
+                                    getOutputCacheStore().put(getOutputCacheId(),
+                                            Arrays.asList(getOutputCache().toArray(new String[0])));
+                                }
+                            });
                         });
                     } catch (Exception e) {
                         pushMessageToClient(Constants.ERROR_MSG, Constants.ERROR,
@@ -145,6 +212,27 @@ public class RunSession {
             pushMessageToClient(Constants.ERROR_MSG, Constants.ERROR,
                     "Error occurred while building sample. " + e.getMessage());
         }
+    }
+
+    public boolean useBuildCache() {
+       return getBuildCache().containsKey(getSourceMD5())
+                && getBuildCache().get(getSourceMD5()).toFile().exists();
+    }
+
+    public boolean useOutputCache() {
+        return getOutputCacheStore().containsKey(getOutputCacheId());
+    }
+
+    public List<String> getCachedOutput() {
+        return getOutputCacheStore().get(getOutputCacheId());
+    }
+
+    public ConcurrentLinkedQueue<String> getOutputCache() {
+        return outputCache;
+    }
+
+    public Path getBuildFileFromCache() {
+        return getBuildCache().get(getSourceMD5());
     }
 
     public void processCommand(Command command) {
@@ -166,11 +254,14 @@ public class RunSession {
      * Push message to client.
      * @param status  the status
      */
-    public void pushMessageToClient(Message status) {
+    public synchronized void pushMessageToClient(Message status) {
         Gson gson = new Gson();
         String json = gson.toJson(status);
         try {
-            this.transportSession.getBasicRemote().sendText(json);
+            if (!useOutputCache()) {
+                getOutputCache().add(json);
+            }
+            transportSession.getBasicRemote().sendText(json);
         } catch (IOException e) {
             logger.error("Error while pushing messages to client.", e);
         }
@@ -224,6 +315,22 @@ public class RunSession {
         this.serviceHost = serviceHost;
     }
 
+    public String getSourceMD5() {
+        return sourceMD5;
+    }
+
+    public void setSourceMD5(String sourceMD5) {
+        this.sourceMD5 = sourceMD5;
+    }
+
+    public String getOutputCacheId() {
+        return outputCacheId;
+    }
+
+    public void setOutputCacheId(String outputCacheId) {
+        this.outputCacheId = outputCacheId;
+    }
+
     public String processConsoleMessage(String consoleMessage) {
         String finalMessage = consoleMessage;
         for (ConsoleMessageInterceptor messageInterceptor: consoleMessageInterceptors) {
@@ -234,6 +341,10 @@ public class RunSession {
 
     public Map<String, Path> getBuildCache() {
         return buildCache;
+    }
+
+    public Map<String, List<String>> getOutputCacheStore() {
+        return outputCacheStore;
     }
 
     private void createSourceFile() {
@@ -252,7 +363,7 @@ public class RunSession {
      * Terminate running ballerina program.
      */
     public void terminate() {
-        String cmd = getBuildFile().toString();
+        String cmd = useBuildCache() ? getBuildFileFromCache().toString() : getBuildFile().toString();
         int processID;
         String[] findProcessCommand = getFindProcessCommand(cmd);
         BufferedReader reader = null;
