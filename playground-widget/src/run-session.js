@@ -83,7 +83,16 @@ class RunSession {
      * @memberof RunSession
      */
     sendMessage(message) {
-        this.websocket.send(JSON.stringify(message));
+        if (this.websocket.CONNECTING) {
+            this.websocket.onopen = () => {
+                this.websocket.send(JSON.stringify(message));
+            }
+        } else if (this.websocket.OPEN) {
+            this.websocket.send(JSON.stringify(message));
+        } else {
+            throw new Error('Unable to send message: ' + JSON.stringify(message))
+        }
+        
     }
 
     /**
@@ -92,7 +101,9 @@ class RunSession {
      * @memberof RunSession
      */
     close() {
-        this.websocket.close();
+        if (this.websocket.CONNECTING || this.websocket.OPEN) {
+            this.websocket.close();
+        }
     }
 }
 
