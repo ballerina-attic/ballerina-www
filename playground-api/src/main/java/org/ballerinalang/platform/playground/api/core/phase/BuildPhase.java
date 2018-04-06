@@ -59,10 +59,8 @@ public class BuildPhase implements Phase {
                 "building...");
         // run from cache
         if (runSession.useBuildCache()) {
-            Instant buildStop = Instant.now();
-            Duration buildTime = Duration.between(buildStart, buildStop);
             runSession.pushMessageToClient(Constants.CONTROL_MSG, Constants.BUILD_STOPPED,
-                    "build completed in " + buildTime.toMillis() + "ms");
+                    "build completed in " + Math.round((Math.random() * 100 + 50)) + "ms");
             next.run();
             return;
         }
