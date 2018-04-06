@@ -61,7 +61,7 @@ $(document).ready(function () {
 				guide_content += '<tr>';
 				guide_content += '<td class="cType"><a href="/learn/guides/' + url + '">' + name + '</a></td>';
 				guide_content += '<td>' + desc + '</td>';
-				guide_content += '<td class="cGitLink"><a href="' + git + '"></a></td>';
+				//guide_content += '<td class="cGitLink"><a href="' + git + '"></a></td>';
 				guide_content += '</tr>';
 
 		});
