@@ -20,12 +20,12 @@ class Console extends React.Component {
         };
         this.messageCache = [];
         this.appendDebounced = () => {
-            this.setState({ messages: this.messageCache });
-            if (this.scrollBar) {
-                setTimeout(() => {
+            this.setState({ messages: this.messageCache }); 
+            setTimeout(() => {
+                if (this.scrollBar) {
                     this.scrollBar.scrollToBottom();
-                }, 200);
-            }
+                }
+            }, 200);
         };
         this.onTryItClick = this.onTryItClick.bind(this);
         this.scrollBar = undefined;

@@ -27,6 +27,7 @@ class RunButton extends React.Component {
         super(...args);
         this.state = {
             runInProgress: false,
+            waitingOnRemoteAck: false,
         }
         this.onStop = this.onStop.bind(this);
         this.onRun = this.onRun.bind(this);
@@ -54,21 +55,26 @@ class RunButton extends React.Component {
         }
     }
 
-    onError(err) {
-        const { onError } = this.props;
-        this.setConsoleText(err);
-        onError(err);
+    resetSession(clearConsole = false) {
+        if (clearConsole) {
+            this.clearConsole();
+        }
+        this.setState({
+            runInProgress: false,
+            waitingOnRemoteAck: false
+        });
+        this.runSession = undefined;
     }
 
     onRun() {
-        const { sample, onRun } = this.props;
+        this.setState({
+            waitingOnRemoteAck: true
+        });
+        const { sample } = this.props;
         if (sample && sample.content) {
-            const { content, source, curl, noOfCurlExecutions = 1, dependantService = '' } = sample;
+            const { content, fileName, curl, noOfCurlExecutions = 1, dependantService = '' } = sample;
             this.clearConsole();
-            this.setConsoleText('waiting on remote server...');
-            this.setState({
-                runInProgress: true,
-            });
+            this.appendToConsole('waiting on remote server...');
             try {
                 this.runSession = new RunSession(RUN_API_URL);
                 this.runSession.init({ 
@@ -80,66 +86,74 @@ class RunButton extends React.Component {
                             case MSG_CODES.EXECUTION_STARTED:
                                     break;
                             case MSG_CODES.EXECUTION_STOPPED:
-                                    this.setState({
-                                        runInProgress: false,
-                                    });
+                                    this.runSession.close();
+                                    this.resetSession();
                                     break;
                             case MSG_CODES.PROGRAM_TERMINATED:
-                                    this.setState({
-                                        runInProgress: false,
-                                    });
+                                    this.runSession.close();
+                                    this.resetSession();
                                     break;
                             case MSG_CODES.BUILD_ERROR:
                                     this.appendToConsole(message)
-                                    this.setState({
-                                        runInProgress: false,
-                                    });
+                                    this.runSession.close();
+                                    this.resetSession();
                                     break;
                             case MSG_CODES.RUN_ABORTED:
+                                    this.appendToConsole(message);
+                                    this.runSession.close();
+                                    this.resetSession();
+                                    break;
+                            case MSG_CODES.BUILD_STARTED:
                                     this.appendToConsole(message)
                                     this.setState({
-                                        runInProgress: false,
+                                        runInProgress: true,
+                                        waitingOnRemoteAck: false
                                     });
-                                    this.runSession.close();
                                     break;
                             default: this.appendToConsole(message);
                         }
                     }, 
                     onOpen: () => {
-                        this.runSession.run(source, content, curl, noOfCurlExecutions, dependantService);
-                        onRun(sample);
+                        try {
+                            this.runSession.run(fileName, content, curl, noOfCurlExecutions, dependantService);
+                            this.props.onRun(sample);
+                        } catch (err) {
+                            this.appendToConsole(err);
+                            this.runSession.close();
+                            this.resetSession();
+                        }
                     },
-                    onClose: () => {
-                        this.setState({
-                            runInProgress: false,
-                        });
-                        this.runSession = undefined;
+                    onClose: (evt) => {
+                        if (evt.code !== 1000 && evt.code !== 1006) { 
+                            const err = 'remote server connection was closed due to an error: code:' + evt.code;
+                            this.appendToConsole(err);
+                        }
                     }, 
                     onError: (err) => {
-                        this.setConsoleText('error connecting to remote server ');
-                        this.setState({
-                            runInProgress: false,
-                        });
-                        this.onError(err);
-                        this.runSession = undefined;
+                        const msg = 'error occurred with remote server connection';
+                        this.appendToConsole(msg);
+                        this.resetSession();
                     },
                 });
             } catch (err) {
-                this.onError(err);
+                this.appendToConsole(err);
+                this.resetSession();
             }
         }
     }
 
     onStop() {
-        const { sample, onStop } = this.props;
+        this.setState({
+            waitingOnRemoteAck: true
+        })
         try {
             if (this.runSession) {
                 this.runSession.stop();
             }
-            onStop(sample);
         } catch (err) {
-            this.onError(err);
+            this.appendToConsole(err);
         }
+        this.props.onStop(this.props.sample);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -158,7 +172,7 @@ class RunButton extends React.Component {
                 onClick={runInProgress ? this.onStop : this.onRun}
                 fluid
                 basic
-                disabled={!(sample && sample.content)} >
+                disabled={!(sample && sample.content) || this.state.waitingOnRemoteAck} >
                 <span>{ runInProgress ? 'Stop' : 'Run' }</span>
             </Button>
         );
@@ -168,7 +182,7 @@ class RunButton extends React.Component {
 RunButton.propTypes = {
     sample: PropTypes.shape({
         name: PropTypes.string.isRequired,
-        source: PropTypes.string.isRequired
+        fileName: PropTypes.string.isRequired
     }),
     consoleRef: PropTypes.instanceOf(Console),
     onStop: PropTypes.func,
