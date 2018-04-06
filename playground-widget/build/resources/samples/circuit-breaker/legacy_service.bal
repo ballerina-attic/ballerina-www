@@ -28,8 +28,7 @@ service<http:Service> legacy_time bind listener {
             counter = counter + 1;
             response.statusCode = 500;
             io:println("Legacy Service : Behavior - Faulty");
-            json errorJ = {error: "Internal error occurred while processing the request."};
-            response.setJsonPayload(errorJ);
+            response.setStringPayload("Internal error occurred while processing the request.");
             _ = caller -> respond(response);
             return;
         } else {
@@ -40,8 +39,7 @@ service<http:Service> legacy_time bind listener {
         time:Time currentTime = time:currentTime();
         string customTimeString = currentTime.format("HH:mm:ss");
 
-        json timeJ = {currentTime : customTimeString };
-        response.setJsonPayload(timeJ);
+        response.setStringPayload(customTimeString);
         _ = caller -> respond(response);
     }
 }
