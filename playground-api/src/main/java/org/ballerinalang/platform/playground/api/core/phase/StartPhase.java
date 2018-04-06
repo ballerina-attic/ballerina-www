@@ -47,14 +47,24 @@ public class StartPhase implements Phase {
         // path to ballerina
         commandList.add("ballerina");
         commandList.add("run");
-        commandList.add(session.getBuildFile().toAbsolutePath().toString());
+        if (session.useBuildCache()) {
+            commandList.add(session.getBuildFileFromCache().toAbsolutePath().toString());
+        } else {
+            commandList.add(session.getBuildFile().toAbsolutePath().toString());
+        }
         return commandList.toArray(new String[0]);
     }
     
     @Override
     public void execute(RunSession runSession, Runnable next) throws Exception{
         String[] cmdArray = getRunCommandArray(runSession);
-        Process launchProcess = Runtime.getRuntime().exec(cmdArray, null, runSession.getSourceRoot().toFile());
+        Process launchProcess;
+        if (runSession.useBuildCache()) {
+            launchProcess = Runtime.getRuntime().exec(cmdArray, null,
+                    runSession.getBuildFileFromCache().getParent().toFile());
+        } else {
+            launchProcess = Runtime.getRuntime().exec(cmdArray, null, runSession.getSourceRoot().toFile());
+        }
 
         // kill the program process after specified timeout
         new Timer().schedule(new TimerTask() {

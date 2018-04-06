@@ -1,6 +1,6 @@
 // A system package containing protocol access constructs
 // Package objects referenced with 'http:' in code
-import ballerina/net.http;
+import ballerina/http;
 import ballerina/io;
 
 // A service endpoint represents a listener

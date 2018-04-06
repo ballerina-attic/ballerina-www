@@ -63,6 +63,7 @@ var footer =  '<div class="container">'
 +'<div class="cButtonContainer">'
 +'<a class="cBallerinaButtons subscribeUserForm" href="" id="subscribeUserButton">Subscribe</a>'
 +'</div>'
++'<span id="subscribeUserMessage" ></span>'
 +'</form>'
 +'</div>'
 +'<div class="cSocialmedia">'
@@ -74,6 +75,7 @@ var footer =  '<div class="container">'
 +'<li><a href="https://twitter.com/ballerinaplat"><img src="/img/twitter.svg"/></a></li>'
 +'<li><a href="https://ballerina-platform.slack.com"><img src="/img/slack.svg"/></a></li>'
 +'</ul>'
++'<div class="pdframe"></div>'
 +'</div>'
 +'</div>'
 +'<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-right-col">'
@@ -112,16 +114,30 @@ $(document).ready(function () {
          $(".cRuntimeContent").removeClass('cShow');
          $(".cDeploymentContent").removeClass('cShow');
          $(".cLifecycleContent").addClass('cShow');
-
-             });
+         });
 
 
          $(".cSerachIcon").click(function() {
          $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
-
-
-             });
-
-
-
+         });
+         //subscribe form
+         $("#subscribeUserButton").click(function (event) {
+             event.preventDefault();
+             $('#subscribeUserMessage').html("")
+             var email = $("#emailUser").val();
+             if (email == "") {
+                 $('#subscribeUserMessage').html("Please enter your email");
+             } else if (!isEmail(email)) {
+                 $('#subscribeUserMessage').html("Please enter a valid email");
+             } else {
+                 $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl979?email=" + email + "'></iframe>");
+                 $('#subscribeUserMessage').html('<span>Thank you! Stay tuned for updates on Ballerina.</span>');
+                 $("#emailUser").val("");
+             }
+         });
 });
+
+function isEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
