@@ -1,15 +1,6 @@
 # Quick Tour
 
-Now that you know a little bit [about Ballerina](https://ballerinalang.org/), let's take it for a spin! 
-
-These are the available sections in this tour.
-
-- [Install Ballerina](#install-ballerina)
-- [Run HelloWorld](#run-helloworld)
-- [Set up the Editor](#set-up-the-editor)
-- [Write and Call an Integration Service](#write-and-call-an-integration-service)
-- [Deploying on Kubernetes](#deploying-on-kubernetes)
-- [Run the Composer](#run-the-composer)
+Now that you know a little bit [about Ballerina](/philosophy), let's take it for a spin! 
 
 ## Install Ballerina
 
