@@ -14,11 +14,11 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ## Ballerina by Example
 
-[Ballerina by Example](/learn/by-example/) enables you to have complete coverage over the language, while emphasizing incremental learning. This is a series of commented example programs.
+[Ballerina by Example](/learn/by-example/) teaches you the language incrementally with commented examples that cover every nuance of our syntax.
 
 ## Ballerina by Guide
 
-Ballerina by Guide is a series of long form examples that showcase a complete lifecycle of integration development with Ballerina including setting up the environment, using tools, build system, authoring code, running tests, and deploying in an integration environment. Guides illustrate how different language components work together, such as the language and the API gateway for example. 
+Ballerina by Guide are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment and observability. 
 
 ## How to Structure Ballerina Code
 
