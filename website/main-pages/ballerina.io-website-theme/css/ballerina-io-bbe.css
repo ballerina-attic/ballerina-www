@@ -67,6 +67,11 @@ td.code {
     width: 40%;
     vertical-align:top;
     
+     -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+    
 } 
 
 .docs p {
@@ -223,12 +228,11 @@ table.cBottomBorder-table .cCodeTD {
 }
 
  a.prev ,  a.next {
-    padding: 8px 30px;
+    padding: 5px 10px;
     width: 300px;
     text-align: center;
     
     background: #ffffff;
-    border: 1px solid #a7a8ab;
     display: inline-block;
     font-family: "CalibreWeb-Semibold";
     font-weight: 600;
@@ -237,19 +241,43 @@ table.cBottomBorder-table .cCodeTD {
     width: 100%;
     background-repeat: no-repeat;
     cursor: pointer;
+    min-height: 90px;
+   
+}
+
+a.prev:hover ,  a.next:hover {
+    background-color: #57595d;
+    color: #22b7b1;
+}
+a.prev:hover p ,  a.next:hover p {
+    color: #ffffff;
+}
+
+
+a.prev p , a.next p {
+    text-align: left;
+    width: 100%;
+    display: inline-block;
+    padding-top: 5px;
+    margin-top: 5px;
+    border-top: 1px dotted #22b7b1;
+    font-weight: 200;
+    padding-bottom: 5px;
 }
 
  
 a.prev {
-    background-image: url("/img/gray-arrow-left.svg") !important;
+/*    background-image: url("/img/gray-arrow-left.svg") !important;*/
     background-position: left center;
+     text-align: left;
     
 }
 
 a.next {
     margin-right: 0;
-     background-image: url("/img/gray-arrow-right.svg") !important;
+/*     background-image: url("/img/gray-arrow-right.svg") !important;*/
      background-position: right center;
+      text-align: right;
    
 }
 .cBallerina-BBE-top-Conrols-Container {
@@ -310,7 +338,7 @@ margin-left: 14px;
     padding-top: 10px;
     display: inline-block;
     width: 100%;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .cBallerina-io-Gray-row {
