@@ -228,6 +228,29 @@ $("#helpli").addClass("cActive");
     {%- endfor %}
   {%- endblock %}
 
+  <!-- Slack form -->
+  <div class="modal fade" id="subscribe" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Request an invite</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+             <div class="cBallerinaFormFieldContainer">
+                <span id="subscribeMessage" ></span>
+                <label class="subscribeForm">Email Address</label>
+                <input maxlength="90" value="" id="email" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email subscribeForm" type="text">
+             </div>
+             <a class="cBallerinaButtons subscribeForm" href="" id="subscribeButton">Submit</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
 {% if page and page.is_homepage %}
