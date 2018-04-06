@@ -35,8 +35,17 @@ public class TryItPhase implements Phase {
 
     private static final Logger logger = LoggerFactory.getLogger(StartPhase.class);
 
-    private volatile boolean isLastCurlExec = false;
+    private volatile int currentCurlExec = 0;
+
     private Instant curlStart;
+
+    public synchronized void incrementCurlExecCount() {
+        currentCurlExec++;
+    }
+
+    public synchronized int getCurrentCurlExec() {
+        return currentCurlExec;
+    }
 
     @Override
     public void execute(RunSession session, Runnable next) {
@@ -46,9 +55,6 @@ public class TryItPhase implements Phase {
                     "executing curl...");
             for (int i = 0; i < session.getRunCommand().getNoOfCurlExecutions(); i++) {
                 try {
-                    if (i == session.getRunCommand().getNoOfCurlExecutions() - 1) {
-                        isLastCurlExec = true;
-                    }
                     executeCURL(session, next);
                     Thread.sleep(Constants.CURL_RETRY_DELAY);
                 } catch (InterruptedException | IOException e) {
@@ -83,7 +89,8 @@ public class TryItPhase implements Phase {
                     session.pushMessageToClient(Constants.DATA_MSG, Constants.OUTPUT,
                             "CURL-OUTPUT:" + line);
                 }
-                if (isLastCurlExec) {
+                incrementCurlExecCount();
+                if (getCurrentCurlExec() == session.getRunCommand().getNoOfCurlExecutions()) {
                     Instant curlStop = Instant.now();
                     Duration executionTime = Duration.between(curlStart, curlStop);
                     session.pushMessageToClient(Constants.CONTROL_MSG, Constants.CURL_EXEC_STOPPED,
