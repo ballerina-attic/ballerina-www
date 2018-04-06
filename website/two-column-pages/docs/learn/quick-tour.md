@@ -1,15 +1,6 @@
 # Quick Tour
 
-Now that you know a little bit [about Ballerina](https://ballerinalang.org/), let's take it for a spin! 
-
-These are the available sections in this tour.
-
-- [Install Ballerina](#install-ballerina)
-- [Run HelloWorld](#run-helloworld)
-- [Set up the Editor](#set-up-the-editor)
-- [Write and Call an Integration Service](#write-and-call-an-integration-service)
-- [Deploying on Kubernetes](#deploying-on-kubernetes)
-- [Run the Composer](#run-the-composer)
+Now that you know a little bit [about Ballerina](/philosophy), let's take it for a spin! 
 
 ## Install Ballerina
 
@@ -55,7 +46,7 @@ Now your file is created and you can add your code inside it. You can find a plu
 
 Check if annotations work by entering some text and seeing proposed suggestions.
 
-![VS Code Annotations](images/vscode_annotations.png)
+![VS Code Annotations](/img/docs-images/vscode_annotations.png)
 
 You can use your [favourite editor to work on Ballerina code](tools-ides-ballerina-composer.md).
 
