@@ -1,9 +1,9 @@
 # Release Notes
 ## Minor releases
 
-Ballerina.0.9.x (released xxxx/xx/xx)
-Ballerina.0.9.x (released xxxx/xx/xx) 
-Ballerina.0.9.x (released xxxx/xx/xx)
+* Ballerina.0.9.x (released xxxx/xx/xx)
+* Ballerina.0.9.x (released xxxx/xx/xx) 
+* Ballerina.0.9.x (released xxxx/xx/xx)
 
 ## Major release: Ballerina 0.9 (released xxxx/xx/xx)
 
