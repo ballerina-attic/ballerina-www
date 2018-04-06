@@ -10,7 +10,7 @@ import ballerina/runtime;
 public  int counter = 1;
 
 endpoint http:ServiceEndpoint listener {
-    port:9096
+    port:9095
 };
 @http:ServiceConfig {basePath:"/legacy"}
 service<http:Service> legacy_time bind listener {
