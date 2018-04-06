@@ -1,7 +1,7 @@
 import { samples } from './data.json';
 import axios from 'axios';
 
-const SAMPLE_FOLDER = 'resources/samples';
+const SAMPLE_FOLDER = 'resources/guides';
 
 export function fetchSamples() {
     return new Promise((resolve, reject) => {

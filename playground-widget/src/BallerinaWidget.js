@@ -49,8 +49,8 @@ class BallerinaWidget extends Component {
         selectedView: VIEWS.SOURCE
       });
     } else {
-      const { source, image } = sample;
-      fetchSample(source)
+      const { file, image } = sample;
+      fetchSample(file)
         .then((data) => {
            sample.content = data;
            this.setState({
@@ -87,7 +87,7 @@ class BallerinaWidget extends Component {
               window.open(sample.url,'_blank');
             }}
           >
-              <span className="sample-file-name">Example : &lt;{sample.source}&gt;</span>
+              <span className="sample-file-name">Example : &lt;{sample.fileName}&gt;</span>
               <span
                 className="sample-btn"
               >
@@ -98,7 +98,7 @@ class BallerinaWidget extends Component {
         </Segment.Group>
         <Segment.Group className="body">
           <Segment className="sample-image">
-                <img src={'resources/samples/images/' + sample.image} />
+                <img src={'resources/guides/images/' + sample.image} />
           </Segment>
           <Segment className="code-editor">
             <ViewSelectPanel

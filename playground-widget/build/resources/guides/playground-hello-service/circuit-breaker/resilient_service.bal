@@ -26,7 +26,8 @@ endpoint http:ClientEndpoint legacyServiceResilientEP {
   },
 
   // URI of the remote service
-  targets: [{ uri: "http://localhost:9096"}],
+  targets: [{ uri: "http://localhost:9095"}],
+ 
   // Invocation timeout - independent of circuit
   endpointTimeout:6000
 };

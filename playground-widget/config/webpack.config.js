@@ -145,11 +145,12 @@
             },
             {
                 from: '../playground-examples/images',
-                to: 'resources/samples/images'
+                to: 'resources/guides/images'
             },
             {
-                from: 'guides/playground-hello-service',
-                to: 'resources/samples'
+                from: 'guides',
+                to: 'resources/guides',
+                ignore: [ '*.md',  '*LICENSE', '*.gitignore', '*.db', '*.conf', '*.balx', '*.sh']
             },
          ]),
          new HtmlWebpackPlugin({
