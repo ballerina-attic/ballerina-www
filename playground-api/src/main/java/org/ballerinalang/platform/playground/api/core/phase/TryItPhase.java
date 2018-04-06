@@ -35,29 +35,31 @@ public class TryItPhase implements Phase {
 
     private static final Logger logger = LoggerFactory.getLogger(StartPhase.class);
 
+    private volatile boolean isLastCurlExec = false;
+    private Instant curlStart;
+
     @Override
     public void execute(RunSession session, Runnable next) {
         (new Thread(() -> {
-            Instant curlStart = Instant.now();
+            curlStart = Instant.now();
             session.pushMessageToClient(Constants.CONTROL_MSG, Constants.CURL_EXEC_STARTED,
                     "executing curl...");
             for (int i = 0; i < session.getRunCommand().getNoOfCurlExecutions(); i++) {
                 try {
-                    executeCURL(session);
+                    if (i == session.getRunCommand().getNoOfCurlExecutions() - 1) {
+                        isLastCurlExec = true;
+                    }
+                    executeCURL(session, next);
                     Thread.sleep(Constants.CURL_RETRY_DELAY);
                 } catch (InterruptedException | IOException e) {
                     logger.error("Error while executing the curl.");
                 }
+
             }
-            Instant curlStop = Instant.now();
-            Duration executionTime = Duration.between(curlStart, curlStop);
-            session.pushMessageToClient(Constants.CONTROL_MSG, Constants.CURL_EXEC_STOPPED,
-                    "executing curl completed in " + executionTime.toMillis() + "ms");
-            next.run();
         })).start();
     }
 
-    private void executeCURL(RunSession session) throws IOException {
+    private void executeCURL(RunSession session, Runnable next) throws IOException {
         String curl = session.getRunCommand().getCurl() != null
                 ? session.getRunCommand().getCurl()
                     .replace("playground.localhost",
@@ -80,6 +82,13 @@ public class TryItPhase implements Phase {
                 while ((line = reader.readLine()) != null) {
                     session.pushMessageToClient(Constants.DATA_MSG, Constants.OUTPUT,
                             "CURL-OUTPUT:" + line);
+                }
+                if (isLastCurlExec) {
+                    Instant curlStop = Instant.now();
+                    Duration executionTime = Duration.between(curlStart, curlStop);
+                    session.pushMessageToClient(Constants.CONTROL_MSG, Constants.CURL_EXEC_STOPPED,
+                            "executing curl completed in " + executionTime.toMillis() + "ms");
+                    next.run();
                 }
 
             } catch (IOException e) {
