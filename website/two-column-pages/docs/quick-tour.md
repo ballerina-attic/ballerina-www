@@ -1,19 +1,10 @@
 # Quick Tour
 
-Now that you know a little bit [about Ballerina](https://ballerinalang.org/), let's take it for a spin! 
-
-These are the available sections in this tour.
-
-- [Install Ballerina](#install-ballerina)
-- [Run HelloWorld](#run-helloworld)
-- [Set up the Editor](#set-up-the-editor)
-- [Write and Call an Integration Service](#write-and-call-an-integration-service)
-- [Deploying on Kubernetes](#deploying-on-kubernetes)
-- [Run the Composer](#run-the-composer)
+Now that you know a little bit [about Ballerina](/philosophy), let's take it for a spin! 
 
 ## Install Ballerina
 
-1. Go to [http://www.ballerinalang.org](http://www.ballerinalang.org) and click **Download**. 
+1. Go to [http://ballerina.io](http://ballerina.io) and click **Download**. 
 1. Download Ballerina for your OS and follow the instructions given to set it up. 
 
 > NOTE: Throughout this documentation, `<ballerina_home>` refers to the Ballerina directory you just installed. 
@@ -55,9 +46,9 @@ Now your file is created and you can add your code inside it. You can find a plu
 
 Check if annotations work by entering some text and seeing proposed suggestions.
 
-![VS Code Annotations](images/vscode_annotations.png)
+![VS Code Annotations](/img/docs-images/vscode_annotations.png)
 
-You can use your [favourite editor to work on Ballerina code](tools-ides-ballerina-composer.md).
+You can use your [favourite editor to work on Ballerina code](https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md).
 
 Now, let's look at running the same Hello World program you created earlier as a service.
 
@@ -172,7 +163,7 @@ Once you build it, you get the following response. This means the service is suc
 Run the following command to deploy Kubernetes artifacts:
 
 ```
-kubectl apply -f /Users/Sam/Documents/Micropatch/Ballerina/QuickTour/KubTest/kubernetes/
+kubectl apply -f /Users/Sam/Documents/QuickTour/KubTest/kubernetes/
 ```
 
 This creates a folder called kubernetes and puts the deployment artifacts and the docker image inside it.
