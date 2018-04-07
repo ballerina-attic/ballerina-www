@@ -55,7 +55,8 @@ service<http:Service> timeInfo bind listener {
               previousRes = str;
             }
             error | null err => {
-              io:println("Error received from remote service.");
+              io:println("Error received from"
+                         + " remote service.");
             }
           }
           io:println("Remote service OK. Data received: " +
