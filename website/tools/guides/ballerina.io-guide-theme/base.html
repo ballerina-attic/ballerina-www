@@ -63,6 +63,8 @@
     var mkdocs_page_name = {{ page.title|tojson|safe }};
     var mkdocs_page_input_path = {{ page.input_path|tojson|safe }};
     var mkdocs_page_url = {{ page.abs_url|tojson|safe }};
+    var mkdocs_root_repo = {{ config.repo_url|tojson|safe }};
+    var mkdocs_edit_uri = {{ config.edit_uri|tojson|safe }};
   </script>
   {% endif %}
 
@@ -115,9 +117,10 @@
             </ul>
             <div class="tab-content clearfix">
                <div class="tab-pane cGuidesTabs active" id="1a">
-                   <div class="cURL">https://github.com/ballerina-platform/</div>
+                   <div id="gitUrl" class="cURL">https://github.com/ballerina-platform/</div>
                    <a class="cCopyIcon"><img src="/img/copy-icon-line.svg"/></a>
-                   <a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton" href="downloads">DOWNLOAD ZIP</a>
+                   <a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton" href="#"
+                      id="downloadZip" >DOWNLOAD ZIP</a>
                  
                </div>
                <div class="tab-pane cGuidesTabs" id="2a">
@@ -219,6 +222,15 @@
       
          
              });
+            var baseGitUrl = mkdocs_root_repo+mkdocs_page_input_path.split("/")[0];
+            var editOngitUrl = baseGitUrl+ mkdocs_edit_uri;
+            $("#editOnGithub").attr("href", editOngitUrl);
+
+            var downloadUrl = baseGitUrl + "/archive/master.zip";
+            $("#downloadZip").attr("href", downloadUrl);
+
+            $("#gitUrl").text(baseGitUrl);
+
            });
            
            
