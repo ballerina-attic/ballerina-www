@@ -160,10 +160,10 @@ Once you build it, you get the following response. This means the service is suc
 @kubernetes:Service                      - complete 1/1
 ```
 
-Run the following command to deploy Kubernetes artifacts:
+Run the following command to deploy Kubernetes artifacts. Specify the folder path where your program is located.
 
 ```
-kubectl apply -f /Users/Sam/Documents/Micropatch/Ballerina/QuickTour/KubTest/kubernetes/
+kubectl apply -f /<folder path>/KubTest/kubernetes/
 ```
 
 This creates a folder called kubernetes and puts the deployment artifacts and the docker image inside it.
