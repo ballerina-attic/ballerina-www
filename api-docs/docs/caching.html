@@ -524,7 +524,7 @@
                                                             <h2 id="Cache-get">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Cache &gt;</span>
-                                                                get(string key) 
+                                                                get(string key) (any) 
                                                             </h2>
                                                             
                                                             <p>
@@ -550,13 +550,31 @@ an error will be thrown. So use the hasKey function to check for the existance o
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">any</td>
+                                                                    <td class="col-md-7">The cached value associated with the given key</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Cache-hasKey">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Cache &gt;</span>
-                                                                hasKey(string key) 
+                                                                hasKey(string key) (boolean) 
                                                             </h2>
                                                              
                                                             <p>
@@ -577,13 +595,31 @@ an error will be thrown. So use the hasKey function to check for the existance o
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">boolean</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Cache-put">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Cache &gt;</span>
-                                                                put(string key, any value) 
+                                                                put(string key, any value) (null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -614,13 +650,31 @@ an error will be thrown. So use the hasKey function to check for the existance o
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Cache-remove">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Cache &gt;</span>
-                                                                remove(string key) 
+                                                                remove(string key) (null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -645,28 +699,82 @@ an error will be thrown. So use the hasKey function to check for the existance o
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Cache-size">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Cache &gt;</span>
-                                                                size() 
+                                                                size() (int) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Returns the size of the cache.
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">int</td>
+                                                                    <td class="col-md-7">int: The size of the cache</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Cache-Cache.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Cache &gt;</span>
-                                                                Cache.&lt;init&gt;() 
+                                                                Cache.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -689,7 +797,7 @@ an error will be thrown. So use the hasKey function to check for the existance o
                                                 
                                                 <h2 id="createCache">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function createCache(string name, int expiryTimeMillis, int capacity, float evictionFactor) 
+                                                    public function createCache(string name, int expiryTimeMillis, int capacity, float evictionFactor) (Cache) 
                                                 </h2>
                                                 
                                                 <p>
@@ -731,7 +839,25 @@ an error will be thrown. So use the hasKey function to check for the existance o
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">Cache </td>
+                                                        <td class="col-md-7">cache: a new cache</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->

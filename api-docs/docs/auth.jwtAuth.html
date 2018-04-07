@@ -451,7 +451,7 @@
                                                             <h2 id="JWTAuthenticator-authenticate">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; JWTAuthenticator &gt;</span>
-                                                                authenticate(string jwtToken) 
+                                                                authenticate(string jwtToken) (boolean | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -476,15 +476,51 @@
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">boolean | error</td>
+                                                                    <td class="col-md-7">boolean: true if authentication is a success, else false</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="JWTAuthenticator-JWTAuthenticator.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; JWTAuthenticator &gt;</span>
-                                                                JWTAuthenticator.&lt;init&gt;() 
+                                                                JWTAuthenticator.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -507,13 +543,31 @@
                                                 
                                                 <h2 id="createAuthenticator">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function createAuthenticator() 
+                                                    public function createAuthenticator() (JWTAuthenticator) 
                                                 </h2>
                                                 
                                                 <p>
                                                     <span class="fw-right gray xs-icon"></span>Creates a JWT Authenticator instance
                                                 </p>
-                                                   
+                                                  
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">JWTAuthenticator </td>
+                                                        <td class="col-md-7">JWTAuthenticator instance</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
