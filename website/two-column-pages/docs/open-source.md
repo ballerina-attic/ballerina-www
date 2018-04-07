@@ -15,32 +15,34 @@ Use the form at the footer of this page to subscribe to Ballerina announcements.
 Please see [Ballerina Downloads page](https://stage.ballerina.io/downloads/) for Ballerina version history and release notes.
 
 ## Developer Resources
-### Source Code
+
+**Source Code**
 
 See our [github repo](https://github.com/ballerina-platform/ballerina-lang).
 
-### Developer Mailing List
+**Developer Mailing List**
 [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev) is the main discussion forum of the Ballerina dev team.
 
-We also use [Slack](https://ballerina-platform.slack.com/) for chat.
+We also use [Slack](https://ballerina-platform.slack.com/) for chat. Click <a class="" data-toggle="modal" data-target="#subscribe">here</a> to get a Slack invite</p>
 
 Comments in github issues and pull requests are used for issue- / feature-specific discussions.
 
 ## How you can help
-### Reporting issues
+
+**Reporting issues**
 
 Submitting a bug is just as important as contributing code. If you found an issue or have an improvement idea for Ballerina code, web site, or documentation, please file an issue.
 
-**Important**: All security-related issues should be reported to security@ballerina.io. See [Ballerina Security Policy](http://ballerina.io/security) for details.
+*Important*: All security-related issues should be reported to security@ballerina.io. See [Ballerina Security Policy](http://ballerina.io/security) for details.
 
 To file non-security issues:
 1. Click the Issues tab in the corresponding [github repository](https://github.com/ballerina-platform/),
-2. Click the **New Issue** button,
-3. Fill out all sections in the issue template and submit.
+1. Click the *New Issue* button,
+1. Fill out all sections in the issue template and submit.
 
 If you are unsure whether you have found a bug, please consider searching existing issues in github and asking in [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev).
 
-### Contributing code
+**Contributing code**
 
 Ballerina is an open source project and any contributions from a wider community is much appreciated. We would love you to join our team!
 
