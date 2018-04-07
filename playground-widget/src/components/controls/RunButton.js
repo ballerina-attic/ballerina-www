@@ -86,18 +86,11 @@ class RunButton extends React.Component {
                             case MSG_CODES.EXECUTION_STARTED:
                                     break;
                             case MSG_CODES.EXECUTION_STOPPED:
-                                    this.runSession.close();
-                                    this.resetSession();
-                                    break;
                             case MSG_CODES.PROGRAM_TERMINATED:
                                     this.runSession.close();
                                     this.resetSession();
                                     break;
                             case MSG_CODES.BUILD_ERROR:
-                                    this.appendToConsole(message)
-                                    this.runSession.close();
-                                    this.resetSession();
-                                    break;
                             case MSG_CODES.RUN_ABORTED:
                                     this.appendToConsole(message);
                                     this.runSession.close();
