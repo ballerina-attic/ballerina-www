@@ -220,8 +220,35 @@
                              return $('.FullCode').find('pre').text();
                          }
                      });
+
+                     // Register events show hide tooltip on click event
+                     clipboard.on('success', function(e) {
+                         setTooltip(e.trigger, 'Copied!');
+                         hideTooltip(e.trigger);
+                     });
+
+                     clipboard.on('error', function(e) {
+                         setTooltip(e.trigger, 'Failed!');
+                         hideTooltip(e.trigger);
+                     });
+
+                     $('.copy').tooltip({
+                         trigger: 'click',
+                         placement: 'bottom'
+                     });
+                     $( "a.copy").unbind( "click" );
                  });
 
+                 function setTooltip(btn, message) {
+                     $(btn).attr('data-original-title', message)
+                             .tooltip('show');
+                 }
+
+                 function hideTooltip(btn) {
+                     setTimeout(function() {
+                         $(btn).tooltip('hide').removeAttr('data-original-title');
+                     }, 1000);
+                 }
 
                  
         </script>
