@@ -81,6 +81,9 @@
      margin-bottom: 0;
      padding: 0;
 }
+.navbar-nav > li {
+    z-index: 9999999;
+}
  .navbar-nav > li:last-child a {
      padding-right: 0;
 }
@@ -237,7 +240,7 @@
      padding: 0;
      margin: 0;
      line-height: 20px;
-     font-family: "Monaco";
+    font-family: monaco, Consolas, "Lucida Console", monospace; 
      font-size: 12px;
      color: #d9dadb;
 }
@@ -426,10 +429,18 @@
      text-transform: uppercase;
 }
 
-#pdframe {
+.pdframe {
 height:1px!important;
 overflow:hidden!important;
 visibility:hidden!important
+}
+
+/*SEARCH*/
+
+.mkdocs-search-results {
+padding: 10px;
+z-index: 999999;
+background: #ffffff;
 }
 
  @media screen and (max-width: 768px) {
