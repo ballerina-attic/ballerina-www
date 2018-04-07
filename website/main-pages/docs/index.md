@@ -9,10 +9,10 @@
                    <p><a class="cGreenLink" href="/philosophy">SEE WHY ></a></p>
                    <div class="cHomeButtonContainer">
                    <a class="cBallerina-io-Home-main-download-button" href="downloads">Download Ballerina
-                   <p>Linux, OS X and Windows</p>
+                   <p>Distributions available for </br>Linux, OS X, and Windows</p>
                    </a>
                    </div>      
-                   <!-- <p class="cBallerina-io-Home-OS">Distributions available for Linux, OS X and Windows</p> -->
+                   <!-- <p class="cBallerina-io-Home-OS">Distributions available </br>for Linux, OS X and Windows</p> -->
                    <hr class="cHr">
                    </div>
                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-instructions cLeft-pading-none">
@@ -26,9 +26,6 @@
                    </div>
                 </div>
                 <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Right-col cBallerina-io-Home-widget">
-
-      <!-- <img style="margin-top: -14px; margin-left: 6px;" src="img/widget.jpg"/> -->
-
                     <iframe class="embed-responsive-item" src="playground/index.html" style="width: 100%;height: 693px;border: none; background:transparent; margin-top: -16px;">
                     </iframe>
                </div>

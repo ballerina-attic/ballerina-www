@@ -81,6 +81,9 @@
      margin-bottom: 0;
      padding: 0;
 }
+.navbar-nav > li {
+    z-index: 9999999;
+}
  .navbar-nav > li:last-child a {
      padding-right: 0;
 }
@@ -213,6 +216,7 @@
      color: #22b7b1;
     /* font-family: "CalibreWeb-Semibold";
     */
+    font-weight: normal;
 }
  .cHomeButtonContainer {
      display: inline-block;
@@ -236,9 +240,10 @@
      padding: 0;
      margin: 0;
      line-height: 20px;
-     font-family: "Monaco";
+    font-family: monaco, Consolas, "Lucida Console", monospace; 
      font-size: 12px;
      color: #d9dadb;
+     margin-left: 1px;
 }
  a.cBallerina-io-Home-main-download-button:hover {
      background-color: #22b7b1;
@@ -273,8 +278,9 @@
      color: #22b7b1;
      text-transform: uppercase;
      font-family: "CalibreWeb-Semibold";
-     font-weight: 600;
+     font-weight: normal;
      letter-spacing: 2px;
+     
 }
  .cBallerina-io-Home-widget {
      padding-left: 0;
@@ -315,7 +321,7 @@
      color: #57595d;
      text-transform: uppercase;
      font-family: "CalibreWeb-Semibold" !important;
-     font-weight: 600;
+     font-weight: normal;
      font-size: 12px;
      letter-spacing: 1px;
 }
@@ -324,9 +330,9 @@
      margin-bottom: 0px;
 }
  .cBallerinaFooterSignUp p span {
-     font-weight: 400;
+     font-weight: normal;
      font-family: "CalibreWeb-Semibold" !important;
-     font-weight: 600;
+     font-weight: normal;
      font-size: 12px;
      letter-spacing: 1px;
      text-transform: uppercase;
@@ -424,10 +430,18 @@
      text-transform: uppercase;
 }
 
-#pdframe {
+.pdframe {
 height:1px!important;
 overflow:hidden!important;
 visibility:hidden!important
+}
+
+/*SEARCH*/
+
+.mkdocs-search-results {
+padding: 10px;
+z-index: 999999;
+background: #ffffff;
 }
 
  @media screen and (max-width: 768px) {

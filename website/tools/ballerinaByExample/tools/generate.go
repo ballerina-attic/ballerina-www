@@ -136,7 +136,7 @@ var dashPat = regexp.MustCompile("\\-+")
 type Seg struct {
     Docs, DocsRendered              string
     Code, CodeRendered              string
-    CodeEmpty, CodeLeading, CodeRun bool
+    CodeEmpty, CodeLeading, CodeRun,IsConsoleOutput,DocEmpty bool
 }
 
 type Example struct {
@@ -217,8 +217,10 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
     }
     for i, seg := range segs {
         seg.CodeEmpty = (seg.Code == "")
+        seg.DocEmpty = (seg.Docs == "")
         seg.CodeLeading = (i < (len(segs) - 1))
         seg.CodeRun = strings.Contains(seg.Code, "package main")
+        seg.IsConsoleOutput = strings.HasSuffix(sourcePath, ".sh")
     }
     if strings.HasSuffix(sourcePath, ".bal") {
         //segs[0].Docs = descFileContent

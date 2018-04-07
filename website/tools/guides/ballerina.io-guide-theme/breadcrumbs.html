@@ -14,8 +14,8 @@
     <li class="wy-breadcrumbs-aside" id="iGitEdit">
       {%- block repo %}
       {% if page and page.edit_url %}
-        <a href="{{ page.edit_url }}"
-        {%- if config.repo_name|lower == 'github' %}
+        <a href="#" id="editOnGithub" target="_blank"
+           {%- if config.repo_name|lower == 'github' %}
           class="icon icon-github"
         {%- elif config.repo_name|lower == 'bitbucket' %}
           class="icon icon-bitbucket"
