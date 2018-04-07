@@ -1,6 +1,6 @@
 # Learn Ballerina
 
-Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration. It is designed to make it easier to write programs that integrate with data sources, services, and network-connected APIs of all kinds. 
+Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration. It is designed to make it easier to write programs that integrate with data sources, services, and network-connected APIs of all kinds.
 
 Although Ballerina is optimized primarily for such programs, it can be used to program anything. However, it is recommended to use Ballerina if a significant portion of the program is related to integrating with data sources, services, or network-connected APIs.
 
@@ -18,7 +18,7 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ## Ballerina by Guide
 
-Ballerina by Guide are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment and observability. 
+[Ballerina by Guide](/learn/guides/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment and observability. 
 
 ## How to Structure Ballerina Code
 
