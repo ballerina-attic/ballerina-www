@@ -1184,9 +1184,27 @@ form-data)</td>
                                                             <h2 id="ContentDisposition-ContentDisposition.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; ContentDisposition &gt;</span>
-                                                                ContentDisposition.&lt;init&gt;() 
+                                                                ContentDisposition.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -1267,7 +1285,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                             <h2 id="Entity-addHeader">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                addHeader(string headerName, string headerValue) 
+                                                                addHeader(string headerName, string headerValue) (null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1298,13 +1316,31 @@ level message and an entity(body part) inside of a multipart entity.
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-getBlob">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                getBlob() 
+                                                                getBlob() (blob | EntityError) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1312,52 +1348,124 @@ level message and an entity(body part) inside of a multipart entity.
 using getEntityWrapper() method instead
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">blob | EntityError</td>
+                                                                    <td class="col-md-7">Return a blob</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-getBodyParts">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                getBodyParts() 
+                                                                getBodyParts() (Entity[] | EntityError) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Given an entity, get its body parts.
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">Entity[] | EntityError</td>
+                                                                    <td class="col-md-7">Return an array of entities which represent its body parts</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-getByteChannel">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                getByteChannel() 
+                                                                getByteChannel() (ioByteChannel | EntityError) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Given an entity, get the entity body as a byte channel.
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">ioByteChannel | EntityError</td>
+                                                                    <td class="col-md-7">Return a byte channel</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-getCopyOfAllHeaders">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                getCopyOfAllHeaders() 
+                                                                getCopyOfAllHeaders() (map) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Get all the headers as a map. Please note that manipulating the returned map has no effect to the original copy of headers
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">map</td>
+                                                                    <td class="col-md-7">Return a copy of all headers as a map.</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-getHeader">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                getHeader(string headerName) 
+                                                                getHeader(string headerName) (string) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1382,13 +1490,32 @@ using getEntityWrapper() method instead
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">string</td>
+                                                                    <td class="col-md-7">Return header value associated with the given header name. If multiple header values are present,
+then the first value will be returned</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-getHeaders">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                getHeaders(string headerName) 
+                                                                getHeaders(string headerName) (string[]) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1413,52 +1540,124 @@ using getEntityWrapper() method instead
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">string[]</td>
+                                                                    <td class="col-md-7">Return all the header values associated with the given header name as a string of arrays</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-getJson">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                getJson() 
+                                                                getJson() (json | EntityError) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Given an entity, get the entity body in json form.
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">json | EntityError</td>
+                                                                    <td class="col-md-7">Return json data</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-getText">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                getText() 
+                                                                getText() (string | EntityError) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Given an entity, get the entity body in text form.
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">string | EntityError</td>
+                                                                    <td class="col-md-7">Return text data</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-getXml">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                getXml() 
+                                                                getXml() (xml | EntityError) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Given an entity, get the entity body in xml form.
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">xml | EntityError</td>
+                                                                    <td class="col-md-7">Return xml data</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-hasHeader">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                hasHeader(string headerName) 
+                                                                hasHeader(string headerName) (boolean) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1483,26 +1682,62 @@ using getEntityWrapper() method instead
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">boolean</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-removeAllHeaders">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                removeAllHeaders() 
+                                                                removeAllHeaders() (null) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Remove all headers associated with the entity
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-removeHeader">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                removeHeader(string headerName) 
+                                                                removeHeader(string headerName) (null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1527,13 +1762,31 @@ using getEntityWrapper() method instead
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-setBlob">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                setBlob(blob blobContent) 
+                                                                setBlob(blob blobContent) (null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1558,13 +1811,31 @@ using getEntityWrapper() method instead
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7">Return a blob</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-setBodyParts">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                setBodyParts(Entity[] bodyParts) 
+                                                                setBodyParts(Entity[] bodyParts) (null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1589,13 +1860,31 @@ using getEntityWrapper() method instead
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-setByteChannel">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                setByteChannel(ByteChannel byteChannel) 
+                                                                setByteChannel(ByteChannel byteChannel) (null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1620,13 +1909,31 @@ using getEntityWrapper() method instead
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-setFileAsEntityBody">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                setFileAsEntityBody(File fileHandler) 
+                                                                setFileAsEntityBody(File fileHandler) (null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1651,13 +1958,31 @@ using getEntityWrapper() method instead
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-setHeader">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                setHeader(string headerName, string headerValue) 
+                                                                setHeader(string headerName, string headerValue) (null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1689,13 +2014,31 @@ replaced with the given header value
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-setJson">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                setJson(json jsonContent) 
+                                                                setJson(json jsonContent) (null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1720,13 +2063,31 @@ replaced with the given header value
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-setText">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                setText(string textContent) 
+                                                                setText(string textContent) (null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1751,13 +2112,31 @@ replaced with the given header value
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-setXml">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                setXml(xml xmlContent) 
+                                                                setXml(xml xmlContent) (null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1782,15 +2161,51 @@ replaced with the given header value
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Entity-Entity.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Entity &gt;</span>
-                                                                Entity.&lt;init&gt;() 
+                                                                Entity.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -1856,9 +2271,27 @@ replaced with the given header value
                                                             <h2 id="EntityError-EntityError.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; EntityError &gt;</span>
-                                                                EntityError.&lt;init&gt;() 
+                                                                EntityError.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -1938,35 +2371,89 @@ replaced with the given header value
                                                             <h2 id="MediaType-toString">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; MediaType &gt;</span>
-                                                                toString() 
+                                                                toString() (string) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Get “primaryType/subtype+suffix” combination in string format.
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">string</td>
+                                                                    <td class="col-md-7">Return base type from MediaType struct</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="MediaType-toStringWithParameters">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; MediaType &gt;</span>
-                                                                toStringWithParameters() 
+                                                                toStringWithParameters() (string) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Convert the media type to a string suitable for use as the value of a corresponding HTTP header.
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">string</td>
+                                                                    <td class="col-md-7">Return the Content-Type with parameters as a string</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="MediaType-MediaType.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; MediaType &gt;</span>
-                                                                MediaType.&lt;init&gt;() 
+                                                                MediaType.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -2005,7 +2492,7 @@ replaced with the given header value
                                                             <h2 id="MimeBase64Decoder-decode">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; MimeBase64Decoder &gt;</span>
-                                                                decode(blob content) 
+                                                                decode(blob content) (blob) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2030,13 +2517,31 @@ replaced with the given header value
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">blob</td>
+                                                                    <td class="col-md-7">Return resulting decoded bytes</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="MimeBase64Decoder-decodeString">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; MimeBase64Decoder &gt;</span>
-                                                                decodeString(string content, string charset) 
+                                                                decodeString(string content, string charset) (string) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2070,15 +2575,51 @@ converted to a byte array with the given charset encoding. If the charset given 
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">string</td>
+                                                                    <td class="col-md-7">Return resulting decoded string</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="MimeBase64Decoder-MimeBase64Decoder.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; MimeBase64Decoder &gt;</span>
-                                                                MimeBase64Decoder.&lt;init&gt;() 
+                                                                MimeBase64Decoder.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -2117,7 +2658,7 @@ converted to a byte array with the given charset encoding. If the charset given 
                                                             <h2 id="MimeBase64Encoder-encode">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; MimeBase64Encoder &gt;</span>
-                                                                encode(blob content) 
+                                                                encode(blob content) (blob) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2142,13 +2683,31 @@ converted to a byte array with the given charset encoding. If the charset given 
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">blob</td>
+                                                                    <td class="col-md-7">Return resulting encoded bytes</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="MimeBase64Encoder-encodeString">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; MimeBase64Encoder &gt;</span>
-                                                                encodeString(string content, string charset) 
+                                                                encodeString(string content, string charset) (string) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2182,15 +2741,51 @@ converted to a byte array with the given charset encoding. If the charset given 
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">string</td>
+                                                                    <td class="col-md-7">Return resulting encoded string</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="MimeBase64Encoder-MimeBase64Encoder.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; MimeBase64Encoder &gt;</span>
-                                                                MimeBase64Encoder.&lt;init&gt;() 
+                                                                MimeBase64Encoder.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -2229,9 +2824,27 @@ converted to a byte array with the given charset encoding. If the charset given 
                                                             <h2 id="QuotedPrintableDecoder-QuotedPrintableDecoder.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; QuotedPrintableDecoder &gt;</span>
-                                                                QuotedPrintableDecoder.&lt;init&gt;() 
+                                                                QuotedPrintableDecoder.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -2270,9 +2883,27 @@ converted to a byte array with the given charset encoding. If the charset given 
                                                             <h2 id="QuotedPrintableEncoder-QuotedPrintableEncoder.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; QuotedPrintableEncoder &gt;</span>
-                                                                QuotedPrintableEncoder.&lt;init&gt;() 
+                                                                QuotedPrintableEncoder.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -2295,7 +2926,7 @@ converted to a byte array with the given charset encoding. If the charset given 
                                                 
                                                 <h2 id="getMediaType">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function getMediaType(string contentType) 
+                                                    public function getMediaType(string contentType) (MediaType) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2319,7 +2950,25 @@ converted to a byte array with the given charset encoding. If the charset given 
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">MediaType </td>
+                                                        <td class="col-md-7">Return MediaType struct</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->

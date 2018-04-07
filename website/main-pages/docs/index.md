@@ -9,10 +9,10 @@
                    <p><a class="cGreenLink" href="/philosophy">SEE WHY ></a></p>
                    <div class="cHomeButtonContainer">
                    <a class="cBallerina-io-Home-main-download-button" href="downloads">Download Ballerina
-                   <p>Distributions available for Linux, OS X, and Windows</p>
+                   <p>Distributions available for </br>Linux, OS X, and Windows</p>
                    </a>
                    </div>      
-                   <!-- <p class="cBallerina-io-Home-OS">Distributions available for Linux, OS X and Windows</p> -->
+                   <!-- <p class="cBallerina-io-Home-OS">Distributions available </br>for Linux, OS X and Windows</p> -->
                    <hr class="cHr">
                    </div>
                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-instructions cLeft-pading-none">

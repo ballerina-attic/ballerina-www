@@ -801,20 +801,38 @@
                                                             <h2 id="ByteChannel-close">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; ByteChannel &gt;</span>
-                                                                close() 
+                                                                close() (IOError) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Function to close a byte channel
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">IOError</td>
+                                                                    <td class="col-md-7">Returns if there&#x27;s any error while performaing I/O operation</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="ByteChannel-read">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; ByteChannel &gt;</span>
-                                                                read(int nBytes) 
+                                                                read(int nBytes) ((blob,int) | IOError) 
                                                             </h2>
                                                             
                                                             <p>
@@ -839,13 +857,31 @@
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">(blob,int) | IOError</td>
+                                                                    <td class="col-md-7">The bytes which were read</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="ByteChannel-write">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; ByteChannel &gt;</span>
-                                                                write(blob content, int offset) 
+                                                                write(blob content, int offset) (int | IOError) 
                                                             </h2>
                                                             
                                                             <p>
@@ -876,15 +912,51 @@
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">int | IOError</td>
+                                                                    <td class="col-md-7">Number of bytes written</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="ByteChannel-ByteChannel.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; ByteChannel &gt;</span>
-                                                                ByteChannel.&lt;init&gt;() 
+                                                                ByteChannel.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -923,20 +995,38 @@
                                                             <h2 id="CharacterChannel-closeCharacterChannel">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; CharacterChannel &gt;</span>
-                                                                closeCharacterChannel() 
+                                                                closeCharacterChannel() (IOError) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Function to close a character channel
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">IOError</td>
+                                                                    <td class="col-md-7">Returns if there&#x27;s any error while performaing I/O operation</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="CharacterChannel-readCharacters">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; CharacterChannel &gt;</span>
-                                                                readCharacters(int numberOfChars) 
+                                                                readCharacters(int numberOfChars) (string | IOError) 
                                                             </h2>
                                                             
                                                             <p>
@@ -961,39 +1051,93 @@
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">string | IOError</td>
+                                                                    <td class="col-md-7">The character sequence which was read</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="CharacterChannel-readJson">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; CharacterChannel &gt;</span>
-                                                                readJson() 
+                                                                readJson() (json | IOError) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Function to convert a character channel to a JSON
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">json | IOError</td>
+                                                                    <td class="col-md-7">Returns A JSON</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="CharacterChannel-readXml">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; CharacterChannel &gt;</span>
-                                                                readXml() 
+                                                                readXml() (xml | IOError) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Function to convert a character channel to a XML
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">xml | IOError</td>
+                                                                    <td class="col-md-7">Returns A XML</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="CharacterChannel-writeCharacters">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; CharacterChannel &gt;</span>
-                                                                writeCharacters(string content, int startOffset) 
+                                                                writeCharacters(string content, int startOffset) (int | IOError) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1024,15 +1168,51 @@
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">int | IOError</td>
+                                                                    <td class="col-md-7">Number of characters written</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="CharacterChannel-CharacterChannel.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; CharacterChannel &gt;</span>
-                                                                CharacterChannel.&lt;init&gt;() 
+                                                                CharacterChannel.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -1071,46 +1251,100 @@
                                                             <h2 id="DelimitedRecordChannel-closeDelimitedRecordChannel">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; DelimitedRecordChannel &gt;</span>
-                                                                closeDelimitedRecordChannel() 
+                                                                closeDelimitedRecordChannel() (IOError) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Function to close the text record channel
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">IOError</td>
+                                                                    <td class="col-md-7">Returns if there&#x27;s any error while performaing I/O operation</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="DelimitedRecordChannel-hasNextTextRecord">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; DelimitedRecordChannel &gt;</span>
-                                                                hasNextTextRecord() 
+                                                                hasNextTextRecord() (boolean) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Function to check whether next record is available or not
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">boolean</td>
+                                                                    <td class="col-md-7">True if the channel has more records; false otherwise</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="DelimitedRecordChannel-nextTextRecord">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; DelimitedRecordChannel &gt;</span>
-                                                                nextTextRecord() 
+                                                                nextTextRecord() (string[] | IOError) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Function to read text records
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">string[] | IOError</td>
+                                                                    <td class="col-md-7">Fields listed in the record</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="DelimitedRecordChannel-writeTextRecord">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; DelimitedRecordChannel &gt;</span>
-                                                                writeTextRecord(string[] records) 
+                                                                writeTextRecord(string[] records) (IOError) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1135,15 +1369,51 @@
                                                                 
                                                             </table>
                                                              
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">IOError</td>
+                                                                    <td class="col-md-7">Returns if there&#x27;s any error while performaing I/O operation</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="DelimitedRecordChannel-DelimitedRecordChannel.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; DelimitedRecordChannel &gt;</span>
-                                                                DelimitedRecordChannel.&lt;init&gt;() 
+                                                                DelimitedRecordChannel.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -1209,9 +1479,27 @@
                                                             <h2 id="IOError-IOError.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; IOError &gt;</span>
-                                                                IOError.&lt;init&gt;() 
+                                                                IOError.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -1298,22 +1586,58 @@
                                                             <h2 id="Socket-Socket.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Socket &gt;</span>
-                                                                Socket.&lt;init&gt;() 
+                                                                Socket.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
                                                             <h2 id="Socket-closeSocket">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; Socket &gt;</span>
-                                                                closeSocket() 
+                                                                closeSocket() (IOError) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Close the socket connection with the remote server
                                                             </p>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">IOError</td>
+                                                                    <td class="col-md-7">Returns an IOError if socket could not be closed</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -1428,9 +1752,27 @@
                                                             <h2 id="SocketProperties-SocketProperties.&lt;init&gt;">
                                                                 <span class=fw-function></span>
                                                                 <span class="thin-text light-gray">&lt; SocketProperties &gt;</span>
-                                                                SocketProperties.&lt;init&gt;() 
+                                                                SocketProperties.&lt;init&gt;() (null) 
                                                             </h2>
                                                               
+                                                            <p>
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">null</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                     </ul>
@@ -1453,7 +1795,7 @@
                                                 
                                                 <h2 id="createCharacterChannel">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function createCharacterChannel(ByteChannel byteChannel, string encoding) 
+                                                    public function createCharacterChannel(ByteChannel byteChannel, string encoding) (CharacterChannel | IOError) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1483,7 +1825,25 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">CharacterChannel | IOError </td>
+                                                        <td class="col-md-7">CharacterChannel converted from ByteChannel</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -1503,7 +1863,7 @@
                                                 
                                                 <h2 id="createDelimitedRecordChannel">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function createDelimitedRecordChannel(CharacterChannel channel, string recordSeparator, string fieldSeparator) 
+                                                    public function createDelimitedRecordChannel(CharacterChannel channel, string recordSeparator, string fieldSeparator) (DelimitedRecordChannel | IOError) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1539,7 +1899,25 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">DelimitedRecordChannel | IOError </td>
+                                                        <td class="col-md-7">DelimitedRecordChannel converted from CharacterChannel</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -1559,7 +1937,7 @@
                                                 
                                                 <h2 id="loadToTable">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function loadToTable(string filePath, string recordSeparator, string fieldSeparator, string encoding, boolean headerLineIncluded, typedesc structType) 
+                                                    public function loadToTable(string filePath, string recordSeparator, string fieldSeparator, string encoding, boolean headerLineIncluded, typedesc structType) (table | IOError) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1613,7 +1991,25 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">table | IOError </td>
+                                                        <td class="col-md-7">table of delimited values</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -1633,7 +2029,7 @@
                                                 
                                                 <h2 id="openFile">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function openFile(string path, string accessMode) 
+                                                    public function openFile(string path, string accessMode) (ByteChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1663,7 +2059,25 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">ByteChannel </td>
+                                                        <td class="col-md-7">Channel which will allow to source/sink</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -1683,7 +2097,7 @@
                                                 
                                                 <h2 id="openSecureSocket">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function openSecureSocket(string host, int port, SocketProperties options) 
+                                                    public function openSecureSocket(string host, int port, SocketProperties options) (Socket | IOError) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1719,7 +2133,25 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">Socket | IOError </td>
+                                                        <td class="col-md-7">Socket which will allow to communicate with a remote server</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -1739,7 +2171,7 @@
                                                 
                                                 <h2 id="openSocket">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function openSocket(string host, int port, SocketProperties options) 
+                                                    public function openSocket(string host, int port, SocketProperties options) (Socket | IOError) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1775,7 +2207,25 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">Socket | IOError </td>
+                                                        <td class="col-md-7">Socket which will allow to communicate with a remote server</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -1795,7 +2245,7 @@
                                                 
                                                 <h2 id="print">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function print(any a) 
+                                                    public function print(any a) (null) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1819,7 +2269,25 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">null </td>
+                                                        <td class="col-md-7"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -1839,7 +2307,7 @@
                                                 
                                                 <h2 id="println">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function println(any a) 
+                                                    public function println(any a) (null) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1863,7 +2331,25 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">null </td>
+                                                        <td class="col-md-7"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -1883,7 +2369,7 @@
                                                 
                                                 <h2 id="sprintf">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function sprintf(string format, any[] args) 
+                                                    public function sprintf(string format, any[] args) (string) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1913,7 +2399,25 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">string </td>
+                                                        <td class="col-md-7">Formatted string</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->

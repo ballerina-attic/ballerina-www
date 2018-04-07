@@ -394,7 +394,7 @@
                                                 
                                                 <h2 id="scheduleAppointment">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function scheduleAppointment(function()returns(error | null) onTrigger, function(error)returns(null) | null onError, string scheduleCronExpression) 
+                                                    public function scheduleAppointment(function()returns(error | null) onTrigger, function(error)returns(null) | null onError, string scheduleCronExpression) (string | error) 
                                                 </h2>
                                                 
                                                 <p>
@@ -430,7 +430,25 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">string | error </td>
+                                                        <td class="col-md-7">The unique ID of the appointment task that was scheduled</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -450,7 +468,7 @@
                                                 
                                                 <h2 id="scheduleTimer">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function scheduleTimer(function()returns(error | null) onTrigger, function(error)returns(null) | null onError, struct {int delay, int interval} schedule) 
+                                                    public function scheduleTimer(function()returns(error | null) onTrigger, function(error)returns(null) | null onError, struct {int delay, int interval} schedule) (string | error) 
                                                 </h2>
                                                 
                                                 <p>
@@ -486,7 +504,25 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">string | error </td>
+                                                        <td class="col-md-7">The unique ID of the timer task that was scheduled</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -506,7 +542,7 @@
                                                 
                                                 <h2 id="stopTask">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function stopTask(string taskID) 
+                                                    public function stopTask(string taskID) (error) 
                                                 </h2>
                                                 
                                                 <p>
@@ -530,7 +566,25 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">error </td>
+                                                        <td class="col-md-7">This error will be returned if an error occurs while stopping the task</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
