@@ -77,6 +77,14 @@ class CodeEditor extends React.Component {
         });
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (this.props.sample.fileName !== nextProps.sample.fileName
+            && this.editorInstance) {
+            this.editorInstance.setScrollPosition({ scrollTop: 0, scrollLeft: 0 });
+        }
+    }
+    
+
     /**
      * @inheritDoc
      */
@@ -107,6 +115,10 @@ class CodeEditor extends React.Component {
 CodeEditor.propTypes = {
     content: PropTypes.string,
     onChange: PropTypes.func,
+    sample: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        fileName: PropTypes.string.isRequired
+    }),
 };
 
 CodeEditor.defaultProps = {

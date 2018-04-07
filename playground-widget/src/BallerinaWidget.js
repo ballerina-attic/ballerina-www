@@ -113,6 +113,7 @@ class BallerinaWidget extends Component {
               <CodeEditor
                 content={sample.content || ''}
                 onChange={this.onCurrentSampleContentChange}
+                sample={sample}
               />
             }
             {selectedView === VIEWS.COMPOSER &&
