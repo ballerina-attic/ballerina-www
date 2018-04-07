@@ -218,8 +218,4 @@ Hello World!
 
 1. In the command line, type `composer`.
 
-1. Access the Composer from the following URL in your browser: http://localhost:9091
-
-    The welcome page of Ballerina Composer appears. 
-    ![alt text](images/ComposerNew1.png "Welcome page")
-    
+1. Access the Composer from the following URL in your browser: http://localhost:9091    
