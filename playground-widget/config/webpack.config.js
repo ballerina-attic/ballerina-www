@@ -128,10 +128,10 @@
          extractCSSBundle,
          new WriteFilePlugin(),
          new CopyWebpackPlugin([
-            {
-                from: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
-                to: 'fonts',
-            },
+            // { FIXME
+            //     from: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
+            //     to: 'fonts',
+            // },
             {
                 from: 'public'
             },
