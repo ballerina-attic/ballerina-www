@@ -176,7 +176,7 @@
 
                             <table class="cBBE-body">
                                 {{range .}}
-                                <tr class="cTR">
+                                <tr class="cTR{{if not .DocEmpty}} hover-enable{{end}}">
 
                                     <td class="code{{if .CodeEmpty}} empty{{end}}{{if .CodeLeading}} leading{{end}}{{if .IsConsoleOutput}} cOutput{{end}}">
                                         {{.CodeRendered}}

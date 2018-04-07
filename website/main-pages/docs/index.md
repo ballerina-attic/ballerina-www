@@ -26,9 +26,7 @@
                    </div>
                 </div>
                 <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Right-col cBallerina-io-Home-widget">
-
-      <!-- <img style="margin-top: -14px; margin-left: 6px;" src="img/widget.jpg"/> -->
-
+      <!-- <img style="margin-top: -14px; margin-left: 6px;" src="img/widget.jpg"/> -->      
                     <iframe class="embed-responsive-item" src="playground/index.html" style="width: 100%;height: 740px;border: none; background:transparent; margin-top: -16px;">
                     </iframe>
                </div>
