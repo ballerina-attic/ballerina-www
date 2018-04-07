@@ -19,9 +19,9 @@
                 <div class="cSize">bal.964.windows.amid64.msi(128mb)</div>
             </a>
             <ul class="cDiwnloadSubLinks">
-                <li><a href="#">md5</a></li>
-                <li><a href="#">SHA-1</a></li>
-                <li><a href="#">asc</a></li>
+                <li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi.md5">md5</a></li>
+                <li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi.sha1">SHA-1</a></li>
+                <li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi.asc">asc</a></li>
             </ul>
          </div>
         <div class="col-xs-12 col-sm-16 col-md-3 col-lg-4 cDownloadMiddle">
@@ -41,9 +41,9 @@
                 <div class="cSize">bal.964.mac.darwin64.pkg(82mb)</div>
             </a>
             <ul class="cDiwnloadSubLinks">
-                <li><a href="#">md5</a></li>
-                <li><a href="#">SHA-1</a></li>
-                <li><a href="#">asc</a></li>
+                <li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg.md5">md5</a></li>
+                <li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg.sha1">SHA-1</a></li>
+                <li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg.asc">asc</a></li>
             </ul>
         </div>
         <div class="col-xs-12 col-sm-16 col-md-12 col-lg-12">
