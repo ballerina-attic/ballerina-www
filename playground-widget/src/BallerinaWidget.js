@@ -25,6 +25,7 @@ class BallerinaWidget extends Component {
       selectedSampleIndex: 0,
       selectedView: VIEWS.SOURCE,
       curlVisible: true,
+      isReadyToRun: false
     }
     this.consoleRef = undefined;
     this.onSampleSelect = this.onSampleSelect.bind(this);
@@ -42,11 +43,15 @@ class BallerinaWidget extends Component {
   }
 
   onSampleSelect(selectedSampleIndex) {
+    this.setState({
+      isReadyToRun: false
+    });
     const sample = this.state.samples[selectedSampleIndex];
     if (sample.content) {
       this.setState({
         selectedSampleIndex,
-        selectedView: VIEWS.SOURCE
+        selectedView: VIEWS.SOURCE,
+        isReadyToRun: true
       });
     } else {
       const { file, image } = sample;
@@ -55,7 +60,8 @@ class BallerinaWidget extends Component {
            sample.content = data;
            this.setState({
               selectedSampleIndex,
-              selectedView: VIEWS.SOURCE
+              selectedView: VIEWS.SOURCE,
+              isReadyToRun: true
             });
         })
     }
@@ -69,7 +75,7 @@ class BallerinaWidget extends Component {
   }
 
   render() {
-    const { samples, selectedSampleIndex, selectedView } = this.state;
+    const { samples, selectedSampleIndex, selectedView, isReadyToRun } = this.state;
     const sample = samples && (samples.length > 0) 
                         && (selectedSampleIndex >= 0)
                         && (samples.length - 1 >= selectedSampleIndex)
@@ -113,6 +119,7 @@ class BallerinaWidget extends Component {
               <CodeEditor
                 content={sample.content || ''}
                 onChange={this.onCurrentSampleContentChange}
+                sample={sample}
               />
             }
             {selectedView === VIEWS.COMPOSER &&
@@ -151,6 +158,7 @@ class BallerinaWidget extends Component {
                     <RunButton
                       sample={sample}
                       consoleRef={this.consoleRef}
+                      disabled={!isReadyToRun}
                     />
                     {/* <ShareButton /> */}
               </div>    

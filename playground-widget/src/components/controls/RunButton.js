@@ -86,18 +86,11 @@ class RunButton extends React.Component {
                             case MSG_CODES.EXECUTION_STARTED:
                                     break;
                             case MSG_CODES.EXECUTION_STOPPED:
-                                    this.runSession.close();
-                                    this.resetSession();
-                                    break;
                             case MSG_CODES.PROGRAM_TERMINATED:
                                     this.runSession.close();
                                     this.resetSession();
                                     break;
                             case MSG_CODES.BUILD_ERROR:
-                                    this.appendToConsole(message)
-                                    this.runSession.close();
-                                    this.resetSession();
-                                    break;
                             case MSG_CODES.RUN_ABORTED:
                                     this.appendToConsole(message);
                                     this.runSession.close();
@@ -164,7 +157,7 @@ class RunButton extends React.Component {
     }
 
     render() {
-        const { sample } = this.props;
+        const { sample, disabled } = this.props;
         const { runInProgress } = this.state;
         return (
             <Button
@@ -172,7 +165,7 @@ class RunButton extends React.Component {
                 onClick={runInProgress ? this.onStop : this.onRun}
                 fluid
                 basic
-                disabled={!(sample && sample.content) || this.state.waitingOnRemoteAck} >
+                disabled={disabled || !(sample && sample.content) || this.state.waitingOnRemoteAck} >
                 <span>{ runInProgress ? 'Stop' : 'Run' }</span>
             </Button>
         );
@@ -185,6 +178,7 @@ RunButton.propTypes = {
         fileName: PropTypes.string.isRequired
     }),
     consoleRef: PropTypes.instanceOf(Console),
+    disabled: PropTypes.bool,
     onStop: PropTypes.func,
     onRun: PropTypes.func,
     onError: PropTypes.func
@@ -193,6 +187,7 @@ RunButton.propTypes = {
 RunButton.defaultProps = {
     sample: undefined,
     consoleRef: undefined,
+    disabled: false,
     onStop: () => {},
     onRun: () => {},
     onError: () => {},
