@@ -17,6 +17,7 @@ import (
 
 var cacheDir = "/tmp/gobyexample-cache"
 var pygmentizeBin = "tools/ballerinaByExample/vendor/pygments/pygmentize"
+var githubBallerinaByExampleBaseURL = "https://github.com/ballerina-platform/ballerina-lang/tree/master/docs/ballerina-by-example"
 var examplesDir = os.Args[1];
 var siteDir = os.Args[2];
 
@@ -146,6 +147,7 @@ type Example struct {
     NextExample                 *Example
     PrevExample                 *Example
     FullCode			string
+    GithubLink          string
 }
 
 func parseHashFile(sourcePath string) (string, string) {
@@ -317,6 +319,7 @@ func parseExamples() []*Example {
             if example.GoCodeHash != newCodeHash {
                 example.UrlHash = resetUrlHashFile(newCodeHash, example.GoCode, "examples/"+example.Id+"/"+example.Id+".hash")
             }
+            example.GithubLink = githubBallerinaByExampleBaseURL+ "/examples/"+example.Id+"/"
             examples = append(examples, &example)
         }
     }
