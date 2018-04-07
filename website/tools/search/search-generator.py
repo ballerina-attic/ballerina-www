@@ -4,9 +4,14 @@
 from bs4 import BeautifulSoup
 import os
 import json
+import sys
 
 # The top argument for name in files
-topdir = '.'
+if len(sys.argv) > 1:
+    topdir = sys.argv[1]
+else:
+    topdir = '.'
+os.chdir(topdir)
 
 extens = ['html']  # the extensions to search for
 
@@ -15,7 +20,7 @@ found = {x: [] for x in extens}
 # Directories to ignore
 ignore = ['docs', 'ballerina-fonts','css','fonts','img','js','search','vs']
 
-logname = "search_index.json"
+logname = "search/search_index.json"
 
 print('Scraping files in %s for generating the search json' % os.path.realpath(topdir))
 
@@ -53,7 +58,7 @@ for dirpath, dirnames, files in os.walk(topdir):
             title = soup.title
 
             if title is not None:
-                data1 = data1+ "{\"location\":\""+str(location)+"\""
+                data1 = data1+ "{\"location\":\""+str(os.path.relpath(location))+"\""
                 data1 = data1+",\"text\":\""+str(title.get_text())+"\""
                 data1 = data1+ ", \"title\":\"" + str(title.get_text())+"\"},"
 

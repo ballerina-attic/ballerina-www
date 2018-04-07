@@ -220,6 +220,20 @@
                             </arguments>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>build-search-json</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <executable>python</executable>
+                            <arguments>
+                                <argument>tools/search/search-generator.py</argument>
+                                <argument>${webroot.dir}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
