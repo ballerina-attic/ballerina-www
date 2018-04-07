@@ -1,5 +1,5 @@
 $(document).ready(function () {
-		var guide_data = {
+		var example_data = {
 				"Basic": ["Hello World", "Hello World Parallel", "Hello World Service"],
 				"Variables and Constants": ["Constants", "Global Variables", "Ternary", "Functions", "Multiple Return Values", "Named Returns", "Errors", "Var"],
 				"Statements": ["While", "IF Else", "Foreach", "Throw", "Try/Catch/Finally"],
@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 		var i = 0;
 		var div_content;
-		$.each(guide_data, function (key, value) {
+		$.each(example_data, function (key, value) {
 				//get title
 				div_content = "";
 
@@ -36,33 +36,34 @@ $(document).ready(function () {
 
 		//Ballerina by guide Content
 
-		var guide_data = [
-				{"name": "Messaging with JMS Queues", "desc": "Use Ballerina to send messages with JMS queues using a message broker.", "url": "", "git": ""},
-				{"name": "Using WebSockets to Develop an Interactive Web Application", "desc": "Use WebSockets to develop an interactive web application and build the application server using Ballerina language.", "url": "", "git": ""},
-				{"name": "Messaging with Kafka", "desc": "Sending messages with Apache Kafka using Ballerina language.", "url": "", "git": ""},
-				{"name": "RESTful Service", "desc": "Building a comprehensive RESTful Web Service using Ballerina.", "url": "restful-service", "git": ""},
-				{"name": "Parallel Service Orchestration", "desc": "Integrating two or more services together to automate a particular task using Ballerina language.", "url": "", "git": ""},
-				{"name": "Database Backed RESTful Web Service", "desc": "Building a database backed RESTful web service.", "url": "data-service", "git": ""},
-				{"name": "Managing Database Transactions", "desc": "Managing multiple database transactions using Ballerina.", "url": "", "git": ""},
-				{"name": "Service Composition", "desc": "Implementing a service composition using Ballerina language.", "url": "", "git": ""},
-				{"name": "Circuit Breaker", "desc": "Adding a circuit breaker pattern to a potentially-failing remote backend.", "url": "circuit-breaker", "git": ""},
-				{"name": "Retry and Timeout with HTTP", "desc": "Incorporating resilience patterns like timeouts and retry to deal with potentially-busy remote backend services.", "url": "", "git": ""},
-				{"name": "Load Balancing across Multiple Service Instances", "desc": "Adding load balancing for Ballerina programs to minimize failover.", "url": "", "git": ""},
-				{"name": "Building a RESTful Service with Swagger/OpenAPI Specification", "desc": "Building a RESTful Ballerina web service using Swagger/OpenAPI Specification.", "url": "", "git": ""}
-		];
+		var guide_data = {
+			"Ballerina Language Concepts":[{"name": "RESTful Service", "desc": "Building a comprehensive RESTful Web Service using Ballerina.", "url": "restful-service", "git": ""},
+				{"name": "Database Interaction", "desc": "Use WebSockets to develop an interactive web application and build the application server using Ballerina language.", "url": "data-backed-service ", "git": ""},
+				{"name": "WebSockets", "desc": "Sending messages with Apache Kafka using Ballerina language.", "url": "websocket-integration", "git": ""},
+				{"name": "Swagger / OpenAPI", "desc": "Building a comprehensive RESTful Web Service using Ballerina.", "url": "open-api-based-service", "git": ""},
+				{"name": "Service Composition", "desc": "Integrating two or more services together to automate a particular task using Ballerina language.", "url": "service-composition", "git": ""},
+				{"name": "Parallel Service Orchestration", "desc": "Building a database backed RESTful web service.", "url": "parallel-service-orchestration", "git": ""},
+				{"name": "Endpoint Resiliency", "desc": "Managing multiple database transactions using Ballerina.", "url": "resiliency-timeouts", "git": ""},
+				{"name": "Circuit Breaker", "desc": "Implementing a service composition using Ballerina language.", "url": "resiliency-circuit-breaker", "git": ""},
+				{"name": "Failover and Load Balancing", "desc": "Adding a circuit breaker pattern to a potentially-failing remote backend.", "url": "loadbalancing-failover", "git": ""},
+				{"name": "Transactions", "desc": "Incorporating resilience patterns like timeouts and retry to deal with potentially-busy remote backend services.", "url": "managing-database-transactions", "git": ""}
+		]};
 
 		var guide_content;
 		$.each(guide_data, function (key, value) {
-				var name = value['name'];
-				var desc = value['desc'];
-				var url = value['url'];
-				var git = value['git'];
+
+			$.each(value, function (exkey, guide) {
+				var name = guide['name'];
+				var desc = guide['desc'];
+				var url = guide['url'];
+				var git = guide['git'];
 
 				guide_content += '<tr>';
 				guide_content += '<td class="cType"><a href="/learn/guides/' + url + '">' + name + '</a></td>';
 				guide_content += '<td>' + desc + '</td>';
 				//guide_content += '<td class="cGitLink"><a href="' + git + '"></a></td>';
 				guide_content += '</tr>';
+			});
 
 		});
 		$("#guidesTable").html(guide_content);
