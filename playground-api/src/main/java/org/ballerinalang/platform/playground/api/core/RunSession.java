@@ -275,6 +275,8 @@ public class RunSession {
             if (!useOutputCache()) {
                 getOutputCache().add(json);
             }
+            json = json.replaceAll(getSourceFile().getFileName().toAbsolutePath().toString(),
+                    getRunCommand().getFileName());
             transportSession.getBasicRemote().sendText(json);
         } catch (IOException e) {
             logger.error("Error while pushing messages to client.", e);
