@@ -1,0 +1,24 @@
+import ballerina/net.http;
+import ballerinax/kubernetes;
+
+// Tell Kubernetes which endpoint to expose and how
+@kubernetes:Service{
+   serviceType : "NodePort",
+   name : "ballerina-demo"
+}
+endpoint http:ServiceEndpoint listener {
+   port : 9090
+};
+
+// Generate Docker image and Kubernetes deployment artifacts
+// for that service
+@kubernetes:Deployment{
+   image : "demo/ballerina-demo",
+   name : "ballerina-demo"
+}
+service<http:Service> hello bind listener{
+   hi (endpoint caller, http:Request request) {
+       http:Response res = {};
+       res.setStringPayload("Hello World!\n");
+       _ = caller->respond(res);
+   }
