@@ -40,6 +40,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -122,11 +124,15 @@ public class RunSession {
                 String buildCompletedRegex = "build completed in [\\d]+ms";
                 String curlCompletedRegex = "executing curl completed in [\\d]+ms";
                 new Thread(() -> {
+                    Instant curlStart = Instant.now();
                     for (String aCachedOutput : cachedOutput) {
                         if (requestedToAbort) {
                             break;
                         }
                         try {
+                            if (aCachedOutput.contains("CURL_EXEC_STARTED")) {
+                                curlStart = Instant.now();
+                            }
                             Matcher buildCompletedMsg = Pattern.compile(buildCompletedRegex).matcher(aCachedOutput);
                             if (buildCompletedMsg.find()) {
                                 aCachedOutput = buildCompletedMsg
@@ -137,7 +143,8 @@ public class RunSession {
                             if (curlCompletedMsg.find()) {
                                 aCachedOutput = curlCompletedMsg
                                         .replaceAll("executing curl completed in "
-                                                + Math.round((Math.random() * 50 + 10)) +"ms");
+                                                + Math.round(Duration.between(curlStart, Instant.now()).toMillis())
+                                                +"ms");
                             }
                             transportSession.getBasicRemote().sendText(aCachedOutput);
                             Thread.sleep(100);
