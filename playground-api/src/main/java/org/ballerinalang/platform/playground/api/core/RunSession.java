@@ -40,6 +40,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -84,6 +86,14 @@ public class RunSession {
 
     private List<ConsoleMessageInterceptor> consoleMessageInterceptors;
 
+    private BuildPhase buildPhase;
+
+    private StartDependantServicePhase dependantServicePhase;
+
+    private StartPhase startPhase;
+
+    private TryItPhase tryItPhase;
+
     public RunSession(Session transportSession, Map<String, Path> buildCache,
                       Map<String, List<String>> outputCacheStore) {
         this.outputCacheStore = outputCacheStore;
@@ -114,11 +124,15 @@ public class RunSession {
                 String buildCompletedRegex = "build completed in [\\d]+ms";
                 String curlCompletedRegex = "executing curl completed in [\\d]+ms";
                 new Thread(() -> {
+                    Instant curlStart = Instant.now();
                     for (String aCachedOutput : cachedOutput) {
                         if (requestedToAbort) {
                             break;
                         }
                         try {
+                            if (aCachedOutput.contains("CURL_EXEC_STARTED")) {
+                                curlStart = Instant.now();
+                            }
                             Matcher buildCompletedMsg = Pattern.compile(buildCompletedRegex).matcher(aCachedOutput);
                             if (buildCompletedMsg.find()) {
                                 aCachedOutput = buildCompletedMsg
@@ -129,7 +143,8 @@ public class RunSession {
                             if (curlCompletedMsg.find()) {
                                 aCachedOutput = curlCompletedMsg
                                         .replaceAll("executing curl completed in "
-                                                + Math.round((Math.random() * 50 + 10)) +"ms");
+                                                + Math.round(Duration.between(curlStart, Instant.now()).toMillis())
+                                                +"ms");
                             }
                             transportSession.getBasicRemote().sendText(aCachedOutput);
                             Thread.sleep(100);
@@ -143,7 +158,7 @@ public class RunSession {
             if (!useBuildCache()) {
                 createSourceFile();
             }
-            BuildPhase buildPhase = new BuildPhase();
+            buildPhase = new BuildPhase();
             if (requestedToAbort) {
                 return;
             }
@@ -153,23 +168,22 @@ public class RunSession {
                 }
                 String dependantService = runCommand.getDependantService();
                 if (dependantService != null && !dependantService.equals(StringUtils.EMPTY)) {
-                    StartDependantServicePhase dependantServicePhase = new StartDependantServicePhase();
+                    dependantServicePhase = new StartDependantServicePhase();
                     try {
                         dependantServicePhase.execute(this, () -> {
                             if (requestedToAbort) {
-                                dependantServicePhase.terminate();
+                                terminate();
                                 return;
                             }
-                            StartPhase startPhase = new StartPhase();
+                            startPhase = new StartPhase();
                             try {
                                 startPhase.execute(this, () -> {
                                     if (requestedToAbort) {
                                         return;
                                     }
-                                    TryItPhase tryItPhase = new TryItPhase();
+                                    tryItPhase = new TryItPhase();
                                     tryItPhase.execute(this, () -> {
-                                        dependantServicePhase.terminate();
-                                        this.terminate();
+                                        terminate();
                                         if (!useOutputCache()) {
                                             getOutputCacheStore().put(getOutputCacheId(),
                                                     Arrays.asList(getOutputCache().toArray(new String[0])));
@@ -187,15 +201,15 @@ public class RunSession {
                                 "Error occurred while starting dependent service. " + e.getMessage());
                     }
                 } else {
-                    StartPhase startPhase = new StartPhase();
+                    startPhase = new StartPhase();
                     try {
                         startPhase.execute(this, () -> {
                             if (requestedToAbort) {
                                 return;
                             }
-                            TryItPhase tryItPhase = new TryItPhase();
+                            tryItPhase = new TryItPhase();
                             tryItPhase.execute(this, () -> {
-                                this.terminate();
+                                terminate();
                                 if (!useOutputCache()) {
                                     getOutputCacheStore().put(getOutputCacheId(),
                                             Arrays.asList(getOutputCache().toArray(new String[0])));
@@ -261,6 +275,8 @@ public class RunSession {
             if (!useOutputCache()) {
                 getOutputCache().add(json);
             }
+            json = json.replaceAll(getSourceFile().getFileName().toAbsolutePath().toString(),
+                    getRunCommand().getFileName());
             transportSession.getBasicRemote().sendText(json);
         } catch (IOException e) {
             logger.error("Error while pushing messages to client.", e);
@@ -347,6 +363,21 @@ public class RunSession {
         return outputCacheStore;
     }
 
+    public void terminate() {
+        if (buildPhase != null) {
+            buildPhase.terminate(this);
+        }
+        if (dependantServicePhase != null) {
+            dependantServicePhase.terminate(this);
+        }
+        if (startPhase != null) {
+            startPhase.terminate(this);
+        }
+        if (tryItPhase != null) {
+            tryItPhase.terminate(this);
+        }
+    }
+
     private void createSourceFile() {
         try {
             sourceRoot = Files.createTempDirectory("playground-sample");
@@ -357,103 +388,6 @@ public class RunSession {
         } catch (IOException e) {
             logger.error("Unable to save sample content to a bal file.", e);
         }
-    }
-
-    /**
-     * Terminate running ballerina program.
-     */
-    public void terminate() {
-        String cmd = useBuildCache() ? getBuildFileFromCache().toString() : getBuildFile().toString();
-        int processID;
-        String[] findProcessCommand = getFindProcessCommand(cmd);
-        BufferedReader reader = null;
-        try {
-            Process findProcess = Runtime.getRuntime().exec(findProcessCommand);
-            findProcess.waitFor();
-            reader = new BufferedReader(new InputStreamReader(findProcess.getInputStream(), Charset.defaultCharset()));
-
-            String line;
-            while ((line = reader.readLine()) != null) {
-                try {
-                    processID = Integer.parseInt(line);
-                    killChildProcesses(processID);
-                    kill(processID);
-                    pushMessageToClient(Constants.CONTROL_MSG, Constants.PROGRAM_TERMINATED,
-                            "program terminated");
-                } catch (Throwable e) {
-                    logger.error("Unable to kill process " + line + ".");
-                }
-            }
-        } catch (Throwable e) {
-            logger.error("Unable to find the process ID for " + cmd + ".");
-        } finally {
-            if (reader != null) {
-                IOUtils.closeQuietly(reader);
-            }
-        }
-    }
-
-    /**
-     * Terminate running ballerina program.
-     *
-     * @param pid - process id
-     */
-    private void kill(int pid) {
-        if (pid < 0) {
-            return;
-        }
-        String killCommand = String.format("kill -9 %d", pid);
-        try {
-            Process kill = Runtime.getRuntime().exec(killCommand);
-            kill.waitFor();
-        } catch (Throwable e) {
-            logger.error("Launcher was unable to terminate process:" + pid + ".");
-        }
-    }
-
-    /**
-     * Terminate running all child processes for a given pid.
-     *
-     * @param pid - process id
-     */
-    private void killChildProcesses(int pid) {
-        BufferedReader reader = null;
-        try {
-            Process findChildProcess = Runtime.getRuntime().exec(String.format("pgrep -P %d", pid));
-            findChildProcess.waitFor();
-            reader = new BufferedReader(new InputStreamReader(findChildProcess.getInputStream(),
-                    Charset.defaultCharset()));
-            String line;
-            int childProcessID;
-            while ((line = reader.readLine()) != null) {
-                childProcessID = Integer.parseInt(line);
-                kill(childProcessID);
-            }
-        } catch (Throwable e) {
-            logger.error("Launcher was unable to find parent for process:" + pid + ".");
-        } finally {
-            if (reader != null) {
-                IOUtils.closeQuietly(reader);
-            }
-        }
-    }
-
-    /**
-     * Get find process command.
-     *
-     * @param script absolute path of ballerina file running
-     * @return find process command
-     */
-    private String[] getFindProcessCommand(String script) {
-
-        String[] cmd = {
-                "/bin/sh",
-                "-c",
-                "ps -ef -o pid,args | grep " +
-                        script + " | grep run | grep ballerina | grep -v 'grep " +
-                        script + "' | awk '{print $1}'"
-        };
-        return cmd;
     }
 
 }
