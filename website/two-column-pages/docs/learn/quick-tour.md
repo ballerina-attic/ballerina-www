@@ -154,8 +154,7 @@ endpoint http:ServiceEndpoint listener {
 @kubernetes:Deployment {
    image: "hello/hello-world",
    name: "hello-world"
-}
-</textarea>
+} </textarea>
 
 That's it - let’s go ahead and build it.
 
