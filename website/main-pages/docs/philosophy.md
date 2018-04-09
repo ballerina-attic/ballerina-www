@@ -525,46 +525,18 @@ Hello World!
             </div>
        </div>
       <div class="col-xs-12 cPhilosophyWhite cCloudNative">
-            <div class="cOpenSourceContainer">
-               <table class="OpenSourceTable" id="guidesTable">
-                  <tr>
-                     <td class="cType">Ballerina</td>
-                     <td>A programming language and service runtime for orchestration and composition of endpoints</td>
-                     <td class="cGitLink"><a href=""></a></td>
-                  </tr>
-                  <tr>
-                     <td>Ballerina.io</td>
-                     <td>The home of the Ballerina Platform</td>
-                     <td class="cGitLink"><a href=""></a></td>
-                  </tr>
-                  <tr>
-                     <td>Ballerina for Java</td>
-                     <td>A microservice framework to expose legacy Java as Ballerina-ready services</td>
-                     <td class="cGitLink"><a href=""></a></td>
-                  </tr>
-                  <tr>
-                     <td>Ballerina Sidecar</td>
-                     <td>A container that attaches transactions and resilience to running services</td>
-                     <td class="cGitLink"><a href=""></a></td>
-                  </tr>
-                  <tr>
-                     <td>Ballerina API Gateway</td>
-                     <td>enforce security and runtime policies</td>
-                     <td class="cGitLink"><a href=""></a></td>
-                  </tr>
-                  <tr>
-                     <td>Ballerina Message Broker</td>
-                     <td>Scalable broker for persistent and asynchronous messaging</td>
-                     <td class="cGitLink" ><a href=""></a></td>
-                  </tr>
-                  <tr>
-                     <td>Ballerina Transaction Coordinator</td>
-                     <td>Manage distributed transactions for microservices</td>
-                     <td class="cGitLink"><a href=""></a></td>
-                  </tr>
-               </table>
-            </div>
-         <div class="clearfix"></div>
+                <div id="ballerina-by-example">
+                    <div class="cLanguageFeaturesContainer">
+                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures bbgfeatureSet0">
+                        </div>
+                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures bbgfeatureSet1">
+                        </div>
+                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures bbgfeatureSet2">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            <div class="clearfix"></div>
       </div>
    </div>
 </div>
