@@ -69,86 +69,67 @@ $(document).ready(function () {
 		$("#guidesTable").html(guide_content);
 
 });
-
-
-require.config({paths: {'vs': '../js/vs/'}});
-require(['vs/editor/editor.main'], function () {
-		monaco.languages.register({id: 'ballerina'});
-		monaco.languages.setMonarchTokensProvider('ballerina', ballerina_grammar);
-
-		monaco.editor.defineTheme('myTheme', ballerina_theme);
-		monaco.editor.setTheme('myTheme');
-
-		monaco.editor.colorizeElement(document.getElementById('code1'));
-		monaco.editor.colorizeElement(document.getElementById('code2'));
-		monaco.editor.colorizeElement(document.getElementById('code3'));
-		monaco.editor.colorizeElement(document.getElementById('code4'));
-		monaco.editor.colorizeElement(document.getElementById('code5'));
-		monaco.editor.colorizeElement(document.getElementById('code6'));
-		monaco.editor.colorizeElement(document.getElementById('code7'));
-		monaco.editor.colorizeElement(document.getElementById('code8'));
-		monaco.editor.colorizeElement(document.getElementById('code9'));
-
-
-
-
-});
-
-
-$(document).ready(function () {
-
-		$("#CN-1").click(function () {
-				$(".CN-1").addClass('cActiveBox');
-				$(".CN-2").removeClass('cActiveBox');
-				$(".CN-3").removeClass('cActiveBox');
-				$(".CN-4").removeClass('cActiveBox');
-				$(".CN-5").removeClass('cActiveBox');
-				$(".CN-6").removeClass('cActiveBox');
-		});
-
-		$("#CN-2").click(function () {
-				$(".CN-1").removeClass('cActiveBox');
-				$(".CN-2").addClass('cActiveBox');
-				$(".CN-3").removeClass('cActiveBox');
-				$(".CN-4").removeClass('cActiveBox');
-				$(".CN-5").removeClass('cActiveBox');
-				$(".CN-6").removeClass('cActiveBox');
-		});
-
-		$("#CN-3").click(function () {
-				$(".CN-1").removeClass('cActiveBox');
-				$(".CN-2").removeClass('cActiveBox');
-				$(".CN-3").addClass('cActiveBox');
-				$(".CN-4").removeClass('cActiveBox');
-				$(".CN-5").removeClass('cActiveBox');
-				$(".CN-6").removeClass('cActiveBox');
-		});
-
-		$("#CN-4").click(function () {
-				$(".CN-1").removeClass('cActiveBox');
-				$(".CN-2").removeClass('cActiveBox');
-				$(".CN-3").removeClass('cActiveBox');
-				$(".CN-4").addClass('cActiveBox');
-				$(".CN-5").removeClass('cActiveBox');
-				$(".CN-6").removeClass('cActiveBox');
-		});
-
-		$("#CN-5").click(function () {
-				$(".CN-1").removeClass('cActiveBox');
-				$(".CN-2").removeClass('cActiveBox');
-				$(".CN-3").removeClass('cActiveBox');
-				$(".CN-4").removeClass('cActiveBox');
-				$(".CN-5").addClass('cActiveBox');
-				$(".CN-6").removeClass('cActiveBox');
-		});
-
-		$("#CN-6").click(function () {
-				$(".CN-1").removeClass('cActiveBox');
-				$(".CN-2").removeClass('cActiveBox');
-				$(".CN-3").removeClass('cActiveBox');
-				$(".CN-4").removeClass('cActiveBox');
-				$(".CN-5").removeClass('cActiveBox');
-				$(".CN-6").addClass('cActiveBox');
-		});
-
-});
+ /*
+We extract the file name from the link text.
+Replace the space with a hyphan and make all text simple case
+For example "REST Services" will become "rest-services"
+Then we look for the file "rest-services.txt" in the samples folder. 
+if the data-run attribute is present in the link
+we search for a file "rest-services-run.txt" file as well
+*/
+var  editor = null ,editorRun = null;
+require.config({ paths: { 'vs': '../js/vs' }});
+var loadData = function(linkText,height){
+	var fileName = linkText.toLowerCase().replace(/\s/g, "-");
+	$('.text-display').hide();
+	$('.shell-display').hide();
+	$('#'+fileName + "-shell").show();
+	$('#'+fileName + "-text").show();
+	
+	if(height) {
+		height = parseInt(height);
+	}
+	require(['vs/editor/editor.main'], function() {
+		$.ajax(
+			{
+				url: "../samples/" + fileName + ".txt",
+				method: "GET",
+				success: function(data){
+					$('#code-container').height(height);
+					monaco.languages.register({ id:'ballerina' });
+					monaco.languages.setMonarchTokensProvider('ballerina', ballerina_grammar);
+					ballerina_theme.colors['editor.background'] = "#ffffff";
+					monaco.editor.defineTheme('myTheme',  ballerina_theme);
+					monaco.editor.setTheme('myTheme');
+					if(!editor){
+						editor = monaco.editor.create(document.getElementById('code-container'), {
+							value: data,
+							language: 'ballerina',
+							minimap: {
+								enabled: false
+							},
+							scrollbar: {
+								vertical: 'hidden'
+							},
+							scrollBeyondLastLine: false,
+							fontSize: 11
+						});
+					} else {
+						editor.setValue(data);
+					}
+					$('#code-container-wrapper').height(height);
+				}
+			}
+		)
+	});
+}
+$(document).ready(function(){
+	$('li.links').click(function(){
+		var height = $(this).attr('data-height');
+		loadData($(this).text(), height);
+		$('li.links').removeClass('cActive');
+		$(this).addClass('cActive');
+	})
+})
+var height = $('li.links.first').attr('data-height');
+loadData($('li.links.first').text(), height);

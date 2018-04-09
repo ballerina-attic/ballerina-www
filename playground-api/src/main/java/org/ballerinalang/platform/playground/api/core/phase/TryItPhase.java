@@ -17,6 +17,7 @@ package org.ballerinalang.platform.playground.api.core.phase;
 
 import org.apache.commons.io.IOUtils;
 import org.ballerinalang.platform.playground.api.core.Constants;
+import org.ballerinalang.platform.playground.api.core.ProcessUtils;
 import org.ballerinalang.platform.playground.api.core.RunSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +38,8 @@ public class TryItPhase implements Phase {
 
     private volatile int currentCurlExec = 0;
 
+    private volatile boolean terminate = false;
+
     private Instant curlStart;
 
     public synchronized void incrementCurlExecCount() {
@@ -54,6 +57,9 @@ public class TryItPhase implements Phase {
             session.pushMessageToClient(Constants.CONTROL_MSG, Constants.CURL_EXEC_STARTED,
                     "executing curl...");
             for (int i = 0; i < session.getRunCommand().getNoOfCurlExecutions(); i++) {
+                if (terminate) {
+                    break;
+                }
                 try {
                     executeCURL(session, next);
                     Thread.sleep(Constants.CURL_RETRY_DELAY);
@@ -124,6 +130,14 @@ public class TryItPhase implements Phase {
                 }
             }
         }).start();
+    }
+
+
+    /**
+     * Terminate curl process
+     */
+    public void terminate(RunSession runSession) {
+        terminate = true;
     }
 
 }

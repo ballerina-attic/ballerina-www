@@ -20,6 +20,8 @@ package org.ballerinalang.platform.playground.api.dto;
  */
 public class RunCommand extends Command {
 
+    private String fileName;
+
     private String source;
 
     private String curl;
@@ -27,6 +29,14 @@ public class RunCommand extends Command {
     private int noOfCurlExecutions;
 
     private String dependantService;
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 
     public String getSource() {
         return source;

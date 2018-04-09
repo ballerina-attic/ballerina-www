@@ -18,6 +18,7 @@ package org.ballerinalang.platform.playground.api.core.phase;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.ballerinalang.platform.playground.api.core.Constants;
+import org.ballerinalang.platform.playground.api.core.ProcessUtils;
 import org.ballerinalang.platform.playground.api.core.RunSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,7 +72,7 @@ public class StartPhase implements Phase {
             @Override
             public void run() {
                 if (launchProcess != null && launchProcess.isAlive()) {
-                    runSession.terminate();
+                    terminate(runSession);
                     runSession.pushMessageToClient(Constants.CONTROL_MSG, Constants.OUTPUT
                             , "program timed-out in " + Constants.PROGRAM_TIMEOUT + "ms");
                 }
@@ -130,6 +131,26 @@ public class StartPhase implements Phase {
                 }
             }
         }).start();
+    }
+
+    /**
+     * Terminate running ballerina program.
+     */
+    public void terminate(RunSession runSession) {
+        String balFile = runSession.useBuildCache()
+                ? runSession.getBuildFileFromCache().toString()
+                : runSession.getBuildFile().toString();
+        String[] searchCmd = {
+                "/bin/sh",
+                "-c",
+                "ps -ef -o pid,args | grep " +
+                        balFile + " | grep run | grep ballerina | grep -v 'grep " +
+                        balFile + "' | awk '{print $1}'"
+        };
+        ProcessUtils.terminate(searchCmd, () -> {
+            runSession.pushMessageToClient(Constants.CONTROL_MSG, Constants.PROGRAM_TERMINATED,
+                    "program terminated");
+        });
     }
 
     /**
