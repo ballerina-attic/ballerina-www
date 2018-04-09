@@ -68,8 +68,6 @@ public class RunSession {
 
     private Path sourceFile;
 
-    private Path sourceRoot;
-
     private Path buildFile;
 
     private String sourceMD5;
@@ -124,6 +122,7 @@ public class RunSession {
                 String buildCompletedRegex = "build completed in [\\d]+ms";
                 String curlCompletedRegex = "executing curl completed in [\\d]+ms";
                 new Thread(() -> {
+                    Instant buildStart = Instant.now();
                     Instant curlStart = Instant.now();
                     for (String aCachedOutput : cachedOutput) {
                         if (requestedToAbort) {
@@ -135,9 +134,11 @@ public class RunSession {
                             }
                             Matcher buildCompletedMsg = Pattern.compile(buildCompletedRegex).matcher(aCachedOutput);
                             if (buildCompletedMsg.find()) {
+                                Thread.sleep(Math.round(Math.random() * 1000) + 1500);
                                 aCachedOutput = buildCompletedMsg
                                         .replaceAll("build completed in "
-                                                + Math.round((Math.random() * 50 + 10)) +"ms");
+                                                + Math.round(Duration.between(buildStart, Instant.now()).toMillis())
+                                                +"ms");
                             }
                             Matcher curlCompletedMsg = Pattern.compile(curlCompletedRegex).matcher(aCachedOutput);
                             if (curlCompletedMsg.find()) {
@@ -275,8 +276,14 @@ public class RunSession {
             if (!useOutputCache()) {
                 getOutputCache().add(json);
             }
-            json = json.replaceAll(getSourceFile().getFileName().toAbsolutePath().toString(),
-                    getRunCommand().getFileName());
+            if (getSourceFile() != null) {
+                json = json.replaceAll(getSourceFile().getFileName().toAbsolutePath().toString(),
+                        getRunCommand().getFileName());
+            }
+            if (getBuildFile() != null) {
+                json = json.replaceAll(getBuildFile().getFileName().toAbsolutePath().toString(),
+                        getRunCommand().getFileName());
+            }
             transportSession.getBasicRemote().sendText(json);
         } catch (IOException e) {
             logger.error("Error while pushing messages to client.", e);
@@ -295,16 +302,12 @@ public class RunSession {
         return sourceFile;
     }
 
-    public Path getSourceRoot() {
-        return sourceRoot;
-    }
-
     public void setBuildFile(Path buildFile) {
         this.buildFile = buildFile;
     }
 
     public Path getBuildFile() {
-        return buildFile;
+        return useBuildCache() ? getBuildFileFromCache() : buildFile;
     }
 
     public String getBallerinaExecPath() {
@@ -380,7 +383,7 @@ public class RunSession {
 
     private void createSourceFile() {
         try {
-            sourceRoot = Files.createTempDirectory("playground-sample");
+            Path sourceRoot = Files.createTempDirectory("playground-sample");
             File tmpFile = File.createTempFile("playground-sample", ".bal", sourceRoot.toFile());
             FileUtils.writeStringToFile(tmpFile, runCommand.getSource());
             sourceFile = tmpFile.toPath();

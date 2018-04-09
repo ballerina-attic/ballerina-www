@@ -60,14 +60,17 @@ public class BuildPhase implements Phase {
                 "building...");
         // run from cache
         if (runSession.useBuildCache()) {
+            Thread.sleep(Math.round(Math.random() * 1000) + 1500);
             runSession.pushMessageToClient(Constants.CONTROL_MSG, Constants.BUILD_STOPPED,
-                    "build completed in " + Math.round((Math.random() * 100 + 50)) + "ms");
+                    "build completed in " + Math.round(Duration.between(buildStart, Instant.now()).toMillis())
+                            + "ms");
             next.run();
             return;
         }
 
         String[] cmdArray = getBuildCommandArray(runSession);
-        Process buildProcess = Runtime.getRuntime().exec(cmdArray, null, runSession.getSourceRoot().toFile());
+        Process buildProcess = Runtime.getRuntime().exec(cmdArray, null, runSession.getSourceFile()
+                .getParent().toFile());
         new Thread(() -> {
             BufferedReader reader = null;
             try {
