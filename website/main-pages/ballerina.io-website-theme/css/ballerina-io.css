@@ -488,10 +488,13 @@ h2.cMainH2Title {
     width: 100%;
     padding: 10px 0;
 }
-
-
-
-
+/* Syntax */
+textarea.code-holder{display: none}
+.codeNativeBox {
+    text-align: left;
+    padding: 20px;
+    background: #f2f3f4;
+} 
 
 /*MOBILE */
 
@@ -526,9 +529,28 @@ button.navbar-toggle {
 	visibility: hidden!important;
 }
 
+#mkdocs-search-query {
+	display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
 #mkdocs-search-results {
 	z-index: 999999;
 	background: #ffffff;
+	max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 #mkdocs-search-results > article {
@@ -536,7 +558,19 @@ button.navbar-toggle {
 }
 
 #mkdocs-search-results > article > h3 {
-	margin-top: 0;
+	margin: 20px 0 0 0;
+}
+
+#mkdocs-search-results > article > h3 > a {
+	font-size: 15px;
+    font-weight: normal;
+    color: #22b7b1;
+    margin: 20px 0 10px 0;
+    padding: 0px;
+}
+
+#mkdocs-search-results > article > p {
+	margin: 0 0 4px;
 }
 
 #mkdocs-search-results > article:first-child {

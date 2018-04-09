@@ -4,7 +4,7 @@
         <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cDownloadsHeader">
             <h1>Downloads</h1>
             <p>
-				After downloading a binary release suitable for your system, please follow the <a href="#">instructions on setting this up</a>. If you are building from source, follow the <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source">source installation instruction</a>.
+				After download a release for your system, please follow the <a href="#">installation instructions</a>. If you are building from source, follow the <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source">build instructions</a>.
 				<br><br>
 				See the <a href="/downloads/release-notes">complete release notes</a>  for more information about Ballerina releases.
             </p>         
@@ -13,39 +13,41 @@
             </div>
         </div>
         <div class="clearfix"></div>
-        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-4 cDownloadLeft">
-            <a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi" class="cDownload">
-                <div>Windows</div>
-                <div class="cSize">ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi (82mb)</div>
-            </a>
-            <ul class="cDiwnloadSubLinks">
-                <li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi.md5">md5</a></li>
-                <li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi.sha1">SHA-1</a></li>
-                <li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi.asc">asc</a></li>
-            </ul>
-         </div>
-        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-4 cDownloadMiddle">
-            <a href="#" class="cDownload">
-                <div>Linux</div>
-                <div class="cSize">ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.deb (91.1mb)</div>
-            </a>
-            <ul class="cDiwnloadSubLinks">
-                <li><a href="#">md5</a></li>
-                <li><a href="#">SHA-1</a></li>
-                <li><a href="#">asc</a></li>
-            </ul>
-        </div>
-        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-4 cDownloadMiddle">
-            <a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg" class="cDownload">
-                <div>MacOS</div>
-                <div class="cSize">ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg (98.2mb)</div>
-            </a>
-            <ul class="cDiwnloadSubLinks">
-                <li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg.md5">md5</a></li>
-                <li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg.sha1">SHA-1</a></li>
-                <li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg.asc">asc</a></li>
-            </ul>
-        </div>
+		<div class="row cDownloads">
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadLeft">
+				<a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi" class="cDownload">
+					<div>Windows</div>
+					<div class="cSize">ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi (82mb)</div>
+				</a>
+				<ul class="cDiwnloadSubLinks">
+					<li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi.md5">md5</a></li>
+					<li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi.sha1">SHA-1</a></li>
+					<li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi.asc">asc</a></li>
+				</ul>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
+				<a href="#" class="cDownload">
+					<div>Linux</div>
+					<div class="cSize">ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.deb (91.1mb)</div>
+				</a>
+				<ul class="cDiwnloadSubLinks">
+					<li><a href="#">md5</a></li>
+					<li><a href="#">SHA-1</a></li>
+					<li><a href="#">asc</a></li>
+				</ul>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
+				<a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg" class="cDownload">
+					<div>MacOS</div>
+					<div class="cSize">ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg (98.2mb)</div>
+				</a>
+				<ul class="cDiwnloadSubLinks">
+					<li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg.md5">md5</a></li>
+					<li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg.sha1">SHA-1</a></li>
+					<li><a href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg.asc">asc</a></li>
+				</ul>
+			</div>
+		</div>
         <div class="col-xs-12 col-sm-16 col-md-12 col-lg-12">
             <div class="cReleaseNotes">
                 <p><a href="/downloads/release-notes">RELEASE NOTES ></a></p>

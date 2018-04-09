@@ -1,3 +1,7 @@
+<script src="/search/require.js"></script>
+<script src="/js/vs/loader.js"></script>
+<script src="/js/vs/grammer.js"></script>
+<script src="/js/jquery-2.1.1.min.js"></script>
 # Quick Tour
 
 Now that you know a little bit [about Ballerina](/philosophy), let's take it for a spin! 
@@ -13,12 +17,15 @@ Now that you know a little bit [about Ballerina](/philosophy), let's take it for
 
 Let's get started with a simple Hello World program in Ballerina. Create a file called `hello-world.bal` and copy the following code into it.
 
-```Ballerina
+<div class="codeNativeBox">
+    <div id="code-01-hello"></div>
+</div>
+<textarea id="code-01-hello-code" class="code-holder">
 import ballerina.io;
 function main (string[] args) {
     io:println("Hello, World!");
 }
-``` 
+</textarea>
 
 At the command line, navigate to the directory that contains the hello-world.bal file and enter the following command.
 
@@ -56,7 +63,10 @@ Now, let's look at running the same Hello World program you created earlier as a
 
 Let's change the Hello World program to a service. Open the `hello-world.bal` file you created and replace the existing code with the following.
 
-```Ballerina
+<div class="codeNativeBox">
+    <div id="code-02-service"></div>
+</div>
+<textarea id="code-02-service-code" class="code-holder">
 import ballerina/http;
 import ballerina/io;
 
@@ -82,7 +92,7 @@ service<http:Service> hello bind listener {
         _ = caller -> respond(response);
     }
 }
-```
+</textarea>
 
 You can run the service by using the same run command you used to run the program earlier.
 
@@ -123,7 +133,10 @@ import ballerinax/kubernetes;
 
 Now, let’s add the code you need to run the service in Kubernetes.
 
-```
+<div class="codeNativeBox">
+    <div id="code-03-k"></div>
+</div>
+<textarea id="code-03-k-code" class="code-holder">
 // Kubernetes configurations
 // This is the Kubernetes service annotation added to our listener 
 // This tells us that we want to expose it from Kubernetes 
@@ -144,7 +157,7 @@ endpoint http:ServiceEndpoint listener {
    image: "hello/hello-world",
    name: "hello-world"
 }
-```
+</textarea>
 
 That's it - let’s go ahead and build it.
 
@@ -218,4 +231,6 @@ Hello World!
 
 1. In the command line, type `composer`.
 
-1. Access the Composer from the following URL in your browser: http://localhost:9091    
+1. Access the Composer from the following URL in your browser: http://localhost:9091   
+<script src="/js/add-monaco.js"></script> 
+<script src="/js/quick-tour.js"></script>
