@@ -8,7 +8,7 @@ Now that you know a little bit [about Ballerina](/philosophy), let's take it for
 
 ## Install Ballerina
 
-1. Go to [http://www.ballerinalang.org](/) and click **Download**. 
+1. Go to [https://ballerina.io/](/) and click **Download**. 
 1. Download Ballerina for your OS and follow the instructions given to set it up. 
 
 > NOTE: Throughout this documentation, `<ballerina_home>` refers to the Ballerina directory you just installed. 
