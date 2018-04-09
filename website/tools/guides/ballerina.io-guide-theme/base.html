@@ -12,7 +12,7 @@
   {% if page and page.is_homepage %}<meta name="description" content="{{ config.site_description }}">{% endif %}
   {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
   {% if config.site_favicon %}<link rel="shortcut icon" href="{{ base_url }}/{{ config.site_favicon }}">
-  {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
+  {% else %}<link rel="shortcut icon" href="/img/favicon.ico">{% endif %}
   {%- endblock %}
 
   {%- block htmltitle %}
@@ -43,7 +43,7 @@
   
        <link rel="stylesheet" href="/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="{{ base_url }}/css/highlight.css">
+  <link rel="stylesheet" href="/css/highlight.css">
  
       
       
@@ -65,6 +65,7 @@
     var mkdocs_page_url = {{ page.abs_url|tojson|safe }};
     var mkdocs_root_repo = {{ config.repo_url|tojson|safe }};
     var mkdocs_edit_uri = {{ config.edit_uri|tojson|safe }};
+    var base_url = "";
   </script>
   {% endif %}
 
@@ -210,16 +211,6 @@
   
   <script>
        $(document).ready(function () {
-           // In https://github.com/ballerina-platform/ballerina-www/blob/master/website/tools/guides/build.sh#L5
-           // We are moving all README/index.html files one directory back. Therefore relative paths have to be updated
-           $( ".rst-content .section img" ).each(function( index ) {
-               var currentSrc = $( this ).attr("src");
-               //if starts with a reltive path
-               if(mkdocs_page_input_path && mkdocs_page_input_path.match("README.md$") == "README.md"
-                  && currentSrc && currentSrc.indexOf("../") === 0){
-                   $( this ).attr("src" , currentSrc.replace("../", ""))
-               }
-           });
 
            $(".cSerachIcon").click(function() {
          $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
@@ -324,9 +315,8 @@ $("#helpli").addClass("cActive");
   
   
        <script src="/js/theme.js"></script>
-    {%- for path in extra_javascript %}
-      <script src="{{ path }}"></script>
-    {%- endfor %}
+       <script src="/search/require.js"></script>
+       <script src="/search/search.js"></script>
   {%- endblock %}
 
 </body>
