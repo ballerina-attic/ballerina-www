@@ -1,9 +1,9 @@
 @font-face {
 	font-family: "CalibreWeb-Semibold";
 	src: url(/ballerina-fonts/CalibreWeb-Semibold.woff2) format("woff2"),
-	url(/ballerina-fonts/CalibreWeb-Semibold.woff) format("woff"),
-	url(/ballerina-fonts/CalibreWeb-Semibold.eot),
-	url(/ballerina-fonts/CalibreWeb-Semibold.eot?#iefix) format("embedded-opentype");
+		 url(/ballerina-fonts/CalibreWeb-Semibold.woff) format("woff"),
+		 url(/ballerina-fonts/CalibreWeb-Semibold.eot),
+		 url(/ballerina-fonts/CalibreWeb-Semibold.eot?#iefix) format("embedded-opentype");
 }
 
 body.cBallerina-io {
@@ -125,11 +125,6 @@ a.cLogo img {
 	color: #22b7b1 !important;
 }
 
-/*.navbar-nav.cTopNav > li:first-child , .navbar-nav.cTopNav > li:last-child {
-     display: none;
-}
-*/
-
 .nav.navbar-nav.cTopNav li ul {
 	display: none;
 }
@@ -151,6 +146,9 @@ ul.navbar-nav {
 
 .cSerachIcon {
 	margin-top: -3px;
+	min-width: 33.2px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .cHr {
@@ -203,21 +201,10 @@ ul.navbar-nav {
 	transition: all 0.2s ease 0s;
 }
 
-/*.cSearchBoxTopMenu.cShowcSearchTopMenu #rtd-search-form input {
-     transition: all 0.2s ease 0s;
-}
-*/
-
 /*COLUMNS*/
 
 .cBallerina-io-left-col {
 	padding-right: 0;
-}
-
-.col-lg-3.cBallerina-io-Home-Left-col,
-.col-lg-3.cBallerina-io-Home-Right-col {
-	width: 22%;
-	padding-top: 40px;
 }
 
 .cBallerina-io-Home-Left-col .cBlallerina-io-docs-left-nav-box a {
@@ -233,7 +220,7 @@ ul.navbar-nav {
 .cGreenTitle a {
 	font-size: 14px;
 	font-weight: 800;
-	font-family: "CalibreWeb-Semibold";
+	font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
 	color: #22b7b1;
 	margin-bottom: 30px;
 	margin-top: 0px;
@@ -270,8 +257,6 @@ ul.navbar-nav {
 .cBallerina-io-Home-Left-col a {
 	font-size: 14px;
 	color: #22b7b1;
-	/* font-family: "CalibreWeb-Semibold";
-    */
 	font-weight: normal;
 }
 
@@ -291,7 +276,6 @@ a.cBallerina-io-Home-main-download-button {
 	background-repeat: no-repeat;
 	background-position: 26px center;
 	margin-top: 30px;
-	transition: all 0.2s ease 0s;
 	font-weight: 300;
 	text-decoration: none;
 }
@@ -299,11 +283,11 @@ a.cBallerina-io-Home-main-download-button {
 .cBallerina-io-Home-main-download-button p {
 	padding: 0;
 	margin: 0;
-	line-height: 20px;
 	font-family: monaco, Consolas, "Lucida Console", monospace;
-	font-size: 12px;
+	font-size: 11px;
 	color: #d9dadb;
 	margin-left: 1px;
+	line-height: 15px;
 }
 
 a.cBallerina-io-Home-main-download-button:hover {
@@ -324,16 +308,9 @@ p.cBallerina-io-Home-OS {
 }
 
 .cBallerina-io-Home-main-instructions {
-	/* padding-left: 0;
-    */
 	margin-bottom: 19px;
 	padding-left: 0;
 }
-
-/*.cBallerina-io-Home-main-instructions.cLeft-pading-none {
-     padding-left: 0;
-}
-*/
 
 .cBallerina-io-Home-main-instructions p {
 	font-size: 14px;
@@ -343,7 +320,7 @@ p.cBallerina-io-Home-OS {
 .cBallerina-io-Home-main-instructions p span {
 	color: #22b7b1;
 	text-transform: uppercase;
-	font-family: "CalibreWeb-Semibold";
+	font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
 	font-weight: normal;
 	letter-spacing: 2px;
 
@@ -398,7 +375,7 @@ h2.cMainH2Title {
 .cBallerinaFooterLinks ul li a {
 	color: #57595d;
 	text-transform: uppercase;
-	font-family: "CalibreWeb-Semibold" !important;
+	font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif !important;
 	font-weight: normal;
 	font-size: 12px;
 	letter-spacing: 1px;
@@ -411,7 +388,7 @@ h2.cMainH2Title {
 
 .cBallerinaFooterSignUp p span {
 	font-weight: normal;
-	font-family: "CalibreWeb-Semibold" !important;
+	font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif !important;
 	font-weight: normal;
 	font-size: 12px;
 	letter-spacing: 1px;
@@ -443,11 +420,15 @@ h2.cMainH2Title {
 	padding-left: 2px;
 }
 
+.cFormContainer {
+	width: 100%;
+}
+
 #emailUser {
 	background-color: #e6e9ea;
 	height: 29px;
 	font-size: 14px;
-	width: 140px;
+	width: 100%;
 	border: none;
 	padding-left: 10px;
 	padding: 5px;
@@ -466,13 +447,11 @@ h2.cMainH2Title {
 }
 
 #subscribeUserButton {
-	font-family: "CalibreWeb-Semibold";
+	font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
 	text-transform: uppercase;
 	font-weight: 400;
 	letter-spacing: 1px;
 	padding: 0px 16px;
-	/* background: #585a5e;
-    */
 	background-color: #ffffff;
 	border: 1px solid #e6e9ea;
 	font-size: 14px;
@@ -487,14 +466,15 @@ h2.cMainH2Title {
 .cFieldContainer {
 	display: inline-block;
 	float: left;
+	width: 100%;
 }
 
 .cButtonContainer {
 	display: inline-block;
 	float: left;
-	margin-left: 5px;
-	/* margin-top: 3px;
-    */
+	margin-left: 0;
+	margin-top: 5px;
+
 }
 
 /*MOBILE */
@@ -509,8 +489,6 @@ button.navbar-toggle {
 	background-color: #ffffff;
 }
 
-.navbar-collapse.collapse.in {}
-
 .navbar-collapse.collapse.in .ul.navbar-nav {
 	text-align: right;
 	width: 100%;
@@ -522,22 +500,35 @@ button.navbar-toggle {
 
 .cBallerinaButtonWhite {
 	border: 1px solid #000000;
-	font-family: "CalibreWeb-Semibold" !important;
+	font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif !important;
 	text-transform: uppercase;
 }
 
 .pdframe {
 	height: 1px!important;
 	overflow: hidden!important;
-	visibility: hidden!important
+	visibility: hidden!important;
 }
 
-/*SEARCH*/
-
-.mkdocs-search-results {
-	padding: 10px;
+#mkdocs-search-results {
 	z-index: 999999;
 	background: #ffffff;
+}
+
+#mkdocs-search-results > article {
+	padding: 15px;
+}
+
+#mkdocs-search-results > article > h3 {
+	margin-top: 0;
+}
+
+#mkdocs-search-results > article:first-child {
+	padding: 15px 15px 0;
+}
+
+#mkdocs-search-results > article:last-child {
+	padding: 0 15px 15px;
 }
 
 @media screen and (max-width: 768px) {
@@ -613,5 +604,9 @@ button.navbar-toggle {
 	.cBallerinaFooterSignUp {
 		padding-top: 30px;
 		padding-bottom: 30px;
+	}
+	.cSocialmedia {
+		width: 100%;
+		margin-top: 10px;
 	}
 }
