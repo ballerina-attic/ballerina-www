@@ -5,8 +5,6 @@
             <h1>Downloads</h1>
             <p>
 				After download a release for your system, please follow the <a href="#">installation instructions</a>. If you are building from source, follow the <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source">build instructions</a>.
-				<br><br>
-				See the <a href="/downloads/release-notes">complete release notes</a>  for more information about Ballerina releases.
             </p>         
             <div class="cFeaturedVersion">
                 <h2>Current version: 0.970.0 (Mar 6, 2018)</h2>
