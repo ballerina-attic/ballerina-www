@@ -124,6 +124,7 @@ public class RunSession {
                 String buildCompletedRegex = "build completed in [\\d]+ms";
                 String curlCompletedRegex = "executing curl completed in [\\d]+ms";
                 new Thread(() -> {
+                    Instant buildStart = Instant.now();
                     Instant curlStart = Instant.now();
                     for (String aCachedOutput : cachedOutput) {
                         if (requestedToAbort) {
@@ -135,9 +136,11 @@ public class RunSession {
                             }
                             Matcher buildCompletedMsg = Pattern.compile(buildCompletedRegex).matcher(aCachedOutput);
                             if (buildCompletedMsg.find()) {
+                                Thread.sleep(Math.round(Math.random() * 1000) + 1500);
                                 aCachedOutput = buildCompletedMsg
                                         .replaceAll("build completed in "
-                                                + Math.round((Math.random() * 50 + 10)) +"ms");
+                                                + Math.round(Duration.between(buildStart, Instant.now()).toMillis())
+                                                +"ms");
                             }
                             Matcher curlCompletedMsg = Pattern.compile(curlCompletedRegex).matcher(aCachedOutput);
                             if (curlCompletedMsg.find()) {
