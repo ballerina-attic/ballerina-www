@@ -37,9 +37,10 @@ Submitting a bug is just as important as contributing code. If you found an issu
 *Important*: All security-related issues should be reported to security@ballerina.io. See [Ballerina Security Policy](http://ballerina.io/security) for details.
 
 To file non-security issues:
-1. Click the Issues tab in the corresponding [github repository](https://github.com/ballerina-platform/),
-1. Click the *New Issue* button,
-1. Fill out all sections in the issue template and submit.
+
+1. Click the Issues tab in the corresponding [github repository](https://github.com/ballerina-platform/)
+1. Click the *New Issue* button
+1. Fill out all sections in the issue template and submit
 
 If you are unsure whether you have found a bug, please consider searching existing issues in github and asking in [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev).
 
