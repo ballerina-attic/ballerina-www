@@ -105,14 +105,14 @@
                          
          <div class="">
             <ul  class="nav nav-pills cPhilosophyWidgetControls">
-               <li class="cGuidesTabsControls active">
+               <li class="cGuidesTabsControls active cHTTP">
                   <a  href="#1a" data-toggle="tab">HTTPS</a>
                   
                </li>
-               <li class="cGuidesTabsControls">
+               <li class="cGuidesTabsControls cSSH">
                   <a href="#2a" data-toggle="tab">SSH</a>
                </li>
-               <li class="cGuidesTabsControls">
+               <li class="cGuidesTabsControls cSUBVERSION">
                   <a href="#3a" data-toggle="tab">SUBVERSION</a>
                </li>
             </ul>
@@ -158,7 +158,7 @@
                       </div>
                   </div>
               </div>
-              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-Middle-col">
+              <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 cBallerina-io-Home-Middle-col">
                   <div class="cBallerina-io-breadcrumbs">
                        {% include "breadcrumbs.html" %}
                   </div>
@@ -215,6 +215,10 @@
            $(".cSerachIcon").click(function() {
          $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
           });
+           
+           var pageTitle = $('.section h1').first().text();
+           $('title').html(pageTitle+" - {{ config.site_name }}");
+           $("#breadcrumb-suffix").html(pageTitle);
          
          $(".cSideBar-Button").click(function() {
          $(".cSideBar-Button").toggleClass('cOpen');
