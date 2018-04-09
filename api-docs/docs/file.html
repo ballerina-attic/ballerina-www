@@ -7,6 +7,8 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
     <title>Ballerina.io - API Docs</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>var base_url = "";</script>
+    <script data-main="/search/search.js" src="/search/require.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <!-- Optional theme -->
@@ -648,48 +650,6 @@
                             </li>
                         </ul>
                         
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
 
 
 
@@ -728,6 +688,23 @@
                                                 <span class="bold">file</span>
                                                  package 
                                             </h1>
+                                            
+                                            <div class="cAPIdocsDescription">
+                                                 <p>The file package provides a bridge to perform file I/O related tasks by exposing the channels of the files.</p>
+<p>Following is a sample code snippet that can be used to write to a file,</p>
+<pre><code>file:Path filePath = file:getPath(pathValue);
+io:ByteChannel channel = check file:newByteChannel(filePath,accessMode);
+var result = channel.write(content,0);
+var closeResult = channel.close();
+</code></pre>
+<p>In this code, the byteChannel of file is provided by newByteChannel function. This provides a way for ballerina/io package to continue the file write operation with the provided channel. Hence file package acts as mediation to solve the file I/O use cases.</p>
+<p>All the CRUD(i.e. Create, Read, Update, Delete), copy and move operations involving files residing in local file systems can be accomplished using the functions exposed by this package.  In-addition to that, directory listening capabilities are provided out-of-box to facilitate the additional tasks that need to be done in the event of create/update/delete of a file within the respective directory.</p>
+<p>Path is a unique identifier of a file. Path can be either absolute or relative.  Absolute path refers to complete path information of a file where the information indicates the location of a file from the root of the file system. Relative path indicates the location of a file relative to the current location of the execution. All the functions in this package expects, file:Path type as a input parameter.  Retrieving file:Path of a file is simplified by getPath function.</p>
+<p>Validations play vital role to achieve a smooth flow of a program. isDirectory, isExists are some of the functions which are mainly focused towards pre-validation. In addition to that some other utility functions are supported out-of box.</p>
+<p>File and Directories are protected entities. Depending on the OS, CRUD operations of a file could be restricted in various ways. Depending on the restrictions imposed, some functions in this package may fail and will return AccessDenied error. In-order to reduce the functions returning errors due to access restrictions, isReadable, isWritable functions can be used to check restrictions, prior to performing any operations.   Depending on the file state, functions may return errors in some other scenarios as well. One such scenario is trying to read a non-existing file.</p>
+
+                                            </div>
+                                            
                                             
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
@@ -778,7 +755,7 @@
                                                         <li>
                                                             <h2 id="AccessDeniedError-AccessDeniedError.&lt;init&gt;">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; AccessDeniedError &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;AccessDeniedError&gt;</span>
                                                                 AccessDeniedError.&lt;init&gt;() 
                                                             </h2>
                                                               
@@ -839,7 +816,7 @@
                                                         <li>
                                                             <h2 id="File-close">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
                                                                 close() 
                                                             </h2>
                                                             
@@ -852,8 +829,8 @@
                                                         <li>
                                                             <h2 id="File-createNewFile">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
-                                                                createNewFile() (boolean | error) 
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
+                                                                createNewFile() returns (boolean | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -883,7 +860,7 @@
                                                         <li>
                                                             <h2 id="File-delete">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
                                                                 delete() 
                                                             </h2>
                                                             
@@ -896,8 +873,8 @@
                                                         <li>
                                                             <h2 id="File-exists">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
-                                                                exists() (boolean) 
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
+                                                                exists() returns (boolean) 
                                                             </h2>
                                                             
                                                             <p>
@@ -927,8 +904,8 @@
                                                         <li>
                                                             <h2 id="File-getModifiedTime">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
-                                                                getModifiedTime() (timeTime | error) 
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
+                                                                getModifiedTime() returns (timeTime | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -958,8 +935,8 @@
                                                         <li>
                                                             <h2 id="File-getName">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
-                                                                getName() (string) 
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
+                                                                getName() returns (string) 
                                                             </h2>
                                                             
                                                             <p>
@@ -989,8 +966,8 @@
                                                         <li>
                                                             <h2 id="File-isDirectory">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
-                                                                isDirectory() (boolean) 
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
+                                                                isDirectory() returns (boolean) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1020,8 +997,8 @@
                                                         <li>
                                                             <h2 id="File-isReadable">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
-                                                                isReadable() (boolean) 
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
+                                                                isReadable() returns (boolean) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1051,8 +1028,8 @@
                                                         <li>
                                                             <h2 id="File-isWritable">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
-                                                                isWritable() (boolean) 
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
+                                                                isWritable() returns (boolean) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1082,8 +1059,8 @@
                                                         <li>
                                                             <h2 id="File-list">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
-                                                                list() (File[] | error) 
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
+                                                                list() returns (File[] | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1113,8 +1090,8 @@
                                                         <li>
                                                             <h2 id="File-mkdirs">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
-                                                                mkdirs() (boolean | error) 
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
+                                                                mkdirs() returns (boolean | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1144,7 +1121,7 @@
                                                         <li>
                                                             <h2 id="File-open">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
                                                                 open(string accessMode) 
                                                             </h2>
                                                             
@@ -1175,8 +1152,8 @@
                                                         <li>
                                                             <h2 id="File-openChannel">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
-                                                                openChannel(string accessMode) (ByteChannel) 
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
+                                                                openChannel(string accessMode) returns (ByteChannel) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1224,7 +1201,7 @@
                                                         <li>
                                                             <h2 id="File-File.&lt;init&gt;">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; File &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;File&gt;</span>
                                                                 File.&lt;init&gt;() 
                                                             </h2>
                                                               
@@ -1292,7 +1269,7 @@
                                                         <li>
                                                             <h2 id="FileNotFoundError-FileNotFoundError.&lt;init&gt;">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; FileNotFoundError &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;FileNotFoundError&gt;</span>
                                                                 FileNotFoundError.&lt;init&gt;() 
                                                             </h2>
                                                               
@@ -1360,7 +1337,7 @@
                                                         <li>
                                                             <h2 id="FileNotOpenedError-FileNotOpenedError.&lt;init&gt;">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; FileNotOpenedError &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;FileNotOpenedError&gt;</span>
                                                                 FileNotOpenedError.&lt;init&gt;() 
                                                             </h2>
                                                               
@@ -1428,7 +1405,7 @@
                                                         <li>
                                                             <h2 id="IOError-IOError.&lt;init&gt;">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; IOError &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;IOError&gt;</span>
                                                                 IOError.&lt;init&gt;() 
                                                             </h2>
                                                               
@@ -1912,32 +1889,6 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="http.html">
-                                     
-                                    <span class="bold">http</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="http.swagger.html">
-                                     
-                                    <span class="bold">http.swagger</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
                                 <a href="internal.html">
                                      
                                     <span class="bold">internal</span>
@@ -2016,45 +1967,6 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="mime.html">
-                                     
-                                    <span class="bold">mime</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="net.grpc.html">
-                                     
-                                    <span class="bold">net.grpc</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="net.uri.html">
-                                     
-                                    <span class="bold">net.uri</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
                                 <a href="os.html">
                                      
                                     <span class="bold">os</span>
@@ -2110,19 +2022,6 @@
                                 <a href="task.html">
                                      
                                     <span class="bold">task</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="test.html">
-                                     
-                                    <span class="bold">test</span>
                                      
                                 </a>
                                 
