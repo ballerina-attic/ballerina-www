@@ -4,7 +4,7 @@
         <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cDownloadsHeader">
             <h1>Downloads</h1>
             <p>
-				After downloading a binary release suitable for your system, please follow the <a href="#">instructions on setting this up</a>. If you are building from source, follow the <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source">source installation instruction</a>.
+				After download a release for your system, please follow the <a href="#">installation instructions</a>. If you are building from source, follow the <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source">build instructions</a>.
 				<br><br>
 				See the <a href="/downloads/release-notes">complete release notes</a>  for more information about Ballerina releases.
             </p>         
