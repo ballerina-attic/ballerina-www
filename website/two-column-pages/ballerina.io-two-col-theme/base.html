@@ -45,24 +45,6 @@
 	{%- for path in extra_css %}
 	<!--  <link href="{{ path }}" rel="stylesheet">-->
 	{%- endfor %} {%- endblock %} {%- block libs %} {% if page %}
-	<script>
-		// Current page data
-		var mkdocs_page_name = {
-			{
-				page.title | tojson | safe
-			}
-		};
-		var mkdocs_page_input_path = {
-			{
-				page.input_path | tojson | safe
-			}
-		};
-		var mkdocs_page_url = {
-			{
-				page.abs_url | tojson | safe
-			}
-		};
-	</script>
 	{% endif %} {%- endblock %} {%- block extrahead %} {% endblock %} {%- block analytics %} {% if config.google_analytics %} {% endif %} {%- endblock %}
 </head>
 
@@ -125,7 +107,21 @@
 
 
 			});
-		});
+
+            $( "#breadcrumb-list li" ).each(function( index ) {
+                var current= $( this );
+                var currentLink = $(current.find( "a" )[0]);
+                if(currentLink && currentLink.attr("href") =="#" && !current.hasClass("wy-breadcrumbs-aside") &&
+                   !current.next().hasClass("wy-breadcrumbs-aside")){
+                    var prevLink = $(current.prev().find( "a" )[0]);
+                    if(prevLink && prevLink.attr("href") !="#"){
+                        currentLink.attr("href", prevLink.attr("href") +
+												 (prevLink.attr("href").match(/\/$/) ? "" : "/") +
+												 current.attr("link_candidate").toLowerCase().split(" ").join("-"));
+                    }
+                }
+            });
+        });
 
 
 		//       $(window).scroll(function () {

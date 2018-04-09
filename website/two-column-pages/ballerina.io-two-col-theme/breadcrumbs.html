@@ -1,12 +1,12 @@
 <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
+  <ul class="wy-breadcrumbs" id="breadcrumb-list">
     <li><a href="/">Home</a> &raquo;</li>
     {% if page %}
       {% for doc in page.ancestors %}
         {% if doc.link %}
           <li><a href="{{ doc.link|e }}">{{ doc.title }}</a> &raquo;</li>
         {% else %}
-          <li>{{ doc.title }} &raquo;</li>
+          <li link_candidate="{{ doc.title }}"><a href="#" >{{ doc.title }}</a> &raquo;</li>
         {% endif %}
       {% endfor %}
     {% endif %}
