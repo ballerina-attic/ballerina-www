@@ -42,6 +42,7 @@
  const config = {
      target: 'web',
      entry: {
+         'babel-polyfill': 'babel-polyfill',
          'playground-app': './src/index.js',
      },
      output: {
