@@ -49,31 +49,38 @@ $(document).ready(function () {
 				{"name": "Transactions", "desc": "Incorporating resilience patterns like timeouts and retry to deal with potentially-busy remote backend services.", "url": "managing-database-transactions", "git": ""}
 		]};
 
-		var guide_content;
+		var i = 0;
+		var div_content;
 		$.each(guide_data, function (key, value) {
+				//get title
+				div_content = "";
 
-			$.each(value, function (exkey, guide) {
-				var name = guide['name'];
-				var desc = guide['desc'];
-				var url = guide['url'];
-				var git = guide['git'];
+				div_content += '<ul>';
+				div_content += '<li class="cTableTitle">' + key + '</li>';
 
-				guide_content += '<tr>';
-				guide_content += '<td class="cType"><a href="/learn/guides/' + url + '">' + name + '</a></td>';
-				guide_content += '<td>' + desc + '</td>';
-				//guide_content += '<td class="cGitLink"><a href="' + git + '"></a></td>';
-				guide_content += '</tr>';
-			});
+				$.each(value, function (exkey, guide) {
 
+						var name = guide['name'];
+						var desc = guide['desc'];
+						var url = guide['url'];
+						var git = guide['git'];
+
+						div_content += '<li><a href="/learn/guides/' + url + '">' + name + '</a></li>';
+				});
+
+				div_content += '</ul>';
+
+				var row_id = i % 3;
+				$(".bbgfeatureSet" + row_id).append(div_content);
+				i++;
 		});
-		$("#guidesTable").html(guide_content);
 
 });
  /*
 We extract the file name from the link text.
 Replace the space with a hyphan and make all text simple case
 For example "REST Services" will become "rest-services"
-Then we look for the file "rest-services.txt" in the samples folder. 
+Then we look for the file "rest-services.txt" in the samples folder.
 if the data-run attribute is present in the link
 we search for a file "rest-services-run.txt" file as well
 */
@@ -85,7 +92,7 @@ var loadData = function(linkText,height){
 	$('.shell-display').hide();
 	$('#'+fileName + "-shell").show();
 	$('#'+fileName + "-text").show();
-	
+
 	if(height) {
 		height = parseInt(height);
 	}
