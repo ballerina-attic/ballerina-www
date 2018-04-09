@@ -6,7 +6,7 @@ We appreciate your help and participation!
 
 ## Announcements Mailing List
 
-We have a low-traffic announcement list that we use to disseminate the major news such as new releases. We encourage all Ballerina users and developers to be a part of this list.
+We have a low-traffic announcement list that we use to disseminate major news such as new releases. We encourage all Ballerina users and developers to be a part of this list.
 
 Use the form at the footer of this page to subscribe to Ballerina announcements.
 
@@ -16,11 +16,11 @@ Please see [Ballerina Downloads page](https://stage.ballerina.io/downloads/) for
 
 ## Developer Resources
 
-**Source Code**
+### Source Code
 
 See our [github repo](https://github.com/ballerina-platform/ballerina-lang).
 
-**Developer Mailing List**
+### Developer Mailing List
 
 [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev) is the main discussion forum of the Ballerina dev team.
 
@@ -28,9 +28,9 @@ We also use [Slack](https://ballerina-platform.slack.com/) for chat. Click <a cl
 
 Comments in github issues and pull requests are used for issue- / feature-specific discussions.
 
-## How you can help
+## How You Can Help
 
-**Reporting issues**
+### Reporting Issues
 
 Submitting a bug is just as important as contributing code. If you found an issue or have an improvement idea for Ballerina code, web site, or documentation, please file an issue.
 
@@ -43,7 +43,7 @@ To file non-security issues:
 
 If you are unsure whether you have found a bug, please consider searching existing issues in github and asking in [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev).
 
-**Contributing code**
+**Contributing Code**
 
 Ballerina is an open source project and any contributions from a wider community is much appreciated. We would love you to join our team!
 

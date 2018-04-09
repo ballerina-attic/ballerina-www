@@ -15,7 +15,7 @@ import ShareButton from './components/controls/ShareButton';
 import PopOutButton from './components/controls/PopOutButton';
 import DesignView from './components/design-view/DesignView';
 import DownloadsView from './components/downloads-view/DownloadsView';
-
+import { getMonospaceFontFamily } from './client-utils';
 class BallerinaWidget extends Component {
 
   constructor(...args) {
@@ -93,7 +93,11 @@ class BallerinaWidget extends Component {
               window.open(sample.url,'_blank');
             }}
           >
-              <span className="sample-file-name">Example : &lt;{sample.fileName}&gt;</span>
+              <span
+                className="sample-file-name" 
+                style={{ fontFamily: getMonospaceFontFamily() }}
+              >
+                Example : &lt;{sample.fileName}&gt;</span>
               <span
                 className="sample-btn"
               >

@@ -23,4 +23,6 @@ import org.ballerinalang.platform.playground.api.core.RunSession;
 public interface Phase {
 
     void execute(RunSession session, Runnable next) throws Exception;
+
+    void terminate(RunSession session);
 }
