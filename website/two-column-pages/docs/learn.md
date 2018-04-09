@@ -26,7 +26,7 @@ The How to Structure Ballerina Code topic expands on the structure of programs, 
 
 ## Editors, IDEs and the Ballerina Composer
 
-[Editors, IDEs and the Ballerina Composer](https://github.com/ballerina-lang/ballerina/blob/master/docs/tools-ides-ballerina-composer.md) is a topic that introduces you to several tools that can help create, document, and test your code. These tools can be various editors, IDEs, and a graphical visualization tool for your code called the Ballerina Composer.
+<a href="https://github.com/ballerina-lang/ballerina/blob/master/docs/tools-ides-ballerina-composer.md" target="_blank">Editors, IDEs and the Ballerina Composer</a> is a topic that introduces you to several tools that can help create, document, and test your code. These tools can be various editors, IDEs, and a graphical visualization tool for your code called the Ballerina Composer.
 
 ## Language Specification
 

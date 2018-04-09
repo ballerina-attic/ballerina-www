@@ -123,17 +123,17 @@ $(document).ready(function () {
          //subscribe form
          $("#subscribeUserButton").click(function (event) {
              event.preventDefault();
-             $('#subscribeUserMessage').html("")
+             $('#subscribeUserMessage').remove("")
              var email = $("#emailUser").val();
              if (email == "") {
-                 $('#subscribeUserMessage').html("Please enter your email");
+                 $('.cFormContainer').append('<span id="subscribeUserMessage">Please enter your email</span>');
              } else if (!isEmail(email)) {
-                 $('#subscribeUserMessage').html("Please enter a valid email");
+                 $('.cFormContainer').append('<span id="subscribeUserMessage">Please enter a valid email</span>');
              } else {
                  $('.cFieldContainer').hide();
                  $('.cButtonContainer').hide();
                  $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl979?email=" + email + "'></iframe>");
-                 $('#subscribeUserMessage').html('<span>Thank you! Stay tuned for updates on Ballerina.</span>');
+                 $('.cFormContainer').append('<span id="subscribeUserMessage">Thank you! Stay tuned for updates on Ballerina.</span>');
                  $("#emailUser").val("");
              }
          });
