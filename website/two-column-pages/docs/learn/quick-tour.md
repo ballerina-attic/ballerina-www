@@ -155,9 +155,9 @@ $ ballerina build hello-world.bal
 Once you build it, you get the following response. This means the service is successfully deployed in Kubernetes.
 
 ```
-@docker                                  - complete 3/3
-@kubernetes:Deployment                   - complete 1/1
-@kubernetes:Service                      - complete 1/1
+@docker                          - complete 3/3
+@kubernetes:Deployment           - complete 1/1
+@kubernetes:Service              - complete 1/1
 ```
 
 Run the following command to deploy Kubernetes artifacts. Specify the folder path where your program is located.
@@ -173,7 +173,7 @@ $ docker images |grep demo
 ```
 
 ```
-demo/ballerina-demo                            latest     7bb8a49ef708        38 seconds ago      120MB
+demo/ballerina-demo    latest     7bb8a49ef708     38 seconds ago      120MB
 ```
 
 You can now deploy it to Kubernetes using the following command.
