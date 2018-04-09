@@ -69,7 +69,8 @@ public class BuildPhase implements Phase {
         }
 
         String[] cmdArray = getBuildCommandArray(runSession);
-        Process buildProcess = Runtime.getRuntime().exec(cmdArray, null, runSession.getSourceRoot().toFile());
+        Process buildProcess = Runtime.getRuntime().exec(cmdArray, null, runSession.getSourceFile()
+                .getParent().toFile());
         new Thread(() -> {
             BufferedReader reader = null;
             try {
