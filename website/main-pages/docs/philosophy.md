@@ -499,8 +499,19 @@ Hello World!
             </div>
       </div>
       <div class="col-xs-12 cPhilosophyWhite cCloudNative">
+        <div id="ballerina-by-example">
             <div class="cLanguageFeaturesContainer">
+                <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet0">
+                </div>
+                <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet1">
+                </div>
+                <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet2">
+                </div>
+                <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet3">
+                </div>
             </div>
+            <div class="clearfix"></div>
+        </div>
          <div class="clearfix"></div>
       </div>
    </div>
