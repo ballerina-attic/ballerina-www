@@ -54,3 +54,10 @@ rpm -i <ballerina-binary>.rpm
 
 ## Uninstalling Ballerina
 
+To remove an existing Ballerina installation, delete the Ballerina directory. This is usually /usr/local/ballerina under Linux and Mac OS X, and c:\Ballerina under Windows.
+
+You should also remove the Ballerina bin directory from your PATH environment variable.
+
+## Getting help
+
+To get help, see the options available in the [help page](/help).
