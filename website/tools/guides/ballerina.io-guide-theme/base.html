@@ -99,7 +99,7 @@
                       
                       
                       <div class="cGreenBox">
-                          <div class="cGreenBoxTitle">get the code</div>
+                          <div class="cGreenBoxTitle">Refer GitHub</div>
                           
                          
          <div class="">
@@ -210,7 +210,17 @@
   
   <script>
        $(document).ready(function () {
-             
+           // In https://github.com/ballerina-platform/ballerina-www/blob/master/website/tools/guides/build.sh#L5
+           // We are moving all README/index.html files one directory back. Therefore relative paths have to be updated
+           $( ".rst-content .section img" ).each(function( index ) {
+               var currentSrc = $( this ).attr("src");
+               //if starts with a reltive path
+               if(mkdocs_page_input_path && mkdocs_page_input_path.match("README.md$") == "README.md"
+                  && currentSrc && currentSrc.indexOf("../") === 0){
+                   $( this ).attr("src" , currentSrc.replace("../", ""))
+               }
+           });
+
            $(".cSerachIcon").click(function() {
          $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
           });
