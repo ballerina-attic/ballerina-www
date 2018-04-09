@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
+import { getMonospaceFontFamily } from '../../client-utils';
 import './Console.css';
 
 
@@ -68,7 +69,12 @@ class Console extends React.Component {
     render() {
         const consoleAreaHeight = this.props.curlVisible ? 106 : 132;
         return (
-            <div className='console-area'>
+            <div 
+                className='console-area'
+                style={{
+                    fontFamily: getMonospaceFontFamily()
+                }}
+            >
                 <Scrollbars 
                     style={{ width: 460, height: consoleAreaHeight }}
                     ref={(scrollBar) => {
