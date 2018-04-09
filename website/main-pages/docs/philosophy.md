@@ -22,7 +22,7 @@
          </div>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-Right-col cPhilosophyWidget">
-         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="/img/philosophy-diagrams-top-image.png"/>
+         <img style="margin-top: -14px; margin-left: 6px; max-width: 100%;" src="/img/philosophy-page-diagrams-top-image.png"/>
       </div>
    </div>
 </div>
