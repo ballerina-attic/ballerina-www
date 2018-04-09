@@ -38,4 +38,19 @@ The installer should put the c:\ballerina\<ballerina-directory>\bin directory in
 
 ### Installing on Linux
 
-[Download the MSI file](https://ballerina.io/downloads/), open it, and follow the prompts to install Ballerina.
+[Download the DEB file or RPM file](https://ballerina.io/downloads/), open it, and follow the prompts to install Ballerina.
+
+You can install the DEB file using the following command. You need to specify the actual filename and location in the command.
+
+`
+dpkg -i /<ballerina-home>/<ballerina-binary>.deb
+`
+
+You can install the RPM file using the following command. You need to specify the actual filename and location in the command.
+
+`
+rpm -i <ballerina-binary>.rpm
+`
+
+## Uninstalling Ballerina
+
