@@ -6,7 +6,7 @@ Although Ballerina is optimized primarily for such programs, it can be used to p
 
 ## Getting Started
 
-The Getting Started section includes instructions on how to download Ballerina and install the tools that come along with it. This also includes system requirements, details on how to test your installation, and instructions on how to uninstall Ballerina.
+The [Getting Started](/learn/getting-started/) section includes instructions on how to download Ballerina and install the tools that come along with it. This also includes system requirements and instructions on how to uninstall Ballerina.
 
 ## Quick Tour
 
