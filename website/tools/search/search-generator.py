@@ -3,6 +3,7 @@
 
 from bs4 import BeautifulSoup
 import os
+import io
 import json
 import sys
 
@@ -20,7 +21,7 @@ found = {x: [] for x in extens}
 # Directories to ignore
 ignore = ['docs', 'ballerina-fonts','css','fonts','img','js','search','vs']
 
-logname = "search_index.json"
+outputjson = os.path.join("search","search_index.json")
 
 print('Scraping files in %s for generating the search json' % os.path.realpath(topdir))
 
@@ -48,7 +49,7 @@ for dirpath, dirnames, files in os.walk(topdir):
             #Get URL path
             location = os.path.join(dirpath, name)
             found[ext].append(location)
-            file = open(os.path.join(dirpath, name), 'r', encoding='utf8')
+            file = io.open(os.path.join(dirpath, name), 'r', encoding='utf8')
             logbody = file.read()
 
             #parse the html
@@ -66,5 +67,5 @@ data1 = data1[:-1]
 data1 = data1+"  ]}";
 
 # Write results to the json file
-with open(logname, 'w') as logfile:
+with open(outputjson, 'w') as logfile:
     logfile.write(data1)
