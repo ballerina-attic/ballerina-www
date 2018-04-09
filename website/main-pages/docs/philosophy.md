@@ -582,37 +582,37 @@ Hello World!
                   <tr>
                      <td class="cType">Ballerina</td>
                      <td>A programming language and service runtime for orchestration and composition of endpoints</td>
-                     <td class="cGitLink"><a href=""></a></td>
+                     <td class="cGitLink"><a href="https://github.com/ballerina-platform/ballerina-lang" target="_blank"></a></td>
                   </tr>
                   <tr>
                      <td>Ballerina.io</td>
                      <td>The home of the Ballerina Platform</td>
-                     <td class="cGitLink"><a href=""></a></td>
+                     <td class="cGitLink"><a href="https://github.com/ballerina-platform/ballerina-www" target="_blank"></a></td>
                   </tr>
                   <tr>
                      <td>Ballerina for Java</td>
                      <td>A microservice framework to expose legacy Java as Ballerina-ready services</td>
-                     <td class="cGitLink"><a href=""></a></td>
+                     <td class="cGitLink"><a href="" target="_blank"></a></td>
                   </tr>
                   <tr>
-                     <td>Ballerina Sidecar</td>
+                     <td>Ballerina Bridge</td>
                      <td>A container that attaches transactions and resilience to running services</td>
-                     <td class="cGitLink"><a href=""></a></td>
+                     <td class="cGitLink"><a href="https://github.com/ballerina-platform/ballerina-bridge" target="_blank"></a></td>
                   </tr>
                   <tr>
                      <td>Ballerina API Gateway</td>
                      <td>enforce security and runtime policies</td>
-                     <td class="cGitLink"><a href=""></a></td>
+                     <td class="cGitLink"><a href="" target="_blank"></a></td>
                   </tr>
                   <tr>
                      <td>Ballerina Message Broker</td>
                      <td>Scalable broker for persistent and asynchronous messaging</td>
-                     <td class="cGitLink" ><a href=""></a></td>
+                     <td class="cGitLink" ><a href="https://github.com/ballerina-platform/ballerina-message-broker" target="_blank"></a></td>
                   </tr>
                   <tr>
                      <td>Ballerina Transaction Coordinator</td>
                      <td>Manage distributed transactions for microservices</td>
-                     <td class="cGitLink"><a href=""></a></td>
+                     <td class="cGitLink"><a href="" target="_blank"></a></td>
                   </tr>
                </table>
             </div>
