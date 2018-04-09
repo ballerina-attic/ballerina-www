@@ -22,6 +22,11 @@ body {
 	font-weight: normal;
 }
 
+.cDownloads {
+	margin-left: -15px !important;
+	margin-right: -15px !important;	
+}
+
 h2 {
 	font-size: 25px;
 	line-height: 30px;
@@ -31,8 +36,8 @@ h2 {
 }
 
 a.cDownload {
-	display: inline-block;
-	width: 91%;
+	display: block;
+	margin: 0 15px;
 	transition: none !important;
 	font-size: 25px;
 	font-weight: 300;
@@ -43,18 +48,6 @@ a.cDownload {
 	background-repeat: no-repeat;
 	background-position: left 25px top 18px;
 	text-decoration: none;
-}
-
-.cDownloadLeft a.cDownload {
-	float: left;
-}
-
-.cDownloadRight a.cDownload {
-	float: right;
-}
-
-.cDownloadMiddle a.cDownload {
-	margin: auto;
 }
 
 a.cDownload .cSize {
@@ -74,6 +67,8 @@ a.cDownload .cSize {
 	text-decoration: none;
 	display: inline-block;
 	margin-bottom: 20px;
+	text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .cArchived a:hover {
@@ -86,6 +81,7 @@ a.cDownload .cSize {
 	font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
 	display: inline-block;
 	margin-top: 20px;
+	letter-spacing: 1px;
 }
 
 .cStandaloneInstallers {
@@ -154,24 +150,25 @@ ul.cDiwnloadSubLinks {
 	display: inline-block;
 	width: 100%;
 	text-align: left;
-	padding: 10px 0;
+	padding: 10px 15px;
 	margin: 0;
+	text-align: right;
 }
 
 ul.cDiwnloadSubLinks li {
 	list-style: none;
-
 	float: right;
-
 	display: inline-block;
+	margin-right: 25px;
+}
 
-	margin-right: 35px;
+ul.cDiwnloadSubLinks li:first-child {
+	margin-right: 0;
 }
 
 ul.cDiwnloadSubLinks li a {
 	color: #22b7b1;
 }
-
 
 .cReleseNotesContainer {
 	padding: 30px;
@@ -199,34 +196,6 @@ ul.cDiwnloadSubLinks li a {
 	background-color: #ffffff;
 	padding: 20px;
 	transition: all 0.2s ease 0s;
-}
-
-
-@media screen and (max-width: 1199px) {
-	.cDownloadLeft {
-		width: 275px;
-		padding-bottom: 30px;
-	}
-	.cDownloadRight {
-		width: 275px;
-		padding-bottom: 30px;
-	}
-	.cDownloadMiddle {
-		width: 275px;
-		padding-bottom: 30px;
-	}
-	.cDownloadLeft a.cDownload {
-		float: none;
-		width: 100%;
-	}
-	.cDownloadRight a.cDownload {
-		float: none;
-		width: 100%;
-	}
-	.cDownloadMiddle a.cDownload {
-		margin: 0;
-		width: 100%;
-	}
 }
 
 @media screen and (max-width: 991px) {
