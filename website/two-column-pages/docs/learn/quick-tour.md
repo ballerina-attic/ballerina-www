@@ -4,14 +4,14 @@
 <script src="/js/jquery-2.1.1.min.js"></script>
 # Quick Tour
 
-Now that you know a little bit [about Ballerina](/philosophy), let's take it for a spin! 
+Now that you know a little bit [about Ballerina](/philosophy), let's take it for a spin!
 
 ## Install Ballerina
 
-1. Go to [http://www.ballerinalang.org](http://www.ballerinalang.org) and click **Download**. 
-1. Download Ballerina for your OS and follow the instructions given to set it up. 
+1. Go to [https://ballerina.io/](/) and click **Download**. 
+1. Download Ballerina for your OS and follow the instructions given to set it up.
 
-> NOTE: Throughout this documentation, `<ballerina_home>` refers to the Ballerina directory you just installed. 
+> NOTE: Throughout this documentation, `<ballerina_home>` refers to the Ballerina directory you just installed.
 
 ## Run HelloWorld
 
@@ -81,7 +81,7 @@ service<http:Service> hello bind listener {
 
     // A resource is an invokable API method
     // Accessible on '/hello/sayHello
-    // 'caller' is the client invoking this resource 
+    // 'caller' is the client invoking this resource
     sayHello (endpoint caller, http:Request request) {
         http:Response response = {};
         // A response is what you receive back from the service
@@ -121,7 +121,7 @@ Hello Ballerina!
 
 ## Deploying on Kubernetes
 
-Now that your service is created, you can deploy this on Kubernetes. 
+Now that your service is created, you can deploy this on Kubernetes.
 
 > TIP: This was tested on the community edition version of Docker Edge with Kubernetes enabled and running in the background. Docker Edge comes with the option of enabling Kubernetes under Docker preferences.
 
@@ -138,8 +138,8 @@ Now, let’s add the code you need to run the service in Kubernetes.
 </div>
 <textarea id="code-03-k-code" class="code-holder">
 // Kubernetes configurations
-// This is the Kubernetes service annotation added to our listener 
-// This tells us that we want to expose it from Kubernetes 
+// This is the Kubernetes service annotation added to our listener
+// This tells us that we want to expose it from Kubernetes
 // The type is NodePort under the name of hello-world:
 
 @kubernetes:SVC{
@@ -232,5 +232,5 @@ Hello World!
 1. In the command line, type `composer`.
 
 1. Access the Composer from the following URL in your browser: http://localhost:9091   
-<script src="/js/add-monaco.js"></script> 
+<script src="/js/add-monaco.js"></script>
 <script src="/js/quick-tour.js"></script>
