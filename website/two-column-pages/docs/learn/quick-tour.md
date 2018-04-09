@@ -8,7 +8,7 @@ Now that you know a little bit [about Ballerina](/philosophy), let's take it for
 
 ## Install Ballerina
 
-1. Go to [http://www.ballerinalang.org](http://www.ballerinalang.org) and click **Download**. 
+1. Go to [http://www.ballerinalang.org](/) and click **Download**. 
 1. Download Ballerina for your OS and follow the instructions given to set it up. 
 
 > NOTE: Throughout this documentation, `<ballerina_home>` refers to the Ballerina directory you just installed. 
@@ -24,8 +24,7 @@ Let's get started with a simple Hello World program in Ballerina. Create a file 
 import ballerina.io;
 function main (string[] args) {
     io:println("Hello, World!");
-}
-</textarea>
+} </textarea>
 
 At the command line, navigate to the directory that contains the hello-world.bal file and enter the following command.
 
@@ -91,8 +90,7 @@ service<http:Service> hello bind listener {
         // Errors that could occur are ignored using '_'
         _ = caller -> respond(response);
     }
-}
-</textarea>
+} </textarea>
 
 You can run the service by using the same run command you used to run the program earlier.
 
