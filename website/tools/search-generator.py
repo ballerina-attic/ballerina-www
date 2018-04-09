@@ -43,7 +43,7 @@ for dirpath, dirnames, files in os.walk(topdir):
             #Get URL path
             location = os.path.join(dirpath, name)
             found[ext].append(location)
-            file = open(os.path.join(dirpath, name), 'r', encoding='utf8')
+            file = open(os.path.join(dirpath, name), "r")
             logbody = file.read()
 
             #parse the html
