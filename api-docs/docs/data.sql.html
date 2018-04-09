@@ -7,6 +7,8 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
     <title>Ballerina.io - API Docs</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>var base_url = "";</script>
+    <script data-main="/search/search.js" src="/search/require.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <!-- Optional theme -->
@@ -599,48 +601,6 @@
                             </li>
                         </ul>
                         
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
 
 
 
@@ -679,6 +639,7 @@
                                                 <span class="bold">data.sql</span>
                                                  package 
                                             </h1>
+                                            
                                             
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
@@ -725,8 +686,8 @@
                                                         <li>
                                                             <h2 id="Client-getClient">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; Client &gt;</span>
-                                                                getClient() (ClientConnector) 
+                                                                <span class="thin-text light-gray">&lt;Client&gt;</span>
+                                                                getClient() returns (ClientConnector) 
                                                             </h2>
                                                             
                                                             <p>
@@ -756,7 +717,7 @@
                                                         <li>
                                                             <h2 id="Client-init">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; Client &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;Client&gt;</span>
                                                                 init(ClientEndpointConfiguration config) 
                                                             </h2>
                                                             
@@ -787,7 +748,7 @@
                                                         <li>
                                                             <h2 id="Client-initEndpoint">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; Client &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;Client&gt;</span>
                                                                 initEndpoint() 
                                                             </h2>
                                                             
@@ -800,7 +761,7 @@
                                                         <li>
                                                             <h2 id="Client-Client.&lt;init&gt;">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; Client &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;Client&gt;</span>
                                                                 Client.&lt;init&gt;() 
                                                             </h2>
                                                               
@@ -910,8 +871,8 @@
                                                         <li>
                                                             <h2 id="ClientConnector-batchUpdate">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; ClientConnector &gt;</span>
-                                                                batchUpdate(string sqlQuery, Parameter[][] | null parameters) (int[] | SQLConnectorError) 
+                                                                <span class="thin-text light-gray">&lt;ClientConnector&gt;</span>
+                                                                batchUpdate(string sqlQuery, Parameter[][] | null parameters) returns (int[] | SQLConnectorError) 
                                                             </h2>
                                                             
                                                             <p>
@@ -965,8 +926,8 @@
                                                         <li>
                                                             <h2 id="ClientConnector-call">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; ClientConnector &gt;</span>
-                                                                call(string sqlQuery, Parameter[] | null parameters, typedesc | null structType) (table[] | SQLConnectorError) 
+                                                                <span class="thin-text light-gray">&lt;ClientConnector&gt;</span>
+                                                                call(string sqlQuery, Parameter[] | null parameters, typedesc | null structType) returns (table[] | SQLConnectorError) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1026,8 +987,8 @@
                                                         <li>
                                                             <h2 id="ClientConnector-close">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; ClientConnector &gt;</span>
-                                                                close() (SQLConnectorError | null) 
+                                                                <span class="thin-text light-gray">&lt;ClientConnector&gt;</span>
+                                                                close() returns (SQLConnectorError | null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1057,8 +1018,8 @@
                                                         <li>
                                                             <h2 id="ClientConnector-select">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; ClientConnector &gt;</span>
-                                                                select(string sqlQuery, Parameter[] | null parameters, typedesc | null structType) (table | SQLConnectorError) 
+                                                                <span class="thin-text light-gray">&lt;ClientConnector&gt;</span>
+                                                                select(string sqlQuery, Parameter[] | null parameters, typedesc | null structType) returns (table | SQLConnectorError) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1118,8 +1079,8 @@
                                                         <li>
                                                             <h2 id="ClientConnector-update">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; ClientConnector &gt;</span>
-                                                                update(string sqlQuery, Parameter[] | null parameters) (int | SQLConnectorError) 
+                                                                <span class="thin-text light-gray">&lt;ClientConnector&gt;</span>
+                                                                update(string sqlQuery, Parameter[] | null parameters) returns (int | SQLConnectorError) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1173,8 +1134,8 @@
                                                         <li>
                                                             <h2 id="ClientConnector-updateWithGeneratedKeys">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; ClientConnector &gt;</span>
-                                                                updateWithGeneratedKeys(string sqlQuery, Parameter[] | null parameters, string[] | null keyColumns) ((int,string[]) | SQLConnectorError) 
+                                                                <span class="thin-text light-gray">&lt;ClientConnector&gt;</span>
+                                                                updateWithGeneratedKeys(string sqlQuery, Parameter[] | null parameters, string[] | null keyColumns) returns ((int,string[]) | SQLConnectorError) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1235,7 +1196,7 @@ generated keys during the update action.
                                                         <li>
                                                             <h2 id="ClientConnector-ClientConnector.&lt;init&gt;">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; ClientConnector &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;ClientConnector&gt;</span>
                                                                 ClientConnector.&lt;init&gt;() 
                                                             </h2>
                                                               
@@ -1334,7 +1295,7 @@ generated keys during the update action.
                                                         <li>
                                                             <h2 id="ClientEndpointConfiguration-ClientEndpointConfiguration">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; ClientEndpointConfiguration &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;ClientEndpointConfiguration&gt;</span>
                                                                 ClientEndpointConfiguration() 
                                                             </h2>
                                                               
@@ -1343,7 +1304,7 @@ generated keys during the update action.
                                                         <li>
                                                             <h2 id="ClientEndpointConfiguration-ClientEndpointConfiguration.&lt;init&gt;">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; ClientEndpointConfiguration &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;ClientEndpointConfiguration&gt;</span>
                                                                 ClientEndpointConfiguration.&lt;init&gt;() 
                                                             </h2>
                                                               
@@ -1544,7 +1505,7 @@ generated keys during the update action.
                                                         <li>
                                                             <h2 id="ConnectionProperties-ConnectionProperties">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; ConnectionProperties &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;ConnectionProperties&gt;</span>
                                                                 ConnectionProperties() 
                                                             </h2>
                                                             
@@ -1557,7 +1518,7 @@ generated keys during the update action.
                                                         <li>
                                                             <h2 id="ConnectionProperties-ConnectionProperties.&lt;init&gt;">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; ConnectionProperties &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;ConnectionProperties&gt;</span>
                                                                 ConnectionProperties.&lt;init&gt;() 
                                                             </h2>
                                                               
@@ -1640,7 +1601,7 @@ map a result row</td>
                                                         <li>
                                                             <h2 id="Parameter-Parameter.&lt;init&gt;">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; Parameter &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;Parameter&gt;</span>
                                                                 Parameter.&lt;init&gt;() 
                                                             </h2>
                                                               
@@ -1708,7 +1669,7 @@ map a result row</td>
                                                         <li>
                                                             <h2 id="SQLConnectorError-SQLConnectorError.&lt;init&gt;">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt; SQLConnectorError &gt;</span>
+                                                                <span class="thin-text light-gray">&lt;SQLConnectorError&gt;</span>
                                                                 SQLConnectorError.&lt;init&gt;() 
                                                             </h2>
                                                               
@@ -2268,32 +2229,6 @@ map a result row</td>
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="http.html">
-                                     
-                                    <span class="bold">http</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="http.swagger.html">
-                                     
-                                    <span class="bold">http.swagger</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
                                 <a href="internal.html">
                                      
                                     <span class="bold">internal</span>
@@ -2372,45 +2307,6 @@ map a result row</td>
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="mime.html">
-                                     
-                                    <span class="bold">mime</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="net.grpc.html">
-                                     
-                                    <span class="bold">net.grpc</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="net.uri.html">
-                                     
-                                    <span class="bold">net.uri</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
                                 <a href="os.html">
                                      
                                     <span class="bold">os</span>
@@ -2466,19 +2362,6 @@ map a result row</td>
                                 <a href="task.html">
                                      
                                     <span class="bold">task</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="test.html">
-                                     
-                                    <span class="bold">test</span>
                                      
                                 </a>
                                 
