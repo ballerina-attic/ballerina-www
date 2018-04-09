@@ -59,7 +59,7 @@ for dirpath, dirnames, files in os.walk(topdir):
             title = soup.title
 
             if title is not None:
-                data1 = data1+ "{\"location\":\""+str(os.path.relpath(location))+"\""
+                data1 = data1+ "{\"location\":\"/"+str(os.path.relpath(location))+"\""
                 data1 = data1+",\"text\":\""+str(title.get_text())+"\""
                 data1 = data1+ ", \"title\":\"" + str(title.get_text())+"\"},"
 
