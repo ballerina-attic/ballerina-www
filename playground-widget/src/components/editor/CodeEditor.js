@@ -5,13 +5,15 @@ import Theme from './theme';
 import './CodeEditor.css';
 import Grammar from 'ballerina-grammar';
 import BAL_LANG_CONFIG from 'ballerina-config';
-import { Dimmer, Loader } from 'semantic-ui-react'
+import { Dimmer, Loader } from 'semantic-ui-react';
+import { getMonospaceFontFamily } from '../../client-utils';
 
 const BAL_LANGUAGE = 'ballerina-lang';
 const BAL_WIDGET_MONACO_THEME = 'bal-widget-monaco-theme';
+
 const MONACO_OPTIONS = {
     autoIndent: true,
-    fontFamily: "Monaco",
+    fontFamily: getMonospaceFontFamily(),
     fontSize: 11,
     contextmenu: false,
     renderIndentGuides: false,
