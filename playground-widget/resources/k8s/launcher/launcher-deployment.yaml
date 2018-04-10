@@ -26,8 +26,12 @@ spec:
         env:
         - name: BPG_REDIS_WRITE_HOST
           value: "redis-master"
+        - name: BPG_REDIS_WRITE_PORT
+          value: 6379
         - name: BPG_REDIS_READ_HOST
           value: "redis-slave"
+        - name: BPG_REDIS_READ_PORT
+          value: 6379
         - name: BPG_CACHE_NODE
           value: "false"
         ports:

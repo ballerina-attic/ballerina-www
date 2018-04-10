@@ -25,9 +25,19 @@ spec:
         #   requests: 
         #     cpu: 100m 
         #     memory: 100Mi 
-        # env: 
-        # - name: BPG_REDIS_WRITE_HOST 
-        #   value: "redis-master" 
+        env:
+        - name: BPG_REDIS_WRITE_HOST
+          value: "redis-master"
+        - name: BPG_REDIS_WRITE_PORT
+          value: 6379
+        - name: BPG_REDIS_READ_HOST
+          value: "redis-slave"
+        - name: BPG_REDIS_READ_PORT
+          value: 6379
+        - name: DB_HOST
+          value: "mysql-server"
+        - name: DB_PORT
+          value: 3306
         ports: 
         - name: http-port 
           containerPort: 8080
