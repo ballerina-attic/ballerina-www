@@ -26,7 +26,7 @@
  const HtmlWebpackPlugin = require('html-webpack-plugin');
  const CleanWebpackPlugin = require('clean-webpack-plugin');
  
- const extractCSSBundle = new ExtractTextPlugin({ filename: './[name]-[hash].css', allChunks: true });
+ const extractCSSBundle = new ExtractTextPlugin({ filename: './[name].[chunkhash].css', allChunks: true });
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
  const backendHost = 'playground.ballerina.io';
@@ -42,10 +42,21 @@
  const config = {
      target: 'web',
      entry: {
-         'playground-app': './src/index.js',
+         'playground': './src/index.js',
+         'vendor': [
+            'react',
+            'react-dom',
+            'prop-types',
+            'react-custom-scrollbars',
+            'semantic-ui-react',
+            'classnames',
+            'axios',
+            'react-monaco-editor',
+            'babel-polyfill'
+         ]
      },
      output: {
-         filename: '[name]-[hash].js',
+         filename: '[name].[chunkhash].js',
          path: buildPath,
      },
      module: {
@@ -136,6 +147,10 @@
                 from: 'public'
             },
             {
+                from: 'images',
+                to: 'images'
+            },
+            {
                 from: 'node_modules/monaco-editor/min/vs',
                 to: 'vs'
             },
@@ -154,11 +169,17 @@
             },
          ]),
          new HtmlWebpackPlugin({
-            template: 'src/index.ejs',
-            inject: false,
+            template: 'src/index.ejs'
         }),
         new webpack.DefinePlugin({
             BACKEND_HOST: JSON.stringify(backendHost),
+        }),
+        new webpack.HashedModuleIdsPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+               name: 'manifest'
         })
      ],
      devServer: {

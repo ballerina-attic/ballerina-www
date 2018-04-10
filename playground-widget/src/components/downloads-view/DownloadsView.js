@@ -1,8 +1,6 @@
 import React from 'react';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
-import downloads from './downloads.svg';
 import './DownloadsView.css'
 
 /**
@@ -24,7 +22,7 @@ class DownloadsView extends React.Component {
     render() {
         return (
             <div className='downloads-area'>
-                <img src={downloads} />
+                <img src="images/deployment.svg" />
             </div>
         );
     }
