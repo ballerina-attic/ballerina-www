@@ -1,4 +1,4 @@
-package org.ballerinalang.platform.playground.controller.autoscaler.util;
+package org.ballerinalang.platform.playground.controller.util;
 
 import io.fabric8.kubernetes.api.model.Service;
 import io.fabric8.kubernetes.api.model.ServiceList;

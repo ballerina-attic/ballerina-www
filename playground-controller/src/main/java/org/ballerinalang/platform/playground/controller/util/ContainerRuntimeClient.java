@@ -1,4 +1,4 @@
-package org.ballerinalang.platform.playground.controller.autoscaler.util;
+package org.ballerinalang.platform.playground.controller.util;
 
 import java.util.List;
 
