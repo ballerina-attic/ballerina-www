@@ -1,9 +1,11 @@
 @font-face {
 	font-family: "CalibreWeb-Semibold";
-	src: url(/ballerina-fonts/CalibreWeb-Semibold.woff2) format("woff2"),
-		 url(/ballerina-fonts/CalibreWeb-Semibold.woff) format("woff"),
-		 url(/ballerina-fonts/CalibreWeb-Semibold.eot),
-		 url(/ballerina-fonts/CalibreWeb-Semibold.eot?#iefix) format("embedded-opentype");
+	src: local("CalibreWeb-Semibold"),
+			 url("/ballerina-fonts/CalibreWeb-Semibold.eot");
+	src: local("CalibreWeb-Semibold"),
+			 url("/ballerina-fonts/CalibreWeb-Semibold.eot?#iefix") format("embedded-opentype"),
+			 url("/ballerina-fonts/CalibreWeb-Semibold.woff2") format("woff2"),
+			 url("/ballerina-fonts/CalibreWeb-Semibold.woff") format("woff");
 }
 
 body.cBallerina-io {
@@ -147,9 +149,9 @@ ul.navbar-nav {
 
 .cSerachIcon {
 	margin-top: -3px;
-	min-width: 33.2px;
-    display: inline-block;
-    vertical-align: top;
+	min-width: 34px;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .cHr {
@@ -407,6 +409,19 @@ h2.cMainH2Title {
 	padding-left: 40px;
 }
 
+.nav-search-icon {
+	font-size: 18px;
+	padding-top: 1px;
+	vertical-align: middle;
+}
+
+.cSocialmedia {
+	min-height: 27px;
+	margin-top: 10px;
+	display: block;
+	float: left;
+}
+
 .cSocialmedia ul {
 	padding: 0;
 	margin: 0;
@@ -419,6 +434,12 @@ h2.cMainH2Title {
 	margin-right: 20px;
 	padding-top: 3px;
 	padding-left: 2px;
+}
+
+.cSocialmedia ul li a {
+	font-size: 16px;
+	color: #3ad1ca;
+	display: inline-block;
 }
 
 .cFormContainer {
@@ -439,12 +460,6 @@ h2.cMainH2Title {
 
 #iBallerinaFooter p {
 	line-height: 16px !important;
-}
-
-.cSocialmedia {
-	margin-top: 7px;
-	display: inline-block;
-	float: left;
 }
 
 #subscribeUserButton {
@@ -515,41 +530,48 @@ width: 29px;
     
 }
 /* Syntax */
-textarea.code-holder{display: none}
+textarea.code-holder{ display: none }
+
 .codeNativeBox {
     text-align: left;
     padding: 20px;
     background: #f2f3f4;
-} 
+}
 
-.line-numbers-wrap{
-	background: #caccce;
+.line-numbers-wrap {
+	background: #d4d6d7;
 	width: 30px;
 	text-align: right;
-	padding: 17px 10px 0px 5px;
+	padding: 13px 10px 0px 5px;
 	display: flex;
 	flex-direction: column;
 }
-.line-number{
-	height: 25px;/* height: 18.4px; */
+
+.line-number {
+	height: 16px;/* height: 18.4px; */
 	width: 100%;
 	color: #514e4f;
 	display: block;
 	font-size: 11px;
 	border-bottom: sold 1px #fff;
 }
-.ballerina-pre-wrapper{
+
+.ballerina-pre-wrapper {
 	padding-top: 0;
 	padding-bottom: 0;
 	padding-left: 0;
 	display: flex;
 }
-pre > code.ballerina{
+
+pre > code.ballerina {
 	overflow-y: hidden;
 }
-pre > code.ballerina, pre > code.ballerina span {
-	line-height: 25px;
+
+pre > code.ballerina,
+pre > code.ballerina span {
+	line-height: 16px;
 }
+
 /*MOBILE */
 
 button.navbar-toggle {
@@ -635,20 +657,80 @@ button.navbar-toggle {
 	padding: 0 15px 15px;
 }
 
+/* --- Code syntax highlighting --- */
+
+.highlight code,
+.highlight pre {
+    color: #6A6868;
+    background-color: #F5F6F6;
+}
+
+.hljs-comment,
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .cp {
+    color: #afafaf;
+}
+
+.hljs-keyword,
+.highlight .nt,
+.highlight .nc,
+.highlight .nb,
+.highlight .kd,
+.highlight .kn,
+.highlight .k {
+    color: #28aae1;
+}
+
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-phpdoc,
+.hljs-dartdoc,
+.tex .hljs-formula,
+.highlight .s,
+.highlight .m,
+.highlight .s1,
+.highlight .s2 {
+    color: #005BD1;
+}
+
+.hljs-annotation,
+.highlight .nd {
+    color: #005BD1;
+}
+
+.highlight .p,
+.hljs {
+    color: #6A6868;
+}
+
+.highlight .kc {
+    color: #15a5a5;
+}
+
+.highlight .mi {
+    color: #09885a;
+}
+
+.highlight .kt {
+	color: #3ad1ca;
+}
+
+/* -------------------------------- */
+
 @media screen and (max-width: 990px) {
     .navbar-header {
         width: 200px !important;
     }
-    
-
 }
 
 @media screen and (max-width: 768px) {
     
-    p.navbar-brand {
-        width: 200px;
-        line-height: 17px;
-    }
+  p.navbar-brand {
+    width: 200px;
+    line-height: 17px;
+  }
 	.cBallerina-io-Gray-row {
 		padding-top: 70px;
 	}
@@ -665,7 +747,6 @@ button.navbar-toggle {
 		height: 65px;
 		width: 100%;
 		display: inline-block;
-
 	}
 	ul.navbar-nav {
 		float: right;
@@ -712,9 +793,9 @@ button.navbar-toggle {
 		height: 100px;
 	}
         
-        .cBallerina-io-Home-Left-col {
-            margin-bottom: 50px;
-        }
+  .cBallerina-io-Home-Left-col {
+    margin-bottom: 50px;
+  }
         
 	/* FOOTER */
 	.cBallerina-io-middle-col.cBallerinaFooterSignUp {
