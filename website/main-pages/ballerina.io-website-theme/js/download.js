@@ -35,8 +35,8 @@ $(document).ready(function () {
 
 		var product_dist_path = "https://product-dist.ballerina.io/downloads/" + version_pack + "/";
 
-		$("#versionInfo").html(version + "(" + released_date + ")");
-		$("#stableInfo").html(version + "(" + released_date + ")");
+		$("#versionInfo").html(version + " (" + released_date + ")");
+		$("#stableInfo").html(version + " (" + released_date + ")");
 
 		$("#packWindowsName").html(windows_pack +" ("+windows_pack_size+")");
 		$("#packWindows").attr("href", product_dist_path + windows_pack);
@@ -74,7 +74,7 @@ $(document).ready(function () {
 		//Nightly Packages
 
 		var nightly_pack = {
-				"version": "0.970.0 alpha2",
+				"version": "0.970.0 alpha1",
 				"release-date": "Apr 03, 2018",
 				"windows-installer": "ballerina-platform-windows-installer-64x-0.970.0.msi",
 				"windows-installer-size": "82mb",
@@ -99,7 +99,7 @@ $(document).ready(function () {
 		var version_pack = version.replace(/ /g, "-").toLowerCase();
 		var released_date = nightly_pack['release-date'];
 
-		$("#nightlyInfo").html(version + "(" + released_date + ")");
+		$("#nightlyInfo").html(version + " (" + released_date + ")");
 		var i = 0;
 		$.each(nightly_pack['other-artefacts'], function (key, value) {
 
