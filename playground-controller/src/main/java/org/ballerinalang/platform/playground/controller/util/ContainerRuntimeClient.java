@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ContainerRuntimeClient {
 
-    public void createDeployment();
+    public void createDeployment(String deploymentName);
 
     public void createService();
 
