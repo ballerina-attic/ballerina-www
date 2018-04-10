@@ -56,85 +56,21 @@
             <div class="cStandaloneInstallers">
                 <h2>Installation Packages</h2>
                 <div class="cInstallers">
-                    <h3>Stable 0.964.0 (Mar 6, 2018)</h3>
+                    <h3>Stable <span id="stableInfo"></span></h3>
                     <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
-                        <table id="insPackages0">                          
-                        </table>
+                        <table id="insPackages0"></table>
                     </div>
                     <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cRightTable">
-                        <table id="insPackages1">
-                        </table>
+                        <table id="insPackages1"></table>
                     </div>
                     <div class="clearfix"></div>
 					<br>
-					<h3>Nightly 0.965.0 (April 7, 2018)</h3>
+					<h3>Nightly <span id="nightlyInfo"></span></h3>
 					<div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
-                        <table>
-                            <tr>
-                                <td style="width: 65%"><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
-                                <td style="width: 14%"><a href="#">md5</a></td>
-                                <td style="width: 15%"><a href="#">SHA-1</a></td>
-                                <td style="width: 6%"><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                        </table>
+                        <table id="nightlyPackages0"></table>
                     </div>
 					<div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cRightTable">
-                        <table>
-                            <tr>
-                                <td style="width: 65%"><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
-                                <td style="width: 14%"><a href="#">md5</a></td>
-                                <td style="width: 15%"><a href="#">SHA-1</a></td>
-                                <td style="width: 6%"><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                        </table>
+                        <table id="nightlyPackages1"></table>
                     </div>
 					<div class="clearfix"></div>
                 </div>
