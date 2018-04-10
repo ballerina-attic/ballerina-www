@@ -2,6 +2,8 @@ package org.ballerinalang.platform.playground.controller.autoscaler.util;
 
 import io.fabric8.kubernetes.api.model.Service;
 import io.fabric8.kubernetes.api.model.ServiceList;
+import io.fabric8.kubernetes.api.model.extensions.Deployment;
+import io.fabric8.kubernetes.api.model.extensions.DeploymentList;
 import io.fabric8.kubernetes.client.DefaultKubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClient;
 
@@ -37,8 +39,14 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     }
 
     @Override
-    public void getDeployments(String namespace) {
+    public List<String> getDeployments(String namespace) {
+        DeploymentList depList = k8sClient.extensions().deployments().inNamespace(namespace).list();
+        List<String> depNameList = new ArrayList<>();
+        for (Deployment deployment : depList.getItems()) {
+            depNameList.add(deployment.getMetadata().getName());
+        }
 
+        return depNameList;
     }
 
     @Override
