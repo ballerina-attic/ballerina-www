@@ -142,3 +142,25 @@ function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);
 }
+/*
+Following script is adding line numbers to the ballerina code blocks in the gneerated documentation
+*/
+$(document).ready(function(){
+    $('pre > code.ballerina').each(function(){
+        //cont the number of rows
+        //Remove the new line from the end of the text
+        var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+        var lines = '<div class="line-numbers-wrap">';
+
+        //Iterate all the lines and create div elements with line number
+        for(var i=1; i <= numberOfLines; i++){
+            lines = lines + '<div class="line-number">'+i+'</div>';
+        }
+        lines = lines + '</div>';
+        //calculate <pre> height and set it to the container
+        var preHeight = numberOfLines*25;
+        $(this).parent().height(preHeight).addClass('ballerina-pre-wrapper').prepend(
+            $(lines)
+        )
+    })
+})

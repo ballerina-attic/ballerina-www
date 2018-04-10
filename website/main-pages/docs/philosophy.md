@@ -35,8 +35,6 @@
                <p> Our team has worked on thousands of integration projects over two decades. We’ve seen and used almost every integration technique out there. They always end up on one side or the other of the integration gap.
                </p>
                <p>Integration can either be done with integration products that simplify integration but are not agile, or with general purpose programming languages that are agile, but not integration simple.</p>
-             <p>
-<p>Integration can either be done with integration products which simplify integration but are not agile, or with general purpose programming languages that are agile, but not integration simple.</p>
  </div>
          </div>
       </div>
