@@ -17,7 +17,6 @@ package org.ballerinalang.platform.playground.api.core;
 
 import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.ballerinalang.platform.playground.api.core.interceptor.ConsoleMessageInterceptor;
 import org.ballerinalang.platform.playground.api.core.phase.BuildPhase;
@@ -31,11 +30,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.websocket.Session;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -44,9 +40,9 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.StringJoiner;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -56,9 +52,7 @@ import java.util.regex.Pattern;
  */
 public class RunSession {
 
-    private final Map<String, List<String>> outputCacheStore;
-
-    private final Map<String, Path> buildCache;
+    public static final String OUTPUT_DELIMITTER= "---OUTPUT----";
 
     private final Session transportSession;
 
@@ -92,12 +86,12 @@ public class RunSession {
 
     private TryItPhase tryItPhase;
 
-    public RunSession(Session transportSession, Map<String, Path> buildCache,
-                      Map<String, List<String>> outputCacheStore) {
-        this.outputCacheStore = outputCacheStore;
-        this.buildCache = buildCache;
+    private CacheStorage cacheStorage;
+
+    public RunSession(Session transportSession) {
         this.transportSession = transportSession;
-        this.consoleMessageInterceptors = new ArrayList<>();
+        consoleMessageInterceptors = new ArrayList<>();
+        cacheStorage = new CacheStorage();
     }
 
     public void run(RunCommand runCommand) {
@@ -186,8 +180,8 @@ public class RunSession {
                                     tryItPhase.execute(this, () -> {
                                         terminate();
                                         if (!useOutputCache()) {
-                                            getOutputCacheStore().put(getOutputCacheId(),
-                                                    Arrays.asList(getOutputCache().toArray(new String[0])));
+                                            StringJoiner outputJoiner = new StringJoiner(OUTPUT_DELIMITTER);
+                                            getCacheStorage().set(getOutputCacheId(), outputJoiner.toString());
                                         }
                                     });
                                 });
@@ -212,8 +206,9 @@ public class RunSession {
                             tryItPhase.execute(this, () -> {
                                 terminate();
                                 if (!useOutputCache()) {
-                                    getOutputCacheStore().put(getOutputCacheId(),
-                                            Arrays.asList(getOutputCache().toArray(new String[0])));
+                                    StringJoiner outputJoiner = new StringJoiner(OUTPUT_DELIMITTER);
+                                    getOutputCache().forEach(outputJoiner::add);
+                                    getCacheStorage().set(getOutputCacheId(), outputJoiner.toString());
                                 }
                             });
                         });
@@ -230,16 +225,16 @@ public class RunSession {
     }
 
     public boolean useBuildCache() {
-       return getBuildCache().containsKey(getSourceMD5())
-                && getBuildCache().get(getSourceMD5()).toFile().exists();
+       return getCacheStorage().contains(getSourceMD5())
+                && Paths.get(getCacheStorage().get(getSourceMD5())).toFile().exists();
     }
 
     public boolean useOutputCache() {
-        return getOutputCacheStore().containsKey(getOutputCacheId());
+        return getCacheStorage().contains(getOutputCacheId());
     }
 
     public List<String> getCachedOutput() {
-        return getOutputCacheStore().get(getOutputCacheId());
+        return Arrays.asList(getCacheStorage().get(getOutputCacheId()).split(OUTPUT_DELIMITTER));
     }
 
     public ConcurrentLinkedQueue<String> getOutputCache() {
@@ -247,7 +242,7 @@ public class RunSession {
     }
 
     public Path getBuildFileFromCache() {
-        return getBuildCache().get(getSourceMD5());
+        return Paths.get(getCacheStorage().get(getSourceMD5()));
     }
 
     public void processCommand(Command command) {
@@ -358,12 +353,8 @@ public class RunSession {
         return finalMessage;
     }
 
-    public Map<String, Path> getBuildCache() {
-        return buildCache;
-    }
-
-    public Map<String, List<String>> getOutputCacheStore() {
-        return outputCacheStore;
+    public CacheStorage getCacheStorage() {
+        return cacheStorage;
     }
 
     public void terminate() {

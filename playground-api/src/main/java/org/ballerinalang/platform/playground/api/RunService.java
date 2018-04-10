@@ -22,6 +22,9 @@ import org.ballerinalang.platform.playground.api.dto.Command;
 import org.ballerinalang.platform.playground.api.dto.CommandAdaptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 
 import javax.websocket.CloseReason;
 import javax.websocket.OnClose;
@@ -43,8 +46,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class RunService {
 
     private Map<String, RunSession> runSessionMap = new HashMap<String, RunSession>();
-    private Map<String, Path> buildCache = new HashMap<>();
-    private Map<String, List<String>> curlCache = new HashMap<>();
 
     private static final Logger logger = LoggerFactory.getLogger(RunService.class);
 
@@ -58,7 +59,7 @@ public class RunService {
 
     @OnOpen
     public void onOpen (Session session) {
-        runSessionMap.put(session.getId(), new RunSession(session, buildCache, curlCache));
+        runSessionMap.put(session.getId(), new RunSession(session));
     }
 
     @OnMessage
