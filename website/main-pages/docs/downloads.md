@@ -1,32 +1,27 @@
 <link rel="stylesheet" href="/css/download-page.css"></link>
+<script src="/js/download.js"></script>
 <div class="row cBallerina-io-Gray-row">
     <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cDownloadsHeader">
-              <h1>Downloads</h1>
-              <p>
-  				After download a release for your system, please follow the <a href="#">installation instructions</a>. If you are building from source, follow the <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source">build instructions</a>.
-              </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cDownloadsHeader">       
-              <div class="cFeaturedVersion">
-                  <h2>Current version: 0.964.0 (Mar 6, 2018)</h2>
-              </div>
-          </div>
+        <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cDownloadsHeader">
+            <h1>Downloads</h1>
+            <p>
+				After download a release for your system, please follow the <a href="#">installation instructions</a>. If you are building from source, follow the <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source">build instructions</a>.
+            </p>         
+            <div class="cFeaturedVersion">
+                <h2>Current version: <span id="versionInfo">0.970.0 (Mar 6, 2018)</span></h2>
+            </div>
         </div>
         <div class="clearfix"></div>
 		<div class="row cDownloads">
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadLeft">
-				<a id="packWindows" href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi" class="cDownload">
+				<a id="packWindows" href="#" class="cDownload">
 					<div>Windows</div>
 					<div id="packWindowsName" class="cSize">ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi (82mb)</div>
 				</a>
 				<ul class="cDiwnloadSubLinks">
-					<li><a id="packWindowsMd5" href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi.md5">md5</a></li>
-					<li><a id="packWindowsSha1" href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi.sha1">SHA-1</a></li>
-					<li><a id="packWindowsAsc" href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-windows-x64.msi.asc">asc</a></li>
+					<li><a id="packWindowsMd5" href="#">md5</a></li>
+					<li><a id="packWindowsSha1" href="#">SHA-1</a></li>
+					<li><a id="packWindowsAsc" href="#">asc</a></li>
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
@@ -41,23 +36,20 @@
 				</ul>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
-				<a id="packMac" href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg" class="cDownload">
+				<a id="packMac" href="#" class="cDownload">
 					<div>MacOS</div>
 					<div id="packMacName" class="cSize">ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg (98.2mb)</div>
 				</a>
 				<ul class="cDiwnloadSubLinks">
-					<li><a id="packMacMd5" href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg.md5">md5</a></li>
-					<li><a id="packMacSha1" href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg.sha1">SHA-1</a></li>
-					<li><a id="packMacAsc" href="https://product-dist.ballerina.io/downloads/0.970.0/ballerina-0.970.0-alpha1-SNAPSHOT-macosx-x64.pkg.asc">asc</a></li>
+					<li><a id="packMacMd5" href="#">md5</a></li>
+					<li><a id="packMacSha1" href="#">SHA-1</a></li>
+					<li><a id="packMacAsc" href="#">asc</a></li>
 				</ul>
 			</div>
 		</div>
         <div class="col-xs-12 col-sm-16 col-md-12 col-lg-12">
             <div class="cReleaseNotes">
                 <p><a href="/downloads/release-notes">RELEASE NOTES ></a></p>
-            </div>
-            <div class="cReleaseNotes">
-                <p><a href="/downloads/archived">ARCHIVED VERSIONS ></a></p>
             </div>
         </div>
         <div class="col-xs-12 col-sm-16 col-md-12 col-lg-12">
@@ -66,71 +58,11 @@
                 <div class="cInstallers">
                     <h3>Stable 0.964.0 (Mar 6, 2018)</h3>
                     <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
-                        <table>
-                            <tr>
-                                <td style="width: 65%"><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
-                                <td style="width: 14%"><a href="#">md5</a></td>
-                                <td style="width: 15%"><a href="#">SHA-1</a></td>
-                                <td style="width: 6%"><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
+                        <table id="insPackages0">                          
                         </table>
                     </div>
                     <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cRightTable">
-                        <table>
-                            <tr>
-                                <td style="width: 65%"><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
-                                <td style="width: 14%"><a href="#">md5</a></td>
-                                <td style="width: 15%"><a href="#">SHA-1</a></td>
-                                <td style="width: 6%"><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
-                                <td><a href="#">md5</a></td>
-                                <td><a href="#">SHA-1</a></td>
-                                <td><a href="#">asc</a></td>
-                            </tr>
+                        <table id="insPackages1">
                         </table>
                     </div>
                     <div class="clearfix"></div>
@@ -139,31 +71,31 @@
 					<div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
                         <table>
                             <tr>
-                                <td style="width: 65%"><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
+                                <td style="width: 65%"><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
                                 <td style="width: 14%"><a href="#">md5</a></td>
                                 <td style="width: 15%"><a href="#">SHA-1</a></td>
                                 <td style="width: 6%"><a href="#">asc</a></td>
                             </tr>
                             <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
+                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
                                 <td><a href="#">md5</a></td>
                                 <td><a href="#">SHA-1</a></td>
                                 <td><a href="#">asc</a></td>
                             </tr>
                             <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
+                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
                                 <td><a href="#">md5</a></td>
                                 <td><a href="#">SHA-1</a></td>
                                 <td><a href="#">asc</a></td>
                             </tr>
                             <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
+                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
                                 <td><a href="#">md5</a></td>
                                 <td><a href="#">SHA-1</a></td>
                                 <td><a href="#">asc</a></td>
                             </tr>
                             <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
+                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
                                 <td><a href="#">md5</a></td>
                                 <td><a href="#">SHA-1</a></td>
                                 <td><a href="#">asc</a></td>
@@ -173,31 +105,31 @@
 					<div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cRightTable">
                         <table>
                             <tr>
-                                <td style="width: 65%"><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
+                                <td style="width: 65%"><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
                                 <td style="width: 14%"><a href="#">md5</a></td>
                                 <td style="width: 15%"><a href="#">SHA-1</a></td>
                                 <td style="width: 6%"><a href="#">asc</a></td>
                             </tr>
                             <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
+                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
                                 <td><a href="#">md5</a></td>
                                 <td><a href="#">SHA-1</a></td>
                                 <td><a href="#">asc</a></td>
                             </tr>
                             <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
+                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
                                 <td><a href="#">md5</a></td>
                                 <td><a href="#">SHA-1</a></td>
                                 <td><a href="#">asc</a></td>
                             </tr>
                             <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
+                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
                                 <td><a href="#">md5</a></td>
                                 <td><a href="#">SHA-1</a></td>
                                 <td><a href="#">asc</a></td>
                             </tr>
                             <tr>
-                                <td><a href="#">aarch64-unknown-linux-gnu.tar.gz</a></td>
+                                <td><a href="#" class="cLinkBlack">aarch64-unknown-linux-gnu.tar.gz .asc</a></td>
                                 <td><a href="#">md5</a></td>
                                 <td><a href="#">SHA-1</a></td>
                                 <td><a href="#">asc</a></td>
@@ -207,6 +139,9 @@
 					<div class="clearfix"></div>
                 </div>
             </div>            
+        </div>
+        <div class="col-xs-12 col-sm-16 col-md-12 col-lg-12 cArchived">
+			<a href="/downloads/archived" class="btn btn-link">Archived Versions</a>
         </div>
     </div>
 </div>
