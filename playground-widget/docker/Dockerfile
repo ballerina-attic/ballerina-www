@@ -15,9 +15,13 @@
 # -----------------------------------------------------------------------
 FROM openjdk:jre-alpine
 
+ENV ENABLE_DEBUG false
+ENV DEBUG_PORT 5005
+
 RUN apk update && apk add bash && apk add curl
 
 COPY ballerina-tools.zip /root/
+
 RUN mkdir /ballerina \
     && unzip /root/ballerina-tools.zip -d /ballerina/ \
     && mv /ballerina/ballerina* /ballerina/runtime \

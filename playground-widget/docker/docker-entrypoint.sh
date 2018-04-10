@@ -12,4 +12,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-exec java -jar -Dballerina.home=/ballerina/runtime -Dtransports.netty.conf=/api/netty-transports.yml /api/playground-api.jar
+JVM_ARGS=""
+if [ "$ENABLE_DEBUG" == "true" ]; then
+    JVM_ARGS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=$DEBUG_PORT"
+fi
+
+exec java $JVM_ARGS -jar -Dballerina.home=/ballerina/runtime -Dtransports.netty.conf=/api/netty-transports.yml /api/playground-api.jar
