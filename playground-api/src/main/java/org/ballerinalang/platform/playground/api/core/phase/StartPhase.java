@@ -83,7 +83,7 @@ public class StartPhase implements Phase {
                     if (line.startsWith("ballerina: initiating service(s) in")
                             || line.startsWith("ballerina: deploying service(s) in")) {
                         continue;
-                    } else if (line.startsWith("ballerina: started HTTP/WS server connector")) {
+                    } else if (line.startsWith("ballerina: started HTTP/WS endpoint")) {
                         updateHostAndPort(runSession, line);
                         String serviceURL = "http://playground.localhost/";
                         runSession.pushMessageToClient(Constants.DATA_MSG, Constants.OUTPUT,
@@ -151,7 +151,7 @@ public class StartPhase implements Phase {
      */
     private void updateHostAndPort(RunSession runSession, String line) {
         String hostPort = StringUtils.substringAfterLast(line,
-                "ballerina: started HTTP/WS server connector").trim();
+                "ballerina: started HTTP/WS endpoint").trim();
         String host = StringUtils.substringBeforeLast(hostPort, ":");
         String port = StringUtils.substringAfterLast(hostPort, ":");
         if (StringUtils.isNotBlank(host)) {
