@@ -4,17 +4,17 @@ package org.ballerinalang.platform.playground.controller.autoscaler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-class ReplicationController {
+class LauncherReplicationController {
 
-    private static final Logger log = LoggerFactory.getLogger(ReplicationController.class);
+    private static final Logger log = LoggerFactory.getLogger(LauncherReplicationController.class);
 
     // control flags to be set using environment variables
-    private static int minCount = ReplicationController.getEnvIntValue("BPG_AS_MIN");
-    private static int maxCount = ReplicationController.getEnvIntValue("BPG_AS_MAX");
-    private static int stepUp = ReplicationController.getEnvIntValue("BPG_AS_STEP_UP");
-    private static int stepDown = ReplicationController.getEnvIntValue("BPG_AS_STEP_DOWN");
-    private static int limitGap = ReplicationController.getEnvIntValue("BPG_AS_LIMIT_GAP");
-    private static int idleTimeoutSeconds = ReplicationController.getEnvIntValue("BPG_AS_IDLE_TIMEOUT");
+    private static int minCount = LauncherReplicationController.getEnvIntValue("BPG_AS_MIN");
+    private static int maxCount = LauncherReplicationController.getEnvIntValue("BPG_AS_MAX");
+    private static int stepUp = LauncherReplicationController.getEnvIntValue("BPG_AS_STEP_UP");
+    private static int stepDown = LauncherReplicationController.getEnvIntValue("BPG_AS_STEP_DOWN");
+    private static int limitGap = LauncherReplicationController.getEnvIntValue("BPG_AS_LIMIT_GAP");
+    private static int idleTimeoutSeconds = LauncherReplicationController.getEnvIntValue("BPG_AS_IDLE_TIMEOUT");
 
     static void doScaling(int totalCount, int freeCount) {
         int busyCount = totalCount - freeCount;
@@ -33,8 +33,6 @@ class ReplicationController {
             log.debug("Scaling down as [Total Count] " + totalCount + " is larger than the specified [Max Count] " + maxCount);
             scaleDown();
         }
-
-
     }
 
     private static void scaleDown() {
