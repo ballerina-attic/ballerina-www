@@ -22,7 +22,9 @@ import redis.clients.jedis.Jedis;
  */
 public class CacheStorage {
 
-    private static final int REDIS_DEFAULT_PORT = 6379;
+    private static final String REDIS_WRITE_PORT = "BPG_REDIS_WRITE_PORT";
+
+    private static final String REDIS_READ_PORT = "BPG_REDIS_READ_PORT";
 
     private static final String REDIS_WRITE_HOST = "BPG_REDIS_WRITE_HOST";
 
@@ -33,13 +35,12 @@ public class CacheStorage {
     private Jedis slave;
 
     public CacheStorage() {
-        master = new Jedis(System.getenv(REDIS_WRITE_HOST));
-//        slave = new Jedis(System.getenv(REDIS_READ_HOST));
-//        slave.slaveof(REDIS_WRITE_HOST, REDIS_DEFAULT_PORT);
+        master = new Jedis(System.getenv(REDIS_WRITE_HOST), Integer.parseInt(System.getenv(REDIS_WRITE_PORT)));
+        slave = new Jedis(System.getenv(REDIS_READ_HOST), Integer.parseInt(System.getenv(REDIS_READ_PORT)));
     }
 
     public synchronized String get(String key) {
-        return master.get(key);
+        return slave.get(key);
     }
 
     public synchronized boolean contains(String key) {
