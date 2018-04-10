@@ -4,15 +4,15 @@ import java.util.List;
 
 public interface ContainerRuntimeClient {
 
-    public void createDeployment(String namespace);
+    public void createDeployment();
 
-    public void createService(String namespace);
+    public void createService();
 
-    public void deleteDeployment(String namespace, String deploymentName);
+    public void deleteDeployment(String deploymentName);
 
-    public void deleteService(String namespace, String serviceName);
+    public void deleteService(String serviceName);
 
-    public List<String> getDeployments(String namespace);
+    public List<String> getDeployments();
 
-    public List<String> getServices(String namespace);
+    public List<String> getServices();
 }

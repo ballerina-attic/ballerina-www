@@ -1,8 +1,8 @@
 package org.ballerinalang.platform.playground.controller;
 
 import org.ballerinalang.platform.playground.controller.jobs.IdleLauncherCheckJob;
-import org.ballerinalang.platform.playground.controller.scaling.LauncherAutoscaler;
 import org.ballerinalang.platform.playground.controller.jobs.MinCheckJob;
+import org.ballerinalang.platform.playground.controller.scaling.LauncherAutoscaler;
 import org.ballerinalang.platform.playground.controller.util.ContainerRuntimeClient;
 import org.ballerinalang.platform.playground.controller.util.KubernetesClientImpl;
 import org.slf4j.Logger;
@@ -18,6 +18,8 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
+        String bpgNamespace = getEnvStringValue("BPG_NAMESPACE");
+
         // control flags to be set using environment variables
         int minCount = getEnvIntValue("BPG_SCALING_MIN");
         int maxCount = getEnvIntValue("BPG_SCALING_MAX");
@@ -33,7 +35,10 @@ public class Main {
         int minCheckPeriod = 10;
 
 
-        ContainerRuntimeClient runtimeClient = new KubernetesClientImpl();
+        // Create a k8s client to interact with the k8s API. The client is per namespace
+        ContainerRuntimeClient runtimeClient = new KubernetesClientImpl(bpgNamespace);
+
+        // Create a scaler instance to scale in/out launcher instances
         LauncherAutoscaler autoscaler = new LauncherAutoscaler(runtimeClient, stepUp, stepDown);
 
         // Schedule a periodic job to check for min count and scale up if needed
@@ -59,23 +64,27 @@ public class Main {
         microservicesRunner.start();
     }
 
+    private static String getEnvStringValue(String key) {
+        if (key != null) {
+            return System.getenv(key);
+        } else {
+            log.debug("Null key queried for environment variable");
+            return null;
+        }
+    }
+
 
     private static int getEnvIntValue(String key) {
-        if (key != null) {
-            String rawValue = System.getenv(key);
-            if (rawValue != null) {
-                try {
-                    return Integer.parseInt(rawValue);
-                } catch (NumberFormatException e) {
-                    log.warn("Couldn't parse value set for environment variable " + key);
-                    return 0;
-                }
-            } else {
-                log.warn("No value found for environment variable " + key);
+        String rawValue = getEnvStringValue(key);
+        if (rawValue != null) {
+            try {
+                return Integer.parseInt(rawValue);
+            } catch (NumberFormatException e) {
+                log.warn("Couldn't parse value set for environment variable " + key);
                 return 0;
             }
         } else {
-            log.debug("Null key queried for environment variables");
+            log.warn("No value found for environment variable " + key);
             return 0;
         }
     }

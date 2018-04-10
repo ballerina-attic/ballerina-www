@@ -18,13 +18,11 @@ public class MinCheckJob implements Runnable {
 
     @Override
     public void run() {
-        while (getTotalCount() < minCount) {
-            log.debug("Scaling up as [Total Count] " + " is lower than the specified [Min Count] " + minCount);
+        int totalLauncherCount = autoscaler.getTotalLauncherCount();
+        while (totalLauncherCount < minCount) {
+            totalLauncherCount = autoscaler.getTotalLauncherCount();
+            log.info("Scaling UP: REASON -> [Total Count] " + totalLauncherCount + " < [Min Count] " + minCount);
             autoscaler.scaleUp();
         }
-    }
-
-    private int getTotalCount() {
-        return 0;
     }
 }

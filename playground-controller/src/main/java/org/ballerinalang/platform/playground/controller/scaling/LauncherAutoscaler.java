@@ -11,10 +11,12 @@ public class LauncherAutoscaler {
 
     private int stepUp;
     private int stepDown;
+    private ContainerRuntimeClient runtimeClient;
 
     public LauncherAutoscaler(ContainerRuntimeClient runtimeClient, int stepUp, int stepDown) {
-        stepDown = stepDown;
-        stepUp = stepUp;
+        this.stepDown = stepDown;
+        this.stepUp = stepUp;
+        this.runtimeClient = runtimeClient;
     }
 
     public static void doScaling(int totalCount, int freeCount) {
@@ -38,6 +40,11 @@ public class LauncherAutoscaler {
 
     public void scaleUp() {
         // TODO: scale up by 1xscaleUp at a time
+        runtimeClient.createDeployment();
+        runtimeClient.createService();
     }
 
+    public int getTotalLauncherCount() {
+        return this.runtimeClient.getDeployments().size();
+    }
 }
