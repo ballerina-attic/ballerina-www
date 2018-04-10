@@ -159,8 +159,12 @@ $(document).ready(function(){
         lines = lines + '</div>';
         //calculate <pre> height and set it to the container
         var preHeight = numberOfLines*25;
-        $(this).parent().height(preHeight).addClass('ballerina-pre-wrapper').prepend(
-            $(lines)
-        )
+        $(this).parent()
+            .height(preHeight)
+            .addClass('ballerina-pre-wrapper')
+            .prepend(
+                ($(this).parent().length > 0) ? $('.line-number', $(this).parent()).remove() : return;
+                $(lines);
+            );
     })
 })
