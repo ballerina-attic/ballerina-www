@@ -136,6 +136,10 @@
                 from: 'public'
             },
             {
+                from: 'images',
+                to: 'images'
+            },
+            {
                 from: 'node_modules/monaco-editor/min/vs',
                 to: 'vs'
             },
