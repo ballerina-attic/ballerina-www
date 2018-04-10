@@ -6,6 +6,7 @@ import os
 import io
 import json
 import sys
+import re
 
 # The top argument for name in files
 if len(sys.argv) > 1:
@@ -58,10 +59,13 @@ for dirpath, dirnames, files in os.walk(topdir):
             #get title of the page
             title = soup.title
 
+
             if title is not None:
+                title = str(title.get_text())
+                title = title.replace("\"","")
                 data1 = data1+ "{\"location\":\"/"+str(os.path.relpath(location))+"\""
-                data1 = data1+",\"text\":\""+str(title.get_text())+"\""
-                data1 = data1+ ", \"title\":\"" + str(title.get_text())+"\"},"
+                data1 = data1+",\"text\":\""+title+"\""
+                data1 = data1+ ", \"title\":\"" + title+"\"},"
 
 data1 = data1[:-1]
 data1 = data1+"  ]}";
