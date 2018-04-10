@@ -437,7 +437,7 @@ Hello World!
       <div class="col-xs-12 cPhilosophyWhite cCloudNative ">
         <h2 class="cMainH2Title">Integration Framework </h2>
         <div class="col-xs-12 cInnerPageContentCol ">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit. </p>
+            <p>Ballerina is a language designed to be integration simple. Based around the interactions of sequence diagrams, Ballerina has built-in support for common integration patterns and connectors, including distributed transactions, compensation and circuit breakers. With first-class support for JSON and XML, Ballerina makes it simple and effective to build robust integration across network endpoints.</p>
         </div>
       </div>
       <div class="col-xs-12 cCloudNative paddingRemove">
@@ -548,43 +548,39 @@ Hello World!
       </div>
       <div class="col-xs-12 cPhilosophyWhite cCloudNative">
             <div class="cOpenSourceContainer">
-               <table class="OpenSourceTable">
-                  <tr>
-                     <td class="cType">Ballerina</td>
-                     <td>A programming language and service runtime for orchestration and composition of endpoints</td>
-                     <td class="cGitLink"><a href="https://github.com/ballerina-platform/ballerina-lang" target="_blank"></a></td>
-                  </tr>
-                  <tr>
-                     <td>Ballerina.io</td>
-                     <td>The home of the Ballerina Platform</td>
-                     <td class="cGitLink"><a href="https://github.com/ballerina-platform/ballerina-www" target="_blank"></a></td>
-                  </tr>
-                  <tr>
-                     <td>Ballerina for Java</td>
-                     <td>A microservice framework to expose legacy Java as Ballerina-ready services</td>
-                     <td class="cGitLink"><a href="" target="_blank"></a></td>
-                  </tr>
-                  <tr>
-                     <td>Ballerina Bridge</td>
-                     <td>A container that attaches transactions and resilience to running services</td>
-                     <td class="cGitLink"><a href="https://github.com/ballerina-platform/ballerina-bridge" target="_blank"></a></td>
-                  </tr>
-                  <tr>
-                     <td>Ballerina API Gateway</td>
-                     <td>enforce security and runtime policies</td>
-                     <td class="cGitLink"><a href="" target="_blank"></a></td>
-                  </tr>
-                  <tr>
-                     <td>Ballerina Message Broker</td>
-                     <td>Scalable broker for persistent and asynchronous messaging</td>
-                     <td class="cGitLink" ><a href="https://github.com/ballerina-platform/ballerina-message-broker" target="_blank"></a></td>
-                  </tr>
-                  <tr>
-                     <td>Ballerina Transaction Coordinator</td>
-                     <td>Manage distributed transactions for microservices</td>
-                     <td class="cGitLink"><a href="" target="_blank"></a></td>
-                  </tr>
-               </table>
+                <div class="col-xs-12 col-md-6">
+                    <table class="OpenSourceTable">
+                        <tr>
+                            <td class="cType">Ballerina</td>
+                            <td>A programming language and service runtime for orchestration and composition of endpoints</td>
+                            <td class="cGitLink"><a href="https://github.com/ballerina-platform/ballerina-lang" target="_blank"></a></td>
+                        </tr>
+                        <tr>
+                            <td>Ballerina.io</td>
+                            <td>The home of the Ballerina Platform</td>
+                            <td class="cGitLink"><a href="https://github.com/ballerina-platform/ballerina-www" target="_blank"></a></td>
+                        </tr>
+                        <tr>
+                            <td>Ballerina Bridge</td>
+                            <td>A container that attaches transactions and resilience to running services</td>
+                            <td class="cGitLink"><a href="https://github.com/ballerina-platform/ballerina-bridge" target="_blank"></a></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-xs-12  col-md-6 OpenSourceTableRightWrapper">
+                    <table class="OpenSourceTable">
+                        <tr>
+                            <td>Ballerina API Gateway</td>
+                            <td>enforce security and runtime policies</td>
+                            <td class="cGitLink"><a href="" target="_blank"></a></td>
+                        </tr>
+                        <tr>
+                            <td>Ballerina Message Broker</td>
+                            <td>Scalable broker for persistent and asynchronous messaging</td>
+                            <td class="cGitLink" ><a href="https://github.com/ballerina-platform/ballerina-message-broker" target="_blank"></a></td>
+                        </tr>
+                    </table>
+               </div>
             </div>
          <div class="clearfix"></div>
       </div>
