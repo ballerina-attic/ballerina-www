@@ -163,8 +163,7 @@ $(document).ready(function(){
             .height(preHeight)
             .addClass('ballerina-pre-wrapper')
             .prepend(
-                ($(this).parent().length > 0) ? $('.line-number', $(this).parent()).remove() : return;
-                $(lines);
+                $(lines)
             );
     })
 })
