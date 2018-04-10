@@ -422,7 +422,7 @@ h2.cMainH2Title {
 }
 
 .cFormContainer {
-	width: 100%;
+	width: 80%;
 }
 
 #emailUser {
@@ -448,33 +448,58 @@ h2.cMainH2Title {
 }
 
 #subscribeUserButton {
-	font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
-	text-transform: uppercase;
-	font-weight: 400;
-	letter-spacing: 1px;
-	padding: 0px 16px;
-	background-color: #ffffff;
-	border: 1px solid #e6e9ea;
-	font-size: 14px;
-	line-height: 29px;
-	height: 29px;
-	color: #3ad1ca;
-	font-weight: 800;
-	display: inline-block;
-	letter-spacing: 3px;
+	ont-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
+
+text-transform: uppercase;
+
+font-weight: 400;
+
+letter-spacing: 1px;
+
+
+
+background-color: #3ad1ca;
+
+border: 1px solid #e6e9ea;
+
+font-size: 14px;
+
+line-height: 29px;
+
+height: 29px;
+
+color: #3ad1ca;
+
+font-weight: 800;
+
+display: inline-block;
+
+letter-spacing: 3px;
+
+background-image: url("/img/submit-button-icon.svg");
+
+background-size: 57%;
+
+background-repeat: no-repeat;
+
+background-position: center;
+
+width: 29px;
+    
 }
 
 .cFieldContainer {
 	display: inline-block;
 	float: left;
-	width: 100%;
+	width: 80%;
 }
 
 .cButtonContainer {
 	display: inline-block;
 	float: left;
 	margin-left: 0;
-	margin-top: 5px;
+	margin-top: 0px;
+        width: 20%;
 
 }
 
@@ -487,6 +512,7 @@ h2.cMainH2Title {
     display: inline-block;
     width: 100%;
     padding: 10px 0;
+    
 }
 /* Syntax */
 textarea.code-holder{display: none}
@@ -609,7 +635,20 @@ button.navbar-toggle {
 	padding: 0 15px 15px;
 }
 
+@media screen and (max-width: 990px) {
+    .navbar-header {
+        width: 200px !important;
+    }
+    
+
+}
+
 @media screen and (max-width: 768px) {
+    
+    p.navbar-brand {
+        width: 200px;
+        line-height: 17px;
+    }
 	.cBallerina-io-Gray-row {
 		padding-top: 70px;
 	}
@@ -633,7 +672,7 @@ button.navbar-toggle {
 		margin-right: 0px;
 	}
 	p.navbar-brand {
-		font-size: 10px;
+		font-size: 10px !important;
 		line-height: 11px;
 		margin-top: 10px;
 		float: left;
@@ -672,6 +711,11 @@ button.navbar-toggle {
 		border-top: 10px solid #3ad1ca;
 		height: 100px;
 	}
+        
+        .cBallerina-io-Home-Left-col {
+            margin-bottom: 50px;
+        }
+        
 	/* FOOTER */
 	.cBallerina-io-middle-col.cBallerinaFooterSignUp {
 		padding-left: 15px;
