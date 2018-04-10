@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1 
+apiVersion: apps/v1beta1
 kind: Deployment 
 metadata: 
   name: bpg-controller-dep 
@@ -26,23 +26,55 @@ spec:
         #     cpu: 100m 
         #     memory: 100Mi 
         env:
-        - name: BPG_REDIS_WRITE_HOST
+        -
+          name: BPG_REDIS_WRITE_HOST
           value: "redis-master"
-        - name: BPG_REDIS_WRITE_PORT
-          value: 6379
-        - name: BPG_REDIS_READ_HOST
+        -
+          name: BPG_REDIS_WRITE_PORT
+          value: "6379"
+        -
+          name: BPG_REDIS_READ_HOST
           value: "redis-slave"
-        - name: BPG_REDIS_READ_PORT
-          value: 6379
-        - name: DB_HOST
+        -
+          name: BPG_REDIS_READ_PORT
+          value: "6379"
+        -
+          name: DB_HOST
           value: "mysql-server"
-        - name: DB_PORT
-          value: 3306
-        ports: 
-        - name: http-port 
+        -
+          name: DB_PORT
+          value: "3306"
+        -
+          name: BPG_NAMESPACE
+          value: "ballerina-playground"
+        -
+          name: BPG_LAUNCHER_IMAGE_NAME
+          value: "gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1"
+        -
+          name: BPG_SCALING_MIN
+          value: "3"
+        -
+          name: BPG_SCALING_MAX
+          value: "8"
+        -
+          name: BPG_SCALING_STEP_UP
+          value: "2"
+        -
+          name: BPG_SCALING_STEP_DOWN
+          value: "1"
+        -
+          name: BPG_SCALING_LIMIT_GAP
+          value: "2"
+        -
+          name: BPG_SCALING_IDLE_TIMEOUT_MIN
+          value: "5"
+        ports:
+        -
+          name: http-port
           containerPort: 8080
-        # - name: https-port 
-          # containerPort: 443 
+#        -
+#          name: https-port
+#          containerPort: 443
         readinessProbe: 
           tcpSocket: 
             port: http-port 

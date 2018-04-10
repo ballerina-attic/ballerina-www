@@ -13,7 +13,7 @@ pushd controller > /dev/null 2>&1
     kubectl create clusterrolebinding bpg-controller-sa-edit-binding --clusterrole=edit --serviceaccount=ballerina-playground:bpg-controller-sa 
  
     kubectl create -f controller-service.yaml -n ballerina-playground
-    envsubst < controller-deployment.yaml | kubectl create -n ballerina-playground -f - 
- 
+    envsubst < controller-deployment.yaml | kubectl create -n ballerina-playground -f -
+
     kubectl get pods,svc,rc -n ballerina-playground 
 popd > /dev/null 2>&1 
