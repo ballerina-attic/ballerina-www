@@ -42,15 +42,15 @@ The installer should put the c:\ballerina\<ballerina-directory>\bin directory in
 
 You can install the DEB file using the following command. You need to specify the actual filename and location in the command.
 
-`
+```
 dpkg -i /<ballerina-home>/<ballerina-binary>.deb
-`
+```
 
 You can install the RPM file using the following command. You need to specify the actual filename and location in the command.
 
-`
+```
 rpm -i <ballerina-binary>.rpm
-`
+```
 
 ## Uninstalling Ballerina
 
