@@ -27,30 +27,30 @@ $(document).ready(function () {
 		var version_pack = version.replace(/ /g, "-").toLowerCase();
 		var released_date = latest_pack['release-date'];
 		var windows_pack = "ballerina-" + version_pack + "-windows-x64.msi";
-		var windows_pack_size = "";
+		var windows_pack_size = latest_pack['windows-installer-size'];
 		var linux_pack = "ballerina-" + version_pack + "-linux-x64.deb";
-		var linux_pack_size = "";
+		var linux_pack_size = latest_pack['linux-installer-size'];
 		var macos_pack = "ballerina-" + version_pack + "-macos-x64.pkg";
-		var macos_pack_size = "";
+		var macos_pack_size = latest_pack['macos-installer-size'];
 
 		var product_dist_path = "https://product-dist.ballerina.io/downloads/" + version_pack + "/";
 
 		$("#versionInfo").html(version + "(" + released_date + ")");
 		$("#stableInfo").html(version + "(" + released_date + ")");
 
-		$("#packWindowsName").html(windows_pack +" ("+windows-installer-size+")");
+		$("#packWindowsName").html(windows_pack +" ("+windows_pack_size+")");
 		$("#packWindows").attr("href", product_dist_path + windows_pack);
 		$("#packWindowsMd5").attr("href", product_dist_path + windows_pack + ".md5");
 		$("#packWindowsSha1").attr("href", product_dist_path + windows_pack + ".sha1");
 		$("#packWindowsAsc").attr("href", product_dist_path + windows_pack + ".asc");
 
-		$("#packLinuxName").html(linux_pack +" ("+linux-installer-size+")");
+		$("#packLinuxName").html(linux_pack +" ("+linux_pack_size+")");
 		$("#packLinux").attr("href", product_dist_path + linux_pack);
 		$("#packLinuxMd5").attr("href", product_dist_path + linux_pack + ".md5");
 		$("#packLinuxSha1").attr("href", product_dist_path + linux_pack + ".sha1");
 		$("#packLinuxAsc").attr("href", product_dist_path + linux_pack + ".asc");
 
-		$("#packMacName").html(macos_pack +" ("+macos-installer-size+")");
+		$("#packMacName").html(macos_pack +" ("+macos_pack_size+")");
 		$("#packMac").attr("href", product_dist_path + macos_pack);
 		$("#packMacMd5").attr("href", product_dist_path + macos_pack + ".md5");
 		$("#packMacSha1").attr("href", product_dist_path + macos_pack + ".sha1");
