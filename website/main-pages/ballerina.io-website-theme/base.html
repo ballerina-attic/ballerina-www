@@ -85,10 +85,8 @@
   <script>
   $(document).ready(function () {
 
-    var product_dist_path = "";
-
     var version = "{{ config.extra.latest_version }}";
-    var version_pack = version.replace(/ /g,"-");
+    var version_pack = version.replace(/ /g,"-").toLowerCase();
     var released_date = "{{ config.extra.latest_release_date }}";
     var windows_pack ="ballerina-"+version_pack+"-windows-x64.msi";
     var windows_pack_size = "";
@@ -96,6 +94,8 @@
     var linux_pack_size = "";
     var macos_pack = "ballerina-"+version_pack+"-macos-x64.pkg";
     var macos_pack_size = "";
+
+    var product_dist_path = "https://product-dist.ballerina.io/downloads/"+version_pack+"/";
 
     $("#versionInfo").html(version+"("+released_date+")");
 
