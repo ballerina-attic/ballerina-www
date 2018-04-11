@@ -171,7 +171,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     @Override
     public void deleteService(String serviceName) {
-
+        k8sClient.services().inNamespace(namespace).withName(serviceName).delete();
     }
 
     @Override
@@ -194,5 +194,17 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         }
 
         return serviceNameList;
+    }
+
+    @Override
+    public boolean deploymentExists(String deploymentName) {
+        Deployment deployment = k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).get();
+
+        return deployment != null;
+    }
+
+    @Override
+    public boolean serviceExists(String serviceName) {
+        return false;
     }
 }

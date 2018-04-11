@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.msf4j.MicroservicesRunner;
 
+import java.util.List;
+
 public class Main {
 
     private static final Logger log = LoggerFactory.getLogger(Main.class);
@@ -45,6 +47,7 @@ public class Main {
         switch (controllerRole) {
             case Constants.CONTROLLER_ROLE_MIN_CHECK:
                 log.info("Checking minimum instance count...");
+                cleanOrphanServices(autoscaler);
                 runMinCheck(minCount, autoscaler);
 
                 break;
@@ -63,6 +66,16 @@ public class Main {
                 // break down if an invalid role is specified
                 log.error("Invalid Controller Role defined: " + controllerRole);
                 throw new IllegalArgumentException("Invalid Controller Role defined: " + controllerRole);
+        }
+    }
+
+    private static void cleanOrphanServices(LauncherAutoscaler autoscaler) {
+        List<String> serviceNames = autoscaler.getServiceList();
+        for (String serviceName : serviceNames) {
+            if (!autoscaler.deploymentExists(serviceName)) {
+                log.info("Cleaning orphan Service [Name] " + serviceName + "...");
+                autoscaler.deleteService(serviceName);
+            }
         }
     }
 

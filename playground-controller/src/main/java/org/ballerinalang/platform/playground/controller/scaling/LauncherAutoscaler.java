@@ -72,4 +72,16 @@ public class LauncherAutoscaler {
     public int getTotalLauncherCount() {
         return this.runtimeClient.getDeployments().size();
     }
+
+    public List<String> getServiceList() {
+        return runtimeClient.getServices();
+    }
+
+    public boolean deploymentExists(String deploymentName) {
+        return runtimeClient.deploymentExists(deploymentName);
+    }
+
+    public void deleteService(String serviceName) {
+        runtimeClient.deleteService(serviceName);
+    }
 }
