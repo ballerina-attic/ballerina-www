@@ -34,13 +34,31 @@ public class LauncherClusterManager {
     }
 
     public void cleanOrphanServices() {
-        List<String> serviceNames = this.getServices();
+        List<String> serviceNames = getServices();
         for (String serviceName : serviceNames) {
-            if (serviceName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !this.deploymentExists(serviceName)) {
+            if (serviceName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !deploymentExists(serviceName)) {
                 log.info("Cleaning orphan Service [Name] " + serviceName + "...");
-                this.deleteService(serviceName);
+                deleteService(serviceName);
             }
         }
+    }
+
+    public void cleanOrphanDeployments() {
+        List<String> deploymentNames = getDeployments();
+        for (String deploymentName : deploymentNames) {
+            if (deploymentName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !serviceExists(deploymentName)){
+                log.info("Cleaning orphan Deployment [Name] " + deploymentName + "...");
+                deleteDeployment(deploymentName);
+            }
+        }
+    }
+
+    private void deleteDeployment(String deploymentName) {
+        runtimeClient.deleteDeployment(deploymentName);
+    }
+
+    private boolean serviceExists(String deploymentName) {
+        return runtimeClient.deploymentExists(deploymentName);
     }
 
     public void honourDesiredCount() {

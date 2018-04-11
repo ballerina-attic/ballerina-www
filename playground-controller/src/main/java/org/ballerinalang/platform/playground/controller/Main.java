@@ -40,7 +40,7 @@ public class Main {
         log.debug("Creating Kubernetes client...");
         ContainerRuntimeClient runtimeClient = new KubernetesClientImpl(bpgNamespace, launcherImageName);
 
-        // Create a autoscaler instance to scale in/out launcher instances
+        // Create a cluster mgt instance to scale in/out launcher instances
         log.debug("Creating Cluster Manager...");
         LauncherClusterManager clusterManager = new LauncherClusterManager(desiredCount, maxCount, stepUp, stepDown, freeBufferCount,
                 runtimeClient, new InMemoryPersistence());
@@ -50,7 +50,7 @@ public class Main {
             case Constants.CONTROLLER_ROLE_MIN_CHECK:
                 log.info("Checking minimum instance count...");
                 clusterManager.cleanOrphanServices();
-                // TODO: clean orphan deployments
+                clusterManager.cleanOrphanDeployments();
                 clusterManager.honourDesiredCount();
 
                 break;
@@ -74,15 +74,15 @@ public class Main {
         }
     }
 
-    private static void runScaleDownJob(int maxCount, int desiredCount, int freeBufferCount, int stepDown, LauncherClusterManager autoscaler) {
+    private static void runScaleDownJob(int maxCount, int desiredCount, int freeBufferCount, int stepDown, LauncherClusterManager clusterManager) {
         // Get free and total counts
-        int freeCount = autoscaler.getFreeLauncherCount();
-        int totalCount = autoscaler.getTotalLauncherCount();
+        int freeCount = clusterManager.getFreeLauncherCount();
+        int totalCount = clusterManager.getTotalLauncherCount();
 
         // Scale down if max is exceeded, irrespective of free buffer count
         if (totalCount > maxCount) {
             log.info("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Max Count] " + maxCount);
-            autoscaler.scaleDown();
+            clusterManager.scaleDown();
             return;
         }
 
@@ -104,7 +104,7 @@ public class Main {
                     " AND [Free Count] + [Step Down] " + freeCount + " + " + stepDown +
                     " >= [Free Buffer Count] " + freeBufferCount);
 
-            autoscaler.scaleDown();
+            clusterManager.scaleDown();
             return;
         }
 

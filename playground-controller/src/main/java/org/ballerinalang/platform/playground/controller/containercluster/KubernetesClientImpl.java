@@ -212,18 +212,6 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     @Override
     public List<String> getDeployments() {
         DeploymentList depList = k8sClient.extensions().deployments().inNamespace(namespace).withLabel("appType", Constants.BPG_APP_TYPE_LAUNCHER).list();
-//        List<org.ballerinalang.platform.playground.controller.containercluster.model.Deployment> deployments = new ArrayList<>();
-//        for (Deployment deployment : depList.getItems()) {
-//            org.ballerinalang.platform.playground.controller.containercluster.model.Deployment dep = new org.ballerinalang.platform.playground.controller.containercluster.model.Deployment();
-//            dep.setName(deployment.getMetadata().getName());
-//            dep.setNamespace(namespace);
-//            dep.setAge(calculateObjectAge(deployment.getMetadata().getCreationTimestamp()));
-//
-//            deployments.add(dep);
-//        }
-//
-//        return deployments;
-
         List<String> depNameList = new ArrayList<>();
         for (Deployment deployment : depList.getItems()) {
             depNameList.add(deployment.getMetadata().getName());
@@ -241,8 +229,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     @Override
     public List<String> getServices() {
-        // TODO: should consider label selector to get only launcher objects
-        ServiceList serviceList = k8sClient.services().inNamespace(namespace).list();
+        ServiceList serviceList = k8sClient.services().inNamespace(namespace).withLabel("appType", Constants.BPG_APP_TYPE_LAUNCHER).list();
         List<String> serviceNameList = new ArrayList<>();
         for (Service service : serviceList.getItems()) {
             serviceNameList.add(service.getMetadata().getName());
