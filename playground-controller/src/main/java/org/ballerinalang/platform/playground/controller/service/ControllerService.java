@@ -25,11 +25,12 @@ public class ControllerService {
     }
 
     @GET
-    @Path("/launcher/free")
+    @Path("/launcher")
     @Produces(MediaType.APPLICATION_JSON)
     public Response allocateLauncher() {
         String launcherUrl = serviceManager.allocateFreeLauncher();
 
+        // TODO: check if cache exists
         // TODO: scale check
 
         if (launcherUrl != null) {
@@ -48,7 +49,7 @@ public class ControllerService {
     @POST
     @Path("/launcher/status")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response markMemberFree(StatusUpdateRequest request) {
+    public Response setLauncherStatus(StatusUpdateRequest request) {
         // Check if launcher url actually exists
         if (!serviceManager.launcherExists(request.getLauncherUrl())) {
             return Response.status(Response.Status.NOT_FOUND)

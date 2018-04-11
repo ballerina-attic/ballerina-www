@@ -1,13 +1,12 @@
 package org.ballerinalang.platform.playground.controller;
 
+import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
+import org.ballerinalang.platform.playground.controller.containercluster.KubernetesClientImpl;
 import org.ballerinalang.platform.playground.controller.persistence.InMemoryPersistence;
-import org.ballerinalang.platform.playground.controller.persistence.Persistence;
-import org.ballerinalang.platform.playground.controller.scaling.LauncherAutoscaler;
+import org.ballerinalang.platform.playground.controller.scaling.LauncherClusterManager;
 import org.ballerinalang.platform.playground.controller.service.ControllerService;
 import org.ballerinalang.platform.playground.controller.service.ControllerServiceManager;
 import org.ballerinalang.platform.playground.controller.util.Constants;
-import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
-import org.ballerinalang.platform.playground.controller.containercluster.KubernetesClientImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.msf4j.MicroservicesRunner;
@@ -34,10 +33,9 @@ public class Main {
         String launcherImageName = getEnvStringValue(Constants.ENV_LAUNCHER_IMAGE_NAME);
         int stepUp = getEnvIntValue(Constants.ENV_STEP_UP);
         int stepDown = getEnvIntValue(Constants.ENV_STEP_DOWN);
-        int minCount = getEnvIntValue(Constants.ENV_MIN_COUNT);
+        int desiredCount = getEnvIntValue(Constants.ENV_DESIRED_COUNT);
         int maxCount = getEnvIntValue(Constants.ENV_MAX_COUNT);
-        int freeGap = getEnvIntValue(Constants.ENV_FREE_GAP);
-        int idleTimeoutMinutes = getEnvIntValue(Constants.ENV_IDLE_TIMEOUT);
+        int freeBufferCount = getEnvIntValue(Constants.ENV_FREE_BUFFER);
 
         // Create a k8s client to interact with the k8s API. The client is per namespace
         log.debug("Creating Kubernetes client...");
@@ -45,24 +43,24 @@ public class Main {
 
         // Create a autoscaler instance to scale in/out launcher instances
         log.debug("Creating autoscaler...");
-        LauncherAutoscaler autoscaler = new LauncherAutoscaler(stepUp, stepDown, maxCount, freeGap, runtimeClient);
+        LauncherClusterManager autoscaler = new LauncherClusterManager(stepUp, stepDown, maxCount, freeBufferCount,
+                runtimeClient, new InMemoryPersistence());
 
         // Perform role
         switch (controllerRole) {
             case Constants.CONTROLLER_ROLE_MIN_CHECK:
                 log.info("Checking minimum instance count...");
                 cleanOrphanServices(autoscaler);
-                runMinCheck(minCount, autoscaler);
+                runDesiredCountCheck(desiredCount, autoscaler);
 
                 break;
             case Constants.CONTROLLER_ROLE_IDLE_CHECK:
                 log.info("Checking for idle launchers...");
-                runIdleCheck(idleTimeoutMinutes, minCount, freeGap, autoscaler);
+                runScaleDownJob(maxCount, desiredCount, freeBufferCount, stepDown, autoscaler);
 
                 break;
             case Constants.CONTROLLER_ROLE_API_SERVER:
-                Persistence persistence = new InMemoryPersistence();
-                ControllerServiceManager serviceManager = new ControllerServiceManager(maxCount, freeGap, autoscaler, persistence);
+                ControllerServiceManager serviceManager = new ControllerServiceManager(maxCount, freeBufferCount, autoscaler);
 
                 log.info("Starting API server...");
                 MicroservicesRunner microservicesRunner = new MicroservicesRunner();
@@ -77,7 +75,7 @@ public class Main {
         }
     }
 
-    private static void cleanOrphanServices(LauncherAutoscaler autoscaler) {
+    private static void cleanOrphanServices(LauncherClusterManager autoscaler) {
         List<String> serviceNames = autoscaler.getServices();
         for (String serviceName : serviceNames) {
             if (serviceName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !autoscaler.deploymentExists(serviceName)) {
@@ -87,15 +85,51 @@ public class Main {
         }
     }
 
-    private static void runIdleCheck(int idleTimeoutMinutes, int minCount, int limitGap, LauncherAutoscaler autoscaler) {
-        // TODO: To test this functionality, the list implementation should be completed.
+    private static void runScaleDownJob(int maxCount, int desiredCount, int freeBufferCount, int stepDown, LauncherClusterManager autoscaler) {
+        // Get free and total counts
+        int freeCount = autoscaler.getFreeLauncherCount();
+        int totalCount = autoscaler.getTotalLauncherCount();
+
+        // Scale down if max is exceeded, irrespective of free buffer count
+        if (totalCount > maxCount) {
+            log.info("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Max Count] " + maxCount);
+            autoscaler.scaleDown();
+            return;
+        }
+
+        // Don't scale down if there are not enough free launchers
+        if (freeCount <= freeBufferCount) {
+            log.info("Not scaling down since [Free Count] " + freeCount + " <= [Free Buffer Size] " + freeBufferCount + "...");
+            return;
+        }
+
+        // Don't scale down if the desired count is not exceeded
+        if (totalCount <= desiredCount) {
+            log.info("Not scaling down since [Total Count] " + totalCount + " <= [Desired Count] " + desiredCount + "...");
+            return;
+        }
+
+        // Scale down if desired count is exceeded, but with more free launchers than buffer count by stepDown count
+        if ((freeCount + stepDown) >= freeBufferCount) {
+            log.info("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Desired Count] " + maxCount +
+                    " AND [Free Count] + [Step Down] " + freeCount + " + " + stepDown +
+                    " >= [Free Buffer Count] " + freeBufferCount);
+
+            autoscaler.scaleDown();
+            return;
+        }
+
+        // If after scaling down there wouldn't be enough free launchers, do scale down
+        log.info("Not scaling down since [Free Count] + [Step Down] " + freeCount + " + " + stepDown +
+                " < [Free Buffer Count] " + freeBufferCount);
     }
 
-    private static void runMinCheck(int minCount, LauncherAutoscaler autoscaler) {
+
+    private static void runDesiredCountCheck(int desiredCount, LauncherClusterManager autoscaler) {
         int totalLauncherCount = autoscaler.getTotalLauncherCount();
-        log.info("[Total count] " + totalLauncherCount + " [Min Count] " + minCount);
-        while (totalLauncherCount < minCount) {
-            log.info("Scaling UP: REASON -> [Total Count] " + totalLauncherCount + " < [Min Count] " + minCount);
+        log.info("[Total count] " + totalLauncherCount + " [Desired Count] " + desiredCount);
+        while (totalLauncherCount < desiredCount) {
+            log.info("Scaling UP: REASON -> [Total Count] " + totalLauncherCount + " < [Desired Count] " + desiredCount);
             autoscaler.scaleUp();
             totalLauncherCount = autoscaler.getTotalLauncherCount();
         }
