@@ -212,9 +212,12 @@
   <script>
        $(document).ready(function () {
 
-           $(".cSerachIcon").click(function() {
-         $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
-          });
+        $(".cSerachIcon").click(function() {
+            $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
+            if($(".cSearchBoxTopMenu").hasClass('cShowcSearchTopMenu')){
+                $("#mkdocs-search-query").focus()
+            }
+        });
            
            var pageTitle = $('.section h1').first().text();
            $('title').html(pageTitle+" - {{ config.site_name }}");

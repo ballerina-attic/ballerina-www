@@ -15,9 +15,9 @@ public class Constants {
     public static final String ENV_LAUNCHER_IMAGE_NAME = "BPG_LAUNCHER_IMAGE_NAME";
     public static final String ENV_STEP_UP = "BPG_SCALING_STEP_UP";
     public static final String ENV_STEP_DOWN = "BPG_SCALING_STEP_DOWN";
-    public static final String ENV_MIN_COUNT = "BPG_SCALING_MIN";
+    public static final String ENV_DESIRED_COUNT = "BPG_SCALING_DESIRED";
     public static final String ENV_MAX_COUNT = "BPG_SCALING_MAX";
-    public static final String ENV_FREE_GAP = "BPG_SCALING_FREE_GAP";
+    public static final String ENV_FREE_BUFFER = "BPG_SCALING_FREE_BUFFER";
     public static final String ENV_IDLE_TIMEOUT = "BPG_SCALING_IDLE_TIMEOUT_MIN";
 
     // Member status values

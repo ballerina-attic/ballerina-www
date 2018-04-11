@@ -29,10 +29,13 @@ import org.ballerinalang.platform.playground.controller.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static java.time.temporal.ChronoUnit.MINUTES;
 
 public class KubernetesClientImpl implements ContainerRuntimeClient {
 
@@ -178,12 +181,31 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     @Override
     public List<String> getDeployments() {
         DeploymentList depList = k8sClient.extensions().deployments().inNamespace(namespace).withLabel("appType", Constants.BPG_APP_TYPE_LAUNCHER).list();
+//        List<org.ballerinalang.platform.playground.controller.containercluster.model.Deployment> deployments = new ArrayList<>();
+//        for (Deployment deployment : depList.getItems()) {
+//            org.ballerinalang.platform.playground.controller.containercluster.model.Deployment dep = new org.ballerinalang.platform.playground.controller.containercluster.model.Deployment();
+//            dep.setName(deployment.getMetadata().getName());
+//            dep.setNamespace(namespace);
+//            dep.setAge(calculateObjectAge(deployment.getMetadata().getCreationTimestamp()));
+//
+//            deployments.add(dep);
+//        }
+//
+//        return deployments;
+
         List<String> depNameList = new ArrayList<>();
         for (Deployment deployment : depList.getItems()) {
             depNameList.add(deployment.getMetadata().getName());
         }
 
         return depNameList;
+    }
+
+    private long calculateObjectAge(String creationTimestamp) {
+        LocalDate creationDate = LocalDate.parse(creationTimestamp);
+        LocalDate now = LocalDate.now();
+
+        return MINUTES.between(creationDate, now);
     }
 
     @Override
@@ -200,14 +222,28 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     @Override
     public boolean deploymentExists(String deploymentName) {
-        return k8sClient.extensions().deployments()
-                .inNamespace(namespace)
-                .withName(deploymentName)
-                .get() != null;
+        return getDeploymentByName(deploymentName) != null;
     }
 
     @Override
     public boolean serviceExists(String serviceName) {
         return k8sClient.services().inNamespace(namespace).withName(serviceName).get() != null;
+    }
+
+    @Override
+    public org.ballerinalang.platform.playground.controller.containercluster.model.Deployment getDeploymentByName(String deploymentName) {
+        Deployment deployment = k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).get();
+
+        if (deployment == null) {
+            return null;
+        }
+
+        org.ballerinalang.platform.playground.controller.containercluster.model.Deployment dep = new org.ballerinalang.platform.playground.controller.containercluster.model.Deployment();
+
+        dep.setName(deployment.getMetadata().getName());
+        dep.setNamespace(namespace);
+        dep.setAge(calculateObjectAge(deployment.getMetadata().getCreationTimestamp()));
+
+        return dep;
     }
 }
