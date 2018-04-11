@@ -6,7 +6,7 @@ public interface ContainerRuntimeClient {
 
     public void createDeployment(String deploymentName);
 
-    public void createService();
+    public void createService(String newDeploymentName, String newServiceName);
 
     public void deleteDeployment(String deploymentName);
 

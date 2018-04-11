@@ -48,7 +48,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         // Labels for the to be created deployment
         Map<String, String> labelMap = new HashMap<>();
         labelMap.put("app", deploymentName);
-        labelMap.put("appType", Constants.BPG_APP_TYPE);
+        labelMap.put("appType", Constants.BPG_APP_TYPE_LAUNCHER);
 
         // Container spec
         List<Container> containerList = new ArrayList<>();
@@ -56,7 +56,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         containerList.add(launcherContainer);
 
         // Add container info
-        launcherContainer.setName(Constants.BPG_APP_TYPE + "-container");
+        launcherContainer.setName(Constants.BPG_APP_TYPE_LAUNCHER + "-container");
         launcherContainer.setImage(launcherImageName);
         launcherContainer.setImagePullPolicy("Always");
 
@@ -112,7 +112,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     }
 
     @Override
-    public void createService() {
+    public void createService(String newDeploymentName, String newServiceName) {
 
     }
 
@@ -128,7 +128,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     @Override
     public List<String> getDeployments() {
-        DeploymentList depList = k8sClient.extensions().deployments().inNamespace(namespace).withLabel("appType", Constants.BPG_APP_TYPE).list();
+        DeploymentList depList = k8sClient.extensions().deployments().inNamespace(namespace).withLabel("appType", Constants.BPG_APP_TYPE_LAUNCHER).list();
         List<String> depNameList = new ArrayList<>();
         for (Deployment deployment : depList.getItems()) {
             depNameList.add(deployment.getMetadata().getName());

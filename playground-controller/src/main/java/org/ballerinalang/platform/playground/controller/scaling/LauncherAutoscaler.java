@@ -43,12 +43,21 @@ public class LauncherAutoscaler {
     }
 
     public void scaleUp() {
-        // TODO: scale up by 1xscaleUp at a time
+        log.info("Scaling up by [Step Up] " + stepUp + " instances...");
+
         int lastCreatedLauncherNumber = getLatestDeploymentSuffix();
-        log.debug("Last created launcher number: " + lastCreatedLauncherNumber);
-        String newDeploymentName = Constants.BPG_APP_TYPE + "-" + (lastCreatedLauncherNumber + 1);
-        runtimeClient.createDeployment(newDeploymentName);
-        runtimeClient.createService();
+
+        // scale up by 1 x stepUp at a time
+        for (int i = 0; i < stepUp; i++) {
+            log.debug("Last created launcher number: " + lastCreatedLauncherNumber);
+            String newDeploymentName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + (lastCreatedLauncherNumber + 1);
+            String newServiceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + (lastCreatedLauncherNumber + 1);
+
+            runtimeClient.createDeployment(newDeploymentName);
+            runtimeClient.createService(newDeploymentName, newServiceSubDomain);
+
+            lastCreatedLauncherNumber++;
+        }
     }
 
     private int getLatestDeploymentSuffix() {
@@ -56,7 +65,7 @@ public class LauncherAutoscaler {
         if (deploymentList.size() > 0) {
             Collections.sort(deploymentList);
             String lastElement = deploymentList.get(deploymentList.size() - 1);
-            String lastLauncherSuffix = lastElement.substring((Constants.BPG_APP_TYPE + "-").length(), lastElement.length());
+            String lastLauncherSuffix = lastElement.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length(), lastElement.length());
             return Integer.parseInt(lastLauncherSuffix);
         }
 
