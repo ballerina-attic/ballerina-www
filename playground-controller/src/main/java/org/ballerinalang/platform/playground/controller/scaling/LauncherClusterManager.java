@@ -17,32 +17,49 @@ public class LauncherClusterManager {
 
     private int stepUp;
     private int stepDown;
-    private int freeGap;
+    private int freeBufferCount;
     private int maxCount;
+    private int desiredCount;
     private ContainerRuntimeClient runtimeClient;
     private Persistence persistence;
 
-    public LauncherClusterManager(int stepUp, int stepDown, int maxCount, int freeGap, ContainerRuntimeClient runtimeClient, Persistence persistence) {
+    public LauncherClusterManager(int desiredCount, int maxCount, int stepUp, int stepDown, int freeBufferCount, ContainerRuntimeClient runtimeClient, Persistence persistence) {
         this.stepDown = stepDown;
         this.stepUp = stepUp;
-        this.freeGap = freeGap;
+        this.freeBufferCount = freeBufferCount;
         this.maxCount = maxCount;
+        this.desiredCount = desiredCount;
         this.runtimeClient = runtimeClient;
         this.persistence = persistence;
     }
 
-    public void doScaling(int freeCount) {
-        // Check if there are enough free launchers
-        while (freeCount < freeGap) {
-            log.debug("Scaling UP: REASON -> [Free Count] " + freeCount + " < [Free Gap] " + freeGap);
-            scaleUp();
+    public void cleanOrphanServices() {
+        List<String> serviceNames = this.getServices();
+        for (String serviceName : serviceNames) {
+            if (serviceName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !this.deploymentExists(serviceName)) {
+                log.info("Cleaning orphan Service [Name] " + serviceName + "...");
+                this.deleteService(serviceName);
+            }
         }
+    }
 
-        // Check if max is exceeded
-        int totalCount = this.getTotalLauncherCount();
-        while (totalCount > maxCount) {
-            log.debug("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Max Count] " + maxCount);
-            scaleDown();
+    public void honourDesiredCount() {
+        int totalLauncherCount = getTotalLauncherCount();
+        log.info("[Total count] " + totalLauncherCount + " [Desired Count] " + desiredCount);
+        while (totalLauncherCount < desiredCount) {
+            log.info("Scaling UP: REASON -> [Total Count] " + totalLauncherCount + " < [Desired Count] " + desiredCount);
+            scaleUp();
+            totalLauncherCount = getTotalLauncherCount();
+        }
+    }
+
+    public void honourFreeBufferCount() {
+        // Check if there are enough free launchers
+        int freeCount = this.getFreeLauncherCount();
+
+        while (freeCount < freeBufferCount) {
+            log.debug("Scaling UP: REASON -> [Free Count] " + freeCount + " < [Free Gap] " + freeBufferCount);
+            scaleUp();
         }
     }
 
@@ -51,20 +68,22 @@ public class LauncherClusterManager {
 
         List<String> urlsToScaleDown = persistence.getFreeLauncherUrls();
 
+        // Scale down by (1 x stepDown) at a time
         for (int i = 0; i < stepDown; i++) {
+            // Get the youngest free launcher URL
             Collections.sort(urlsToScaleDown);
             String launcherUrlToDelete = urlsToScaleDown.get(urlsToScaleDown.size() - 1);
 
-            // TODO: remove launcher from list
+            // Remove launcher from list
+            persistence.removeLauncher(launcherUrlToDelete);
 
+            // Get object name from launcher URL
             String deploymentName = getDeploymentNameFromUrl(launcherUrlToDelete);
 
+            // Delete deployment and service
             runtimeClient.deleteService(deploymentName);
             runtimeClient.deleteDeployment(deploymentName);
         }
-        // TODO: scale down by 1xstepDown at a time
-        // TODO: delete latest, free launchers
-
     }
 
     public void scaleUp() {
@@ -82,8 +101,8 @@ public class LauncherClusterManager {
 
     private String getDeploymentNameFromUrl(String launchUrl) {
         if (launchUrl != null) {
-            String subdomain = launchUrl.split(".")[0];
-            String domainNameSuffix = subdomain.substring((Constants.LAUNCHER_URL_PREFIX + "-").length());
+            String subDomain = launchUrl.split(".")[0];
+            String domainNameSuffix = subDomain.substring((Constants.LAUNCHER_URL_PREFIX + "-").length());
 
             return Constants.BPG_APP_TYPE_LAUNCHER + "-" + domainNameSuffix;
         }
@@ -92,17 +111,6 @@ public class LauncherClusterManager {
     }
 
     private int getLatestDeploymentNameSuffix() {
-//        List<Deployment> deploymentList = runtimeClient.getDeployments();
-//        if (deploymentList.size() > 0) {
-//            Collections.sort(deploymentList);
-//            String lastElementName = deploymentList.get(deploymentList.size() - 1).getName();
-//            String lastLauncherSuffix = lastElementName.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length());
-//
-//            return Integer.parseInt(lastLauncherSuffix);
-//        }
-//
-//        return 0;
-
         List<String> deploymentList = runtimeClient.getDeployments();
         if (deploymentList.size() > 0) {
             Collections.sort(deploymentList);

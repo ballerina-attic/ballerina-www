@@ -11,8 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.msf4j.MicroservicesRunner;
 
-import java.util.List;
-
 public class Main {
 
     private static final Logger log = LoggerFactory.getLogger(Main.class);
@@ -42,27 +40,27 @@ public class Main {
         ContainerRuntimeClient runtimeClient = new KubernetesClientImpl(bpgNamespace, launcherImageName);
 
         // Create a autoscaler instance to scale in/out launcher instances
-        log.debug("Creating autoscaler...");
-        LauncherClusterManager autoscaler = new LauncherClusterManager(stepUp, stepDown, maxCount, freeBufferCount,
+        log.debug("Creating Cluster Manager...");
+        LauncherClusterManager clusterManager = new LauncherClusterManager(desiredCount, maxCount, stepUp, stepDown, freeBufferCount,
                 runtimeClient, new InMemoryPersistence());
 
         // Perform role
         switch (controllerRole) {
             case Constants.CONTROLLER_ROLE_MIN_CHECK:
                 log.info("Checking minimum instance count...");
-                cleanOrphanServices(autoscaler);
-                runDesiredCountCheck(desiredCount, autoscaler);
+                clusterManager.cleanOrphanServices();
+                // TODO: clean orphan deployments
+                clusterManager.honourDesiredCount();
 
                 break;
             case Constants.CONTROLLER_ROLE_IDLE_CHECK:
                 log.info("Checking for idle launchers...");
-                runScaleDownJob(maxCount, desiredCount, freeBufferCount, stepDown, autoscaler);
+                runScaleDownJob(maxCount, desiredCount, freeBufferCount, stepDown, clusterManager);
 
                 break;
             case Constants.CONTROLLER_ROLE_API_SERVER:
-                ControllerServiceManager serviceManager = new ControllerServiceManager(maxCount, freeBufferCount, autoscaler);
-
                 log.info("Starting API server...");
+                ControllerServiceManager serviceManager = new ControllerServiceManager(clusterManager);
                 MicroservicesRunner microservicesRunner = new MicroservicesRunner();
                 microservicesRunner.deploy(new ControllerService(serviceManager));
                 microservicesRunner.start();
@@ -72,16 +70,6 @@ public class Main {
                 // break down if an invalid role is specified
                 log.error("Invalid Controller Role defined: " + controllerRole);
                 throw new IllegalArgumentException("Invalid Controller Role defined: " + controllerRole);
-        }
-    }
-
-    private static void cleanOrphanServices(LauncherClusterManager autoscaler) {
-        List<String> serviceNames = autoscaler.getServices();
-        for (String serviceName : serviceNames) {
-            if (serviceName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !autoscaler.deploymentExists(serviceName)) {
-                log.info("Cleaning orphan Service [Name] " + serviceName + "...");
-                autoscaler.deleteService(serviceName);
-            }
         }
     }
 
@@ -125,21 +113,11 @@ public class Main {
     }
 
 
-    private static void runDesiredCountCheck(int desiredCount, LauncherClusterManager autoscaler) {
-        int totalLauncherCount = autoscaler.getTotalLauncherCount();
-        log.info("[Total count] " + totalLauncherCount + " [Desired Count] " + desiredCount);
-        while (totalLauncherCount < desiredCount) {
-            log.info("Scaling UP: REASON -> [Total Count] " + totalLauncherCount + " < [Desired Count] " + desiredCount);
-            autoscaler.scaleUp();
-            totalLauncherCount = autoscaler.getTotalLauncherCount();
-        }
-    }
-
     private static String getEnvStringValue(String key) {
         if (key != null) {
             return System.getenv(key);
         } else {
-            log.debug("Null key queried for environment variable");
+            log.warn("Null key queried for environment variable");
             return null;
         }
     }

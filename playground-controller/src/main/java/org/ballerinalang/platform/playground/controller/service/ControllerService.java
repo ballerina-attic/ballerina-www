@@ -31,7 +31,9 @@ public class ControllerService {
         String launcherUrl = serviceManager.allocateFreeLauncher();
 
         // TODO: check if cache exists
-        // TODO: scale check
+
+        // Scale check
+        serviceManager.honourFreeBufferCount();
 
         if (launcherUrl != null) {
             return Response.status(Response.Status.OK)

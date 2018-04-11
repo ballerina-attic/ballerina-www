@@ -10,13 +10,9 @@ import java.util.List;
 public class ControllerServiceManager {
     private static final Logger log = LoggerFactory.getLogger(ControllerServiceManager.class);
 
-    private int maxCount;
-    private int freeGap;
     private LauncherClusterManager clusterManager;
 
-    public ControllerServiceManager(int maxCount, int freeGap, LauncherClusterManager clusterManager) {
-        this.maxCount = maxCount;
-        this.freeGap = freeGap;
+    public ControllerServiceManager(LauncherClusterManager clusterManager) {
         this.clusterManager = clusterManager;
 
         if (clusterManager.getTotalLauncherCount() == 0) {
@@ -72,5 +68,9 @@ public class ControllerServiceManager {
 
     public boolean launcherExists(String launcherUrl) {
         return clusterManager.launcherExists(launcherUrl);
+    }
+
+    public void honourFreeBufferCount() {
+        clusterManager.honourFreeBufferCount();
     }
 }
