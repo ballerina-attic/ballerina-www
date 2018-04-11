@@ -25,6 +25,7 @@
  const CopyWebpackPlugin = require('copy-webpack-plugin');
  const HtmlWebpackPlugin = require('html-webpack-plugin');
  const CleanWebpackPlugin = require('clean-webpack-plugin');
+ const WebfontPlugin = require('webpack-webfont').default;
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
  const hashToUse = isProductionBuild ? 'chunkhash' : 'hash';
@@ -53,11 +54,14 @@
             'classnames',
             'axios',
             'react-monaco-editor',
-            'babel-polyfill'
+            'babel-polyfill',
+            'react-dnd',
+            'react-dnd-html5-backend'
          ]
      },
      output: {
          filename: `[name].[${hashToUse}].js`,
+         chunkFilename: `[name].[${hashToUse}].js`,
          path: buildPath,
      },
      module: {
