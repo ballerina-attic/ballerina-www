@@ -120,13 +120,16 @@ $(document).ready(function () {
 
 
          $(".cSerachIcon").click(function() {
-         $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
+            $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
+            if($(".cSearchBoxTopMenu").hasClass('cShowcSearchTopMenu')){
+                $("#mkdocs-search-query").focus()
+            }
          });
 
          //subscribe form
          $("#subscribeUserButton").click(function (event) {
              event.preventDefault();
-             subscribeUser($(this).val(""));
+             subscribeUser($(this).val());
          });
 
          $('#emailUser').on('keypress', function (event) {

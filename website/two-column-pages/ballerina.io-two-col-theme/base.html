@@ -41,15 +41,53 @@
 	<script src="/js/ballerina-common.js"></script>
 
 	<link rel="stylesheet" href="/css/ballerina-io.css">
-	<link rel="stylesheet" href="/css/ballerina-io-docs.css"> 
+	<link rel="stylesheet" href="/css/ballerina-io-docs.css">
 	{%- for path in extra_css %}
 	<!--  <link href="{{ path }}" rel="stylesheet">-->
 	{%- endfor %} {%- endblock %} {%- block libs %} {% if page %}
 	{% endif %} {%- endblock %} {%- block extrahead %} {% endblock %} {%- block analytics %} {% if config.google_analytics %} {% endif %} {%- endblock %}
+	{% if page and page.title == 'Open Source' %}
+	<script>
+			$(document).ready(function () {
+					//subscribe form
+					$("#subscribeUserButtonOS").click(function (event) {
+							event.preventDefault();
+							subscribeUserOS();
+					});
+
+					$('#emailUserOS').on('keypress', function (event) {
+							if (event.which === 13) {
+									event.preventDefault();
+									$(this).attr("disabled", "disabled");
+									subscribeUserOS();
+									$(this).removeAttr("disabled");
+							}
+					});
+
+					function subscribeUserOS() {
+							var email = $('#emailUserOS').val();
+							$('#subscribeUserMessage').remove("");
+							if (email == "") {
+									$('.cFormContainerOS').append('<span id="subscribeUserMessage">Please enter your email</span>');
+							} else if (!isEmail(email)) {
+									$('.cFormContainerOS').append('<span id="subscribeUserMessage">Please enter a valid email</span>');
+							} else {
+									$('#emailUserOS').hide();
+									$('#subscribeUserButtonOS').hide();
+									$('#subscribeFormLabelOS').hide();
+									$(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl979?email=" + email + "'></iframe>");
+									$('.cFormContainerOS').append('<span id="subscribeUserMessage">Thank you! Stay tuned for updates on Ballerina.</span>');
+									$("#emailUserOS").val("");
+							}
+							return;
+					}
+			});
+	</script>
+	{% endif %}
 </head>
 
 <body class="cBallerina-io" role="document">
-	
+
 	{% include "navigation.html" %}
 
 	<div class="row cBallerina-io-Gray-row">
@@ -155,8 +193,8 @@
 				$("#helpli").addClass("cActive");
 			}
 		});
-                
-               
+
+
 	</script>
 
 	<script src="/js/theme.js"></script>
