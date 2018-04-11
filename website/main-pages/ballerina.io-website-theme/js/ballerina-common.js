@@ -123,7 +123,7 @@ $(document).ready(function () {
          //subscribe form
          $("#subscribeUserButton").click(function (event) {
              event.preventDefault();
-             subscribeUser($(this).val(""));
+             subscribeUser($(this).val());
          });
 
          $('#emailUser').on('keypress', function (event) {
