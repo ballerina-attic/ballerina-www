@@ -4,13 +4,13 @@ import java.util.List;
 
 public interface ContainerRuntimeClient {
 
-    public void createDeployment(int deploymentNameSuffix);
+    public boolean createDeployment(int deploymentNameSuffix);
 
-    public void createService(int serviceNameSuffix);
+    public boolean createService(int serviceNameSuffix);
 
-    public void deleteDeployment(String deploymentName);
+    public boolean deleteDeployment(String deploymentName);
 
-    public void deleteService(String serviceName);
+    public boolean deleteService(String serviceName);
 
     public List<String> getDeployments();
 

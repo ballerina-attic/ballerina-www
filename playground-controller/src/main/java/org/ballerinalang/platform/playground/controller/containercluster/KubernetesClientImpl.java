@@ -53,7 +53,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     }
 
     @Override
-    public void createDeployment(int deploymentNameSuffix) {
+    public boolean createDeployment(int deploymentNameSuffix) {
         String deploymentName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + deploymentNameSuffix;
 
         String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + deploymentNameSuffix;
@@ -147,11 +147,12 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
                 .build();
 
         // Make API call to create deployment
-        k8sClient.extensions().deployments().inNamespace(namespace).create(deployment);
+        Deployment createdDeployment = k8sClient.extensions().deployments().inNamespace(namespace).create(deployment);
+        return createdDeployment == null;
     }
 
     @Override
-    public void createService(int serviceNameSuffix) {
+    public boolean createService(int serviceNameSuffix) {
         String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + serviceNameSuffix;
         String serviceName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + serviceNameSuffix;
 
@@ -197,17 +198,19 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
                 .withSpec(serviceSpec)
                 .build();
 
-        k8sClient.services().inNamespace(namespace).create(service);
+        Service createdService = k8sClient.services().inNamespace(namespace).create(service);
+
+        return createdService == null;
     }
 
     @Override
-    public void deleteDeployment(String deploymentName) {
-        k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).delete();
+    public boolean deleteDeployment(String deploymentName) {
+        return k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).delete();
     }
 
     @Override
-    public void deleteService(String serviceName) {
-        k8sClient.services().inNamespace(namespace).withName(serviceName).delete();
+    public boolean deleteService(String serviceName) {
+        return k8sClient.services().inNamespace(namespace).withName(serviceName).delete();
     }
 
     @Override
