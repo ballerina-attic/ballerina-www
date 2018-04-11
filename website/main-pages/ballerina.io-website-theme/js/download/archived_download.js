@@ -2,8 +2,8 @@ $(document).ready(function () {
     Handlebars.registerHelper('basedownloadurl', function(version, artifact) {
         return new Handlebars.SafeString(Handlebars.Utils.escapeExpression(base_download_url+"/"+version+"/"+artifact))
     });
-    Handlebars.registerHelper('releasenotesdiv', function(version, suffix) {
-        return (version+suffix).replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "")
+    Handlebars.registerHelper('releasenotesdiv', function(version) {
+        return getReleaseNotesDivId(version);
     });
     $.getJSON( archived_versions_json, function( data ) {
         data.sort(function(a, b) {
@@ -37,7 +37,26 @@ function updateReleaseTable(allData){
             item["righttable"] = allArtifact.slice(halfWayThough, allArtifact.length);
             elements.append(template(item));
         });
-
         $("#archived-versions").after(elements);
+        allData.forEach(function (item) {
+            var version = item["version"];
+            var releaseNoteUrl = getReleaseNoteURL(version);
+            if(releaseNoteUrl){
+                $.get( releaseNoteUrl, function( data ) {
+                    $("#"+getReleaseNotesDivId(version)).html( data );
+                });
+            }
+
+        },'html');
+
     }, 'html');
+}
+
+function getReleaseNotesDivId(version){
+    var suffix = "-notes";
+    return (version+suffix).replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "");
+}
+
+function getReleaseNoteURL(version){
+    return base_download_url+"/"+version+"/"+releaseNoteFilename;
 }

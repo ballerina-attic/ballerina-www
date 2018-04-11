@@ -1,33 +1,35 @@
 <h3>{{version}} ({{release-date}})</h3>
-<div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
-    <table>
-        {{#each lefttable}}
-        <tr>
-            <td style="width: 65%"><a href="{{{basedownloadurl ../version this}}}" class="cLinkBlack">{{this}}</a></td>
-            <td style="width: 14%"><a href="{{{basedownloadurl ../version this}}}">md5</a></td>
-            <td style="width: 15%"><a href="{{{basedownloadurl ../version this}}}">SHA-1</a></td>
-            <td style="width: 6%"><a href="{{{basedownloadurl ../version this}}}">asc</a></td>
-        </tr>
-        {{/each}}
-    </table>
+<div class="releases-row">
+    <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
+        <table>
+            {{#each lefttable}}
+            <tr>
+                <td style="width: 65%"><a href="{{{basedownloadurl ../version this}}}" class="cLinkBlack">{{this}}</a></td>
+                <td style="width: 14%"><a href="{{{basedownloadurl ../version this}}}.md5">md5</a></td>
+                <td style="width: 15%"><a href="{{{basedownloadurl ../version this}}}.sha1">SHA-1</a></td>
+                <td style="width: 6%"><a href="{{{basedownloadurl ../version this}}}.asc">asc</a></td>
+            </tr>
+            {{/each}}
+        </table>
 
-</div>
-<div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cRightTable">
-    <table>
-        {{#each righttable}}
-        <tr>
-            <td style="width: 65%"><a href="{{{basedownloadurl ../version this}}}" class="cLinkBlack">{{this}}</a></td>
-            <td style="width: 14%"><a href="{{{basedownloadurl ../version this}}}">md5</a></td>
-            <td style="width: 15%"><a href="{{{basedownloadurl ../version this}}}">SHA-1</a></td>
-            <td style="width: 6%"><a href="{{{basedownloadurl ../version this}}}">asc</a></td>
-        </tr>
-        {{/each}}
-    </table>
+    </div>
+    <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cRightTable">
+        <table>
+            {{#each righttable}}
+            <tr>
+                <td style="width: 65%"><a href="{{{basedownloadurl ../version this}}}" class="cLinkBlack">{{this}}</a></td>
+                <td style="width: 14%"><a href="{{{basedownloadurl ../version this}}}.md5">md5</a></td>
+                <td style="width: 15%"><a href="{{{basedownloadurl ../version this}}}.sha1">SHA-1</a></td>
+                <td style="width: 6%"><a href="{{{basedownloadurl ../version this}}}.asc">asc</a></td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
 </div>
 <div class="cArchivedReleaseNotes">
-    <a data-toggle="collapse" data-target="#{{{releasenotesdiv version "-notes"}}}">RELEASE NOTES</a>
-    <div id="{{{releasenotesdiv version "-notes"}}}" class="collapse">
-        TODO - SHOW RELEASE NOTES
+    <a data-toggle="collapse" data-target="#{{{releasenotesdiv version}}}">RELEASE NOTES</a>
+    <div id="{{{releasenotesdiv version}}}" class="collapse">
+        Loading...
     </div>
 </div>
 <div class="clearfix"></div>
