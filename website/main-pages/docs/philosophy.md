@@ -198,7 +198,7 @@
       </div>
    </div>
 </div>
-<div class="row cBallerina-io-White-row">
+<div class="row cBallerina-io-White-row" id="nativeLanguage">
    <div class="container">
       <div class="col-xs-12 cPhilosophyWhite cCloudNative">
          <div class="col-xs-12">
@@ -214,16 +214,16 @@
       <div class="col-xs-12 cCloudNative">
          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls">
             <ul>
-               <li data-height="300" class="links first cActive">REST Services</li>
-               <li data-height="300" class="links">Full Language</li>
-               <li data-height="300" class="links">Asynchronous Execution</li>
+               <li class="links first cActive">REST Services</li>
+               <li class="links">Full Language</li>
+               <li class="links">Asynchronous Execution</li>
             </ul>
          </div>
          <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls">
             <ul>
-               <li data-height="300" class="links">JSON and XML</li>
-               <li data-height="300" class="links">Docker and Kubernetes</li>
-               <li data-height="300" class="links">Type Safety</li>
+               <li class="links">JSON and XML</li>
+               <li class="links">Docker and Kubernetes</li>
+               <li class="links">Type Safety</li>
             </ul>
          </div>
       </div>
@@ -235,7 +235,24 @@
                 <div class="tab-content clearfix">
                     <div class="codeNativeBox">
                         <div id="code-container-wrapper">
-                            <div class="tab-pane active" id="code-container"></div>
+                                <pre id="asynchronous-execution-code" class="code-block">
+                                    <code class="ballerina tab-pane active"></code>
+                                </pre>
+                                <pre id="docker-and-kubernetes-code" class="code-block">
+                                    <code class="ballerina tab-pane active"></code>
+                                </pre>
+                                <pre class="code-block" id="full-language-code">
+                                    <code class="ballerina tab-pane active"></code>
+                                </pre>
+                                <pre class="code-block" id="json-and-xml-code">
+                                    <code class="ballerina tab-pane active code-block"></code>
+                                </pre>
+                                <pre class="code-block" id="rest-services-code">
+                                    <code class="ballerina tab-pane active code-block"></code>
+                                </pre>
+                                <pre class="code-block" id="type-safety-code">
+                                    <code class="ballerina tab-pane active code-block"></code>
+                                </pre>
                         </div>
                         <div class="code cOutput">
                             <div class="highlight">
@@ -355,7 +372,7 @@ Hello World!
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-gray">
                     <p>
-                        Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads. Threads can join using different conditions (all end, some end).                            
+                        Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads. Threads can join using different conditions (all end, some end).                          <br />
                     </p>
                 </div>
             </div>
@@ -364,7 +381,7 @@ Hello World!
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-gray">
                     <p>
-                            JSON and XML are first class citizens in Ballerina.                            
+                            JSON and XML are first class citizens in Ballerina.                          <br />
                     </p>
                 </div>
             </div>
@@ -387,7 +404,7 @@ Hello World!
                 <div class="cPhil-title-boxes cPhil-title-boxes-white">
                     <div class="cPhil-title-boxes-container cPhil-title-boxes-container-gray">
                         <p>
-                            Compiler reads these annotations and uses them to identify which endpoints need to be exposed and how, and which services need to become what kind of containers.                        
+                            Compiler reads these annotations and uses them to identify which endpoints need to be exposed and how, and which services need to become what kind of containers.                      <br />
                         </p>
                     </div>
                 </div>
@@ -432,7 +449,7 @@ Hello World!
         <!-- end code section -->
     </div>
 </div>
-<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
+<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2" id="integration">
    <div class="container">
       <div class="col-xs-12 cPhilosophyWhite cCloudNative ">
         <h2 class="cMainH2Title">Integration Framework </h2>
@@ -440,51 +457,110 @@ Hello World!
             <p>Ballerina is a language designed to be integration simple. Based around the interactions of sequence diagrams, Ballerina has built-in support for common integration patterns and connectors, including distributed transactions, compensation and circuit breakers. With first-class support for JSON and XML, Ballerina makes it simple and effective to build robust integration across network endpoints.</p>
         </div>
       </div>
-      <div class="col-xs-12 cCloudNative paddingRemove">
-         <div class="col-xs-6 cCloudNativeControls">
+      <div class="col-xs-12 cCloudNative">
+        <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls">
             <ul>
-               <li id="IN-1">INTEGRATION FRAMEWORK </li>
-               <li id="IN-2">TYPE SAFE ENDPOINT INTEGRATION</li>
-               <li id="IN-3">CONNECTOR PACKAGES</li>
-               <li id="IN-4">DISTRIBUTED TRANSACTIONS</li>
-               <li id="IN-5">SIDECAR TRANSACTIONS</li>
+                <li class="links first cActive">TYPE SAFE ENDPOINT INTEGRATION</li>
+                <li class="links">CONNECTORS</li>
+                <li class="links">ASYNCHRONOUS RELIABLE MESSAGING</li>
             </ul>
-         </div>
-         <div class="col-xs-6 cCloudNativeControls">
-            <ul>
-               <li id="IN-6">CIRCUIT BREAKER</li>
-               <li id="IN-7">LOAD BALANCING</li>
-               <li id="IN-8">DATA TRANSFORMATION</li>
-               <li id="IN-9">SECURE BY DESIGN</li>
-            </ul>
-         </div>
-      </div>
+        </div>
+     </div>
       <div class="col-xs-8 paddingRemove">
             <div class="cIntegrationCode">
-                <div id="ballerina_grammar_2"></div>
+                <div id="ballerina_grammar_2">
+                    <div id="code-container-wrapper">
+                        <pre id="type-safe-endpoint-integration-code" class="code-block">
+                            <code class="ballerina tab-pane active"></code>
+                        </pre>
+                        <pre id="connectors-code" class="code-block">
+                            <code class="ballerina tab-pane active"></code>
+                        </pre>
+                        <pre id="asynchronous-reliable-messaging-code" class="code-block">
+                            <code class="ballerina tab-pane active"></code>
+                        </pre>
+                    </div>
+                    <div class="code cOutput">
+                        <div class="highlight">
+                            <pre id="type-safe-endpoint-integration-shell" class="shell-display">
+ballerina run test.balx
+ballerina: initiating service(s) in 'test.balx'
+ballerina: started HTTP/WS server connector 0.0.0.0:9090
+
+curl -X POST -d '{"year":2019}'  http://localhost:9090/payment
+{"name":"","cardnumber":"","month":0,"year":2019,"cvc":0}
+
+curl -X POST -d '{"year":"twenty-ten"}'  http://localhost:9090/payment
+cannot convert 'json' to type 'Payment': error while mapping 'year': incompatible types: expected 'int', found 'string' in json
+                            </pre>
+                            <pre id="connectors-shell" class="shell-display">
+                            </pre>
+                            <pre id="asynchronous-reliable-messaging-shell" class="shell-display">
+                            </pre>
+                        </div>
+                    </div>
+                </div>
             </div>
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-4 text-display" id="type-safe-endpoint-integration-text">
             <div class="cPhil-title-boxes cCloudNative">
-                    <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
-                       <p>APIs, events and streams as first class syntax</p>
-                    </div>
-                 </div>
-                 <div class="cPhil-title-boxes cCloudNative">
-                    <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
-                       <p>Network-bound constructs including circuit-breakers and load balancing</p>
-                    </div>
-                 </div>
-                 <div class="cPhil-title-boxes cCloudNative">
-                    <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
-                       <p>Type inference and type safety</p>
-                    </div>
-                 </div>
-                 <div class="cPhil-title-boxes cCloudNative">
-                    <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
-                       <p>JSON and XML as native types</p>
-                    </div>
-                 </div> 
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+                    <p>Ballerina objects can be simple structures or more complex objects with public and private fields.</p>
+                </div>
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+                    <p>
+                        Integration often has to deal with complex distributed errors. Ballerina has powerful error handling capabilities based around union types. The /check/ operator makes it easy to pass the error back to the caller.
+                    </p>
+                </div>
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+                    <p>
+                        Converting a JSON into an object simply involves casting it as that object. An error is returned if the JSON has the wrong schema.
+                    </p>
+                </div>
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+                    <p>
+                        This is a valid JSON, and the empty fields are assumed
+                    </p>
+                </div>
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+                    <p>
+                        This JSON does not match the required schema and will return an error
+                    </p>
+                </div>
+            </div>
+      </div>
+      <div class="col-xs-4 text-display" id="connectors-text">
+            <div class="cPhil-title-boxes cCloudNative">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+                    <p>
+                        The Twitter connector is just one example of many. It will be pulled from the Ballerina Central Repository as needed.
+                    </p>
+                </div>
+            </div>
+      </div>
+      <div class="col-xs-4 text-display" id="asynchronous-reliable-messaging-text">
+            <div class="cPhil-title-boxes cCloudNative">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+                    <p>
+                        Ballerina has a lightweight microservice message broker that provides support for the AMQP protocol and offers asynchronous reliable messaging using queues and topics. Integrating Ballerina services with AMQP is simple.
+                    </p>
+                </div>
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+                    <p>
+                        Support for the Ballerina Message Broker is provided by the built-in “ballerina/mb” package
+                    </p>
+                </div>
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+                    <p>
+                        Messaging endpoints can listen or publish to queues or topics. This listener endpoint will create an event for every incoming message
+                    </p>
+                </div>
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+                    <p>
+                        A message-driven service is invoked every time a message is received on a queue or topic.
+                    </p>
+                </div>
+            </div>
       </div>
    </div>
 </div>
