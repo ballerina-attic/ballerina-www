@@ -198,13 +198,14 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     @Override
     public boolean deploymentExists(String deploymentName) {
-        Deployment deployment = k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).get();
-
-        return deployment != null;
+        return k8sClient.extensions().deployments()
+                .inNamespace(namespace)
+                .withName(deploymentName)
+                .get() != null;
     }
 
     @Override
     public boolean serviceExists(String serviceName) {
-        return false;
+        return k8sClient.services().inNamespace(namespace).withName(serviceName).get() != null;
     }
 }
