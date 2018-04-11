@@ -165,5 +165,25 @@ $(document).ready(function(){
             .prepend(
                 $(lines)
             );
-    })
+    });
+
+    $('.cBBE-body:not(.cOutput)').each(function(){
+        var count = 0;
+
+        $('.cTR', this).each(function(i, n){
+            var $codeElem = $(n).find('td.code').get(0);
+            var lines = $('> td.code', n).text().replace(/\n$/, "").trim().split(/\r\n|\r|\n/);
+            var numbers = [];
+
+            $.each(lines, function(i){
+                count += 1;
+                numbers.push('<span class="line-number">' + count + '</span>');
+            });
+
+            $( "<div/>", {
+                "class": "bbe-code-line-numbers",
+                html: numbers.join("")
+            }).prependTo($codeElem);
+        });
+    });
 })
