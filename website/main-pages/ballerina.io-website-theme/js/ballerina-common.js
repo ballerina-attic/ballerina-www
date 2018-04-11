@@ -117,7 +117,10 @@ $(document).ready(function () {
 
 
          $(".cSerachIcon").click(function() {
-         $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
+            $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
+            if($(".cSearchBoxTopMenu").hasClass('cShowcSearchTopMenu')){
+                $("#mkdocs-search-query").focus()
+            }
          });
 
          //subscribe form
