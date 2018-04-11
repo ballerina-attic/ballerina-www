@@ -106,6 +106,7 @@ $.ajax(
 		async: false,
 		success: function(data){
 			//Set the code to the container
+			var highlightCode = hljs.highlightAuto
 			$('#'+fileName + "-code > code").html(data);
 
 			//Doing the syntax highlighting
@@ -127,7 +128,7 @@ $.ajax(
 				}
 				lines = lines + '</div>';
 				//calculate <pre> height and set it to the container
-				var preHeight = numberOfLines*20;
+				var preHeight = numberOfLines*25 + 20;
 				$('#'+fileName + "-code")
 					.height(preHeight)
 					.addClass('ballerina-pre-wrapper')
