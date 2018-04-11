@@ -2,7 +2,6 @@ package org.ballerinalang.platform.playground.controller.scaling;
 
 
 import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
-import org.ballerinalang.platform.playground.controller.containercluster.model.Deployment;
 import org.ballerinalang.platform.playground.controller.persistence.Persistence;
 import org.ballerinalang.platform.playground.controller.util.Constants;
 import org.slf4j.Logger;
@@ -160,9 +159,9 @@ public class LauncherClusterManager {
         return runtimeClient.getDeployments();
     }
 
-    public Deployment getDeploymentByName(String deploymentName) {
-        return runtimeClient.getDeploymentByName(deploymentName);
-    }
+//    public Deployment getDeploymentByName(String deploymentName) {
+//        return runtimeClient.getDeploymentByName(deploymentName);
+//    }
 
     public void addFreeLauncher(String launcherUrl) {
         persistence.addFreeLauncher(launcherUrl);

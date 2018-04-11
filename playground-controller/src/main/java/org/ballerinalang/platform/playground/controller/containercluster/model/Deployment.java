@@ -42,7 +42,7 @@ public class Deployment implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        int mySuffix = Integer.parseInt(this.name.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
+        int mySuffix = Integer.parseInt(name.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
         int otherSuffix = Integer.parseInt(((Deployment) o).name.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
 
         return Integer.compare(mySuffix, otherSuffix);

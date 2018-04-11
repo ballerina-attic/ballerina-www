@@ -240,7 +240,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     @Override
     public boolean deploymentExists(String deploymentName) {
-        return getDeploymentByName(deploymentName) != null;
+        return k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).get() != null;
     }
 
     @Override
@@ -248,20 +248,20 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         return k8sClient.services().inNamespace(namespace).withName(serviceName).get() != null;
     }
 
-    @Override
-    public org.ballerinalang.platform.playground.controller.containercluster.model.Deployment getDeploymentByName(String deploymentName) {
-        Deployment deployment = k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).get();
-
-        if (deployment == null) {
-            return null;
-        }
-
-        org.ballerinalang.platform.playground.controller.containercluster.model.Deployment dep = new org.ballerinalang.platform.playground.controller.containercluster.model.Deployment();
-
-        dep.setName(deployment.getMetadata().getName());
-        dep.setNamespace(namespace);
-        dep.setAge(calculateObjectAge(deployment.getMetadata().getCreationTimestamp()));
-
-        return dep;
-    }
+//    @Override
+//    public org.ballerinalang.platform.playground.controller.containercluster.model.Deployment getDeploymentByName(String deploymentName) {
+//        Deployment deployment = k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).get();
+//
+//        if (deployment == null) {
+//            return null;
+//        }
+//
+//        org.ballerinalang.platform.playground.controller.containercluster.model.Deployment dep = new org.ballerinalang.platform.playground.controller.containercluster.model.Deployment();
+//
+//        dep.setName(deployment.getMetadata().getName());
+//        dep.setNamespace(namespace);
+//        dep.setAge(calculateObjectAge(deployment.getMetadata().getCreationTimestamp()));
+//
+//        return dep;
+//    }
 }
