@@ -1,7 +1,6 @@
 package org.ballerinalang.platform.playground.controller.service;
 
 import org.ballerinalang.platform.playground.controller.scaling.LauncherClusterManager;
-import org.ballerinalang.platform.playground.controller.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,26 +9,19 @@ import java.util.List;
 public class ControllerServiceManager {
     private static final Logger log = LoggerFactory.getLogger(ControllerServiceManager.class);
 
-    private int maxCount;
-    private int freeGap;
     private LauncherClusterManager clusterManager;
 
-    public ControllerServiceManager(int maxCount, int freeGap, LauncherClusterManager clusterManager) {
-        this.maxCount = maxCount;
-        this.freeGap = freeGap;
+    public ControllerServiceManager(LauncherClusterManager clusterManager) {
         this.clusterManager = clusterManager;
 
-        if (clusterManager.getTotalLauncherCount() == 0) {
+        if (clusterManager.getTotalLaunchers().size() == 0) {
             log.info("Initializing launcher list with any found existing launchers as free ones...");
 
-            List<String> deployments = clusterManager.getDeployments();
-            for (String deployment : deployments) {
-                clusterManager.addFreeLauncher(deployment + "." + Constants.DOMAIN_PLAYGROUND_BALLERINA_IO);
-            }
+            clusterManager.addAllDeploymentsAsFreeLaunchers();
         }
     }
 
-    public String allocateFreeLauncher() {
+    String allocateFreeLauncher() {
         log.info("Looking for free Launchers to allocate...");
         List<String> freeLaunchers = clusterManager.getFreeLaunchers();
 
@@ -43,34 +35,18 @@ public class ControllerServiceManager {
         String launcherToAllocate = freeLaunchers.get(0);
         clusterManager.markLauncherAsBusy(launcherToAllocate);
 
+        // Scale check and scale up if needed
+        clusterManager.honourFreeBufferCount();
+
         log.debug("Allocating launcher URL: " + launcherToAllocate + "...");
         return launcherToAllocate;
     }
 
-    public boolean markLauncherFree(String launcherUrl) {
-        if (!clusterManager.launcherExists(launcherUrl)) {
-            log.warn("Member [URL] " + launcherUrl + " not found.");
-            return false;
-        }
-
-        log.info("Marking member [URL] " + launcherUrl + " as free...");
-        clusterManager.markLauncherAsFree(launcherUrl);
-
-        return true;
+    boolean markLauncherFree(String launcherUrl) {
+        return clusterManager.markLauncherAsFree(launcherUrl);
     }
 
-    public void markLauncherBusy(String launcherUrl) {
-        if (!clusterManager.launcherExists(launcherUrl)) {
-            log.warn("Member [URL] " + launcherUrl + " not found.");
-            return;
-        }
-
-        log.info("Marking member [URL] " + launcherUrl + " as busy...");
-        clusterManager.markLauncherAsBusy(launcherUrl);
-
-    }
-
-    public boolean launcherExists(String launcherUrl) {
-        return clusterManager.launcherExists(launcherUrl);
+    boolean markLauncherBusy(String launcherUrl) {
+        return clusterManager.markLauncherAsBusy(launcherUrl);
     }
 }

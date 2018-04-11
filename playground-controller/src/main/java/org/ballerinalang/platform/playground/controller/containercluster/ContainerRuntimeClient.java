@@ -1,7 +1,5 @@
 package org.ballerinalang.platform.playground.controller.containercluster;
 
-import org.ballerinalang.platform.playground.controller.containercluster.model.Deployment;
-
 import java.util.List;
 
 public interface ContainerRuntimeClient {
@@ -22,5 +20,5 @@ public interface ContainerRuntimeClient {
 
     public boolean serviceExists(String serviceName);
 
-    public Deployment getDeploymentByName(String deploymentName);
+//    public Deployment getDeploymentByName(String deploymentName);
 }
