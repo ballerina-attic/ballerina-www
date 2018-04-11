@@ -19,4 +19,8 @@ public class Constants {
     public static final String ENV_MAX_COUNT = "BPG_SCALING_MAX";
     public static final String ENV_FREE_GAP = "BPG_SCALING_FREE_GAP";
     public static final String ENV_IDLE_TIMEOUT = "BPG_SCALING_IDLE_TIMEOUT_MIN";
+
+    // Member status values
+    public static final String MEMBER_STATUS_FREE = "FREE";
+    public static final String MEMBER_STATUS_BUSY = "MEMBER_STATUS_BUSY";
 }
