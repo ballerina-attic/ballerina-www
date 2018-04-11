@@ -12,9 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.msf4j.MicroservicesRunner;
 
-public class Main {
+public class ControllerRunner {
 
-    private static final Logger log = LoggerFactory.getLogger(Main.class);
+    private static final Logger log = LoggerFactory.getLogger(ControllerRunner.class);
 
     public static void main(String[] args) {
         // Read controller role
@@ -37,26 +37,24 @@ public class Main {
         int freeBufferCount = ControllerUtils.getEnvIntValue(Constants.ENV_FREE_BUFFER);
 
         // Create a k8s client to interact with the k8s API. The client is per namespace
-        log.debug("Creating Kubernetes client...");
+        log.info("Creating Kubernetes client...");
         ContainerRuntimeClient runtimeClient = new KubernetesClientImpl(bpgNamespace, launcherImageName);
 
         // Create a cluster mgt instance to scale in/out launcher instances
-        log.debug("Creating Cluster Manager...");
+        log.info("Creating Cluster Manager...");
         LauncherClusterManager clusterManager = new LauncherClusterManager(desiredCount, maxCount, stepUp, stepDown, freeBufferCount,
                 runtimeClient, new InMemoryPersistence());
 
         // Perform role
         switch (controllerRole) {
-            case Constants.CONTROLLER_ROLE_MIN_CHECK:
-                log.info("Checking minimum instance count...");
+            case Constants.CONTROLLER_ROLE_DESIRED_COUNT_CHECK:
                 clusterManager.cleanOrphanServices();
                 clusterManager.cleanOrphanDeployments();
                 clusterManager.honourDesiredCount();
 
                 break;
-            case Constants.CONTROLLER_ROLE_IDLE_CHECK:
-                log.info("Checking for idle launchers...");
-                runScaleDownJob(maxCount, desiredCount, freeBufferCount, stepDown, clusterManager);
+            case Constants.CONTROLLER_ROLE_MAX_COUNT_CHECK:
+                clusterManager.honourMaxCount();
 
                 break;
             case Constants.CONTROLLER_ROLE_API_SERVER:
@@ -72,44 +70,5 @@ public class Main {
                 log.error("Invalid Controller Role defined: " + controllerRole);
                 throw new IllegalArgumentException("Invalid Controller Role defined: " + controllerRole);
         }
-    }
-
-    private static void runScaleDownJob(int maxCount, int desiredCount, int freeBufferCount, int stepDown, LauncherClusterManager clusterManager) {
-        // Get free and total counts
-        int freeCount = clusterManager.getFreeLaunchers().size();
-        int totalCount = clusterManager.getTotalLaunchers().size();
-
-        // Scale down if max is exceeded, irrespective of free buffer count
-        if (totalCount > maxCount) {
-            log.info("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Max Count] " + maxCount);
-            clusterManager.scaleDown();
-            return;
-        }
-
-        // Don't scale down if there are not enough free launchers
-        if (freeCount <= freeBufferCount) {
-            log.info("Not scaling down since [Free Count] " + freeCount + " <= [Free Buffer Size] " + freeBufferCount + "...");
-            return;
-        }
-
-        // Don't scale down if the desired count is not exceeded
-        if (totalCount <= desiredCount) {
-            log.info("Not scaling down since [Total Count] " + totalCount + " <= [Desired Count] " + desiredCount + "...");
-            return;
-        }
-
-        // Scale down if desired count is exceeded, but with more free launchers than buffer count by stepDown count
-        if ((freeCount + stepDown) >= freeBufferCount) {
-            log.info("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Desired Count] " + maxCount +
-                    " AND [Free Count] + [Step Down] " + freeCount + " + " + stepDown +
-                    " >= [Free Buffer Count] " + freeBufferCount);
-
-            clusterManager.scaleDown();
-            return;
-        }
-
-        // If after scaling down there wouldn't be enough free launchers, do scale down
-        log.info("Not scaling down since [Free Count] + [Step Down] " + freeCount + " + " + stepDown +
-                " < [Free Buffer Count] " + freeBufferCount);
     }
 }

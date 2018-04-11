@@ -35,7 +35,16 @@
                 </transformer>
                 <transformer />
               </transformers>
-              <artifactSet />
+              <artifactSet>
+                <excludes>
+                  <exclude>com.github.jknack:handlebars</exclude>
+                  <exclude>org.apache.ws.commons.axiom:axiom-dom</exclude>
+                  <exclude>org.wso2.staxon:staxon-core</exclude>
+                  <exclude>commons-pool.wso2:commons-pool</exclude>
+                  <exclude>org.wso2.carbon.utils:carbon-utils</exclude>
+                  <exclude>org.yaml:snakeyaml</exclude>
+                </excludes>
+              </artifactSet>
             </configuration>
           </execution>
         </executions>
@@ -45,7 +54,7 @@
   <properties>
     <maven.shadeplugin.version>2.4.1</maven.shadeplugin.version>
     <org.wso2.transport.http.version>6.0.63</org.wso2.transport.http.version>
-    <main.class>org.ballerinalang.platform.playground.controller.Main</main.class>
+    <main.class>org.ballerinalang.platform.playground.controller.ControllerRunner</main.class>
     <slf4j.version>1.7.22</slf4j.version>
     <msf4j.version>2.5.0</msf4j.version>
     <maven.compiler.source>1.8</maven.compiler.source>

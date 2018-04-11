@@ -1,6 +1,5 @@
 package org.ballerinalang.platform.playground.controller.scaling;
 
-
 import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
 import org.ballerinalang.platform.playground.controller.persistence.Persistence;
 import org.ballerinalang.platform.playground.controller.util.Constants;
@@ -22,7 +21,8 @@ public class LauncherClusterManager {
     private ContainerRuntimeClient runtimeClient;
     private Persistence persistence;
 
-    public LauncherClusterManager(int desiredCount, int maxCount, int stepUp, int stepDown, int freeBufferCount, ContainerRuntimeClient runtimeClient, Persistence persistence) {
+    public LauncherClusterManager(int desiredCount, int maxCount, int stepUp, int stepDown,
+                                  int freeBufferCount, ContainerRuntimeClient runtimeClient, Persistence persistence) {
         this.stepDown = stepDown;
         this.stepUp = stepUp;
         this.freeBufferCount = freeBufferCount;
@@ -68,12 +68,55 @@ public class LauncherClusterManager {
         }
     }
 
+    public void honourMaxCount() {
+        // Get free and total counts
+        int freeCount = getFreeLaunchers().size();
+        int totalCount = getTotalLaunchers().size();
+
+        // Scale down if max is exceeded, irrespective of free buffer count
+        if (totalCount > maxCount) {
+            log.info("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Max Count] " + maxCount);
+            scaleDown();
+            return;
+        }
+
+        // Don't scale down if there are not enough free launchers
+        if (freeCount <= freeBufferCount) {
+            log.info("Not scaling down since [Free Count] " + freeCount + " <= [Free Buffer Size] " +
+                    freeBufferCount + "...");
+            return;
+        }
+
+        // Don't scale down if the desired count is not exceeded
+        if (totalCount <= desiredCount) {
+            log.info("Not scaling down since [Total Count] " + totalCount + " <= [Desired Count] " +
+                    desiredCount + "...");
+            return;
+        }
+
+        // Scale down if desired count is exceeded, but with more free launchers than buffer count by stepDown count
+        if ((freeCount + stepDown) >= freeBufferCount) {
+            log.info("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Desired Count] " + maxCount +
+                    " AND [Free Count] + [Step Down] " + freeCount + " + " + stepDown +
+                    " >= [Free Buffer Count] " + freeBufferCount);
+
+            scaleDown();
+            return;
+        }
+
+        // If after scaling down there wouldn't be enough free launchers, do scale down
+        log.info("Not scaling down since [Free Count] + [Step Down] " + freeCount + " + " + stepDown +
+                " < [Free Buffer Count] " + freeBufferCount);
+    }
+
     public void honourDesiredCount() {
         int totalLauncherCount = getTotalLaunchers().size();
         log.info("[Total count] " + totalLauncherCount + " [Desired Count] " + desiredCount);
 
         while (totalLauncherCount < desiredCount) {
-            log.info("Scaling UP: REASON -> [Total Count] " + totalLauncherCount + " < [Desired Count] " + desiredCount);
+            log.info("Scaling UP: REASON -> [Total Count] " + totalLauncherCount + " < [Desired Count] " +
+                    desiredCount);
+
             scaleUp();
             totalLauncherCount = getTotalLaunchers().size();
         }
@@ -206,7 +249,10 @@ public class LauncherClusterManager {
         if (deploymentList.size() > 0) {
             Collections.sort(deploymentList);
             String lastElement = deploymentList.get(deploymentList.size() - 1);
-            String lastLauncherSuffix = lastElement.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length(), lastElement.length());
+            String lastLauncherSuffix = lastElement.substring(
+                    (Constants.BPG_APP_TYPE_LAUNCHER + "-").length(),
+                    lastElement.length());
+
             return Integer.parseInt(lastLauncherSuffix);
         }
 
