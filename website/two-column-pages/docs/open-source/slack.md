@@ -9,7 +9,7 @@ Already a Team member?
 
 click here: [ballerina-platform.slack.com](https://ballerina-platform.slack.com/)
 
-Or
+Or request an invite below.
 
 <form>
 <label class="subscribeForm">Email Address</label>
