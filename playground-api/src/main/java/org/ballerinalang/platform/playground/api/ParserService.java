@@ -17,15 +17,16 @@ package org.ballerinalang.platform.playground.api;
 
 import org.ballerinalang.composer.service.ballerina.parser.service.BallerinaParserService;
 import org.ballerinalang.composer.service.ballerina.parser.service.model.BFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.OPTIONS;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 
 /**
  * Ballerina Parser Service for playground
@@ -35,12 +36,31 @@ public class ParserService {
 
     private BallerinaParserService parserService = new BallerinaParserService();
 
+    private static final Logger logger = LoggerFactory.getLogger(ParserService.class);
+
+    @OPTIONS
+    @Path("/")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response validateAndParseOptions() {
+        return parserService.validateAndParseOptions();
+    }
+
     @POST
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response validateAndParseBFile(BFile bFileRequest)
-            throws IllegalAccessException, IOException, InvocationTargetException {
-        return parserService.validateAndParseBFile(bFileRequest);
+    public Response validateAndParseBFile(BFile bFileRequest) {
+        Response response = null;
+        try {
+            response = parserService.validateAndParseBFile(bFileRequest);
+        } catch (Exception e) {
+            response = Response
+                        .serverError()
+                        .entity(e.getMessage())
+                        .build();
+            logger.error("Error while validate and parse ", e);
+        }
+        return response;
     }
 }

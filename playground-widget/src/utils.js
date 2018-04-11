@@ -7,4 +7,4 @@ const HOST =  isProduction
                     : 'localhost:8080';
 
 export const RUN_API_URL = `ws${isProduction ? 's' : ''}://${HOST}/api/run`;
-export const PARSER_API_URL = `http${isProduction ? 's' : ''}://${HOST}/api/parse`;
+export const PARSER_API_URL = `http${isProduction ? 's' : ''}://${HOST}/api/parser`;
