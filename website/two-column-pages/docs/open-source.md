@@ -14,8 +14,6 @@ We have a low-traffic announcement list that we use to disseminate major news su
 <a class="cBallerinaButtons subscribeUserForm" href="" id="subscribeUserButtonOS">Submit</a>
 </form>
 
-Use the form at the footer of this page to subscribe to Ballerina announcements.
-
 ## Version History
 
 Please see [Ballerina Downloads page](/downloads/) for Ballerina version history and release notes.
