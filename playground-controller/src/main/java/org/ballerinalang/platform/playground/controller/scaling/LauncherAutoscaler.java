@@ -2,7 +2,7 @@ package org.ballerinalang.platform.playground.controller.scaling;
 
 
 import org.ballerinalang.platform.playground.controller.util.Constants;
-import org.ballerinalang.platform.playground.controller.util.ContainerRuntimeClient;
+import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -80,7 +80,7 @@ public class LauncherAutoscaler {
         return this.runtimeClient.getDeployments().size();
     }
 
-    public List<String> getServiceList() {
+    public List<String> getServices() {
         return runtimeClient.getServices();
     }
 
@@ -90,5 +90,9 @@ public class LauncherAutoscaler {
 
     public void deleteService(String serviceName) {
         runtimeClient.deleteService(serviceName);
+    }
+
+    public List<String> getDeployments() {
+        return runtimeClient.getDeployments();
     }
 }

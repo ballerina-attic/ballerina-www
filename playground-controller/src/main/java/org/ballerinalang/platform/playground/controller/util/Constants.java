@@ -22,5 +22,6 @@ public class Constants {
 
     // Member status values
     public static final String MEMBER_STATUS_FREE = "FREE";
-    public static final String MEMBER_STATUS_BUSY = "MEMBER_STATUS_BUSY";
+    public static final String MEMBER_STATUS_BUSY = "BUSY";
+    public static final String DOMAIN_PLAYGROUND_BALLERINA_IO = "playground.ballerina.io";
 }

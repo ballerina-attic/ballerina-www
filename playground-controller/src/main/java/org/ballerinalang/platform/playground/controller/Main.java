@@ -1,9 +1,13 @@
 package org.ballerinalang.platform.playground.controller;
 
+import org.ballerinalang.platform.playground.controller.persistence.InMemoryPersistence;
+import org.ballerinalang.platform.playground.controller.persistence.Persistence;
 import org.ballerinalang.platform.playground.controller.scaling.LauncherAutoscaler;
+import org.ballerinalang.platform.playground.controller.service.ControllerService;
+import org.ballerinalang.platform.playground.controller.service.ControllerServiceManager;
 import org.ballerinalang.platform.playground.controller.util.Constants;
-import org.ballerinalang.platform.playground.controller.util.ContainerRuntimeClient;
-import org.ballerinalang.platform.playground.controller.util.KubernetesClientImpl;
+import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
+import org.ballerinalang.platform.playground.controller.containercluster.KubernetesClientImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.msf4j.MicroservicesRunner;
@@ -57,10 +61,14 @@ public class Main {
 
                 break;
             case Constants.CONTROLLER_ROLE_API_SERVER:
+                Persistence persistence = new InMemoryPersistence();
+                ControllerServiceManager serviceManager = new ControllerServiceManager(maxCount, freeGap, autoscaler, persistence);
+
                 log.info("Starting API server...");
                 MicroservicesRunner microservicesRunner = new MicroservicesRunner();
-                microservicesRunner.deploy(new TestControllerService(maxCount, freeGap, autoscaler));
+                microservicesRunner.deploy(new ControllerService(serviceManager));
                 microservicesRunner.start();
+
                 break;
             default:
                 // break down if an invalid role is specified
@@ -70,9 +78,9 @@ public class Main {
     }
 
     private static void cleanOrphanServices(LauncherAutoscaler autoscaler) {
-        List<String> serviceNames = autoscaler.getServiceList();
+        List<String> serviceNames = autoscaler.getServices();
         for (String serviceName : serviceNames) {
-            if (!autoscaler.deploymentExists(serviceName)) {
+            if (serviceName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !autoscaler.deploymentExists(serviceName)) {
                 log.info("Cleaning orphan Service [Name] " + serviceName + "...");
                 autoscaler.deleteService(serviceName);
             }

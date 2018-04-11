@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * A mock implementation of the {@link PersistenceClient} for development purposes.
+ * A mock implementation of the {@link Persistence} for development purposes.
  * Suitable for single node testing.
  */
-public class InMemoryPersistence implements PersistenceClient {
+public class InMemoryPersistence implements Persistence {
 
-    Map<String, String> members = new HashMap<>();
+    private Map<String, String> members = new HashMap<>();
 
     @Override
     public void addFreeLauncher(String launcherUrl) {
@@ -51,7 +51,7 @@ public class InMemoryPersistence implements PersistenceClient {
 
     @Override
     public List<String> getTotalLauncherUrls() {
-        return (List<String>) members.values();
+        return new ArrayList<>(members.values());
     }
 
     @Override
@@ -62,5 +62,10 @@ public class InMemoryPersistence implements PersistenceClient {
     @Override
     public void markLauncherAsBusy(String launcherUrl) {
         members.put(launcherUrl, Constants.MEMBER_STATUS_BUSY);
+    }
+
+    @Override
+    public boolean launcherExists(String launcherUrl) {
+        return members.containsKey(launcherUrl);
     }
 }

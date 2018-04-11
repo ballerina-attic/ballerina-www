@@ -1,4 +1,4 @@
-package org.ballerinalang.platform.playground.controller.util;
+package org.ballerinalang.platform.playground.controller.containercluster;
 
 import io.fabric8.kubernetes.api.model.Container;
 import io.fabric8.kubernetes.api.model.ContainerPort;
@@ -25,6 +25,7 @@ import io.fabric8.kubernetes.api.model.extensions.DeploymentSpec;
 import io.fabric8.kubernetes.api.model.extensions.DeploymentSpecBuilder;
 import io.fabric8.kubernetes.client.DefaultKubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClient;
+import org.ballerinalang.platform.playground.controller.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -127,7 +128,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
         Map<String, String> annotations = new HashMap<>();
         annotations.put("serviceloadbalancer/lb.cookie-sticky-session", "true");
-        annotations.put("serviceloadbalancer/lb.host", serviceSubDomain + ".playground.ballerina.io");
+        annotations.put("serviceloadbalancer/lb.host", serviceSubDomain + "." + Constants.DOMAIN_PLAYGROUND_BALLERINA_IO);
         annotations.put("serviceloadbalancer/lb.sslTerm", "true");
 
         Map<String, String> labels = new HashMap<>();
@@ -187,6 +188,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     @Override
     public List<String> getServices() {
+        // TODO: should consider label selector to get only launcher objects
         ServiceList serviceList = k8sClient.services().inNamespace(namespace).list();
         List<String> serviceNameList = new ArrayList<>();
         for (Service service : serviceList.getItems()) {

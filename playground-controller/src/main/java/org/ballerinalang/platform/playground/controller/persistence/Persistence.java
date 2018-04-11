@@ -2,7 +2,7 @@ package org.ballerinalang.platform.playground.controller.persistence;
 
 import java.util.List;
 
-public interface PersistenceClient {
+public interface Persistence {
     public void addFreeLauncher(String launcherUrl);
 
     public void removeLauncher(String launcherUrl);
@@ -16,4 +16,6 @@ public interface PersistenceClient {
     public void markLauncherAsFree(String launcherUrl);
 
     public void markLauncherAsBusy(String launcherUrl);
+
+    public boolean launcherExists(String launcherUrl);
 }
