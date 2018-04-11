@@ -45,22 +45,19 @@ public class LauncherAutoscaler {
     public void scaleUp() {
         log.info("Scaling up by [Step Up] " + stepUp + " instances...");
 
-        int lastCreatedLauncherNumber = getLatestDeploymentSuffix();
+        // Where to start naming things
+        int newNameSuffix = getLatestDeploymentNameSuffix() + 1;
 
-        // scale up by 1 x stepUp at a time
+        // scale up by (1 x stepUp) at a time
         for (int i = 0; i < stepUp; i++) {
-            log.debug("Last created launcher number: " + lastCreatedLauncherNumber);
-            String newDeploymentName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + (lastCreatedLauncherNumber + 1);
-            String newServiceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + (lastCreatedLauncherNumber + 1);
+            runtimeClient.createDeployment(newNameSuffix);
+            runtimeClient.createService(newNameSuffix);
 
-            runtimeClient.createDeployment(newDeploymentName);
-            runtimeClient.createService(newDeploymentName, newServiceSubDomain);
-
-            lastCreatedLauncherNumber++;
+            newNameSuffix++;
         }
     }
 
-    private int getLatestDeploymentSuffix() {
+    private int getLatestDeploymentNameSuffix() {
         List<String> deploymentList = runtimeClient.getDeployments();
         if (deploymentList.size() > 0) {
             Collections.sort(deploymentList);

@@ -5,13 +5,19 @@ import io.fabric8.kubernetes.api.model.ContainerPort;
 import io.fabric8.kubernetes.api.model.ContainerPortBuilder;
 import io.fabric8.kubernetes.api.model.EnvVar;
 import io.fabric8.kubernetes.api.model.EnvVarBuilder;
+import io.fabric8.kubernetes.api.model.IntOrString;
+import io.fabric8.kubernetes.api.model.ObjectMeta;
 import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;
 import io.fabric8.kubernetes.api.model.PodSpec;
 import io.fabric8.kubernetes.api.model.PodSpecBuilder;
 import io.fabric8.kubernetes.api.model.PodTemplateSpec;
 import io.fabric8.kubernetes.api.model.PodTemplateSpecBuilder;
 import io.fabric8.kubernetes.api.model.Service;
+import io.fabric8.kubernetes.api.model.ServiceBuilder;
 import io.fabric8.kubernetes.api.model.ServiceList;
+import io.fabric8.kubernetes.api.model.ServicePort;
+import io.fabric8.kubernetes.api.model.ServiceSpec;
+import io.fabric8.kubernetes.api.model.ServiceSpecBuilder;
 import io.fabric8.kubernetes.api.model.extensions.Deployment;
 import io.fabric8.kubernetes.api.model.extensions.DeploymentBuilder;
 import io.fabric8.kubernetes.api.model.extensions.DeploymentList;
@@ -42,18 +48,19 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     }
 
     @Override
-    public void createDeployment(String deploymentName) {
-        log.info("Creating deployment " + deploymentName + "...");
+    public void createDeployment(int deploymentNameSuffix) {
+        String deploymentName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + deploymentNameSuffix;
+        log.info("Creating Deployment [Name] " + deploymentName + "...");
 
         // Labels for the to be created deployment
-        Map<String, String> labelMap = new HashMap<>();
-        labelMap.put("app", deploymentName);
-        labelMap.put("appType", Constants.BPG_APP_TYPE_LAUNCHER);
+        Map<String, String> labels = new HashMap<>();
+        labels.put("app", deploymentName);
+        labels.put("appType", Constants.BPG_APP_TYPE_LAUNCHER);
 
         // Container spec
-        List<Container> containerList = new ArrayList<>();
+        List<Container> containers = new ArrayList<>();
         Container launcherContainer = new Container();
-        containerList.add(launcherContainer);
+        containers.add(launcherContainer);
 
         // Add container info
         launcherContainer.setName(Constants.BPG_APP_TYPE_LAUNCHER + "-container");
@@ -83,13 +90,13 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 //        List<Volume> volumes = new ArrayList<>();
 
         PodSpec podSpec = new PodSpecBuilder()
-                .withContainers(containerList)
+                .withContainers(containers)
 //                .withVolumes(volumes)
                 .build();
 
         PodTemplateSpec podTemplateSpec = new PodTemplateSpecBuilder()
                 .withMetadata(new ObjectMetaBuilder()
-                        .withLabels(labelMap)
+                        .withLabels(labels)
                         .build())
                 .withSpec(podSpec)
                 .build();
@@ -112,8 +119,49 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     }
 
     @Override
-    public void createService(String newDeploymentName, String newServiceName) {
+    public void createService(int serviceNameSuffix) {
+        String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + serviceNameSuffix;
+        String serviceName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + serviceNameSuffix;
 
+        log.info("Creating Service with [Name] " + serviceName + " for [Subdomain]" + serviceSubDomain + "...");
+
+        Map<String, String> annotations = new HashMap<>();
+        annotations.put("serviceloadbalancer/lb.cookie-sticky-session", "true");
+        annotations.put("serviceloadbalancer/lb.host", serviceSubDomain + ".playground.ballerina.io");
+        annotations.put("serviceloadbalancer/lb.sslTerm", "true");
+
+        Map<String, String> labels = new HashMap<>();
+        labels.put("app", serviceName);
+        labels.put("appType", Constants.BPG_APP_TYPE_LAUNCHER);
+
+        List<ServicePort> ports = new ArrayList<>();
+        ServicePort servicePort = new ServicePort();
+        servicePort.setName("https-port");
+        servicePort.setPort(443);
+        servicePort.setTargetPort(new IntOrString(443));
+        ports.add(servicePort);
+
+        Map<String, String> selector = new HashMap<>();
+        selector.put("app", serviceName);
+
+        ObjectMeta serviceMetadata = new ObjectMetaBuilder()
+                .withName(serviceName)
+                .withAnnotations(annotations)
+                .withLabels(labels)
+                .build();
+
+        ServiceSpec serviceSpec = new ServiceSpecBuilder()
+                .withPorts(ports)
+                .withSelector(selector)
+                .build();
+
+        Service service = new ServiceBuilder()
+                .withKind("Service")
+                .withMetadata(serviceMetadata)
+                .withSpec(serviceSpec)
+                .build();
+
+        k8sClient.services().inNamespace(namespace).create(service);
     }
 
     @Override
