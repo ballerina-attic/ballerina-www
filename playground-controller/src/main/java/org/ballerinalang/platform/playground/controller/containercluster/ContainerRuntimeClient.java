@@ -19,4 +19,6 @@ public interface ContainerRuntimeClient {
     public boolean deploymentExists(String deploymentName);
 
     public boolean serviceExists(String serviceName);
+
+//    public Deployment getDeploymentByName(String deploymentName);
 }

@@ -17,6 +17,7 @@
  *
  */
  const path = require('path');
+ const fs = require('fs');
  const webpack = require('webpack');
  const ExtractTextPlugin = require('extract-text-webpack-plugin');
  const ProgressBarPlugin = require('progress-bar-webpack-plugin');
@@ -25,6 +26,7 @@
  const CopyWebpackPlugin = require('copy-webpack-plugin');
  const HtmlWebpackPlugin = require('html-webpack-plugin');
  const CleanWebpackPlugin = require('clean-webpack-plugin');
+ const WebfontPlugin = require('webpack-webfont').default;
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
  const hashToUse = isProductionBuild ? 'chunkhash' : 'hash';
@@ -40,6 +42,9 @@
      return modulePath.includes('node_modules');
  };
  
+ // Keeps unicode codepoints of font-ballerina for each icon name
+const codepoints = {}
+
  const config = {
      target: 'web',
      entry: {
@@ -141,12 +146,43 @@
          new ProgressBarPlugin(),
          new CleanWebpackPlugin([buildPath], { watch: true, root: moduleRoot }),
          extractCSSBundle,
+         new webpack.WatchIgnorePlugin([path.join(composerWebRoot, 'font/dist/')]),
+         new WebfontPlugin({
+            files: path.join(composerWebRoot, 'font/font-ballerina/icons/**/*.svg'),
+            cssTemplateFontPath: '../fonts/',
+            fontName: 'font-ballerina',
+            fontHeight: 1000,
+            normalize: true,
+            cssTemplateClassName: 'fw',
+            template: path.join(composerWebRoot, 'font/font-ballerina/template.css.njk'),
+            glyphTransformFn: (obj) => {
+                codepoints[obj.name] = obj.unicode;
+            },
+            dest: {
+                fontsDir: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
+                stylesDir: path.join(composerWebRoot, 'font/dist/font-ballerina/css'),
+                outputFilename: 'font-ballerina.css',
+            },
+            hash: new Date().getTime(),
+        }),
+        {
+            apply: function(compiler) {
+                compiler.plugin('compile', function(compilation, callback) {
+                    fs.writeFile(
+                        path.join(composerWebRoot, 'font/dist/font-ballerina/codepoints.json'),
+                        JSON.stringify(codepoints),
+                        'utf8',
+                        callback
+                    );
+                });
+            }
+        },
          new WriteFilePlugin(),
          new CopyWebpackPlugin([
-            // {
-            //     from: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
-            //     to: 'fonts',
-            // },
+            {
+                from: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
+                to: 'fonts',
+            },
             {
                 from: 'public'
             },

@@ -8,7 +8,11 @@ We appreciate your help and participation!
 
 We have a low-traffic announcement list that we use to disseminate major news such as new releases. We encourage all Ballerina users and developers to be a part of this list.
 
-Use the form at the footer of this page to subscribe to Ballerina announcements.
+<form class="cFormContainerOS">
+<label class="subscribeForm" id="subscribeFormLabelOS">Email Address</label>
+<input class="cTextfieldstyle" maxlength="90" value="" id="emailUserOS" name="email" placeholder="Email" title="Email" type="text">
+<a class="cBallerinaButtons subscribeUserForm" href="" id="subscribeUserButtonOS">Submit</a>
+</form>
 
 ## Version History
 
