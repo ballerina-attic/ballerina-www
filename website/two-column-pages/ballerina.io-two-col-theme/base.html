@@ -84,6 +84,37 @@
 			});
 	</script>
 	{% endif %}
+	<script>
+	$(document).ready(function() {
+				 $("#slackSubscribeButton").click(function(event) {
+						 event.preventDefault();
+						 $('#subscribeMessage').html('');
+						 var email = $("#email").val();
+
+						 if (email == "") {
+								 $('#subscribeMessage').html("Please enter your email");
+						 } else if (!isEmail(email)) {
+								 $('#subscribeMessage').html("Please enter a valid email");
+						 } else {
+								 $('#subscribeMessage').html("Processing...")
+								 $.ajax({
+										 type: 'POST',
+										 url: '/slackServiceCall.php',
+										 data: {email: email},
+										 success: function(msg) {
+											 if(msg ==1){
+												 $('#subscribeMessage').html('<span>Your invitation has been sent to ' + email + '</span>');
+												 $('.subscribeForm').hide();
+											 }else{
+												 $('#subscribeMessage').html('<span>'+msg+'</span>');
+											 }
+										 }
+								 });
+						 }
+
+				 });
+	});
+	</script>
 </head>
 
 <body class="cBallerina-io" role="document">
@@ -145,7 +176,7 @@
 
 
 			});
-                        
+
           $( "#breadcrumb-list li" ).each(function( index ) {
                 var current= $( this );
                 var currentLink = $(current.find( "a" )[0]);
