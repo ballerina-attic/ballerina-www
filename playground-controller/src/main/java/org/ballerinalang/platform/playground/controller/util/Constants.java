@@ -24,4 +24,14 @@ public class Constants {
     public static final String MEMBER_STATUS_FREE = "FREE";
     public static final String MEMBER_STATUS_BUSY = "BUSY";
     public static final String DOMAIN_PLAYGROUND_BALLERINA_IO = "playground.ballerina.io";
+
+    // Launcher environment variables
+    public static final String ENV_BPG_REDIS_WRITE_HOST = "BPG_REDIS_WRITE_HOST";
+    public static final String ENV_BPG_REDIS_WRITE_PORT = "BPG_REDIS_WRITE_PORT";
+    public static final String ENV_BPG_REDIS_READ_HOST = "BPG_REDIS_READ_HOST";
+    public static final String ENV_BPG_REDIS_READ_PORT = "BPG_REDIS_READ_PORT";
+    public static final String ENV_DB_HOST = "DB_HOST";
+    public static final String ENV_DB_PORT = "DB_PORT";
+    public static final String ENV_BPG_LAUNCHER_SELF_URL = "BPG_LAUNCHER_SELF_URL";
+    public static final String ENV_IS_LAUNCHER_CACHE = "BPG_LAUNCHER_CACHE_NODE";
 }

@@ -26,6 +26,7 @@ import io.fabric8.kubernetes.api.model.extensions.DeploymentSpecBuilder;
 import io.fabric8.kubernetes.client.DefaultKubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import org.ballerinalang.platform.playground.controller.util.Constants;
+import org.ballerinalang.platform.playground.controller.util.ControllerUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,6 +55,10 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     @Override
     public void createDeployment(int deploymentNameSuffix) {
         String deploymentName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + deploymentNameSuffix;
+
+        String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + deploymentNameSuffix;
+        String launcherSelfUrl = serviceSubDomain + "." + Constants.DOMAIN_PLAYGROUND_BALLERINA_IO;
+
         log.info("Creating Deployment [Name] " + deploymentName + "...");
 
         // Labels for the to be created deployment
@@ -82,11 +87,30 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         // Env vars should be set so that the launcher is able to Redis
         List<EnvVar> envVarList = new ArrayList<>();
 
-        // TODO: add all the variables needed
-        envVarList.add(new EnvVarBuilder()
-                .withName("BPG_REDIS_WRITE_HOST")
-                .withValue("redis-master")
-                .build());
+        envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_WRITE_HOST,
+                ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_WRITE_HOST)));
+        envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_WRITE_PORT,
+                ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_WRITE_PORT)));
+        envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_READ_HOST,
+                ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_READ_HOST)));
+        envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_READ_PORT,
+                ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_READ_PORT)));
+        envVarList.add(buildEnvVar(Constants.ENV_DB_HOST,
+                ControllerUtils.getEnvStringValue(Constants.ENV_DB_HOST)));
+        envVarList.add(buildEnvVar(Constants.ENV_DB_PORT,
+                ControllerUtils.getEnvStringValue(Constants.ENV_DB_PORT)));
+        envVarList.add(buildEnvVar(Constants.ENV_BPG_NAMESPACE, namespace));
+        envVarList.add(buildEnvVar(Constants.ENV_BPG_LAUNCHER_SELF_URL, launcherSelfUrl));
+        envVarList.add(buildEnvVar(Constants.ENV_IS_LAUNCHER_CACHE, "false"));
+
+//        envVarList.add(buildEnvVar(Constants.ENV_LAUNCHER_IMAGE_NAME, launcherImageName));
+//        envVarList.add(buildEnvVar(Constants.ENV_DESIRED_COUNT, ControllerUtils.getEnvStringValue(Constants.ENV_DESIRED_COUNT)));
+//        envVarList.add(buildEnvVar(Constants.ENV_MAX_COUNT, ControllerUtils.getEnvStringValue(Constants.ENV_MAX_COUNT)));
+//        envVarList.add(buildEnvVar(Constants.ENV_STEP_UP, ControllerUtils.getEnvStringValue(Constants.ENV_STEP_UP)));
+//        envVarList.add(buildEnvVar(Constants.ENV_STEP_DOWN, ControllerUtils.getEnvStringValue(Constants.ENV_STEP_DOWN)));
+//        envVarList.add(buildEnvVar(Constants.ENV_FREE_BUFFER, "6397"));
+//        envVarList.add(buildEnvVar("BPG_SCALING_IDLE_TIMEOUT_MIN", "6397"));
+//        envVarList.add(buildEnvVar("BPG_CONTROLLER_ROLE", "6397"));
 
         launcherContainer.setEnv(envVarList);
 
@@ -120,6 +144,13 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
         // Make API call to create deployment
         k8sClient.extensions().deployments().inNamespace(namespace).create(deployment);
+    }
+
+    private EnvVar buildEnvVar(String key, String value) {
+        return new EnvVarBuilder()
+                .withName(key)
+                .withValue(value)
+                .build();
     }
 
     @Override
