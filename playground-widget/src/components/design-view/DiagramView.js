@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Dimmer, Loader } from 'semantic-ui-react'
-import TreeBuilder from 'TreeBuilder'
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
-import Diagram from 'Diagram';
-import PackageScopedEnvironment from 'PackageScopedEnvironment';
+// import TreeBuilder from 'TreeBuilder'
+// import { DragDropContext } from 'react-dnd';
+// import HTML5Backend from 'react-dnd-html5-backend';
+// import Diagram from 'Diagram';
+// import PackageScopedEnvironment from 'PackageScopedEnvironment';
 import { PARSER_API_URL } from '../../utils';
-import 'scss/design-view.scss';
-import 'font-ballerina/css/font-ballerina.css';
+// import 'scss/design-view.scss';
+// import 'font-ballerina/css/font-ballerina.css';
 
 /**
  * Invoke parser service for the given content
@@ -53,28 +53,28 @@ class DiagramView extends React.Component {
         this.container = undefined;
     }
 
-    /**
-     * @override
-     * @memberof Diagram
-     */
-    getChildContext() {
-        return {
-            environment: new PackageScopedEnvironment(),
-            getDiagramContainer: () => {
-                return this.container;
-            },
-            getOverlayContainer: () => {
-                return this.container;
-            },
-            fitToWidth: true,
-        };
-    }
+    // /**
+    //  * @override
+    //  * @memberof Diagram
+    //  */
+    // getChildContext() {
+    //     return {
+    //         environment: new PackageScopedEnvironment(),
+    //         getDiagramContainer: () => {
+    //             return this.container;
+    //         },
+    //         getOverlayContainer: () => {
+    //             return this.container;
+    //         },
+    //         fitToWidth: true,
+    //     };
+    // }
 
     componentDidMount() {
-        parseContent(this.props.content)
-            .then(({ model }) => {
-                this.setState({ model: TreeBuilder.build(model) });
-            })
+        // parseContent(this.props.content)
+        //     .then(({ model }) => {
+        //         this.setState({ model: TreeBuilder.build(model) });
+        //     })
     }
 
     /**
@@ -89,9 +89,9 @@ class DiagramView extends React.Component {
                         <Loader inverted />
                     </Dimmer>
                 }
-            {model &&
+            {/* {model &&
                 <Diagram mode='action' fitToWidth={true} model={model} width={476} height={285} />
-            }
+            } */}
         </div>
         );
     }
@@ -102,11 +102,11 @@ DiagramView.propTypes = {
 };
 
 
-DiagramView.childContextTypes = {
-    environment: PropTypes.instanceOf(PackageScopedEnvironment).isRequired,
-    getDiagramContainer: PropTypes.func.isRequired,
-    getOverlayContainer: PropTypes.func.isRequired,
-    fitToWidth: PropTypes.bool
-};
+// DiagramView.childContextTypes = {
+//     environment: PropTypes.instanceOf(PackageScopedEnvironment).isRequired,
+//     getDiagramContainer: PropTypes.func.isRequired,
+//     getOverlayContainer: PropTypes.func.isRequired,
+//     fitToWidth: PropTypes.bool
+// };
 
-export default DragDropContext(HTML5Backend)(DiagramView);
+export default DiagramView //DragDropContext(HTML5Backend)(DiagramView);
