@@ -25,7 +25,6 @@
  const CopyWebpackPlugin = require('copy-webpack-plugin');
  const HtmlWebpackPlugin = require('html-webpack-plugin');
  const CleanWebpackPlugin = require('clean-webpack-plugin');
- const WebfontPlugin = require('webpack-webfont').default;
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
  const hashToUse = isProductionBuild ? 'chunkhash' : 'hash';
@@ -144,10 +143,10 @@
          extractCSSBundle,
          new WriteFilePlugin(),
          new CopyWebpackPlugin([
-            {
-                from: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
-                to: 'fonts',
-            },
+            // {
+            //     from: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
+            //     to: 'fonts',
+            // },
             {
                 from: 'public'
             },
