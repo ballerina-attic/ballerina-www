@@ -66,7 +66,7 @@ class DiagramView extends React.Component {
             getOverlayContainer: () => {
                 return this.container;
             },
-            fitToScreen: true,
+            fitToWidth: true,
         };
     }
 
@@ -90,7 +90,7 @@ class DiagramView extends React.Component {
                     </Dimmer>
                 }
             {model &&
-                <Diagram mode='action' model={model} width={476} height={285} />
+                <Diagram mode='action' fitToWidth={true} model={model} width={476} height={285} />
             }
         </div>
         );
@@ -106,7 +106,7 @@ DiagramView.childContextTypes = {
     environment: PropTypes.instanceOf(PackageScopedEnvironment).isRequired,
     getDiagramContainer: PropTypes.func.isRequired,
     getOverlayContainer: PropTypes.func.isRequired,
-    fitToScreen: PropTypes.bool
+    fitToWidth: PropTypes.bool
 };
 
 export default DragDropContext(HTML5Backend)(DiagramView);
