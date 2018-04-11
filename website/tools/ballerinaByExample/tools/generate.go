@@ -17,7 +17,7 @@ import (
 
 var cacheDir = "/tmp/gobyexample-cache"
 var pygmentizeBin = "tools/ballerinaByExample/vendor/pygments/pygmentize"
-var githubBallerinaByExampleBaseURL = "https://github.com/jeradrutnam/ballerina-examples/tree/master/examples"
+var githubBallerinaByExampleBaseURL = "https://github.com/ballerina-platform/ballerina-examples/tree/master"
 var examplesDir = os.Args[1];
 var siteDir = os.Args[2];
 
