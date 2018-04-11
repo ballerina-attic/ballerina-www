@@ -28,7 +28,7 @@ See our [GitHub repo](https://github.com/ballerina-platform/ballerina-lang).
 
 [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev) is the main discussion forum of the Ballerina dev team.
 
-We also use [Slack](/slack) for chat. Click <a class="" data-toggle="modal" data-target="#subscribe">here</a> to get a Slack invite</p>
+We also use [Slack](https://ballerina-platform.slack.com/) for chat. Click [here](/open-source/slack) to get a Slack invite</p>
 
 Comments in GitHub issues and pull requests are used for issue or feature-specific discussions.
 

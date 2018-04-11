@@ -99,34 +99,46 @@
         $(document).ready(function() {
             $("#slackSubscribeButton").click(function(event) {
                 event.preventDefault();
-                $('#subscribeMessage').html('');
-                var email = $("#email").val();
-
-                if (email == "") {
-                    $('#subscribeMessage').html("Please enter your email").removeClass('success');
-                } else if (!isEmail(email)) {
-                    $('#subscribeMessage').html("Please enter a valid email").removeClass('success');
-                } else {
-                    $('#subscribeMessage').html("Processing...")
-                    $.ajax({
-                        type: 'POST',
-                        url: '/slackServiceCall.php',
-                        data: {
-                            email: email
-                        },
-                        success: function(msg) {
-                            if (msg == 1) {
-                                $('#subscribeMessage').html('<span>Your invitation has been sent to ' + email + '</span>').addClass('success');
-                                $('.subscribeForm').hide();
-                            } else {
-                                $('#subscribeMessage').html('<span>' + msg + '</span>').addClass('success');
-                            }
-                        }
-                    });
+                inviteSlackUser();
+            });
+            $('#email').on('keypress', function(event) {
+                if (event.which === 13) {
+                    event.preventDefault();
+                    $(this).attr("disabled", "disabled");
+                    inviteSlackUser();
+                    $(this).removeAttr("disabled");
                 }
-
             });
         });
+
+        function inviteSlackUser(){
+          $('#subscribeMessage').html('');
+          var email = $("#email").val();
+
+          if (email == "") {
+              $('#subscribeMessage').html("Please enter your email").removeClass('success');
+          } else if (!isEmail(email)) {
+              $('#subscribeMessage').html("Please enter a valid email").removeClass('success');
+          } else {
+              $('#subscribeMessage').html("Processing...")
+              $.ajax({
+                  type: 'POST',
+                  url: '/slackServiceCall.php',
+                  data: {
+                      email: email
+                  },
+                  success: function(msg) {
+                      if (msg == 1) {
+                          $('#subscribeMessage').html('<span>Your invitation has been sent to ' + email + '</span>').addClass('success');
+                          $('.subscribeForm').hide();
+                      } else {
+                          $('#subscribeMessage').html('<span>' + msg + '</span>').addClass('success');
+                      }
+                  }
+              });
+          }
+          return;
+        }
     </script>
 </head>
 
