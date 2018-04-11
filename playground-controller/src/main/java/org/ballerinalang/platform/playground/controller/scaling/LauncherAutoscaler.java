@@ -15,31 +15,38 @@ public class LauncherAutoscaler {
 
     private int stepUp;
     private int stepDown;
+    private int freeGap;
+    private int maxCount;
     private ContainerRuntimeClient runtimeClient;
 
-    public LauncherAutoscaler(ContainerRuntimeClient runtimeClient, int stepUp, int stepDown) {
+    public LauncherAutoscaler(int stepUp, int stepDown, int maxCount, int freeGap, ContainerRuntimeClient runtimeClient) {
         this.stepDown = stepDown;
         this.stepUp = stepUp;
+        this.freeGap = freeGap;
+        this.maxCount = maxCount;
         this.runtimeClient = runtimeClient;
     }
 
-    public static void doScaling(int totalCount, int freeCount) {
-        int busyCount = totalCount - freeCount;
+    public void doScaling(int freeCount) {
+        // Check if there are enough free launchers
+        while (freeCount < freeGap) {
+            log.debug("Scaling UP: REASON -> [Free Count] " + freeCount + " < [Free Gap] " + freeGap);
+            scaleUp();
+        }
 
-
-//        while (freeCount < limitGap) {
-//            log.debug("Scaling up as [Free Count] " + freeCount + " is less than the specified [Limit Gap] " + limitGap);
-//            scaleUp();
-//        }
-//
-//        while (totalCount > maxCount) {
-//            log.debug("Scaling down as [Total Count] " + totalCount + " is larger than the specified [Max Count] " + maxCount);
-//            scaleDown();
-//        }
+        // Check if max is exceeded
+        int totalCount = this.getTotalLauncherCount();
+        while (totalCount > maxCount) {
+            log.debug("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Max Count] " + maxCount);
+            scaleDown();
+        }
     }
 
     public void scaleDown() {
+        log.info("Scaling down by [Step Down] " + stepDown + " instances...");
         // TODO: scale down by 1xstepDown at a time
+        // TODO: delete latest, free launchers
+
     }
 
     public void scaleUp() {

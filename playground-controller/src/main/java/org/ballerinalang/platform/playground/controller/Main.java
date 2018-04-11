@@ -32,7 +32,7 @@ public class Main {
         int stepDown = getEnvIntValue(Constants.ENV_STEP_DOWN);
         int minCount = getEnvIntValue(Constants.ENV_MIN_COUNT);
         int maxCount = getEnvIntValue(Constants.ENV_MAX_COUNT);
-        int limitGap = getEnvIntValue(Constants.ENV_LIMIT_GAP);
+        int freeGap = getEnvIntValue(Constants.ENV_FREE_GAP);
         int idleTimeoutMinutes = getEnvIntValue(Constants.ENV_IDLE_TIMEOUT);
 
         // Create a k8s client to interact with the k8s API. The client is per namespace
@@ -41,7 +41,7 @@ public class Main {
 
         // Create a autoscaler instance to scale in/out launcher instances
         log.debug("Creating autoscaler...");
-        LauncherAutoscaler autoscaler = new LauncherAutoscaler(runtimeClient, stepUp, stepDown);
+        LauncherAutoscaler autoscaler = new LauncherAutoscaler(stepUp, stepDown, maxCount, freeGap, runtimeClient);
 
         // Perform role
         switch (controllerRole) {
@@ -53,13 +53,13 @@ public class Main {
                 break;
             case Constants.CONTROLLER_ROLE_IDLE_CHECK:
                 log.info("Checking for idle launchers...");
-                runIdleCheck(idleTimeoutMinutes, minCount, limitGap, autoscaler);
+                runIdleCheck(idleTimeoutMinutes, minCount, freeGap, autoscaler);
 
                 break;
             case Constants.CONTROLLER_ROLE_API_SERVER:
                 log.info("Starting API server...");
                 MicroservicesRunner microservicesRunner = new MicroservicesRunner();
-                microservicesRunner.deploy(new TestControllerService(maxCount, limitGap, autoscaler));
+                microservicesRunner.deploy(new TestControllerService(maxCount, freeGap, autoscaler));
                 microservicesRunner.start();
                 break;
             default:
@@ -80,7 +80,7 @@ public class Main {
     }
 
     private static void runIdleCheck(int idleTimeoutMinutes, int minCount, int limitGap, LauncherAutoscaler autoscaler) {
-
+        // TODO: To test this functionality, the list implementation should be completed.
     }
 
     private static void runMinCheck(int minCount, LauncherAutoscaler autoscaler) {

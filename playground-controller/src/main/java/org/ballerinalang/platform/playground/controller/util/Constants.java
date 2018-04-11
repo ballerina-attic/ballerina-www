@@ -17,6 +17,6 @@ public class Constants {
     public static final String ENV_STEP_DOWN = "BPG_SCALING_STEP_DOWN";
     public static final String ENV_MIN_COUNT = "BPG_SCALING_MIN";
     public static final String ENV_MAX_COUNT = "BPG_SCALING_MAX";
-    public static final String ENV_LIMIT_GAP = "BPG_SCALING_LIMIT_GAP";
+    public static final String ENV_FREE_GAP = "BPG_SCALING_FREE_GAP";
     public static final String ENV_IDLE_TIMEOUT = "BPG_SCALING_IDLE_TIMEOUT_MIN";
 }
