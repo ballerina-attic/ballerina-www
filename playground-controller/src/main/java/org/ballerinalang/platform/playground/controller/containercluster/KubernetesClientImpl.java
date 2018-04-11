@@ -67,9 +67,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         labels.put("appType", Constants.BPG_APP_TYPE_LAUNCHER);
 
         // Container spec
-        List<Container> containers = new ArrayList<>();
         Container launcherContainer = new Container();
-        containers.add(launcherContainer);
 
         // Add container info
         launcherContainer.setName(Constants.BPG_APP_TYPE_LAUNCHER + "-container");
@@ -84,7 +82,13 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
         launcherContainer.setPorts(containerPorts);
 
-        // Env vars should be set so that the launcher is able to Redis
+        List<Container> containers = new ArrayList<>();
+        containers.add(launcherContainer);
+
+        // Env vars should be set so that the launcher is able to
+        // 1. Communicate with the persistence
+        // 2. Register itself as free when a job is done
+        // 3. Perform proper role (cache node vs build node)
         List<EnvVar> envVarList = new ArrayList<>();
 
         envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_WRITE_HOST,
@@ -146,29 +150,25 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         k8sClient.extensions().deployments().inNamespace(namespace).create(deployment);
     }
 
-    private EnvVar buildEnvVar(String key, String value) {
-        return new EnvVarBuilder()
-                .withName(key)
-                .withValue(value)
-                .build();
-    }
-
     @Override
     public void createService(int serviceNameSuffix) {
         String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + serviceNameSuffix;
         String serviceName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + serviceNameSuffix;
 
-        log.info("Creating Service with [Name] " + serviceName + " for [Subdomain]" + serviceSubDomain + "...");
+        log.info("Creating Service with [Name] " + serviceName + " for [Sub Domain]" + serviceSubDomain + "...");
 
+        // Service load balancer annotations
         Map<String, String> annotations = new HashMap<>();
         annotations.put("serviceloadbalancer/lb.cookie-sticky-session", "true");
         annotations.put("serviceloadbalancer/lb.host", serviceSubDomain + "." + Constants.DOMAIN_PLAYGROUND_BALLERINA_IO);
         annotations.put("serviceloadbalancer/lb.sslTerm", "true");
 
+        // Labels
         Map<String, String> labels = new HashMap<>();
         labels.put("app", serviceName);
         labels.put("appType", Constants.BPG_APP_TYPE_LAUNCHER);
 
+        // Port to be exposed
         List<ServicePort> ports = new ArrayList<>();
         ServicePort servicePort = new ServicePort();
         servicePort.setName("https-port");
@@ -176,6 +176,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         servicePort.setTargetPort(new IntOrString(443));
         ports.add(servicePort);
 
+        // Pod selector
         Map<String, String> selector = new HashMap<>();
         selector.put("app", serviceName);
 
@@ -201,7 +202,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     @Override
     public void deleteDeployment(String deploymentName) {
-
+        k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).delete();
     }
 
     @Override
@@ -211,20 +212,17 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     @Override
     public List<String> getDeployments() {
-        DeploymentList depList = k8sClient.extensions().deployments().inNamespace(namespace).withLabel("appType", Constants.BPG_APP_TYPE_LAUNCHER).list();
+        DeploymentList depList = k8sClient.extensions().deployments()
+                .inNamespace(namespace)
+                .withLabel("appType", Constants.BPG_APP_TYPE_LAUNCHER)
+                .list();
+
         List<String> depNameList = new ArrayList<>();
         for (Deployment deployment : depList.getItems()) {
             depNameList.add(deployment.getMetadata().getName());
         }
 
         return depNameList;
-    }
-
-    private long calculateObjectAge(String creationTimestamp) {
-        LocalDate creationDate = LocalDate.parse(creationTimestamp);
-        LocalDate now = LocalDate.now();
-
-        return MINUTES.between(creationDate, now);
     }
 
     @Override
@@ -246,6 +244,20 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     @Override
     public boolean serviceExists(String serviceName) {
         return k8sClient.services().inNamespace(namespace).withName(serviceName).get() != null;
+    }
+
+    private EnvVar buildEnvVar(String key, String value) {
+        return new EnvVarBuilder()
+                .withName(key)
+                .withValue(value)
+                .build();
+    }
+
+    private long calculateObjectAgeByMinutes(String creationTimestamp) {
+        LocalDate creationDate = LocalDate.parse(creationTimestamp);
+        LocalDate now = LocalDate.now();
+
+        return MINUTES.between(creationDate, now);
     }
 
 //    @Override

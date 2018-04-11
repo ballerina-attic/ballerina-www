@@ -76,8 +76,8 @@ public class Main {
 
     private static void runScaleDownJob(int maxCount, int desiredCount, int freeBufferCount, int stepDown, LauncherClusterManager clusterManager) {
         // Get free and total counts
-        int freeCount = clusterManager.getFreeLauncherCount();
-        int totalCount = clusterManager.getTotalLauncherCount();
+        int freeCount = clusterManager.getFreeLaunchers().size();
+        int totalCount = clusterManager.getTotalLaunchers().size();
 
         // Scale down if max is exceeded, irrespective of free buffer count
         if (totalCount > maxCount) {
