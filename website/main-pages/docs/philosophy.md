@@ -101,13 +101,13 @@
             </ul>
             <div class="tab-content clearfix cPhilosophyWidgetInnerBox ">
                <div class="tab-pane active" id="1a">
-                  <img src="../img/philosophy-diagrams-for-site-02.svg"/>
+                  <img src="/img/philosophy-diagrams-for-site-new-02.svg"/>
                </div>
                <div class="tab-pane" id="2a">
-                  <img src="../img/philosophy-diagrams-for-site-03.svg"/>
+                  <img src="/img/philosophy-diagrams-for-site-new-03.svg"/>
                </div>
                <div class="tab-pane" id="3a">
-                  <img src="../img/philosophy-diagrams-for-site-04.svg"/>
+                  <img src="/img/philosophy-diagrams-for-site-new-04.svg"/>
                </div>
             </div>
          </div>
@@ -204,8 +204,8 @@
          <div class="col-xs-12">
             <h2 class="cMainH2Title">Cloud Native Programming Language </h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol ">
-               <p>Designed to be cloud-first, Ballerina has built-in support for modern web 
-                   protocols and data formats, full power of a Turing-complete programming language, 
+               <p>Designed to be cloud-first, Ballerina has built-in support for modern web
+                   protocols and data formats, full power of a Turing-complete programming language,
                    and native support for microservices architectures.
                </p>
             </div>
@@ -504,7 +504,7 @@ cannot convert 'json' to type 'Payment': error while mapping 'year': incompatibl
       </div>
       <div class="col-xs-4 text-display" id="type-safe-endpoint-integration-text">
             <div class="cPhil-title-boxes cCloudNative">
-                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
+              <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
                     <p>Ballerina objects can be simple structures or more complex objects with public and private fields.</p>
                 </div>
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white cPhil-title-boxes-Gray">
