@@ -174,9 +174,9 @@
 
                         <div>
 
-                            <table class="cBBE-body {{if .IsConsoleOutput}}cOutput{{end}}">
+                            <table class="cBBE-body">
                                 {{range .}}
-                                <tr class="cTR{{if and (not .DocEmpty) (not .IsConsoleOutput)}} hover-enable{{end}}">
+                                <tr class="cTR{{if and (not .DocEmpty) (not .IsConsoleOutput)}} hover-enable{{end}}{{if .IsConsoleOutput}} cOutputTr{{end}}">
 
                                     <td class="code{{if .CodeEmpty}} empty{{end}}{{if .CodeLeading}} leading{{end}}{{if .IsConsoleOutput}} cOutput{{end}}">
                                         {{.CodeRendered}}
