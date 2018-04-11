@@ -158,7 +158,7 @@ $(document).ready(function(){
         }
         lines = lines + '</div>';
         //calculate <pre> height and set it to the container
-        var preHeight = numberOfLines*25;
+        var preHeight = numberOfLines*20;
         $(this).parent()
             .height(preHeight)
             .addClass('ballerina-pre-wrapper')

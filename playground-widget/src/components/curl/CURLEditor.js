@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './CURLEditor.css';
-import tryItRefreshBtn from './try-it-refresh.svg';
 import { getMonospaceFontFamily } from '../../client-utils';
 
 /**
@@ -47,7 +46,6 @@ class Console extends React.Component {
                             style={{ fontFamily: getMonospaceFontFamily() }}
                         />
                 </div>
-                {/* <div className="curl-btn"><img className="try-it-refresh-btn" src={tryItRefreshBtn} /></div> */}
             </div>
         );
     }

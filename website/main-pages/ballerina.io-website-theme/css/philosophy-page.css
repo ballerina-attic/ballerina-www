@@ -331,26 +331,42 @@ transition: all 0.2s ease 0s
     line-height: 24px;
     font-weight: 200;
     
-    
 }
 .OpenSourceTable td {
     border-bottom: 1px solid #cecfd0;
     padding: 5px 0;
     text-align: left;
+    vertical-align: top;
+    height: 50px;
 }
-
+.OpenSourceTable td:first-child {
+    padding-right: 20px;
+    white-space: nowrap;
+}
 .OpenSourceTable td a {
    color: #23b8b1;
+}
+.OpenSourceTable td:nth-child(3) {
+    width: 26px;
 }
 
 .cType {
     width: 20%;
 }
 .OpenSourceTable td.cGitLink {
-    width: 20%;
     text-align: right; 
 } 
-
+.OpenSourceTableRightWrapper{
+    padding-left: 40px;
+}
+@media (max-width: 992px) { 
+    .OpenSourceTableRightWrapper{
+        padding-left: 15px;
+    }
+    .OpenSourceTable td:first-child{
+        width: 170px;
+    }
+}
 .cGitLink a {
     
  background-repeat: no-repeat;
