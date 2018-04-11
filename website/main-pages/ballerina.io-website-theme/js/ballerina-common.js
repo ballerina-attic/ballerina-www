@@ -86,9 +86,9 @@ $('#iMainNavigation').append(menu);
 $('#iBallerinaFooter').append(footer);
 
 
-                   $("code").addClass('cBasicCode');
-                   $(".ballerina").removeClass('cBasicCode');
-                   $(".bash").removeClass('cBasicCode'); 
+$("code").addClass('cBasicCode');
+$(".ballerina").removeClass('cBasicCode');
+$(".bash").removeClass('cBasicCode');
 
 });
 
