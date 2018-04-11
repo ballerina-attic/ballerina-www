@@ -39,6 +39,10 @@
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
     <link rel="stylesheet" href="/css/highlight.css">
     <script src="/js/ballerina-common.js"></script>
+    <script>
+      // Current page data
+      var aggregated_release_note = "{{config.extra.aggregated_release_note}}";
+    </script>
 
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css"> {%- for path in extra_css %}
@@ -79,6 +83,15 @@
                 }
                 return;
             }
+        });
+    </script>
+    {% endif %}
+    {% if page and page.title == 'Release Notes' %}
+    <script>
+        $(document).ready(function () {
+              $.get(aggregated_release_note, function (data) {
+                $('.section').append(data)
+              });
         });
     </script>
     {% endif %}
