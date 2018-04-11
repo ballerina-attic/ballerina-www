@@ -42,6 +42,7 @@ print('Scraping files in %s for generating the search json' % os.path.realpath(t
 logbody = ''
 index = 0
 searchData = { 'docs' :[]}
+addedHashes = []
 
 # Walk the tree
 for dirpath, dirnames, files in os.walk(topdir):
@@ -76,15 +77,18 @@ for dirpath, dirnames, files in os.walk(topdir):
                 text = detail.get_text()
                 text = text.replace('\u00a0', ' ')
                 text = re.sub(r'[ \t\n\r\f\v]+', ' ', text.strip())
+                text = utils.text_type(text.encode('utf-8'), encoding='utf-8')
                 if (text and str(os.path.relpath(location))):
-                    currentPage = {
-                        'index' : index,
-                        'location' : str(os.path.relpath(location)),
-                        'text' : utils.text_type(text.encode('utf-8'), encoding='utf-8'),
-                        'title' : str(title.get_text())
-                    }
-                    index = index +1
-                    searchData['docs'].append(currentPage)
+                    hashVal = abs(hash((str(os.path.relpath(location)), text, str(title.get_text()))))
+                    if hashVal not in addedHashes:
+                        currentPage = {
+                            'location' : str(os.path.relpath(location)),
+                            'text' : text,
+                            'title' : str(title.get_text()),
+                            'index' : hashVal
+                        }
+                        addedHashes.append(hashVal)
+                        searchData['docs'].append(currentPage)
 
 # Write results to the json file
 with open(outputjson, 'w') as logfile:
