@@ -15,48 +15,61 @@ public class LauncherAutoscaler {
 
     private int stepUp;
     private int stepDown;
+    private int freeGap;
+    private int maxCount;
     private ContainerRuntimeClient runtimeClient;
 
-    public LauncherAutoscaler(ContainerRuntimeClient runtimeClient, int stepUp, int stepDown) {
+    public LauncherAutoscaler(int stepUp, int stepDown, int maxCount, int freeGap, ContainerRuntimeClient runtimeClient) {
         this.stepDown = stepDown;
         this.stepUp = stepUp;
+        this.freeGap = freeGap;
+        this.maxCount = maxCount;
         this.runtimeClient = runtimeClient;
     }
 
-    public static void doScaling(int totalCount, int freeCount) {
-        int busyCount = totalCount - freeCount;
+    public void doScaling(int freeCount) {
+        // Check if there are enough free launchers
+        while (freeCount < freeGap) {
+            log.debug("Scaling UP: REASON -> [Free Count] " + freeCount + " < [Free Gap] " + freeGap);
+            scaleUp();
+        }
 
-
-//        while (freeCount < limitGap) {
-//            log.debug("Scaling up as [Free Count] " + freeCount + " is less than the specified [Limit Gap] " + limitGap);
-//            scaleUp();
-//        }
-//
-//        while (totalCount > maxCount) {
-//            log.debug("Scaling down as [Total Count] " + totalCount + " is larger than the specified [Max Count] " + maxCount);
-//            scaleDown();
-//        }
+        // Check if max is exceeded
+        int totalCount = this.getTotalLauncherCount();
+        while (totalCount > maxCount) {
+            log.debug("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Max Count] " + maxCount);
+            scaleDown();
+        }
     }
 
     public void scaleDown() {
+        log.info("Scaling down by [Step Down] " + stepDown + " instances...");
         // TODO: scale down by 1xstepDown at a time
+        // TODO: delete latest, free launchers
+
     }
 
     public void scaleUp() {
-        // TODO: scale up by 1xscaleUp at a time
-        int lastCreatedLauncherNumber = getLatestDeploymentSuffix();
-        log.debug("Last created launcher number: " + lastCreatedLauncherNumber);
-        String newDeploymentName = Constants.BPG_APP_TYPE + "-" + (lastCreatedLauncherNumber + 1);
-        runtimeClient.createDeployment(newDeploymentName);
-        runtimeClient.createService();
+        log.info("Scaling up by [Step Up] " + stepUp + " instances...");
+
+        // Where to start naming things
+        int newNameSuffix = getLatestDeploymentNameSuffix() + 1;
+
+        // scale up by (1 x stepUp) at a time
+        for (int i = 0; i < stepUp; i++) {
+            runtimeClient.createDeployment(newNameSuffix);
+            runtimeClient.createService(newNameSuffix);
+
+            newNameSuffix++;
+        }
     }
 
-    private int getLatestDeploymentSuffix() {
+    private int getLatestDeploymentNameSuffix() {
         List<String> deploymentList = runtimeClient.getDeployments();
         if (deploymentList.size() > 0) {
             Collections.sort(deploymentList);
             String lastElement = deploymentList.get(deploymentList.size() - 1);
-            String lastLauncherSuffix = lastElement.substring((Constants.BPG_APP_TYPE + "-").length(), lastElement.length());
+            String lastLauncherSuffix = lastElement.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length(), lastElement.length());
             return Integer.parseInt(lastLauncherSuffix);
         }
 
@@ -65,5 +78,17 @@ public class LauncherAutoscaler {
 
     public int getTotalLauncherCount() {
         return this.runtimeClient.getDeployments().size();
+    }
+
+    public List<String> getServiceList() {
+        return runtimeClient.getServices();
+    }
+
+    public boolean deploymentExists(String deploymentName) {
+        return runtimeClient.deploymentExists(deploymentName);
+    }
+
+    public void deleteService(String serviceName) {
+        runtimeClient.deleteService(serviceName);
     }
 }

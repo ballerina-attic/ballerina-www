@@ -1,72 +1,96 @@
 package org.ballerinalang.platform.playground.controller;
 
-import org.ballerinalang.platform.playground.controller.jobs.IdleLauncherCheckJob;
-import org.ballerinalang.platform.playground.controller.jobs.MinCheckJob;
 import org.ballerinalang.platform.playground.controller.scaling.LauncherAutoscaler;
+import org.ballerinalang.platform.playground.controller.util.Constants;
 import org.ballerinalang.platform.playground.controller.util.ContainerRuntimeClient;
 import org.ballerinalang.platform.playground.controller.util.KubernetesClientImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.msf4j.MicroservicesRunner;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
 public class Main {
 
     private static final Logger log = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        // control flags to be set using environment variables
-        String bpgNamespace = getEnvStringValue("BPG_NAMESPACE");
-        String launcherImageName = getEnvStringValue("BPG_LAUNCHER_IMAGE_NAME");
+        // Read controller role
+        String controllerRole = getEnvStringValue(Constants.ENV_CONTROLLER_ROLE);
 
-        int minCount = getEnvIntValue("BPG_SCALING_MIN");
-        int maxCount = getEnvIntValue("BPG_SCALING_MAX");
-        int stepUp = getEnvIntValue("BPG_SCALING_STEP_UP");
-        int stepDown = getEnvIntValue("BPG_SCALING_STEP_DOWN");
-        int limitGap = getEnvIntValue("BPG_SCALING_LIMIT_GAP");
-        int idleTimeoutMinutes = getEnvIntValue("BPG_SCALING_IDLE_TIMEOUT_MIN");
+        if (controllerRole == null) {
+            log.error("Controller role is not specified. Use environment variable \"" + Constants.ENV_CONTROLLER_ROLE + "\" to set a role.");
+            throw new IllegalArgumentException("Controller role is not specified.");
+        }
 
-        int idleCheckInitialDelay = 5;
-        int idleCheckPeriod = 10;
+        log.info("Starting Ballerina Playground Controller with role: " + controllerRole + "...");
 
-        int minCheckInitialDelay = 5;
-        int minCheckPeriod = 10;
+        // Read control flags
+        String bpgNamespace = getEnvStringValue(Constants.ENV_BPG_NAMESPACE);
+        String launcherImageName = getEnvStringValue(Constants.ENV_LAUNCHER_IMAGE_NAME);
+        int stepUp = getEnvIntValue(Constants.ENV_STEP_UP);
+        int stepDown = getEnvIntValue(Constants.ENV_STEP_DOWN);
+        int minCount = getEnvIntValue(Constants.ENV_MIN_COUNT);
+        int maxCount = getEnvIntValue(Constants.ENV_MAX_COUNT);
+        int freeGap = getEnvIntValue(Constants.ENV_FREE_GAP);
+        int idleTimeoutMinutes = getEnvIntValue(Constants.ENV_IDLE_TIMEOUT);
 
         // Create a k8s client to interact with the k8s API. The client is per namespace
-        log.info("Creating K8S client...");
+        log.debug("Creating Kubernetes client...");
         ContainerRuntimeClient runtimeClient = new KubernetesClientImpl(bpgNamespace, launcherImageName);
 
-        // Create a scaler instance to scale in/out launcher instances
-        log.info("Creating autoscaler instance...");
-        LauncherAutoscaler autoscaler = new LauncherAutoscaler(runtimeClient, stepUp, stepDown);
+        // Create a autoscaler instance to scale in/out launcher instances
+        log.debug("Creating autoscaler...");
+        LauncherAutoscaler autoscaler = new LauncherAutoscaler(stepUp, stepDown, maxCount, freeGap, runtimeClient);
 
-        // Schedule a periodic job to check for min count and scale up if needed
-        log.info("Scheduling min check controller...");
-        ScheduledExecutorService minCheckExecutor = Executors.newScheduledThreadPool(1);
-        minCheckExecutor.scheduleAtFixedRate(
-                new MinCheckJob(minCount, autoscaler),
-                minCheckInitialDelay,
-                minCheckPeriod,
-                TimeUnit.SECONDS);
+        // Perform role
+        switch (controllerRole) {
+            case Constants.CONTROLLER_ROLE_MIN_CHECK:
+                log.info("Checking minimum instance count...");
+                cleanOrphanServices(autoscaler);
+                runMinCheck(minCount, autoscaler);
 
+                break;
+            case Constants.CONTROLLER_ROLE_IDLE_CHECK:
+                log.info("Checking for idle launchers...");
+                runIdleCheck(idleTimeoutMinutes, minCount, freeGap, autoscaler);
 
-        // Schedule a periodic job to check for idle launchers and kill them
-        log.info("Scheduling idle check controller....");
-        ScheduledExecutorService idleCheckExecutor = Executors.newScheduledThreadPool(1);
-        idleCheckExecutor.scheduleAtFixedRate(
-                new IdleLauncherCheckJob(idleTimeoutMinutes, minCount, limitGap, autoscaler),
-                idleCheckInitialDelay,
-                idleCheckPeriod,
-                TimeUnit.SECONDS);
+                break;
+            case Constants.CONTROLLER_ROLE_API_SERVER:
+                log.info("Starting API server...");
+                MicroservicesRunner microservicesRunner = new MicroservicesRunner();
+                microservicesRunner.deploy(new TestControllerService(maxCount, freeGap, autoscaler));
+                microservicesRunner.start();
+                break;
+            default:
+                // break down if an invalid role is specified
+                log.error("Invalid Controller Role defined: " + controllerRole);
+                throw new IllegalArgumentException("Invalid Controller Role defined: " + controllerRole);
+        }
+    }
 
-        // Start API server
-        log.info("Starting API server...");
-        MicroservicesRunner microservicesRunner = new MicroservicesRunner();
-        microservicesRunner.deploy(new TestControllerService(maxCount, limitGap, autoscaler));
-        microservicesRunner.start();
+    private static void cleanOrphanServices(LauncherAutoscaler autoscaler) {
+        List<String> serviceNames = autoscaler.getServiceList();
+        for (String serviceName : serviceNames) {
+            if (!autoscaler.deploymentExists(serviceName)) {
+                log.info("Cleaning orphan Service [Name] " + serviceName + "...");
+                autoscaler.deleteService(serviceName);
+            }
+        }
+    }
+
+    private static void runIdleCheck(int idleTimeoutMinutes, int minCount, int limitGap, LauncherAutoscaler autoscaler) {
+        // TODO: To test this functionality, the list implementation should be completed.
+    }
+
+    private static void runMinCheck(int minCount, LauncherAutoscaler autoscaler) {
+        int totalLauncherCount = autoscaler.getTotalLauncherCount();
+        log.info("[Total count] " + totalLauncherCount + " [Min Count] " + minCount);
+        while (totalLauncherCount < minCount) {
+            log.info("Scaling UP: REASON -> [Total Count] " + totalLauncherCount + " < [Min Count] " + minCount);
+            autoscaler.scaleUp();
+            totalLauncherCount = autoscaler.getTotalLauncherCount();
+        }
     }
 
     private static String getEnvStringValue(String key) {
