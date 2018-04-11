@@ -30,6 +30,10 @@
             <version>${ballerina.release.version}</version>
             <exclusions>
                 <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty-transport</artifactId>
+                </exclusion>
+                <exclusion>
                     <groupId>org.wso2.transport.http</groupId>
                     <artifactId>org.wso2.transport.http.netty</artifactId>
                 </exclusion>
@@ -49,6 +53,12 @@
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-http</artifactId>
             <version>${ballerina.release.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.wso2.transport.http</groupId>
+                    <artifactId>org.wso2.transport.http.netty</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.ballerinalang</groupId>
