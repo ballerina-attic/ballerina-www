@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/css/download-page.css"></link>
-<script src="/js/download.js"></script>
+<script src="/js/download-page.js"></script>
 <div class="row cBallerina-io-Gray-row">
     <div class="container">
         <div class="row">
