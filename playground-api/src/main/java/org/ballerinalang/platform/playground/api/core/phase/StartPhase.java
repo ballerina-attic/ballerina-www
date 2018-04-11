@@ -18,7 +18,7 @@ package org.ballerinalang.platform.playground.api.core.phase;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.ballerinalang.platform.playground.api.core.Constants;
-import org.ballerinalang.platform.playground.api.core.ProcessUtils;
+import org.ballerinalang.platform.playground.api.core.util.ProcessUtils;
 import org.ballerinalang.platform.playground.api.core.RunSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -119,24 +119,38 @@ $(document).ready(function () {
          $(".cSerachIcon").click(function() {
          $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
          });
+
          //subscribe form
          $("#subscribeUserButton").click(function (event) {
              event.preventDefault();
-             $('#subscribeUserMessage').remove("")
-             var email = $("#emailUser").val();
-             if (email == "") {
-                 $('.cFormContainer').append('<span id="subscribeUserMessage">Please enter your email</span>');
-             } else if (!isEmail(email)) {
-                 $('.cFormContainer').append('<span id="subscribeUserMessage">Please enter a valid email</span>');
-             } else {
-                 $('.cFieldContainer').hide();
-                 $('.cButtonContainer').hide();
-                 $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl979?email=" + email + "'></iframe>");
-                 $('.cFormContainer').append('<span id="subscribeUserMessage">Thank you! Stay tuned for updates on Ballerina.</span>');
-                 $("#emailUser").val("");
-             }
+             subscribeUser($(this).val(""));
          });
+
+         $('#emailUser').on('keypress', function (event) {
+            if(event.which === 13){
+              event.preventDefault();
+               $(this).attr("disabled", "disabled");
+               subscribeUser($(this).val());
+               $(this).removeAttr("disabled");
+            }
+        });
 });
+
+function subscribeUser(email){
+  $('#subscribeUserMessage').remove("");
+  if (email == "") {
+      $('.cFormContainer').append('<span id="subscribeUserMessage">Please enter your email</span>');
+  } else if (!isEmail(email)) {
+      $('.cFormContainer').append('<span id="subscribeUserMessage">Please enter a valid email</span>');
+  } else {
+      $('.cFieldContainer').hide();
+      $('.cButtonContainer').hide();
+      $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl979?email=" + email + "'></iframe>");
+      $('.cFormContainer').append('<span id="subscribeUserMessage">Thank you! Stay tuned for updates on Ballerina.</span>');
+      $("#emailUser").val("");
+  }
+  return;
+}
 
 function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
