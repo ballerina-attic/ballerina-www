@@ -86,6 +86,9 @@ $('#iMainNavigation').append(menu);
 $('#iBallerinaFooter').append(footer);
 
 
+                   $("code").addClass('cBasicCode');
+                   $(".ballerina").removeClass('cBasicCode');
+                   $(".bash").removeClass('cBasicCode'); 
 
 });
 
@@ -117,7 +120,10 @@ $(document).ready(function () {
 
 
          $(".cSerachIcon").click(function() {
-         $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
+            $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
+            if($(".cSearchBoxTopMenu").hasClass('cShowcSearchTopMenu')){
+                $("#mkdocs-search-query").focus()
+            }
          });
 
          //subscribe form
