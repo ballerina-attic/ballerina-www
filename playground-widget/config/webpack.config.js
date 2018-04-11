@@ -25,16 +25,18 @@
  const CopyWebpackPlugin = require('copy-webpack-plugin');
  const HtmlWebpackPlugin = require('html-webpack-plugin');
  const CleanWebpackPlugin = require('clean-webpack-plugin');
- 
- const extractCSSBundle = new ExtractTextPlugin({ filename: './[name].[chunkhash].css', allChunks: true });
+ const WebfontPlugin = require('webpack-webfont').default;
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
+ const hashToUse = isProductionBuild ? 'chunkhash' : 'hash';
  const backendHost = 'playground.ballerina.io';
 
  const moduleRoot = path.resolve(__dirname, '../');
  const buildPath = path.resolve(__dirname, '../build');
- const composerWebRoot = path.join(__dirname, '../ballerina/composer/modules/web');
+ const composerWebRoot = path.join(__dirname, '../ballerina-lang/composer/modules/web');
  
+ const extractCSSBundle = new ExtractTextPlugin({ filename: `./[name].[${hashToUse}].css`, allChunks: true });
+
  const isExternal = function(modulePath) {
      return modulePath.includes('node_modules');
  };
@@ -52,11 +54,14 @@
             'classnames',
             'axios',
             'react-monaco-editor',
-            'babel-polyfill'
+            'babel-polyfill',
+            'react-dnd',
+            'react-dnd-html5-backend'
          ]
      },
      output: {
-         filename: '[name].[chunkhash].js',
+         filename: `[name].[${hashToUse}].js`,
+         chunkFilename: `[name].[${hashToUse}].js`,
          path: buildPath,
      },
      module: {
@@ -139,10 +144,10 @@
          extractCSSBundle,
          new WriteFilePlugin(),
          new CopyWebpackPlugin([
-            // { FIXME
-            //     from: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
-            //     to: 'fonts',
-            // },
+            {
+                from: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
+                to: 'fonts',
+            },
             {
                 from: 'public'
             },

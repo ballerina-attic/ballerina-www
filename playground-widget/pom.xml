@@ -76,6 +76,21 @@
                 <version>1.5.0</version>
                 <executions>
                     <execution>
+                        <id>build composer front-end</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                            <workingDirectory>${basedir}/ballerina-lang/composer/modules/web</workingDirectory>
+                            <executable>${mvn.executable}</executable>
+                            <arguments>
+                                <argument>clean</argument>
+                                <argument>install</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <id>npm install</id>
                         <goals>
                             <goal>exec</goal>

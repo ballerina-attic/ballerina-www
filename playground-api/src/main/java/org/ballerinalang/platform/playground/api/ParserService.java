@@ -15,14 +15,14 @@
  */
 package org.ballerinalang.platform.playground.api;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import io.netty.handler.codec.http.HttpHeaderNames;
+import org.ballerinalang.composer.service.ballerina.parser.service.BallerinaParserService;
+import org.ballerinalang.composer.service.ballerina.parser.service.model.BFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
+import javax.ws.rs.OPTIONS;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -34,17 +34,33 @@ import javax.ws.rs.core.Response;
 @Path("/api/parser")
 public class ParserService {
 
-    @GET
+    private BallerinaParserService parserService = new BallerinaParserService();
+
+    private static final Logger logger = LoggerFactory.getLogger(ParserService.class);
+
+    @OPTIONS
     @Path("/")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getBuiltInTypes() {
-        JsonObject response = new JsonObject();
-        response.addProperty("success", true);
-        return Response.status(Response.Status.OK)
-                .entity(response)
-                .header(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN.toString(), '*')
-                .type(MediaType.APPLICATION_JSON)
-                .build();
+    public Response validateAndParseOptions() {
+        return parserService.validateAndParseOptions();
+    }
+
+    @POST
+    @Path("/")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response validateAndParseBFile(BFile bFileRequest) {
+        Response response = null;
+        try {
+            response = parserService.validateAndParseBFile(bFileRequest);
+        } catch (Exception e) {
+            response = Response
+                        .serverError()
+                        .entity(e.getMessage())
+                        .build();
+            logger.error("Error while validate and parse ", e);
+        }
+        return response;
     }
 }

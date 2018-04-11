@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.api.core;
+package org.ballerinalang.platform.playground.api.core.cache.adaptor;
 
 import redis.clients.jedis.Jedis;
 
 /**
- * Cache Storage
+ * Cache Storage Adaptor for Redis
  */
-public class CacheStorage {
+public class RedisCacheStorageAdaptor implements CacheStorageAdaptor {
 
     private static final String REDIS_WRITE_PORT = "BPG_REDIS_WRITE_PORT";
 
@@ -34,20 +34,20 @@ public class CacheStorage {
 
     private Jedis slave;
 
-    public CacheStorage() {
+    public RedisCacheStorageAdaptor() {
         master = new Jedis(System.getenv(REDIS_WRITE_HOST), Integer.parseInt(System.getenv(REDIS_WRITE_PORT)));
         slave = new Jedis(System.getenv(REDIS_READ_HOST), Integer.parseInt(System.getenv(REDIS_READ_PORT)));
     }
 
-    public synchronized String get(String key) {
+    public String get(String key) {
         return slave.get(key);
     }
 
-    public synchronized boolean contains(String key) {
+    public boolean contains(String key) {
         return get(key) != null;
     }
 
-    public synchronized void set(String key, String value) {
+    public void set(String key, String value) {
         master.set(key, value);
     }
 }
