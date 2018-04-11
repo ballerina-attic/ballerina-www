@@ -80,7 +80,7 @@ a:hover {
 .cBallerina-io p {
     font-size: 16px;
     color: #57595d;
-    line-height: 24px;
+    line-height: 21px;
     font-weight: 200;
 }
 
@@ -600,8 +600,8 @@ code:not(.hljs) {
     background-color: #e7eaeb;
     border: none;
     color: #585a5e;
-    font-size: 100%;
-    padding: 3px 6px;
+    font-size: 95%;
+    padding: 1px 5px;
     border-radius: 1px;
 }
 
@@ -770,6 +770,11 @@ button.navbar-toggle {
     color: #005BD1;
 }
 
+.cOutputTr .highlight .s1,
+.cOutputTr .highlight .s2 {
+    color: #e6e9ea;
+}
+
 .hljs-annotation,
 .highlight .nd {
     color: #005BD1;
@@ -798,23 +803,32 @@ button.navbar-toggle {
     line-height: 24px;
 }
 
-.cBBE-body:not(.cOutput) tr>td.code>.highlight {
+.cBBE-body:not(.cOutputTr) tr>td.code>.highlight {
     padding-left: 30px;
 }
 
-.cBBE-body:not(.cOutput) tr>td.code {
+.cBBE-body tr:not(.cOutputTr)>td.code {
     background: url("../img/code-bg.gif") #f5f6f6 repeat-y 0 0;
+}
+
+.cBBE-body tr.cOutputTr>td.code>.bbe-code-line-numbers {
+    display: none;
 }
 
 .bbe-code-line-numbers {
     position: absolute;
-    left: 55px;
+    left: 45px;
     z-index: 1;
-    margin-top: 13px;
+    margin-top: 11px;
+    width: 30px;
+    text-align: center;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 13px;
 }
 
 .bbe-code-line-numbers>.line-number {
     height: 18px;
+    line-height: 18px;
 }
 
 .bbe-code-line-numbers>span {
