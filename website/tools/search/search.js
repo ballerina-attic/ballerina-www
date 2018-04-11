@@ -24,11 +24,43 @@ require([
         }
     }
 
+    function getMaxTitles(matchingTitles , allDocs){
+        var maxTitles = {};
+        if (matchingTitles.length > 0){
+            for (var i=0; i < matchingTitles.length; i++){
+                var result = matchingTitles[i];
+                var doc = allDocs[result.ref];
+                if(maxTitles[doc.title]){
+                    if(maxTitles[doc.title].score < result.score){
+                        maxTitles[doc.title] = doc;
+                    }
+                } else {
+                    maxTitles[doc.title] = doc;
+                }
+            }
+        }
+        return maxTitles;
+    }
+
     var index = lunr(function () {
-        this.field('title', {boost: 10});
         this.field('text');
         this.ref('index');
     });
+
+    // separate index to search through titles only
+    // then add title only once
+    // ex: lets say there are two search indexes like below
+    //      title : "foo bar" , path: "/samepath" , text : "sample",
+    //      title : "foo bar" , path: "/samepath" , text : "sample"
+    // when user search for bar, it will return both of above entries
+    // But only one is enough to represent the title
+    // therefore we do separate seaches for titles and texts and if title is included in the texts we will ignore
+    // that particular title result from "title results". If not we will add the max score title result to all list
+    var title_index = lunr(function () {
+        this.field('title');
+        this.ref('index');
+    });
+
 
     data = JSON.parse(data);
     var documents = {};
@@ -37,6 +69,7 @@ require([
         var doc = data.docs[i];
         doc.location = "/"+doc.location;
         index.add(doc);
+        title_index.add(doc);
         documents[doc.index] = doc;
     }
 
@@ -53,16 +86,36 @@ require([
         }
 
         var results = index.search(query);
+        var title_results = title_index.search(query);
 
+        var maxTitles = getMaxTitles(title_results, documents);
+        var modified_results = [];
         if (results.length > 0){
             for (var i=0; i < results.length; i++){
                 var result = results[i];
-                doc = documents[result.ref];
+                var doc = documents[result.ref];
+                if(maxTitles[doc.title]){
+                    delete maxTitles[doc.title];
+                }
                 doc.base_url = base_url;
                 doc.summary = doc.text.substring(0, 200);
-                var html = Mustache.to_html(results_template, doc);
+                modified_results.push(doc);
+            }
+        }
+
+        for (var title in maxTitles) {
+            var doc = maxTitles[title];
+            doc.base_url = base_url;
+            doc.summary = doc.text.substring(0, 200);
+            modified_results.push(doc);
+        }
+
+        if(modified_results.length > 0){
+            for (var i=0; i < modified_results.length; i++){
+                var html = Mustache.to_html(results_template, modified_results[i]);
                 search_results.insertAdjacentHTML('beforeend', html);
             }
+
         } else {
             search_results.insertAdjacentHTML('beforeend', "<p>No results found</p>");
         }
