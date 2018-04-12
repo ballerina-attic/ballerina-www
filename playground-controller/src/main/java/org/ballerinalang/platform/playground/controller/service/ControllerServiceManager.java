@@ -32,7 +32,7 @@ public class ControllerServiceManager {
         // Scale check and scale up if needed
         clusterManager.honourFreeBufferCount();
 
-        log.debug("Allocating launcher URL: " + launcherToAllocate + "...");
+        log.info("Allocating launcher URL: " + launcherToAllocate + "...");
         return launcherToAllocate;
     }
 
