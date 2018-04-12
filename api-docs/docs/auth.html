@@ -7,8 +7,6 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
     <title>Ballerina.io - API Docs</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script>var base_url = "";</script>
-    <script data-main="/search/search.js" src="/search/require.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <!-- Optional theme -->
@@ -34,6 +32,8 @@
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css">
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
+    <script>var base_url = "";</script>
+    <script data-main="/search/search.js" src="/search/require.js"></script>
 
 </head>
 
@@ -88,32 +88,6 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#AuthConfig-AuthConfig">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        AuthConfig
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#AuthConfig-AuthConfig.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        AuthConfig.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                          
                                         <li>
                                             <a href="#Authentication">
@@ -126,15 +100,77 @@
                                                 </div>
                                             </a>
                                         </li>
+                                         
+                                        <li>
+                                            <a href="#CachedJWTAuthContext">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    CachedJWTAuthContext 
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#JWTAuthProviderConfig">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    JWTAuthProviderConfig 
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#JWTAuthProvider">
+                                                <div class="construct-icon">
+                                                    <span class="fw-connector"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    JWTAuthProvider 
+                                                     (JWTAuthProviderConfig jwtAuthProviderConfig ,Cache authCache ,) 
+                                                </div>
+                                            </a>
+                                        </li>
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Authentication-Authentication.&lt;init&gt;">
+                                                <a href="#JWTAuthProvider-authenticate">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
                                                     <div class="construct-name">
-                                                        Authentication.&lt;init&gt;
+                                                        authenticate
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#JWTAuthProvider-authenticateFromCache">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        authenticateFromCache
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#JWTAuthProvider-addToAuthenticationCache">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        addToAuthenticationCache
                                                     </div>
                                                 </a>
                                             </li>
@@ -155,6 +191,34 @@
                                     </ul>
                                 </div>
                                 
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
                             </li>
                         </ul>
                         
@@ -396,7 +460,7 @@
                                                 
                                                 <h2 id="AuthConfig">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct AuthConfig
+                                                    public object AuthConfig
                                                 </h2>
                                                 
                                                 <p>
@@ -416,7 +480,7 @@
                                                     
                                                     <tr>
                                                         <td class="col-md-3">authentication</td>
-                                                        <td class="col-md-2">Authentication | null</td>
+                                                        <td class="col-md-2">Authentication</td>
                                                         <td class="col-md-5">Authentication struct instance</td>
                                                         <td class="col-md-2"></td>
                                                     </tr>
@@ -425,35 +489,11 @@
                                                         <td class="col-md-3">scopes</td>
                                                         <td class="col-md-2">string[]</td>
                                                         <td class="col-md-5">scope names</td>
-                                                        <td class="col-md-2">[]</td>
+                                                        <td class="col-md-2"></td>
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="AuthConfig-AuthConfig">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;AuthConfig&gt;</span>
-                                                                AuthConfig() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="AuthConfig-AuthConfig.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;AuthConfig&gt;</span>
-                                                                AuthConfig.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
                                                 
                                                 <!-- Enums-->
@@ -473,7 +513,7 @@
                                                 
                                                 <h2 id="Authentication">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct Authentication
+                                                    public object Authentication
                                                 </h2>
                                                 
                                                 <p>
@@ -499,24 +539,331 @@
                                                     </tr>
                                                     
                                                 </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <h2 id="CachedJWTAuthContext">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object CachedJWTAuthContext
+                                                </h2>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Fields:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Field Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">jwtPayload</td>
+                                                        <td class="col-md-2">Payload</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">expiryTime</td>
+                                                        <td class="col-md-2">int</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <h2 id="JWTAuthProviderConfig">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object JWTAuthProviderConfig
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Represents JWT validator configurations
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Fields:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Field Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">issuer</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">audience</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">certificateAlias</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">timeSkew</td>
+                                                        <td class="col-md-2">int</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">trustStoreFilePath</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">trustStorePassword</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <h2 id="JWTAuthProvider">
+                                                    <span class="fw-connector sm-icon"></span>
+                                                    public connector JWTAuthProvider(JWTAuthProviderConfig jwtAuthProviderConfig, Cache authCache)
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Represents a JWT Authenticator
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-4">Parameter Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-6">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">jwtAuthProviderConfig</td>
+                                                        <td class="col-md-2">JWTAuthProviderConfig</td>
+                                                        <td class="col-md-7"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">authCache</td>
+                                                        <td class="col-md-2">Cache</td>
+                                                        <td class="col-md-7"></td>
+                                                    </tr>
+                                                    
+                                                </table>
                                                  
                                                 <div class="function-wrapper">
+                                                    <h2>Actions:</h2>
                                                     <ul>
                                                         
                                                         <li>
-                                                            <h2 id="Authentication-Authentication.&lt;init&gt;">
+                                                            <h2 id="JWTAuthProvider-authenticate">
                                                                 <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Authentication&gt;</span>
-                                                                Authentication.&lt;init&gt;() 
+                                                                <span class="thin-text light-gray">
+                                                                    <JWTAuthProvider>
+                                                                </span>
+                                                                authenticate(string jwtToken) returns (boolean | error) 
                                                             </h2>
-                                                              
+                                                             
+                                                            <p>
+                                                                <label class="table-header-text">Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Parameter Name</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3">jwtToken</td>
+                                                                    <td class="col-md-2">string</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <p class="cReturn">
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">boolean | error</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="JWTAuthProvider-authenticateFromCache">
+                                                                <span class=fw-function></span>
+                                                                <span class="thin-text light-gray">
+                                                                    <JWTAuthProvider>
+                                                                </span>
+                                                                authenticateFromCache(string jwtToken) returns ((boolean,jwtPayload)) 
+                                                            </h2>
+                                                             
+                                                            <p>
+                                                                <label class="table-header-text">Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Parameter Name</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3">jwtToken</td>
+                                                                    <td class="col-md-2">string</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <p class="cReturn">
+                                                                <label class="table-header-text">Return Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Return Variable</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3"></td>
+                                                                    <td class="col-md-2">(boolean,jwtPayload)</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="JWTAuthProvider-addToAuthenticationCache">
+                                                                <span class=fw-function></span>
+                                                                <span class="thin-text light-gray">
+                                                                    <JWTAuthProvider>
+                                                                </span>
+                                                                addToAuthenticationCache(string jwtToken, int exp, Payload payload) 
+                                                            </h2>
+                                                             
+                                                            <p>
+                                                                <label class="table-header-text">Parameters:</label>
+                                                            </p>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="col-md-3">Parameter Name</th>
+                                                                    <th class="col-md-2">Data Type</th>
+                                                                    <th class="col-md-7">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3">jwtToken</td>
+                                                                    <td class="col-md-2">string</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3">exp</td>
+                                                                    <td class="col-md-2">int</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="col-md-3">payload</td>
+                                                                    <td class="col-md-2">Payload</td>
+                                                                    <td class="col-md-7"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
                                                         </li>
                                                         
                                                     </ul>
                                                 </div>
                                                  
-                                                <!-- Connectors and its actions -->
-                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -579,7 +926,7 @@
                                 <div class="constructs-wrapper">
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
-                                                 
+                                                          
                                     </ul>
                                 </div>
                                 
@@ -619,19 +966,6 @@
                                 <a href="auth.basic.html">
                                      
                                     <span class="bold">auth.basic</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.jwtAuth.html">
-                                     
-                                    <span class="bold">auth.jwtAuth</span>
                                      
                                 </a>
                                 
@@ -694,9 +1028,9 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="collections.html">
+                                <a href="compression.html">
                                      
-                                    <span class="bold">collections</span>
+                                    <span class="bold">compression</span>
                                      
                                 </a>
                                 
@@ -720,9 +1054,9 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="data.sql.html">
+                                <a href="file.html">
                                      
-                                    <span class="bold">data.sql</span>
+                                    <span class="bold">file</span>
                                      
                                 </a>
                                 
@@ -733,9 +1067,35 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="file.html">
+                                <a href="grpc.html">
                                      
-                                    <span class="bold">file</span>
+                                    <span class="bold">grpc</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="http.html">
+                                     
+                                    <span class="bold">http</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="http.swagger.html">
+                                     
+                                    <span class="bold">http.swagger</span>
                                      
                                 </a>
                                 
@@ -785,19 +1145,6 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="jwt.signature.html">
-                                     
-                                    <span class="bold">jwt.signature</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
                                 <a href="log.html">
                                      
                                     <span class="bold">log</span>
@@ -814,6 +1161,32 @@
                                 <a href="math.html">
                                      
                                     <span class="bold">math</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="mime.html">
+                                     
+                                    <span class="bold">mime</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="observe.html">
+                                     
+                                    <span class="bold">observe</span>
                                      
                                 </a>
                                 
@@ -876,9 +1249,35 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="sql.html">
+                                     
+                                    <span class="bold">sql</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="task.html">
                                      
                                     <span class="bold">task</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="test.html">
+                                     
+                                    <span class="bold">test</span>
                                      
                                 </a>
                                 
