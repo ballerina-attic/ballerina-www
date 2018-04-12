@@ -210,8 +210,8 @@ $(document).ready(function() {
 
 function formatDate(date, format){
     if(!format){
-        return moment(new Date(date)).format('MMM DD, Y');
+        return moment(date, "DD-MM-YYYY").format('MMM DD, YYYY');
     } else {
-        return moment(new Date(date)).format(format);
+        return moment(date, "DD-MM-YYYY").format(format);
     }
 }
