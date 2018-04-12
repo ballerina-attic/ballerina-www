@@ -7,8 +7,6 @@
     <link rel="shortcut icon" href="/img/favicon.ico">
     <title>Ballerina.io - API Docs</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script>var base_url = "";</script>
-    <script data-main="/search/search.js" src="/search/require.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <!-- Optional theme -->
@@ -34,6 +32,8 @@
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css">
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
+    <script>var base_url = "";</script>
+    <script data-main="/search/search.js" src="/search/require.js"></script>
 
 </head>
 
@@ -171,6 +171,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -193,19 +200,6 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Header-Header.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        Header.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                          
                                         <li>
                                             <a href="#JWTIssuerConfig">
@@ -218,19 +212,6 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#JWTIssuerConfig-JWTIssuerConfig.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        JWTIssuerConfig.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                          
                                         <li>
                                             <a href="#JWTValidatorConfig">
@@ -243,19 +224,6 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#JWTValidatorConfig-JWTValidatorConfig.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        JWTValidatorConfig.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                          
                                         <li>
                                             <a href="#Payload">
@@ -268,19 +236,6 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Payload-Payload.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        Payload.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                          
                                         <li>
                                             <a href="#issue">
@@ -289,6 +244,18 @@
                                                 </div>
                                                 <div class="construct-name">
                                                     issue 
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#sign">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    sign 
                                                     
                                                 </div>
                                             </a>
@@ -306,9 +273,42 @@
                                             </a>
                                         </li>
                                          
+                                        <li>
+                                            <a href="#verifySignature">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    verifySignature 
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
                                     </ul>
                                 </div>
                                 
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
                             </li>
                         </ul>
                         
@@ -445,7 +445,7 @@
                                                 
                                                 <h2 id="Header">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct Header
+                                                    public object Header
                                                 </h2>
                                                 
                                                 <p>
@@ -499,22 +499,7 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Header-Header.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Header&gt;</span>
-                                                                Header.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
                                                 
                                                 <!-- Enums-->
@@ -534,7 +519,7 @@
                                                 
                                                 <h2 id="JWTIssuerConfig">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct JWTIssuerConfig
+                                                    public object JWTIssuerConfig
                                                 </h2>
                                                 
                                                 <p>
@@ -567,22 +552,7 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="JWTIssuerConfig-JWTIssuerConfig.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;JWTIssuerConfig&gt;</span>
-                                                                JWTIssuerConfig.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
                                                 
                                                 <!-- Enums-->
@@ -602,7 +572,7 @@
                                                 
                                                 <h2 id="JWTValidatorConfig">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct JWTValidatorConfig
+                                                    public object JWTValidatorConfig
                                                 </h2>
                                                 
                                                 <p>
@@ -641,23 +611,15 @@
                                                         <td class="col-md-2"></td>
                                                     </tr>
                                                     
+                                                    <tr>
+                                                        <td class="col-md-3">timeSkew</td>
+                                                        <td class="col-md-2">int</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="JWTValidatorConfig-JWTValidatorConfig.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;JWTValidatorConfig&gt;</span>
-                                                                JWTValidatorConfig.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
                                                 
                                                 <!-- Enums-->
@@ -677,7 +639,7 @@
                                                 
                                                 <h2 id="Payload">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct Payload
+                                                    public object Payload
                                                 </h2>
                                                 
                                                 <p>
@@ -752,22 +714,7 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Payload-Payload.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Payload&gt;</span>
-                                                                Payload.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
                                                 
                                                 <!-- Enums-->
@@ -857,9 +804,89 @@
                                                 
                                                 <!-- Function -->
                                                 
+                                                <h2 id="sign">
+                                                    <span class="fw-function sm-icon"> </span>
+                                                    public function sign(string data, string algorithm, string keyAlias, string keyPassword) returns (string) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Sign the given input jwt data.
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Parameter Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">data</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-7">Original that need to sign.</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">algorithm</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-7">Signature string.</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">keyAlias</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-7">Private key alias. If this is null use default private key.</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">keyPassword</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-7">Private key password.</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <p class="cReturn">
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">string </td>
+                                                        <td class="col-md-7">Signature. Signed string.</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
                                                 <h2 id="validate">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function validate(string jwtToken, JWTValidatorConfig config) returns (Payload | boolean | error) 
+                                                    public function validate(string jwtToken, JWTValidatorConfig config) returns ((boolean,Payload) | error) 
                                                 </h2>
                                                 
                                                 <p>
@@ -902,8 +929,88 @@
                                                     
                                                     <tr>
                                                         <td class="col-md-3"></td>
-                                                        <td class="col-md-2">Payload | boolean | error </td>
+                                                        <td class="col-md-2">(boolean,Payload) | error </td>
                                                         <td class="col-md-7">boolean: If JWT token is valied true , else false</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="verifySignature">
+                                                    <span class="fw-function sm-icon"> </span>
+                                                    public function verifySignature(string data, string signature, string algorithm, string keyAlias) returns (boolean) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>VerifySignature the signature of a given jwt.
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Parameter Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">data</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-7">Original data which has signed.</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">signature</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-7">Signature string.</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">algorithm</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-7">Signature algorithm.</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">keyAlias</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-7">Public key alias.</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <p class="cReturn">
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">boolean </td>
+                                                        <td class="col-md-7">Verified status. true or false.</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -994,19 +1101,6 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="auth.jwtAuth.html">
-                                     
-                                    <span class="bold">auth.jwtAuth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
                                 <a href="auth.userstore.html">
                                      
                                     <span class="bold">auth.userstore</span>
@@ -1059,9 +1153,9 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="collections.html">
+                                <a href="compression.html">
                                      
-                                    <span class="bold">collections</span>
+                                    <span class="bold">compression</span>
                                      
                                 </a>
                                 
@@ -1085,9 +1179,9 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="data.sql.html">
+                                <a href="file.html">
                                      
-                                    <span class="bold">data.sql</span>
+                                    <span class="bold">file</span>
                                      
                                 </a>
                                 
@@ -1098,9 +1192,35 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="file.html">
+                                <a href="grpc.html">
                                      
-                                    <span class="bold">file</span>
+                                    <span class="bold">grpc</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="http.html">
+                                     
+                                    <span class="bold">http</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="http.swagger.html">
+                                     
+                                    <span class="bold">http.swagger</span>
                                      
                                 </a>
                                 
@@ -1143,22 +1263,9 @@
                                 <div class="constructs-wrapper">
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
-                                                          
+                                                                
                                     </ul>
                                 </div>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="jwt.signature.html">
-                                     
-                                    <span class="bold">jwt.signature</span>
-                                     
-                                </a>
                                 
                             </li>
                         </ul>
@@ -1183,6 +1290,32 @@
                                 <a href="math.html">
                                      
                                     <span class="bold">math</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="mime.html">
+                                     
+                                    <span class="bold">mime</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="observe.html">
+                                     
+                                    <span class="bold">observe</span>
                                      
                                 </a>
                                 
@@ -1245,9 +1378,35 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="sql.html">
+                                     
+                                    <span class="bold">sql</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="task.html">
                                      
                                     <span class="bold">task</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="test.html">
+                                     
+                                    <span class="bold">test</span>
                                      
                                 </a>
                                 
