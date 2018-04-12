@@ -2,13 +2,12 @@ package org.ballerinalang.platform.playground.controller;
 
 import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
 import org.ballerinalang.platform.playground.controller.containercluster.KubernetesClientImpl;
-import org.ballerinalang.platform.playground.controller.persistence.InMemoryPersistence;
 import org.ballerinalang.platform.playground.controller.persistence.RedisPersistence;
 import org.ballerinalang.platform.playground.controller.scaling.LauncherClusterManager;
 import org.ballerinalang.platform.playground.controller.service.ControllerService;
 import org.ballerinalang.platform.playground.controller.service.ControllerServiceManager;
 import org.ballerinalang.platform.playground.controller.util.Constants;
-import org.ballerinalang.platform.playground.controller.util.ControllerUtils;
+import org.ballerinalang.platform.playground.utils.EnvUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.msf4j.MicroservicesRunner;
@@ -19,7 +18,7 @@ public class ControllerRunner {
 
     public static void main(String[] args) {
         // Read controller role
-        String controllerRole = ControllerUtils.getEnvStringValue(Constants.ENV_CONTROLLER_ROLE);
+        String controllerRole = EnvUtils.getEnvStringValue(Constants.ENV_CONTROLLER_ROLE);
 
         if (controllerRole == null) {
             log.error("Controller role is not specified. Use environment variable \"" + Constants.ENV_CONTROLLER_ROLE + "\" to set a role.");
@@ -29,13 +28,13 @@ public class ControllerRunner {
         log.info("Starting Ballerina Playground Controller with role: " + controllerRole + "...");
 
         // Read control flags
-        String bpgNamespace = ControllerUtils.getEnvStringValue(Constants.ENV_BPG_NAMESPACE);
-        String launcherImageName = ControllerUtils.getEnvStringValue(Constants.ENV_LAUNCHER_IMAGE_NAME);
-        int stepUp = ControllerUtils.getEnvIntValue(Constants.ENV_STEP_UP);
-        int stepDown = ControllerUtils.getEnvIntValue(Constants.ENV_STEP_DOWN);
-        int desiredCount = ControllerUtils.getEnvIntValue(Constants.ENV_DESIRED_COUNT);
-        int maxCount = ControllerUtils.getEnvIntValue(Constants.ENV_MAX_COUNT);
-        int freeBufferCount = ControllerUtils.getEnvIntValue(Constants.ENV_FREE_BUFFER);
+        String bpgNamespace = EnvUtils.getEnvStringValue(Constants.ENV_BPG_NAMESPACE);
+        String launcherImageName = EnvUtils.getEnvStringValue(Constants.ENV_LAUNCHER_IMAGE_NAME);
+        int stepUp = EnvUtils.getEnvIntValue(Constants.ENV_STEP_UP);
+        int stepDown = EnvUtils.getEnvIntValue(Constants.ENV_STEP_DOWN);
+        int desiredCount = EnvUtils.getEnvIntValue(Constants.ENV_DESIRED_COUNT);
+        int maxCount = EnvUtils.getEnvIntValue(Constants.ENV_MAX_COUNT);
+        int freeBufferCount = EnvUtils.getEnvIntValue(Constants.ENV_FREE_BUFFER);
 
         // Create a k8s client to interact with the k8s API. The client is per namespace
         log.info("Creating Kubernetes client...");

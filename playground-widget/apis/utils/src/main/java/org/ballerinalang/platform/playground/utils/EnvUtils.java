@@ -1,11 +1,11 @@
-package org.ballerinalang.platform.playground.controller.util;
+package org.ballerinalang.platform.playground.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ControllerUtils {
+public class EnvUtils {
 
-    private static final Logger log = LoggerFactory.getLogger(ControllerUtils.class);
+    private static final Logger log = LoggerFactory.getLogger(EnvUtils.class);
 
     public static String getEnvStringValue(String key) {
         if (key != null) {

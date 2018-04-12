@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.api;
+package org.ballerinalang.platform.playground.parser;
 
 import org.ballerinalang.composer.service.ballerina.parser.service.BallerinaParserService;
 import org.ballerinalang.composer.service.ballerina.parser.service.model.BFile;

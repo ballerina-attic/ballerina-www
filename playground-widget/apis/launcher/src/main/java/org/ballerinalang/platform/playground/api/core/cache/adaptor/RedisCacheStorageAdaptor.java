@@ -15,39 +15,28 @@
  */
 package org.ballerinalang.platform.playground.api.core.cache.adaptor;
 
-import redis.clients.jedis.Jedis;
+import org.ballerinalang.platform.playground.utils.RedisClient;
 
 /**
  * Cache Storage Adaptor for Redis
  */
 public class RedisCacheStorageAdaptor implements CacheStorageAdaptor {
 
-    private static final String REDIS_WRITE_PORT = "BPG_REDIS_WRITE_PORT";
-
-    private static final String REDIS_READ_PORT = "BPG_REDIS_READ_PORT";
-
-    private static final String REDIS_WRITE_HOST = "BPG_REDIS_WRITE_HOST";
-
-    private static final String REDIS_READ_HOST = "BPG_REDIS_READ_HOST";
-
-    private Jedis master;
-
-    private Jedis slave;
+    private RedisClient redisClient;
 
     public RedisCacheStorageAdaptor() {
-        master = new Jedis(System.getenv(REDIS_WRITE_HOST), Integer.parseInt(System.getenv(REDIS_WRITE_PORT)));
-        slave = new Jedis(System.getenv(REDIS_READ_HOST), Integer.parseInt(System.getenv(REDIS_READ_PORT)));
+        redisClient = new RedisClient();
     }
 
     public String get(String key) {
-        return slave.get(key);
+        return redisClient.getReadClient().get(key);
     }
 
     public boolean contains(String key) {
-        return get(key) != null;
+        return redisClient.getReadClient().exists(key);
     }
 
     public void set(String key, String value) {
-        master.set(key, value);
+        redisClient.getWriteClient().set(key, value);
     }
 }
