@@ -15,9 +15,10 @@
  */
 package org.ballerinalang.platform.playground.api;
 
-import org.ballerinalang.platform.playground.api.core.cache.CacheStorage;
 import org.ballerinalang.platform.playground.api.core.cache.adaptor.CacheStorageAdaptor;
 import org.ballerinalang.platform.playground.api.core.cache.adaptor.InMemoryCacheStorageAdaptor;
+import org.ballerinalang.platform.playground.utils.EnvUtils;
+import org.ballerinalang.platform.playground.utils.EnvVariables;
 import org.wso2.msf4j.MicroservicesRunner;
 
 /**
@@ -28,11 +29,10 @@ public class ServiceRunner {
     private static CacheStorageAdaptor inMemoryCache;
 
     public static void main(String[] args) {
-        if (System.getenv(CacheStorage.USE_IN_MEMORY_CACHE) !=  null) {
+        if (EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_USE_IN_MEMORY_CACHE) !=  null) {
             inMemoryCache = new InMemoryCacheStorageAdaptor();
         }
         MicroservicesRunner microservicesRunner = new MicroservicesRunner();
-        microservicesRunner.deploy(new ParserService());
         microservicesRunner.deployWebSocketEndpoint(new RunService());
         microservicesRunner.start();
     }

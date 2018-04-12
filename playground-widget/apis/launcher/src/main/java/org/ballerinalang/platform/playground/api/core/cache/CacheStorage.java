@@ -17,20 +17,19 @@ package org.ballerinalang.platform.playground.api.core.cache;
 
 import org.ballerinalang.platform.playground.api.ServiceRunner;
 import org.ballerinalang.platform.playground.api.core.cache.adaptor.CacheStorageAdaptor;
-import org.ballerinalang.platform.playground.api.core.cache.adaptor.InMemoryCacheStorageAdaptor;
 import org.ballerinalang.platform.playground.api.core.cache.adaptor.RedisCacheStorageAdaptor;
+import org.ballerinalang.platform.playground.utils.EnvUtils;
+import org.ballerinalang.platform.playground.utils.EnvVariables;
 
 /**
  * Cache Storage
  */
 public class CacheStorage {
 
-    public static final String USE_IN_MEMORY_CACHE = "USE_IN_MEMORY_CACHE";
-
     private CacheStorageAdaptor cacheStorageAdaptor;
 
     public CacheStorage() {
-        if (System.getenv(USE_IN_MEMORY_CACHE) != null) {
+        if (EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_USE_IN_MEMORY_CACHE) != null) {
             cacheStorageAdaptor = ServiceRunner.getInMemoryCache();
         } else {
             cacheStorageAdaptor = new RedisCacheStorageAdaptor();
