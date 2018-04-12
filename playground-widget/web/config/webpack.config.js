@@ -199,10 +199,6 @@ const codepoints = {}
                 to: 'themes'
             },
             {
-                from: '../playground-examples/images',
-                to: 'resources/guides/images'
-            },
-            {
                 from: 'guides',
                 to: 'resources/guides',
                 ignore: [ '*.md',  '*LICENSE', '*.gitignore', '*.db', '*.conf', '*.balx', '*.sh']
