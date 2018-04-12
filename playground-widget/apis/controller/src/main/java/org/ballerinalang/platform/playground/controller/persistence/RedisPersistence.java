@@ -15,7 +15,7 @@
  */
 package org.ballerinalang.platform.playground.controller.persistence;
 
-import org.ballerinalang.platform.playground.controller.util.Constants;
+import org.ballerinalang.platform.playground.utils.MemberConstants;
 import org.ballerinalang.platform.playground.utils.RedisClient;
 import redis.clients.jedis.ScanParams;
 import redis.clients.jedis.ScanResult;
@@ -42,13 +42,13 @@ public class RedisPersistence implements Persistence {
     @Override
     public void addFreeLaunchers(List<String> launcherUrls) {
         Map<String, String> launchers = launcherUrls.stream()
-                .collect(Collectors.toMap((url) -> url, (url) -> Constants.MEMBER_STATUS_FREE));
+                .collect(Collectors.toMap((url) -> url, (url) -> MemberConstants.MEMBER_STATUS_FREE));
         redisClient.getWriteClient().hmset(CACHE_KEY_LAUNCHERS_LIST, launchers);
     }
 
     @Override
     public void addFreeLauncher(String launcherUrl) {
-        redisClient.getWriteClient().hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, Constants.MEMBER_STATUS_FREE);
+        redisClient.getWriteClient().hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, MemberConstants.MEMBER_STATUS_FREE);
     }
 
     @Override
@@ -60,12 +60,12 @@ public class RedisPersistence implements Persistence {
 
     @Override
     public List<String> getFreeLauncherUrls() {
-        return searchLaunchersByStatus(Constants.MEMBER_STATUS_FREE);
+        return searchLaunchersByStatus(MemberConstants.MEMBER_STATUS_FREE);
     }
 
     @Override
     public List<String> getBusyLauncherUrls() {
-        return searchLaunchersByStatus(Constants.MEMBER_STATUS_BUSY);
+        return searchLaunchersByStatus(MemberConstants.MEMBER_STATUS_BUSY);
     }
 
     @Override
@@ -75,13 +75,13 @@ public class RedisPersistence implements Persistence {
 
     @Override
     public boolean markLauncherAsFree(String launcherUrl) {
-        redisClient.getWriteClient().hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, Constants.MEMBER_STATUS_FREE);
+        redisClient.getWriteClient().hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, MemberConstants.MEMBER_STATUS_FREE);
         return true;
     }
 
     @Override
     public boolean markLauncherAsBusy(String launcherUrl) {
-        redisClient.getWriteClient().hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, Constants.MEMBER_STATUS_BUSY);
+        redisClient.getWriteClient().hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, MemberConstants.MEMBER_STATUS_BUSY);
         return true;
     }
 
