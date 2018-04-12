@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.api.core.cache;
+package org.ballerinalang.platform.playground.launcher.core.cache;
 
-import org.ballerinalang.platform.playground.api.ServiceRunner;
-import org.ballerinalang.platform.playground.api.core.cache.adaptor.CacheStorageAdaptor;
-import org.ballerinalang.platform.playground.api.core.cache.adaptor.RedisCacheStorageAdaptor;
+import org.ballerinalang.platform.playground.launcher.ServiceRunner;
+import org.ballerinalang.platform.playground.launcher.core.cache.adaptor.CacheStorageAdaptor;
+import org.ballerinalang.platform.playground.launcher.core.cache.adaptor.RedisCacheStorageAdaptor;
 import org.ballerinalang.platform.playground.utils.EnvUtils;
 import org.ballerinalang.platform.playground.utils.EnvVariables;
 

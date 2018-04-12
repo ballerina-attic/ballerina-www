@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.api;
+package org.ballerinalang.platform.playground.launcher;
 
-import org.ballerinalang.platform.playground.api.core.cache.adaptor.CacheStorageAdaptor;
-import org.ballerinalang.platform.playground.api.core.cache.adaptor.InMemoryCacheStorageAdaptor;
+import org.ballerinalang.platform.playground.launcher.core.cache.adaptor.CacheStorageAdaptor;
+import org.ballerinalang.platform.playground.launcher.core.cache.adaptor.InMemoryCacheStorageAdaptor;
 import org.ballerinalang.platform.playground.utils.EnvUtils;
 import org.ballerinalang.platform.playground.utils.EnvVariables;
 import org.wso2.msf4j.MicroservicesRunner;
@@ -33,7 +33,7 @@ public class ServiceRunner {
             inMemoryCache = new InMemoryCacheStorageAdaptor();
         }
         MicroservicesRunner microservicesRunner = new MicroservicesRunner();
-        microservicesRunner.deployWebSocketEndpoint(new RunService());
+        microservicesRunner.deployWebSocketEndpoint(new LauncherService());
         microservicesRunner.start();
     }
 

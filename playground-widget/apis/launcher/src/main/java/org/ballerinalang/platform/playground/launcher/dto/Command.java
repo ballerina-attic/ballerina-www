@@ -13,16 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.api.core.phase;
-
-import org.ballerinalang.platform.playground.api.core.RunSession;
+package org.ballerinalang.platform.playground.launcher.dto;
 
 /**
- * Represents a phase in Playground Run
+ * Represents a command to run API
  */
-public interface Phase {
+public class Command {
+    private String command;
 
-    void execute(RunSession session, Runnable next) throws Exception;
+    public String getCommand() {
+        return command;
+    }
 
-    void terminate(RunSession session);
+    public void setCommand(String command) {
+        this.command = command;
+    }
 }

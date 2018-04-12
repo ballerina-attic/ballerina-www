@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.api.core;
+package org.ballerinalang.platform.playground.launcher.core;
 
 /**
  * Run API Constants

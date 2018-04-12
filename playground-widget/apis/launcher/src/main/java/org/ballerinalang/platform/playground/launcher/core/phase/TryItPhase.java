@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.api.core.phase;
+package org.ballerinalang.platform.playground.launcher.core.phase;
 
 import org.apache.commons.io.IOUtils;
-import org.ballerinalang.platform.playground.api.core.Constants;
-import org.ballerinalang.platform.playground.api.core.RunSession;
+import org.ballerinalang.platform.playground.launcher.core.Constants;
+import org.ballerinalang.platform.playground.launcher.core.RunSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

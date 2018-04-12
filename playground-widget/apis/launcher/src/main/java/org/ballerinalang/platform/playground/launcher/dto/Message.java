@@ -13,19 +13,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.api.dto;
+package org.ballerinalang.platform.playground.launcher.dto;
 
 /**
- * Represents a command to run API
+ * Represents a msg from Run API
  */
-public class Command {
-    private String command;
+public class Message {
 
-    public String getCommand() {
-        return command;
+    private String code;
+
+    private String message;
+
+    private String type;
+
+    public String getCode() {
+        return code;
     }
 
-    public void setCommand(String command) {
-        this.command = command;
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

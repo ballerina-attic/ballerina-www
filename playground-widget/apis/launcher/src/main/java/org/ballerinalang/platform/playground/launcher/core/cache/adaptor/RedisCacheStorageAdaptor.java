@@ -13,40 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.api.dto;
+package org.ballerinalang.platform.playground.launcher.core.cache.adaptor;
+
+import org.ballerinalang.platform.playground.utils.RedisClient;
 
 /**
- * Represents a msg from Run API
+ * Cache Storage Adaptor for Redis
  */
-public class Message {
+public class RedisCacheStorageAdaptor implements CacheStorageAdaptor {
 
-    private String code;
+    private RedisClient redisClient;
 
-    private String message;
-
-    private String type;
-
-    public String getCode() {
-        return code;
+    public RedisCacheStorageAdaptor() {
+        redisClient = new RedisClient();
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public String get(String key) {
+        return redisClient.getReadClient().get(key);
     }
 
-    public String getMessage() {
-        return message;
+    public boolean contains(String key) {
+        return redisClient.getReadClient().exists(key);
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void set(String key, String value) {
+        redisClient.getWriteClient().set(key, value);
     }
 }

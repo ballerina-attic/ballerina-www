@@ -13,18 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.api;
+package org.ballerinalang.platform.playground.launcher;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.ballerinalang.platform.playground.api.core.RunSession;
-import org.ballerinalang.platform.playground.api.dto.Command;
-import org.ballerinalang.platform.playground.api.dto.CommandAdaptor;
+import org.ballerinalang.platform.playground.launcher.core.RunSession;
+import org.ballerinalang.platform.playground.launcher.dto.Command;
+import org.ballerinalang.platform.playground.launcher.dto.CommandAdaptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 
 import javax.websocket.CloseReason;
 import javax.websocket.OnClose;
@@ -33,21 +30,18 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
-import java.nio.file.Path;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * Micro Service for run api of playground.
  */
 @ServerEndpoint(value = "/api/run")
-public class RunService {
+public class LauncherService {
 
     private Map<String, RunSession> runSessionMap = new HashMap<String, RunSession>();
 
-    private static final Logger logger = LoggerFactory.getLogger(RunService.class);
+    private static final Logger logger = LoggerFactory.getLogger(LauncherService.class);
 
     private static final Gson gson;
 

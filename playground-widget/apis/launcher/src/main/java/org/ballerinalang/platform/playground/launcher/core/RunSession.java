@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.api.core;
+package org.ballerinalang.platform.playground.launcher.core;
 
 import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
-import org.ballerinalang.platform.playground.api.core.cache.CacheStorage;
-import org.ballerinalang.platform.playground.api.core.interceptor.ConsoleMessageInterceptor;
-import org.ballerinalang.platform.playground.api.core.phase.BuildPhase;
-import org.ballerinalang.platform.playground.api.core.phase.StartDependantServicePhase;
-import org.ballerinalang.platform.playground.api.core.phase.StartPhase;
-import org.ballerinalang.platform.playground.api.core.phase.TryItPhase;
-import org.ballerinalang.platform.playground.api.dto.Command;
-import org.ballerinalang.platform.playground.api.dto.Message;
-import org.ballerinalang.platform.playground.api.dto.RunCommand;
+import org.ballerinalang.platform.playground.launcher.core.cache.CacheStorage;
+import org.ballerinalang.platform.playground.launcher.core.interceptor.ConsoleMessageInterceptor;
+import org.ballerinalang.platform.playground.launcher.core.phase.BuildPhase;
+import org.ballerinalang.platform.playground.launcher.core.phase.StartDependantServicePhase;
+import org.ballerinalang.platform.playground.launcher.core.phase.StartPhase;
+import org.ballerinalang.platform.playground.launcher.core.phase.TryItPhase;
+import org.ballerinalang.platform.playground.launcher.dto.Command;
+import org.ballerinalang.platform.playground.launcher.dto.Message;
+import org.ballerinalang.platform.playground.launcher.dto.RunCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

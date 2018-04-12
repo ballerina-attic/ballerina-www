@@ -13,30 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.api.core.cache.adaptor;
+package org.ballerinalang.platform.playground.launcher.core.cache.adaptor;
 
-import org.ballerinalang.platform.playground.utils.RedisClient;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Cache Storage Adaptor for Redis
+ * In Memory Cache Storage Adaptor
  */
-public class RedisCacheStorageAdaptor implements CacheStorageAdaptor {
+public class InMemoryCacheStorageAdaptor implements CacheStorageAdaptor {
 
-    private RedisClient redisClient;
+    private Map<String, String> cache;
 
-    public RedisCacheStorageAdaptor() {
-        redisClient = new RedisClient();
+    public InMemoryCacheStorageAdaptor() {
+        cache = new ConcurrentHashMap<>();
     }
 
+    @Override
     public String get(String key) {
-        return redisClient.getReadClient().get(key);
+        return cache.get(key);
     }
 
-    public boolean contains(String key) {
-        return redisClient.getReadClient().exists(key);
-    }
-
+    @Override
     public void set(String key, String value) {
-        redisClient.getWriteClient().set(key, value);
+        cache.put(key, value);
+    }
+
+    @Override
+    public boolean contains(String key) {
+        return cache.containsKey(key);
     }
 }
