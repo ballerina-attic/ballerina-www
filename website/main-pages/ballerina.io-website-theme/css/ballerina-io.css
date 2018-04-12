@@ -204,6 +204,7 @@ ul.navbar-nav {
     opacity: 1;
     top: 40px;
     transition: all 0.2s ease 0s;
+    position: relative;
 }
 
 
@@ -701,14 +702,19 @@ button.navbar-toggle {
     max-height: 400px;
     overflow-y: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: auto;
+    min-width: 100%;
+    right: 0;
+    left: auto;
+    position: absolute;
 }
 
 #mkdocs-search-results>article {
-    padding: 15px;
+    padding: 5px 15px;
 }
 
 #mkdocs-search-results>article>h3 {
-    margin: 20px 0 0 0;
+    margin: 0;
 }
 
 #mkdocs-search-results>article>h3>a {
@@ -770,9 +776,12 @@ button.navbar-toggle {
     color: #005BD1;
 }
 
+.cOutputTr .highlight .nt,
+.cOutputTr .highlight .nc,
+.cOutputTr .highlight .nb,
 .cOutputTr .highlight .s1,
 .cOutputTr .highlight .s2 {
-    color: #e6e9ea;
+    color: #3ad1ca;
 }
 
 .hljs-annotation,
