@@ -3,9 +3,12 @@ package org.ballerinalang.platform.playground.controller.persistence;
 import java.util.List;
 
 public interface Persistence {
+
+    public void addFreeLaunchers(List<String> launcherUrls);
+
     public void addFreeLauncher(String launcherUrl);
 
-    public void removeLauncher(String launcherUrl);
+    public void unregisterLauncher(String launcherUrl);
 
     public List<String> getFreeLauncherUrls();
 
@@ -13,9 +16,9 @@ public interface Persistence {
 
     public List<String> getTotalLauncherUrls();
 
-    public void markLauncherAsFree(String launcherUrl);
+    public boolean markLauncherAsFree(String launcherUrl);
 
-    public void markLauncherAsBusy(String launcherUrl);
+    public boolean markLauncherAsBusy(String launcherUrl);
 
     public boolean launcherExists(String launcherUrl);
 }

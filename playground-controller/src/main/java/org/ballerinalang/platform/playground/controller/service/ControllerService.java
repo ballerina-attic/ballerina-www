@@ -4,6 +4,8 @@ import io.netty.handler.codec.http.HttpHeaderNames;
 import org.ballerinalang.platform.playground.controller.service.model.LauncherResponse;
 import org.ballerinalang.platform.playground.controller.service.model.StatusUpdateRequest;
 import org.ballerinalang.platform.playground.controller.util.Constants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -16,7 +18,7 @@ import javax.ws.rs.core.Response;
 @Path(value = "/api")
 public class ControllerService {
 
-//    private static final Logger log = LoggerFactory.getLogger(ControllerService.class);
+    private static final Logger log = LoggerFactory.getLogger(ControllerService.class);
 
     private ControllerServiceManager serviceManager;
 
@@ -28,10 +30,10 @@ public class ControllerService {
     @Path("/launcher")
     @Produces(MediaType.APPLICATION_JSON)
     public Response allocateLauncher() {
+        // Get a free launcher URL
         String launcherUrl = serviceManager.allocateFreeLauncher();
 
         // TODO: check if cache exists
-        // TODO: scale check
 
         if (launcherUrl != null) {
             return Response.status(Response.Status.OK)
@@ -40,9 +42,7 @@ public class ControllerService {
                     .entity(new LauncherResponse(launcherUrl))
                     .build();
         } else {
-            return Response.status(Response.Status.NOT_FOUND)
-                    .header(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN.toString(), '*')
-                    .build();
+            return buildNotFoundResponse();
         }
     }
 
@@ -50,29 +50,39 @@ public class ControllerService {
     @Path("/launcher/status")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response setLauncherStatus(StatusUpdateRequest request) {
-        // Check if launcher url actually exists
-        if (!serviceManager.launcherExists(request.getLauncherUrl())) {
-            return Response.status(Response.Status.NOT_FOUND)
-                    .header(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN.toString(), '*')
-                    .build();
-        }
-
         // Check if sent status is valid
         switch (request.getStatus()) {
             case Constants.MEMBER_STATUS_FREE:
-                serviceManager.markLauncherFree(request.getLauncherUrl());
-                return Response.status(Response.Status.OK)
-                        .header(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN.toString(), '*')
-                        .build();
+                if (serviceManager.markLauncherFree(request.getLauncherUrl())) {
+                    log.info("Marking launcher [URL] " + request.getLauncherUrl() + " as free...");
+                    return Response.status(Response.Status.OK)
+                            .header(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN.toString(), '*')
+                            .build();
+                } else {
+                    log.warn("Launcher [URL] " + request.getLauncherUrl() + " not found.");
+                    return buildNotFoundResponse();
+                }
             case Constants.MEMBER_STATUS_BUSY:
-                serviceManager.markLauncherBusy(request.getLauncherUrl());
-                return Response.status(Response.Status.OK)
-                        .header(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN.toString(), '*')
-                        .build();
+                if (serviceManager.markLauncherBusy(request.getLauncherUrl())) {
+                    log.info("Marking launcher [URL] " + request.getLauncherUrl() + " as busy...");
+                    return Response.status(Response.Status.OK)
+                            .header(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN.toString(), '*')
+                            .build();
+                } else {
+                    log.warn("Launcher [URL] " + request.getLauncherUrl() + " not found.");
+                    return buildNotFoundResponse();
+                }
             default:
+                log.warn("Invalid launcher status: " + request.getLauncherUrl());
                 return Response.status(Response.Status.BAD_REQUEST)
                         .header(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN.toString(), '*')
                         .build();
         }
+    }
+
+    private Response buildNotFoundResponse() {
+        return Response.status(Response.Status.NOT_FOUND)
+                .header(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN.toString(), '*')
+                .build();
     }
 }

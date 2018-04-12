@@ -1,0 +1,63 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: maxcheck
+spec:
+  schedule: "@hourly"
+  # Do not allow concurrent runs
+  concurrencyPolicy: "Forbid"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccount: bpg-controller-sa
+          serviceAccountName: bpg-controller-sa
+          restartPolicy: "OnFailure"
+          containers:
+          -
+            name: maxcheck-controller
+            imagePullPolicy: "Always"
+            image: gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1
+            env:
+            -
+              name: BPG_REDIS_WRITE_HOST
+              value: "redis-master"
+            -
+              name: BPG_REDIS_WRITE_PORT
+              value: "6379"
+            -
+              name: BPG_REDIS_READ_HOST
+              value: "redis-slave"
+            -
+              name: BPG_REDIS_READ_PORT
+              value: "6379"
+            -
+              name: DB_HOST
+              value: "mysql-server"
+            -
+              name: DB_PORT
+              value: "3306"
+            -
+              name: BPG_NAMESPACE
+              value: "ballerina-playground"
+            -
+              name: BPG_LAUNCHER_IMAGE_NAME
+              value: "gcr.io/${BPG_GCP_PROJECT_ID}/launcher:latest"
+            -
+              name: BPG_SCALING_DESIRED
+              value: "3"
+            -
+              name: BPG_SCALING_MAX
+              value: "8"
+            -
+              name: BPG_SCALING_STEP_UP
+              value: "2"
+            -
+              name: BPG_SCALING_STEP_DOWN
+              value: "1"
+            -
+              name: BPG_SCALING_FREE_BUFFER
+              value: "2"
+            -
+              name: BPG_CONTROLLER_ROLE
+              value: "MAX_CHECK"

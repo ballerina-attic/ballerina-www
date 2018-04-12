@@ -26,6 +26,7 @@ import io.fabric8.kubernetes.api.model.extensions.DeploymentSpecBuilder;
 import io.fabric8.kubernetes.client.DefaultKubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import org.ballerinalang.platform.playground.controller.util.Constants;
+import org.ballerinalang.platform.playground.controller.util.ControllerUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,19 +53,23 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     }
 
     @Override
-    public void createDeployment(int deploymentNameSuffix) {
+    public boolean createDeployment(int deploymentNameSuffix, String reason) {
         String deploymentName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + deploymentNameSuffix;
+
+        String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + deploymentNameSuffix;
+        String launcherSelfUrl = serviceSubDomain + "." + Constants.DOMAIN_PLAYGROUND_BALLERINA_IO;
+
         log.info("Creating Deployment [Name] " + deploymentName + "...");
 
         // Labels for the to be created deployment
         Map<String, String> labels = new HashMap<>();
         labels.put("app", deploymentName);
         labels.put("appType", Constants.BPG_APP_TYPE_LAUNCHER);
+        labels.put("creator", ControllerUtils.getEnvStringValue(Constants.ENV_CONTROLLER_ROLE));
+        labels.put("reason", reason);
 
         // Container spec
-        List<Container> containers = new ArrayList<>();
         Container launcherContainer = new Container();
-        containers.add(launcherContainer);
 
         // Add container info
         launcherContainer.setName(Constants.BPG_APP_TYPE_LAUNCHER + "-container");
@@ -79,14 +84,39 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
         launcherContainer.setPorts(containerPorts);
 
-        // Env vars should be set so that the launcher is able to Redis
+        List<Container> containers = new ArrayList<>();
+        containers.add(launcherContainer);
+
+        // Env vars should be set so that the launcher is able to
+        // 1. Communicate with the persistence
+        // 2. Register itself as free when a job is done
+        // 3. Perform proper role (cache node vs build node)
         List<EnvVar> envVarList = new ArrayList<>();
 
-        // TODO: add all the variables needed
-        envVarList.add(new EnvVarBuilder()
-                .withName("BPG_REDIS_WRITE_HOST")
-                .withValue("redis-master")
-                .build());
+        envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_WRITE_HOST,
+                ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_WRITE_HOST)));
+        envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_WRITE_PORT,
+                ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_WRITE_PORT)));
+        envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_READ_HOST,
+                ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_READ_HOST)));
+        envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_READ_PORT,
+                ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_READ_PORT)));
+        envVarList.add(buildEnvVar(Constants.ENV_DB_HOST,
+                ControllerUtils.getEnvStringValue(Constants.ENV_DB_HOST)));
+        envVarList.add(buildEnvVar(Constants.ENV_DB_PORT,
+                ControllerUtils.getEnvStringValue(Constants.ENV_DB_PORT)));
+        envVarList.add(buildEnvVar(Constants.ENV_BPG_NAMESPACE, namespace));
+        envVarList.add(buildEnvVar(Constants.ENV_BPG_LAUNCHER_SELF_URL, launcherSelfUrl));
+        envVarList.add(buildEnvVar(Constants.ENV_IS_LAUNCHER_CACHE, "false"));
+
+//        envVarList.add(buildEnvVar(Constants.ENV_LAUNCHER_IMAGE_NAME, launcherImageName));
+//        envVarList.add(buildEnvVar(Constants.ENV_DESIRED_COUNT, ControllerUtils.getEnvStringValue(Constants.ENV_DESIRED_COUNT)));
+//        envVarList.add(buildEnvVar(Constants.ENV_MAX_COUNT, ControllerUtils.getEnvStringValue(Constants.ENV_MAX_COUNT)));
+//        envVarList.add(buildEnvVar(Constants.ENV_STEP_UP, ControllerUtils.getEnvStringValue(Constants.ENV_STEP_UP)));
+//        envVarList.add(buildEnvVar(Constants.ENV_STEP_DOWN, ControllerUtils.getEnvStringValue(Constants.ENV_STEP_DOWN)));
+//        envVarList.add(buildEnvVar(Constants.ENV_FREE_BUFFER, "6397"));
+//        envVarList.add(buildEnvVar("BPG_SCALING_IDLE_TIMEOUT_MIN", "6397"));
+//        envVarList.add(buildEnvVar("BPG_CONTROLLER_ROLE", "6397"));
 
         launcherContainer.setEnv(envVarList);
 
@@ -119,25 +149,46 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
                 .build();
 
         // Make API call to create deployment
-        k8sClient.extensions().deployments().inNamespace(namespace).create(deployment);
+        Deployment createdDeployment = k8sClient.extensions().deployments().inNamespace(namespace).create(deployment);
+
+        if (createdDeployment != null) {
+            // Wait until deployment object is properly created
+            while (!getDeployments().contains(deploymentName)) {
+                log.info("Waiting until the deployment is completed...");
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    log.error("Wait interrupted. Unlikely.");
+                }
+            }
+
+            return true;
+        }
+
+        return false;
     }
 
     @Override
-    public void createService(int serviceNameSuffix) {
+    public boolean createService(int serviceNameSuffix, String reason) {
         String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + serviceNameSuffix;
         String serviceName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + serviceNameSuffix;
 
-        log.info("Creating Service with [Name] " + serviceName + " for [Subdomain]" + serviceSubDomain + "...");
+        log.info("Creating Service with [Name] " + serviceName + " for [Sub Domain]" + serviceSubDomain + "...");
 
+        // Service load balancer annotations
         Map<String, String> annotations = new HashMap<>();
         annotations.put("serviceloadbalancer/lb.cookie-sticky-session", "true");
         annotations.put("serviceloadbalancer/lb.host", serviceSubDomain + "." + Constants.DOMAIN_PLAYGROUND_BALLERINA_IO);
         annotations.put("serviceloadbalancer/lb.sslTerm", "true");
 
+        // Labels
         Map<String, String> labels = new HashMap<>();
         labels.put("app", serviceName);
         labels.put("appType", Constants.BPG_APP_TYPE_LAUNCHER);
+        labels.put("creator", ControllerUtils.getEnvStringValue(Constants.ENV_CONTROLLER_ROLE));
+        labels.put("reason", reason);
 
+        // Port to be exposed
         List<ServicePort> ports = new ArrayList<>();
         ServicePort servicePort = new ServicePort();
         servicePort.setName("https-port");
@@ -145,6 +196,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         servicePort.setTargetPort(new IntOrString(443));
         ports.add(servicePort);
 
+        // Pod selector
         Map<String, String> selector = new HashMap<>();
         selector.put("app", serviceName);
 
@@ -165,33 +217,41 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
                 .withSpec(serviceSpec)
                 .build();
 
-        k8sClient.services().inNamespace(namespace).create(service);
+        Service createdService = k8sClient.services().inNamespace(namespace).create(service);
+
+        if (createdService != null) {
+            // Wait until Service object is properly created
+            while (!getServices().contains(serviceName)) {
+                log.info("Waiting until the service is completed...");
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    log.error("Wait interrupted. Unlikely.");
+                }
+            }
+
+            return true;
+        }
+
+        return false;
     }
 
     @Override
-    public void deleteDeployment(String deploymentName) {
-
+    public boolean deleteDeployment(String deploymentName) {
+        return k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).delete();
     }
 
     @Override
-    public void deleteService(String serviceName) {
-        k8sClient.services().inNamespace(namespace).withName(serviceName).delete();
+    public boolean deleteService(String serviceName) {
+        return k8sClient.services().inNamespace(namespace).withName(serviceName).delete();
     }
 
     @Override
     public List<String> getDeployments() {
-        DeploymentList depList = k8sClient.extensions().deployments().inNamespace(namespace).withLabel("appType", Constants.BPG_APP_TYPE_LAUNCHER).list();
-//        List<org.ballerinalang.platform.playground.controller.containercluster.model.Deployment> deployments = new ArrayList<>();
-//        for (Deployment deployment : depList.getItems()) {
-//            org.ballerinalang.platform.playground.controller.containercluster.model.Deployment dep = new org.ballerinalang.platform.playground.controller.containercluster.model.Deployment();
-//            dep.setName(deployment.getMetadata().getName());
-//            dep.setNamespace(namespace);
-//            dep.setAge(calculateObjectAge(deployment.getMetadata().getCreationTimestamp()));
-//
-//            deployments.add(dep);
-//        }
-//
-//        return deployments;
+        DeploymentList depList = k8sClient.extensions().deployments()
+                .inNamespace(namespace)
+                .withLabel("appType", Constants.BPG_APP_TYPE_LAUNCHER)
+                .list();
 
         List<String> depNameList = new ArrayList<>();
         for (Deployment deployment : depList.getItems()) {
@@ -201,17 +261,9 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         return depNameList;
     }
 
-    private long calculateObjectAge(String creationTimestamp) {
-        LocalDate creationDate = LocalDate.parse(creationTimestamp);
-        LocalDate now = LocalDate.now();
-
-        return MINUTES.between(creationDate, now);
-    }
-
     @Override
     public List<String> getServices() {
-        // TODO: should consider label selector to get only launcher objects
-        ServiceList serviceList = k8sClient.services().inNamespace(namespace).list();
+        ServiceList serviceList = k8sClient.services().inNamespace(namespace).withLabel("appType", Constants.BPG_APP_TYPE_LAUNCHER).list();
         List<String> serviceNameList = new ArrayList<>();
         for (Service service : serviceList.getItems()) {
             serviceNameList.add(service.getMetadata().getName());
@@ -222,7 +274,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     @Override
     public boolean deploymentExists(String deploymentName) {
-        return getDeploymentByName(deploymentName) != null;
+        return k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).get() != null;
     }
 
     @Override
@@ -230,20 +282,34 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         return k8sClient.services().inNamespace(namespace).withName(serviceName).get() != null;
     }
 
-    @Override
-    public org.ballerinalang.platform.playground.controller.containercluster.model.Deployment getDeploymentByName(String deploymentName) {
-        Deployment deployment = k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).get();
-
-        if (deployment == null) {
-            return null;
-        }
-
-        org.ballerinalang.platform.playground.controller.containercluster.model.Deployment dep = new org.ballerinalang.platform.playground.controller.containercluster.model.Deployment();
-
-        dep.setName(deployment.getMetadata().getName());
-        dep.setNamespace(namespace);
-        dep.setAge(calculateObjectAge(deployment.getMetadata().getCreationTimestamp()));
-
-        return dep;
+    private EnvVar buildEnvVar(String key, String value) {
+        return new EnvVarBuilder()
+                .withName(key)
+                .withValue(value)
+                .build();
     }
+
+    private long calculateObjectAgeByMinutes(String creationTimestamp) {
+        LocalDate creationDate = LocalDate.parse(creationTimestamp);
+        LocalDate now = LocalDate.now();
+
+        return MINUTES.between(creationDate, now);
+    }
+
+//    @Override
+//    public org.ballerinalang.platform.playground.controller.containercluster.model.Deployment getDeploymentByName(String deploymentName) {
+//        Deployment deployment = k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).get();
+//
+//        if (deployment == null) {
+//            return null;
+//        }
+//
+//        org.ballerinalang.platform.playground.controller.containercluster.model.Deployment dep = new org.ballerinalang.platform.playground.controller.containercluster.model.Deployment();
+//
+//        dep.setName(deployment.getMetadata().getName());
+//        dep.setNamespace(namespace);
+//        dep.setAge(calculateObjectAge(deployment.getMetadata().getCreationTimestamp()));
+//
+//        return dep;
+//    }
 }

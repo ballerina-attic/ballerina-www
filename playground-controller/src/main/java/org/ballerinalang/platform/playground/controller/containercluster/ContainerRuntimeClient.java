@@ -1,18 +1,16 @@
 package org.ballerinalang.platform.playground.controller.containercluster;
 
-import org.ballerinalang.platform.playground.controller.containercluster.model.Deployment;
-
 import java.util.List;
 
 public interface ContainerRuntimeClient {
 
-    public void createDeployment(int deploymentNameSuffix);
+    public boolean createDeployment(int deploymentNameSuffix, String reason);
 
-    public void createService(int serviceNameSuffix);
+    public boolean createService(int serviceNameSuffix, String reason);
 
-    public void deleteDeployment(String deploymentName);
+    public boolean deleteDeployment(String deploymentName);
 
-    public void deleteService(String serviceName);
+    public boolean deleteService(String serviceName);
 
     public List<String> getDeployments();
 
@@ -22,5 +20,5 @@ public interface ContainerRuntimeClient {
 
     public boolean serviceExists(String serviceName);
 
-    public Deployment getDeploymentByName(String deploymentName);
+//    public Deployment getDeploymentByName(String deploymentName);
 }

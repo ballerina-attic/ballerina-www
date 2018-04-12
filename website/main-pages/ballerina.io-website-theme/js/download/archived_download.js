@@ -5,11 +5,26 @@ $(document).ready(function () {
     Handlebars.registerHelper('releasenotesdiv', function(version) {
         return getReleaseNotesDivId(version);
     });
-    $.getJSON( archived_versions_json, function( data ) {
-        data.sort(function(a, b) {
-            return Date(a["release-date"]) > Date(b["release-date"]);
+    Handlebars.registerHelper('formatdate', function(date) {
+        return formatDate(date);
+    });
+    $.getJSON( latest_versions_json, function( latest_pack ) {
+        var latestVersion = latest_pack['version'];
+        $.getJSON( archived_versions_json, function( data ) {
+
+            // remove latest version
+            var ltestIndex = data.findIndex(function(element){
+                return data["version"] == latestVersion;
+            })
+            if (ltestIndex !== -1) {
+                data.splice(ltestIndex, 1);
+            }
+
+            data.sort(function(a, b) {
+                return Date(a["release-date"]) > Date(b["release-date"]);
+            });
+            updateReleaseTable(data);
         });
-        updateReleaseTable(data);
     });
 });
 

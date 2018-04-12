@@ -8,15 +8,11 @@ We appreciate your help and participation!
 
 We have a low-traffic announcement list that we use to disseminate major news such as new releases. We encourage all Ballerina users and developers to be a part of this list.
 
-<div class="cFormContainerOS">
-<form>
+<form class="cFormContainerOS">
 <label class="subscribeForm" id="subscribeFormLabelOS">Email Address</label>
-<input maxlength="90" value="" id="emailUserOS" name="email" placeholder="Email" title="Email" type="text">
-<a class="cBallerinaButtons subscribeUserForm" href="" id="subscribeUserButtonOS"></a>
+<input class="cTextfieldstyle" maxlength="90" value="" id="emailUserOS" name="email" placeholder="Email" title="Email" type="text">
+<a class="cBallerinaButtons subscribeUserForm" href="" id="subscribeUserButtonOS">Submit</a>
 </form>
-</div>
-
-Use the form at the footer of this page to subscribe to Ballerina announcements.
 
 ## Version History
 
@@ -32,7 +28,7 @@ See our [GitHub repo](https://github.com/ballerina-platform/ballerina-lang).
 
 [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev) is the main discussion forum of the Ballerina dev team.
 
-We also use [Slack](https://ballerina-platform.slack.com/) for chat. Click <a class="" data-toggle="modal" data-target="#subscribe">here</a> to get a Slack invite</p>
+We also use [Slack](https://ballerina-platform.slack.com/) for chat. Click [here](/open-source/slack) to get a Slack invite</p>
 
 Comments in GitHub issues and pull requests are used for issue or feature-specific discussions.
 

@@ -1,0 +1,49 @@
+$(document).ready(function () {
+    Handlebars.registerHelper('releasenotesdiv', function(version) {
+        return getReleaseNotesDivId(version);
+    });
+    Handlebars.registerHelper('formatdate', function(date) {
+        return formatDate(date);
+    });
+    $.getJSON( archived_versions_json, function( data ) {
+        data.sort(function(a, b) {
+            return Date(a["release-date"]) > Date(b["release-date"]);
+        });
+        updateReleaseTable(data);
+    });
+});
+
+function updateReleaseTable(allData){
+    $.get('/hbs/all_release_notes.hbs', function (data) {
+        var template=Handlebars.compile(data);
+        var elements = $('<div class="cAllReleaseNotes"></div>');
+        allData.forEach(function (item) {
+            elements.append(template(item));
+            var version = item["version"]
+            $("#toc_list").append(
+                    '<li class="toctree-l3"><a href="#'+getReleaseNotesDivId(version)+'">'+version+'</a></li>'
+            );
+        });
+        $("#release-notes").after(elements);
+        allData.forEach(function (item) {
+            var version = item["version"];
+            var releaseNoteUrl = getReleaseNoteURL(version);
+            if(releaseNoteUrl){
+                $.get( releaseNoteUrl, function( data ) {
+                    $("#"+getReleaseNotesDivId(version)+"_note").html( data );
+                });
+            }
+
+        },'html');
+
+    }, 'html');
+}
+
+function getReleaseNotesDivId(version){
+    var suffix = "-notes";
+    return (version+suffix).replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "");
+}
+
+function getReleaseNoteURL(version){
+    return base_download_url+"/"+version+"/"+releaseNoteFilename;
+}
