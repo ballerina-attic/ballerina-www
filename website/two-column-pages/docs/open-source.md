@@ -38,7 +38,7 @@ Comments in GitHub issues and pull requests are used for issue or feature-specif
 
 Submitting a bug is just as important as contributing code. If you found an issue or have an improvement idea for Ballerina code, web site, or documentation, please file an issue.
 
-*Important*: All security-related issues should be reported to security@ballerina.io. See [Ballerina Security Policy](http://ballerina.io/security) for details.
+*Important*: All security-related issues should be reported to security@ballerina.io. See [Ballerina Security Policy](/security) for details.
 
 To file non-security issues:
 
