@@ -2,10 +2,12 @@ package org.ballerinalang.platform.playground.controller.persistence;
 
 import org.ballerinalang.platform.playground.controller.util.Constants;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * A mock implementation of the {@link Persistence} for development purposes.
@@ -14,6 +16,13 @@ import java.util.Map;
 public class InMemoryPersistence implements Persistence {
 
     private Map<String, String> members = new HashMap<>();
+
+    @Override
+    public void addFreeLaunchers(List<String> launcherUrls) {
+        Map<String, String> launchers = launcherUrls.stream()
+                .collect(Collectors.toMap((url) -> url, (url) -> Constants.MEMBER_STATUS_FREE));
+        members.putAll(launchers);
+    }
 
     @Override
     public void addFreeLauncher(String launcherUrl) {

@@ -21,9 +21,9 @@ import redis.clients.jedis.ScanParams;
 import redis.clients.jedis.ScanResult;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Redis Persistence
@@ -51,6 +51,14 @@ public class RedisPersistence implements Persistence {
     public RedisPersistence() {
         master = new Jedis(System.getenv(REDIS_WRITE_HOST), Integer.parseInt(System.getenv(REDIS_WRITE_PORT)));
         slave = new Jedis(System.getenv(REDIS_READ_HOST), Integer.parseInt(System.getenv(REDIS_READ_PORT)));
+    }
+
+    @Override
+    public void addFreeLaunchers(List<String> launcherUrls) {
+        Map<String, String> launchers = launcherUrls.stream()
+                .collect(Collectors.toMap((url) -> url, (url) -> Constants.MEMBER_STATUS_FREE));
+        master.hmset(CACHE_KEY_LAUNCHERS_LIST, launchers);
+
     }
 
     @Override

@@ -3,6 +3,9 @@ package org.ballerinalang.platform.playground.controller.persistence;
 import java.util.List;
 
 public interface Persistence {
+
+    public void addFreeLaunchers(List<String> launcherUrls);
+
     public void addFreeLauncher(String launcherUrl);
 
     public void unregisterLauncher(String launcherUrl);
