@@ -60,7 +60,7 @@ public class LauncherClusterManager {
         }
     }
 
-    public void scaleUp() {
+    public void scaleUp(String reason) {
         log.info("Scaling up by [Step Up] " + stepUp + " instances...");
 
         // Where to start naming things
@@ -70,7 +70,7 @@ public class LauncherClusterManager {
         for (int i = 0; i < stepUp; i++) {
             int deploymentNameSuffix = newNameSuffix + i;
             String deploymentName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + deploymentNameSuffix;
-            if (createLauncher(deploymentNameSuffix)) {
+            if (createLauncher(deploymentNameSuffix, reason)) {
                 // Register the newly spawned launcher as a free one
                 addFreeLauncher(deploymentName);
             } else {
@@ -129,7 +129,7 @@ public class LauncherClusterManager {
             log.info("Scaling UP: REASON -> [Total Count] " + totalLauncherCount + " < [Desired Count] " +
                     desiredCount);
 
-            scaleUp();
+            scaleUp("honourDesiredCount");
             totalLauncherCount = getTotalLaunchers().size();
         }
     }
@@ -139,12 +139,13 @@ public class LauncherClusterManager {
         int freeCount = getFreeLaunchers().size();
 
         while (freeCount < freeBufferCount) {
-            log.debug("Scaling UP: REASON -> [Free Count] " + freeCount + " < [Free Gap] " + freeBufferCount);
-            scaleUp();
+            log.info("Scaling UP: REASON -> [Free Count] " + freeCount + " < [Free Gap] " + freeBufferCount);
+            scaleUp("honourFreeBufferCount");
         }
     }
 
     public void cleanOrphanServices() {
+        log.info("Cleaning orphan Services...");
         List<String> serviceNames = getServices();
         for (String serviceName : serviceNames) {
             if (serviceName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !deploymentExists(serviceName)) {
@@ -160,6 +161,7 @@ public class LauncherClusterManager {
     }
 
     public void cleanOrphanDeployments() {
+        log.info("Cleaning orphan Deployments...");
         List<String> deploymentNames = getDeployments();
         for (String deploymentName : deploymentNames) {
             if (deploymentName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !serviceExists(deploymentName)) {
@@ -192,6 +194,7 @@ public class LauncherClusterManager {
 
     private void addAllDeploymentsAsFreeLaunchers() {
         List<String> deployments = getDeployments();
+        log.info("Found " + deployments.size() + " deployments to be added");
         for (String deployment : deployments) {
             addFreeLauncher(deployment);
         }
@@ -238,9 +241,9 @@ public class LauncherClusterManager {
         }
     }
 
-    private boolean createLauncher(int deploymentNameSuffix) {
-        boolean depCreated = runtimeClient.createDeployment(deploymentNameSuffix);
-        boolean svcCreated = runtimeClient.createService(deploymentNameSuffix);
+    private boolean createLauncher(int deploymentNameSuffix, String reason) {
+        boolean depCreated = runtimeClient.createDeployment(deploymentNameSuffix, reason);
+        boolean svcCreated = runtimeClient.createService(deploymentNameSuffix, reason);
 
         return depCreated && svcCreated;
     }

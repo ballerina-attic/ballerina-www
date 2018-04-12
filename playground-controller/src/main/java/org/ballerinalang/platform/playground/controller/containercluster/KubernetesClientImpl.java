@@ -53,7 +53,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     }
 
     @Override
-    public boolean createDeployment(int deploymentNameSuffix) {
+    public boolean createDeployment(int deploymentNameSuffix, String reason) {
         String deploymentName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + deploymentNameSuffix;
 
         String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + deploymentNameSuffix;
@@ -65,6 +65,8 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         Map<String, String> labels = new HashMap<>();
         labels.put("app", deploymentName);
         labels.put("appType", Constants.BPG_APP_TYPE_LAUNCHER);
+        labels.put("creator", ControllerUtils.getEnvStringValue(Constants.ENV_CONTROLLER_ROLE));
+        labels.put("reason", reason);
 
         // Container spec
         Container launcherContainer = new Container();
@@ -148,11 +150,26 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
         // Make API call to create deployment
         Deployment createdDeployment = k8sClient.extensions().deployments().inNamespace(namespace).create(deployment);
-        return createdDeployment == null;
+
+        if (createdDeployment != null) {
+            // Wait until deployment object is properly created
+            while (!getDeployments().contains(deploymentName)) {
+                log.info("Waiting until the deployment is completed...");
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    log.error("Wait interrupted. Unlikely.");
+                }
+            }
+
+            return true;
+        }
+
+        return false;
     }
 
     @Override
-    public boolean createService(int serviceNameSuffix) {
+    public boolean createService(int serviceNameSuffix, String reason) {
         String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + serviceNameSuffix;
         String serviceName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + serviceNameSuffix;
 
@@ -168,6 +185,8 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         Map<String, String> labels = new HashMap<>();
         labels.put("app", serviceName);
         labels.put("appType", Constants.BPG_APP_TYPE_LAUNCHER);
+        labels.put("creator", ControllerUtils.getEnvStringValue(Constants.ENV_CONTROLLER_ROLE));
+        labels.put("reason", reason);
 
         // Port to be exposed
         List<ServicePort> ports = new ArrayList<>();
@@ -200,7 +219,21 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
         Service createdService = k8sClient.services().inNamespace(namespace).create(service);
 
-        return createdService == null;
+        if (createdService != null) {
+            // Wait until Service object is properly created
+            while (!getServices().contains(serviceName)) {
+                log.info("Waiting until the service is completed...");
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    log.error("Wait interrupted. Unlikely.");
+                }
+            }
+
+            return true;
+        }
+
+        return false;
     }
 
     @Override

@@ -12,11 +12,11 @@ spec:
         spec:
           serviceAccount: bpg-controller-sa
           serviceAccountName: bpg-controller-sa
-          restartPolicy: "OnFailure"
+          restartPolicy: OnFailure
           containers:
           -
             name: desiredcheck-controller
-            imagePullPolicy: "Always"
+            imagePullPolicy: Always
             image: gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1
             env:
             -
