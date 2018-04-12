@@ -16,15 +16,10 @@
 package org.ballerinalang.platform.playground.utils;
 
 /**
- * Contains various env vars available to apis
+ * MemberConstants
  */
-public class EnvVariables {
-    // environment variables
-    public static final String ENV_BPG_REDIS_WRITE_HOST = "BPG_REDIS_WRITE_HOST";
-    public static final String ENV_BPG_REDIS_WRITE_PORT = "BPG_REDIS_WRITE_PORT";
-    public static final String ENV_BPG_REDIS_READ_HOST = "BPG_REDIS_READ_HOST";
-    public static final String ENV_BPG_REDIS_READ_PORT = "BPG_REDIS_READ_PORT";
-    public static final String ENV_BPG_USE_IN_MEMORY_CACHE = "BPG_USE_IN_MEMORY_CACHE";
-    public static final String ENV_BPG_LAUNCHER_SELF_URL = "BPG_LAUNCHER_SELF_URL";
-    public static final String ENV_BPG_CONTROLLER_ACK_URL = "BPG_CONTROLLER_ACK_URL";
+public class MemberConstants {
+    // Member status values
+    public static final String MEMBER_STATUS_FREE = "FREE";
+    public static final String MEMBER_STATUS_BUSY = "BUSY";
 }

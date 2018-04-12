@@ -1,4 +1,4 @@
-package org.ballerinalang.platform.playground.controller.service.model;
+package org.ballerinalang.platform.playground.utils.model;
 
 import com.google.gson.annotations.SerializedName;
 
