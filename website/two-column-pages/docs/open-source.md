@@ -6,7 +6,7 @@ We appreciate your help and participation!
 
 ## Announcements Mailing List
 
-We have a low-traffic announcement list that we use to disseminate major news such as new releases. We encourage all Ballerina users and developers to be a part of this list.
+We have a low-traffic announcement list that we use to disseminate major news such as new releases. We encourage all Ballerina users and developers to be a part of this list. By submitting your email address here, you will receive emails with the latest news about Ballerina.
 
 <form class="cFormContainerOS">
 <label class="subscribeForm" id="subscribeFormLabelOS">Email Address</label>
