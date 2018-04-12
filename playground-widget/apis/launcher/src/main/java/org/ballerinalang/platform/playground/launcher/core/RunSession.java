@@ -24,6 +24,7 @@ import org.ballerinalang.platform.playground.launcher.core.phase.BuildPhase;
 import org.ballerinalang.platform.playground.launcher.core.phase.StartDependantServicePhase;
 import org.ballerinalang.platform.playground.launcher.core.phase.StartPhase;
 import org.ballerinalang.platform.playground.launcher.core.phase.TryItPhase;
+import org.ballerinalang.platform.playground.launcher.core.util.LauncherUtils;
 import org.ballerinalang.platform.playground.utils.cache.CacheUtils;
 import org.ballerinalang.platform.playground.utils.cmd.dto.Command;
 import org.ballerinalang.platform.playground.utils.cmd.dto.Message;
@@ -365,6 +366,7 @@ public class RunSession {
         if (tryItPhase != null) {
             tryItPhase.terminate(this);
         }
+        LauncherUtils.markNodeAsFree();
     }
 
     private void createSourceFile() {

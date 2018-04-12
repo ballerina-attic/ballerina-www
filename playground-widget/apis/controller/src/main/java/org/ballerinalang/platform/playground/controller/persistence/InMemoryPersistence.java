@@ -1,8 +1,7 @@
 package org.ballerinalang.platform.playground.controller.persistence;
 
-import org.ballerinalang.platform.playground.controller.util.Constants;
+import org.ballerinalang.platform.playground.utils.MemberConstants;
 
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,13 +19,13 @@ public class InMemoryPersistence implements Persistence {
     @Override
     public void addFreeLaunchers(List<String> launcherUrls) {
         Map<String, String> launchers = launcherUrls.stream()
-                .collect(Collectors.toMap((url) -> url, (url) -> Constants.MEMBER_STATUS_FREE));
+                .collect(Collectors.toMap((url) -> url, (url) -> MemberConstants.MEMBER_STATUS_FREE));
         members.putAll(launchers);
     }
 
     @Override
     public void addFreeLauncher(String launcherUrl) {
-        members.put(launcherUrl, Constants.MEMBER_STATUS_FREE);
+        members.put(launcherUrl, MemberConstants.MEMBER_STATUS_FREE);
     }
 
     @Override
@@ -38,7 +37,7 @@ public class InMemoryPersistence implements Persistence {
     public List<String> getFreeLauncherUrls() {
         List<String> freeList = new ArrayList<>();
         for (Map.Entry<String, String> memberEntry : members.entrySet()) {
-            if (memberEntry.getValue().equals(Constants.MEMBER_STATUS_FREE)) {
+            if (memberEntry.getValue().equals(MemberConstants.MEMBER_STATUS_FREE)) {
                 freeList.add(memberEntry.getKey());
             }
         }
@@ -50,7 +49,7 @@ public class InMemoryPersistence implements Persistence {
     public List<String> getBusyLauncherUrls() {
         List<String> busyList = new ArrayList<>();
         for (Map.Entry<String, String> memberEntry : members.entrySet()) {
-            if (memberEntry.getValue().equals(Constants.MEMBER_STATUS_BUSY)) {
+            if (memberEntry.getValue().equals(MemberConstants.MEMBER_STATUS_BUSY)) {
                 busyList.add(memberEntry.getKey());
             }
         }
@@ -65,13 +64,13 @@ public class InMemoryPersistence implements Persistence {
 
     @Override
     public boolean markLauncherAsFree(String launcherUrl) {
-        members.put(launcherUrl, Constants.MEMBER_STATUS_FREE);
+        members.put(launcherUrl, MemberConstants.MEMBER_STATUS_FREE);
         return false;
     }
 
     @Override
     public boolean markLauncherAsBusy(String launcherUrl) {
-        members.put(launcherUrl, Constants.MEMBER_STATUS_BUSY);
+        members.put(launcherUrl, MemberConstants.MEMBER_STATUS_BUSY);
         return false;
     }
 

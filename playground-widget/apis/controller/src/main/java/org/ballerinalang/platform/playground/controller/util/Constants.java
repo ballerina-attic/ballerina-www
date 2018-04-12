@@ -19,9 +19,6 @@ public class Constants {
     public static final String ENV_MAX_COUNT = "BPG_SCALING_MAX";
     public static final String ENV_FREE_BUFFER = "BPG_SCALING_FREE_BUFFER";
 
-    // Member status values
-    public static final String MEMBER_STATUS_FREE = "FREE";
-    public static final String MEMBER_STATUS_BUSY = "BUSY";
     public static final String DOMAIN_PLAYGROUND_BALLERINA_IO = "playground.ballerina.io";
 
     public static final String ENV_DB_HOST = "DB_HOST";

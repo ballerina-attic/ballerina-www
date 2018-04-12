@@ -1,9 +1,9 @@
 package org.ballerinalang.platform.playground.controller.service;
 
 import io.netty.handler.codec.http.HttpHeaderNames;
-import org.ballerinalang.platform.playground.controller.service.model.LauncherResponse;
-import org.ballerinalang.platform.playground.controller.service.model.StatusUpdateRequest;
-import org.ballerinalang.platform.playground.controller.util.Constants;
+import org.ballerinalang.platform.playground.utils.MemberConstants;
+import org.ballerinalang.platform.playground.utils.model.LauncherResponse;
+import org.ballerinalang.platform.playground.utils.model.StatusUpdateRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,7 +52,7 @@ public class ControllerService {
     public Response setLauncherStatus(StatusUpdateRequest request) {
         // Check if sent status is valid
         switch (request.getStatus()) {
-            case Constants.MEMBER_STATUS_FREE:
+            case MemberConstants.MEMBER_STATUS_FREE:
                 if (serviceManager.markLauncherFree(request.getLauncherUrl())) {
                     log.info("Marking launcher [URL] " + request.getLauncherUrl() + " as free...");
                     return Response.status(Response.Status.OK)
@@ -62,7 +62,7 @@ public class ControllerService {
                     log.warn("Launcher [URL] " + request.getLauncherUrl() + " not found.");
                     return buildNotFoundResponse();
                 }
-            case Constants.MEMBER_STATUS_BUSY:
+            case MemberConstants.MEMBER_STATUS_BUSY:
                 if (serviceManager.markLauncherBusy(request.getLauncherUrl())) {
                     log.info("Marking launcher [URL] " + request.getLauncherUrl() + " as busy...");
                     return Response.status(Response.Status.OK)
