@@ -15,8 +15,16 @@
  */
 package org.ballerinalang.platform.playground.parser;
 
+import org.wso2.msf4j.MicroservicesRunner;
+
 /**
- * ${CLASS_NAME}
+ * Entry point for micro services server
  */
 public class ServiceRunner {
+
+    public static void main(String[] args) {
+        MicroservicesRunner microservicesRunner = new MicroservicesRunner();
+        microservicesRunner.deployWebSocketEndpoint(new ParserService());
+        microservicesRunner.start();
+    }
 }
