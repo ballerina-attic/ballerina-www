@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.launcher.dto;
+package org.ballerinalang.platform.playground.utils.cmd.dto;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;

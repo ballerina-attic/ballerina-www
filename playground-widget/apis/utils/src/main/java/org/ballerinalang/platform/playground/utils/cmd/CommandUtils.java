@@ -13,19 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.launcher.dto;
+package org.ballerinalang.platform.playground.utils.cmd;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.ballerinalang.platform.playground.utils.cmd.dto.Command;
+import org.ballerinalang.platform.playground.utils.cmd.dto.CommandAdaptor;
 
 /**
- * Represents a command to run API
+ * Command Utils
  */
-public class Command {
-    private String command;
+public class CommandUtils {
+    private static final Gson gson;
 
-    public String getCommand() {
-        return command;
+    static {
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(Command.class, new CommandAdaptor());
+        gson = builder.create();
     }
 
-    public void setCommand(String command) {
-        this.command = command;
+    public static Command fromJson(String message) {
+        return gson.fromJson(message, Command.class);
     }
 }

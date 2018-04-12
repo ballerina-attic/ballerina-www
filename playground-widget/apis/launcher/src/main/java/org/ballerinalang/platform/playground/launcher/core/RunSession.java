@@ -24,9 +24,10 @@ import org.ballerinalang.platform.playground.launcher.core.phase.BuildPhase;
 import org.ballerinalang.platform.playground.launcher.core.phase.StartDependantServicePhase;
 import org.ballerinalang.platform.playground.launcher.core.phase.StartPhase;
 import org.ballerinalang.platform.playground.launcher.core.phase.TryItPhase;
-import org.ballerinalang.platform.playground.launcher.dto.Command;
-import org.ballerinalang.platform.playground.launcher.dto.Message;
-import org.ballerinalang.platform.playground.launcher.dto.RunCommand;
+import org.ballerinalang.platform.playground.utils.cache.CacheUtils;
+import org.ballerinalang.platform.playground.utils.cmd.dto.Command;
+import org.ballerinalang.platform.playground.utils.cmd.dto.Message;
+import org.ballerinalang.platform.playground.utils.cmd.dto.RunCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -103,14 +104,8 @@ public class RunSession {
             return;
         }
         try {
-            byte[] bytesOfSource = runCommand.getSource().getBytes("UTF-8");
-            byte[] bytesOfCurl = runCommand.getCurl().getBytes("UTF-8");
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
-            String sourceMd5 = new String(md5.digest(bytesOfSource));
-            setSourceMD5(sourceMd5);
-            String curlMd5 = new String(md5.digest(bytesOfCurl));
-            String sourceAndCurlMd5 = new String(md5.digest((curlMd5 + sourceMd5).getBytes("UTF-8")));
-            setOutputCacheId(sourceAndCurlMd5);
+            setSourceMD5(CacheUtils.getBuildCacheID(runCommand));
+            setOutputCacheId(CacheUtils.getOutputCacheID(runCommand));
             if (useOutputCache()) {
                 List<String> cachedOutput = getCachedOutput();
                 String buildCompletedRegex = "build completed in [\\d]+ms";
@@ -268,9 +263,6 @@ public class RunSession {
         Gson gson = new Gson();
         String json = gson.toJson(status);
         try {
-            if (!useOutputCache()) {
-                getOutputCache().add(json);
-            }
             if (getSourceFile() != null) {
                 json = json.replaceAll(getSourceFile().getFileName().toAbsolutePath().toString(),
                         getRunCommand().getFileName());
@@ -278,6 +270,9 @@ public class RunSession {
             if (getBuildFile() != null) {
                 json = json.replaceAll(getBuildFile().getFileName().toAbsolutePath().toString(),
                         getRunCommand().getFileName());
+            }
+            if (!useOutputCache()) {
+                getOutputCache().add(json);
             }
             transportSession.getBasicRemote().sendText(json);
         } catch (IOException e) {
