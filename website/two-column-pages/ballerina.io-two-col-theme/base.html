@@ -40,7 +40,7 @@
         var archived_versions_json = "{{config.extra.archived_versions_json}}";
         var releaseNoteFilename = "{{config.extra.archived_release_note_html}}";
     </script>
-    <script data-main="/search/search.js" src="/search/require.js"></script>
+    <script src="/search/require.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/son4ymv.css" />
     <link rel="stylesheet" href="/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
@@ -246,6 +246,7 @@
     </script>
 
     <script src="/js/theme.js"></script>
+    <script src="/search/search.js"></script>
     {%- for path in extra_javascript %}
     <script src="{{ path }}"></script>
     {%- endfor %} {%- endblock %}
