@@ -46,7 +46,7 @@
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-api-docs</artifactId>
             <type>zip</type>
-            <version>${ballerina.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ballerinalang.platform</groupId>
@@ -104,7 +104,7 @@
                         <configuration>
                             <target name="Copy BBE and Guide files">
                                  <copy todir="${bbe.source.dir}">
-                                    <fileset 
+                                    <fileset
                                     dir="${project.build.directory}/dependencies/ballerina-examples-${ballerina.release.version}">
                                         <include name="**/*.*"/>
                                     </fileset>
@@ -116,20 +116,20 @@
                                     </fileset>
                                 </copy>
                                 <copy todir="${webroot.dir}/playground">
-                                    <fileset 
+                                    <fileset
                                         dir="${project.build.directory}/dependencies/ballerina-playground-widget-${project.version}">
                                         <include name="**/*.*"/>
                                         <exclude name="**/*.map" />
                                     </fileset>
                                 </copy>
                                 <copy todir="${webroot.dir}/learn/api-docs">
-                                    <fileset 
+                                    <fileset
                                         dir="${project.build.directory}/dependencies/ballerina-api-docs-${ballerina.version}">
                                         <include name="**/*.*"/>
                                     </fileset>
                                 </copy>
                                 <copy todir="${webroot.dir}/blog">
-                                    <fileset 
+                                    <fileset
                                         dir="${project.build.directory}/dependencies/ballerina-blog-${ballerina.version}">
                                         <include name="**/*.*"/>
                                     </fileset>
