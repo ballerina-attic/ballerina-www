@@ -5,6 +5,9 @@ $(document).ready(function () {
     Handlebars.registerHelper('releasenotesdiv', function(version) {
         return getReleaseNotesDivId(version);
     });
+    Handlebars.registerHelper('formatdate', function(date) {
+        return formatDate(date);
+    });
     $.getJSON( archived_versions_json, function( data ) {
         data.sort(function(a, b) {
             return Date(a["release-date"]) > Date(b["release-date"]);
