@@ -30,6 +30,13 @@ public class LauncherClusterManager {
         this.desiredCount = desiredCount;
         this.runtimeClient = runtimeClient;
         this.persistence = persistence;
+
+        // TODO: temp fix to test stuff until a proper persistence implementation is added
+        if (getTotalLaunchers().size() == 0) {
+            log.info("Initializing launcher list with any found existing launchers as free ones...");
+
+            addAllDeploymentsAsFreeLaunchers();
+        }
     }
 
     public void scaleDown() {
@@ -47,7 +54,9 @@ public class LauncherClusterManager {
             String deploymentName = getObjectNameFromLauncherUrl(launcherUrlToDelete);
 
             // Delete deployment and service
-            deleteLauncher(deploymentName);
+            if (!deleteLauncher(deploymentName)) {
+                log.error("Launcher deletion failed [Object Name] " + deploymentName);
+            }
         }
     }
 
@@ -60,11 +69,14 @@ public class LauncherClusterManager {
         // scale up by (1 x stepUp) at a time
         for (int i = 0; i < stepUp; i++) {
             int deploymentNameSuffix = newNameSuffix + i;
-            // TODO: check if creation happened without issues
-            createLauncher(deploymentNameSuffix);
+            String deploymentName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + deploymentNameSuffix;
+            if (createLauncher(deploymentNameSuffix)) {
+                // Register the newly spawned launcher as a free one
+                addFreeLauncher(deploymentName);
+            } else {
+                log.error("Launcher creation failed for [Object Name] " + deploymentName);
+            }
 
-            // Register the newly spawned launcher as a free one
-            addFreeLauncher(Constants.BPG_APP_TYPE_LAUNCHER + "-" + deploymentNameSuffix);
         }
     }
 
@@ -137,8 +149,12 @@ public class LauncherClusterManager {
         for (String serviceName : serviceNames) {
             if (serviceName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !deploymentExists(serviceName)) {
                 log.info("Cleaning orphan Service [Name] " + serviceName + "...");
+
                 unregisterLauncherIfExists(serviceName);
-                runtimeClient.deleteService(serviceName);
+
+                if (!runtimeClient.deleteService(serviceName)) {
+                    log.error("Service deletion failed [Service Name] " + serviceName);
+                }
             }
         }
     }
@@ -148,8 +164,12 @@ public class LauncherClusterManager {
         for (String deploymentName : deploymentNames) {
             if (deploymentName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !serviceExists(deploymentName)) {
                 log.info("Cleaning orphan Deployment [Name] " + deploymentName + "...");
+
                 unregisterLauncherIfExists(deploymentName);
-                runtimeClient.deleteDeployment(deploymentName);
+
+                if (!runtimeClient.deleteDeployment(deploymentName)) {
+                    log.error("Deployment deletion failed [Deployment Name] " + deploymentName);
+                }
             }
         }
     }
@@ -170,7 +190,7 @@ public class LauncherClusterManager {
         return runtimeClient.serviceExists(serviceName);
     }
 
-    public void addAllDeploymentsAsFreeLaunchers() {
+    private void addAllDeploymentsAsFreeLaunchers() {
         List<String> deployments = getDeployments();
         for (String deployment : deployments) {
             addFreeLauncher(deployment);
@@ -201,11 +221,13 @@ public class LauncherClusterManager {
         return false;
     }
 
-    private void deleteLauncher(String deploymentName) {
+    private boolean deleteLauncher(String deploymentName) {
         unregisterLauncherIfExists(deploymentName);
 
-        runtimeClient.deleteService(deploymentName);
-        runtimeClient.deleteDeployment(deploymentName);
+        boolean svcDeleted = runtimeClient.deleteService(deploymentName);
+        boolean depDeleted = runtimeClient.deleteDeployment(deploymentName);
+
+        return svcDeleted && depDeleted;
     }
 
     private void unregisterLauncherIfExists(String objectName) {
@@ -216,9 +238,11 @@ public class LauncherClusterManager {
         }
     }
 
-    private void createLauncher(int deploymentNameSuffix) {
-        runtimeClient.createDeployment(deploymentNameSuffix);
-        runtimeClient.createService(deploymentNameSuffix);
+    private boolean createLauncher(int deploymentNameSuffix) {
+        boolean depCreated = runtimeClient.createDeployment(deploymentNameSuffix);
+        boolean svcCreated = runtimeClient.createService(deploymentNameSuffix);
+
+        return depCreated && svcCreated;
     }
 
     private void addFreeLauncher(String deploymentName) {

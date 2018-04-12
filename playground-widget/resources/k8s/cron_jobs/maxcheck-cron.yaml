@@ -1,9 +1,9 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: mincheck
+  name: maxcheck
 spec:
-  schedule: "*/3 * * * *"
+  schedule: "@hourly"
   # Do not allow concurrent runs
   concurrencyPolicy: "Forbid"
   jobTemplate:
@@ -15,7 +15,7 @@ spec:
           restartPolicy: "OnFailure"
           containers:
           -
-            name: mincheck-controller
+            name: maxcheck-controller
             imagePullPolicy: "Always"
             image: gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1
             env:
@@ -44,7 +44,7 @@ spec:
               name: BPG_LAUNCHER_IMAGE_NAME
               value: "gcr.io/${BPG_GCP_PROJECT_ID}/launcher:latest"
             -
-              name: BPG_SCALING_MIN
+              name: BPG_SCALING_DESIRED
               value: "3"
             -
               name: BPG_SCALING_MAX
@@ -56,11 +56,8 @@ spec:
               name: BPG_SCALING_STEP_DOWN
               value: "1"
             -
-              name: BPG_SCALING_LIMIT_GAP
+              name: BPG_SCALING_FREE_BUFFER
               value: "2"
             -
-              name: BPG_SCALING_IDLE_TIMEOUT_MIN
-              value: "5"
-            -
               name: BPG_CONTROLLER_ROLE
-              value: "MIN_CHECK"
+              value: "MAX_CHECK"
