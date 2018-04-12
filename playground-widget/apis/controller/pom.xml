@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>ballerina-www-parent</artifactId>
+        <artifactId>ballerina-playground-api-parent</artifactId>
         <groupId>org.ballerinalang.platform</groupId>
         <version>0.8-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>playground-api</artifactId>
-	<name>Ballerina - Playground API</name>
+    <artifactId>playground-controller</artifactId>
+	<name>Ballerina - Playground Controller</name>
 
     <dependencies>
         <dependency>
@@ -23,60 +25,9 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.ballerinalang</groupId>
-            <artifactId>ballerina-core</artifactId>
-            <version>${ballerina.release.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.netty</groupId>
-                    <artifactId>netty-transport</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.wso2.transport.http</groupId>
-                    <artifactId>org.wso2.transport.http.netty</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.ballerinalang</groupId>
-            <artifactId>ballerina-lang</artifactId>
-            <version>${ballerina.release.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ballerinalang</groupId>
-            <artifactId>ballerina-builtin</artifactId>
-            <version>${ballerina.release.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ballerinalang</groupId>
-            <artifactId>ballerina-http</artifactId>
-            <version>${ballerina.release.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.wso2.transport.http</groupId>
-                    <artifactId>org.wso2.transport.http.netty</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.ballerinalang</groupId>
-            <artifactId>language-server-core</artifactId>
-            <version>${ballerina.release.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ballerinalang</groupId>
-            <artifactId>composer-ballerina-parser-service</artifactId>
-            <version>${ballerina.release.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.wso2.transport.http</groupId>
             <artifactId>org.wso2.transport.http.netty</artifactId>
             <version>${org.wso2.transport.http.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.orbit.org.antlr</groupId>
-            <artifactId>antlr4-runtime</artifactId>
-            <version>4.5.1.wso2v1</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -94,24 +45,19 @@
             <version>2.6</version>
         </dependency>
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.7</version>
+            <groupId>io.fabric8</groupId>
+            <artifactId>kubernetes-api</artifactId>
+            <version>3.0.11</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.lsp4j</groupId>
-            <artifactId>org.eclipse.lsp4j</artifactId>
-            <version>0.3.0</version>
+            <groupId>io.fabric8</groupId>
+            <artifactId>kubernetes-model</artifactId>
+            <version>2.0.8</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.lsp4j</groupId>
-            <artifactId>org.eclipse.lsp4j.jsonrpc</artifactId>
-            <version>0.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>4.1.0</version>
+            <groupId>io.fabric8</groupId>
+            <artifactId>kubernetes-client</artifactId>
+            <version>3.1.10</version>
         </dependency>
         <dependency>
             <groupId>redis.clients</groupId>
@@ -150,14 +96,6 @@
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
                             </transformers>
                             <artifactSet>
-                                <excludes>
-                                    <exclude>com.github.jknack:handlebars</exclude>
-                                    <exclude>org.apache.ws.commons.axiom:axiom-dom</exclude>
-                                    <exclude>org.wso2.staxon:staxon-core</exclude>
-                                    <exclude>commons-pool.wso2:commons-pool</exclude>
-                                    <exclude>org.wso2.carbon.utils:carbon-utils</exclude>
-                                    <exclude>org.yaml:snakeyaml</exclude>
-                                </excludes>
                             </artifactSet>
                         </configuration>
                     </execution>
@@ -165,8 +103,10 @@
             </plugin>
         </plugins>
     </build>
+
+
     <properties>
-        <main.class>org.ballerinalang.platform.playground.api.ServiceRunner</main.class>
+        <main.class>org.ballerinalang.platform.playground.controller.ControllerRunner</main.class>
         <msf4j.version>2.5.0</msf4j.version>
         <slf4j.version>1.7.22</slf4j.version>
         <org.wso2.transport.http.version>6.0.63</org.wso2.transport.http.version>

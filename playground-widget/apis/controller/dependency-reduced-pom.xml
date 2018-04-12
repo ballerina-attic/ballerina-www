@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <parent>
-    <artifactId>ballerina-www-parent</artifactId>
+    <artifactId>ballerina-playground-api-parent</artifactId>
     <groupId>org.ballerinalang.platform</groupId>
     <version>0.8-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>playground-api</artifactId>
-  <name>Ballerina - Playground API</name>
+  <artifactId>playground-controller</artifactId>
+  <name>Ballerina - Playground Controller</name>
   <build>
     <plugins>
       <plugin>
@@ -36,16 +36,7 @@
                 </transformer>
                 <transformer />
               </transformers>
-              <artifactSet>
-                <excludes>
-                  <exclude>com.github.jknack:handlebars</exclude>
-                  <exclude>org.apache.ws.commons.axiom:axiom-dom</exclude>
-                  <exclude>org.wso2.staxon:staxon-core</exclude>
-                  <exclude>commons-pool.wso2:commons-pool</exclude>
-                  <exclude>org.wso2.carbon.utils:carbon-utils</exclude>
-                  <exclude>org.yaml:snakeyaml</exclude>
-                </excludes>
-              </artifactSet>
+              <artifactSet />
             </configuration>
           </execution>
         </executions>
@@ -55,7 +46,7 @@
   <properties>
     <maven.shadeplugin.version>2.4.1</maven.shadeplugin.version>
     <org.wso2.transport.http.version>6.0.63</org.wso2.transport.http.version>
-    <main.class>org.ballerinalang.platform.playground.api.ServiceRunner</main.class>
+    <main.class>org.ballerinalang.platform.playground.controller.ControllerRunner</main.class>
     <slf4j.version>1.7.22</slf4j.version>
     <msf4j.version>2.5.0</msf4j.version>
     <maven.compiler.source>1.8</maven.compiler.source>

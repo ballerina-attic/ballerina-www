@@ -108,7 +108,7 @@ class BallerinaWidget extends Component {
         </Segment.Group>
         <Segment.Group className="body">
           <Segment className="sample-image">
-                <img src={'resources/guides/images/' + sample.image} />
+                <img src={'images/examples/' + sample.image} />
           </Segment>
           <Segment className="code-editor">
             <ViewSelectPanel
