@@ -207,3 +207,11 @@ $(document).ready(function() {
         });
     });
 })
+
+function formatDate(date, format){
+    if(!format){
+        return moment(new Date(date)).format('MMM DD, Y');
+    } else {
+        return moment(new Date(date)).format(format);
+    }
+}

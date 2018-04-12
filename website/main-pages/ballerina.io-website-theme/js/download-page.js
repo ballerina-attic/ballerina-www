@@ -22,8 +22,8 @@ $(document).ready(function () {
 
             var product_dist_path = base_download_url+"/" + version_pack + "/";
 
-            $("#versionInfo").html(version + " (" + released_date + ")");
-            $("#stableInfo").html(version + " (" + released_date + ")");
+            $("#versionInfo").html(version + " (" + formatDate(released_date) + ")");
+            $("#stableInfo").html(version + " (" + formatDate(released_date) + ")");
 
             $("#packWindowsName").html(windows_pack + " (" + windows_pack_size + ")");
             $("#packWindows").attr("href", product_dist_path + windows_pack);
@@ -74,7 +74,7 @@ $(document).ready(function () {
             var version_pack = version.replace(/ /g, "-").toLowerCase();
             var released_date = nightly_pack['release-date'];
 
-            $("#nightlyInfo").html(version + " (" + released_date + ")");
+            $("#nightlyInfo").html(version + " (" + formatDate(released_date) + ")");
             var nightly_packs = $.merge([nightly_pack['windows-installer'], nightly_pack['linux-installer'], nightly_pack['macos-installer']], nightly_pack['other-artefacts']);
             var i = 0;
             var product_dist_path = base_download_url+"/" + version_pack + "/";
