@@ -15,8 +15,12 @@
     <link rel="shortcut icon" href="/img/favicon.ico">{% endif %} {%- endblock %} {%- block htmltitle %}
     <title>{% if page and page.title and not page.is_hompage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
     {%- endblock %} {%- block styles %}
+    <script src="/js/moment-2.22.0/moment.min.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-
+    {% if page and page.title == 'Release Notes' %}
+    <script src="/js/handlebars-4.0.5/handlebars.js"></script>
+    <script src="/js/release_notes/all_release_notes.js"></script>
+    {% endif %}
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -32,6 +36,9 @@
     <script type="text/javascript" src="{{ base_url }}/js/highlight.pack.js"></script>
     <script>
         var base_url = "";
+        var base_download_url = "{{config.extra.base_download_url}}";
+        var archived_versions_json = "{{config.extra.archived_versions_json}}";
+        var releaseNoteFilename = "{{config.extra.archived_release_note_html}}";
     </script>
     <script data-main="/search/search.js" src="/search/require.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/son4ymv.css" />
@@ -39,10 +46,6 @@
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
     <link rel="stylesheet" href="/css/highlight.css">
     <script src="/js/ballerina-common.js"></script>
-    <script>
-      // Current page data
-      var aggregated_release_note = "{{config.extra.aggregated_release_note}}";
-    </script>
 
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css"> {%- for path in extra_css %}
@@ -83,15 +86,6 @@
                 }
                 return;
             }
-        });
-    </script>
-    {% endif %}
-    {% if page and page.title == 'Release Notes' %}
-    <script>
-        $(document).ready(function () {
-              $.get(aggregated_release_note, function (data) {
-                $('.section').append(data)
-              });
         });
     </script>
     {% endif %}
@@ -154,7 +148,7 @@
                         <div class="cSideBar-Button"><img src="/img/sidebar.svg" /></div>
                         <div class="cBlallerina-io-docs-left-nav-box">
                             <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
-                            <ul>
+                            <ul id="toc_list">
 
                                 {% for toc_item in page.toc %}
                                 <li class="toctree-l3"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
