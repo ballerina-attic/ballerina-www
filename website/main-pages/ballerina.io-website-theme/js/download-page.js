@@ -47,9 +47,9 @@ $(document).ready(function () {
             $.each(latest_pack['other-artefacts'], function (key, value) {
 
                 release_content = "<tr>";
-                release_content += '<td style="width: 65%"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
-                release_content += '<td style="width: 14%"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
-                release_content += '<td style="width: 15%"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
+                release_content += '<td style="width: 82%"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
+                release_content += '<td style="width: 6%"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
+                release_content += '<td style="width: 6%"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
                 release_content += '<td style="width: 6%"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
                 release_content += "</tr>";
 
@@ -82,9 +82,9 @@ $(document).ready(function () {
             $.each(nightly_packs, function (key, value) {
 
                 release_content = "<tr>";
-                release_content += '<td style="width: 65%"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
-                release_content += '<td style="width: 14%"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
-                release_content += '<td style="width: 15%"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
+                release_content += '<td style="width: 82%"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
+                release_content += '<td style="width: 6%"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
+                release_content += '<td style="width: 6%"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
                 release_content += '<td style="width: 6%"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
                 release_content += "</tr>";
 
