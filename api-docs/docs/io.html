@@ -4,8 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-92163714-2');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-PSL2TX4');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="shortcut icon" href="/img/favicon.ico">
     <title>Ballerina.io - API Docs</title>
+    <script>var base_url = "";</script>
+    <script src="/search/require.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
@@ -28,16 +49,47 @@
     <link rel="stylesheet" href="/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
     <link rel="stylesheet" href="/css/highlight.css">
-    <script src="/js/ballerina-common.js"></script>
+    <script type="text/javascript" src="/js/ballerina-common.js"></script>
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css">
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
-    <script>var base_url = "";</script>
-    <script data-main="/search/search.js" src="/search/require.js"></script>
 
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            //$('pre > code.language-ballerina').removeClass('language-ballerina').addClass('ballerina');
+            $('.line-numbers-wrap').remove();
+            $('pre > code.language-ballerina').each(function() {
+                //cont the number of rows
+                //Remove the new line from the end of the text
+                var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+                $(this).css('line-height', '18px')
+                var lines = '<div class="line-numbers-wrap">';
+
+                //Iterate all the lines and create div elements with line number
+                for (var i = 1; i <= numberOfLines; i++) {
+                    lines = lines + '<div class="line-number">' + i + '</div>';
+                }
+                lines = lines + '</div>';
+                //calculate <pre> height and set it to the container
+                var preHeight = numberOfLines*18 + 5;
+                $(this).parent()
+                    .height(preHeight)
+                    .addClass('ballerina-pre-wrapper')
+                    .prepend(
+                        $(lines)
+                    );
+            });
+            hljs.initHighlighting();
+        })
+
+    </script>
 </head>
 
 <body class="cBallerina-io" role="document">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="row cBallerina-io-top-row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
@@ -136,46 +188,11 @@
                             </li>
                         </ul>
                         
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
                                  
-                                <a>
+                                <a class="cPackageList">
                                     <span class="bold">io</a>
                                  
                                 <div class="constructs-wrapper">
@@ -188,7 +205,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    IOError 
+                                                    IOError
                                                     
                                                 </div>
                                             </a>
@@ -200,7 +217,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    SocketProperties 
+                                                    SocketProperties
                                                     
                                                 </div>
                                             </a>
@@ -212,7 +229,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    createCharacterChannel 
+                                                    createCharacterChannel
                                                     
                                                 </div>
                                             </a>
@@ -224,7 +241,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    createCsvChannel 
+                                                    createCsvChannel
                                                     
                                                 </div>
                                             </a>
@@ -236,7 +253,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    createDelimitedRecordChannel 
+                                                    createDelimitedRecordChannel
                                                     
                                                 </div>
                                             </a>
@@ -248,7 +265,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    loadToTable 
+                                                    loadToTable
                                                     
                                                 </div>
                                             </a>
@@ -260,7 +277,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    openFile 
+                                                    openFile
                                                     
                                                 </div>
                                             </a>
@@ -272,7 +289,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    openSecureSocket 
+                                                    openSecureSocket
                                                     
                                                 </div>
                                             </a>
@@ -284,7 +301,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    openSocket 
+                                                    openSocket
                                                     
                                                 </div>
                                             </a>
@@ -296,7 +313,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    print 
+                                                    print
                                                     
                                                 </div>
                                             </a>
@@ -308,7 +325,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    println 
+                                                    println
                                                     
                                                 </div>
                                             </a>
@@ -320,7 +337,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    sprintf 
+                                                    sprintf
                                                     
                                                 </div>
                                             </a>
@@ -329,11 +346,11 @@
                                         <li>
                                             <a href="#ByteChannel">
                                                 <div class="construct-icon">
-                                                    <span class="fw-connector"> </span>
+                                                    <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    ByteChannel 
-                                                     () 
+                                                    ByteChannel
+                                                    
                                                 </div>
                                             </a>
                                         </li>
@@ -380,11 +397,11 @@
                                         <li>
                                             <a href="#CharacterChannel">
                                                 <div class="construct-icon">
-                                                    <span class="fw-connector"> </span>
+                                                    <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    CharacterChannel 
-                                                     () 
+                                                    CharacterChannel
+                                                    
                                                 </div>
                                             </a>
                                         </li>
@@ -483,11 +500,11 @@
                                         <li>
                                             <a href="#DelimitedRecordChannel">
                                                 <div class="construct-icon">
-                                                    <span class="fw-connector"> </span>
+                                                    <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    DelimitedRecordChannel 
-                                                     () 
+                                                    DelimitedRecordChannel
+                                                    
                                                 </div>
                                             </a>
                                         </li>
@@ -547,11 +564,11 @@
                                         <li>
                                             <a href="#Socket">
                                                 <div class="construct-icon">
-                                                    <span class="fw-connector"> </span>
+                                                    <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Socket 
-                                                     (ByteChannel channel ,int port ,int localPort ,string address ,string localAddress ,) 
+                                                    Socket
+                                                    
                                                 </div>
                                             </a>
                                         </li>
@@ -575,7 +592,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    FORMAT_DEFAULT 
+                                                    FORMAT_DEFAULT
                                                     
                                                 </div>
                                             </a>
@@ -587,7 +604,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    FORMAT_RFC4180 
+                                                    FORMAT_RFC4180
                                                     
                                                 </div>
                                             </a>
@@ -599,7 +616,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    FORMAT_TDF 
+                                                    FORMAT_TDF
                                                     
                                                 </div>
                                             </a>
@@ -611,7 +628,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    MODE_A 
+                                                    MODE_A
                                                     
                                                 </div>
                                             </a>
@@ -623,7 +640,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    MODE_R 
+                                                    MODE_R
                                                     
                                                 </div>
                                             </a>
@@ -635,7 +652,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    MODE_RW 
+                                                    MODE_RW
                                                     
                                                 </div>
                                             </a>
@@ -647,7 +664,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    MODE_W 
+                                                    MODE_W
                                                     
                                                 </div>
                                             </a>
@@ -656,6 +673,13 @@
                                     </ul>
                                 </div>
                                 
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
                             </li>
                         </ul>
                         
@@ -852,6 +876,8 @@
                                                   
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -950,6 +976,8 @@
                                                   
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1018,6 +1046,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1079,6 +1109,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1153,6 +1185,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1246,6 +1280,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1313,6 +1349,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1388,6 +1426,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1462,6 +1502,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1506,6 +1548,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1549,6 +1593,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1618,6 +1664,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1635,162 +1683,164 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <h2 id="ByteChannel">
-                                                    <span class="fw-connector sm-icon"></span>
-                                                    public connector ByteChannel()
-                                                </h2>
+                                                <!-- Objects and its functions -->
                                                 
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Ballerina ByteChannel represents a channel which will allow I/O operations to be done
-                                                </p>
-                                                  
-                                                <div class="function-wrapper">
-                                                    <h2>Actions:</h2>
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="ByteChannel-read">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                    <h2 id="ByteChannel">
+                                                        <span class="fw-struct sm-icon"></span>
+                                                        public type ByteChannel object
+                                                    </h2>
+                                                    
+                                                        <p>
+                                                            <span class="fw-right gray xs-icon"></span>Ballerina ByteChannel represents a channel which will allow I/O operations to be done
+                                                        </p>
+                                                      
+                                                    <div class="function-wrapper">
+                                                        <h2>Functions:</h2>
+                                                        <ul>
+                                                            
+                                                                <li>
+                                                                    <h2 id="ByteChannel-read">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <ByteChannel>
                                                                 </span>
-                                                                read(int nBytes) returns ((blob,int) | IOError) 
-                                                            </h2>
+                                                                        read(int nBytes) returns ((blob,int) | IOError) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Function to read bytes
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">nBytes</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">Number of bytes which should be read</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">(blob,int) | IOError</td>
+                                                                                <td class="col-md-7">The bytes which were read</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Function to read bytes
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">nBytes</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">Number of bytes which should be read</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">(blob,int) | IOError</td>
-                                                                    <td class="col-md-7">The bytes which were read</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="ByteChannel-write">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="ByteChannel-write">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <ByteChannel>
                                                                 </span>
-                                                                write(blob content, int offset) returns (int | IOError) 
-                                                            </h2>
+                                                                        write(blob content, int offset) returns (int | IOError) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Function to write bytes
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">content</td>
+                                                                                <td class="col-md-2">blob</td>
+                                                                                <td class="col-md-7">Bytes which should be written</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">offset</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">If the bytes need to be written with an offset, the value of that offset</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">int | IOError</td>
+                                                                                <td class="col-md-7">Number of bytes written</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Function to write bytes
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">content</td>
-                                                                    <td class="col-md-2">blob</td>
-                                                                    <td class="col-md-7">Bytes which should be written</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">offset</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">If the bytes need to be written with an offset, the value of that offset</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">int | IOError</td>
-                                                                    <td class="col-md-7">Number of bytes written</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="ByteChannel-close">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="ByteChannel-close">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <ByteChannel>
                                                                 </span>
-                                                                close() returns (IOError | null) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Function to close a byte channel
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        close() returns (IOError | null) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Function to close a byte channel
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">IOError | null</td>
+                                                                                <td class="col-md-7">Returns if there&#x27;s any error while performaing I/O operation</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">IOError | null</td>
-                                                                    <td class="col-md-7">Returns if there&#x27;s any error while performaing I/O operation</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
+                                                        </ul>
+                                                    </div>
                                                  
                                                 <!-- Enums-->
                                                 
@@ -1809,330 +1859,332 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <h2 id="CharacterChannel">
-                                                    <span class="fw-connector sm-icon"></span>
-                                                    public connector CharacterChannel()
-                                                </h2>
+                                                <!-- Objects and its functions -->
                                                 
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Ballerina CharacterChannel represents a channel which will allow to read/write characters
-                                                </p>
-                                                  
-                                                <div class="function-wrapper">
-                                                    <h2>Actions:</h2>
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="CharacterChannel-readCharacters">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                    <h2 id="CharacterChannel">
+                                                        <span class="fw-struct sm-icon"></span>
+                                                        public type CharacterChannel object
+                                                    </h2>
+                                                    
+                                                        <p>
+                                                            <span class="fw-right gray xs-icon"></span>Ballerina CharacterChannel represents a channel which will allow to read/write characters
+                                                        </p>
+                                                      
+                                                    <div class="function-wrapper">
+                                                        <h2>Functions:</h2>
+                                                        <ul>
+                                                            
+                                                                <li>
+                                                                    <h2 id="CharacterChannel-readCharacters">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <CharacterChannel>
                                                                 </span>
-                                                                readCharacters(int numberOfChars) returns (string | IOError) 
-                                                            </h2>
+                                                                        readCharacters(int numberOfChars) returns (string | IOError) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Function to read characters
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">numberOfChars</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">Number of characters which should be read</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">string | IOError</td>
+                                                                                <td class="col-md-7">The character sequence which was read</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Function to read characters
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">numberOfChars</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">Number of characters which should be read</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">string | IOError</td>
-                                                                    <td class="col-md-7">The character sequence which was read</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="CharacterChannel-writeCharacters">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="CharacterChannel-writeCharacters">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <CharacterChannel>
                                                                 </span>
-                                                                writeCharacters(string content, int startOffset) returns (int | IOError) 
-                                                            </h2>
+                                                                        writeCharacters(string content, int startOffset) returns (int | IOError) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Function to write characters
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">content</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">Text content which should be written</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">startOffset</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">If the content needs to be written with an offset, the value of that offset</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">int | IOError</td>
+                                                                                <td class="col-md-7">Number of characters written</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Function to write characters
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">content</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">Text content which should be written</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">startOffset</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">If the content needs to be written with an offset, the value of that offset</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">int | IOError</td>
-                                                                    <td class="col-md-7">Number of characters written</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="CharacterChannel-closeCharacterChannel">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="CharacterChannel-closeCharacterChannel">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <CharacterChannel>
                                                                 </span>
-                                                                closeCharacterChannel() returns (IOError | null) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Function to close a character channel
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        closeCharacterChannel() returns (IOError | null) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Function to close a character channel
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">IOError | null</td>
+                                                                                <td class="col-md-7">Returns if there&#x27;s any error while performaing I/O operation</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">IOError | null</td>
-                                                                    <td class="col-md-7">Returns if there&#x27;s any error while performaing I/O operation</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="CharacterChannel-readJson">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="CharacterChannel-readJson">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <CharacterChannel>
                                                                 </span>
-                                                                readJson() returns (json | IOError) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Function to convert a character channel to a JSON
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        readJson() returns (json | IOError) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Function to convert a character channel to a JSON
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">json | IOError</td>
+                                                                                <td class="col-md-7">Returns A JSON</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">json | IOError</td>
-                                                                    <td class="col-md-7">Returns A JSON</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="CharacterChannel-readXml">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="CharacterChannel-readXml">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <CharacterChannel>
                                                                 </span>
-                                                                readXml() returns (xml | IOError) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Function to convert a character channel to a XML
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        readXml() returns (xml | IOError) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Function to convert a character channel to a XML
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">xml | IOError</td>
+                                                                                <td class="col-md-7">Returns A XML</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">xml | IOError</td>
-                                                                    <td class="col-md-7">Returns A XML</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="CharacterChannel-writeJson">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="CharacterChannel-writeJson">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <CharacterChannel>
                                                                 </span>
-                                                                writeJson(json content) returns (IOError | null) 
-                                                            </h2>
+                                                                        writeJson(json content) returns (IOError | null) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Writes json through a given character channel
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">content</td>
+                                                                                <td class="col-md-2">json</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">IOError | null</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Writes json through a given character channel
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">content</td>
-                                                                    <td class="col-md-2">json</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">IOError | null</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="CharacterChannel-writeXml">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="CharacterChannel-writeXml">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <CharacterChannel>
                                                                 </span>
-                                                                writeXml(xml content) returns (IOError | null) 
-                                                            </h2>
+                                                                        writeXml(xml content) returns (IOError | null) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Writes xml through a given character channel
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">content</td>
+                                                                                <td class="col-md-2">xml</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">IOError | null</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Writes xml through a given character channel
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">content</td>
-                                                                    <td class="col-md-2">xml</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">IOError | null</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
+                                                        </ul>
+                                                    </div>
                                                  
                                                 <!-- Enums-->
                                                 
@@ -2151,171 +2203,173 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <h2 id="DelimitedRecordChannel">
-                                                    <span class="fw-connector sm-icon"></span>
-                                                    public connector DelimitedRecordChannel()
-                                                </h2>
+                                                <!-- Objects and its functions -->
                                                 
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Ballerina DelimitedRecordChannel represents a channel which will allow to read/write text records
-                                                </p>
-                                                  
-                                                <div class="function-wrapper">
-                                                    <h2>Actions:</h2>
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="DelimitedRecordChannel-hasNextTextRecord">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                    <h2 id="DelimitedRecordChannel">
+                                                        <span class="fw-struct sm-icon"></span>
+                                                        public type DelimitedRecordChannel object
+                                                    </h2>
+                                                    
+                                                        <p>
+                                                            <span class="fw-right gray xs-icon"></span>Ballerina DelimitedRecordChannel represents a channel which will allow to read/write text records
+                                                        </p>
+                                                      
+                                                    <div class="function-wrapper">
+                                                        <h2>Functions:</h2>
+                                                        <ul>
+                                                            
+                                                                <li>
+                                                                    <h2 id="DelimitedRecordChannel-hasNextTextRecord">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <DelimitedRecordChannel>
                                                                 </span>
-                                                                hasNextTextRecord() returns (boolean) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Function to check whether next record is available or not
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        hasNextTextRecord() returns (boolean) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Function to check whether next record is available or not
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">boolean</td>
+                                                                                <td class="col-md-7">True if the channel has more records; false otherwise</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">boolean</td>
-                                                                    <td class="col-md-7">True if the channel has more records; false otherwise</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="DelimitedRecordChannel-nextTextRecord">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="DelimitedRecordChannel-nextTextRecord">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <DelimitedRecordChannel>
                                                                 </span>
-                                                                nextTextRecord() returns (string[] | IOError) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Function to read text records
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        nextTextRecord() returns (string[] | IOError) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Function to read text records
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">string[] | IOError</td>
+                                                                                <td class="col-md-7">Fields listed in the record</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">string[] | IOError</td>
-                                                                    <td class="col-md-7">Fields listed in the record</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="DelimitedRecordChannel-writeTextRecord">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="DelimitedRecordChannel-writeTextRecord">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <DelimitedRecordChannel>
                                                                 </span>
-                                                                writeTextRecord(string[] records) returns (IOError) 
-                                                            </h2>
+                                                                        writeTextRecord(string[] records) returns (IOError) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Function to write text records
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">records</td>
+                                                                                <td class="col-md-2">string[]</td>
+                                                                                <td class="col-md-7">Fields which are included in the record</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">IOError</td>
+                                                                                <td class="col-md-7">Returns if there&#x27;s any error while performaing I/O operation</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Function to write text records
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">records</td>
-                                                                    <td class="col-md-2">string[]</td>
-                                                                    <td class="col-md-7">Fields which are included in the record</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">IOError</td>
-                                                                    <td class="col-md-7">Returns if there&#x27;s any error while performaing I/O operation</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="DelimitedRecordChannel-closeDelimitedRecordChannel">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="DelimitedRecordChannel-closeDelimitedRecordChannel">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <DelimitedRecordChannel>
                                                                 </span>
-                                                                closeDelimitedRecordChannel() returns (IOError | null) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Function to close the text record channel
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        closeDelimitedRecordChannel() returns (IOError | null) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Function to close the text record channel
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">IOError | null</td>
+                                                                                <td class="col-md-7">Returns if there&#x27;s any error while performaing I/O operation</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">IOError | null</td>
-                                                                    <td class="col-md-7">Returns if there&#x27;s any error while performaing I/O operation</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
+                                                        </ul>
+                                                    </div>
                                                  
                                                 <!-- Enums-->
                                                 
@@ -2334,92 +2388,94 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <h2 id="Socket">
-                                                    <span class="fw-connector sm-icon"></span>
-                                                    public connector Socket(ByteChannel channel, int port, int localPort, string address, string localAddress)
-                                                </h2>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Parameters:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-4">Parameter Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-6">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">channel</td>
-                                                        <td class="col-md-2">ByteChannel</td>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">port</td>
-                                                        <td class="col-md-2">int</td>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">localPort</td>
-                                                        <td class="col-md-2">int</td>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">address</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">localAddress</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <h2>Actions:</h2>
-                                                    <ul>
+                                                <!-- Objects and its functions -->
+                                                
+                                                    <h2 id="Socket">
+                                                        <span class="fw-struct sm-icon"></span>
+                                                        public type Socket object
+                                                    </h2>
+                                                     
+                                                    <p>
+                                                        <label class="table-header-text">Parameters:</label>
+                                                    </p>
+                                                    <table>
+                                                        <tr>
+                                                            <th class="col-md-4">Parameter Name</th>
+                                                            <th class="col-md-2">Data Type</th>
+                                                            <th class="col-md-6">Description</th>
+                                                        </tr>
                                                         
-                                                        <li>
-                                                            <h2 id="Socket-closeSocket">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                            <tr>
+                                                                <td class="col-md-3">channel</td>
+                                                                <td class="col-md-2">ByteChannel</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">port</td>
+                                                                <td class="col-md-2">int</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">localPort</td>
+                                                                <td class="col-md-2">int</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">address</td>
+                                                                <td class="col-md-2">string</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">localAddress</td>
+                                                                <td class="col-md-2">string</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                    </table>
+                                                 
+                                                    <div class="function-wrapper">
+                                                        <h2>Functions:</h2>
+                                                        <ul>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Socket-closeSocket">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Socket>
                                                                 </span>
-                                                                closeSocket() returns (IOError) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Close the socket connection with the remote server
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        closeSocket() returns (IOError) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Close the socket connection with the remote server
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">IOError</td>
+                                                                                <td class="col-md-7">Returns an IOError if socket could not be closed</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">IOError</td>
-                                                                    <td class="col-md-7">Returns an IOError if socket could not be closed</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
+                                                        </ul>
+                                                    </div>
                                                  
                                                 <!-- Enums-->
                                                 
@@ -2437,6 +2493,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2472,6 +2530,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2505,6 +2565,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2540,6 +2602,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2573,6 +2637,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2608,6 +2674,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2641,6 +2709,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2689,74 +2759,22 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="primitive-types.html">
+                                     
+                                    <span class="bold">Primitive Types</span>
+                                    
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="auth.html">
                                      
                                     <span class="bold">auth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.html">
-                                     
-                                    <span class="bold">auth.authz</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.permissionstore.html">
-                                     
-                                    <span class="bold">auth.authz.permissionstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.basic.html">
-                                     
-                                    <span class="bold">auth.basic</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.userstore.html">
-                                     
-                                    <span class="bold">auth.userstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.utils.html">
-                                     
-                                    <span class="bold">auth.utils</span>
                                      
                                 </a>
                                 
@@ -2848,19 +2866,6 @@
                                 <a href="http.html">
                                      
                                     <span class="bold">http</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="http.swagger.html">
-                                     
-                                    <span class="bold">http.swagger</span>
                                      
                                 </a>
                                 
@@ -3031,6 +3036,19 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="swagger.html">
+                                     
+                                    <span class="bold">swagger</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="task.html">
                                      
                                     <span class="bold">task</span>
@@ -3116,11 +3134,11 @@
         </div>
     </div>
     <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
- 
+
     </div>
 
 
-
+<script type="text/javascript" src="/search/search.js"/>
 </body>
 
 </html>
