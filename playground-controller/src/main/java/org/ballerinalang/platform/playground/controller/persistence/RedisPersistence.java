@@ -101,17 +101,16 @@ public class RedisPersistence implements Persistence {
 
     private List<String> searchLaunchersByStatus(String status) {
         List<String> freeLaunchers = new ArrayList<>();
-        int cursor = -1;
+        String cursor = "";
         ScanParams params = new ScanParams();
-        params.match(status);
-        while (cursor != 0) {
+        while (!cursor.equals("0")) {
             ScanResult<Map.Entry<String, String>> result
-                    = slave.hscan(CACHE_KEY_LAUNCHERS_LIST, cursor == -1 ? 0 : cursor, params);
-            cursor = result.getCursor();
+                    = slave.hscan(CACHE_KEY_LAUNCHERS_LIST, cursor.isEmpty() ? "0" : cursor, params);
+            cursor = result.getStringCursor();
             result.getResult()
-                    .forEach((entry) -> {
-                        freeLaunchers.add(entry.getKey());
-                    });
+                    .stream()
+                    .filter(entry -> entry.getValue().equals(status))
+                    .forEach(entry -> freeLaunchers.add(entry.getKey()));
         }
         return freeLaunchers;
     }
