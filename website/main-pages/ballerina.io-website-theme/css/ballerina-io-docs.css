@@ -1,4 +1,5 @@
 /*DOCS ONLY*/
+
 .navbar-header {
     margin-top: -15px;
 }
@@ -7,13 +8,11 @@
     margin: 10px 0;
 }
 
-.col-lg-3.cBallerina-io-Home-Left-col,
-.col-lg-3.cBallerina-io-Home-Right-col {
-    width: 23%;
-}
-
+.cBallerina-io-Home-Left-col,
+.cBallerina-io-Home-Right-col,
 .col-lg-6.cBallerina-io-Home-Middle-col {
-    width: 77%;
+    width: 100%;
+    padding-right: 0;
 }
 
 .navbar-nav.cTopNav>li:first-child,
@@ -36,7 +35,7 @@
 .wy-nav-content h2 {
     font-size: 24px;
     text-transform: uppercase;
-    font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
+    /* font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif; */
     color: #1fa39d;
     letter-spacing: 0.5px;
     line-height: 30px;
@@ -48,21 +47,20 @@
 .wy-nav-content h3 {
     font-size: 22px;
     color: #555;
-/*    text-transform: uppercase;*/
+    /*    text-transform: uppercase;*/
     letter-spacing: 0.5px;
     line-height: 28px;
     font-weight: 600;
-    
     padding: 0;
-       margin: 20px 0 15px 0;
+    margin: 20px 0 15px 0;
 }
 
 .wy-nav-content h4 {
     font-size: 18px;
     color: #444;
     padding: 0;
-       margin: 20px 0 15px 0;
-       font-weight: 600;
+    margin: 20px 0 15px 0;
+    font-weight: 600;
 }
 
 .wy-nav-content h5 {
@@ -70,13 +68,14 @@
     color: #222;
     font-weight: bold;
     padding: 0;
-        margin: 20px 0 15px 0;
-        font-weight: 600;
+    margin: 20px 0 15px 0;
+    font-weight: 600;
 }
 
 .cBallerina-io-Home-Left-col,
 .cBallerina-io-Home-Right-col {
     padding-top: 50px;
+    padding-right: 0;
 }
 
 .cBallerina-io-Home-Middle-col {
@@ -87,28 +86,27 @@
 .cBlallerina-io-docs-left-nav-box li a {
     margin-bottom: 12px;
     padding-right: 20px;
-/*     background-image: url("/img/toc-bg.svg");*/
-        background-size: 20px;
-        background-repeat: no-repeat;
-        background-position: right center;
-    
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: right center;
 }
 
 .cBallerina-io-Home-Left-col .cBlallerina-io-docs-left-nav-box a {
     font-size: 14px;
-line-height: 20px;
-padding: 1px 0;
-color: #999;
-transition: all 0.2s ease 0s;
-display: inline-block;
-width: 100%;
-    
-}
-.cBallerina-io-Home-Left-col .cBlallerina-io-docs-left-nav-box a:hover , .cBlallerina-io-docs-left-nav-box li:hover a {
-    color: #222; 
+    line-height: 20px;
+    padding: 1px 0;
+    color: #999;
     transition: all 0.2s ease 0s;
-    
+    display: inline-block;
+    width: 100%;
 }
+
+.cBallerina-io-Home-Left-col .cBlallerina-io-docs-left-nav-box a:hover,
+.cBlallerina-io-docs-left-nav-box li:hover a {
+    color: #222;
+    transition: all 0.2s ease 0s;
+}
+
 .cBlallerina-io-docs-left-nav-box li:first-child {
     display: none;
 }
@@ -218,32 +216,6 @@ nav.stickynav,
 li.current a.current {
     display: none;
 }
-
-.cBallerina-io-Home-Left-col a {
-/*    color: #57595d;*/
-}
-
-/*h1 {
-    font-size: 25px;
-    font-weight: 200;
-    padding-bottom: 0px;
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 20px;
-    font-weight: normal;
-    padding: 0;
-    margin: 30px 0 10px 0;
-}
-
-h3 {
-    font-size: 15px;
-    font-weight: normal;
-    color: #22b7b1;
-    margin: 20px 0 10px 0;
-    padding: 0px;
-}*/
 
 pre {
     border: none;
@@ -381,13 +353,15 @@ h4.modal-title {
     margin-top: 7px;
 }
 
-@media (min-width: 990x) {
-    .cBallerina-io-Home-Middle-col {
+@media (min-width: 990px) {
+    .cBallerina-io-Home-Left-col,
+    .cBallerina-io-Home-Right-col {
+        width: 23%;
         padding-right: 15px;
     }
-    .col-lg-3.cBallerina-io-Home-Left-col,
-    .col-lg-3.cBallerina-io-Home-Right-col {
-        width: 100% !important;
+    .cBallerina-io-Home-Middle-col {
+        width: 77%;
+        padding-right: 0;
     }
 }
 
@@ -399,7 +373,7 @@ h4.modal-title {
     .cBallerina-io-Home-Middle-col {
         padding: 0 15px !important;
     }
-    .col-lg-3.cBallerina-io-Home-Left-col {
+    .cBallerina-io-Home-Left-col {
         width: 50% !important;
         position: fixed;
         height: 100vh;
