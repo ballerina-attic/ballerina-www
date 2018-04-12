@@ -219,8 +219,8 @@ $(document).ready(function() {
 
 function formatDate(date, format) {
     if (!format) {
-        return moment(date, "DD-MM-YYYY").format('MMM DD, Y');
+        return moment(date, "YYYY-MM-DD").format('MMM DD, Y');
     } else {
-        return moment(date, "DD-MM-YYYY").format(format);
+        return moment(date, "YYYY-MM-DD").format(format);
     }
 }
