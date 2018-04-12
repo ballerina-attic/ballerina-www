@@ -13,12 +13,6 @@ public class ControllerServiceManager {
 
     public ControllerServiceManager(LauncherClusterManager clusterManager) {
         this.clusterManager = clusterManager;
-
-        if (clusterManager.getTotalLaunchers().size() == 0) {
-            log.info("Initializing launcher list with any found existing launchers as free ones...");
-
-            clusterManager.addAllDeploymentsAsFreeLaunchers();
-        }
     }
 
     String allocateFreeLauncher() {

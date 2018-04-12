@@ -30,6 +30,13 @@ public class LauncherClusterManager {
         this.desiredCount = desiredCount;
         this.runtimeClient = runtimeClient;
         this.persistence = persistence;
+
+        // TODO: temp fix to test stuff until a proper persistence implementation is added
+        if (getTotalLaunchers().size() == 0) {
+            log.info("Initializing launcher list with any found existing launchers as free ones...");
+
+            addAllDeploymentsAsFreeLaunchers();
+        }
     }
 
     public void scaleDown() {
@@ -183,7 +190,7 @@ public class LauncherClusterManager {
         return runtimeClient.serviceExists(serviceName);
     }
 
-    public void addAllDeploymentsAsFreeLaunchers() {
+    private void addAllDeploymentsAsFreeLaunchers() {
         List<String> deployments = getDeployments();
         for (String deployment : deployments) {
             addFreeLauncher(deployment);
