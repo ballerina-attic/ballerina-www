@@ -3,6 +3,7 @@ package org.ballerinalang.platform.playground.controller;
 import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
 import org.ballerinalang.platform.playground.controller.containercluster.KubernetesClientImpl;
 import org.ballerinalang.platform.playground.controller.persistence.InMemoryPersistence;
+import org.ballerinalang.platform.playground.controller.persistence.RedisPersistence;
 import org.ballerinalang.platform.playground.controller.scaling.LauncherClusterManager;
 import org.ballerinalang.platform.playground.controller.service.ControllerService;
 import org.ballerinalang.platform.playground.controller.service.ControllerServiceManager;
@@ -43,7 +44,7 @@ public class ControllerRunner {
         // Create a cluster mgt instance to scale in/out launcher instances
         log.info("Creating Cluster Manager...");
         LauncherClusterManager clusterManager = new LauncherClusterManager(desiredCount, maxCount, stepUp, stepDown, freeBufferCount,
-                runtimeClient, new InMemoryPersistence());
+                runtimeClient, new RedisPersistence());
 
         // Perform role
         switch (controllerRole) {
