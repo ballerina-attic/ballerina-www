@@ -4,8 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-92163714-2');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-PSL2TX4');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="shortcut icon" href="/img/favicon.ico">
     <title>Ballerina.io - API Docs</title>
+    <script>var base_url = "";</script>
+    <script src="/search/require.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
@@ -28,16 +49,49 @@
     <link rel="stylesheet" href="/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
     <link rel="stylesheet" href="/css/highlight.css">
-    <script src="/js/ballerina-common.js"></script>
+    <script type="text/javascript" src="/js/ballerina-common.js"></script>
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css">
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
-    <script>var base_url = "";</script>
-    <script data-main="/search/search.js" src="/search/require.js"></script>
 
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            //$('pre > code.language-ballerina').removeClass('language-ballerina').addClass('ballerina');
+            $('.line-numbers-wrap').remove();
+            $('pre > code.language-ballerina').each(function() {
+                //cont the number of rows
+                //Remove the new line from the end of the text
+                var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+                $(this).css('line-height', '18px')
+                var lines = '<div class="line-numbers-wrap">';
+
+                //Iterate all the lines and create div elements with line number
+                for (var i = 1; i <= numberOfLines; i++) {
+                    lines = lines + '<div class="line-number">' + i + '</div>';
+                }
+                lines = lines + '</div>';
+                //calculate <pre> height and set it to the container
+                var preHeight = numberOfLines*18 + 5;
+                $(this).parent()
+                    .height(preHeight)
+                    .addClass('ballerina-pre-wrapper')
+                    .prepend(
+                        $(lines)
+                    );
+            });
+            hljs.initHighlighting();
+        })
+
+    </script>
+    <link rel="stylesheet" href="/css/highlight.css">
+    
 </head>
 
 <body class="cBallerina-io" role="document">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="row cBallerina-io-top-row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
@@ -108,39 +162,11 @@
                             </li>
                         </ul>
                         
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
                                  
-                                <a>
+                                <a class="cPackageList">
                                     <span class="bold">file</a>
                                  
                                 <div class="constructs-wrapper">
@@ -153,7 +179,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Connection 
+                                                    Connection
                                                     
                                                 </div>
                                             </a>
@@ -165,7 +191,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    FSError 
+                                                    FSError
                                                     
                                                 </div>
                                             </a>
@@ -177,7 +203,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    FileEvent 
+                                                    FileEvent
                                                     
                                                 </div>
                                             </a>
@@ -189,7 +215,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    IOError 
+                                                    IOError
                                                     
                                                 </div>
                                             </a>
@@ -201,7 +227,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    ListenerEndpointConfiguration 
+                                                    ListenerEndpointConfiguration
                                                     
                                                 </div>
                                             </a>
@@ -213,7 +239,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    createDirectory 
+                                                    createDirectory
                                                     
                                                 </div>
                                             </a>
@@ -225,7 +251,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    createFile 
+                                                    createFile
                                                     
                                                 </div>
                                             </a>
@@ -237,7 +263,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    delete 
+                                                    delete
                                                     
                                                 </div>
                                             </a>
@@ -249,7 +275,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    exists 
+                                                    exists
                                                     
                                                 </div>
                                             </a>
@@ -261,7 +287,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    getModifiedTime 
+                                                    getModifiedTime
                                                     
                                                 </div>
                                             </a>
@@ -273,7 +299,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    isDirectory 
+                                                    isDirectory
                                                     
                                                 </div>
                                             </a>
@@ -285,7 +311,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    list 
+                                                    list
                                                     
                                                 </div>
                                             </a>
@@ -294,11 +320,11 @@
                                         <li>
                                             <a href="#Listener">
                                                 <div class="construct-icon">
-                                                    <span class="fw-connector"> </span>
+                                                    <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Listener 
-                                                     (Connection conn ,ListenerEndpointConfiguration config ,) 
+                                                    Listener
+                                                    
                                                 </div>
                                             </a>
                                         </li>
@@ -384,11 +410,11 @@
                                         <li>
                                             <a href="#Path">
                                                 <div class="construct-icon">
-                                                    <span class="fw-connector"> </span>
+                                                    <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Path 
-                                                     (string link ,) 
+                                                    Path
+                                                    
                                                 </div>
                                             </a>
                                         </li>
@@ -638,38 +664,45 @@
                                             </h1>
                                             
                                             <div class="cAPIdocsDescription">
-                                                 <p>The <code>ballerina/file</code> package provides local file system operations.</p>
-<p><code>Path</code> is a unique identifier of a file. <code>Path</code> can be either absolute or relative.  Absolute path refers to complete path information of a file where the information indicates the location of a file from the root of the file system.  Relative path indicates the location of a file relative to the current location of the execution.</p>
+                                                 <h1>Package overview</h1>
+<p>The <code>ballerina/file</code> package provides local file system operations, such as extending the <code>ballerina/io</code> package and performing I/O operations on files, and validating the files.</p>
+<h2>Perform file I/O operations</h2>
+<p>File I/O operations, such as writing, updating, copying, and moving can be achieved in conjunction with the <code>ballerina/io</code> package when using Path.</p>
+<h2>Create, delete, and modify files</h2>
+<p>The <code>ballerina/file</code> package  provides functions to manage metadata in the files and perform operations, such as for creating, and deleting files. The package can make the file system operations listen to a directory, identify events, and resiprocate.</p>
+<h2>Validate files</h2>
+<p>Validation is required to ensure that all the pre-conditions and post-conditions of an operation areis satisfied. This package supports pre-validation and post-validation actions through functions such as exists() and isDirectory()respectively.</p>
+<h2>Types of file paths</h2>
+<p>The Path is a unique identifier that can either be absolute or relative. The absolute path or the full path name is the location of a file relative to the root directory. The relative path indicates the location of a file relative to the current location of the execution.</p>
 <pre><code class="language-ballerina">string relativePathValue = “./doc”;
 file:Path relativePath = new(relativePathValue);
 
 string absolutePathValue = “/home/user/ballerina/doc”;
 file:Path absolutePath = new(absolutePathValue);
 </code></pre>
-<p>The function <code>toAbsolutePath()</code> gives the absolute path of a file.</p>
+<h2>Absolute paths on different operating systems</h2>
+<p>The absolute path differs from OS (Operating System ) to OS. For example, a Unix based OS defines the path as /home/user/ballerina/examples and a Windows based OS defines the path as  C:\windows\user\ballerina\examples.</p>
+<h2>Convert relative paths to absolute paths</h2>
+<p>The toAbsolutePath() function converts a relative path to an absolute path.</p>
 <pre><code class="language-ballerina">file:Path absolutePath = relativePath.toAbsolutePath();
 </code></pre>
-<p>For a given relative path, absolute path may differ depending on underlying OS (Operating System).</p>
-<p>For example,</p>
-<pre><code class="language-ballerina">string relativePathValue = “./examples”;
-file:Path relativePath = new(relativePathValiue);
-string absolutePathValue = relativePath.toAbsolutePath().getPathValue();
-</code></pre>
-<p>If above code is executed in unix based OS, absolutePathValue will hold a string similar to the one  below,
-<code>/home/user/ballerina/examples</code></p>
-<p>However, execution of same code in windows OS will make absolutePathValue to hold value like below,
-<code>C:\windows\user\ballerina\examples</code></p>
-<p>By using <code>Path</code>,file I/O operations such as writing, updating, copying and moving can be achieved in conjunction with <code>ballerina/io</code> package.</p>
-<p>For example to write to a file the following could be done:</p>
-<pre><code class="language-ballerina">String accessMode = “w”;
-file:Path filePath = new(filePathValue)
-io:ByteChannel channel = io:openFile(filePath,accessMode);
+<h2>Access denied error</h2>
+<p>File and directories are protected entities. The file operations are restricted using various methods depending on the OS. Functions that access a protected or non-existant entity returns an AccessDenied error.</p>
+<h1>Samples</h1>
+<p>The sample given below writes new content to a file.</p>
+<pre><code class="language-ballerina">function testWriteFile(string pathValue,string accessMode,blob content){
+file:Path filePath = new(pathValue);
+//Get the absolute file path.
+string absolutePath = filePath.toAbsolutePath().getPathValue();
+// Open the file that is denoted by the absolute path. 
+io:ByteChannel channel =io:openFile(absolutePath,accessMode);
+//Write the content to the file.
 var result = channel.write(content,0);
-var closeResult = channel.close();
+var closeResult = channel.close()
+}
 </code></pre>
-<p>The constructor <code>new()</code> creates a <code>Path</code>. File write operation can be completed using <code>openFile()</code> and <code>write()</code> functions exposed by <code>ballerina/io</code> package. <code>openFile()</code> function creates a streaming channel to a local file. Channels provide read / write access to different resources, in this case files.</p>
-<p>The <code>ballerina/file</code> package provides functions for creating, deleting files. The package provides directory listening that triggers events when a file is modified.</p>
-<p>To listen to file creation event:,</p>
+<p>The constructor new() creates a Path. The file write operation can be completed using the openFile() and write() functions that are exposed by the ballerina/io package. The openFile() function creates a streaming channel to a local file. Channels provide read or write access to different resources. The permission to perform operations on the file are defined using accessMode.</p>
+<p>The following sample shows how an endpoint is used to listen to the local folder and identify events, such as creating a new file.</p>
 <pre><code class="language-ballerina">endpoint file:Listener localFolder {
     path:&quot;target/fs&quot;
 };
@@ -678,20 +711,7 @@ service fileSystem bind localFolder {
     }
 }
 </code></pre>
-<p>The <code>onCreate()</code> resource method will get invoked in the event of file creation inside <code>“target/fs”</code> folder. <code>onDelete()</code> and <code>onModify()</code> methods can be used to listen delete, modify events respectively.</p>
-<p>Validation is a process of verifying whether all the pre-conditions and post-conditions of an operation is satisfied. The package supports pre-validation and post-validation actions through functions such as <code>exists()</code> and <code>isDirectory()</code>.</p>
-<p>To create directory and add a file to directory:,</p>
-<pre><code class="language-ballerina">file:Path directoryPath = new(directoryPathValue);
-file:Path filePath = new(filePathValue);
-var isExists = file:exists(directoryPath);
-if (!isExists) {
-  var result = file:createDirectory(directoryPath);
-}
-If (file:isDirectory(directoryPath)) {
-  var createFileResult = file:createFile(filePath);
-}
-</code></pre>
-<p>File and directories are protected entities. Depending on the OS, file operations can be restricted in various ways. Functions that access a protected or non-existant entity will return an <code>AccessDenied</code> error.</p>
+<p>The onCreate() resource method gets invoked when a file is created inside the “target/fs” folder. In addition to the above operations, onDelete() and onModify() methods can be used to listen to the delete and modify events respectively.</p>
 
                                             </div>
                                             
@@ -709,6 +729,8 @@ If (file:isDirectory(directoryPath)) {
                                                 </h2>
                                                    
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -763,6 +785,8 @@ If (file:isDirectory(directoryPath)) {
                                                   
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -815,6 +839,8 @@ If (file:isDirectory(directoryPath)) {
                                                 </table>
                                                   
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -869,6 +895,8 @@ If (file:isDirectory(directoryPath)) {
                                                   
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -921,6 +949,8 @@ If (file:isDirectory(directoryPath)) {
                                                 </table>
                                                   
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -984,6 +1014,8 @@ If (file:isDirectory(directoryPath)) {
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1045,6 +1077,8 @@ If (file:isDirectory(directoryPath)) {
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1108,6 +1142,8 @@ If (file:isDirectory(directoryPath)) {
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1169,6 +1205,8 @@ If (file:isDirectory(directoryPath)) {
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1232,6 +1270,8 @@ If (file:isDirectory(directoryPath)) {
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1293,6 +1333,8 @@ If (file:isDirectory(directoryPath)) {
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1356,6 +1398,8 @@ If (file:isDirectory(directoryPath)) {
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1373,203 +1417,205 @@ If (file:isDirectory(directoryPath)) {
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <h2 id="Listener">
-                                                    <span class="fw-connector sm-icon"></span>
-                                                    public connector Listener(Connection conn, ListenerEndpointConfiguration config)
-                                                </h2>
+                                                <!-- Objects and its functions -->
+                                                
+                                                    <h2 id="Listener">
+                                                        <span class="fw-struct sm-icon"></span>
+                                                        public type Listener object
+                                                    </h2>
+                                                     
+                                                    <p>
+                                                        <label class="table-header-text">Parameters:</label>
+                                                    </p>
+                                                    <table>
+                                                        <tr>
+                                                            <th class="col-md-4">Parameter Name</th>
+                                                            <th class="col-md-2">Data Type</th>
+                                                            <th class="col-md-6">Description</th>
+                                                        </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">conn</td>
+                                                                <td class="col-md-2">Connection</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">config</td>
+                                                                <td class="col-md-2">ListenerEndpointConfiguration</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                    </table>
                                                  
-                                                <p>
-                                                    <label class="table-header-text">Parameters:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-4">Parameter Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-6">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">conn</td>
-                                                        <td class="col-md-2">Connection</td>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">config</td>
-                                                        <td class="col-md-2">ListenerEndpointConfiguration</td>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <h2>Actions:</h2>
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-init">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                    <div class="function-wrapper">
+                                                        <h2>Functions:</h2>
+                                                        <ul>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Listener-init">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Listener>
                                                                 </span>
-                                                                init(ListenerEndpointConfiguration config) 
-                                                            </h2>
+                                                                        init(ListenerEndpointConfiguration config) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Gets called when the endpoint is being initialized during the package initialization.
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">config</td>
+                                                                                <td class="col-md-2">ListenerEndpointConfiguration</td>
+                                                                                <td class="col-md-7">The ServiceEndpointConfiguration of the endpoint</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Gets called when the endpoint is being initialized during the package initialization.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">config</td>
-                                                                    <td class="col-md-2">ListenerEndpointConfiguration</td>
-                                                                    <td class="col-md-7">The ServiceEndpointConfiguration of the endpoint</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-initEndpoint">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="Listener-initEndpoint">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Listener>
                                                                 </span>
-                                                                initEndpoint() returns (error) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Gets called when the endpoint is being initialize during package init time
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        initEndpoint() returns (error) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Gets called when the endpoint is being initialize during package init time
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">error</td>
+                                                                                <td class="col-md-7">Error occured during initialization</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">error</td>
-                                                                    <td class="col-md-7">Error occured during initialization</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-register">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="Listener-register">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Listener>
                                                                 </span>
-                                                                register(typedesc serviceType) 
-                                                            </h2>
+                                                                        register(typedesc serviceType) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Gets called every time a service attaches itself to this endpoint. Also happens at package initialization.
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">serviceType</td>
+                                                                                <td class="col-md-2">typedesc</td>
+                                                                                <td class="col-md-7">The type of the service to be registered</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Gets called every time a service attaches itself to this endpoint. Also happens at package initialization.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">serviceType</td>
-                                                                    <td class="col-md-2">typedesc</td>
-                                                                    <td class="col-md-7">The type of the service to be registered</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-start">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="Listener-start">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Listener>
                                                                 </span>
-                                                                start() 
-                                                            </h2>
+                                                                        start() 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Starts the registered service
+                                                                        </p>
+                                                                      
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Starts the registered service
-                                                            </p>
-                                                              
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-getClient">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="Listener-getClient">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Listener>
                                                                 </span>
-                                                                getClient() returns (Connection) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns the connector that client code uses
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        getClient() returns (Connection) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns the connector that client code uses
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">Connection</td>
+                                                                                <td class="col-md-7">The connector that client code uses</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">Connection</td>
-                                                                    <td class="col-md-7">The connector that client code uses</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-stop">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="Listener-stop">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Listener>
                                                                 </span>
-                                                                stop() 
-                                                            </h2>
+                                                                        stop() 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Stops the registered service
+                                                                        </p>
+                                                                      
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Stops the registered service
-                                                            </p>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
+                                                        </ul>
+                                                    </div>
                                                  
                                                 <!-- Enums-->
                                                 
@@ -1588,171 +1634,173 @@ If (file:isDirectory(directoryPath)) {
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <h2 id="Path">
-                                                    <span class="fw-connector sm-icon"></span>
-                                                    public connector Path(string link)
-                                                </h2>
+                                                <!-- Objects and its functions -->
                                                 
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Reference to the file location
-                                                </p>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Parameters:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-4">Parameter Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-6">Description</th>
-                                                    </tr>
+                                                    <h2 id="Path">
+                                                        <span class="fw-struct sm-icon"></span>
+                                                        public type Path object
+                                                    </h2>
                                                     
-                                                    <tr>
-                                                        <td class="col-md-3">link</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                    
-                                                </table>
+                                                        <p>
+                                                            <span class="fw-right gray xs-icon"></span>Reference to the file location
+                                                        </p>
+                                                     
+                                                    <p>
+                                                        <label class="table-header-text">Parameters:</label>
+                                                    </p>
+                                                    <table>
+                                                        <tr>
+                                                            <th class="col-md-4">Parameter Name</th>
+                                                            <th class="col-md-2">Data Type</th>
+                                                            <th class="col-md-6">Description</th>
+                                                        </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">link</td>
+                                                                <td class="col-md-2">string</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                    </table>
                                                  
-                                                <div class="function-wrapper">
-                                                    <h2>Actions:</h2>
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Path-init">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                    <div class="function-wrapper">
+                                                        <h2>Functions:</h2>
+                                                        <ul>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Path-init">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Path>
                                                                 </span>
-                                                                init(string link) 
-                                                            </h2>
+                                                                        init(string link) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Constructs the path
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">link</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Constructs the path
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">link</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Path-toAbsolutePath">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="Path-toAbsolutePath">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Path>
                                                                 </span>
-                                                                toAbsolutePath() returns (Path) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Retreives the absolut path from the provided location
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        toAbsolutePath() returns (Path) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Retreives the absolut path from the provided location
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">Path</td>
+                                                                                <td class="col-md-7">Returns the absolute path reference or an error if the path cannot be derived.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">Path</td>
-                                                                    <td class="col-md-7">Returns the absolute path reference or an error if the path cannot be derived.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Path-getPathValue">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="Path-getPathValue">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Path>
                                                                 </span>
-                                                                getPathValue() returns (string) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Retreives the absolut path from the provided location
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        getPathValue() returns (string) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Retreives the absolut path from the provided location
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">Returns the absolute path string value</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">Returns the absolute path string value</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Path-getName">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="Path-getName">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Path>
                                                                 </span>
-                                                                getName() returns (string) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Retreives the name of the file from the provided location
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        getName() returns (string) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Retreives the name of the file from the provided location
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">Returns the name of the file</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">Returns the name of the file</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
+                                                        </ul>
+                                                    </div>
                                                  
                                                 <!-- Enums-->
                                                 
@@ -1784,74 +1832,22 @@ If (file:isDirectory(directoryPath)) {
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="primitive-types.html">
+                                     
+                                    <span class="bold">Primitive Types</span>
+                                    
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="auth.html">
                                      
                                     <span class="bold">auth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.html">
-                                     
-                                    <span class="bold">auth.authz</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.permissionstore.html">
-                                     
-                                    <span class="bold">auth.authz.permissionstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.basic.html">
-                                     
-                                    <span class="bold">auth.basic</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.userstore.html">
-                                     
-                                    <span class="bold">auth.userstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.utils.html">
-                                     
-                                    <span class="bold">auth.utils</span>
                                      
                                 </a>
                                 
@@ -1947,19 +1943,6 @@ If (file:isDirectory(directoryPath)) {
                                 <a href="http.html">
                                      
                                     <span class="bold">http</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="http.swagger.html">
-                                     
-                                    <span class="bold">http.swagger</span>
                                      
                                 </a>
                                 
@@ -2126,6 +2109,19 @@ If (file:isDirectory(directoryPath)) {
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="swagger.html">
+                                     
+                                    <span class="bold">swagger</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="task.html">
                                      
                                     <span class="bold">task</span>
@@ -2211,11 +2207,11 @@ If (file:isDirectory(directoryPath)) {
         </div>
     </div>
     <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
- 
+
     </div>
 
 
-
+<script type="text/javascript" src="/search/search.js"/>
 </body>
 
 </html>

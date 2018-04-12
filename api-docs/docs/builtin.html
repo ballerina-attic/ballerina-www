@@ -4,8 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-92163714-2');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-PSL2TX4');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="shortcut icon" href="/img/favicon.ico">
     <title>Ballerina.io - API Docs</title>
+    <script>var base_url = "";</script>
+    <script src="/search/require.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
@@ -28,16 +49,47 @@
     <link rel="stylesheet" href="/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
     <link rel="stylesheet" href="/css/highlight.css">
-    <script src="/js/ballerina-common.js"></script>
+    <script type="text/javascript" src="/js/ballerina-common.js"></script>
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css">
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
-    <script>var base_url = "";</script>
-    <script data-main="/search/search.js" src="/search/require.js"></script>
 
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            //$('pre > code.language-ballerina').removeClass('language-ballerina').addClass('ballerina');
+            $('.line-numbers-wrap').remove();
+            $('pre > code.language-ballerina').each(function() {
+                //cont the number of rows
+                //Remove the new line from the end of the text
+                var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+                $(this).css('line-height', '18px')
+                var lines = '<div class="line-numbers-wrap">';
+
+                //Iterate all the lines and create div elements with line number
+                for (var i = 1; i <= numberOfLines; i++) {
+                    lines = lines + '<div class="line-number">' + i + '</div>';
+                }
+                lines = lines + '</div>';
+                //calculate <pre> height and set it to the container
+                var preHeight = numberOfLines*18 + 5;
+                $(this).parent()
+                    .height(preHeight)
+                    .addClass('ballerina-pre-wrapper')
+                    .prepend(
+                        $(lines)
+                    );
+            });
+            hljs.initHighlighting();
+        })
+
+    </script>
 </head>
 
 <body class="cBallerina-io" role="document">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="row cBallerina-io-top-row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
@@ -80,39 +132,11 @@
                             </li>
                         </ul>
                         
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
                                  
-                                <a>
+                                <a class="cPackageList">
                                     <span class="bold">builtin</a>
                                  
                                 <div class="constructs-wrapper">
@@ -125,7 +149,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    $anonRecord$builtin$0 
+                                                    $anonRecord$builtin$0
                                                     
                                                 </div>
                                             </a>
@@ -137,7 +161,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    $anonRecord$builtin$1 
+                                                    $anonRecord$builtin$1
                                                     
                                                 </div>
                                             </a>
@@ -149,7 +173,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Regex 
+                                                    Regex
                                                     
                                                 </div>
                                             </a>
@@ -161,7 +185,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TableOperationError 
+                                                    TableOperationError
                                                     
                                                 </div>
                                             </a>
@@ -173,7 +197,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    error 
+                                                    error
                                                     
                                                 </div>
                                             </a>
@@ -185,7 +209,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    startForever 
+                                                    startForever
                                                     
                                                 </div>
                                             </a>
@@ -197,7 +221,7 @@
                                                     <span class="fw-annotation"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Description 
+                                                    Description
                                                     
                                                 </div>
                                             </a>
@@ -209,7 +233,7 @@
                                                     <span class="fw-annotation"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Field 
+                                                    Field
                                                     
                                                 </div>
                                             </a>
@@ -221,7 +245,7 @@
                                                     <span class="fw-annotation"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Param 
+                                                    Param
                                                     
                                                 </div>
                                             </a>
@@ -233,7 +257,7 @@
                                                     <span class="fw-annotation"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Return 
+                                                    Return
                                                     
                                                 </div>
                                             </a>
@@ -245,7 +269,7 @@
                                                     <span class="fw-annotation"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    final 
+                                                    final
                                                     
                                                 </div>
                                             </a>
@@ -257,7 +281,7 @@
                                                     <span class="fw-annotation"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    readonly 
+                                                    readonly
                                                     
                                                 </div>
                                             </a>
@@ -269,7 +293,7 @@
                                                     <span class="fw-annotation"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    sensitive 
+                                                    sensitive
                                                     
                                                 </div>
                                             </a>
@@ -281,7 +305,7 @@
                                                     <span class="fw-annotation"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    tainted 
+                                                    tainted
                                                     
                                                 </div>
                                             </a>
@@ -293,7 +317,7 @@
                                                     <span class="fw-annotation"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    untainted 
+                                                    untainted
                                                     
                                                 </div>
                                             </a>
@@ -561,6 +585,8 @@
                                                   
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -610,6 +636,8 @@
                                                   
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -655,6 +683,8 @@
                                                 </table>
                                                   
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -709,6 +739,8 @@
                                                   
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -757,6 +789,8 @@
                                                 </table>
                                                   
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -832,6 +866,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -848,6 +884,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -871,6 +909,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -892,6 +932,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -915,6 +957,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -936,6 +980,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -963,6 +1009,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -989,6 +1037,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1011,6 +1061,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1032,6 +1084,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1068,74 +1122,22 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="primitive-types.html">
+                                     
+                                    <span class="bold">Primitive Types</span>
+                                    
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="auth.html">
                                      
                                     <span class="bold">auth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.html">
-                                     
-                                    <span class="bold">auth.authz</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.permissionstore.html">
-                                     
-                                    <span class="bold">auth.authz.permissionstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.basic.html">
-                                     
-                                    <span class="bold">auth.basic</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.userstore.html">
-                                     
-                                    <span class="bold">auth.userstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.utils.html">
-                                     
-                                    <span class="bold">auth.utils</span>
                                      
                                 </a>
                                 
@@ -1231,19 +1233,6 @@
                                 <a href="http.html">
                                      
                                     <span class="bold">http</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="http.swagger.html">
-                                     
-                                    <span class="bold">http.swagger</span>
                                      
                                 </a>
                                 
@@ -1410,6 +1399,19 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="swagger.html">
+                                     
+                                    <span class="bold">swagger</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="task.html">
                                      
                                     <span class="bold">task</span>
@@ -1495,11 +1497,11 @@
         </div>
     </div>
     <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
- 
+
     </div>
 
 
-
+<script type="text/javascript" src="/search/search.js"/>
 </body>
 
 </html>
