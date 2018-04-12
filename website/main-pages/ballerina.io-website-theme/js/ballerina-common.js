@@ -17,13 +17,12 @@ $(document).ready(function() {
         '</div>' +
         '<div id="navbar" class="collapse navbar-collapse">' +
         '<ul class="nav navbar-nav cTopNav">' +
-        '<li class="active toctree-l1" id="learnli"><a href="/learn">Learn</a></li>' +
-        '<li class="toctree-l1" id="philosophyli"><a href="/philosophy">Philosophy</a></li>' +
-        '<li class="toctree-l1"><a href="https://staging-central.ballerina.io/">Central</a></li>' +
-        '<li class="toctree-l1" id="openli"><a href="/open-source">Open Source</a></li>' +
-        '<li class="toctree-l1" id="helpli"><a href="/help">Help </a></li>' +
-        '<li class="toctree-l1" id="blogli"><a href="https://blog-stage.ballerina.io/"> Blog </a></li>' +
-        '<li class="toctree-l1"><a class="cSerachIcon" href="#"><img src="/img/search.svg"/></a>' +
+        '<li class="active toctree-l1" id="learnli"><a class="cBioTopLink" href="/learn">Learn</a></li>' +
+        '<li class="toctree-l1" id="philosophyli"><a class="cBioTopLink" href="/philosophy">Philosophy</a></li>' +
+        '<li class="toctree-l1"><a class="cBioTopLink" href="https://staging-central.ballerina.io/">Central</a></li>' +
+        '<li class="toctree-l1" id="openli"><a class="cBioTopLink" href="/open-source">Open Source</a></li>' +
+        '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="/help">Help </a></li>' +
+        '<li class="toctree-l1"><a class="cBioTopLink" class="cSerachIcon" href="#"><img src="/img/search.svg"/></a>' +
         '<div class="cSearchBoxTopMenu">' +
         '<div role="search">' +
         '<form role="form">' +
@@ -46,11 +45,11 @@ $(document).ready(function() {
     var footer = '<div class="container">' +
         '<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-left-col cBallerinaFooterLinks">' +
         '<ul>' +
-        '<li><a href="/downloads">Download</a></li>' +
-        '<li><a href="https://github.com/ballerina-lang/ballerina/blob/master/LICENSE">Code License</a></li>' +
-        '<li><a href="/license-of-site">Site License</a></li>' +
-        '<li><a href="/terms-of-service">TERMS OF SERVICE</a></li>' +
-        '<li><a href="/terms-of-service">PRIVACY POLICY</a></li>' +
+        '<li><a class="cBioFooterLink" href="/downloads">Download</a></li>' +
+        '<li><a class="cBioFooterLink" href="https://github.com/ballerina-lang/ballerina/blob/master/LICENSE">Code License</a></li>' +
+        '<li><a class="cBioFooterLink" href="/license-of-site">Site License</a></li>' +
+        '<li><a class="cBioFooterLink" href="/terms-of-service">TERMS OF SERVICE</a></li>' +
+        '<li><a class="cBioFooterLink" href="/terms-of-service">PRIVACY POLICY</a></li>' +
         '</ul>' +
         '</div>' +
         '<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-middle-col cBallerinaFooterSignUp">' +
@@ -68,11 +67,11 @@ $(document).ready(function() {
         '<div class="cSocialmedia">' +
         '<ul>' +
         '<li>' +
-        '<a href="https://github.com/ballerina-platform"><img src="/img/github.svg"/></a>' +
+        '<a class="cBioFooterLink" href="https://github.com/ballerina-platform"><img src="/img/github.svg"/></a>' +
         '</li>' +
-        '<li><a href="https://stackoverflow.com/questions/tagged/ballerina"><img src="/img/stackoverflow.svg"/></a></li>' +
-        '<li><a href="https://twitter.com/ballerinaplat"><img src="/img/twitter.svg"/></a></li>' +
-        '<li><a href="https://ballerina-platform.slack.com"><img src="/img/slack.svg"/></a></li>' +
+        '<li><a class="cBioFooterLink" href="https://stackoverflow.com/questions/tagged/ballerina"><img src="/img/stackoverflow.svg"/></a></li>' +
+        '<li><a class="cBioFooterLink" href="https://twitter.com/ballerinaplat"><img src="/img/twitter.svg"/></a></li>' +
+        '<li><a class="cBioFooterLink" href="https://ballerina-platform.slack.com"><img src="/img/slack.svg"/></a></li>' +
         '</ul>' +
         '<div class="pdframe"></div>' +
         '</div>' +
