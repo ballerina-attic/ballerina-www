@@ -16,28 +16,20 @@
 package org.ballerinalang.platform.playground.controller.persistence;
 
 import org.ballerinalang.platform.playground.controller.util.Constants;
+import org.ballerinalang.platform.playground.controller.util.ControllerUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.ScanParams;
 import redis.clients.jedis.ScanResult;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Redis Persistence
  */
 public class RedisPersistence implements Persistence {
-
-    // Redis connection properties
-    private static final String REDIS_WRITE_PORT = "BPG_REDIS_WRITE_PORT";
-
-    private static final String REDIS_READ_PORT = "BPG_REDIS_READ_PORT";
-
-    private static final String REDIS_WRITE_HOST = "BPG_REDIS_WRITE_HOST";
-
-    private static final String REDIS_READ_HOST = "BPG_REDIS_READ_HOST";
 
     // Redis keys
     private static final String CACHE_KEY_LAUNCHERS_LIST = "CACHE_KEY_FREE_LAUNCHERS_LIST";
@@ -49,8 +41,18 @@ public class RedisPersistence implements Persistence {
     private Jedis slave;
 
     public RedisPersistence() {
-        master = new Jedis(System.getenv(REDIS_WRITE_HOST), Integer.parseInt(System.getenv(REDIS_WRITE_PORT)));
-        slave = new Jedis(System.getenv(REDIS_READ_HOST), Integer.parseInt(System.getenv(REDIS_READ_PORT)));
+        master = new Jedis(ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_WRITE_HOST),
+                ControllerUtils.getEnvIntValue(Constants.ENV_BPG_REDIS_WRITE_PORT));
+        slave = new Jedis(ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_READ_HOST),
+                ControllerUtils.getEnvIntValue(Constants.ENV_BPG_REDIS_READ_PORT));
+    }
+
+    @Override
+    public void addFreeLaunchers(List<String> launcherUrls) {
+        Map<String, String> launchers = launcherUrls.stream()
+                .collect(Collectors.toMap((url) -> url, (url) -> Constants.MEMBER_STATUS_FREE));
+        master.hmset(CACHE_KEY_LAUNCHERS_LIST, launchers);
+
     }
 
     @Override
