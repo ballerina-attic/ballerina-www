@@ -15,9 +15,8 @@
  */
 package org.ballerinalang.platform.playground.controller.persistence;
 
-import org.ballerinalang.platform.playground.controller.util.Constants;
-import org.ballerinalang.platform.playground.controller.util.ControllerUtils;
-import redis.clients.jedis.Jedis;
+import org.ballerinalang.platform.playground.utils.MemberConstants;
+import org.ballerinalang.platform.playground.utils.RedisClient;
 import redis.clients.jedis.ScanParams;
 import redis.clients.jedis.ScanResult;
 
@@ -34,69 +33,61 @@ public class RedisPersistence implements Persistence {
     // Redis keys
     private static final String CACHE_KEY_LAUNCHERS_LIST = "CACHE_KEY_FREE_LAUNCHERS_LIST";
 
-    // Redis write instance
-    private Jedis master;
-
-    // Redis read instance
-    private Jedis slave;
+    private RedisClient redisClient;
 
     public RedisPersistence() {
-        master = new Jedis(ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_WRITE_HOST),
-                ControllerUtils.getEnvIntValue(Constants.ENV_BPG_REDIS_WRITE_PORT));
-        slave = new Jedis(ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_READ_HOST),
-                ControllerUtils.getEnvIntValue(Constants.ENV_BPG_REDIS_READ_PORT));
+        redisClient = new RedisClient();
     }
 
     @Override
     public void addFreeLaunchers(List<String> launcherUrls) {
         Map<String, String> launchers = launcherUrls.stream()
-                .collect(Collectors.toMap((url) -> url, (url) -> Constants.MEMBER_STATUS_FREE));
-        master.hmset(CACHE_KEY_LAUNCHERS_LIST, launchers);
-
+                .collect(Collectors.toMap((url) -> url, (url) -> MemberConstants.MEMBER_STATUS_FREE));
+        redisClient.getWriteClient().hmset(CACHE_KEY_LAUNCHERS_LIST, launchers);
     }
 
     @Override
     public void addFreeLauncher(String launcherUrl) {
-        master.hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, Constants.MEMBER_STATUS_FREE);
+        redisClient.getWriteClient().hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, MemberConstants.MEMBER_STATUS_FREE);
     }
 
     @Override
     public void unregisterLauncher(String launcherUrl) {
-        if (master.hexists(CACHE_KEY_LAUNCHERS_LIST, launcherUrl)) {
-            master.hdel(CACHE_KEY_LAUNCHERS_LIST, launcherUrl);
+        if (redisClient.getReadClient().hexists(CACHE_KEY_LAUNCHERS_LIST, launcherUrl)) {
+            redisClient.getWriteClient().hdel(CACHE_KEY_LAUNCHERS_LIST, launcherUrl);
         }
     }
 
     @Override
     public List<String> getFreeLauncherUrls() {
-        return searchLaunchersByStatus(Constants.MEMBER_STATUS_FREE);
+        return searchLaunchersByStatus(MemberConstants.MEMBER_STATUS_FREE);
     }
 
     @Override
     public List<String> getBusyLauncherUrls() {
-        return searchLaunchersByStatus(Constants.MEMBER_STATUS_BUSY);
+        return searchLaunchersByStatus(MemberConstants.MEMBER_STATUS_BUSY);
     }
 
     @Override
     public List<String> getTotalLauncherUrls() {
-        return new ArrayList<>(slave.hkeys(CACHE_KEY_LAUNCHERS_LIST));
+        return new ArrayList<>( redisClient.getReadClient().hkeys(CACHE_KEY_LAUNCHERS_LIST));
     }
 
     @Override
     public boolean markLauncherAsFree(String launcherUrl) {
-        master.hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, Constants.MEMBER_STATUS_FREE);
+        redisClient.getWriteClient().hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, MemberConstants.MEMBER_STATUS_FREE);
         return true;
     }
 
     @Override
     public boolean markLauncherAsBusy(String launcherUrl) {
-        master.hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, Constants.MEMBER_STATUS_BUSY);
+        redisClient.getWriteClient().hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, MemberConstants.MEMBER_STATUS_BUSY);
         return true;
     }
 
     @Override
     public boolean launcherExists(String launcherUrl) {
-        return slave.hexists(CACHE_KEY_LAUNCHERS_LIST, launcherUrl);
+        return redisClient.getReadClient().hexists(CACHE_KEY_LAUNCHERS_LIST, launcherUrl);
     }
 
     private List<String> searchLaunchersByStatus(String status) {
@@ -105,7 +96,8 @@ public class RedisPersistence implements Persistence {
         ScanParams params = new ScanParams();
         while (!cursor.equals("0")) {
             ScanResult<Map.Entry<String, String>> result
-                    = slave.hscan(CACHE_KEY_LAUNCHERS_LIST, cursor.isEmpty() ? "0" : cursor, params);
+                    = redisClient.getReadClient().hscan(CACHE_KEY_LAUNCHERS_LIST,
+                        cursor.isEmpty() ? "0" : cursor, params);
             cursor = result.getStringCursor();
             result.getResult()
                     .stream()

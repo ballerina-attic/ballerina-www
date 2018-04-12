@@ -26,7 +26,8 @@ import io.fabric8.kubernetes.api.model.extensions.DeploymentSpecBuilder;
 import io.fabric8.kubernetes.client.DefaultKubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import org.ballerinalang.platform.playground.controller.util.Constants;
-import org.ballerinalang.platform.playground.controller.util.ControllerUtils;
+import org.ballerinalang.platform.playground.utils.EnvUtils;
+import org.ballerinalang.platform.playground.utils.EnvVariables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -65,7 +66,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         Map<String, String> labels = new HashMap<>();
         labels.put("app", deploymentName);
         labels.put("appType", Constants.BPG_APP_TYPE_LAUNCHER);
-        labels.put("creator", ControllerUtils.getEnvStringValue(Constants.ENV_CONTROLLER_ROLE));
+        labels.put("creator", EnvUtils.getEnvStringValue(Constants.ENV_CONTROLLER_ROLE));
         labels.put("reason", reason);
 
         // Container spec
@@ -93,27 +94,27 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         // 3. Perform proper role (cache node vs build node)
         List<EnvVar> envVarList = new ArrayList<>();
 
-        envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_WRITE_HOST,
-                ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_WRITE_HOST)));
-        envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_WRITE_PORT,
-                ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_WRITE_PORT)));
-        envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_READ_HOST,
-                ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_READ_HOST)));
-        envVarList.add(buildEnvVar(Constants.ENV_BPG_REDIS_READ_PORT,
-                ControllerUtils.getEnvStringValue(Constants.ENV_BPG_REDIS_READ_PORT)));
+        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_WRITE_HOST,
+                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_HOST)));
+        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_WRITE_PORT,
+                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_PORT)));
+        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_READ_HOST,
+                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_HOST)));
+        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_READ_PORT,
+                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_PORT)));
         envVarList.add(buildEnvVar(Constants.ENV_DB_HOST,
-                ControllerUtils.getEnvStringValue(Constants.ENV_DB_HOST)));
+                EnvUtils.getEnvStringValue(Constants.ENV_DB_HOST)));
         envVarList.add(buildEnvVar(Constants.ENV_DB_PORT,
-                ControllerUtils.getEnvStringValue(Constants.ENV_DB_PORT)));
+                EnvUtils.getEnvStringValue(Constants.ENV_DB_PORT)));
         envVarList.add(buildEnvVar(Constants.ENV_BPG_NAMESPACE, namespace));
         envVarList.add(buildEnvVar(Constants.ENV_BPG_LAUNCHER_SELF_URL, launcherSelfUrl));
         envVarList.add(buildEnvVar(Constants.ENV_IS_LAUNCHER_CACHE, "false"));
 
 //        envVarList.add(buildEnvVar(Constants.ENV_LAUNCHER_IMAGE_NAME, launcherImageName));
-//        envVarList.add(buildEnvVar(Constants.ENV_DESIRED_COUNT, ControllerUtils.getEnvStringValue(Constants.ENV_DESIRED_COUNT)));
-//        envVarList.add(buildEnvVar(Constants.ENV_MAX_COUNT, ControllerUtils.getEnvStringValue(Constants.ENV_MAX_COUNT)));
-//        envVarList.add(buildEnvVar(Constants.ENV_STEP_UP, ControllerUtils.getEnvStringValue(Constants.ENV_STEP_UP)));
-//        envVarList.add(buildEnvVar(Constants.ENV_STEP_DOWN, ControllerUtils.getEnvStringValue(Constants.ENV_STEP_DOWN)));
+//        envVarList.add(buildEnvVar(Constants.ENV_DESIRED_COUNT, EnvUtils.getEnvStringValue(Constants.ENV_DESIRED_COUNT)));
+//        envVarList.add(buildEnvVar(Constants.ENV_MAX_COUNT, EnvUtils.getEnvStringValue(Constants.ENV_MAX_COUNT)));
+//        envVarList.add(buildEnvVar(Constants.ENV_STEP_UP, EnvUtils.getEnvStringValue(Constants.ENV_STEP_UP)));
+//        envVarList.add(buildEnvVar(Constants.ENV_STEP_DOWN, EnvUtils.getEnvStringValue(Constants.ENV_STEP_DOWN)));
 //        envVarList.add(buildEnvVar(Constants.ENV_FREE_BUFFER, "6397"));
 //        envVarList.add(buildEnvVar("BPG_SCALING_IDLE_TIMEOUT_MIN", "6397"));
 //        envVarList.add(buildEnvVar("BPG_CONTROLLER_ROLE", "6397"));
@@ -185,7 +186,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         Map<String, String> labels = new HashMap<>();
         labels.put("app", serviceName);
         labels.put("appType", Constants.BPG_APP_TYPE_LAUNCHER);
-        labels.put("creator", ControllerUtils.getEnvStringValue(Constants.ENV_CONTROLLER_ROLE));
+        labels.put("creator", EnvUtils.getEnvStringValue(Constants.ENV_CONTROLLER_ROLE));
         labels.put("reason", reason);
 
         // Port to be exposed

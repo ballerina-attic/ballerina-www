@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $("#iGitEdit").hide();
     Handlebars.registerHelper('releasenotesdiv', function(version) {
         return getReleaseNotesDivId(version);
     });
