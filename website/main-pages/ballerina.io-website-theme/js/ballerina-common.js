@@ -187,8 +187,9 @@ $(document).ready(function() {
             );
     });
 
-    $('.cBBE-body:not(.cOutput)').each(function() {
-        var count = 0;
+    $('.cBBE-body').each(function() {
+        var lineCount = 0,
+            olCount = 1;
 
         $('.cTR', this).each(function(i, n) {
             var $codeElem = $(n).find('td.code').get(0);
@@ -196,20 +197,29 @@ $(document).ready(function() {
             var numbers = [];
 
             $.each(lines, function(i) {
-                count += 1;
-                numbers.push('<span class="line-number">' + count + '</span>');
+                lineCount += 1;
+                numbers.push('<span class="line-number">' + lineCount + '</span>');
             });
 
             $("<div/>", {
                 "class": "bbe-code-line-numbers",
                 html: numbers.join("")
             }).prependTo($codeElem);
+
+
+            if ($('.cCodeDesription > div > ol', this).length > 0) {
+                var $elem = $('.cCodeDesription > div > ol', this);
+                $($elem).parent().prepend('<span class="ol-number">' + olCount + '.</span>');
+                olCount++;
+            } else {
+                olCount = 1;
+            }
         });
     });
 })
 
-function formatDate(date, format){
-    if(!format){
+function formatDate(date, format) {
+    if (!format) {
         return moment(new Date(date)).format('MMM DD, Y');
     } else {
         return moment(new Date(date)).format(format);

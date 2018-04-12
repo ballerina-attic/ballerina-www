@@ -182,9 +182,13 @@
                                         {{.CodeRendered}}
                                     </td>
                                     <td class="docs">
-                                        <div class="cCodeDesription">
-                                            {{.DocsRendered}}
-                                        </div>
+                                        {{if and (not .DocEmpty) (not .IsConsoleOutput)}}
+                                            <div class="cCodeDesription">
+                                                <div>
+                                                    {{.DocsRendered}}
+                                                </div>
+                                            </div>
+                                        {{end}}
                                     </td>
                                 </tr>
                                 {{end}}
