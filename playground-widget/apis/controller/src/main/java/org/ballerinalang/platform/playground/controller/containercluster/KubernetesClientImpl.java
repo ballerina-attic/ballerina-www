@@ -120,8 +120,10 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         envVarList.add(buildEnvVar(Constants.ENV_DB_PORT,
                 EnvUtils.getEnvStringValue(Constants.ENV_DB_PORT)));
         envVarList.add(buildEnvVar(Constants.ENV_BPG_NAMESPACE, namespace));
-        envVarList.add(buildEnvVar(Constants.ENV_BPG_LAUNCHER_SELF_URL, launcherSelfUrl));
-        envVarList.add(buildEnvVar(Constants.ENV_IS_LAUNCHER_CACHE, "false"));
+        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_LAUNCHER_SELF_URL, launcherSelfUrl));
+        envVarList.add(buildEnvVar(EnvVariables.ENV_IS_LAUNCHER_CACHE, "false"));
+        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL,
+                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)));
 
 //        envVarList.add(buildEnvVar(Constants.ENV_LAUNCHER_IMAGE_NAME, launcherImageName));
 //        envVarList.add(buildEnvVar(Constants.ENV_DESIRED_COUNT, EnvUtils.getEnvStringValue(Constants.ENV_DESIRED_COUNT)));
