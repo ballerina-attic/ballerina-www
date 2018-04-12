@@ -595,13 +595,18 @@
                 <div class="col-xs-12  col-md-6 OpenSourceTableRightWrapper">
                     <table class="OpenSourceTable">
                         <tr>
-                            <td>Ballerina API Gateway</td>
-                            <td>enforce security and runtime policies</td>
-                            <td class="cGitLink"><a href="" target="_blank"></a></td>
+                            <td>Ballerina Observability</td>
+                            <td>A way to observe Ballerina programs</td>
+                            <td class="cGitLink"><a href="https://github.com/ballerina-platform/ballerina-observability" target="_blank"></a></td>
                         </tr>
                         <tr>
                             <td>Ballerina Message Broker</td>
                             <td>Scalable broker for persistent and asynchronous messaging</td>
+                            <td class="cGitLink" ><a href="https://github.com/ballerina-platform/ballerina-grammar" target="_blank"></a></td>
+                        </tr>
+                        <tr>
+                            <td>Ballerina Grammar</td>
+                            <td>Descriptions of the language syntax highlighting</td>
                             <td class="cGitLink" ><a href="https://github.com/ballerina-platform/ballerina-message-broker" target="_blank"></a></td>
                         </tr>
                     </table>
