@@ -28,4 +28,5 @@ public class Constants {
     public static final String ENV_DB_PORT = "DB_PORT";
     public static final String ENV_BPG_LAUNCHER_SELF_URL = "BPG_LAUNCHER_SELF_URL";
     public static final String ENV_IS_LAUNCHER_CACHE = "BPG_LAUNCHER_CACHE_NODE";
+    public static final String ENV_BGP_NFS_SERVER_IP = "BGP_NFS_SERVER_IP";
 }

@@ -30,6 +30,8 @@ public class ControllerRunner {
         // Read control flags
         String bpgNamespace = EnvUtils.getEnvStringValue(Constants.ENV_BPG_NAMESPACE);
         String launcherImageName = EnvUtils.getEnvStringValue(Constants.ENV_LAUNCHER_IMAGE_NAME);
+        String nfsServerIP = EnvUtils.getEnvStringValue(Constants.ENV_BGP_NFS_SERVER_IP);
+
         int stepUp = EnvUtils.getEnvIntValue(Constants.ENV_STEP_UP);
         int stepDown = EnvUtils.getEnvIntValue(Constants.ENV_STEP_DOWN);
         int desiredCount = EnvUtils.getEnvIntValue(Constants.ENV_DESIRED_COUNT);
@@ -38,7 +40,7 @@ public class ControllerRunner {
 
         // Create a k8s client to interact with the k8s API. The client is per namespace
         log.info("Creating Kubernetes client...");
-        ContainerRuntimeClient runtimeClient = new KubernetesClientImpl(bpgNamespace, launcherImageName);
+        ContainerRuntimeClient runtimeClient = new KubernetesClientImpl(bpgNamespace, launcherImageName, nfsServerIP);
 
         // Create a cluster mgt instance to scale in/out launcher instances
         log.info("Creating Cluster Manager...");

@@ -6,6 +6,7 @@ import io.fabric8.kubernetes.api.model.ContainerPortBuilder;
 import io.fabric8.kubernetes.api.model.EnvVar;
 import io.fabric8.kubernetes.api.model.EnvVarBuilder;
 import io.fabric8.kubernetes.api.model.IntOrString;
+import io.fabric8.kubernetes.api.model.NFSVolumeSource;
 import io.fabric8.kubernetes.api.model.ObjectMeta;
 import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;
 import io.fabric8.kubernetes.api.model.PodSpec;
@@ -18,6 +19,9 @@ import io.fabric8.kubernetes.api.model.ServiceList;
 import io.fabric8.kubernetes.api.model.ServicePort;
 import io.fabric8.kubernetes.api.model.ServiceSpec;
 import io.fabric8.kubernetes.api.model.ServiceSpecBuilder;
+import io.fabric8.kubernetes.api.model.Volume;
+import io.fabric8.kubernetes.api.model.VolumeBuilder;
+import io.fabric8.kubernetes.api.model.VolumeMount;
 import io.fabric8.kubernetes.api.model.extensions.Deployment;
 import io.fabric8.kubernetes.api.model.extensions.DeploymentBuilder;
 import io.fabric8.kubernetes.api.model.extensions.DeploymentList;
@@ -46,11 +50,13 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     private KubernetesClient k8sClient;
     private String namespace;
     private String launcherImageName;
+    private String nfsServerIp;
 
-    public KubernetesClientImpl(String namespace, String launcherImageName) {
+    public KubernetesClientImpl(String namespace, String launcherImageName, String nfsServerIp) {
         this.k8sClient = new DefaultKubernetesClient();
         this.namespace = namespace;
         this.launcherImageName = launcherImageName;
+        this.nfsServerIp = nfsServerIp;
     }
 
     @Override
@@ -84,6 +90,13 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
                 .build());
 
         launcherContainer.setPorts(containerPorts);
+
+        // Volume mount to container
+        List<VolumeMount> volumeMounts = new ArrayList<>();
+        VolumeMount nfsVolumeMount = new VolumeMount("/mnt/build/cache", "nfs-build-cache", false, "");
+        volumeMounts.add(nfsVolumeMount);
+
+        launcherContainer.setVolumeMounts(volumeMounts);
 
         List<Container> containers = new ArrayList<>();
         containers.add(launcherContainer);
@@ -121,12 +134,17 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
         launcherContainer.setEnv(envVarList);
 
-        // TODO: NFS volume
-//        List<Volume> volumes = new ArrayList<>();
+        // NFS volume
+        List<Volume> volumes = new ArrayList<>();
+        Volume nfsVolume = new VolumeBuilder()
+                .withName("nfs-build-cache")
+                .withNfs(new NFSVolumeSource("/exports/build-cache", false, nfsServerIp))
+                .build();
+        volumes.add(nfsVolume);
 
         PodSpec podSpec = new PodSpecBuilder()
                 .withContainers(containers)
-//                .withVolumes(volumes)
+                .withVolumes(volumes)
                 .build();
 
         PodTemplateSpec podTemplateSpec = new PodTemplateSpecBuilder()
