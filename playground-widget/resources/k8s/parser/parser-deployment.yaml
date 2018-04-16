@@ -1,41 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bpg-cache-responder-dep
+  name: bpg-parser-dep
   namespace: ballerina-playground
   labels:
-    app: bpg-cache-responder
+    app: bpg-parser
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bpg-cache-responder
+      app: bpg-parser
   template:
     metadata:
       labels:
-        app: bpg-cache-responder
+        app: bpg-parser
     spec:
       containers:
-      - name: bpg-cache-responder-container
+      - name: bpg-parser-container
         imagePullPolicy: Always
-        image: gcr.io/${BPG_GCP_PROJECT_ID}/cache-responder:v0.1-latest
+        image: gcr.io/${BPG_GCP_PROJECT_ID}/parser:v0.1-latest
         # resources:
         #   requests:
         #     cpu: 100m
         #     memory: 100Mi
-        env:
-        -
-          name: BPG_REDIS_WRITE_HOST
-          value: "redis-master"
-        -
-          name: BPG_REDIS_WRITE_PORT
-          value: "6379"
-        -
-          name: BPG_REDIS_READ_HOST
-          value: "redis-slave"
-        -
-          name: BPG_REDIS_READ_PORT
-          value: "6379"
         ports:
         - name: http-port
           containerPort: 80

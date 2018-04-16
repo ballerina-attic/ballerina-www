@@ -3,11 +3,11 @@ kind: Service
 metadata:
   annotations:
     serviceloadbalancer/lb.cookie-sticky-session: "true"
-    serviceloadbalancer/lb.host: cache.playground.ballerina.io
+    serviceloadbalancer/lb.host: parser.playground.ballerina.io
     serviceloadbalancer/lb.sslTerm: "true"
   labels:
-    app: bpg-cache-responder
-  name: bpg-cache-responder
+    app: bpg-parser
+  name: bpg-parser
   namespace: ballerina-playground
 spec:
   ports:
@@ -18,5 +18,5 @@ spec:
       port: 443
       targetPort: 443  
   selector:
-    app: bpg-cache-responder
+    app: bpg-parser
 
