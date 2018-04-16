@@ -15,7 +15,7 @@ pushd haproxy > /dev/null 2>&1
     # Set environment variable values in the YAML file before kubectl create
     envsubst < rc.yaml | kubectl create -n load-balancer -f - 
 
-    kubectl expose rc service-loadbalancer --type=LoadBalancer --name service-loadbalancer -n load-balancer
+    kubectl expose rc service-loadbalancer --type=LoadBalancer --name service-loadbalancer -n load-balancer --load-balancer-ip=35.196.203.66
 
     kubectl get pods,svc,rc -n load-balancer
 popd > /dev/null 2>&1

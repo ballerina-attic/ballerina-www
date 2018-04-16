@@ -21,6 +21,7 @@ import io.fabric8.kubernetes.api.model.ContainerPort;
 import io.fabric8.kubernetes.api.model.ContainerPortBuilder;
 import io.fabric8.kubernetes.api.model.EnvVar;
 import io.fabric8.kubernetes.api.model.EnvVarBuilder;
+import io.fabric8.kubernetes.api.model.Event;
 import io.fabric8.kubernetes.api.model.IntOrString;
 import io.fabric8.kubernetes.api.model.NFSVolumeSource;
 import io.fabric8.kubernetes.api.model.ObjectMeta;
@@ -45,6 +46,7 @@ import io.fabric8.kubernetes.api.model.extensions.DeploymentSpec;
 import io.fabric8.kubernetes.api.model.extensions.DeploymentSpecBuilder;
 import io.fabric8.kubernetes.client.DefaultKubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClient;
+import io.fabric8.kubernetes.client.Watcher;
 import org.ballerinalang.platform.playground.controller.util.Constants;
 import org.ballerinalang.platform.playground.utils.EnvUtils;
 import org.ballerinalang.platform.playground.utils.EnvVariables;
@@ -311,6 +313,11 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     @Override
     public boolean serviceExists(String serviceName) {
         return k8sClient.services().inNamespace(namespace).withName(serviceName).get() != null;
+    }
+
+    @Override
+    public void watchWithWatcher(Watcher<Event> watcher) {
+        k8sClient.events().inNamespace(namespace).watch(watcher);
     }
 
     private EnvVar buildEnvVar(String key, String value) {

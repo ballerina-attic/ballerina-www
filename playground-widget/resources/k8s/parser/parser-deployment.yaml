@@ -30,11 +30,11 @@ spec:
           containerPort: 443
         readinessProbe:
           tcpSocket:
-            port: https-port
+            port: http-port
           initialDelaySeconds: 3
           periodSeconds: 10
         livenessProbe:
           tcpSocket:
-            port: https-port
+            port: http-port
           initialDelaySeconds: 5
           periodSeconds: 20

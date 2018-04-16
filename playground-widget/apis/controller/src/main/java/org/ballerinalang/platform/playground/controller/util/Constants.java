@@ -25,6 +25,7 @@ public class Constants {
     public static final String CONTROLLER_ROLE_DESIRED_COUNT_CHECK = "DESIRED_CHECK";
     public static final String CONTROLLER_ROLE_MAX_COUNT_CHECK = "MAX_CHECK";
     public static final String CONTROLLER_ROLE_URL_VALIDATOR = "URL_VALIDATOR";
+    public static final String CONTROLLER_ROLE_EVENT_WATCHER = "EVENT_WATCHER";
 
     // Environment variable keys
     public static final String ENV_CONTROLLER_ROLE = "BPG_CONTROLLER_ROLE";

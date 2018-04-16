@@ -16,6 +16,9 @@
 
 package org.ballerinalang.platform.playground.controller.scaling;
 
+import io.fabric8.kubernetes.api.model.Event;
+import io.fabric8.kubernetes.client.KubernetesClientException;
+import io.fabric8.kubernetes.client.Watcher;
 import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
 import org.ballerinalang.platform.playground.controller.persistence.Persistence;
 import org.ballerinalang.platform.playground.controller.util.Constants;
@@ -341,5 +344,35 @@ public class LauncherClusterManager {
         }
 
         return 0;
+    }
+
+    // This is too slow. Events take about 2 minutes to be received.
+    public void watchAndClean() {
+        runtimeClient.watchWithWatcher(new Watcher<Event>() {
+
+            @Override
+            public void eventReceived(Action action, Event resource) {
+                if ((resource.getInvolvedObject().getKind().equals("Deployment") ||
+                        resource.getInvolvedObject().getKind().equals("Service"))
+                        && resource.getInvolvedObject().getName().startsWith(Constants.BPG_APP_TYPE_LAUNCHER)
+                        && (action == Action.DELETED || action == Action.MODIFIED)) {
+
+                    log.info("Received "
+                            + action.toString() + " event for "
+                            + resource.getInvolvedObject().getKind() + " "
+                            + resource.getInvolvedObject().getName());
+
+                    cleanOrphanDeployments();
+                    cleanOrphanServices();
+                } else {
+                    log.debug("Received action " + action.toString() + " for resource " + resource.getInvolvedObject().getKind() + ":" + resource.getInvolvedObject().getName());
+                }
+            }
+
+            @Override
+            public void onClose(KubernetesClientException cause) {
+                log.info("Shutting down Event Watcher...");
+            }
+        });
     }
 }
