@@ -26,7 +26,6 @@ public class EnvVariables {
     public static final String ENV_BPG_REDIS_READ_PORT = "BPG_REDIS_READ_PORT";
     public static final String ENV_BPG_USE_IN_MEMORY_CACHE = "BPG_USE_IN_MEMORY_CACHE";
     public static final String ENV_BPG_LAUNCHER_SELF_URL = "BPG_LAUNCHER_SELF_URL";
-    public static final String ENV_BPG_CONTROLLER_ACK_URL = "BPG_CONTROLLER_ACK_URL";
     public static final String ENV_BPG_CONTROLLER_INTERNAL_URL = "BPG_CONTROLLER_INTERNAL_URL";
     public static final String ENV_IS_LAUNCHER_CACHE = "BPG_LAUNCHER_CACHE_NODE";
 }

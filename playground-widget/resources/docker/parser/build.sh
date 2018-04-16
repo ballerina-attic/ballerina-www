@@ -5,4 +5,4 @@ if [ -z ${BPG_GCP_PROJECT_ID} ]; then
     exit 1
 fi
 
-docker build --no-cache=true -t gcr.io/${BPG_GCP_PROJECT_ID}/launcher:v0.1${1} .
+docker build --no-cache=true -t gcr.io/${BPG_GCP_PROJECT_ID}/parser:v0.1${1} .
