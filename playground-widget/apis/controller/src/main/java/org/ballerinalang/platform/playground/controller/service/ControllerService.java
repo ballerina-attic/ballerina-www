@@ -47,7 +47,7 @@ public class ControllerService {
     }
 
     @POST
-    @Path("/launcher/status")
+    @Path("/launcher")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response setLauncherStatus(StatusUpdateRequest request) {
         // Check if sent status is valid
