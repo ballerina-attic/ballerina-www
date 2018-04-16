@@ -22,21 +22,35 @@ class SamplesList extends React.Component {
     }
 
     render() {
-        const options = this.props.samples.map(({ name }, index) => {
+        const { samples } = this.props;
+        const options = samples.map(({ name }, index) => {
             return {
                 text: name,
                 key: index,
                 value: index
             };
         });
+        const middle = (options.length % 2) === 0 ? options.length / 2 : Math.floor(options.length / 2) + 1;
+        const leftItems = options.slice(0, middle);
+        const rightItems = options.slice(middle);
+        
         const activeItem = this.state.selectedIndex;
         return (
         <div className="samples-navigation-list">
-            <Menu text vertical>
-                { options.map(e => {
-                    return <Menu.Item name={e.text} index={e.value} active={activeItem === e.value} onClick={this.onChange} />
-                })}
-            </Menu>
+            <div style={{ float: "left" }} >
+                <Menu text vertical>
+                    { leftItems.map(e => {
+                        return <Menu.Item name={e.text} index={e.value} active={activeItem === e.value} onClick={this.onChange} />
+                    })}
+                </Menu>
+            </div>
+            <div style={{ float: "left" }} >
+                <Menu text vertical>
+                    { rightItems.map(e => {
+                        return <Menu.Item name={e.text} index={e.value} active={activeItem === e.value} onClick={this.onChange} />
+                    })}
+                </Menu>
+            </div>
         </div>
         );
     }

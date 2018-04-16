@@ -6,8 +6,8 @@
     <version>0.8-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>playground-parser</artifactId>
-  <name>Ballerina - Playground Launcher API</name>
+  <artifactId>playground-cache-responder</artifactId>
+  <name>Ballerina - Playground Cache Responder API</name>
   <build>
     <plugins>
       <plugin>
@@ -36,16 +36,7 @@
                 </transformer>
                 <transformer />
               </transformers>
-              <artifactSet>
-                <excludes>
-                  <exclude>com.github.jknack:handlebars</exclude>
-                  <exclude>org.apache.ws.commons.axiom:axiom-dom</exclude>
-                  <exclude>org.wso2.staxon:staxon-core</exclude>
-                  <exclude>commons-pool.wso2:commons-pool</exclude>
-                  <exclude>org.wso2.carbon.utils:carbon-utils</exclude>
-                  <exclude>org.yaml:snakeyaml</exclude>
-                </excludes>
-              </artifactSet>
+              <artifactSet />
             </configuration>
           </execution>
         </executions>
@@ -53,7 +44,7 @@
     </plugins>
   </build>
   <properties>
-    <main.class>org.ballerinalang.platform.playground.launcher.ServiceRunner</main.class>
+    <main.class>org.ballerinalang.platform.playground.cache.responder.ServiceRunner</main.class>
   </properties>
 </project>
 

@@ -30,6 +30,8 @@ public class RunCommand extends Command {
 
     private String dependantService;
 
+    private String cacheId;
+
     public String getFileName() {
         return fileName;
     }
@@ -68,5 +70,13 @@ public class RunCommand extends Command {
 
     public void setDependantService(String dependantService) {
         this.dependantService = dependantService;
+    }
+
+    public String getCacheId() {
+        return cacheId;
+    }
+
+    public void setCacheId(String cacheId) {
+        this.cacheId = cacheId;
     }
 }

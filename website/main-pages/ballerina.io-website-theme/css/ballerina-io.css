@@ -4,6 +4,10 @@
     src: local("CalibreWeb-Semibold"), url("/ballerina-fonts/CalibreWeb-Semibold.eot?#iefix") format("embedded-opentype"), url("/ballerina-fonts/CalibreWeb-Semibold.woff2") format("woff2"), url("/ballerina-fonts/CalibreWeb-Semibold.woff") format("woff");
 }
 
+body {
+    font-size: 16px;
+}
+
 body.cBallerina-io {
     background-color: #ffffff;
     font-family: "pragmatica", sans-serif;
@@ -531,6 +535,10 @@ h2.cMainH2Title {
     padding: 10px 0;
 }
 
+.wy-nav-content {
+    max-width: 100%;
+}
+
 .wy-nav-content .subscribeForm {
     margin: 0 0 .3125em;
     color: #57595d;
@@ -628,9 +636,10 @@ code:not(.hljs) {
     background: #d4d6d7;
     width: 30px;
     text-align: right;
-    padding: 10px 6px 10px 5px;
+    padding: 2px 6px 10px 5px;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .line-number {
@@ -647,6 +656,7 @@ code:not(.hljs) {
     padding-bottom: 0;
     padding-left: 0;
     display: flex;
+    border: none;
 }
 
 pre>code.ballerina {
@@ -754,6 +764,18 @@ button.navbar-toggle {
 
 /* --- Code syntax highlighting --- */
 
+pre {
+    padding: 2px 4px;
+    font-size: 14px;
+    font-family: Consolas, "Anonymous Pro", monospace;
+    font-weight: normal;
+    line-height: 18px;
+}
+
+pre code {
+    padding: 4px;
+}
+
 .highlight code,
 .highlight pre {
     color: #6A6868;
@@ -776,9 +798,11 @@ button.navbar-toggle {
 .highlight .kn,
 .highlight .k {
     color: #28aae1;
+    font-weight: normal;
 }
 
 .hljs-string,
+.hljs-label,
 .hljs-tag .hljs-value,
 .hljs-phpdoc,
 .hljs-dartdoc,
@@ -842,7 +866,7 @@ button.navbar-toggle {
     position: absolute;
     left: 45px;
     z-index: 1;
-    margin-top: 11px;
+    margin-top: 2px;
     width: 30px;
     text-align: center;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;

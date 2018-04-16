@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bpg-cache-responder-dep
@@ -18,18 +18,24 @@ spec:
       containers:
       - name: bpg-cache-responder-container
         imagePullPolicy: Always
-        image: gcr.io/${BPG_GCP_PROJECT_ID}/launcher:latest
+        image: gcr.io/${BPG_GCP_PROJECT_ID}/cache-responder:v0.1-latest
         # resources:
         #   requests:
         #     cpu: 100m
         #     memory: 100Mi
         env:
-        - name: BPG_REDIS_WRITE_HOST
+        -
+          name: BPG_REDIS_WRITE_HOST
           value: "redis-master"
-        - name: BPG_REDIS_READ_HOST
+        -
+          name: BPG_REDIS_WRITE_PORT
+          value: "6379"
+        -
+          name: BPG_REDIS_READ_HOST
           value: "redis-slave"
-        - name: BPG_CACHE_NODE
-          value: "true"
+        -
+          name: BPG_REDIS_READ_PORT
+          value: "6379"
         ports:
         - name: http-port
           containerPort: 80
@@ -45,11 +51,3 @@ spec:
             port: https-port
           initialDelaySeconds: 5
           periodSeconds: 20
-        # volumeMounts:
-        # - mountPath: /mnt
-        #   name: ballerina-nfs
-      # volumes:
-      # - name: ballerina-nfs
-      #   nfs:
-      #     path: /exports
-      #     server: NFS_SERVER_IP

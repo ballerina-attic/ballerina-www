@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment 
 metadata: 
   name: bpg-controller-dep 
@@ -6,7 +6,7 @@ metadata:
   labels: 
     app: bpg-controller 
 spec: 
-  replicas: 1 
+  replicas: 1
   selector: 
     matchLabels: 
       app: bpg-controller 
@@ -39,12 +39,6 @@ spec:
           name: BPG_REDIS_READ_PORT
           value: "6379"
         -
-          name: DB_HOST
-          value: "mysql-server"
-        -
-          name: DB_PORT
-          value: "3306"
-        -
           name: BPG_NAMESPACE
           value: "ballerina-playground"
         -
@@ -72,12 +66,15 @@ spec:
           name: BGP_NFS_SERVER_IP
           value: "10.142.0.5"
         -
+          name: ROOT_DOMAIN_NAME
+          value: "playground.preprod.ballerina.io"
+        -
           name: BPG_CONTROLLER_INTERNAL_URL
           value: "bpg-controller-internal"
         ports:
         -
           name: http-port
-          containerPort: 80
+          containerPort: 8080
 #        -
 #          name: https-port
 #          containerPort: 443
