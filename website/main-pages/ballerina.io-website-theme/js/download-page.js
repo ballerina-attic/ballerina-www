@@ -45,10 +45,11 @@ $(document).ready(function() {
         $.each(latest_pack['other-artefacts'], function(key, value) {
 
             release_content = "<tr>";
-            release_content += '<td style="width: 69%"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
-            release_content += '<td style="width: 7%; white-space: nowrap;"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
-            release_content += '<td style="width: 7%; white-space: nowrap;"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
-            release_content += '<td style="width: 7%; white-space: nowrap;"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
+            release_content += '<td style="width: 96%">' + value + '</td>';
+            release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '" class="cDownloadLinkIcon"><img src="../img/download-bg-green-fill.svg"></a></td>';
+            release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
+            release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
+            release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
             release_content += "</tr>";
 
             if (i < latest_pack['other-artefacts'].length / 2) {
@@ -82,10 +83,11 @@ $(document).ready(function() {
         $.each(nightly_packs, function(key, value) {
 
             release_content = "<tr>";
-            release_content += '<td style="width: 69%"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
-            release_content += '<td style="width: 7%; white-space: nowrap;"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
-            release_content += '<td style="width: 7%; white-space: nowrap;"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
-            release_content += '<td style="width: 7%; white-space: nowrap;"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
+            release_content += '<td style="width: 96%">' + value + '</td>';
+            release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '" class="cDownloadLinkIcon"><img src="../img/download-bg-green-fill.svg"></a></td>';
+            release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
+            release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
+            release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
             release_content += "</tr>";
 
             if (i < nightly_packs.length / 2) {
