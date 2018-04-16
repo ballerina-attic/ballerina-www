@@ -33,7 +33,8 @@ ENV PATH $BALLERINA_HOME/bin:$PATH
 
 RUN mkdir /api/
 COPY netty-transports.yml /api/
-COPY playground-launcher.jar /api/
+COPY ballerinaKeystore.p12 /api/
+COPY playground-api.jar /api/
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 COPY CUSTOMER_DB.h2.db /sample-db/
@@ -42,5 +43,6 @@ COPY legacy_service.balx /services/
 COPY stock_quote_service.balx /services/
 
 EXPOSE 80
+EXPOSE 443
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]

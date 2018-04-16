@@ -24,7 +24,7 @@ public class ServiceRunner {
 
     public static void main(String[] args) {
         MicroservicesRunner microservicesRunner = new MicroservicesRunner();
-        microservicesRunner.deploy(new ParserService());
+        microservicesRunner.deployWebSocketEndpoint(new ParserService());
         microservicesRunner.start();
     }
 }

@@ -41,7 +41,7 @@ public class LauncherUtils {
         statusUpdateRequest.setStatus(MemberConstants.MEMBER_STATUS_FREE);
         try {
             HttpClient client = HttpClients.createDefault();
-            HttpPost post = new HttpPost(getControllerURL());
+            HttpPost post = new HttpPost(EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_ACK_URL));
             post.setEntity(new StringEntity(statusUpdateRequest.toString()));
             HttpResponse response = client.execute(post);
             if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
@@ -51,11 +51,5 @@ public class LauncherUtils {
         } catch (Exception e) {
             logger.error("Error while marking launcher node as free. ", e);
         }
-    }
-
-    private static String getControllerURL() {
-        return "http://"
-                + EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)
-                + "/api/launcher/status";
     }
 }

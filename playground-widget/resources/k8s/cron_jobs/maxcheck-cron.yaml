@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: maxcheck
 spec:
-  schedule: "1 */1 * * *"
+  schedule: "@hourly"
   # Do not allow concurrent runs
   concurrencyPolicy: "Forbid"
   jobTemplate:

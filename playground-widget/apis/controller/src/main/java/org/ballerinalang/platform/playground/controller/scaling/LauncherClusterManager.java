@@ -50,8 +50,6 @@ public class LauncherClusterManager {
             Collections.sort(urlsToScaleDown);
             String launcherUrlToDelete = urlsToScaleDown.get(urlsToScaleDown.size() - 1);
 
-            log.info("Cutting down [Launcher URL] " + launcherUrlToDelete + "...");
-
             // Get object name from launcher URL
             String deploymentName = getObjectNameFromLauncherUrl(launcherUrlToDelete);
 
@@ -118,21 +116,21 @@ public class LauncherClusterManager {
             return;
         }
 
-        // If after scaling down there wouldn't be enough free launchers, don't scale down
+        // If after scaling down there wouldn't be enough free launchers, do scale down
         log.info("Not scaling down since [Free Count] + [Step Down] " + freeCount + " + " + stepDown +
                 " < [Free Buffer Count] " + freeBufferCount);
     }
 
     public void honourDesiredCount() {
-        int totalDeploymentCount = getDeployments().size();
-        log.info("[Total count] " + totalDeploymentCount + " [Desired Count] " + desiredCount);
+        int totalLauncherCount = getTotalLaunchers().size();
+        log.info("[Total count] " + totalLauncherCount + " [Desired Count] " + desiredCount);
 
-        while (totalDeploymentCount < desiredCount) {
-            log.info("Scaling UP: REASON -> [Total Count] " + totalDeploymentCount + " < [Desired Count] " +
+        while (totalLauncherCount < desiredCount) {
+            log.info("Scaling UP: REASON -> [Total Count] " + totalLauncherCount + " < [Desired Count] " +
                     desiredCount);
 
             scaleUp("honourDesiredCount");
-            totalDeploymentCount = getDeployments().size();
+            totalLauncherCount = getTotalLaunchers().size();
         }
     }
 
@@ -153,7 +151,7 @@ public class LauncherClusterManager {
             if (serviceName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !deploymentExists(serviceName)) {
                 log.info("Cleaning orphan Service [Name] " + serviceName + "...");
 
-                unregisterLauncherIfExistsByObjectName(serviceName);
+                unregisterLauncherIfExists(serviceName);
 
                 if (!runtimeClient.deleteService(serviceName)) {
                     log.error("Service deletion failed [Service Name] " + serviceName);
@@ -169,27 +167,11 @@ public class LauncherClusterManager {
             if (deploymentName.startsWith(Constants.BPG_APP_TYPE_LAUNCHER + "-") && !serviceExists(deploymentName)) {
                 log.info("Cleaning orphan Deployment [Name] " + deploymentName + "...");
 
-                unregisterLauncherIfExistsByObjectName(deploymentName);
+                unregisterLauncherIfExists(deploymentName);
 
                 if (!runtimeClient.deleteDeployment(deploymentName)) {
                     log.error("Deployment deletion failed [Deployment Name] " + deploymentName);
                 }
-            }
-        }
-    }
-
-    public void validateLauncherUrls() {
-        log.info("Validating the existing launcher URL list for missing deployments...");
-
-        for (String launcherUrl : getTotalLaunchers()) {
-            log.info("Validating [Launcher URL] " + launcherUrl + "...");
-            String objectName = getObjectNameFromLauncherUrl(launcherUrl);
-            if (!runtimeClient.deploymentExists(objectName) || !runtimeClient.serviceExists(objectName)) {
-                log.info("Found an invalid launcher [URL] " + launcherUrl);
-                // Just remove the reference to launcher now
-                // cleanOrphan* jobs will clean any orphan deployments
-                // desired count check will scale up if free count is reduced
-                unregisterLauncherIfExists(launcherUrl);
             }
         }
     }
@@ -243,7 +225,7 @@ public class LauncherClusterManager {
     }
 
     private boolean deleteLauncher(String deploymentName) {
-        unregisterLauncherIfExistsByObjectName(deploymentName);
+        unregisterLauncherIfExists(deploymentName);
 
         boolean svcDeleted = runtimeClient.deleteService(deploymentName);
         boolean depDeleted = runtimeClient.deleteDeployment(deploymentName);
@@ -251,18 +233,11 @@ public class LauncherClusterManager {
         return svcDeleted && depDeleted;
     }
 
-    private void unregisterLauncherIfExistsByObjectName(String objectName) {
+    private void unregisterLauncherIfExists(String objectName) {
         // Unregister from launcher list
         String launcherUrl = getLauncherUrlFromObjectName(objectName);
-        unregisterLauncherIfExists(launcherUrl);
-    }
-
-    private void unregisterLauncherIfExists(String launcherUrl) {
-        log.info("Unregistering launcher [URL] " + launcherUrl);
         if (persistence.launcherExists(launcherUrl)) {
             persistence.unregisterLauncher(launcherUrl);
-        } else {
-            log.debug("Launcher URL not found: " + launcherUrl);
         }
     }
 
@@ -279,8 +254,8 @@ public class LauncherClusterManager {
 
     private String getObjectNameFromLauncherUrl(String launchUrl) {
         if (launchUrl != null) {
-            String[] domainParts = launchUrl.split("\\.");
-            return domainParts[0].replace(Constants.LAUNCHER_URL_PREFIX, Constants.BPG_APP_TYPE_LAUNCHER);
+            String subDomain = launchUrl.split(".")[0];
+            return subDomain.replace(Constants.LAUNCHER_URL_PREFIX, Constants.BPG_APP_TYPE_LAUNCHER);
         }
 
         throw new IllegalArgumentException("Null launcher URL cannot be processed.");
