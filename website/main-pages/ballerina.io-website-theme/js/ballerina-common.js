@@ -57,7 +57,7 @@ $(document).ready(function() {
         '<div class="cFormContainer">' +
         '<form>' +
         '<div class="cFieldContainer">' +
-        '<input maxlength="90" value="" id="emailUser" name="email" placeholder="Email" title="Join our list by entering your email" type="text">' +
+        '<input maxlength="90" value="" id="emailUser" name="email" placeholder="Join our list by entering your email" title="Join our list by entering your email" type="text">' +
         '</div>' +
         '<div class="cButtonContainer">' +
         '<a class="cBallerinaButtons subscribeUserForm" href="" id="subscribeUserButton"></a>' +
