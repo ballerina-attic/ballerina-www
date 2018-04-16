@@ -56,6 +56,6 @@ public class LauncherUtils {
     private static String getControllerURL() {
         return "http://"
                 + EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)
-                + "/api/launcher/status";
+                + "/api/launcher";
     }
 }
