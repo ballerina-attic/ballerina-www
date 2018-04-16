@@ -17,6 +17,8 @@
 package org.ballerinalang.platform.playground.controller.service;
 
 import org.ballerinalang.platform.playground.controller.scaling.LauncherClusterManager;
+import org.ballerinalang.platform.playground.controller.util.Constants;
+import org.ballerinalang.platform.playground.utils.EnvUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,6 +63,9 @@ public class ControllerServiceManager {
     }
 
     public String getCacheResponderUrl() {
-        return ""; //TODO
+        String cacheResponderSubDomain = "cache";
+        String rootDomainName = EnvUtils.getRequiredEnvStringValue(Constants.ENV_ROOT_DOMAIN_NAME);
+
+        return cacheResponderSubDomain + "." + rootDomainName;
     }
 }
