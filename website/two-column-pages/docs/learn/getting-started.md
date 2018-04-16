@@ -26,19 +26,19 @@ If you are upgrading from an older version of Ballerina, you can simply download
 
 ### Installing on OS X
 
-[Download the package file](https://ballerina.io/downloads/), open it, and follow the prompts to install Ballerina. The package installs the Ballerina distribution to /usr/local/ballerina.
+[Download the package file](/downloads), open it, and follow the prompts to install Ballerina. The package installs the Ballerina distribution to `/usr/local/ballerina`.
 
-The package should put the /usr/local/ballerina/<ballerina-directory>/bin directory in your PATH environment variable. You may need to restart any open Terminal sessions for the change to take effect.
+The package should put the `/usr/local/ballerina/<ballerina-directory>/bin` directory in your PATH environment variable. You may need to restart any open Terminal sessions for the change to take effect.
 
 ### Installing on Windows
 
-[Download the MSI file](https://ballerina.io/downloads/), open it, and follow the prompts to install Ballerina. By default, the installer puts the Ballerina distribution in c:\ballerina.
+[Download the MSI file](/downloads), open it, and follow the prompts to install Ballerina. By default, the installer puts the Ballerina distribution in `C:\ballerina`.
 
-The installer should put the c:\ballerina\<ballerina-directory>\bin directory in your PATH environment variable. You may need to restart any open command prompts for the change to take effect.
+The installer should put the `C:\ballerina\<ballerina-directory>\bin` directory in your PATH environment variable. You may need to restart any open command prompts for the change to take effect.
 
 ### Installing on Linux
 
-[Download the DEB file or RPM file](https://ballerina.io/downloads/), open it, and follow the prompts to install Ballerina.
+[Download the DEB file or RPM file](/downloads), open it, and follow the prompts to install Ballerina.
 
 You can install the DEB file using the following command. You need to specify the actual filename and location in the command.
 
@@ -54,10 +54,14 @@ rpm -i <ballerina-binary>.rpm
 
 ## Uninstalling Ballerina
 
-To remove an existing Ballerina installation, delete the Ballerina directory. This is usually /usr/local/ballerina under Linux and Mac OS X, and c:\Ballerina under Windows.
+To remove an existing Ballerina installation, delete the Ballerina directory. This is usually `/usr/local/ballerina` under Linux and Mac OS X, and `C:\Ballerina` under Windows.
 
 You should also remove the Ballerina bin directory from your PATH environment variable.
 
 ## Getting help
 
 To get help, see the options available in the [help page](/help).
+
+## What's next
+
+Once you have successfully installed Ballerina, try out the [Quick Tour](/quick-tour) and take Ballerina for its first spin.
