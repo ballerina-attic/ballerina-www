@@ -1,1195 +1,1167 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
-    <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-92163714-2');
-    </script>
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-PSL2TX4');</script>
-    <!-- End Google Tag Manager -->
-
-    <link rel="shortcut icon" href="/img/favicon.ico">
-    <title>Ballerina.io - API Docs</title>
-    <script>var base_url = "";</script>
-    <script src="/search/require.js"></script>
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-
-    <!-- Nanoscroller JS -->
-    <script src="docerina-theme/js/jquery.nanoscroller.min.js"></script>
-
-    <!-- Docerina JS -->
-    <script src="docerina-theme/js/docerina.js"></script>
-    <script type="text/javascript" src="/js/highlight.pack.js"></script>
-    <link rel="stylesheet" href="//use.typekit.net/son4ymv.css" />
-    
-
-    <link rel="stylesheet" href="/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
-    <link rel="stylesheet" href="/css/highlight.css">
-    <script type="text/javascript" src="/js/ballerina-common.js"></script>
-    <link rel="stylesheet" href="/css/ballerina-io.css">
-    <link rel="stylesheet" href="/css/ballerina-io-docs.css">
-    <link rel="stylesheet" href="/css/ballerina-io-api.css">
-
-    <script type="text/javascript" >
-        $(document).ready(function(){
-            $('pre > code.language-ballerina').each(function() {
-            //cont the number of rows
-            //Remove the new line from the end of the text
-            var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
-            var lines = '<div class="line-numbers-wrap">';
-
-            //Iterate all the lines and create div elements with line number
-            for (var i = 1; i <= numberOfLines; i++) {
-                lines = lines + '<div class="line-number">' + i + '</div>';
-            }
-            lines = lines + '</div>';
-            //calculate <pre> height and set it to the container
-            var preHeight = numberOfLines*18 + 20;
-            $(this).parent()
-                .height(preHeight)
-                .addClass('ballerina-pre-wrapper')
-                .prepend(
-                    $(lines)
-                );
-            });
-            hljs.initHighlighting();
-        })
-
-    </script>
-</head>
-
-<body class="cBallerina-io" role="document">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
-                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div class="row cBallerina-io-top-row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'UA-92163714-2');
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-PSL2TX4');
+      </script>
+      <!-- End Google Tag Manager -->
+      <link rel="shortcut icon" href="/img/favicon.ico">
+      <title>Ballerina.io - API Docs</title>
+      <script>var base_url = "";</script>
+      <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+         crossorigin="anonymous">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+         crossorigin="anonymous">
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+         crossorigin="anonymous"></script>
+      <!-- Nanoscroller JS -->
+      <script src="docerina-theme/js/jquery.nanoscroller.min.js"></script>
+      <!-- Docerina JS -->
+      <script src="docerina-theme/js/docerina.js"></script>
+      <script type="text/javascript" src="/js/highlight.pack.js"></script>
+      <link rel="stylesheet" href="//use.typekit.net/son4ymv.css" />
+      
+      <link rel="stylesheet" href="/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
+      <link rel="stylesheet" href="/css/highlight.css">
+      <script type="text/javascript" src="/js/ballerina-common.js"></script>
+      <link rel="stylesheet" href="/css/ballerina-io.css">
+      <link rel="stylesheet" href="/css/ballerina-io-docs.css">
+      <link rel="stylesheet" href="/css/ballerina-io-api.css">
+      <script type="text/javascript" >
+         $(document).ready(function(){
+             $('pre > code.language-ballerina').each(function() {
+             //cont the number of rows
+             //Remove the new line from the end of the text
+             var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+             var lines = '<div class="line-numbers-wrap">';
+         
+             //Iterate all the lines and create div elements with line number
+             for (var i = 1; i <= numberOfLines; i++) {
+                 lines = lines + '<div class="line-number">' + i + '</div>';
+             }
+             lines = lines + '</div>';
+             //calculate <pre> height and set it to the container
+             var preHeight = numberOfLines*18 + 20;
+             $(this).parent()
+                 .height(preHeight)
+                 .addClass('ballerina-pre-wrapper')
+                 .prepend(
+                     $(lines)
+                 );
+             });
+             hljs.initHighlighting();
+         })
+         
+      </script>
+ <script src="/search/require.js"></script>
+   </head>
+   <body class="cBallerina-io" role="document">
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+      <div class="row cBallerina-io-top-row">
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
             <div class="cTopLine"></div>
-        </div>
-    </div>
-    <div class="row cBallerina-io-Nav" id="iMainNavigation">
-    </div>
-    <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+         </div>
+      </div>
+      <div class="row cBallerina-io-Nav" id="iMainNavigation">
+      </div>
+      <div class="row cBallerina-io-Logo-row">
+         <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
-                <a class="cLogo" href="/">
-                    <img src="//b.content.wso2.com/sites/all/ballerina.io-cdn/img/ballerina-logo.svg" alt="Ballerina" />
-                </a>
+               <a class="cLogo" href="/">
+               <img src="/img/ballerina-logo.png" alt="Ballerina" />
+               </a>
             </div>
-        </div>
-    </div>
-
-    <div class="row cBallerina-io-Gray-row">
-        <div class="container">
+         </div>
+      </div>
+      <div class="row cBallerina-io-Gray-row">
+         <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 cBallerina-io-Home-Left-col">
-                <div class="cBlallerina-io-docs-left-nav-container">
-                    <div class="cSideBar-Button">
-                        <img src="//b.content.wso2.com/sites/all/ballerina.io-cdn/img/sidebar.svg" />
-                    </div>
-                    <div class="cLectColStyle">
-                        <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" active-package">
-                            <li>
-                                <!--Package Name-->
-                                 
-                                <a class="cPackageList">
-                                    <span class="bold">security.crypto</a>
-                                 
-                                <div class="constructs-wrapper">
-                                    <!--Construct of Package-->
-                                    <ul class="constructs-ul">
-                                        
-                                        <li>
-                                            <a href="#getCRC32">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    getCRC32
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#getHash">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    getHash
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#getHmac">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    getHmac
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#Algorithm">
-                                                <div class="construct-icon">
-                                                    <span class="fw-constant"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Algorithm
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#MD5">
-                                                <div class="construct-icon">
-                                                    <span class="fw-globe"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    MD5
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#SHA1">
-                                                <div class="construct-icon">
-                                                    <span class="fw-globe"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    SHA1
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#SHA256">
-                                                <div class="construct-icon">
-                                                    <span class="fw-globe"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    SHA256
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                    </ul>
-                                </div>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-Middle-col">
-                <div class="cBallerina-io-breadcrumbs">
-                <div role="navigation" aria-label="breadcrumbs navigation">
-                <ul class="wy-breadcrumbs">
-                <li>
-                                        <a href="/">Home</a>
-                                    </li>
-                                    <li>»</li>
-                                    <li>
-                                        <a href="/learn">Learn</a>
-                                    </li>
-                                    <li>»</li>
-                                    <li></li>
-                </ul>
-                </div>
-                </div>
-
-
-                <div class="cBlallerina-io-docs-content-container">
-                    <div>
-                        <div>
-
-                            <div role="main">
-                                <div>
-                                    <div id="content" class="nano">
-                                        <div class="nano-content">
-                                            <h1 class="thin-text padding-bottom">
-                                                <span class="bold">security.crypto</span>
-                                                 package 
-                                            </h1>
-                                            
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <h2 id="getCRC32">
-                                                    <span class="fw-function sm-icon"> </span>
-                                                    public function getCRC32(any content) returns (string) 
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Returns the CRC32 hash for the provided element. Currently supports strings and blobs.
-                                                </p>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Parameters:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Parameter Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">content</td>
-                                                        <td class="col-md-2">any</td>
-                                                        <td class="col-md-7">The content to be hashed</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <p class="cReturn">
-                                                    <label class="table-header-text">Return Parameters:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Return Variable</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3"></td>
-                                                        <td class="col-md-2">string </td>
-                                                        <td class="col-md-7">The generated hash</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <h2 id="getHash">
-                                                    <span class="fw-function sm-icon"> </span>
-                                                    public function getHash(string baseString, Algorithm algorithm) returns (string) 
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Returns the hash of the given string using the specified algorithm.
-                                                </p>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Parameters:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Parameter Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">baseString</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">The string to be hashed</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">algorithm</td>
-                                                        <td class="col-md-2">Algorithm</td>
-                                                        <td class="col-md-7">The hashing algorithm to be used</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <p class="cReturn">
-                                                    <label class="table-header-text">Return Parameters:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Return Variable</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3"></td>
-                                                        <td class="col-md-2">string </td>
-                                                        <td class="col-md-7">The hashed string</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <h2 id="getHmac">
-                                                    <span class="fw-function sm-icon"> </span>
-                                                    public function getHmac(string baseString, string keyString, Algorithm algorithm) returns (string) 
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Returns the HMAC value of the provided base string.
-                                                </p>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Parameters:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Parameter Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">baseString</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">The string to be hashed</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">keyString</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">The key string</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">algorithm</td>
-                                                        <td class="col-md-2">Algorithm</td>
-                                                        <td class="col-md-7">The hashing algorithm to be used</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <p class="cReturn">
-                                                    <label class="table-header-text">Return Parameters:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Return Variable</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3"></td>
-                                                        <td class="col-md-2">string </td>
-                                                        <td class="col-md-7">The hashed string</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <h2 id="Algorithm">
-                                                    <span class="fw-constant sm-icon"></span>
-                                                    public enum Algorithm
-                                                </h2>
-                                                  
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                                <h2 id="MD5">
-                                                    <span class="fw-globe sm-icon"></span>
-                                                    MD5
-                                                </h2>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Attribute Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="col-md-3">MD5</td>
-                                                        <th class="col-md-2">Algorithm</th>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                </table>
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                                <h2 id="SHA1">
-                                                    <span class="fw-globe sm-icon"></span>
-                                                    SHA1
-                                                </h2>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Attribute Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="col-md-3">SHA1</td>
-                                                        <th class="col-md-2">Algorithm</th>
-                                                        <td class="col-md-7">The algorithms which can be used in crypto functions.</td>
-                                                    </tr>
-                                                </table>
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                                <h2 id="SHA256">
-                                                    <span class="fw-globe sm-icon"></span>
-                                                    SHA256
-                                                </h2>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Attribute Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="col-md-3">SHA256</td>
-                                                        <th class="col-md-2">Algorithm</th>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                </table>
-                                                
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 cBallerina-io-Home-Right-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
-                    <div class="cSideBar-Button">
-                        <img src="//b.content.wso2.com/sites/all/ballerina.io-cdn/img/sidebar.svg" />
-                    </div>
-                    <div class="cLectColStyle">
-                        
-                        <div class="cBallerina-io-docs-Title">BALLERINA PACKAGES</div>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="primitive-types.html">
-                                     
-                                    <span class="bold">Primitive Types</span>
-                                    
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.html">
-                                     
-                                    <span class="bold">auth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="builtin.html">
-                                     
-                                    <span class="bold">builtin</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="caching.html">
-                                     
-                                    <span class="bold">caching</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="compression.html">
-                                     
-                                    <span class="bold">compression</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="config.html">
-                                     
-                                    <span class="bold">config</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="file.html">
-                                     
-                                    <span class="bold">file</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="grpc.html">
-                                     
-                                    <span class="bold">grpc</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="http.html">
-                                     
-                                    <span class="bold">http</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="internal.html">
-                                     
-                                    <span class="bold">internal</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="io.html">
-                                     
-                                    <span class="bold">io</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="jwt.html">
-                                     
-                                    <span class="bold">jwt</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="log.html">
-                                     
-                                    <span class="bold">log</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="math.html">
-                                     
-                                    <span class="bold">math</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="mime.html">
-                                     
-                                    <span class="bold">mime</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="observe.html">
-                                     
-                                    <span class="bold">observe</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="os.html">
-                                     
-                                    <span class="bold">os</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="reflect.html">
-                                     
-                                    <span class="bold">reflect</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="runtime.html">
-                                     
-                                    <span class="bold">runtime</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" active-package">
-                            <li>
-                                <!--Package Name-->
+                  <div class="cLectColStyle cLeftColTop">
+                      
+                     
+                     <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
+                     <div class="cCollaps-Menu">
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="primitive-types.html">
+                            
+                           <span class="bold">Primitive Types</span>
+                           
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="auth.html">
+                            
+                           <span class="bold">auth</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="builtin.html">
+                            
+                           <span class="bold">builtin</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="caching.html">
+                            
+                           <span class="bold">caching</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="compression.html">
+                            
+                           <span class="bold">compression</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="config.html">
+                            
+                           <span class="bold">config</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="file.html">
+                            
+                           <span class="bold">file</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="grpc.html">
+                            
+                           <span class="bold">grpc</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="http.html">
+                            
+                           <span class="bold">http</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="internal.html">
+                            
+                           <span class="bold">internal</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="io.html">
+                            
+                           <span class="bold">io</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="jwt.html">
+                            
+                           <span class="bold">jwt</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="log.html">
+                            
+                           <span class="bold">log</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="math.html">
+                            
+                           <span class="bold">math</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="mime.html">
+                            
+                           <span class="bold">mime</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="observe.html">
+                            
+                           <span class="bold">observe</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="os.html">
+                            
+                           <span class="bold">os</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="reflect.html">
+                            
+                           <span class="bold">reflect</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="runtime.html">
+                            
+                           <span class="bold">runtime</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" active-package">
+                        <li>
+                           <!--Package Name-->
+                            
+                           <a>
+                           <span class="bold">security.crypto</a>
+                            
+                           <div class="constructs-wrapper">
+                              <!--Construct of Package-->
+                              <ul class="constructs-ul">
+                                                      
+                              </ul>
+                           </div>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="sql.html">
+                            
+                           <span class="bold">sql</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="swagger.html">
+                            
+                           <span class="bold">swagger</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="task.html">
+                            
+                           <span class="bold">task</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="test.html">
+                            
+                           <span class="bold">test</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="time.html">
+                            
+                           <span class="bold">time</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="transactions.html">
+                            
+                           <span class="bold">transactions</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="user.html">
+                            
+                           <span class="bold">user</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="util.html">
+                            
+                           <span class="bold">util</span>
+                            
+                           </a>
+                           
+                        </li>
+                     </ul>
+                     
+                     </div>
+                  </div>
+               </div>
+               <div class="cBlallerina-io-docs-left-nav-container">
+                  <div class="cSideBar-Button">
+                     <img src="/img/sidebar.svg" />
+                  </div>
+                  <div class="cLectColStyle">
+                     <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" active-package">
+                        <li>
+                           <!--Package Name-->
+                            
+                           <a class="cPackageList">
+                           <span class="bold">security.crypto</a>
+                            
+                           <div class="constructs-wrapper">
+                              <!--Construct of Package-->
+                              <ul class="constructs-ul">
                                  
-                                <a>
-                                    <span class="bold">security.crypto</a>
-                                 
-                                <div class="constructs-wrapper">
-                                    <!--Construct of Package-->
-                                    <ul class="constructs-ul">
-                                                             
-                                    </ul>
-                                </div>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="sql.html">
-                                     
-                                    <span class="bold">sql</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="swagger.html">
-                                     
-                                    <span class="bold">swagger</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="task.html">
-                                     
-                                    <span class="bold">task</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="test.html">
-                                     
-                                    <span class="bold">test</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="time.html">
-                                     
-                                    <span class="bold">time</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="transactions.html">
-                                     
-                                    <span class="bold">transactions</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="user.html">
-                                     
-                                    <span class="bold">user</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="util.html">
-                                     
-                                    <span class="bold">util</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-
-
-
-
-
-                    </div>
-                </div>
+                                 <li>
+                                    <a href="#getCRC32">
+                                       <div class="construct-icon">
+                                          <span class="fw-function"> </span>
+                                       </div>
+                                       <div class="construct-name">
+                                          getCRC32
+                                          
+                                       </div>
+                                    </a>
+                                 </li>
+                                  
+                                 <li>
+                                    <a href="#getHash">
+                                       <div class="construct-icon">
+                                          <span class="fw-function"> </span>
+                                       </div>
+                                       <div class="construct-name">
+                                          getHash
+                                          
+                                       </div>
+                                    </a>
+                                 </li>
+                                  
+                                 <li>
+                                    <a href="#getHmac">
+                                       <div class="construct-icon">
+                                          <span class="fw-function"> </span>
+                                       </div>
+                                       <div class="construct-name">
+                                          getHmac
+                                          
+                                       </div>
+                                    </a>
+                                 </li>
+                                  
+                                 <li>
+                                    <a href="#Algorithm">
+                                       <div class="construct-icon">
+                                          <span class="fw-constant"> </span>
+                                       </div>
+                                       <div class="construct-name">
+                                          Algorithm
+                                          
+                                       </div>
+                                    </a>
+                                 </li>
+                                  
+                                 <li>
+                                    <a href="#MD5">
+                                       <div class="construct-icon">
+                                          <span class="fw-globe"> </span>
+                                       </div>
+                                       <div class="construct-name">
+                                          MD5
+                                          
+                                       </div>
+                                    </a>
+                                 </li>
+                                  
+                                 <li>
+                                    <a href="#SHA1">
+                                       <div class="construct-icon">
+                                          <span class="fw-globe"> </span>
+                                       </div>
+                                       <div class="construct-name">
+                                          SHA1
+                                          
+                                       </div>
+                                    </a>
+                                 </li>
+                                  
+                                 <li>
+                                    <a href="#SHA256">
+                                       <div class="construct-icon">
+                                          <span class="fw-globe"> </span>
+                                       </div>
+                                       <div class="construct-name">
+                                          SHA256
+                                          
+                                       </div>
+                                    </a>
+                                 </li>
+                                  
+                              </ul>
+                           </div>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                  </div>
+               </div>
             </div>
-        </div>
-    </div>
-    <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
-
-    </div>
-
-
-<script type="text/javascript" src="/search/search.js"/>
-</body>
-
-</html>
-
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+               <div class="cBallerina-io-breadcrumbs">
+                  <div role="navigation" aria-label="breadcrumbs navigation">
+                     <ul class="wy-breadcrumbs">
+                        <li>
+                           <a href="/">Home</a>
+                        </li>
+                        <li>»</li>
+                        <li>
+                           <a href="/learn">Learn</a>
+                        </li>
+                        <li>»</li>
+                        <li></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="cBlallerina-io-docs-content-container">
+                  <div>
+                     <div>
+                        <div role="main">
+                           <div>
+                              <div id="content" class="nano">
+                                 <div class="nano-content">
+                                    <h1 class="thin-text padding-bottom">
+                                       <span class="bold">security.crypto</span>
+                                        package 
+                                    </h1>
+                                    
+                                    
+                                    <div class="construct-wrapper">
+                                       <!--Primitive Types-->
+                                       
+                                       <!-- Function -->
+                                       
+                                       <h2 id="getCRC32">
+                                          <span class="fw-function sm-icon"> </span>
+                                          public function getCRC32(any content) returns (string) 
+                                       </h2>
+                                       
+                                       <p>
+                                          <span class="fw-right gray xs-icon"></span>Returns the CRC32 hash for the provided element. Currently supports strings and blobs.
+                                       </p>
+                                        
+                                       <p>
+                                          <label class="table-header-text">Parameters:</label>
+                                       </p>
+                                       <table>
+                                          <tr>
+                                             <th class="col-md-3">Parameter Name</th>
+                                             <th class="col-md-2">Data Type</th>
+                                             <th class="col-md-7 cAPI-table-desc">Description</th>
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="col-md-3">content</td>
+                                             <td class="col-md-2">any</td>
+                                             <td class="col-md-7 cAPI-table-desc">The content to be hashed</td>
+                                          </tr>
+                                          
+                                       </table>
+                                        
+                                       <p class="cReturn">
+                                          <label class="table-header-text">Return Parameters:</label>
+                                       </p>
+                                       <table>
+                                          <tr>
+                                             <th class="col-md-3">Return Variable</th>
+                                             <th class="col-md-2">Data Type</th>
+                                             <th class="col-md-7 cAPI-table-desc">Description</th>
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="col-md-3"></td>
+                                             <td class="col-md-2">string </td>
+                                             <td class="col-md-7 cAPI-table-desc">The generated hash</td>
+                                          </tr>
+                                          
+                                       </table>
+                                        
+                                       <!-- Struct-binded functions grouped together -->
+                                       
+                                       <!-- Connectors and its actions -->
+                                       
+                                       <!-- Objects and its functions -->
+                                       
+                                       <!-- Enums-->
+                                       
+                                       <!-- Annotations-->
+                                       
+                                       <!-- Global Variables-->
+                                       
+                                    </div>
+                                    
+                                    <div class="construct-wrapper">
+                                       <!--Primitive Types-->
+                                       
+                                       <!-- Function -->
+                                       
+                                       <h2 id="getHash">
+                                          <span class="fw-function sm-icon"> </span>
+                                          public function getHash(string baseString, Algorithm algorithm) returns (string) 
+                                       </h2>
+                                       
+                                       <p>
+                                          <span class="fw-right gray xs-icon"></span>Returns the hash of the given string using the specified algorithm.
+                                       </p>
+                                        
+                                       <p>
+                                          <label class="table-header-text">Parameters:</label>
+                                       </p>
+                                       <table>
+                                          <tr>
+                                             <th class="col-md-3">Parameter Name</th>
+                                             <th class="col-md-2">Data Type</th>
+                                             <th class="col-md-7 cAPI-table-desc">Description</th>
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="col-md-3">baseString</td>
+                                             <td class="col-md-2">string</td>
+                                             <td class="col-md-7 cAPI-table-desc">The string to be hashed</td>
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="col-md-3">algorithm</td>
+                                             <td class="col-md-2">Algorithm</td>
+                                             <td class="col-md-7 cAPI-table-desc">The hashing algorithm to be used</td>
+                                          </tr>
+                                          
+                                       </table>
+                                        
+                                       <p class="cReturn">
+                                          <label class="table-header-text">Return Parameters:</label>
+                                       </p>
+                                       <table>
+                                          <tr>
+                                             <th class="col-md-3">Return Variable</th>
+                                             <th class="col-md-2">Data Type</th>
+                                             <th class="col-md-7 cAPI-table-desc">Description</th>
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="col-md-3"></td>
+                                             <td class="col-md-2">string </td>
+                                             <td class="col-md-7 cAPI-table-desc">The hashed string</td>
+                                          </tr>
+                                          
+                                       </table>
+                                        
+                                       <!-- Struct-binded functions grouped together -->
+                                       
+                                       <!-- Connectors and its actions -->
+                                       
+                                       <!-- Objects and its functions -->
+                                       
+                                       <!-- Enums-->
+                                       
+                                       <!-- Annotations-->
+                                       
+                                       <!-- Global Variables-->
+                                       
+                                    </div>
+                                    
+                                    <div class="construct-wrapper">
+                                       <!--Primitive Types-->
+                                       
+                                       <!-- Function -->
+                                       
+                                       <h2 id="getHmac">
+                                          <span class="fw-function sm-icon"> </span>
+                                          public function getHmac(string baseString, string keyString, Algorithm algorithm) returns (string) 
+                                       </h2>
+                                       
+                                       <p>
+                                          <span class="fw-right gray xs-icon"></span>Returns the HMAC value of the provided base string.
+                                       </p>
+                                        
+                                       <p>
+                                          <label class="table-header-text">Parameters:</label>
+                                       </p>
+                                       <table>
+                                          <tr>
+                                             <th class="col-md-3">Parameter Name</th>
+                                             <th class="col-md-2">Data Type</th>
+                                             <th class="col-md-7 cAPI-table-desc">Description</th>
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="col-md-3">baseString</td>
+                                             <td class="col-md-2">string</td>
+                                             <td class="col-md-7 cAPI-table-desc">The string to be hashed</td>
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="col-md-3">keyString</td>
+                                             <td class="col-md-2">string</td>
+                                             <td class="col-md-7 cAPI-table-desc">The key string</td>
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="col-md-3">algorithm</td>
+                                             <td class="col-md-2">Algorithm</td>
+                                             <td class="col-md-7 cAPI-table-desc">The hashing algorithm to be used</td>
+                                          </tr>
+                                          
+                                       </table>
+                                        
+                                       <p class="cReturn">
+                                          <label class="table-header-text">Return Parameters:</label>
+                                       </p>
+                                       <table>
+                                          <tr>
+                                             <th class="col-md-3">Return Variable</th>
+                                             <th class="col-md-2">Data Type</th>
+                                             <th class="col-md-7 cAPI-table-desc">Description</th>
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="col-md-3"></td>
+                                             <td class="col-md-2">string </td>
+                                             <td class="col-md-7 cAPI-table-desc">The hashed string</td>
+                                          </tr>
+                                          
+                                       </table>
+                                        
+                                       <!-- Struct-binded functions grouped together -->
+                                       
+                                       <!-- Connectors and its actions -->
+                                       
+                                       <!-- Objects and its functions -->
+                                       
+                                       <!-- Enums-->
+                                       
+                                       <!-- Annotations-->
+                                       
+                                       <!-- Global Variables-->
+                                       
+                                    </div>
+                                    
+                                    <div class="construct-wrapper">
+                                       <!--Primitive Types-->
+                                       
+                                       <!-- Function -->
+                                       
+                                       <!-- Struct-binded functions grouped together -->
+                                       
+                                       <!-- Connectors and its actions -->
+                                       
+                                       <!-- Objects and its functions -->
+                                       
+                                       <!-- Enums-->
+                                       
+                                       <h2 id="Algorithm">
+                                          <span class="fw-constant sm-icon"></span>
+                                          public enum Algorithm
+                                       </h2>
+                                         
+                                       <!-- Annotations-->
+                                       
+                                       <!-- Global Variables-->
+                                       
+                                    </div>
+                                    
+                                    <div class="construct-wrapper">
+                                       <!--Primitive Types-->
+                                       
+                                       <!-- Function -->
+                                       
+                                       <!-- Struct-binded functions grouped together -->
+                                       
+                                       <!-- Connectors and its actions -->
+                                       
+                                       <!-- Objects and its functions -->
+                                       
+                                       <!-- Enums-->
+                                       
+                                       <!-- Annotations-->
+                                       
+                                       <!-- Global Variables-->
+                                       
+                                       <h2 id="MD5">
+                                          <span class="fw-globe sm-icon"></span>
+                                          MD5
+                                       </h2>
+                                       <table>
+                                          <tr>
+                                             <th class="col-md-3">Attribute Name</th>
+                                             <th class="col-md-2">Data Type</th>
+                                             <th class="col-md-7 cAPI-table-desc">Description</th>
+                                          </tr>
+                                          <tr>
+                                             <td class="col-md-3">MD5</td>
+                                             <th class="col-md-2">Algorithm</th>
+                                             <td class="col-md-7 cAPI-table-desc"></td>
+                                          </tr>
+                                       </table>
+                                       
+                                    </div>
+                                    
+                                    <div class="construct-wrapper">
+                                       <!--Primitive Types-->
+                                       
+                                       <!-- Function -->
+                                       
+                                       <!-- Struct-binded functions grouped together -->
+                                       
+                                       <!-- Connectors and its actions -->
+                                       
+                                       <!-- Objects and its functions -->
+                                       
+                                       <!-- Enums-->
+                                       
+                                       <!-- Annotations-->
+                                       
+                                       <!-- Global Variables-->
+                                       
+                                       <h2 id="SHA1">
+                                          <span class="fw-globe sm-icon"></span>
+                                          SHA1
+                                       </h2>
+                                       <table>
+                                          <tr>
+                                             <th class="col-md-3">Attribute Name</th>
+                                             <th class="col-md-2">Data Type</th>
+                                             <th class="col-md-7 cAPI-table-desc">Description</th>
+                                          </tr>
+                                          <tr>
+                                             <td class="col-md-3">SHA1</td>
+                                             <th class="col-md-2">Algorithm</th>
+                                             <td class="col-md-7 cAPI-table-desc">The algorithms which can be used in crypto functions.</td>
+                                          </tr>
+                                       </table>
+                                       
+                                    </div>
+                                    
+                                    <div class="construct-wrapper">
+                                       <!--Primitive Types-->
+                                       
+                                       <!-- Function -->
+                                       
+                                       <!-- Struct-binded functions grouped together -->
+                                       
+                                       <!-- Connectors and its actions -->
+                                       
+                                       <!-- Objects and its functions -->
+                                       
+                                       <!-- Enums-->
+                                       
+                                       <!-- Annotations-->
+                                       
+                                       <!-- Global Variables-->
+                                       
+                                       <h2 id="SHA256">
+                                          <span class="fw-globe sm-icon"></span>
+                                          SHA256
+                                       </h2>
+                                       <table>
+                                          <tr>
+                                             <th class="col-md-3">Attribute Name</th>
+                                             <th class="col-md-2">Data Type</th>
+                                             <th class="col-md-7 cAPI-table-desc">Description</th>
+                                          </tr>
+                                          <tr>
+                                             <td class="col-md-3">SHA256</td>
+                                             <th class="col-md-2">Algorithm</th>
+                                             <td class="col-md-7 cAPI-table-desc"></td>
+                                          </tr>
+                                       </table>
+                                       
+                                    </div>
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          
+         </div>
+      </div>
+      <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
+      </div>
+      <script type="text/javascript" src="/search/search.js"/>
+      </body>
+      </html>
