@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2018, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.ballerinalang.platform.playground.controller.containercluster;
 
 import io.fabric8.kubernetes.api.model.Container;
@@ -51,12 +67,14 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     private String namespace;
     private String launcherImageName;
     private String nfsServerIp;
+    private String rootDomainName;
 
-    public KubernetesClientImpl(String namespace, String launcherImageName, String nfsServerIp) {
+    public KubernetesClientImpl(String namespace, String launcherImageName, String nfsServerIp, String rootDomainName) {
         this.k8sClient = new DefaultKubernetesClient();
         this.namespace = namespace;
         this.launcherImageName = launcherImageName;
         this.nfsServerIp = nfsServerIp;
+        this.rootDomainName = rootDomainName;
     }
 
     @Override
@@ -64,7 +82,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         String deploymentName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + deploymentNameSuffix;
 
         String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + deploymentNameSuffix;
-        String launcherSelfUrl = serviceSubDomain + "." + Constants.DOMAIN_PLAYGROUND_BALLERINA_IO;
+        String launcherSelfUrl = serviceSubDomain + "." + rootDomainName;
 
         log.info("Creating Deployment [Name] " + deploymentName + "...");
 
@@ -107,32 +125,24 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         // 3. Perform proper role (cache node vs build node)
         List<EnvVar> envVarList = new ArrayList<>();
 
-        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_WRITE_HOST,
-                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_HOST)));
-        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_WRITE_PORT,
-                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_PORT)));
-        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_READ_HOST,
-                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_HOST)));
-        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_READ_PORT,
-                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_PORT)));
-        envVarList.add(buildEnvVar(Constants.ENV_DB_HOST,
-                EnvUtils.getEnvStringValue(Constants.ENV_DB_HOST)));
-        envVarList.add(buildEnvVar(Constants.ENV_DB_PORT,
-                EnvUtils.getEnvStringValue(Constants.ENV_DB_PORT)));
-        envVarList.add(buildEnvVar(Constants.ENV_BPG_NAMESPACE, namespace));
-        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_LAUNCHER_SELF_URL, launcherSelfUrl));
-        envVarList.add(buildEnvVar(EnvVariables.ENV_IS_LAUNCHER_CACHE, "false"));
-        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL,
-                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)));
-
-//        envVarList.add(buildEnvVar(Constants.ENV_LAUNCHER_IMAGE_NAME, launcherImageName));
-//        envVarList.add(buildEnvVar(Constants.ENV_DESIRED_COUNT, EnvUtils.getEnvStringValue(Constants.ENV_DESIRED_COUNT)));
-//        envVarList.add(buildEnvVar(Constants.ENV_MAX_COUNT, EnvUtils.getEnvStringValue(Constants.ENV_MAX_COUNT)));
-//        envVarList.add(buildEnvVar(Constants.ENV_STEP_UP, EnvUtils.getEnvStringValue(Constants.ENV_STEP_UP)));
-//        envVarList.add(buildEnvVar(Constants.ENV_STEP_DOWN, EnvUtils.getEnvStringValue(Constants.ENV_STEP_DOWN)));
-//        envVarList.add(buildEnvVar(Constants.ENV_FREE_BUFFER, "6397"));
-//        envVarList.add(buildEnvVar("BPG_SCALING_IDLE_TIMEOUT_MIN", "6397"));
-//        envVarList.add(buildEnvVar("BPG_CONTROLLER_ROLE", "6397"));
+        try {
+            envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_WRITE_HOST,
+                    EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_HOST)));
+            envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_WRITE_PORT,
+                    EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_PORT)));
+            envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_READ_HOST,
+                    EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_HOST)));
+            envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_READ_PORT,
+                    EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_PORT)));
+            envVarList.add(buildEnvVar(Constants.ENV_BPG_NAMESPACE, namespace));
+            envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_LAUNCHER_SELF_URL, launcherSelfUrl));
+            envVarList.add(buildEnvVar(EnvVariables.ENV_IS_LAUNCHER_CACHE, "false"));
+            envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL,
+                    EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)));
+        } catch (IllegalArgumentException e) {
+            log.error("Error while populating environment variables for the launcher. Aborting creation.", e);
+            return false;
+        }
 
         launcherContainer.setEnv(envVarList);
 
@@ -199,7 +209,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         // Service load balancer annotations
         Map<String, String> annotations = new HashMap<>();
         annotations.put("serviceloadbalancer/lb.cookie-sticky-session", "true");
-        annotations.put("serviceloadbalancer/lb.host", serviceSubDomain + "." + Constants.DOMAIN_PLAYGROUND_BALLERINA_IO);
+        annotations.put("serviceloadbalancer/lb.host", serviceSubDomain + "." + rootDomainName);
         annotations.put("serviceloadbalancer/lb.sslTerm", "true");
 
         // Labels
@@ -316,21 +326,4 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
         return MINUTES.between(creationDate, now);
     }
-
-//    @Override
-//    public org.ballerinalang.platform.playground.controller.containercluster.model.Deployment getDeploymentByName(String deploymentName) {
-//        Deployment deployment = k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).get();
-//
-//        if (deployment == null) {
-//            return null;
-//        }
-//
-//        org.ballerinalang.platform.playground.controller.containercluster.model.Deployment dep = new org.ballerinalang.platform.playground.controller.containercluster.model.Deployment();
-//
-//        dep.setName(deployment.getMetadata().getName());
-//        dep.setNamespace(namespace);
-//        dep.setAge(calculateObjectAge(deployment.getMetadata().getCreationTimestamp()));
-//
-//        return dep;
-//    }
 }

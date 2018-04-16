@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2018, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.ballerinalang.platform.playground.controller.scaling;
 
 import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
@@ -18,20 +34,24 @@ public class LauncherClusterManager {
     private int freeBufferCount;
     private int maxCount;
     private int desiredCount;
+    private String rootDomainName;
     private ContainerRuntimeClient runtimeClient;
     private Persistence persistence;
 
     public LauncherClusterManager(int desiredCount, int maxCount, int stepUp, int stepDown,
-                                  int freeBufferCount, ContainerRuntimeClient runtimeClient, Persistence persistence) {
+                                  int freeBufferCount, String rootDomainName, ContainerRuntimeClient runtimeClient,
+                                  Persistence persistence) {
+
         this.stepDown = stepDown;
         this.stepUp = stepUp;
         this.freeBufferCount = freeBufferCount;
         this.maxCount = maxCount;
         this.desiredCount = desiredCount;
+        this.rootDomainName = rootDomainName;
         this.runtimeClient = runtimeClient;
         this.persistence = persistence;
 
-        // TODO: temp fix to test stuff until a proper persistence implementation is added
+        // If there are no launcher URLs in the persistence, try to collect any running valid launchers.
         if (getTotalLaunchers().size() == 0) {
             log.info("Initializing launcher list with any found existing launchers as free ones...");
 
@@ -214,7 +234,11 @@ public class LauncherClusterManager {
         List<String> deployments = getDeployments();
         log.info("Found " + deployments.size() + " deployments to be added");
         for (String deployment : deployments) {
-            addFreeLauncher(deployment);
+            if (runtimeClient.serviceExists(deployment)) {
+                addFreeLauncher(deployment);
+            } else {
+                log.info("Deployment " + deployment + " doesn't have a Service that exposes it. Not adding as a launcher...");
+            }
         }
     }
 
@@ -226,12 +250,20 @@ public class LauncherClusterManager {
         return persistence.getTotalLauncherUrls();
     }
 
+    public boolean markLauncherAsBusyBySubDomain(String launcherSubDomain) {
+        return markLauncherAsBusy(launcherSubDomain + "." + rootDomainName);
+    }
+
     public boolean markLauncherAsBusy(String launcherUrl) {
         if (persistence.launcherExists(launcherUrl)) {
             return persistence.markLauncherAsBusy(launcherUrl);
         }
 
         return false;
+    }
+
+    public boolean markLauncherAsFreeBySubDomain(String launcherSubDomain) {
+        return markLauncherAsFree(launcherSubDomain + "." + rootDomainName);
     }
 
     public boolean markLauncherAsFree(String launcherUrl) {
@@ -290,7 +322,7 @@ public class LauncherClusterManager {
         if (objectName != null) {
             return objectName.replace(Constants.BPG_APP_TYPE_LAUNCHER, Constants.LAUNCHER_URL_PREFIX) +
                     "." +
-                    Constants.DOMAIN_PLAYGROUND_BALLERINA_IO;
+                    rootDomainName;
         }
 
         throw new IllegalArgumentException("Null Object name cannot be processed.");

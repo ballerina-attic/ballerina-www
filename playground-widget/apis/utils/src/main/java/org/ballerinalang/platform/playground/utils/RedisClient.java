@@ -29,10 +29,10 @@ public class RedisClient {
     private Jedis slave;
 
     public RedisClient() {
-        master = new Jedis(EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_HOST),
-                EnvUtils.getEnvIntValue(EnvVariables.ENV_BPG_REDIS_WRITE_PORT));
-        slave = new Jedis(EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_HOST),
-                EnvUtils.getEnvIntValue(EnvVariables.ENV_BPG_REDIS_READ_PORT));
+        master = new Jedis(EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_HOST),
+                EnvUtils.getRequiredEnvIntValue(EnvVariables.ENV_BPG_REDIS_WRITE_PORT));
+        slave = new Jedis(EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_HOST),
+                EnvUtils.getRequiredEnvIntValue(EnvVariables.ENV_BPG_REDIS_READ_PORT));
     }
 
     public Jedis getWriteClient() {
