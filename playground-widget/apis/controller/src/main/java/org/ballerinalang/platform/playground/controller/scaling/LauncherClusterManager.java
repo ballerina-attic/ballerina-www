@@ -6,6 +6,7 @@ import org.ballerinalang.platform.playground.controller.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -49,6 +50,8 @@ public class LauncherClusterManager {
             // Get the youngest free launcher URL
             Collections.sort(urlsToScaleDown);
             String launcherUrlToDelete = urlsToScaleDown.get(urlsToScaleDown.size() - 1);
+
+            log.info("Cutting down [Launcher URL] " + launcherUrlToDelete + "...");
 
             // Get object name from launcher URL
             String deploymentName = getObjectNameFromLauncherUrl(launcherUrlToDelete);
@@ -116,21 +119,21 @@ public class LauncherClusterManager {
             return;
         }
 
-        // If after scaling down there wouldn't be enough free launchers, do scale down
+        // If after scaling down there wouldn't be enough free launchers, don't scale down
         log.info("Not scaling down since [Free Count] + [Step Down] " + freeCount + " + " + stepDown +
                 " < [Free Buffer Count] " + freeBufferCount);
     }
 
     public void honourDesiredCount() {
-        int totalLauncherCount = getTotalLaunchers().size();
-        log.info("[Total count] " + totalLauncherCount + " [Desired Count] " + desiredCount);
+        int totalDeploymentCount = getDeployments().size();
+        log.info("[Total count] " + totalDeploymentCount + " [Desired Count] " + desiredCount);
 
-        while (totalLauncherCount < desiredCount) {
-            log.info("Scaling UP: REASON -> [Total Count] " + totalLauncherCount + " < [Desired Count] " +
+        while (totalDeploymentCount < desiredCount) {
+            log.info("Scaling UP: REASON -> [Total Count] " + totalDeploymentCount + " < [Desired Count] " +
                     desiredCount);
 
             scaleUp("honourDesiredCount");
-            totalLauncherCount = getTotalLaunchers().size();
+            totalDeploymentCount = getDeployments().size();
         }
     }
 
@@ -172,6 +175,21 @@ public class LauncherClusterManager {
                 if (!runtimeClient.deleteDeployment(deploymentName)) {
                     log.error("Deployment deletion failed [Deployment Name] " + deploymentName);
                 }
+            }
+        }
+    }
+
+    public void validateLauncherUrls() {
+        log.info("Validating the existing launcher URL list for missing deployments...");
+
+        for (String launcherUrl : getTotalLaunchers()) {
+            log.info("Validating [Launcher URL] " + launcherUrl + "...");
+            String objectName = getObjectNameFromLauncherUrl(launcherUrl);
+            if (!runtimeClient.deploymentExists(objectName) || !runtimeClient.serviceExists(objectName)) {
+                log.info("Found an invalid launcher [URL] " + launcherUrl);
+                // cleanOrphan* jobs will clean any orphan deployments
+                // desired count check will scale up if free count is reduced
+                unregisterLauncherIfExists(launcherUrl);
             }
         }
     }
@@ -254,8 +272,9 @@ public class LauncherClusterManager {
 
     private String getObjectNameFromLauncherUrl(String launchUrl) {
         if (launchUrl != null) {
-            String subDomain = launchUrl.split(".")[0];
-            return subDomain.replace(Constants.LAUNCHER_URL_PREFIX, Constants.BPG_APP_TYPE_LAUNCHER);
+//            log.error("SPLIT RESULT for launcher: " + launchUrl + " : " + Arrays.toString(launchUrl.split("\\.")));
+            String[] domainParts = launchUrl.split("\\.");
+            return domainParts[0].replace(Constants.LAUNCHER_URL_PREFIX, Constants.BPG_APP_TYPE_LAUNCHER);
         }
 
         throw new IllegalArgumentException("Null launcher URL cannot be processed.");

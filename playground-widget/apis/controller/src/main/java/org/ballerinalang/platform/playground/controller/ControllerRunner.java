@@ -59,6 +59,10 @@ public class ControllerRunner {
                 clusterManager.honourMaxCount();
 
                 break;
+            case Constants.CONTROLLER_ROLE_URL_VALIDATOR:
+                clusterManager.validateLauncherUrls();
+
+                break;
             case Constants.CONTROLLER_ROLE_API_SERVER:
                 log.info("Starting API server...");
                 ControllerServiceManager serviceManager = new ControllerServiceManager(clusterManager);
