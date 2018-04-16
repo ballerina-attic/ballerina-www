@@ -161,9 +161,8 @@ $(document).ready(function () {
 			div_content += '<li class="cTableTitle">' + key + '</li>';
 
 			$.each(value, function (exkey, example) {
-					var link = example.replace(/ /g, "-");
-					link = link.replace(/\//g, "-").toLowerCase();
-					div_content += '<li><a href="/learn/by-example/' + link + '.html">' + example + '</a></li>';
+					var link = example['url'];
+					div_content += '<li><a href="/learn/by-example/' + link + '.html">' + example['name'] + '</a></li>';
 			});
 
 			div_content += '</ul>';
