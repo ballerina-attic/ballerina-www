@@ -77,6 +77,10 @@ public class ControllerRunner {
                 clusterManager.validateLauncherUrls();
 
                 break;
+            case Constants.CONTROLLER_ROLE_EVENT_WATCHER:
+                clusterManager.watchAndClean();
+
+                break;
             case Constants.CONTROLLER_ROLE_API_SERVER:
                 log.info("Checking for desired count of deployments...");
                 clusterManager.cleanOrphanDeployments();

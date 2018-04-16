@@ -16,6 +16,9 @@
 
 package org.ballerinalang.platform.playground.controller.containercluster;
 
+import io.fabric8.kubernetes.api.model.Event;
+import io.fabric8.kubernetes.client.Watcher;
+
 import java.util.List;
 
 public interface ContainerRuntimeClient {
@@ -36,5 +39,5 @@ public interface ContainerRuntimeClient {
 
     public boolean serviceExists(String serviceName);
 
-//    public Deployment getDeploymentByName(String deploymentName);
+    public void watchWithWatcher(Watcher<Event> watcher);
 }

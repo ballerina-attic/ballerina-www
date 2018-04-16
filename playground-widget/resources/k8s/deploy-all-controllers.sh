@@ -2,6 +2,8 @@
 
 set -e
 
+bash deploy-watcher.sh
+sleep 2
 bash deploy-validator.sh
 sleep 2
 bash deploy-controller.sh
