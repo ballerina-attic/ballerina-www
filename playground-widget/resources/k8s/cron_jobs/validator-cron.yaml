@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: desiredcheck
+  name: url-validator
 spec:
   schedule: "*/1 * * * *"
   # Do not allow concurrent runs
@@ -15,7 +15,7 @@ spec:
           restartPolicy: OnFailure
           containers:
           -
-            name: desiredcheck-controller
+            name: url-validator-controller
             imagePullPolicy: Always
             image: gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1
             env:
@@ -60,7 +60,7 @@ spec:
               value: "2"
             -
               name: BPG_CONTROLLER_ROLE
-              value: "DESIRED_CHECK"
+              value: "URL_VALIDATOR"
             -
               name: BGP_NFS_SERVER_IP
               value: "10.142.0.5"
