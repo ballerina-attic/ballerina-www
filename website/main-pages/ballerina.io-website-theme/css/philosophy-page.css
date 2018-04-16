@@ -254,6 +254,66 @@ box-shadow: inset 0px 53px 5px -37px rgba(0,0,0,0.38);*/
     margin: 0;
     width: 100%;
 }
+/* highlight code segments in phylosophy page */
+#ballerina_grammar_2{
+    position: relative;
+}
+.overllay-highlight{
+    width: 100%;
+    background: #34c9bf;
+    opacity: 0.2;
+    position: absolute;
+}
+
+
+.cCodeDesription {
+    padding-left: 14px;
+    background-image: url("/img/white-arrow.svg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+}
+div.cCodeDesription.gray {
+    background-image: url("/img/gray-arrow.svg");
+}
+.cCodeDesription>div {
+    background: #ffffff;
+    font-size: 16px;
+    padding: 7px 20px;
+}
+.cCodeDesription.gray>div {
+    background: #f2f3f4;
+}
+.cCodeDesription:hover {
+    padding-left: 14px;
+    background-image: url("/img/green-arrow.svg");
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+div.cCodeDesription.gray:hover {
+    background-image: url("/img/green-arrow.svg");
+}
+.cCodeDesription:hover > div {
+    background-color: #22b7b1;
+    color: #fff;
+}
+.cCodeDesription.gray:hover>div {
+    background-color: #22b7b1;
+}
+.cCodeDesription:hover > div p {
+    color: #fff;
+}
+div.text-display{
+    position: relative;
+}
+div.text-display div.cCodeDesription {
+    position: absolute;
+}
+div.text-display div.cCodeDesription.gray{
+    position: static;
+    margin-bottom:20px;
+}
+/*************/
 
 .cCloudNativeCode {
     background-color: #f5f6f6;
