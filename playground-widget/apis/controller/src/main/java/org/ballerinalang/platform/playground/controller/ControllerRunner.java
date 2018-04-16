@@ -64,6 +64,11 @@ public class ControllerRunner {
 
                 break;
             case Constants.CONTROLLER_ROLE_API_SERVER:
+                log.info("Checking for desired count of deployments...");
+                clusterManager.cleanOrphanDeployments();
+                clusterManager.cleanOrphanServices();
+                clusterManager.honourDesiredCount();
+
                 log.info("Starting API server...");
                 ControllerServiceManager serviceManager = new ControllerServiceManager(clusterManager);
                 MicroservicesRunner microservicesRunner = new MicroservicesRunner();
