@@ -34,6 +34,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+/**
+ * The API for the Controller Service.
+ */
 @Path(value = "/api")
 public class ControllerService {
 
@@ -45,6 +48,15 @@ public class ControllerService {
         this.serviceManager = serviceManager;
     }
 
+    /**
+     * Provide a launcher URL.
+     * <p>
+     * A Launcher URL can be a free launcher instance or the URL to the Cache Responder, based on the
+     * availability of the Cached responses.
+     *
+     * @param request The {@link LauncherRequest} object
+     * @return A {@link LauncherResponse}
+     */
     @POST
     @Path("/launcher")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -71,10 +83,20 @@ public class ControllerService {
                 .build();
     }
 
+    /**
+     * Mark a particular launcher as busy or free
+     *
+     * @param launcherSubdomain The String launcher subdomain, ex: launcher-1, to be set status for
+     * @param request           The {@link StatusUpdateRequest}
+     * @return The success or failure of the operation.
+     */
     @POST
     @Path("/launcher/{" + Constants.PATH_PARAM_LAUNCHER_URL + "}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response setLauncherStatus(@PathParam(Constants.PATH_PARAM_LAUNCHER_URL) String launcherSubdomain, StatusUpdateRequest request) {
+    public Response setLauncherStatus(
+            @PathParam(Constants.PATH_PARAM_LAUNCHER_URL) String launcherSubdomain,
+            StatusUpdateRequest request) {
+
         // Check if sent status is valid
         switch (request.getStatus()) {
             case MemberConstants.MEMBER_STATUS_FREE:
@@ -105,6 +127,11 @@ public class ControllerService {
         }
     }
 
+    /**
+     * Build a 404 Not Found HTTP Response.
+     *
+     * @return
+     */
     private Response buildNotFoundResponse() {
         return Response.status(Response.Status.NOT_FOUND)
                 .header(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN.toString(), '*')

@@ -61,32 +61,33 @@ import java.util.Map;
 
 import static java.time.temporal.ChronoUnit.MINUTES;
 
+/**
+ * K8S implementation of the Container Runtime Client.
+ *
+ */
 public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     private static final Logger log = LoggerFactory.getLogger(KubernetesClientImpl.class);
 
     private KubernetesClient k8sClient;
     private String namespace;
-    private String launcherImageName;
-    private String nfsServerIp;
-    private String rootDomainName;
 
-    public KubernetesClientImpl(String namespace, String launcherImageName, String nfsServerIp, String rootDomainName) {
+    public KubernetesClientImpl(String namespace) {
         this.k8sClient = new DefaultKubernetesClient();
         this.namespace = namespace;
-        this.launcherImageName = launcherImageName;
-        this.nfsServerIp = nfsServerIp;
-        this.rootDomainName = rootDomainName;
     }
 
     @Override
-    public boolean createDeployment(int deploymentNameSuffix, String reason) {
+    public boolean createDeployment(int deploymentNameSuffix, String rootDomainName, String reason) {
         String deploymentName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + deploymentNameSuffix;
 
         String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + deploymentNameSuffix;
         String launcherSelfUrl = serviceSubDomain + "." + rootDomainName;
 
         log.info("Creating Deployment [Name] " + deploymentName + "...");
+
+        // Lookup launcher image name
+        String launcherImageName = EnvUtils.getRequiredEnvStringValue(Constants.ENV_LAUNCHER_IMAGE_NAME);
 
         // Labels for the to be created deployment
         Map<String, String> labels = new HashMap<>();
@@ -149,10 +150,12 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         launcherContainer.setEnv(envVarList);
 
         // NFS volume
+        String nfsServerIP = EnvUtils.getRequiredEnvStringValue(Constants.ENV_BGP_NFS_SERVER_IP);
+
         List<Volume> volumes = new ArrayList<>();
         Volume nfsVolume = new VolumeBuilder()
                 .withName("nfs-build-cache")
-                .withNfs(new NFSVolumeSource("/exports/build-cache", false, nfsServerIp))
+                .withNfs(new NFSVolumeSource("/exports/build-cache", false, nfsServerIP))
                 .build();
         volumes.add(nfsVolume);
 
@@ -202,7 +205,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     }
 
     @Override
-    public boolean createService(int serviceNameSuffix, String reason) {
+    public boolean createService(int serviceNameSuffix, String rootDomainName, String reason) {
         String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + serviceNameSuffix;
         String serviceName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + serviceNameSuffix;
 
@@ -320,17 +323,16 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         k8sClient.events().inNamespace(namespace).watch(watcher);
     }
 
+    /**
+     * Create an Environment Variable entry to be added to a Deployment.
+     * @param key
+     * @param value
+     * @return
+     */
     private EnvVar buildEnvVar(String key, String value) {
         return new EnvVarBuilder()
                 .withName(key)
                 .withValue(value)
                 .build();
-    }
-
-    private long calculateObjectAgeByMinutes(String creationTimestamp) {
-        LocalDate creationDate = LocalDate.parse(creationTimestamp);
-        LocalDate now = LocalDate.now();
-
-        return MINUTES.between(creationDate, now);
     }
 }

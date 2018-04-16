@@ -17,11 +17,16 @@
 package org.ballerinalang.platform.playground.controller.service;
 
 import org.ballerinalang.platform.playground.controller.scaling.LauncherClusterManager;
+import org.ballerinalang.platform.playground.controller.util.Constants;
+import org.ballerinalang.platform.playground.utils.EnvUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+/**
+ * Perform business logic to help the Controller API.
+ */
 public class ControllerServiceManager {
     private static final Logger log = LoggerFactory.getLogger(ControllerServiceManager.class);
 
@@ -31,6 +36,11 @@ public class ControllerServiceManager {
         this.clusterManager = clusterManager;
     }
 
+    /**
+     * Provide a launcher URL.
+     *
+     * @return A String URL pointing to a communicable launcher instance.
+     */
     String allocateFreeLauncher() {
         log.info("Looking for free Launchers to allocate...");
         List<String> freeLaunchers = clusterManager.getFreeLaunchers();
@@ -52,15 +62,37 @@ public class ControllerServiceManager {
         return launcherToAllocate;
     }
 
+    /**
+     * Mark a particular launcher as a free one, to be allocated to a subsequent request.
+     *
+     * @param launcherSubDomain The subdomain, ex: launcher-1, of the launcher to be marked.
+     * @return True if the launcher was successfully marked as free, False if launcher was
+     * not found, or failed to be marked as free
+     */
     boolean markLauncherFree(String launcherSubDomain) {
         return clusterManager.markLauncherAsFreeBySubDomain(launcherSubDomain);
     }
 
+    /**
+     * Mark a particular launcher as a busy one, to avoid being allocated to a subsequent request.
+     *
+     * @param launcherSubDomain The subdomain, ex: launcher-1, of the launcher to be marked.
+     * @return True if the launcher was successfully marked as busy, False if launcher was
+     * not found, or failed to be marked as busy
+     */
     boolean markLauncherBusy(String launcherSubDomain) {
         return clusterManager.markLauncherAsBusyBySubDomain(launcherSubDomain);
     }
 
-    public String getCacheResponderUrl() {
-        return ""; //TODO
+    /**
+     * Get the URL to the Cache responder.
+     *
+     * @return The String URL to the Cache Responder
+     */
+    String getCacheResponderUrl() {
+        String cacheResponderSubDomain = "cache";
+        String rootDomainName = EnvUtils.getRequiredEnvStringValue(Constants.ENV_ROOT_DOMAIN_NAME);
+
+        return cacheResponderSubDomain + "." + rootDomainName;
     }
 }

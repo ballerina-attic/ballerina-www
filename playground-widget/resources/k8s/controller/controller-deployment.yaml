@@ -60,9 +60,6 @@ spec:
           name: BPG_SCALING_FREE_BUFFER
           value: "2"
         -
-          name: BPG_CONTROLLER_ROLE
-          value: "API_SERVER"
-        -
           name: BGP_NFS_SERVER_IP
           value: "10.142.0.5"
         -
@@ -71,13 +68,13 @@ spec:
         -
           name: BPG_CONTROLLER_INTERNAL_URL
           value: "bpg-controller-internal"
+        -
+          name: BPG_CONTROLLER_ROLE
+          value: "API_SERVER"
         ports:
         -
           name: http-port
           containerPort: 8080
-#        -
-#          name: https-port
-#          containerPort: 443
         readinessProbe: 
           tcpSocket: 
             port: http-port 
