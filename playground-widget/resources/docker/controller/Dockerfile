@@ -20,8 +20,7 @@ ENV CONTROLLER_VERSION "0.8-SNAPSHOT"
 LABEL maintainer="ballerina-dev@googlegroups.com"
 
 # Add a non-privileged user
-RUN apk update && \
-    mkdir -p /api && \
+RUN mkdir -p /api && \
     addgroup troupe && \
     adduser -g '' -s /bin/bash -D -G troupe ballerina
 
