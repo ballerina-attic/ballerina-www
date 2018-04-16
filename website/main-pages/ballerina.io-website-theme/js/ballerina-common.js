@@ -57,7 +57,7 @@ $(document).ready(function() {
         '<div class="cFormContainer">' +
         '<form>' +
         '<div class="cFieldContainer">' +
-        '<input maxlength="90" value="" id="emailUser" name="email" placeholder="Email" title="Email" type="text">' +
+        '<input maxlength="90" value="" id="emailUser" name="email" placeholder="Email" title="Join our list by entering your email" type="text">' +
         '</div>' +
         '<div class="cButtonContainer">' +
         '<a class="cBallerinaButtons subscribeUserForm" href="" id="subscribeUserButton"></a>' +
@@ -224,3 +224,12 @@ function formatDate(date, format) {
         return moment(date, "YYYY-MM-DD").format(format);
     }
 }
+
+   $(document).ready(function() {
+            $(".cBallerina-io-packages").click(function() {
+                $(".cCollaps-Menu").toggleClass('cOpenMenu');
+                $(".cBallerina-io-packages").toggleClass('cOpenMenu');
+                
+
+            });
+ });
