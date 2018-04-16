@@ -37,7 +37,7 @@ public class LauncherUtils {
 
     public static void markNodeAsFree() {
         StatusUpdateRequest statusUpdateRequest = new StatusUpdateRequest();
-        statusUpdateRequest.setLauncherUrl(EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_LAUNCHER_SELF_URL));
+        statusUpdateRequest.setLauncherUrl(EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_LAUNCHER_SELF_URL));
         statusUpdateRequest.setStatus(MemberConstants.MEMBER_STATUS_FREE);
         try {
             HttpClient client = HttpClients.createDefault();
@@ -55,7 +55,7 @@ public class LauncherUtils {
 
     private static String getControllerURL() {
         return "http://"
-                + EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)
+                + EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)
                 + "/api/launcher/status";
     }
 }

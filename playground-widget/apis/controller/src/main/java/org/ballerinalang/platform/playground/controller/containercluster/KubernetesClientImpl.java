@@ -67,12 +67,14 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
     private String namespace;
     private String launcherImageName;
     private String nfsServerIp;
+    private String rootDomainName;
 
-    public KubernetesClientImpl(String namespace, String launcherImageName, String nfsServerIp) {
+    public KubernetesClientImpl(String namespace, String launcherImageName, String nfsServerIp, String rootDomainName) {
         this.k8sClient = new DefaultKubernetesClient();
         this.namespace = namespace;
         this.launcherImageName = launcherImageName;
         this.nfsServerIp = nfsServerIp;
+        this.rootDomainName = rootDomainName;
     }
 
     @Override
@@ -80,7 +82,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         String deploymentName = Constants.BPG_APP_TYPE_LAUNCHER + "-" + deploymentNameSuffix;
 
         String serviceSubDomain = Constants.LAUNCHER_URL_PREFIX + "-" + deploymentNameSuffix;
-        String launcherSelfUrl = serviceSubDomain + "." + Constants.DOMAIN_PLAYGROUND_BALLERINA_IO;
+        String launcherSelfUrl = serviceSubDomain + "." + rootDomainName;
 
         log.info("Creating Deployment [Name] " + deploymentName + "...");
 
@@ -123,23 +125,24 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         // 3. Perform proper role (cache node vs build node)
         List<EnvVar> envVarList = new ArrayList<>();
 
-        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_WRITE_HOST,
-                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_HOST)));
-        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_WRITE_PORT,
-                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_PORT)));
-        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_READ_HOST,
-                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_HOST)));
-        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_READ_PORT,
-                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_PORT)));
-        envVarList.add(buildEnvVar(Constants.ENV_DB_HOST,
-                EnvUtils.getEnvStringValue(Constants.ENV_DB_HOST)));
-        envVarList.add(buildEnvVar(Constants.ENV_DB_PORT,
-                EnvUtils.getEnvStringValue(Constants.ENV_DB_PORT)));
-        envVarList.add(buildEnvVar(Constants.ENV_BPG_NAMESPACE, namespace));
-        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_LAUNCHER_SELF_URL, launcherSelfUrl));
-        envVarList.add(buildEnvVar(EnvVariables.ENV_IS_LAUNCHER_CACHE, "false"));
-        envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL,
-                EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)));
+        try {
+            envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_WRITE_HOST,
+                    EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_HOST)));
+            envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_WRITE_PORT,
+                    EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_PORT)));
+            envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_READ_HOST,
+                    EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_HOST)));
+            envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_REDIS_READ_PORT,
+                    EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_PORT)));
+            envVarList.add(buildEnvVar(Constants.ENV_BPG_NAMESPACE, namespace));
+            envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_LAUNCHER_SELF_URL, launcherSelfUrl));
+            envVarList.add(buildEnvVar(EnvVariables.ENV_IS_LAUNCHER_CACHE, "false"));
+            envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL,
+                    EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)));
+        } catch (IllegalArgumentException e) {
+            log.error("Error while populating environment variables for the launcher. Aborting creation.", e);
+            return false;
+        }
 
         launcherContainer.setEnv(envVarList);
 
@@ -206,7 +209,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         // Service load balancer annotations
         Map<String, String> annotations = new HashMap<>();
         annotations.put("serviceloadbalancer/lb.cookie-sticky-session", "true");
-        annotations.put("serviceloadbalancer/lb.host", serviceSubDomain + "." + Constants.DOMAIN_PLAYGROUND_BALLERINA_IO);
+        annotations.put("serviceloadbalancer/lb.host", serviceSubDomain + "." + rootDomainName);
         annotations.put("serviceloadbalancer/lb.sslTerm", "true");
 
         // Labels

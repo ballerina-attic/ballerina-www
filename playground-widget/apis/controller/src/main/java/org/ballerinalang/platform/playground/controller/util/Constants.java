@@ -35,10 +35,11 @@ public class Constants {
     public static final String ENV_DESIRED_COUNT = "BPG_SCALING_DESIRED";
     public static final String ENV_MAX_COUNT = "BPG_SCALING_MAX";
     public static final String ENV_FREE_BUFFER = "BPG_SCALING_FREE_BUFFER";
-
-    public static final String DOMAIN_PLAYGROUND_BALLERINA_IO = "playground.ballerina.io";
-
-    public static final String ENV_DB_HOST = "DB_HOST";
-    public static final String ENV_DB_PORT = "DB_PORT";
     public static final String ENV_BGP_NFS_SERVER_IP = "BGP_NFS_SERVER_IP";
+    public static final String ENV_ROOT_DOMAIN_NAME = "ROOT_DOMAIN_NAME";
+
+    // Default values
+    public static final String DEFAULT_ROOT_DOMAIN_NAME = "playground.preprod.ballerina.io";
+    public static final String DEFAULT_BALLERINA_PLAYGROUND_NAMESPACE = "ballerina-playground";
+
 }

@@ -34,34 +34,32 @@ public class ControllerRunner {
 
     public static void main(String[] args) {
         // Read controller role
-        String controllerRole = EnvUtils.getEnvStringValue(Constants.ENV_CONTROLLER_ROLE);
-
-        if (controllerRole == null) {
-            log.error("Controller role is not specified. Use environment variable \"" + Constants.ENV_CONTROLLER_ROLE + "\" to set a role.");
-            throw new IllegalArgumentException("Controller role is not specified.");
-        }
+        String controllerRole = EnvUtils.getRequiredEnvStringValue(Constants.ENV_CONTROLLER_ROLE);
 
         log.info("Starting Ballerina Playground Controller with role: " + controllerRole + "...");
 
         // Read control flags
-        String bpgNamespace = EnvUtils.getEnvStringValue(Constants.ENV_BPG_NAMESPACE);
-        String launcherImageName = EnvUtils.getEnvStringValue(Constants.ENV_LAUNCHER_IMAGE_NAME);
-        String nfsServerIP = EnvUtils.getEnvStringValue(Constants.ENV_BGP_NFS_SERVER_IP);
+        String bpgNamespace = EnvUtils.getEnvStringValue(Constants.ENV_BPG_NAMESPACE, Constants.DEFAULT_BALLERINA_PLAYGROUND_NAMESPACE);
+        String launcherImageName = EnvUtils.getRequiredEnvStringValue(Constants.ENV_LAUNCHER_IMAGE_NAME);
+        String nfsServerIP = EnvUtils.getRequiredEnvStringValue(Constants.ENV_BGP_NFS_SERVER_IP);
+        String rootDomainName = EnvUtils.getEnvStringValue(Constants.ENV_ROOT_DOMAIN_NAME, Constants.DEFAULT_ROOT_DOMAIN_NAME);
 
-        int stepUp = EnvUtils.getEnvIntValue(Constants.ENV_STEP_UP);
-        int stepDown = EnvUtils.getEnvIntValue(Constants.ENV_STEP_DOWN);
-        int desiredCount = EnvUtils.getEnvIntValue(Constants.ENV_DESIRED_COUNT);
-        int maxCount = EnvUtils.getEnvIntValue(Constants.ENV_MAX_COUNT);
-        int freeBufferCount = EnvUtils.getEnvIntValue(Constants.ENV_FREE_BUFFER);
+        // Auto scaling factors are defaulted to test values
+        int stepUp = EnvUtils.getEnvIntValue(Constants.ENV_STEP_UP, 2);
+        int stepDown = EnvUtils.getEnvIntValue(Constants.ENV_STEP_DOWN, 1);
+        int desiredCount = EnvUtils.getEnvIntValue(Constants.ENV_DESIRED_COUNT, 5);
+        int maxCount = EnvUtils.getEnvIntValue(Constants.ENV_MAX_COUNT, 10);
+        int freeBufferCount = EnvUtils.getEnvIntValue(Constants.ENV_FREE_BUFFER, 2);
 
         // Create a k8s client to interact with the k8s API. The client is per namespace
         log.info("Creating Kubernetes client...");
-        ContainerRuntimeClient runtimeClient = new KubernetesClientImpl(bpgNamespace, launcherImageName, nfsServerIP);
+        ContainerRuntimeClient runtimeClient = new KubernetesClientImpl(bpgNamespace, launcherImageName,
+                nfsServerIP, rootDomainName);
 
         // Create a cluster mgt instance to scale in/out launcher instances
         log.info("Creating Cluster Manager...");
         LauncherClusterManager clusterManager = new LauncherClusterManager(desiredCount, maxCount, stepUp, stepDown, freeBufferCount,
-                runtimeClient, new RedisPersistence());
+                rootDomainName, runtimeClient, new RedisPersistence());
 
         // Perform role
         switch (controllerRole) {

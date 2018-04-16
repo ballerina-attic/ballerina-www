@@ -34,20 +34,24 @@ public class LauncherClusterManager {
     private int freeBufferCount;
     private int maxCount;
     private int desiredCount;
+    private String rootDomainName;
     private ContainerRuntimeClient runtimeClient;
     private Persistence persistence;
 
     public LauncherClusterManager(int desiredCount, int maxCount, int stepUp, int stepDown,
-                                  int freeBufferCount, ContainerRuntimeClient runtimeClient, Persistence persistence) {
+                                  int freeBufferCount, String rootDomainName, ContainerRuntimeClient runtimeClient,
+                                  Persistence persistence) {
+
         this.stepDown = stepDown;
         this.stepUp = stepUp;
         this.freeBufferCount = freeBufferCount;
         this.maxCount = maxCount;
         this.desiredCount = desiredCount;
+        this.rootDomainName = rootDomainName;
         this.runtimeClient = runtimeClient;
         this.persistence = persistence;
 
-        // TODO: temp fix to test stuff until a proper persistence implementation is added
+        // If there are no launcher URLs in the persistence, try to collect any running valid launchers.
         if (getTotalLaunchers().size() == 0) {
             log.info("Initializing launcher list with any found existing launchers as free ones...");
 
@@ -230,7 +234,11 @@ public class LauncherClusterManager {
         List<String> deployments = getDeployments();
         log.info("Found " + deployments.size() + " deployments to be added");
         for (String deployment : deployments) {
-            addFreeLauncher(deployment);
+            if (runtimeClient.serviceExists(deployment)){
+                addFreeLauncher(deployment);
+            } else{
+                log.info("Deployment " + deployment + " doesn't have a Service that exposes it. Not adding as a launcher...");
+            }
         }
     }
 
@@ -306,7 +314,7 @@ public class LauncherClusterManager {
         if (objectName != null) {
             return objectName.replace(Constants.BPG_APP_TYPE_LAUNCHER, Constants.LAUNCHER_URL_PREFIX) +
                     "." +
-                    Constants.DOMAIN_PLAYGROUND_BALLERINA_IO;
+                    rootDomainName;
         }
 
         throw new IllegalArgumentException("Null Object name cannot be processed.");
