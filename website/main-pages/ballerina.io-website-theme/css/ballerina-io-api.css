@@ -17,13 +17,16 @@ padding-left: 10px;
 
 
 .col-lg-3.cBallerina-io-Home-Left-col  , .col-lg-3.cBallerina-io-Home-Right-col {
-    width: 23%;
+/*    width: 23%;*/
 }
 
 .col-lg-6.cBallerina-io-Home-Middle-col {
-    width: 54%;
+/*    width: 54%;*/
 }
 
+.cBlallerina-io-docs-right-nav-container {
+    padding-left: 0;
+}
 
 .cLectColStyle ul {
     padding: 0;
@@ -46,14 +49,14 @@ padding-left: 10px;
 
 
 .cBallerina-io p {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 24px;
     font-weight: 200;
 }
 
 .fw-struct {
     width: 10px;
-    height: 16px;
+    height: 20px;
     display: inline-block;
     float: left;
     background-image: url("//b.content.wso2.com/sites/all/ballerina.io-cdn/img/construct.svg");
@@ -109,14 +112,14 @@ h2 {
 .fw-struct.sm-icon {
     margin-right: 5px;
     background-image: url("//b.content.wso2.com/sites/all/ballerina.io-cdn/img/construct-green.svg");
-    width: 12px;
-    height: 24px;
+    width: 17px;
+height: 30px;
 }
 
 .construct-wrapper .fw-function {
     background-image: url("//b.content.wso2.com/sites/all/ballerina.io-cdn/img/function-green.svg");
-    width: 12px;
-    height: 24px;
+  width: 17px;
+height: 30px;
     margin-right: 5px;
 }
 
@@ -148,14 +151,11 @@ padding: 3px 0;
 font-weight: 200;
 }
 td {
-    font-size: 12px;
 
 padding: 3px 0;
+padding-right: 0px;
+padding-left: 0px;
 
-    padding-right: 0px;
-    padding-left: 0px;
-
-font-size: 14px;
 
 font-weight: 200;
 }
@@ -173,10 +173,14 @@ th, td , table {
 }
 
 h1 {
-    font-size: 18px;
-font-weight: 400;
+   font-size: 30px;
+color: #585A5E;
+font-weight: 200;
 margin-bottom: 20px;
     
+}
+.cAPIdocsDescription h1 {
+    display: none;
 }
 
 h1 span.bold {
@@ -185,11 +189,13 @@ h1 span.bold {
 
 h2 {
    font-size: 16px;
+ font-family: Monaco;
 
 margin-bottom: 5px;
 font-weight: 400;
 line-height: 26px;
 margin-top: 30px;
+color: #57595d;
 
 }
 
@@ -218,18 +224,30 @@ label.table-header-text {
 
 th.col-md-5 , td.col-md-5 {
     width: 25%;
+   
 }
 
 th.col-md-3 , td.col-md-3 {
     width: 25%;
+   
 }
 
 th.col-md-2 , td.col-md-2 {
     width: 20%;
+    
 }
 th.col-md-7 , th.col-md-7 {
     width: 60%;
 }
+
+
+td.col-md-2 , td.col-md-3 , td.col-md-4,  td.col-md-5{
+    font-family: 'Monaco';
+    font-weight: 200;
+    font-size: 14px;
+}
+
+
 
 .thin-text.light-gray {
     font-family: 'Monaco';
@@ -256,3 +274,53 @@ pre {
 th {
     font-size:14px;
 }
+
+
+
+/*NEW MENU*/
+
+.cLectColStyle.cLeftColTop {
+    padding-bottom: 0px;
+}
+
+.cLectColStyle.cLeftColTop.cOpenMenu {
+    padding-bottom: 30px;
+}
+    .cCollaps-Menu {
+        height: 1px;
+        display: inline-block;
+        overflow: hidden;
+        transition: all 0.2s ease 0s;
+        opacity: 0;
+    }
+    
+/*    .cCollaps-Menu ul , .cCollaps-Menu ul li  {
+        display: none;
+    }
+    */
+    .cCollaps-Menu.cOpenMenu {
+        height: auto;
+        transition: all 0.2s ease 0s;
+        opacity: 1;
+    }
+    
+    .cBallerina-io-docs-Title.cBallerina-io-packages {
+        cursor: pointer;
+        border: none;
+/*        padding-bottom: 0;*/
+        margin-bottom: 0;
+        background-image: url("/img/down-arrow.svg");
+        background-size: 20px;
+        background-position: right 4px;
+        background-repeat: no-repeat;
+
+        
+
+    }
+    
+    .cBallerina-io-docs-Title.cBallerina-io-packages.cOpenMenu {
+         border-bottom: 1px solid #a6a8ab;
+         padding-bottom: 15px;
+         margin-bottom: 15px;
+          background-image: url("/img/up-arrow.svg");
+    }

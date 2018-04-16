@@ -78,7 +78,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <br>
-                    <h3>Nightly <span id="nightlyInfo"></span></h3>
+                    <div id="nightlyPackContainer"><h3>Nightly <span id="nightlyInfo"></span></h3>
                     <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
                         <div class="nightlyPackages0container">
                             <table id="nightlyPackages0"></table>
@@ -88,7 +88,7 @@
                         <div class="nightlyPackages0container">
                             <table id="nightlyPackages1"></table>
                         </div>
-                    </div>
+                    </div></div>
                     <div class="clearfix"></div>
                 </div>
             </div>            
