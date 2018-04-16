@@ -49,7 +49,7 @@ spec:
           value: "ballerina-playground"
         -
           name: BPG_LAUNCHER_IMAGE_NAME
-          value: "gcr.io/${BPG_GCP_PROJECT_ID}/launcher:latest"
+          value: "gcr.io/${BPG_GCP_PROJECT_ID}/launcher:v0.1-latest"
         -
           name: BPG_SCALING_DESIRED
           value: "3"
@@ -68,10 +68,16 @@ spec:
         -
           name: BPG_CONTROLLER_ROLE
           value: "API_SERVER"
+        -
+          name: BGP_NFS_SERVER_IP
+          value: "10.142.0.5"
+        -
+          name: BPG_CONTROLLER_INTERNAL_URL
+          value: "bpg-controller-internal"
         ports:
         -
           name: http-port
-          containerPort: 8080
+          containerPort: 80
 #        -
 #          name: https-port
 #          containerPort: 443

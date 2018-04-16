@@ -4,11 +4,30 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-92163714-2');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-PSL2TX4');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="shortcut icon" href="/img/favicon.ico">
     <title>Ballerina.io - API Docs</title>
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>var base_url = "";</script>
-    <script data-main="/search/search.js" src="/search/require.js"></script>
+    <script src="/search/require.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <!-- Optional theme -->
@@ -30,14 +49,44 @@
     <link rel="stylesheet" href="/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
     <link rel="stylesheet" href="/css/highlight.css">
-    <script src="/js/ballerina-common.js"></script>
+    <script type="text/javascript" src="/js/ballerina-common.js"></script>
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css">
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
 
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            $('pre > code.language-ballerina').each(function() {
+            //cont the number of rows
+            //Remove the new line from the end of the text
+            var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+            var lines = '<div class="line-numbers-wrap">';
+
+            //Iterate all the lines and create div elements with line number
+            for (var i = 1; i <= numberOfLines; i++) {
+                lines = lines + '<div class="line-number">' + i + '</div>';
+            }
+            lines = lines + '</div>';
+            //calculate <pre> height and set it to the container
+            var preHeight = numberOfLines*18 + 20;
+            $(this).parent()
+                .height(preHeight)
+                .addClass('ballerina-pre-wrapper')
+                .prepend(
+                    $(lines)
+                );
+            });
+            hljs.initHighlighting();
+        })
+
+    </script>
 </head>
 
 <body class="cBallerina-io" role="document">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="row cBallerina-io-top-row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
@@ -245,7 +294,7 @@
                             <li>
                                 <!--Package Name-->
                                  
-                                <a>
+                                <a class="cPackageList">
                                     <span class="bold">transactions</a>
                                  
                                 <div class="constructs-wrapper">
@@ -253,29 +302,52 @@
                                     <ul class="constructs-ul">
                                         
                                         <li>
+                                            <a href="#$anonRecord$0">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    $anonRecord$0
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#$anonRecord$1">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    $anonRecord$1
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#LocalProtocol">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    LocalProtocol
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
                                             <a href="#NotifyRequest">
                                                 <div class="construct-icon">
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    NotifyRequest 
+                                                    NotifyRequest
                                                     
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#NotifyRequest-NotifyRequest.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        NotifyRequest.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                          
                                         <li>
                                             <a href="#NotifyResponse">
@@ -283,24 +355,179 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    NotifyResponse 
+                                                    NotifyResponse
                                                     
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#NotifyResponse-NotifyResponse.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        NotifyResponse.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                         
+                                        <li>
+                                            <a href="#Participant2pcClientConfig">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Participant2pcClientConfig
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#PrepareRequest">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    PrepareRequest
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#PrepareResponse">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    PrepareResponse
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#Protocol">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Protocol
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#RegistrationRequest">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    RegistrationRequest
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#RegistrationResponse">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    RegistrationResponse
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#RemoteProtocol">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    RemoteProtocol
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#RequestError">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    RequestError
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#TransactionContext">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    TransactionContext
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#getCurrentTransactionId">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    getCurrentTransactionId
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#jsonToRegResponse">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    jsonToRegResponse
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#regRequestToJson">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    regRequestToJson
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#regResponseToJson">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    regResponseToJson
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#registerParticipantWithRemoteInitiator">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    registerParticipantWithRemoteInitiator
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
                                          
                                         <li>
                                             <a href="#Participant2pcClient">
@@ -308,24 +535,11 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Participant2pcClient 
+                                                    Participant2pcClient
                                                     
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Participant2pcClient-notify">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        notify
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
@@ -342,37 +556,12 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Participant2pcClient-Participant2pcClient.&lt;init&gt;">
+                                                <a href="#Participant2pcClient-notify">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
                                                     <div class="construct-name">
-                                                        Participant2pcClient.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                         
-                                        <li>
-                                            <a href="#Participant2pcClientConfig">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Participant2pcClientConfig 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Participant2pcClientConfig-Participant2pcClientConfig.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        Participant2pcClientConfig.&lt;init&gt;
+                                                        notify
                                                     </div>
                                                 </a>
                                             </li>
@@ -384,24 +573,11 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Participant2pcClientEP 
+                                                    Participant2pcClientEP
                                                     
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Participant2pcClientEP-getClient">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        getClient
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
@@ -418,259 +594,24 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Participant2pcClientEP-Participant2pcClientEP.&lt;init&gt;">
+                                                <a href="#Participant2pcClientEP-getClient">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
                                                     <div class="construct-name">
-                                                        Participant2pcClientEP.&lt;init&gt;
+                                                        getClient
                                                     </div>
                                                 </a>
                                             </li>
                                         </ul>
                                          
                                         <li>
-                                            <a href="#PrepareRequest">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    PrepareRequest 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#PrepareRequest-PrepareRequest.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        PrepareRequest.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                         
-                                        <li>
-                                            <a href="#PrepareResponse">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    PrepareResponse 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#PrepareResponse-PrepareResponse.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        PrepareResponse.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                         
-                                        <li>
-                                            <a href="#Protocol">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Protocol 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Protocol-Protocol.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        Protocol.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                         
-                                        <li>
-                                            <a href="#RegistrationRequest">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    RegistrationRequest 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#RegistrationRequest-RegistrationRequest.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        RegistrationRequest.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                         
-                                        <li>
-                                            <a href="#RegistrationResponse">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    RegistrationResponse 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#RegistrationResponse-RegistrationResponse.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        RegistrationResponse.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                         
-                                        <li>
-                                            <a href="#RequestError">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    RequestError 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#RequestError-RequestError.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        RequestError.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                         
-                                        <li>
-                                            <a href="#TransactionContext">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    TransactionContext 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#TransactionContext-TransactionContext.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        TransactionContext.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                         
-                                        <li>
-                                            <a href="#jsonToRegResponse">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    jsonToRegResponse 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#regRequestToJson">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    regRequestToJson 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#regResponseToJson">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    regResponseToJson 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#registerParticipantWithRemoteInitiator">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    registerParticipantWithRemoteInitiator 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#TransactionState">
-                                                <div class="construct-icon">
-                                                    <span class="fw-constant"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    TransactionState 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#COMMAND_PREPARE">
+                                            <a href="#COMMAND_ABORT">
                                                 <div class="construct-icon">
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    COMMAND_PREPARE 
+                                                    COMMAND_ABORT
                                                     
                                                 </div>
                                             </a>
@@ -682,55 +623,19 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    COMMAND_COMMIT 
+                                                    COMMAND_COMMIT
                                                     
                                                 </div>
                                             </a>
                                         </li>
                                          
                                         <li>
-                                            <a href="#COMMAND_ABORT">
+                                            <a href="#COMMAND_PREPARE">
                                                 <div class="construct-icon">
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    COMMAND_ABORT 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#OUTCOME_PREPARED">
-                                                <div class="construct-icon">
-                                                    <span class="fw-globe"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    OUTCOME_PREPARED 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#OUTCOME_NOT_PREPARED">
-                                                <div class="construct-icon">
-                                                    <span class="fw-globe"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    OUTCOME_NOT_PREPARED 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#OUTCOME_MIXED">
-                                                <div class="construct-icon">
-                                                    <span class="fw-globe"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    OUTCOME_MIXED 
+                                                    COMMAND_PREPARE
                                                     
                                                 </div>
                                             </a>
@@ -742,7 +647,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    OUTCOME_ABORTED 
+                                                    OUTCOME_ABORTED
                                                     
                                                 </div>
                                             </a>
@@ -754,19 +659,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    OUTCOME_COMMITTED 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#OUTCOME_HAZARD">
-                                                <div class="construct-icon">
-                                                    <span class="fw-globe"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    OUTCOME_HAZARD 
+                                                    OUTCOME_COMMITTED
                                                     
                                                 </div>
                                             </a>
@@ -778,7 +671,55 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    OUTCOME_FAILED_EOT 
+                                                    OUTCOME_FAILED_EOT
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#OUTCOME_HAZARD">
+                                                <div class="construct-icon">
+                                                    <span class="fw-globe"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    OUTCOME_HAZARD
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#OUTCOME_MIXED">
+                                                <div class="construct-icon">
+                                                    <span class="fw-globe"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    OUTCOME_MIXED
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#OUTCOME_NOT_PREPARED">
+                                                <div class="construct-icon">
+                                                    <span class="fw-globe"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    OUTCOME_NOT_PREPARED
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#OUTCOME_PREPARED">
+                                                <div class="construct-icon">
+                                                    <span class="fw-globe"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    OUTCOME_PREPARED
                                                     
                                                 </div>
                                             </a>
@@ -790,7 +731,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    OUTCOME_READ_ONLY 
+                                                    OUTCOME_READ_ONLY
                                                     
                                                 </div>
                                             </a>
@@ -863,9 +804,9 @@
                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
-                                                <h2 id="NotifyRequest">
+                                                <h2 id="$anonRecord$0">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct NotifyRequest
+                                                    public object $anonRecord$0
                                                 </h2>
                                                  
                                                 <p>
@@ -880,493 +821,24 @@
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="col-md-3">transactionId</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-5"></td>
-                                                        <td class="col-md-2"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">message</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-5"></td>
-                                                        <td class="col-md-2"></td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="NotifyRequest-NotifyRequest.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;NotifyRequest&gt;</span>
-                                                                NotifyRequest.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <h2 id="NotifyResponse">
-                                                    <span class="fw-struct sm-icon"></span>
-                                                    public struct NotifyResponse
-                                                </h2>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Fields:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Field Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-5">Description</th>
-                                                        <th class="col-md-2">Default Value</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">message</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-5"></td>
-                                                        <td class="col-md-2"></td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="NotifyResponse-NotifyResponse.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;NotifyResponse&gt;</span>
-                                                                NotifyResponse.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <h2 id="Participant2pcClient">
-                                                    <span class="fw-struct sm-icon"></span>
-                                                    public struct Participant2pcClient
-                                                </h2>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Fields:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Field Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-5">Description</th>
-                                                        <th class="col-md-2">Default Value</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">clientEP</td>
-                                                        <td class="col-md-2">Participant2pcClientEP</td>
-                                                        <td class="col-md-5"></td>
-                                                        <td class="col-md-2">[]</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Participant2pcClient-notify">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Participant2pcClient&gt;</span>
-                                                                notify(string transactionId, string message) returns (string | error) 
-                                                            </h2>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">transactionId</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">message</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">string | error</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Participant2pcClient-prepare">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Participant2pcClient&gt;</span>
-                                                                prepare(string transactionId) returns (string | error) 
-                                                            </h2>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">transactionId</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">string | error</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Participant2pcClient-Participant2pcClient.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Participant2pcClient&gt;</span>
-                                                                Participant2pcClient.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <h2 id="Participant2pcClientConfig">
-                                                    <span class="fw-struct sm-icon"></span>
-                                                    public struct Participant2pcClientConfig
-                                                </h2>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Fields:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Field Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-5">Description</th>
-                                                        <th class="col-md-2">Default Value</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">participantURL</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-5"></td>
-                                                        <td class="col-md-2"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">endpointTimeout</td>
+                                                        <td class="col-md-3">count</td>
                                                         <td class="col-md-2">int</td>
                                                         <td class="col-md-5"></td>
                                                         <td class="col-md-2"></td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="col-md-3">retryConfig</td>
-                                                        <td class="col-md-2">struct {int count, int interval}</td>
-                                                        <td class="col-md-5"></td>
-                                                        <td class="col-md-2">[]</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Participant2pcClientConfig-Participant2pcClientConfig.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Participant2pcClientConfig&gt;</span>
-                                                                Participant2pcClientConfig.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <h2 id="Participant2pcClientEP">
-                                                    <span class="fw-struct sm-icon"></span>
-                                                    public struct Participant2pcClientEP
-                                                </h2>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Fields:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Field Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-5">Description</th>
-                                                        <th class="col-md-2">Default Value</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">httpClient</td>
-                                                        <td class="col-md-2">ClientEndpoint</td>
-                                                        <td class="col-md-5"></td>
-                                                        <td class="col-md-2">[]</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">conf</td>
-                                                        <td class="col-md-2">Participant2pcClientConfig</td>
-                                                        <td class="col-md-5"></td>
-                                                        <td class="col-md-2">[]</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Participant2pcClientEP-getClient">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Participant2pcClientEP&gt;</span>
-                                                                getClient() returns (Participant2pcClient) 
-                                                            </h2>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">Participant2pcClient</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Participant2pcClientEP-init">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Participant2pcClientEP&gt;</span>
-                                                                init(Participant2pcClientConfig conf) 
-                                                            </h2>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">conf</td>
-                                                                    <td class="col-md-2">Participant2pcClientConfig</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Participant2pcClientEP-Participant2pcClientEP.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Participant2pcClientEP&gt;</span>
-                                                                Participant2pcClientEP.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <h2 id="PrepareRequest">
-                                                    <span class="fw-struct sm-icon"></span>
-                                                    public struct PrepareRequest
-                                                </h2>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Fields:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Field Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-5">Description</th>
-                                                        <th class="col-md-2">Default Value</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">transactionId</td>
-                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-3">interval</td>
+                                                        <td class="col-md-2">int</td>
                                                         <td class="col-md-5"></td>
                                                         <td class="col-md-2"></td>
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="PrepareRequest-PrepareRequest.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;PrepareRequest&gt;</span>
-                                                                PrepareRequest.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1383,9 +855,9 @@
                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
-                                                <h2 id="PrepareResponse">
+                                                <h2 id="$anonRecord$1">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct PrepareResponse
+                                                    public object $anonRecord$1
                                                 </h2>
                                                  
                                                 <p>
@@ -1400,30 +872,24 @@
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="col-md-3">message</td>
-                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-3">count</td>
+                                                        <td class="col-md-2">int</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">interval</td>
+                                                        <td class="col-md-2">int</td>
                                                         <td class="col-md-5"></td>
                                                         <td class="col-md-2"></td>
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="PrepareResponse-PrepareResponse.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;PrepareResponse&gt;</span>
-                                                                PrepareResponse.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1440,9 +906,9 @@
                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
-                                                <h2 id="Protocol">
+                                                <h2 id="LocalProtocol">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct Protocol
+                                                    public object LocalProtocol
                                                 </h2>
                                                  
                                                 <p>
@@ -1464,13 +930,6 @@
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="col-md-3">url</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-5"></td>
-                                                        <td class="col-md-2"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
                                                         <td class="col-md-3">transactionBlockId</td>
                                                         <td class="col-md-2">int</td>
                                                         <td class="col-md-5"></td>
@@ -1479,29 +938,301 @@
                                                     
                                                     <tr>
                                                         <td class="col-md-3">protocolFn</td>
-                                                        <td class="col-md-2">function(string, int, string)returns(boolean) | null</td>
+                                                        <td class="col-md-2">function(string, int, string)returns(boolean)</td>
                                                         <td class="col-md-5"></td>
                                                         <td class="col-md-2"></td>
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Protocol-Protocol.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Protocol&gt;</span>
-                                                                Protocol.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <h2 id="NotifyRequest">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object NotifyRequest
+                                                </h2>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Fields:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Field Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">transactionId</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">message</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <h2 id="NotifyResponse">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object NotifyResponse
+                                                </h2>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Fields:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Field Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">message</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <h2 id="Participant2pcClientConfig">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object Participant2pcClientConfig
+                                                </h2>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Fields:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Field Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">participantURL</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">timeoutMillis</td>
+                                                        <td class="col-md-2">int</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">retryConfig</td>
+                                                        <td class="col-md-2">$anonRecord$1</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2">[]</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <h2 id="PrepareRequest">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object PrepareRequest
+                                                </h2>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Fields:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Field Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">transactionId</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <h2 id="PrepareResponse">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object PrepareResponse
+                                                </h2>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Fields:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Field Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">message</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <h2 id="Protocol">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object Protocol
+                                                </h2>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Fields:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Field Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">name</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1520,7 +1251,7 @@
                                                 
                                                 <h2 id="RegistrationRequest">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct RegistrationRequest
+                                                    public object RegistrationRequest
                                                 </h2>
                                                  
                                                 <p>
@@ -1550,29 +1281,16 @@
                                                     
                                                     <tr>
                                                         <td class="col-md-3">participantProtocols</td>
-                                                        <td class="col-md-2">Protocol[]</td>
+                                                        <td class="col-md-2">RemoteProtocol[]</td>
                                                         <td class="col-md-5"></td>
                                                         <td class="col-md-2">[]</td>
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="RegistrationRequest-RegistrationRequest.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;RegistrationRequest&gt;</span>
-                                                                RegistrationRequest.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1591,7 +1309,7 @@
                                                 
                                                 <h2 id="RegistrationResponse">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct RegistrationResponse
+                                                    public object RegistrationResponse
                                                 </h2>
                                                  
                                                 <p>
@@ -1614,29 +1332,67 @@
                                                     
                                                     <tr>
                                                         <td class="col-md-3">coordinatorProtocols</td>
-                                                        <td class="col-md-2">Protocol[]</td>
+                                                        <td class="col-md-2">RemoteProtocol[]</td>
                                                         <td class="col-md-5"></td>
                                                         <td class="col-md-2">[]</td>
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="RegistrationResponse-RegistrationResponse.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;RegistrationResponse&gt;</span>
-                                                                RegistrationResponse.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <h2 id="RemoteProtocol">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object RemoteProtocol
+                                                </h2>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Fields:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Field Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">name</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">url</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5"></td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1655,7 +1411,7 @@
                                                 
                                                 <h2 id="RequestError">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct RequestError
+                                                    public object RequestError
                                                 </h2>
                                                  
                                                 <p>
@@ -1677,23 +1433,10 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="RequestError-RequestError.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;RequestError&gt;</span>
-                                                                RequestError.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1712,7 +1455,7 @@
                                                 
                                                 <h2 id="TransactionContext">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct TransactionContext
+                                                    public object TransactionContext
                                                 </h2>
                                                  
                                                 <p>
@@ -1762,23 +1505,52 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="TransactionContext-TransactionContext.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;TransactionContext&gt;</span>
-                                                                TransactionContext.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="getCurrentTransactionId">
+                                                    <span class="fw-function sm-icon"> </span>
+                                                    public function getCurrentTransactionId() returns (string) 
+                                                </h2>
+                                                  
+                                                <p class="cReturn">
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">string </td>
+                                                        <td class="col-md-7"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1838,6 +1610,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1895,6 +1669,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1954,6 +1730,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1969,7 +1747,7 @@
                                                 
                                                 <h2 id="registerParticipantWithRemoteInitiator">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function registerParticipantWithRemoteInitiator(string transactionId, int transactionBlockId, string registerAtURL, Protocol[] participantProtocols) returns (TransactionContext | error) 
+                                                    public function registerParticipantWithRemoteInitiator(string transactionId, int transactionBlockId, string registerAtURL, RemoteProtocol[] participantProtocols) returns (TransactionContext | error) 
                                                 </h2>
                                                  
                                                 <p>
@@ -1985,24 +1763,27 @@
                                                     <tr>
                                                         <td class="col-md-3">transactionId</td>
                                                         <td class="col-md-2">string</td>
-                                                        <td class="col-md-7"></td>
+                                                        <td class="col-md-7"> - ID of the transaction to which this participant is registering with
+    </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="col-md-3">transactionBlockId</td>
                                                         <td class="col-md-2">int</td>
-                                                        <td class="col-md-7"></td>
+                                                        <td class="col-md-7"> - The local ID of the transaction block on the participant
+    </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="col-md-3">registerAtURL</td>
                                                         <td class="col-md-2">string</td>
-                                                        <td class="col-md-7"></td>
+                                                        <td class="col-md-7"> - The URL of the initiator to which this participant will register with
+</td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="col-md-3">participantProtocols</td>
-                                                        <td class="col-md-2">Protocol[]</td>
+                                                        <td class="col-md-2">RemoteProtocol[]</td>
                                                         <td class="col-md-7"></td>
                                                     </tr>
                                                     
@@ -2030,6 +1811,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2047,82 +1830,144 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <!-- Enums-->
+                                                <!-- Objects and its functions -->
                                                 
-                                                <h2 id="TransactionState">
-                                                    <span class="fw-constant sm-icon"></span>
-                                                    public enum TransactionState
-                                                </h2>
+                                                    <h2 id="Participant2pcClient">
+                                                        <span class="fw-struct sm-icon"></span>
+                                                        public type Participant2pcClient object
+                                                    </h2>
+                                                     
+                                                    <p>
+                                                        <label class="table-header-text">Parameters:</label>
+                                                    </p>
+                                                    <table>
+                                                        <tr>
+                                                            <th class="col-md-4">Parameter Name</th>
+                                                            <th class="col-md-2">Data Type</th>
+                                                            <th class="col-md-6">Description</th>
+                                                        </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">clientEP</td>
+                                                                <td class="col-md-2">Participant2pcClientEP</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                    </table>
                                                  
-                                                <p>
-                                                    <label class="table-header-text">Enumerators:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Name</th>
-                                                        <th class="col-md-9">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">ACTIVE</td>
-                                                        <td class="col-md-9"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">PREPARED</td>
-                                                        <td class="col-md-9"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">COMMITTED</td>
-                                                        <td class="col-md-9"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">ABORTED</td>
-                                                        <td class="col-md-9"></td>
-                                                    </tr>
-                                                    
-                                                </table>
+                                                    <div class="function-wrapper">
+                                                        <h2>Functions:</h2>
+                                                        <ul>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Participant2pcClient-prepare">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Participant2pcClient>
+                                                                </span>
+                                                                        prepare(string transactionId) returns (string | error) 
+                                                                    </h2>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">transactionId</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">string | error</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Participant2pcClient-notify">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Participant2pcClient>
+                                                                </span>
+                                                                        notify(string transactionId, string message) returns (string | error) 
+                                                                    </h2>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">transactionId</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">message</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">string | error</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                        </ul>
+                                                    </div>
                                                  
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
                                                 
                                                 <!-- Global Variables-->
                                                 
-                                                <h2 id="COMMAND_PREPARE">
-                                                    <span class="fw-globe sm-icon"></span>
-                                                    COMMAND_PREPARE
-                                                </h2>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Attribute Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="col-md-3">COMMAND_PREPARE</td>
-                                                        <th class="col-md-2">string</th>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                </table>
-                                                
                                             </div>
                                             
                                             <div class="construct-wrapper">
@@ -2134,29 +1979,108 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                                    <h2 id="Participant2pcClientEP">
+                                                        <span class="fw-struct sm-icon"></span>
+                                                        public type Participant2pcClientEP object
+                                                    </h2>
+                                                     
+                                                    <p>
+                                                        <label class="table-header-text">Parameters:</label>
+                                                    </p>
+                                                    <table>
+                                                        <tr>
+                                                            <th class="col-md-4">Parameter Name</th>
+                                                            <th class="col-md-2">Data Type</th>
+                                                            <th class="col-md-6">Description</th>
+                                                        </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">httpClient</td>
+                                                                <td class="col-md-2">Client</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">conf</td>
+                                                                <td class="col-md-2">Participant2pcClientConfig</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                    </table>
+                                                 
+                                                    <div class="function-wrapper">
+                                                        <h2>Functions:</h2>
+                                                        <ul>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Participant2pcClientEP-init">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Participant2pcClientEP>
+                                                                </span>
+                                                                        init(Participant2pcClientConfig conf) 
+                                                                    </h2>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">conf</td>
+                                                                                <td class="col-md-2">Participant2pcClientConfig</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Participant2pcClientEP-getClient">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Participant2pcClientEP>
+                                                                </span>
+                                                                        getClient() returns (Participant2pcClient) 
+                                                                    </h2>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">Participant2pcClient</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                 
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
                                                 
                                                 <!-- Global Variables-->
                                                 
-                                                <h2 id="COMMAND_COMMIT">
-                                                    <span class="fw-globe sm-icon"></span>
-                                                    COMMAND_COMMIT
-                                                </h2>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Attribute Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="col-md-3">COMMAND_COMMIT</td>
-                                                        <th class="col-md-2">string</th>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                </table>
-                                                
                                             </div>
                                             
                                             <div class="construct-wrapper">
@@ -2167,6 +2091,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2202,15 +2128,17 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
                                                 
                                                 <!-- Global Variables-->
                                                 
-                                                <h2 id="OUTCOME_PREPARED">
+                                                <h2 id="COMMAND_COMMIT">
                                                     <span class="fw-globe sm-icon"></span>
-                                                    OUTCOME_PREPARED
+                                                    COMMAND_COMMIT
                                                 </h2>
                                                 <table>
                                                     <tr>
@@ -2219,7 +2147,7 @@
                                                         <th class="col-md-7">Description</th>
                                                     </tr>
                                                     <tr>
-                                                        <td class="col-md-3">OUTCOME_PREPARED</td>
+                                                        <td class="col-md-3">COMMAND_COMMIT</td>
                                                         <th class="col-md-2">string</th>
                                                         <td class="col-md-7"></td>
                                                     </tr>
@@ -2236,15 +2164,17 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
                                                 
                                                 <!-- Global Variables-->
                                                 
-                                                <h2 id="OUTCOME_NOT_PREPARED">
+                                                <h2 id="COMMAND_PREPARE">
                                                     <span class="fw-globe sm-icon"></span>
-                                                    OUTCOME_NOT_PREPARED
+                                                    COMMAND_PREPARE
                                                 </h2>
                                                 <table>
                                                     <tr>
@@ -2253,7 +2183,7 @@
                                                         <th class="col-md-7">Description</th>
                                                     </tr>
                                                     <tr>
-                                                        <td class="col-md-3">OUTCOME_NOT_PREPARED</td>
+                                                        <td class="col-md-3">COMMAND_PREPARE</td>
                                                         <th class="col-md-2">string</th>
                                                         <td class="col-md-7"></td>
                                                     </tr>
@@ -2270,39 +2200,7 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                                <h2 id="OUTCOME_MIXED">
-                                                    <span class="fw-globe sm-icon"></span>
-                                                    OUTCOME_MIXED
-                                                </h2>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Attribute Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="col-md-3">OUTCOME_MIXED</td>
-                                                        <th class="col-md-2">string</th>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                </table>
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2338,6 +2236,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2371,6 +2271,44 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                                <h2 id="OUTCOME_FAILED_EOT">
+                                                    <span class="fw-globe sm-icon"></span>
+                                                    OUTCOME_FAILED_EOT
+                                                </h2>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Attribute Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-md-3">OUTCOME_FAILED_EOT</td>
+                                                        <th class="col-md-2">string</th>
+                                                        <td class="col-md-7"></td>
+                                                    </tr>
+                                                </table>
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2406,15 +2344,17 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
                                                 
                                                 <!-- Global Variables-->
                                                 
-                                                <h2 id="OUTCOME_FAILED_EOT">
+                                                <h2 id="OUTCOME_MIXED">
                                                     <span class="fw-globe sm-icon"></span>
-                                                    OUTCOME_FAILED_EOT
+                                                    OUTCOME_MIXED
                                                 </h2>
                                                 <table>
                                                     <tr>
@@ -2423,7 +2363,7 @@
                                                         <th class="col-md-7">Description</th>
                                                     </tr>
                                                     <tr>
-                                                        <td class="col-md-3">OUTCOME_FAILED_EOT</td>
+                                                        <td class="col-md-3">OUTCOME_MIXED</td>
                                                         <th class="col-md-2">string</th>
                                                         <td class="col-md-7"></td>
                                                     </tr>
@@ -2439,6 +2379,80 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                                <h2 id="OUTCOME_NOT_PREPARED">
+                                                    <span class="fw-globe sm-icon"></span>
+                                                    OUTCOME_NOT_PREPARED
+                                                </h2>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Attribute Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-md-3">OUTCOME_NOT_PREPARED</td>
+                                                        <th class="col-md-2">string</th>
+                                                        <td class="col-md-7"></td>
+                                                    </tr>
+                                                </table>
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                                <h2 id="OUTCOME_PREPARED">
+                                                    <span class="fw-globe sm-icon"></span>
+                                                    OUTCOME_PREPARED
+                                                </h2>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Attribute Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-md-3">OUTCOME_PREPARED</td>
+                                                        <th class="col-md-2">string</th>
+                                                        <td class="col-md-7"></td>
+                                                    </tr>
+                                                </table>
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2487,87 +2501,22 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="primitive-types.html">
+                                     
+                                    <span class="bold">Primitive Types</span>
+                                    
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="auth.html">
                                      
                                     <span class="bold">auth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.html">
-                                     
-                                    <span class="bold">auth.authz</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.permissionstore.html">
-                                     
-                                    <span class="bold">auth.authz.permissionstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.basic.html">
-                                     
-                                    <span class="bold">auth.basic</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.jwtAuth.html">
-                                     
-                                    <span class="bold">auth.jwtAuth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.userstore.html">
-                                     
-                                    <span class="bold">auth.userstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.utils.html">
-                                     
-                                    <span class="bold">auth.utils</span>
                                      
                                 </a>
                                 
@@ -2604,9 +2553,9 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="collections.html">
+                                <a href="compression.html">
                                      
-                                    <span class="bold">collections</span>
+                                    <span class="bold">compression</span>
                                      
                                 </a>
                                 
@@ -2630,9 +2579,9 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="data.sql.html">
+                                <a href="file.html">
                                      
-                                    <span class="bold">data.sql</span>
+                                    <span class="bold">file</span>
                                      
                                 </a>
                                 
@@ -2643,9 +2592,22 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="file.html">
+                                <a href="grpc.html">
                                      
-                                    <span class="bold">file</span>
+                                    <span class="bold">grpc</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="http.html">
+                                     
+                                    <span class="bold">http</span>
                                      
                                 </a>
                                 
@@ -2695,19 +2657,6 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="jwt.signature.html">
-                                     
-                                    <span class="bold">jwt.signature</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
                                 <a href="log.html">
                                      
                                     <span class="bold">log</span>
@@ -2724,6 +2673,32 @@
                                 <a href="math.html">
                                      
                                     <span class="bold">math</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="mime.html">
+                                     
+                                    <span class="bold">mime</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="observe.html">
+                                     
+                                    <span class="bold">observe</span>
                                      
                                 </a>
                                 
@@ -2786,9 +2761,48 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="sql.html">
+                                     
+                                    <span class="bold">sql</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="swagger.html">
+                                     
+                                    <span class="bold">swagger</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="task.html">
                                      
                                     <span class="bold">task</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="test.html">
+                                     
+                                    <span class="bold">test</span>
                                      
                                 </a>
                                 
@@ -2818,7 +2832,7 @@
                                 <div class="constructs-wrapper">
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
-                                                                                                                            
+                                                                                                                                        
                                     </ul>
                                 </div>
                                 
@@ -2862,11 +2876,11 @@
         </div>
     </div>
     <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
- 
+
     </div>
 
 
-
+<script type="text/javascript" src="/search/search.js"/>
 </body>
 
 </html>

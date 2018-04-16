@@ -4,11 +4,30 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-92163714-2');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-PSL2TX4');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="shortcut icon" href="/img/favicon.ico">
     <title>Ballerina.io - API Docs</title>
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>var base_url = "";</script>
-    <script data-main="/search/search.js" src="/search/require.js"></script>
+    <script src="/search/require.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <!-- Optional theme -->
@@ -30,14 +49,44 @@
     <link rel="stylesheet" href="/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
     <link rel="stylesheet" href="/css/highlight.css">
-    <script src="/js/ballerina-common.js"></script>
+    <script type="text/javascript" src="/js/ballerina-common.js"></script>
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css">
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
 
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            $('pre > code.language-ballerina').each(function() {
+            //cont the number of rows
+            //Remove the new line from the end of the text
+            var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+            var lines = '<div class="line-numbers-wrap">';
+
+            //Iterate all the lines and create div elements with line number
+            for (var i = 1; i <= numberOfLines; i++) {
+                lines = lines + '<div class="line-number">' + i + '</div>';
+            }
+            lines = lines + '</div>';
+            //calculate <pre> height and set it to the container
+            var preHeight = numberOfLines*18 + 20;
+            $(this).parent()
+                .height(preHeight)
+                .addClass('ballerina-pre-wrapper')
+                .prepend(
+                    $(lines)
+                );
+            });
+            hljs.initHighlighting();
+        })
+
+    </script>
 </head>
 
 <body class="cBallerina-io" role="document">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="row cBallerina-io-top-row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
@@ -259,7 +308,7 @@
                             <li>
                                 <!--Package Name-->
                                  
-                                <a>
+                                <a class="cPackageList">
                                     <span class="bold">util</a>
                                  
                                 <div class="constructs-wrapper">
@@ -267,29 +316,40 @@
                                     <ul class="constructs-ul">
                                         
                                         <li>
+                                            <a href="#Base64DecodeError">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Base64DecodeError
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#Base64EncodeError">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Base64EncodeError
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
                                             <a href="#Locale">
                                                 <div class="construct-icon">
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Locale 
+                                                    Locale
                                                     
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Locale-Locale.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        Locale.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                          
                                         <li>
                                             <a href="#base16ToBase64Encode">
@@ -297,31 +357,79 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    base16ToBase64Encode 
+                                                    base16ToBase64Encode
                                                     
                                                 </div>
                                             </a>
                                         </li>
                                          
                                         <li>
-                                            <a href="#base64Decode">
+                                            <a href="#base64DecodeBlob">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    base64Decode 
+                                                    base64DecodeBlob
                                                     
                                                 </div>
                                             </a>
                                         </li>
                                          
                                         <li>
-                                            <a href="#base64Encode">
+                                            <a href="#base64DecodeByteChannel">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    base64Encode 
+                                                    base64DecodeByteChannel
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#base64DecodeString">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    base64DecodeString
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#base64EncodeBlob">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    base64EncodeBlob
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#base64EncodeByteChannel">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    base64EncodeByteChannel
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#base64EncodeString">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    base64EncodeString
                                                     
                                                 </div>
                                             </a>
@@ -333,7 +441,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    base64ToBase16Encode 
+                                                    base64ToBase16Encode
                                                     
                                                 </div>
                                             </a>
@@ -345,7 +453,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    parseJson 
+                                                    parseJson
                                                     
                                                 </div>
                                             </a>
@@ -357,7 +465,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    uuid 
+                                                    uuid
                                                     
                                                 </div>
                                             </a>
@@ -416,13 +524,123 @@
                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
-                                                <h2 id="Locale">
+                                                <h2 id="Base64DecodeError">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct Locale
+                                                    public object Base64DecodeError
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Locale struct represents specific geographical, political, or cultural region.
+                                                    <span class="fw-right gray xs-icon"></span>Represent errors related to base64 decoder
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Fields:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Field Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">message</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5">The error message</td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">cause</td>
+                                                        <td class="col-md-2">error</td>
+                                                        <td class="col-md-5">The cause of the error</td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <h2 id="Base64EncodeError">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object Base64EncodeError
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Represent errors related to base64 encoder
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Fields:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Field Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">message</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-5">The error message</td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">cause</td>
+                                                        <td class="col-md-2">error</td>
+                                                        <td class="col-md-5">The cause of the error</td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <h2 id="Locale">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object Locale
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Locale type represents specific geographical, political, or cultural region.
                                                 </p>
                                                  
                                                 <p>
@@ -451,23 +669,10 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Locale-Locale.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Locale&gt;</span>
-                                                                Locale.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -531,6 +736,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -544,13 +751,13 @@
                                                 
                                                 <!-- Function -->
                                                 
-                                                <h2 id="base64Decode">
+                                                <h2 id="base64DecodeBlob">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function base64Decode(string s) returns (string) 
+                                                    public function base64DecodeBlob(blob valueToBeDecoded) returns (blob | Base64DecodeError) 
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Decodes a base64 encoded string to base10.
+                                                    <span class="fw-right gray xs-icon"></span>Decode a given blob with Base64 encoding scheme.
                                                 </p>
                                                  
                                                 <p>
@@ -564,9 +771,9 @@
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="col-md-3">s</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">string to be decoded</td>
+                                                        <td class="col-md-3">valueToBeDecoded</td>
+                                                        <td class="col-md-2">blob</td>
+                                                        <td class="col-md-7">Content that needs to be decoded</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -583,8 +790,8 @@
                                                     
                                                     <tr>
                                                         <td class="col-md-3"></td>
-                                                        <td class="col-md-2">string </td>
-                                                        <td class="col-md-7">the decoded string.</td>
+                                                        <td class="col-md-2">blob | Base64DecodeError </td>
+                                                        <td class="col-md-7">Return a decoded blob</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -592,6 +799,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -606,13 +815,13 @@
                                                 
                                                 <!-- Function -->
                                                 
-                                                <h2 id="base64Encode">
+                                                <h2 id="base64DecodeByteChannel">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function base64Encode(string s) returns (string) 
+                                                    public function base64DecodeByteChannel(ByteChannel valueToBeDecoded) returns (ioByteChannel | Base64DecodeError) 
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Encodes a base10 encoded string to base64.
+                                                    <span class="fw-right gray xs-icon"></span>Decode a given ByteChannel with Base64 encoding scheme.
                                                 </p>
                                                  
                                                 <p>
@@ -626,9 +835,9 @@
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="col-md-3">s</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">string to be encoded</td>
+                                                        <td class="col-md-3">valueToBeDecoded</td>
+                                                        <td class="col-md-2">ByteChannel</td>
+                                                        <td class="col-md-7">Content that needs to be decoded</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -645,8 +854,8 @@
                                                     
                                                     <tr>
                                                         <td class="col-md-3"></td>
-                                                        <td class="col-md-2">string </td>
-                                                        <td class="col-md-7">the encoded string.</td>
+                                                        <td class="col-md-2">ioByteChannel | Base64DecodeError </td>
+                                                        <td class="col-md-7">Return a decoded ByteChannel</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -654,6 +863,264 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="base64DecodeString">
+                                                    <span class="fw-function sm-icon"> </span>
+                                                    public function base64DecodeString(string valueToBeDecoded) returns (string | Base64DecodeError) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Decode a given string with Base64 encoding scheme.
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Parameter Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">valueToBeDecoded</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-7">Content that needs to be decoded</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <p class="cReturn">
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">string | Base64DecodeError </td>
+                                                        <td class="col-md-7">Return a decoded string</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="base64EncodeBlob">
+                                                    <span class="fw-function sm-icon"> </span>
+                                                    public function base64EncodeBlob(blob valueToBeEncoded) returns (blob | Base64EncodeError) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Encode a given blob with Base64 encoding scheme.
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Parameter Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">valueToBeEncoded</td>
+                                                        <td class="col-md-2">blob</td>
+                                                        <td class="col-md-7">Content that needs to be encoded</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <p class="cReturn">
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">blob | Base64EncodeError </td>
+                                                        <td class="col-md-7">Return an encoded blob</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="base64EncodeByteChannel">
+                                                    <span class="fw-function sm-icon"> </span>
+                                                    public function base64EncodeByteChannel(ByteChannel valueToBeEncoded) returns (ioByteChannel | Base64EncodeError) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Encode a given ByteChannel with Base64 encoding scheme.
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Parameter Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">valueToBeEncoded</td>
+                                                        <td class="col-md-2">ByteChannel</td>
+                                                        <td class="col-md-7">Content that needs to be encoded</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <p class="cReturn">
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">ioByteChannel | Base64EncodeError </td>
+                                                        <td class="col-md-7">Return an encoded ByteChannel</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="base64EncodeString">
+                                                    <span class="fw-function sm-icon"> </span>
+                                                    public function base64EncodeString(string valueToBeEncoded) returns (string | Base64EncodeError) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Encode a given string with Base64 encoding scheme.
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Parameter Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">valueToBeEncoded</td>
+                                                        <td class="col-md-2">string</td>
+                                                        <td class="col-md-7">Content that needs to be encoded</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <p class="cReturn">
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">string | Base64EncodeError </td>
+                                                        <td class="col-md-7">Return an encoded string</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -717,6 +1184,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -779,6 +1248,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -823,6 +1294,8 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -853,87 +1326,22 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="primitive-types.html">
+                                     
+                                    <span class="bold">Primitive Types</span>
+                                    
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="auth.html">
                                      
                                     <span class="bold">auth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.html">
-                                     
-                                    <span class="bold">auth.authz</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.permissionstore.html">
-                                     
-                                    <span class="bold">auth.authz.permissionstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.basic.html">
-                                     
-                                    <span class="bold">auth.basic</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.jwtAuth.html">
-                                     
-                                    <span class="bold">auth.jwtAuth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.userstore.html">
-                                     
-                                    <span class="bold">auth.userstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.utils.html">
-                                     
-                                    <span class="bold">auth.utils</span>
                                      
                                 </a>
                                 
@@ -970,9 +1378,9 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="collections.html">
+                                <a href="compression.html">
                                      
-                                    <span class="bold">collections</span>
+                                    <span class="bold">compression</span>
                                      
                                 </a>
                                 
@@ -996,9 +1404,9 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="data.sql.html">
+                                <a href="file.html">
                                      
-                                    <span class="bold">data.sql</span>
+                                    <span class="bold">file</span>
                                      
                                 </a>
                                 
@@ -1009,9 +1417,22 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="file.html">
+                                <a href="grpc.html">
                                      
-                                    <span class="bold">file</span>
+                                    <span class="bold">grpc</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="http.html">
+                                     
+                                    <span class="bold">http</span>
                                      
                                 </a>
                                 
@@ -1061,19 +1482,6 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="jwt.signature.html">
-                                     
-                                    <span class="bold">jwt.signature</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
                                 <a href="log.html">
                                      
                                     <span class="bold">log</span>
@@ -1090,6 +1498,32 @@
                                 <a href="math.html">
                                      
                                     <span class="bold">math</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="mime.html">
+                                     
+                                    <span class="bold">mime</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="observe.html">
+                                     
+                                    <span class="bold">observe</span>
                                      
                                 </a>
                                 
@@ -1152,9 +1586,48 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="sql.html">
+                                     
+                                    <span class="bold">sql</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="swagger.html">
+                                     
+                                    <span class="bold">swagger</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="task.html">
                                      
                                     <span class="bold">task</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="test.html">
+                                     
+                                    <span class="bold">test</span>
                                      
                                 </a>
                                 
@@ -1210,7 +1683,7 @@
                                 <div class="constructs-wrapper">
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
-                                                             
+                                                                               
                                     </ul>
                                 </div>
                                 
@@ -1228,11 +1701,11 @@
         </div>
     </div>
     <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
- 
+
     </div>
 
 
-
+<script type="text/javascript" src="/search/search.js"/>
 </body>
 
 </html>

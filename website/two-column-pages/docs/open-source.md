@@ -6,7 +6,7 @@ We appreciate your help and participation!
 
 ## Announcements Mailing List
 
-We have a low-traffic announcement list that we use to disseminate major news such as new releases. We encourage all Ballerina users and developers to be a part of this list.
+We have a low-traffic announcement list that we use to disseminate major news such as new releases. We encourage all Ballerina users and developers to be a part of this list. By submitting your email address here, you will receive emails with the latest news about Ballerina.
 
 <form class="cFormContainerOS">
 <label class="subscribeForm" id="subscribeFormLabelOS">Email Address</label>
@@ -38,7 +38,7 @@ Comments in GitHub issues and pull requests are used for issue or feature-specif
 
 Submitting a bug is just as important as contributing code. If you found an issue or have an improvement idea for Ballerina code, web site, or documentation, please file an issue.
 
-*Important*: All security-related issues should be reported to security@ballerina.io. See [Ballerina Security Policy](http://ballerina.io/security) for details.
+*Important*: All security-related issues should be reported to security@ballerina.io. See [Ballerina Security Policy](/security) for details.
 
 To file non-security issues:
 

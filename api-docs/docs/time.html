@@ -4,11 +4,30 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-92163714-2');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-PSL2TX4');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="shortcut icon" href="/img/favicon.ico">
     <title>Ballerina.io - API Docs</title>
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>var base_url = "";</script>
-    <script data-main="/search/search.js" src="/search/require.js"></script>
+    <script src="/search/require.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <!-- Optional theme -->
@@ -30,14 +49,44 @@
     <link rel="stylesheet" href="/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
     <link rel="stylesheet" href="/css/highlight.css">
-    <script src="/js/ballerina-common.js"></script>
+    <script type="text/javascript" src="/js/ballerina-common.js"></script>
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css">
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
 
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            $('pre > code.language-ballerina').each(function() {
+            //cont the number of rows
+            //Remove the new line from the end of the text
+            var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+            var lines = '<div class="line-numbers-wrap">';
+
+            //Iterate all the lines and create div elements with line number
+            for (var i = 1; i <= numberOfLines; i++) {
+                lines = lines + '<div class="line-number">' + i + '</div>';
+            }
+            lines = lines + '</div>';
+            //calculate <pre> height and set it to the container
+            var preHeight = numberOfLines*18 + 20;
+            $(this).parent()
+                .height(preHeight)
+                .addClass('ballerina-pre-wrapper')
+                .prepend(
+                    $(lines)
+                );
+            });
+            hljs.initHighlighting();
+        })
+
+    </script>
 </head>
 
 <body class="cBallerina-io" role="document">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="row cBallerina-io-top-row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
@@ -238,7 +287,7 @@
                             <li>
                                 <!--Package Name-->
                                  
-                                <a>
+                                <a class="cPackageList">
                                     <span class="bold">time</a>
                                  
                                 <div class="constructs-wrapper">
@@ -246,12 +295,84 @@
                                     <ul class="constructs-ul">
                                         
                                         <li>
+                                            <a href="#Timezone">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Timezone
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#createTime">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    createTime
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#currentTime">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    currentTime
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#nanoTime">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    nanoTime
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#parse">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    parse
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#parseTo">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    parseTo
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
                                             <a href="#Time">
                                                 <div class="construct-icon">
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Time 
+                                                    Time
                                                     
                                                 </div>
                                             </a>
@@ -259,38 +380,12 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Time-Time.&lt;init&gt;">
+                                                <a href="#Time-toString">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
                                                     <div class="construct-name">
-                                                        Time.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Time-addDuration">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        addDuration
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Time-day">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        day
+                                                        toString
                                                     </div>
                                                 </a>
                                             </li>
@@ -324,6 +419,110 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
+                                                <a href="#Time-year">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        year
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Time-month">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        month
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Time-day">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        day
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Time-weekday">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        weekday
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Time-hour">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        hour
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Time-minute">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        minute
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Time-second">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        second
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Time-milliSecond">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        milliSecond
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
                                                 <a href="#Time-getDate">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
@@ -350,64 +549,12 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Time-hour">
+                                                <a href="#Time-addDuration">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
                                                     <div class="construct-name">
-                                                        hour
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Time-milliSecond">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        milliSecond
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Time-minute">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        minute
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Time-month">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        month
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Time-second">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        second
+                                                        addDuration
                                                     </div>
                                                 </a>
                                             </li>
@@ -428,19 +575,6 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Time-toString">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        toString
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
                                                 <a href="#Time-toTimezone">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
@@ -451,105 +585,6 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Time-weekday">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        weekday
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Time-year">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        year
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                         
-                                        <li>
-                                            <a href="#Timezone">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Timezone 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Timezone-Timezone.&lt;init&gt;">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        Timezone.&lt;init&gt;
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                         
-                                        <li>
-                                            <a href="#createTime">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    createTime 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#currentTime">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    currentTime 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#parse">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    parse 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#parseTo">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    parseTo 
-                                                    
-                                                </div>
-                                            </a>
-                                        </li>
                                          
                                         <li>
                                             <a href="#TimeFormat">
@@ -557,7 +592,19 @@
                                                     <span class="fw-constant"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TimeFormat 
+                                                    TimeFormat
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#TIME_FORMAT_RFC_1123">
+                                                <div class="construct-icon">
+                                                    <span class="fw-globe"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    TIME_FORMAT_RFC_1123
                                                     
                                                 </div>
                                             </a>
@@ -637,739 +684,13 @@
                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
-                                                <h2 id="Time">
-                                                    <span class="fw-struct sm-icon"></span>
-                                                    public struct Time
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Ballerina Time struct represents a particular time with its associated timezone.
-                                                </p>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Fields:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Field Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-5">Description</th>
-                                                        <th class="col-md-2">Default Value</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">time</td>
-                                                        <td class="col-md-2">int</td>
-                                                        <td class="col-md-5">Time value as milliseconds since epoch.</td>
-                                                        <td class="col-md-2"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">zone</td>
-                                                        <td class="col-md-2">Timezone</td>
-                                                        <td class="col-md-5">The time   zone of the time.</td>
-                                                        <td class="col-md-2">[]</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-Time.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                Time.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-addDuration">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                addDuration(int years, int months, int days, int hours, int minutes, int seconds, int milliSeconds) returns (Time) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Add specified durations to the given time value.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">years</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The year representation</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">months</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The month-of-year to represent, from 1 (January) to 12 (December)</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">days</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The day-of-month to represent, from 1 to 31</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">hours</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The hour-of-day to represent, from 0 to 23</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">minutes</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The minute-of-hour to represent, from 0 to 59</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">seconds</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The second-of-minute to represent, from 0 to 59</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">milliSeconds</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The milli-of-second to represent, from 0 to 999</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">Time</td>
-                                                                    <td class="col-md-7">Time struct containing time and zone information after the addition.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-day">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                day() returns (int) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns the date representation of the given time.
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The day-of-month, from 1 to 31.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-format">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                format(string format) returns (string) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns formatted string representation of the given time.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">format</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">The format which is used to format the given text</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">The formatted string of the given time.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-formatTo">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                formatTo(TimeFormat format) returns (string) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Formats the given string to the specified standard time format and returns the formatted string.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">format</td>
-                                                                    <td class="col-md-2">TimeFormat</td>
-                                                                    <td class="col-md-7">The format which is used to format the given text</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">The formatted string of the given time.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-getDate">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                getDate() returns ((int,int,int)) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns the date representation of the given time.
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">(int,int,int)</td>
-                                                                    <td class="col-md-7">The year representation.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-getTime">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                getTime() returns ((int,int,int,int)) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns the time representation of the given time.
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">(int,int,int,int)</td>
-                                                                    <td class="col-md-7">The hour-of-day, from 0 to 23.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-hour">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                hour() returns (int) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns the hour representation of the given time.
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The hour-of-day, from 0 to 23.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-milliSecond">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                milliSecond() returns (int) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns the millisecond representation of the given time.
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The milli-of-second, from 0 to 999.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-minute">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                minute() returns (int) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns the minute representation of the given time.
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The minute-of-hour to represent, from 0 to 59.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-month">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                month() returns (int) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns the month representation of the given time.
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The month-of-year, from 1 (January) to 12 (December).</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-second">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                second() returns (int) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns the second representation of the given time.
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The second-of-minute, from 0 to 59.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-subtractDuration">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                subtractDuration(int years, int months, int days, int hours, int minutes, int seconds, int milliSeconds) returns (Time) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Subtract specified durations from the given time value.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">years</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The year representation</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">months</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The month-of-year to represent, from 1 (January) to 12 (December)</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">days</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The day-of-month to represent, from 1 to 31</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">hours</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The hour-of-day to represent, from 0 to 23</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">minutes</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The minute-of-hour to represent, from 0 to 59</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">seconds</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The second-of-minute to represent, from 0 to 59</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">milliSeconds</td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The milli-of-second to represent, from 0 to 999</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">Time</td>
-                                                                    <td class="col-md-7">Time struct containing time and zone information after the subtraction.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-toString">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                toString() returns (string) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns ISO 8601 string representation of the given time.
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">The ISO 8601 formatted string of the given time.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-toTimezone">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                toTimezone(string zoneId) returns (Time) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Change the timezone of the given time.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">zoneId</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">The new timezone id</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">Time</td>
-                                                                    <td class="col-md-7">Time struct containing time and zone information after the conversion.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-weekday">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                weekday() returns (string) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns the weekday representation of the given time.
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">The weekday representation from SUNDAY to SATURDAY.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Time-year">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Time&gt;</span>
-                                                                year() returns (int) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns the year representation of the given time.
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">int</td>
-                                                                    <td class="col-md-7">The year representation.</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
                                                 <h2 id="Timezone">
                                                     <span class="fw-struct sm-icon"></span>
-                                                    public struct Timezone
+                                                    public object Timezone
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Ballerina Timezone struct represents the timezone information associated with a particular time.
+                                                    <span class="fw-right gray xs-icon"></span>Ballerina Timezone represents the timezone information associated with a particular time.
                                                 </p>
                                                  
                                                 <p>
@@ -1398,23 +719,10 @@
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Timezone-Timezone.&lt;init&gt;">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">&lt;Timezone&gt;</span>
-                                                                Timezone.&lt;init&gt;() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1435,7 +743,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Returns the Time struct correspoding to the given time components and timezone.
+                                                    <span class="fw-right gray xs-icon"></span>Returns the Time object correspoding to the given time components and timezone.
                                                 </p>
                                                  
                                                 <p>
@@ -1511,7 +819,7 @@
                                                     <tr>
                                                         <td class="col-md-3"></td>
                                                         <td class="col-md-2">Time </td>
-                                                        <td class="col-md-7">Time struct containing time and zone information.</td>
+                                                        <td class="col-md-7">Time object containing time and zone information.</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1519,6 +827,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1555,7 +865,7 @@
                                                     <tr>
                                                         <td class="col-md-3"></td>
                                                         <td class="col-md-2">Time </td>
-                                                        <td class="col-md-7">Time struct containing the time and zone information.</td>
+                                                        <td class="col-md-7">Time object containing the time and zone information.</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1563,6 +873,54 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="nanoTime">
+                                                    <span class="fw-function sm-icon"> </span>
+                                                    public function nanoTime() returns (int) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Returns the current system time in nano seconds
+                                                </p>
+                                                  
+                                                <p class="cReturn">
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">int </td>
+                                                        <td class="col-md-7">Int value of the current system time in nano seconds</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1623,7 +981,7 @@
                                                     <tr>
                                                         <td class="col-md-3"></td>
                                                         <td class="col-md-2">Time </td>
-                                                        <td class="col-md-7">Time struct containing time and zone information.</td>
+                                                        <td class="col-md-7">Time object containing time and zone information.</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1631,6 +989,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1691,7 +1051,7 @@
                                                     <tr>
                                                         <td class="col-md-3"></td>
                                                         <td class="col-md-2">Time </td>
-                                                        <td class="col-md-7">Time struct containing time and zone information.</td>
+                                                        <td class="col-md-7">Time object containing time and zone information.</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1699,6 +1059,8 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1717,32 +1079,803 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                                    <h2 id="Time">
+                                                        <span class="fw-struct sm-icon"></span>
+                                                        public type Time object
+                                                    </h2>
+                                                    
+                                                        <p>
+                                                            <span class="fw-right gray xs-icon"></span>Ballerina Time represents a particular time with its associated timezone.
+                                                        </p>
+                                                     
+                                                    <p>
+                                                        <label class="table-header-text">Parameters:</label>
+                                                    </p>
+                                                    <table>
+                                                        <tr>
+                                                            <th class="col-md-4">Parameter Name</th>
+                                                            <th class="col-md-2">Data Type</th>
+                                                            <th class="col-md-6">Description</th>
+                                                        </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">time</td>
+                                                                <td class="col-md-2">int</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">zone</td>
+                                                                <td class="col-md-2">Timezone</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                    </table>
+                                                 
+                                                    <div class="function-wrapper">
+                                                        <h2>Functions:</h2>
+                                                        <ul>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-toString">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        toString() returns (string) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns ISO 8601 string representation of the given time.
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">The ISO 8601 formatted string of the given time.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-format">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        format(string format) returns (string) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns formatted string representation of the given time.
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">format</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">The format which is used to format the given text</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">The formatted string of the given time.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-formatTo">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        formatTo(TimeFormat format) returns (string) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Formats the given string to the specified standard time format and returns the formatted string.
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">format</td>
+                                                                                <td class="col-md-2">TimeFormat</td>
+                                                                                <td class="col-md-7">The format which is used to format the given text</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">The formatted string of the given time.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-year">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        year() returns (int) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns the year representation of the given time.
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The year representation.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-month">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        month() returns (int) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns the month representation of the given time.
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The month-of-year, from 1 (January) to 12 (December).</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-day">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        day() returns (int) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns the date representation of the given time.
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The day-of-month, from 1 to 31.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-weekday">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        weekday() returns (string) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns the weekday representation of the given time.
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">The weekday representation from SUNDAY to SATURDAY.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-hour">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        hour() returns (int) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns the hour representation of the given time.
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The hour-of-day, from 0 to 23.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-minute">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        minute() returns (int) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns the minute representation of the given time.
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The minute-of-hour to represent, from 0 to 59.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-second">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        second() returns (int) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns the second representation of the given time.
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The second-of-minute, from 0 to 59.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-milliSecond">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        milliSecond() returns (int) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns the millisecond representation of the given time.
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The milli-of-second, from 0 to 999.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-getDate">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        getDate() returns ((int,int,int)) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns the date representation of the given time.
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">(int,int,int)</td>
+                                                                                <td class="col-md-7">The year representation.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-getTime">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        getTime() returns ((int,int,int,int)) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns the time representation of the given time.
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">(int,int,int,int)</td>
+                                                                                <td class="col-md-7">The hour-of-day, from 0 to 23.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-addDuration">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        addDuration(int years, int months, int days, int hours, int minutes, int seconds, int milliSeconds) returns (Time) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Add specified durations to the given time value.
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">years</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The year representation</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">months</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The month-of-year to represent, from 1 (January) to 12 (December)</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">days</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The day-of-month to represent, from 1 to 31</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">hours</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The hour-of-day to represent, from 0 to 23</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">minutes</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The minute-of-hour to represent, from 0 to 59</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">seconds</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The second-of-minute to represent, from 0 to 59</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">milliSeconds</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The milli-of-second to represent, from 0 to 999</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">Time</td>
+                                                                                <td class="col-md-7">Time object containing time and zone information after the addition.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-subtractDuration">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        subtractDuration(int years, int months, int days, int hours, int minutes, int seconds, int milliSeconds) returns (Time) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Subtract specified durations from the given time value.
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">years</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The year representation</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">months</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The month-of-year to represent, from 1 (January) to 12 (December)</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">days</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The day-of-month to represent, from 1 to 31</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">hours</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The hour-of-day to represent, from 0 to 23</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">minutes</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The minute-of-hour to represent, from 0 to 59</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">seconds</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The second-of-minute to represent, from 0 to 59</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">milliSeconds</td>
+                                                                                <td class="col-md-2">int</td>
+                                                                                <td class="col-md-7">The milli-of-second to represent, from 0 to 999</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">Time</td>
+                                                                                <td class="col-md-7">Time object containing time and zone information after the subtraction.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Time-toTimezone">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Time>
+                                                                </span>
+                                                                        toTimezone(string zoneId) returns (Time) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Change the timezone of the given time.
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">zoneId</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">The new timezone id</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">Time</td>
+                                                                                <td class="col-md-7">Time object containing time and zone information after the conversion.</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                 
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <h2 id="TimeFormat">
                                                     <span class="fw-constant sm-icon"></span>
                                                     public enum TimeFormat
                                                 </h2>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Enumerators:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Name</th>
-                                                        <th class="col-md-9">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">RFC_1123</td>
-                                                        <td class="col-md-9"></td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
+                                                  
                                                 <!-- Annotations-->
                                                 
                                                 <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                                <h2 id="TIME_FORMAT_RFC_1123">
+                                                    <span class="fw-globe sm-icon"></span>
+                                                    TIME_FORMAT_RFC_1123
+                                                </h2>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Attribute Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-md-3">TIME_FORMAT_RFC_1123</td>
+                                                        <th class="col-md-2">TimeFormat</th>
+                                                        <td class="col-md-7"></td>
+                                                    </tr>
+                                                </table>
                                                 
                                             </div>
                                             
@@ -1768,87 +1901,22 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="primitive-types.html">
+                                     
+                                    <span class="bold">Primitive Types</span>
+                                    
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="auth.html">
                                      
                                     <span class="bold">auth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.html">
-                                     
-                                    <span class="bold">auth.authz</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.permissionstore.html">
-                                     
-                                    <span class="bold">auth.authz.permissionstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.basic.html">
-                                     
-                                    <span class="bold">auth.basic</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.jwtAuth.html">
-                                     
-                                    <span class="bold">auth.jwtAuth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.userstore.html">
-                                     
-                                    <span class="bold">auth.userstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.utils.html">
-                                     
-                                    <span class="bold">auth.utils</span>
                                      
                                 </a>
                                 
@@ -1885,9 +1953,9 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="collections.html">
+                                <a href="compression.html">
                                      
-                                    <span class="bold">collections</span>
+                                    <span class="bold">compression</span>
                                      
                                 </a>
                                 
@@ -1911,9 +1979,9 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="data.sql.html">
+                                <a href="file.html">
                                      
-                                    <span class="bold">data.sql</span>
+                                    <span class="bold">file</span>
                                      
                                 </a>
                                 
@@ -1924,9 +1992,22 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="file.html">
+                                <a href="grpc.html">
                                      
-                                    <span class="bold">file</span>
+                                    <span class="bold">grpc</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="http.html">
+                                     
+                                    <span class="bold">http</span>
                                      
                                 </a>
                                 
@@ -1976,19 +2057,6 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="jwt.signature.html">
-                                     
-                                    <span class="bold">jwt.signature</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
                                 <a href="log.html">
                                      
                                     <span class="bold">log</span>
@@ -2005,6 +2073,32 @@
                                 <a href="math.html">
                                      
                                     <span class="bold">math</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="mime.html">
+                                     
+                                    <span class="bold">mime</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="observe.html">
+                                     
+                                    <span class="bold">observe</span>
                                      
                                 </a>
                                 
@@ -2067,9 +2161,48 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="sql.html">
+                                     
+                                    <span class="bold">sql</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="swagger.html">
+                                     
+                                    <span class="bold">swagger</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="task.html">
                                      
                                     <span class="bold">task</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="test.html">
+                                     
+                                    <span class="bold">test</span>
                                      
                                 </a>
                                 
@@ -2086,7 +2219,7 @@
                                 <div class="constructs-wrapper">
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
-                                                             
+                                                                   
                                     </ul>
                                 </div>
                                 
@@ -2143,11 +2276,11 @@
         </div>
     </div>
     <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
- 
+
     </div>
 
 
-
+<script type="text/javascript" src="/search/search.js"/>
 </body>
 
 </html>

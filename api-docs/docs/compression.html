@@ -4,11 +4,30 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-92163714-2');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-PSL2TX4');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="shortcut icon" href="/img/favicon.ico">
     <title>Ballerina.io - API Docs</title>
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>var base_url = "";</script>
-    <script data-main="/search/search.js" src="/search/require.js"></script>
+    <script src="/search/require.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
     <!-- Optional theme -->
@@ -30,14 +49,47 @@
     <link rel="stylesheet" href="/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
     <link rel="stylesheet" href="/css/highlight.css">
-    <script src="/js/ballerina-common.js"></script>
+    <script type="text/javascript" src="/js/ballerina-common.js"></script>
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css">
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
 
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            //$('pre > code.language-ballerina').removeClass('language-ballerina').addClass('ballerina');
+            $('.line-numbers-wrap').remove();
+            $('pre > code.language-ballerina').each(function() {
+                //cont the number of rows
+                //Remove the new line from the end of the text
+                var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+                $(this).css('line-height', '18px')
+                var lines = '<div class="line-numbers-wrap">';
+
+                //Iterate all the lines and create div elements with line number
+                for (var i = 1; i <= numberOfLines; i++) {
+                    lines = lines + '<div class="line-number">' + i + '</div>';
+                }
+                lines = lines + '</div>';
+                //calculate <pre> height and set it to the container
+                var preHeight = numberOfLines*18 + 5;
+                $(this).parent()
+                    .height(preHeight)
+                    .addClass('ballerina-pre-wrapper')
+                    .prepend(
+                        $(lines)
+                    );
+            });
+            hljs.initHighlighting();
+        })
+
+    </script>
 </head>
 
 <body class="cBallerina-io" role="document">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="row cBallerina-io-top-row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
@@ -94,120 +146,72 @@
                             </li>
                         </ul>
                         
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
                                  
-                                <a>
-                                    <span class="bold">jwt.signature</a>
+                                <a class="cPackageList">
+                                    <span class="bold">compression</a>
                                  
                                 <div class="constructs-wrapper">
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
                                         
                                         <li>
-                                            <a href="#sign">
+                                            <a href="#CompressionError">
                                                 <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
+                                                    <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    sign 
+                                                    CompressionError
                                                     
                                                 </div>
                                             </a>
                                         </li>
                                          
                                         <li>
-                                            <a href="#verify">
+                                            <a href="#compress">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    verify 
+                                                    compress
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#compressToBlob">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    compressToBlob
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#decompress">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    decompress
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#decompressFromBlob">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    decompressFromBlob
                                                     
                                                 </div>
                                             </a>
@@ -216,6 +220,90 @@
                                     </ul>
                                 </div>
                                 
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
                             </li>
                         </ul>
                         
@@ -331,7 +419,7 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">jwt.signature</span>
+                                                <span class="bold">compression</span>
                                                  package 
                                             </h1>
                                             
@@ -341,72 +429,47 @@
                                                 
                                                 <!-- Function -->
                                                 
-                                                <h2 id="sign">
-                                                    <span class="fw-function sm-icon"> </span>
-                                                    public function sign(string data, string algorithm, string keyAlias, string keyPassword) returns (string) 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <h2 id="CompressionError">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object CompressionError
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Sign the given input jwt data.
+                                                    <span class="fw-right gray xs-icon"></span>Represent all compression related errors
                                                 </p>
                                                  
                                                 <p>
-                                                    <label class="table-header-text">Parameters:</label>
+                                                    <label class="table-header-text">Fields:</label>
                                                 </p>
                                                 <table>
                                                     <tr>
-                                                        <th class="col-md-3">Parameter Name</th>
+                                                        <th class="col-md-3">Field Name</th>
                                                         <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="col-md-3">data</td>
+                                                        <td class="col-md-3">message</td>
                                                         <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">Original that need to sign.</td>
+                                                        <td class="col-md-5">The error message</td>
+                                                        <td class="col-md-2"></td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="col-md-3">algorithm</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">Signature string.</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">keyAlias</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">Private key alias. If this is null use default private key.</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">keyPassword</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">Private key password.</td>
+                                                        <td class="col-md-3">cause</td>
+                                                        <td class="col-md-2">error</td>
+                                                        <td class="col-md-5">The error which caused the compression error</td>
+                                                        <td class="col-md-2"></td>
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <p class="cReturn">
-                                                    <label class="table-header-text">Return Parameters:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Return Variable</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-7">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3"></td>
-                                                        <td class="col-md-2">string </td>
-                                                        <td class="col-md-7">Signature. Signed string.</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Struct-binded functions grouped together -->
-                                                
+                                                  
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -421,13 +484,13 @@
                                                 
                                                 <!-- Function -->
                                                 
-                                                <h2 id="verify">
+                                                <h2 id="compress">
                                                     <span class="fw-function sm-icon"> </span>
-                                                    public function verify(string data, string signature, string algorithm, string keyAlias) returns (boolean) 
+                                                    public function compress(Path dirPath, Path destDir) returns (error) 
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Verify the signature of a given jwt.
+                                                    <span class="fw-right gray xs-icon"></span>Compresses a directory
                                                 </p>
                                                  
                                                 <p>
@@ -441,27 +504,15 @@
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="col-md-3">data</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">Original data which has signed.</td>
+                                                        <td class="col-md-3">dirPath</td>
+                                                        <td class="col-md-2">Path</td>
+                                                        <td class="col-md-7">Path of the directory to be compressed</td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="col-md-3">signature</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">Signature string.</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">algorithm</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">Signature algorithm.</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">keyAlias</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7">Public key alias.</td>
+                                                        <td class="col-md-3">destDir</td>
+                                                        <td class="col-md-2">Path</td>
+                                                        <td class="col-md-7">Path of the directory to place the compressed file</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -478,8 +529,8 @@
                                                     
                                                     <tr>
                                                         <td class="col-md-3"></td>
-                                                        <td class="col-md-2">boolean </td>
-                                                        <td class="col-md-7">Verified status. true or false.</td>
+                                                        <td class="col-md-2">error </td>
+                                                        <td class="col-md-7">An error if an error occurs during the compression process</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -487,6 +538,212 @@
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="compressToBlob">
+                                                    <span class="fw-function sm-icon"> </span>
+                                                    public function compressToBlob(Path dirPath) returns (blob | error) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Compresses a directory into a blob
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Parameter Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">dirPath</td>
+                                                        <td class="col-md-2">Path</td>
+                                                        <td class="col-md-7">Path of the directory to be compressed</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <p class="cReturn">
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">blob | error </td>
+                                                        <td class="col-md-7">Compressed blob of the file</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="decompress">
+                                                    <span class="fw-function sm-icon"> </span>
+                                                    public function decompress(Path dirPath, Path destDir) returns (error) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Decompresses a compressed file
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Parameter Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">dirPath</td>
+                                                        <td class="col-md-2">Path</td>
+                                                        <td class="col-md-7"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">destDir</td>
+                                                        <td class="col-md-2">Path</td>
+                                                        <td class="col-md-7">Path of the directory to decompress the file</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <p class="cReturn">
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">error </td>
+                                                        <td class="col-md-7">An error if an error occurs during the decompression process</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="decompressFromBlob">
+                                                    <span class="fw-function sm-icon"> </span>
+                                                    public function decompressFromBlob(blob content, Path destDir) returns (error) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Decompresses a blob into a directory
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Parameter Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">content</td>
+                                                        <td class="col-md-2">blob</td>
+                                                        <td class="col-md-7">Blob of the compressed file</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">destDir</td>
+                                                        <td class="col-md-2">Path</td>
+                                                        <td class="col-md-7">Path of the directory to decompress the file</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <p class="cReturn">
+                                                    <label class="table-header-text">Return Parameters:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Return Variable</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-7">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3"></td>
+                                                        <td class="col-md-2">error </td>
+                                                        <td class="col-md-7">An error if an error occurs during the decompression process</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -518,87 +775,22 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="primitive-types.html">
+                                     
+                                    <span class="bold">Primitive Types</span>
+                                    
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="auth.html">
                                      
                                     <span class="bold">auth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.html">
-                                     
-                                    <span class="bold">auth.authz</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.permissionstore.html">
-                                     
-                                    <span class="bold">auth.authz.permissionstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.basic.html">
-                                     
-                                    <span class="bold">auth.basic</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.jwtAuth.html">
-                                     
-                                    <span class="bold">auth.jwtAuth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.userstore.html">
-                                     
-                                    <span class="bold">auth.userstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.utils.html">
-                                     
-                                    <span class="bold">auth.utils</span>
                                      
                                 </a>
                                 
@@ -631,15 +823,19 @@
                             </li>
                         </ul>
                         
-                        <ul class=" ">
+                        <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
-                                
-                                <a href="collections.html">
-                                     
-                                    <span class="bold">collections</span>
-                                     
-                                </a>
+                                 
+                                <a>
+                                    <span class="bold">compression</a>
+                                 
+                                <div class="constructs-wrapper">
+                                    <!--Construct of Package-->
+                                    <ul class="constructs-ul">
+                                                       
+                                    </ul>
+                                </div>
                                 
                             </li>
                         </ul>
@@ -661,9 +857,9 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="data.sql.html">
+                                <a href="file.html">
                                      
-                                    <span class="bold">data.sql</span>
+                                    <span class="bold">file</span>
                                      
                                 </a>
                                 
@@ -674,9 +870,22 @@
                             <li>
                                 <!--Package Name-->
                                 
-                                <a href="file.html">
+                                <a href="grpc.html">
                                      
-                                    <span class="bold">file</span>
+                                    <span class="bold">grpc</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="http.html">
+                                     
+                                    <span class="bold">http</span>
                                      
                                 </a>
                                 
@@ -722,23 +931,6 @@
                             </li>
                         </ul>
                         
-                        <ul class=" active-package">
-                            <li>
-                                <!--Package Name-->
-                                 
-                                <a>
-                                    <span class="bold">jwt.signature</a>
-                                 
-                                <div class="constructs-wrapper">
-                                    <!--Construct of Package-->
-                                    <ul class="constructs-ul">
-                                              
-                                    </ul>
-                                </div>
-                                
-                            </li>
-                        </ul>
-                        
                         <ul class=" ">
                             <li>
                                 <!--Package Name-->
@@ -759,6 +951,32 @@
                                 <a href="math.html">
                                      
                                     <span class="bold">math</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="mime.html">
+                                     
+                                    <span class="bold">mime</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="observe.html">
+                                     
+                                    <span class="bold">observe</span>
                                      
                                 </a>
                                 
@@ -821,9 +1039,48 @@
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="sql.html">
+                                     
+                                    <span class="bold">sql</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="swagger.html">
+                                     
+                                    <span class="bold">swagger</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="task.html">
                                      
                                     <span class="bold">task</span>
+                                     
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="test.html">
+                                     
+                                    <span class="bold">test</span>
                                      
                                 </a>
                                 
@@ -893,11 +1150,11 @@
         </div>
     </div>
     <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
- 
+
     </div>
 
 
-
+<script type="text/javascript" src="/search/search.js"/>
 </body>
 
 </html>

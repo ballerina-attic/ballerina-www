@@ -5,11 +5,19 @@ Ballerina is an open-source project under [Apache 2.0 license](https://opensourc
 
 We appreciate your help and participation!
 
-Already a Team member?
+## Already a team member?
 
-click here: [ballerina-platform.slack.com](https://ballerina-platform.slack.com/)
+Click here: [ballerina-platform.slack.com](https://ballerina-platform.slack.com/)
 
-Or request an invite below.
+## If not, join us!
+
+Join the Ballerina community to discuss the project with others. You can:
+
+* Talk to the core language team and other members of the community.
+* Learn from others and ask questions.
+* Share your work and demos.
+
+Request an invite below.
 
 <form>
 <label class="subscribeForm">Email Address</label>

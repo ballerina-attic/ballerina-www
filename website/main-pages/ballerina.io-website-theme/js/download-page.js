@@ -13,11 +13,11 @@ $(document).ready(function () {
             var version = latest_pack['version'];
             var version_pack = version.replace(/ /g, "-").toLowerCase();
             var released_date = latest_pack['release-date'];
-            var windows_pack = "ballerina-" + version_pack + "-windows-x64.msi";
+            var windows_pack = latest_pack['windows-installer'];
             var windows_pack_size = latest_pack['windows-installer-size'];
-            var linux_pack = "ballerina-" + version_pack + "-linux-x64.deb";
+            var linux_pack = latest_pack['linux-installer'];
             var linux_pack_size = latest_pack['linux-installer-size'];
-            var macos_pack = "ballerina-" + version_pack + "-macos-x64.pkg";
+            var macos_pack = latest_pack['macos-installer'];
             var macos_pack_size = latest_pack['macos-installer-size'];
 
             var product_dist_path = base_download_url+"/" + version_pack + "/";
@@ -47,10 +47,10 @@ $(document).ready(function () {
             $.each(latest_pack['other-artefacts'], function (key, value) {
 
                 release_content = "<tr>";
-                release_content += '<td style="width: 65%"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
-                release_content += '<td style="width: 14%"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
-                release_content += '<td style="width: 15%"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
-                release_content += '<td style="width: 6%"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
+                release_content += '<td style="width: 69%"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
+                release_content += '<td style="width: 7%"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
+                release_content += '<td style="width: 7%"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
+                release_content += '<td style="width: 7%"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
                 release_content += "</tr>";
 
                 if (i < latest_pack['other-artefacts'].length / 2) {
@@ -82,10 +82,10 @@ $(document).ready(function () {
             $.each(nightly_packs, function (key, value) {
 
                 release_content = "<tr>";
-                release_content += '<td style="width: 65%"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
-                release_content += '<td style="width: 14%"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
-                release_content += '<td style="width: 15%"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
-                release_content += '<td style="width: 6%"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
+                release_content += '<td style="width: 69%"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
+                release_content += '<td style="width: 7%"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
+                release_content += '<td style="width: 7%"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
+                release_content += '<td style="width: 7%"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
                 release_content += "</tr>";
 
                 if (i < nightly_packs.length / 2) {

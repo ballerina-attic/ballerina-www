@@ -1,10 +1,10 @@
 $(document).ready(function () {
 	var example_data = {
 			"Basic": ["Hello World", "Hello World Parallel", "Hello World Service"],
-			"Variables and Constants": ["Constants", "Global Variables", "Ternary", "Functions", "Multiple Return Values", "Named Returns", "Errors", "Var"],
+			"Variables and Constants": ["Constants", "Global Variables", "Ternary", "Functions", "Errors", "Var"],
 			"Statements": ["While", "IF Else", "Foreach", "Throw", "Try/Catch/Finally"],
 			"Conversions": ["Identifier Literals", "JSON", "JSON Literals", "JSON Arrays", "JSON/Struct/Map Conversion", "Constrained JSON", "XML", "XML Namespaces", "XML Literal", "XML Attributes", "XML Functions", "JSON To XML Conversion", "XML To JSON Conversion"],
-			"Types, Arrays, and Vectors": ["Any Type", "Value Types", "Type Casting", "Type Conversion", "Typeof", "Structs", "Maps", "Arrays", "Array of Arrays", "Vector", "Table", "Lengthof"],
+			"Types, Arrays, and Vectors": ["Any Type", "Value Types", "Type Casting", "Type Conversion", "Typeof", "Structs", "Maps", "Arrays", "Array of Arrays", "Table", "Lengthof"],
 			"Integration Workflows": ["Iterable Operations", "Worker", "Worker Interaction", "Fork/Join", "Fork/Join Condition Some", "Fork/Join Variable Access", "SQL Connector", "Table with SQL Connector", "Transactions", "Distributed Transactions", "Transformers", "Transform JSON", "Strings", "Blob Type", "Date Time", "File API", "Base Path and Path", "Query/Path/Matrix Param"],
 			"HTTP Logic": ["Content Based Routing", "Header Based Routing", "Produces/Consumes", "HTTP Sessions", "HTTP Client Connector", "HTTP Trace Logs", "HTTP 100 Continue", "HTTPS Server Connector", "HTTPS Server/Client Connectors", "HTTP Disable Chunking", "HTTP to WebSocket Upgrade", "HTTP CORS", "HTTP Circuit Breaker", "HTTP Data Binding", "HTTP Failover", "HTTP Load Balancer", "HTTP Forwarded Extension"],
 			"API Logic": ["Log API", "Function Pointers", "Lambda", "WebSocket Basic Sample", "WebSocket Chat Application", "WebSocket Proxy Server", "Passthrough", "Mutual SSL", "Caching", "Byte I/O", "Character I/O", "Record I/O", "Config API"],
@@ -76,87 +76,3 @@ $(document).ready(function () {
 	});
 
 });
-/*
-We extract the file name from the link text.
-Replace the space with a hyphan and make all text simple case
-For example "REST Services" will become "rest-services"
-Then we look for the file "rest-services.txt" in the samples folder.
-if the data-run attribute is present in the link
-we search for a file "rest-services-run.txt" file as well
-*/
-var  editor = null ,editorRun = null;
-var loadData = function(linkText, sectionId, init){
-var fileName = linkText.toLowerCase().replace(/\s/g, "-");
-$('#' + sectionId + ' .text-display').hide();
-$('#' + sectionId + ' .shell-display').hide();
-$('#' + sectionId + ' .code-block').hide();
-$('#'+fileName + "-shell").show();
-$('#'+fileName + "-text").show();
-$('#'+fileName + "-code").show().attr('style','display: flex;'+ 
-										'background: #fff; '+
-										'border-radius: 0; '+
-										'margin-bottom: 0');
-										'padding-left: 20px; '+
-$('#'+fileName + "-code > code").show().attr('style','padding-left:20px;padding-top: 10px;white-space:pre');
-
-$.ajax(
-	{
-		url: "../samples/" + fileName + ".txt",
-		method: "GET",
-		async: false,
-		success: function(data){
-			//Set the code to the container
-			var highlightCode = hljs.highlightAuto
-			$('#'+fileName + "-code > code").html(data);
-
-			//Doing the syntax highlighting
-			hljs.highlightBlock($('#'+fileName + "-code > code").get(0));
-
-			//Remove any existing line numbers
-			$('#' + sectionId + ' .line-numbers-wrap').remove();
-			
-			//If not the fist load ( document ready callback ) we add the line numbers
-			if(!init) {
-				//cont the number of rows
-				//Remove the new line from the end of the text
-				var numberOfLines = data.split(/\r\n|\r|\n/).length;
-				var lines = '<div class="line-numbers-wrap">';
-
-				//Iterate all the lines and create div elements with line number
-				for(var i=1; i <= numberOfLines; i++){
-					lines = lines + '<div class="line-number">'+i+'</div>';
-				}
-				lines = lines + '</div>';
-				//calculate <pre> height and set it to the container
-				var preHeight = numberOfLines*25 + 20;
-				$('#'+fileName + "-code")
-					.height(preHeight)
-					.addClass('ballerina-pre-wrapper')
-					.prepend(
-						$(lines)
-					);
-			}
-
-			
-		}
-	});
-		
-}
-
-$(document).ready(function(){
-	//Load data on click callback
-	$('#nativeLanguage li.links').click(function(){
-		loadData($(this).text(), 'nativeLanguage', false);
-		$('#nativeLanguage li.links').removeClass('cActive');
-		$(this).addClass('cActive');
-	});
-	$('#integration li.links').click(function(){
-		loadData($(this).text(), 'integration', false);
-		$('#integration li.links').removeClass('cActive');
-		$(this).addClass('cActive');
-	});
-
-	//Load data on page load
-	loadData($('#nativeLanguage li.first').text(), 'nativeLanguage', true);
-	loadData($('#integration li.first').text(), 'integration', true);
-})

@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $("#iGitEdit").hide();
     Handlebars.registerHelper('releasenotesdiv', function(version) {
         return getReleaseNotesDivId(version);
     });
@@ -7,7 +8,7 @@ $(document).ready(function () {
     });
     $.getJSON( archived_versions_json, function( data ) {
         data.sort(function(a, b) {
-            return Date(a["release-date"]) > Date(b["release-date"]);
+            return (new Date(a["release-date"])) < (new Date(b["release-date"]));;
         });
         updateReleaseTable(data);
     });

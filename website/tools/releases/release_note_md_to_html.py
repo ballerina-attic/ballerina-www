@@ -1,46 +1,40 @@
-import argparse
+import os
 import sys
-
+import fnmatch
 import jinja2
 import markdown
 
 
 reload(sys)
 sys.setdefaultencoding('utf8')
-TEMPLATE = """
-<div class="release_notes">
+TEMPLATE = """<div class="release_notes">
 {{content}}
 </div>
 """
 
+baseDir = '/var/www/html/products/downloads'
+releaseNoteFile = '*ballerina-release-notes-*.md'
+outputFile = 'RELEASE_NOTE.html'
 
-def parse_args(args=None):
-    d = 'Make a complete, styled HTML document from a Markdown file.'
-    parser = argparse.ArgumentParser(description=d)
-    requiredNamed = parser.add_argument_group('required arguments')
-    requiredNamed.add_argument('-m', '--mdfile',required=True, type=argparse.FileType('r'),
-                        help='File to convert.' )
-    parser.add_argument('-o', '--out', type=argparse.FileType('w'),
-                        default=sys.stdout,
-                        help='Output file name. Defaults to stdout.')
-    return parser.parse_args(args)
+if len(sys.argv) > 1:
+    topdir = sys.argv[1]
+else:
+    topdir = '.'
 
+print 'Base directory : ' +baseDir
 
-def main(args=None):
-    args = parse_args(args)
-    print 'Reading markdown from'
-    print args.mdfile
-    print '-------------------'
+def find(pattern, path):
+    for root, dirs, files in os.walk(path):
+        for name in files:
+            if fnmatch.fnmatch(name, pattern):
+                print 'Reading release note md file from '+ os.path.join(root, name)
+                with open(os.path.join(root, name), 'r') as content_file:
+                    md = content_file.read()
+                    extensions = ['extra', 'smarty']
+                    html = markdown.markdown(md, extensions=extensions, output_format='html5')
+                    doc = jinja2.Template(TEMPLATE).render(content=html)
+                    print 'Writing converted html content to '+ os.path.join(root, outputFile)
+                    with open(os.path.join(root, outputFile), 'w') as output_content_file:
+                        output_content_file.write(doc)
 
-    md = args.mdfile.read()
-    extensions = ['extra', 'smarty']
-    html = markdown.markdown(md, extensions=extensions, output_format='html5')
-    doc = jinja2.Template(TEMPLATE).render(content=html)
-    print 'Writing converted html to '
-    print args.out
-    print '-------------------'
-    args.out.write(doc)
-
-
-if __name__ == '__main__':
-    sys.exit(main())
+find(releaseNoteFile, baseDir)

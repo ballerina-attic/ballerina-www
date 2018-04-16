@@ -80,7 +80,7 @@ a:hover {
 .cBallerina-io p {
     font-size: 16px;
     color: #57595d;
-    line-height: 21px;
+    line-height: 24px;
     font-weight: 200;
 }
 
@@ -204,6 +204,9 @@ ul.navbar-nav {
     opacity: 1;
     top: 40px;
     transition: all 0.2s ease 0s;
+}
+
+.cSearchBoxTopMenu.cShowcSearchTopMenu>div[role="search"] {
     position: relative;
 }
 
@@ -356,8 +359,8 @@ h2.cMainH2Title {
     margin-bottom: 30px;
     margin-top: 0;
     color: #57595d;
-    font-size: 25px;
-    line-height: 30px;
+    font-size: 30px;
+    line-height: 35px;
 }
 
 #ballerina_grammar,
@@ -622,8 +625,8 @@ code:not(.hljs) {
 }
 
 .line-number {
-    height: 25px;
-    line-height: 25px;
+    height: 18px;
+    line-height: 18px;
     width: 100%;
     color: #514e4f;
     display: block;
@@ -643,7 +646,7 @@ pre>code.ballerina {
 
 pre>code.ballerina,
 pre>code.ballerina span {
-    line-height: 25px;
+    line-height: 18px;
 }
 
 
@@ -714,7 +717,8 @@ button.navbar-toggle {
 }
 
 #mkdocs-search-results>article>h3 {
-    margin: 0;
+    margin: 0 0 5px 0;
+    line-height: 1;
 }
 
 #mkdocs-search-results>article>h3>a {
@@ -727,6 +731,7 @@ button.navbar-toggle {
 
 #mkdocs-search-results>article>p {
     margin: 0 0 4px;
+    font-size: 15px;
 }
 
 #mkdocs-search-results>article:first-child {
@@ -812,7 +817,7 @@ button.navbar-toggle {
     line-height: 24px;
 }
 
-.cBBE-body:not(.cOutputTr) tr>td.code>.highlight {
+.cBBE-body tr:not(.cOutputTr)>td.code>.highlight {
     padding-left: 30px;
 }
 
@@ -842,6 +847,69 @@ button.navbar-toggle {
 
 .bbe-code-line-numbers>span {
     display: block;
+}
+
+.wy-nav-content {
+    background-color: #ffffff;
+    padding: 0;
+}
+
+.wy-nav-content h1 {
+    font-size: 30px;
+    color: #585A5E;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.wy-nav-content h2,
+.release_notes h1,
+.wy-nav-content .releaseNoteDiv h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
+    color: #1fa39d;
+    letter-spacing: 0.5px;
+    line-height: 30px;
+    padding: 0;
+    margin: 20px 0 15px 0;
+    font-weight: 400;
+}
+
+.wy-nav-content h3,
+.release_notes h2,
+.wy-nav-content .releaseNoteDiv h2 {
+    font-size: 22px;
+    color: #555;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    font-family: "pragmatica", sans-serif;
+    line-height: 28px;
+    font-weight: 600;
+    padding: 0;
+    margin: 20px 0 15px 0;
+}
+
+.wy-nav-content h4,
+.release_notes h3,
+.wy-nav-content .releaseNoteDiv h3 {
+    font-size: 18px;
+    color: #444;
+    letter-spacing: normal;
+    line-height: normal;
+    padding: 0;
+    margin: 20px 0 15px 0;
+    font-weight: 600;
+}
+
+.wy-nav-content h5,
+.release_notes h4,
+.wy-nav-content .releaseNoteDiv h4 {
+    font-size: 16px;
+    color: #222;
+    font-weight: bold;
+    padding: 0;
+    margin: 20px 0 15px 0;
+    font-weight: 600;
 }
 
 

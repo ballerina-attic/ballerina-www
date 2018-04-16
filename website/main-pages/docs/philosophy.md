@@ -1,9 +1,4 @@
 <link rel="stylesheet" href="/css/philosophy-page.css"></link>
-<script src="/search/require.js"></script>
-<script src="/js/vs/loader.js"></script>
-<script src="/js/vs/grammer.js"></script>
-<script src="/js/jquery-2.1.1.min.js"></script>
-  <p><link rel="stylesheet" href="/css/philosophy-page.css"></link>
 <div class="row cBallerina-io-Gray-row cPhilosophy">
    <div class="container">
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-Left-col ">
@@ -256,43 +251,9 @@
                         </div>
                         <div class="code cOutput">
                             <div class="highlight">
-                                <pre id="rest-services-shell" class="shell-display">
-$ ballerina run hello.bal
-ballerina: initiating service(s) in 'hello.bal'
-ballerina: started HTTP/WS server connector 0.0.0.0:9090
-<br />
-$ curl -d "Ballerina" -X POST http://0.0.0.0:9090
-Hello Ballerina!
-                                </pre>
-                                <pre id="full-language-shell"  class="shell-display">
-$ ballerina run factors.bal
-{"number":81,"factors":[{"factor":1},{"factor":81},{"factor":3},{"factor":27},{"factor":9},{"factor":9}]}
-                                </pre>
-                                <pre id="docker-and-kubernetes-shell"  class="shell-display">
-$ ballerina build demo.bal
-@docker                                  - complete 3/3
-@kubernetes:Deployment                   - complete 1/1
-@kubernetes:Service                      - complete 1/1
-<br />
-Run following command to deploy kubernetes artifacts:
-kubectl apply -f /Users/user/proj/kubernetes/
-<br />
-$ kubectl apply -f /Users/user/proj/kubernetes/
-deployment "ballerina-demo" created
-service "ballerina-demo" created
-<br />
-$ kubectl get pods
-NAME                              READY     STATUS    RESTARTS   AGE
-ballerina-demo-74b6fb687c-mbrq2   1/1       Running   0          10s
-<br />
-$ kubectl get svc
-NAME             TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)  AGE
-ballerina-demo   NodePort    10.98.238.0   <none>        9090:31977/TCP  24s
-kubernetes       ClusterIP   10.96.0.1     <none>        443/TCP  2d
-<br />
-$ curl -X POST  http://localhost:31977/demo
-Hello World!
-                                </pre>
+                                <pre id="rest-services-shell" class="shell-display"></pre>
+                                <pre id="full-language-shell"  class="shell-display"></pre>
+                                <pre id="docker-and-kubernetes-shell"  class="shell-display"></pre>
                                 <pre id="asynchronous-execution-shell" class="shell-display"></pre>
                                 <pre id="json-and-xml-shell" class="shell-display"></pre>
                                 <pre id="type-safety-shell" class="shell-display"></pre>
@@ -482,21 +443,9 @@ Hello World!
                     </div>
                     <div class="code cOutput">
                         <div class="highlight">
-                            <pre id="type-safe-endpoint-integration-shell" class="shell-display">
-ballerina run test.balx
-ballerina: initiating service(s) in 'test.balx'
-ballerina: started HTTP/WS server connector 0.0.0.0:9090
-
-curl -X POST -d '{"year":2019}'  http://localhost:9090/payment
-{"name":"","cardnumber":"","month":0,"year":2019,"cvc":0}
-
-curl -X POST -d '{"year":"twenty-ten"}'  http://localhost:9090/payment
-cannot convert 'json' to type 'Payment': error while mapping 'year': incompatible types: expected 'int', found 'string' in json
-                            </pre>
-                            <pre id="connectors-shell" class="shell-display">
-                            </pre>
-                            <pre id="asynchronous-reliable-messaging-shell" class="shell-display">
-                            </pre>
+                            <pre id="type-safe-endpoint-integration-shell" class="shell-display"></pre>
+                            <pre id="connectors-shell" class="shell-display"></pre>
+                            <pre id="asynchronous-reliable-messaging-shell" class="shell-display"></pre>
                         </div>
                     </div>
                 </div>
@@ -646,13 +595,18 @@ cannot convert 'json' to type 'Payment': error while mapping 'year': incompatibl
                 <div class="col-xs-12  col-md-6 OpenSourceTableRightWrapper">
                     <table class="OpenSourceTable">
                         <tr>
-                            <td>Ballerina API Gateway</td>
-                            <td>enforce security and runtime policies</td>
-                            <td class="cGitLink"><a href="" target="_blank"></a></td>
+                            <td>Ballerina Observability</td>
+                            <td>A way to observe Ballerina programs</td>
+                            <td class="cGitLink"><a href="https://github.com/ballerina-platform/ballerina-observability" target="_blank"></a></td>
                         </tr>
                         <tr>
                             <td>Ballerina Message Broker</td>
                             <td>Scalable broker for persistent and asynchronous messaging</td>
+                            <td class="cGitLink" ><a href="https://github.com/ballerina-platform/ballerina-grammar" target="_blank"></a></td>
+                        </tr>
+                        <tr>
+                            <td>Ballerina Grammar</td>
+                            <td>Descriptions of the language syntax highlighting</td>
                             <td class="cGitLink" ><a href="https://github.com/ballerina-platform/ballerina-message-broker" target="_blank"></a></td>
                         </tr>
                     </table>
@@ -663,3 +617,4 @@ cannot convert 'json' to type 'Payment': error while mapping 'year': incompatibl
    </div>
 </div>
 <script src="/js/philosophy.js"></script>
+<script src="/js/philosophy-syntax.js"></script>

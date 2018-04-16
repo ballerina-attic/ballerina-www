@@ -8,6 +8,7 @@ public class Constants {
     public static final String CONTROLLER_ROLE_API_SERVER = "API_SERVER";
     public static final String CONTROLLER_ROLE_DESIRED_COUNT_CHECK = "DESIRED_CHECK";
     public static final String CONTROLLER_ROLE_MAX_COUNT_CHECK = "MAX_CHECK";
+    public static final String CONTROLLER_ROLE_URL_VALIDATOR = "URL_VALIDATOR";
 
     // Environment variable keys
     public static final String ENV_CONTROLLER_ROLE = "BPG_CONTROLLER_ROLE";
@@ -23,6 +24,5 @@ public class Constants {
 
     public static final String ENV_DB_HOST = "DB_HOST";
     public static final String ENV_DB_PORT = "DB_PORT";
-    public static final String ENV_BPG_LAUNCHER_SELF_URL = "BPG_LAUNCHER_SELF_URL";
-    public static final String ENV_IS_LAUNCHER_CACHE = "BPG_LAUNCHER_CACHE_NODE";
+    public static final String ENV_BGP_NFS_SERVER_IP = "BGP_NFS_SERVER_IP";
 }
