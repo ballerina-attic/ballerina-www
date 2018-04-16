@@ -59,4 +59,8 @@ public class ControllerServiceManager {
     boolean markLauncherBusy(String launcherUrl) {
         return clusterManager.markLauncherAsBusy(launcherUrl);
     }
+
+    public String getCacheResponderUrl() {
+        return ""; //TODO
+    }
 }

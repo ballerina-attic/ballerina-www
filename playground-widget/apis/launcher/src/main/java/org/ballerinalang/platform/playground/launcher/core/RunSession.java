@@ -38,11 +38,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.security.MessageDigest;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 import java.util.StringJoiner;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -54,7 +54,9 @@ import java.util.regex.Pattern;
  */
 public class RunSession {
 
-    public static final String OUTPUT_DELIMITTER= "---OUTPUT----";
+    private static final String OUTPUT_DELIMITTER= "---OUTPUT----";
+
+    private static final String CACHE_ID_SEP = "\\.";
 
     private final Session transportSession;
 
@@ -66,7 +68,7 @@ public class RunSession {
 
     private Path buildFile;
 
-    private String sourceMD5;
+    private String buildCacheID;
 
     private String outputCacheId;
 
@@ -107,8 +109,15 @@ public class RunSession {
             return;
         }
         try {
-            setSourceMD5(CacheUtils.getBuildCacheID(runCommand));
-            setOutputCacheId(CacheUtils.getOutputCacheID(runCommand));
+            if (runCommand.getCacheId() != null) {
+                String cacheId = new String(Base64.getDecoder().decode(runCommand.getCacheId().getBytes()));
+                String[] cacheIdParts = cacheId.split(CACHE_ID_SEP);
+                setBuildCacheID(cacheIdParts[0]);
+                setOutputCacheId(cacheIdParts[1]);
+            } else {
+                setBuildCacheID(CacheUtils.getBuildCacheID(runCommand));
+                setOutputCacheId(CacheUtils.getOutputCacheID(runCommand));
+            }
             useOutputCache = getCacheStorage().contains(getOutputCacheId());
             if (useOutputCache) {
                 List<String> cachedOutput = getCachedOutput();
@@ -225,8 +234,8 @@ public class RunSession {
     }
 
     public boolean useBuildCache() {
-       return getCacheStorage().contains(getSourceMD5())
-                && Paths.get(getCacheStorage().get(getSourceMD5())).toFile().exists();
+       return getCacheStorage().contains(getBuildCacheID())
+                && Paths.get(getCacheStorage().get(getBuildCacheID())).toFile().exists();
     }
 
     public boolean useOutputCache() {
@@ -242,7 +251,7 @@ public class RunSession {
     }
 
     public Path getBuildFileFromCache() {
-        return Paths.get(getCacheStorage().get(getSourceMD5()));
+        return Paths.get(getCacheStorage().get(getBuildCacheID()));
     }
 
     public void processCommand(Command command) {
@@ -329,12 +338,12 @@ public class RunSession {
         this.serviceHost = serviceHost;
     }
 
-    public String getSourceMD5() {
-        return sourceMD5;
+    public String getBuildCacheID() {
+        return buildCacheID;
     }
 
-    public void setSourceMD5(String sourceMD5) {
-        this.sourceMD5 = sourceMD5;
+    public void setBuildCacheID(String buildCacheID) {
+        this.buildCacheID = buildCacheID;
     }
 
     public String getOutputCacheId() {

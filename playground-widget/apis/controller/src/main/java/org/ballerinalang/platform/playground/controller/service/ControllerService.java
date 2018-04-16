@@ -18,6 +18,9 @@ package org.ballerinalang.platform.playground.controller.service;
 
 import io.netty.handler.codec.http.HttpHeaderNames;
 import org.ballerinalang.platform.playground.utils.MemberConstants;
+import org.ballerinalang.platform.playground.utils.RedisClient;
+import org.ballerinalang.platform.playground.utils.cache.CacheUtils;
+import org.ballerinalang.platform.playground.utils.model.LauncherRequest;
 import org.ballerinalang.platform.playground.utils.model.LauncherResponse;
 import org.ballerinalang.platform.playground.utils.model.StatusUpdateRequest;
 import org.slf4j.Logger;
@@ -42,24 +45,30 @@ public class ControllerService {
         this.serviceManager = serviceManager;
     }
 
-    @GET
+    @POST
     @Path("/launcher")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response allocateLauncher() {
-        // Get a free launcher URL
-        String launcherUrl = serviceManager.allocateFreeLauncher();
-
-        // TODO: check if cache exists
-
-        if (launcherUrl != null) {
-            return Response.status(Response.Status.OK)
-                    .header(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN.toString(), '*')
-                    .type(MediaType.APPLICATION_JSON)
-                    .entity(new LauncherResponse(launcherUrl))
-                    .build();
+    public Response allocateLauncher(LauncherRequest request) {
+        String outputCacheId = CacheUtils.getOutputCacheID(request.getSource(), request.getCurl());
+        LauncherResponse response;
+        if (CacheUtils.cacheExists(outputCacheId)) {
+            String cacheResponderUrl = serviceManager.getCacheResponderUrl();
+            response = new LauncherResponse(cacheResponderUrl, outputCacheId);
         } else {
-            return buildNotFoundResponse();
+            // Get a free launcher URL
+            String launcherUrl = serviceManager.allocateFreeLauncher();
+            if (launcherUrl != null) {
+                response = new LauncherResponse(launcherUrl);
+            } else {
+                return buildNotFoundResponse();
+            }
         }
+        return Response.status(Response.Status.OK)
+                .header(HttpHeaderNames.ACCESS_CONTROL_ALLOW_ORIGIN.toString(), '*')
+                .type(MediaType.APPLICATION_JSON)
+                .entity(response)
+                .build();
     }
 
     @POST
