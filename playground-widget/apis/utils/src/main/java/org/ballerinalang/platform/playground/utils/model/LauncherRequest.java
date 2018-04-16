@@ -13,28 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.ballerinalang.platform.playground.utils.model;
 
-package org.ballerinalang.platform.playground.controller.persistence;
+/**
+ * Launcher Request DTO
+ */
+public class LauncherRequest {
 
-import java.util.List;
+    private String source;
 
-public interface Persistence {
+    private String curl;
 
-    public void addFreeLaunchers(List<String> launcherUrls);
+    public String getSource() {
+        return source;
+    }
 
-    public void addFreeLauncher(String launcherUrl);
+    public void setSource(String source) {
+        this.source = source;
+    }
 
-    public void unregisterLauncher(String launcherUrl);
+    public String getCurl() {
+        return curl;
+    }
 
-    public List<String> getFreeLauncherUrls();
-
-    public List<String> getBusyLauncherUrls();
-
-    public List<String> getTotalLauncherUrls();
-
-    public boolean markLauncherAsFree(String launcherUrl);
-
-    public boolean markLauncherAsBusy(String launcherUrl);
-
-    public boolean launcherExists(String launcherUrl);
+    public void setCurl(String curl) {
+        this.curl = curl;
+    }
 }

@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------
-# Copyright (c) 2018, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+# Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,30 +18,14 @@ FROM openjdk:jre-alpine
 ENV ENABLE_DEBUG false
 ENV DEBUG_PORT 5005
 
-RUN apk update && apk add bash && apk add curl
-
-COPY ballerina-tools.zip /root/
-
-RUN mkdir /ballerina \
-    && unzip /root/ballerina-tools.zip -d /ballerina/ \
-    && mv /ballerina/ballerina* /ballerina/runtime \
-    && mkdir -p /ballerina/runtime/logs \
-    && rm /root/ballerina-tools.zip
-
-ENV BALLERINA_HOME /ballerina/runtime
-ENV PATH $BALLERINA_HOME/bin:$PATH
+RUN apk update && apk add bash
 
 RUN mkdir /api/
 COPY netty-transports.yml /api/
-COPY playground-launcher.jar /api/
+COPY playground-cache-responder.jar /api/
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-COPY CUSTOMER_DB.h2.db /sample-db/
-COPY backend_time_service.balx /services/
-COPY legacy_service.balx /services/
-COPY stock_quote_service.balx /services/
 
 EXPOSE 80
 
-# TODO: may need to use a signal aware init system because launchers spawn new processes
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]

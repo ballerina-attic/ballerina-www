@@ -46,10 +46,6 @@ public class CacheResponderService {
 
     private Map<String, RunSession> runSessionMap = new HashMap<String, RunSession>();
 
-    private Gson gson = new Gson();
-
-    private RedisClient redisClient = new RedisClient();
-
     @OnOpen
     public void onOpen (Session session) {
         runSessionMap.put(session.getId(), new RunSession(session));
@@ -60,8 +56,8 @@ public class CacheResponderService {
         Command command = CommandUtils.fromJson(message);
         if (command instanceof RunCommand) {
             RunCommand runCommand = (RunCommand) command;
-            String outputCacheID = CacheUtils.getOutputCacheID(runCommand);
-            if (redisClient.getReadClient().exists(outputCacheID)) {
+            String outputCacheID = runCommand.getCacheId();
+            if (CacheUtils.cacheExists(outputCacheID)) {
                 runSessionMap.get(session.getId()).processCommand(runCommand);
             } else {
                 session.getBasicRemote().sendText("{ error: \"No cache found for the request\" }");

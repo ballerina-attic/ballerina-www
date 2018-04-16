@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copyright (c) 2018, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+# Copyright (c) 2017, WSO2 Inc. (http://wso2.com) All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,4 +17,4 @@ if [ "$ENABLE_DEBUG" == "true" ]; then
     JVM_ARGS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=$DEBUG_PORT"
 fi
 
-exec java $JVM_ARGS -jar -Dballerina.home=/ballerina/runtime -Dtransports.netty.conf=/api/netty-transports.yml /api/playground-launcher.jar
+exec java $JVM_ARGS -jar -Dballerina.home=/ballerina/runtime -Dtransports.netty.conf=/api/netty-transports.yml /api/playground-cache-responder.jar

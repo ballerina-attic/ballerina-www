@@ -21,9 +21,9 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
-import org.ballerinalang.platform.playground.utils.MemberConstants;
 import org.ballerinalang.platform.playground.utils.EnvUtils;
 import org.ballerinalang.platform.playground.utils.EnvVariables;
+import org.ballerinalang.platform.playground.utils.MemberConstants;
 import org.ballerinalang.platform.playground.utils.model.StatusUpdateRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,8 +37,8 @@ public class LauncherUtils {
 
     public static void markNodeAsFree() {
         StatusUpdateRequest statusUpdateRequest = new StatusUpdateRequest();
-        statusUpdateRequest.setLauncherUrl(EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_LAUNCHER_SELF_URL));
         statusUpdateRequest.setStatus(MemberConstants.MEMBER_STATUS_FREE);
+
         try {
             HttpClient client = HttpClients.createDefault();
             HttpPost post = new HttpPost(getControllerURL());
@@ -54,8 +54,12 @@ public class LauncherUtils {
     }
 
     private static String getControllerURL() {
+        String launcherSubDomain = EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_LAUNCHER_SELF_URL)
+                .split("\\.")[0];
+
         return "http://"
-                + EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)
-                + "/api/launcher/status";
+                + EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)
+                + "/api/launcher/"
+                + launcherSubDomain;
     }
 }

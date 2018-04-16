@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2018, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.ballerinalang.platform.playground.controller.util;
 
 public class Constants {
@@ -19,10 +35,13 @@ public class Constants {
     public static final String ENV_DESIRED_COUNT = "BPG_SCALING_DESIRED";
     public static final String ENV_MAX_COUNT = "BPG_SCALING_MAX";
     public static final String ENV_FREE_BUFFER = "BPG_SCALING_FREE_BUFFER";
-
-    public static final String DOMAIN_PLAYGROUND_BALLERINA_IO = "playground.ballerina.io";
-
-    public static final String ENV_DB_HOST = "DB_HOST";
-    public static final String ENV_DB_PORT = "DB_PORT";
     public static final String ENV_BGP_NFS_SERVER_IP = "BGP_NFS_SERVER_IP";
+    public static final String ENV_ROOT_DOMAIN_NAME = "ROOT_DOMAIN_NAME";
+
+    // Default values
+    public static final String DEFAULT_ROOT_DOMAIN_NAME = "playground.preprod.ballerina.io";
+    public static final String DEFAULT_BALLERINA_PLAYGROUND_NAMESPACE = "ballerina-playground";
+
+    // API Path Parameters
+    public static final String PATH_PARAM_LAUNCHER_URL = "launcher-url";
 }
