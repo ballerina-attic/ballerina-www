@@ -4,8 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-92163714-2');
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-PSL2TX4');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="shortcut icon" href="/img/favicon.ico">
     <title>Ballerina.io - API Docs</title>
+    <script>var base_url = "";</script>
+    <script src="/search/require.js"></script>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
@@ -28,16 +49,44 @@
     <link rel="stylesheet" href="/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
     <link rel="stylesheet" href="/css/highlight.css">
-    <script src="/js/ballerina-common.js"></script>
+    <script type="text/javascript" src="/js/ballerina-common.js"></script>
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css">
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
-    <script>var base_url = "";</script>
-    <script data-main="/search/search.js" src="/search/require.js"></script>
 
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            $('pre > code.language-ballerina').each(function() {
+            //cont the number of rows
+            //Remove the new line from the end of the text
+            var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+            var lines = '<div class="line-numbers-wrap">';
+
+            //Iterate all the lines and create div elements with line number
+            for (var i = 1; i <= numberOfLines; i++) {
+                lines = lines + '<div class="line-number">' + i + '</div>';
+            }
+            lines = lines + '</div>';
+            //calculate <pre> height and set it to the container
+            var preHeight = numberOfLines*18 + 20;
+            $(this).parent()
+                .height(preHeight)
+                .addClass('ballerina-pre-wrapper')
+                .prepend(
+                    $(lines)
+                );
+            });
+            hljs.initHighlighting();
+        })
+
+    </script>
 </head>
 
 <body class="cBallerina-io" role="document">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="row cBallerina-io-top-row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
@@ -206,46 +255,11 @@
                             </li>
                         </ul>
                         
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
                                  
-                                <a>
+                                <a class="cPackageList">
                                     <span class="bold">sql</a>
                                  
                                 <div class="constructs-wrapper">
@@ -253,24 +267,24 @@
                                     <ul class="constructs-ul">
                                         
                                         <li>
-                                            <a href="#ClientEndpointConfiguration">
+                                            <a href="#CallParam">
                                                 <div class="construct-icon">
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    ClientEndpointConfiguration 
+                                                    CallParam
                                                     
                                                 </div>
                                             </a>
                                         </li>
                                          
                                         <li>
-                                            <a href="#Parameter">
+                                            <a href="#ClientEndpointConfiguration">
                                                 <div class="construct-icon">
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Parameter 
+                                                    ClientEndpointConfiguration
                                                     
                                                 </div>
                                             </a>
@@ -282,7 +296,7 @@
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    PoolOptions 
+                                                    PoolOptions
                                                     
                                                 </div>
                                             </a>
@@ -294,7 +308,7 @@
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    createSQLClient 
+                                                    createSQLClient
                                                     
                                                 </div>
                                             </a>
@@ -303,11 +317,11 @@
                                         <li>
                                             <a href="#Client">
                                                 <div class="construct-icon">
-                                                    <span class="fw-connector"> </span>
+                                                    <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Client 
-                                                     (string epName ,ClientEndpointConfiguration config ,SQLClient sqlClient ,) 
+                                                    Client
+                                                    
                                                 </div>
                                             </a>
                                         </li>
@@ -380,11 +394,11 @@
                                         <li>
                                             <a href="#SQLClient">
                                                 <div class="construct-icon">
-                                                    <span class="fw-connector"> </span>
+                                                    <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    SQLClient 
-                                                     () 
+                                                    SQLClient
+                                                    
                                                 </div>
                                             </a>
                                         </li>
@@ -486,7 +500,19 @@
                                                     <span class="fw-constant"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Direction 
+                                                    Direction
+                                                    
+                                                </div>
+                                            </a>
+                                        </li>
+                                         
+                                        <li>
+                                            <a href="#Parameter">
+                                                <div class="construct-icon">
+                                                    <span class="fw-constant"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Parameter
                                                     
                                                 </div>
                                             </a>
@@ -498,7 +524,7 @@
                                                     <span class="fw-constant"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    SQLType 
+                                                    SQLType
                                                     
                                                 </div>
                                             </a>
@@ -510,7 +536,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    DIRECTION_IN 
+                                                    DIRECTION_IN
                                                     
                                                 </div>
                                             </a>
@@ -522,7 +548,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    DIRECTION_INOUT 
+                                                    DIRECTION_INOUT
                                                     
                                                 </div>
                                             </a>
@@ -534,7 +560,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    DIRECTION_OUT 
+                                                    DIRECTION_OUT
                                                     
                                                 </div>
                                             </a>
@@ -546,7 +572,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_ARRAY 
+                                                    TYPE_ARRAY
                                                     
                                                 </div>
                                             </a>
@@ -558,7 +584,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_BIGINT 
+                                                    TYPE_BIGINT
                                                     
                                                 </div>
                                             </a>
@@ -570,7 +596,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_BINARY 
+                                                    TYPE_BINARY
                                                     
                                                 </div>
                                             </a>
@@ -582,7 +608,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_BIT 
+                                                    TYPE_BIT
                                                     
                                                 </div>
                                             </a>
@@ -594,7 +620,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_BLOB 
+                                                    TYPE_BLOB
                                                     
                                                 </div>
                                             </a>
@@ -606,7 +632,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_BOOLEAN 
+                                                    TYPE_BOOLEAN
                                                     
                                                 </div>
                                             </a>
@@ -618,7 +644,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_CHAR 
+                                                    TYPE_CHAR
                                                     
                                                 </div>
                                             </a>
@@ -630,7 +656,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_CLOB 
+                                                    TYPE_CLOB
                                                     
                                                 </div>
                                             </a>
@@ -642,7 +668,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_DATE 
+                                                    TYPE_DATE
                                                     
                                                 </div>
                                             </a>
@@ -654,7 +680,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_DATETIME 
+                                                    TYPE_DATETIME
                                                     
                                                 </div>
                                             </a>
@@ -666,7 +692,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_DECIMAL 
+                                                    TYPE_DECIMAL
                                                     
                                                 </div>
                                             </a>
@@ -678,7 +704,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_DOUBLE 
+                                                    TYPE_DOUBLE
                                                     
                                                 </div>
                                             </a>
@@ -690,7 +716,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_FLOAT 
+                                                    TYPE_FLOAT
                                                     
                                                 </div>
                                             </a>
@@ -702,7 +728,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_INTEGER 
+                                                    TYPE_INTEGER
                                                     
                                                 </div>
                                             </a>
@@ -714,7 +740,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_LONGNVARCHAR 
+                                                    TYPE_LONGNVARCHAR
                                                     
                                                 </div>
                                             </a>
@@ -726,7 +752,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_LONGVARBINARY 
+                                                    TYPE_LONGVARBINARY
                                                     
                                                 </div>
                                             </a>
@@ -738,7 +764,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_LONGVARCHAR 
+                                                    TYPE_LONGVARCHAR
                                                     
                                                 </div>
                                             </a>
@@ -750,7 +776,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_NCHAR 
+                                                    TYPE_NCHAR
                                                     
                                                 </div>
                                             </a>
@@ -762,7 +788,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_NCLOB 
+                                                    TYPE_NCLOB
                                                     
                                                 </div>
                                             </a>
@@ -774,7 +800,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_NUMERIC 
+                                                    TYPE_NUMERIC
                                                     
                                                 </div>
                                             </a>
@@ -786,7 +812,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_NVARCHARR 
+                                                    TYPE_NVARCHARR
                                                     
                                                 </div>
                                             </a>
@@ -798,7 +824,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_REAL 
+                                                    TYPE_REAL
                                                     
                                                 </div>
                                             </a>
@@ -810,7 +836,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_REFCURSOR 
+                                                    TYPE_REFCURSOR
                                                     
                                                 </div>
                                             </a>
@@ -822,7 +848,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_SMALLINT 
+                                                    TYPE_SMALLINT
                                                     
                                                 </div>
                                             </a>
@@ -834,7 +860,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_STRUCT 
+                                                    TYPE_STRUCT
                                                     
                                                 </div>
                                             </a>
@@ -846,7 +872,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_TIME 
+                                                    TYPE_TIME
                                                     
                                                 </div>
                                             </a>
@@ -858,7 +884,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_TIMESTAMP 
+                                                    TYPE_TIMESTAMP
                                                     
                                                 </div>
                                             </a>
@@ -870,7 +896,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_TINYINT 
+                                                    TYPE_TINYINT
                                                     
                                                 </div>
                                             </a>
@@ -882,7 +908,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_VARBINARY 
+                                                    TYPE_VARBINARY
                                                     
                                                 </div>
                                             </a>
@@ -894,7 +920,7 @@
                                                     <span class="fw-globe"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    TYPE_VARCHAR 
+                                                    TYPE_VARCHAR
                                                     
                                                 </div>
                                             </a>
@@ -903,6 +929,13 @@
                                     </ul>
                                 </div>
                                 
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
                             </li>
                         </ul>
                         
@@ -995,6 +1028,76 @@
                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
+                                                <h2 id="CallParam">
+                                                    <span class="fw-struct sm-icon"></span>
+                                                    public object CallParam
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Parameter represents a query parameter for the SQL queries specified in connector actions
+                                                </p>
+                                                 
+                                                <p>
+                                                    <label class="table-header-text">Fields:</label>
+                                                </p>
+                                                <table>
+                                                    <tr>
+                                                        <th class="col-md-3">Field Name</th>
+                                                        <th class="col-md-2">Data Type</th>
+                                                        <th class="col-md-5">Description</th>
+                                                        <th class="col-md-2">Default Value</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">sqlType</td>
+                                                        <td class="col-md-2">SQLType</td>
+                                                        <td class="col-md-5">The data type of the corresponding SQL parameter</td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">value</td>
+                                                        <td class="col-md-2">any</td>
+                                                        <td class="col-md-5">Value of paramter pass into the SQL query</td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">direction</td>
+                                                        <td class="col-md-2">Direction</td>
+                                                        <td class="col-md-5">Direction of the SQL Parameter IN, OUT, or INOUT</td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="col-md-3">recordType</td>
+                                                        <td class="col-md-2">typedesc</td>
+                                                        <td class="col-md-5">In case of OUT direction, if the sqlType is REFCURSOR, this represents the record type to
+map a result row</td>
+                                                        <td class="col-md-2"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
                                                 <h2 id="ClientEndpointConfiguration">
                                                     <span class="fw-struct sm-icon"></span>
                                                     public object ClientEndpointConfiguration
@@ -1047,73 +1150,7 @@
                                                   
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
-                                            </div>
-                                            
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <h2 id="Parameter">
-                                                    <span class="fw-struct sm-icon"></span>
-                                                    public object Parameter
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Parameter represents a query parameter for the SQL queries specified in connector actions
-                                                </p>
-                                                 
-                                                <p>
-                                                    <label class="table-header-text">Fields:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-3">Field Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-5">Description</th>
-                                                        <th class="col-md-2">Default Value</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">sqlType</td>
-                                                        <td class="col-md-2">SQLType</td>
-                                                        <td class="col-md-5">The data type of the corresponding SQL parameter</td>
-                                                        <td class="col-md-2"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">value</td>
-                                                        <td class="col-md-2">any</td>
-                                                        <td class="col-md-5">Value of paramter pass into the SQL query</td>
-                                                        <td class="col-md-2"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">direction</td>
-                                                        <td class="col-md-2">Direction</td>
-                                                        <td class="col-md-5">Direction of the SQL Parameter IN, OUT, or INOUT</td>
-                                                        <td class="col-md-2"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">recordType</td>
-                                                        <td class="col-md-2">typedesc</td>
-                                                        <td class="col-md-5">In case of OUT direction, if the sqlType is REFCURSOR, this represents the record type to
-map a result row</td>
-                                                        <td class="col-md-2"></td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                  
-                                                <!-- Connectors and its actions -->
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1231,6 +1268,8 @@ map a result row</td>
                                                   
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1289,6 +1328,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -1306,172 +1347,174 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <h2 id="Client">
-                                                    <span class="fw-connector sm-icon"></span>
-                                                    public connector Client(string epName, ClientEndpointConfiguration config, SQLClient sqlClient)
-                                                </h2>
+                                                <!-- Objects and its functions -->
                                                 
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Represents an SQL client endpoint
-                                                </p>
+                                                    <h2 id="Client">
+                                                        <span class="fw-struct sm-icon"></span>
+                                                        public type Client object
+                                                    </h2>
+                                                    
+                                                        <p>
+                                                            <span class="fw-right gray xs-icon"></span>Represents an SQL client endpoint
+                                                        </p>
+                                                     
+                                                    <p>
+                                                        <label class="table-header-text">Parameters:</label>
+                                                    </p>
+                                                    <table>
+                                                        <tr>
+                                                            <th class="col-md-4">Parameter Name</th>
+                                                            <th class="col-md-2">Data Type</th>
+                                                            <th class="col-md-6">Description</th>
+                                                        </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">epName</td>
+                                                                <td class="col-md-2">string</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">config</td>
+                                                                <td class="col-md-2">ClientEndpointConfiguration</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                            <tr>
+                                                                <td class="col-md-3">sqlClient</td>
+                                                                <td class="col-md-2">SQLClient</td>
+                                                                <td class="col-md-7"></td>
+                                                            </tr>
+                                                        
+                                                    </table>
                                                  
-                                                <p>
-                                                    <label class="table-header-text">Parameters:</label>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="col-md-4">Parameter Name</th>
-                                                        <th class="col-md-2">Data Type</th>
-                                                        <th class="col-md-6">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">epName</td>
-                                                        <td class="col-md-2">string</td>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">config</td>
-                                                        <td class="col-md-2">ClientEndpointConfiguration</td>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="col-md-3">sqlClient</td>
-                                                        <td class="col-md-2">SQLClient</td>
-                                                        <td class="col-md-7"></td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <h2>Actions:</h2>
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-init">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
-                                                                    <Client>
-                                                                </span>
-                                                                init(ClientEndpointConfiguration config) 
-                                                            </h2>
+                                                    <div class="function-wrapper">
+                                                        <h2>Functions:</h2>
+                                                        <ul>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Gets called when the endpoint is being initialized during the package initialization.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">config</td>
-                                                                    <td class="col-md-2">ClientEndpointConfiguration</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-register">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="Client-init">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Client>
                                                                 </span>
-                                                                register(typedesc serviceType) 
-                                                            </h2>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">serviceType</td>
-                                                                    <td class="col-md-2">typedesc</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-start">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
-                                                                    <Client>
-                                                                </span>
-                                                                start() 
-                                                            </h2>
-                                                              
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-getClient">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
-                                                                    <Client>
-                                                                </span>
-                                                                getClient() returns (SQLClient) 
-                                                            </h2>
+                                                                        init(ClientEndpointConfiguration config) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Gets called when the endpoint is being initialized during the package initialization.
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">config</td>
+                                                                                <td class="col-md-2">ClientEndpointConfiguration</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Returns the connector that client code uses
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">SQLClient</td>
-                                                                    <td class="col-md-7">The connector that client code uses</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-stop">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="Client-register">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <Client>
                                                                 </span>
-                                                                stop() 
-                                                            </h2>
+                                                                        register(typedesc serviceType) 
+                                                                    </h2>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">serviceType</td>
+                                                                                <td class="col-md-2">typedesc</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Stops the registered service
-                                                            </p>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
+                                                                <li>
+                                                                    <h2 id="Client-start">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Client>
+                                                                </span>
+                                                                        start() 
+                                                                    </h2>
+                                                                      
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Client-getClient">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Client>
+                                                                </span>
+                                                                        getClient() returns (SQLClient) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Returns the connector that client code uses
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">SQLClient</td>
+                                                                                <td class="col-md-7">The connector that client code uses</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <h2 id="Client-stop">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
+                                                                    <Client>
+                                                                </span>
+                                                                        stop() 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>Stops the registered service
+                                                                        </p>
+                                                                      
+                                                                </li>
+                                                            
+                                                        </ul>
+                                                    </div>
                                                  
                                                 <!-- Enums-->
                                                 
@@ -1490,416 +1533,388 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <h2 id="SQLClient">
-                                                    <span class="fw-connector sm-icon"></span>
-                                                    public connector SQLClient()
-                                                </h2>
+                                                <!-- Objects and its functions -->
                                                 
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>The Client Connector for SQL databases.
-                                                </p>
-                                                  
-                                                <div class="function-wrapper">
-                                                    <h2>Actions:</h2>
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="SQLClient-call">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                    <h2 id="SQLClient">
+                                                        <span class="fw-struct sm-icon"></span>
+                                                        public type SQLClient object
+                                                    </h2>
+                                                    
+                                                        <p>
+                                                            <span class="fw-right gray xs-icon"></span>The Client Connector for SQL databases.
+                                                        </p>
+                                                      
+                                                    <div class="function-wrapper">
+                                                        <h2>Functions:</h2>
+                                                        <ul>
+                                                            
+                                                                <li>
+                                                                    <h2 id="SQLClient-call">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <SQLClient>
                                                                 </span>
-                                                                call(string sqlQuery, Parameter[] | null parameters, typedesc | null recordType) returns (table[] | error) 
-                                                            </h2>
+                                                                        call(string sqlQuery, typedesc | null recordType) returns (table[] | error) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>The call action implementation for SQL connector to invoke stored procedures/functions.
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">sqlQuery</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">SQL query to execute</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">recordType</td>
+                                                                                <td class="col-md-2">typedesc | null</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">table[] | error</td>
+                                                                                <td class="col-md-7">Result set(s) for the given query</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>The call action implementation for SQL connector to invoke stored procedures/functions.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">sqlQuery</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">SQL query to execute</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">parameters</td>
-                                                                    <td class="col-md-2">Parameter[] | null</td>
-                                                                    <td class="col-md-7">Parameter array used with the SQL query</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">recordType</td>
-                                                                    <td class="col-md-2">typedesc | null</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">table[] | error</td>
-                                                                    <td class="col-md-7">Result set(s) for the given query</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="SQLClient-select">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="SQLClient-select">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <SQLClient>
                                                                 </span>
-                                                                select(string sqlQuery, Parameter[] | null parameters, typedesc | null recordType) returns (table | error) 
-                                                            </h2>
+                                                                        select(string sqlQuery, typedesc | null recordType) returns (table | error) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>The select action implementation for SQL connector to select data from tables.
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">sqlQuery</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">SQL query to execute</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">recordType</td>
+                                                                                <td class="col-md-2">typedesc | null</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">table | error</td>
+                                                                                <td class="col-md-7">Result set for the given query</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>The select action implementation for SQL connector to select data from tables.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">sqlQuery</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">SQL query to execute</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">parameters</td>
-                                                                    <td class="col-md-2">Parameter[] | null</td>
-                                                                    <td class="col-md-7">Parameter array used with the SQL query</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">recordType</td>
-                                                                    <td class="col-md-2">typedesc | null</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">table | error</td>
-                                                                    <td class="col-md-7">Result set for the given query</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="SQLClient-close">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="SQLClient-close">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <SQLClient>
                                                                 </span>
-                                                                close() returns (error | null) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>The close action implementation for SQL connector to shutdown the connection pool.
-                                                            </p>
-                                                              
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        close() returns (error | null) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>The close action implementation for SQL connector to shutdown the connection pool.
+                                                                        </p>
+                                                                      
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">error | null</td>
+                                                                                <td class="col-md-7">The Error occured during SQL client invocation</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">error | null</td>
-                                                                    <td class="col-md-7">The Error occured during SQL client invocation</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="SQLClient-update">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="SQLClient-update">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <SQLClient>
                                                                 </span>
-                                                                update(string sqlQuery, Parameter[] | null parameters) returns (int | error) 
-                                                            </h2>
+                                                                        update(string sqlQuery) returns (int | error) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>The update action implementation for SQL connector to update data and schema of the database.
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">sqlQuery</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">SQL query to execute</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">int | error</td>
+                                                                                <td class="col-md-7">Updated row count</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>The update action implementation for SQL connector to update data and schema of the database.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">sqlQuery</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">SQL query to execute</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">parameters</td>
-                                                                    <td class="col-md-2">Parameter[] | null</td>
-                                                                    <td class="col-md-7">Parameter array used with the SQL query</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">int | error</td>
-                                                                    <td class="col-md-7">Updated row count</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="SQLClient-batchUpdate">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="SQLClient-batchUpdate">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <SQLClient>
                                                                 </span>
-                                                                batchUpdate(string sqlQuery, Parameter[][] | null parameters) returns (int[] | error) 
-                                                            </h2>
+                                                                        batchUpdate(string sqlQuery) returns (int[] | error) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>The batchUpdate action implementation for SQL connector to batch data insert.
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">sqlQuery</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">SQL query to execute</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">int[] | error</td>
+                                                                                <td class="col-md-7">Array of update counts</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                
+                                                                </li>
                                                             
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>The batchUpdate action implementation for SQL connector to batch data insert.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">sqlQuery</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">SQL query to execute</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">parameters</td>
-                                                                    <td class="col-md-2">Parameter[][] | null</td>
-                                                                    <td class="col-md-7">Parameter array used with the SQL query</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">int[] | error</td>
-                                                                    <td class="col-md-7">Array of update counts</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="SQLClient-updateWithGeneratedKeys">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="SQLClient-updateWithGeneratedKeys">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <SQLClient>
                                                                 </span>
-                                                                updateWithGeneratedKeys(string sqlQuery, Parameter[] | null parameters, string[] | null keyColumns) returns ((int,string[]) | error) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>The updateWithGeneratedKeys action implementation for SQL connector which returns the auto
+                                                                        updateWithGeneratedKeys(string sqlQuery, string[] | null keyColumns) returns ((int,string[]) | error) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>The updateWithGeneratedKeys action implementation for SQL connector which returns the auto
         generated keys during the update action.
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">sqlQuery</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">SQL query to execute</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">keyColumns</td>
+                                                                                <td class="col-md-2">string[] | null</td>
+                                                                                <td class="col-md-7">Names of auto generated columns for which the auto generated key values are returned</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">(int,string[]) | error</td>
+                                                                                <td class="col-md-7">Updated row count during the query exectuion</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3">sqlQuery</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">SQL query to execute</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">parameters</td>
-                                                                    <td class="col-md-2">Parameter[] | null</td>
-                                                                    <td class="col-md-7">Parameter array used with the SQL query</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">keyColumns</td>
-                                                                    <td class="col-md-2">string[] | null</td>
-                                                                    <td class="col-md-7">Names of auto generated columns for which the auto generated key values are returned</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">(int,string[]) | error</td>
-                                                                    <td class="col-md-7">Updated row count during the query exectuion</td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="SQLClient-mirror">
-                                                                <span class=fw-function></span>
-                                                                <span class="thin-text light-gray">
+                                                                <li>
+                                                                    <h2 id="SQLClient-mirror">
+                                                                        <span class=fw-function></span>
+                                                                        <span class="thin-text light-gray">
                                                                     <SQLClient>
                                                                 </span>
-                                                                mirror(string tableName, typedesc recordType) returns (table | error) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>The mirror action implementation for SQL connector which returns a reflection of a database
+                                                                        mirror(string tableName, typedesc recordType) returns (table | error) 
+                                                                    </h2>
+                                                                    
+                                                                        <p>
+                                                                            <span class="fw-right gray xs-icon"></span>The mirror action implementation for SQL connector which returns a reflection of a database
     table that allows performing select/update operations over the actual database table
-                                                            </p>
-                                                             
-                                                            <p>
-                                                                <label class="table-header-text">Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Parameter Name</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
+                                                                        </p>
+                                                                     
+                                                                    <p>
+                                                                        <label class="table-header-text">Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Parameter Name</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">tableName</td>
+                                                                                <td class="col-md-2">string</td>
+                                                                                <td class="col-md-7">The name of the table to be mirrored</td>
+                                                                            </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3">recordType</td>
+                                                                                <td class="col-md-2">typedesc</td>
+                                                                                <td class="col-md-7">The type which a record of the table maps with</td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
+                                                                 
+                                                                    <p class="cReturn">
+                                                                        <label class="table-header-text">Return Parameters:</label>
+                                                                    </p>
+                                                                    <table>
+                                                                        <tr>
+                                                                            <th class="col-md-3">Return Variable</th>
+                                                                            <th class="col-md-2">Data Type</th>
+                                                                            <th class="col-md-7">Description</th>
+                                                                        </tr>
+                                                                        
+                                                                            <tr>
+                                                                                <td class="col-md-3"></td>
+                                                                                <td class="col-md-2">table | error</td>
+                                                                                <td class="col-md-7"></td>
+                                                                            </tr>
+                                                                        
+                                                                    </table>
                                                                 
-                                                                <tr>
-                                                                    <td class="col-md-3">tableName</td>
-                                                                    <td class="col-md-2">string</td>
-                                                                    <td class="col-md-7">The name of the table to be mirrored</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3">recordType</td>
-                                                                    <td class="col-md-2">typedesc</td>
-                                                                    <td class="col-md-7">The type which a record of the table maps with</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <p class="cReturn">
-                                                                <label class="table-header-text">Return Parameters:</label>
-                                                            </p>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="col-md-3">Return Variable</th>
-                                                                    <th class="col-md-2">Data Type</th>
-                                                                    <th class="col-md-7">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="col-md-3"></td>
-                                                                    <td class="col-md-2">table | error</td>
-                                                                    <td class="col-md-7"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
+                                                                </li>
                                                             
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
+                                                        </ul>
+                                                    </div>
                                                  
                                                 <!-- Enums-->
                                                 
@@ -1917,6 +1932,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1940,6 +1957,32 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                                <!-- Enums-->
+                                                
+                                                <h2 id="Parameter">
+                                                    <span class="fw-constant sm-icon"></span>
+                                                    public enum Parameter
+                                                </h2>
+                                                  
+                                                <!-- Annotations-->
+                                                
+                                                <!-- Global Variables-->
+                                                
+                                            </div>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <h2 id="SQLType">
@@ -1961,6 +2004,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -1996,6 +2041,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2029,6 +2076,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2064,6 +2113,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2097,6 +2148,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2132,6 +2185,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2165,6 +2220,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2200,6 +2257,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2233,6 +2292,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2268,6 +2329,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2301,6 +2364,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2336,6 +2401,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2369,6 +2436,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2404,6 +2473,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2437,6 +2508,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2472,6 +2545,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2505,6 +2580,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2540,6 +2617,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2573,6 +2652,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2608,6 +2689,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2641,6 +2724,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2676,6 +2761,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2709,6 +2796,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2744,6 +2833,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2777,6 +2868,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2812,6 +2905,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2845,6 +2940,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2880,6 +2977,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2913,6 +3012,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -2948,6 +3049,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -2981,6 +3084,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -3016,6 +3121,8 @@ map a result row</td>
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Objects and its functions -->
+                                                
                                                 <!-- Enums-->
                                                 
                                                 <!-- Annotations-->
@@ -3049,6 +3156,8 @@ map a result row</td>
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
+                                                
+                                                <!-- Objects and its functions -->
                                                 
                                                 <!-- Enums-->
                                                 
@@ -3097,74 +3206,22 @@ map a result row</td>
                             <li>
                                 <!--Package Name-->
                                 
+                                <a href="primitive-types.html">
+                                     
+                                    <span class="bold">Primitive Types</span>
+                                    
+                                </a>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
                                 <a href="auth.html">
                                      
                                     <span class="bold">auth</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.html">
-                                     
-                                    <span class="bold">auth.authz</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.authz.permissionstore.html">
-                                     
-                                    <span class="bold">auth.authz.permissionstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.basic.html">
-                                     
-                                    <span class="bold">auth.basic</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.userstore.html">
-                                     
-                                    <span class="bold">auth.userstore</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="auth.utils.html">
-                                     
-                                    <span class="bold">auth.utils</span>
                                      
                                 </a>
                                 
@@ -3256,19 +3313,6 @@ map a result row</td>
                                 <a href="http.html">
                                      
                                     <span class="bold">http</span>
-                                     
-                                </a>
-                                
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                
-                                <a href="http.swagger.html">
-                                     
-                                    <span class="bold">http.swagger</span>
                                      
                                 </a>
                                 
@@ -3428,9 +3472,22 @@ map a result row</td>
                                 <div class="constructs-wrapper">
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
-                                                                                                                                                                   
+                                                                                                                                                                      
                                     </ul>
                                 </div>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                
+                                <a href="swagger.html">
+                                     
+                                    <span class="bold">swagger</span>
+                                     
+                                </a>
                                 
                             </li>
                         </ul>
@@ -3524,11 +3581,11 @@ map a result row</td>
         </div>
     </div>
     <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
- 
+
     </div>
 
 
-
+<script type="text/javascript" src="/search/search.js"/>
 </body>
 
 </html>

@@ -90,6 +90,8 @@ public class RunSession {
 
     private CacheStorage cacheStorage;
 
+    private boolean useOutputCache;
+
     public RunSession(Session transportSession) {
         this.transportSession = transportSession;
         consoleMessageInterceptors = new ArrayList<>();
@@ -107,7 +109,8 @@ public class RunSession {
         try {
             setSourceMD5(CacheUtils.getBuildCacheID(runCommand));
             setOutputCacheId(CacheUtils.getOutputCacheID(runCommand));
-            if (useOutputCache()) {
+            useOutputCache = getCacheStorage().contains(getOutputCacheId());
+            if (useOutputCache) {
                 List<String> cachedOutput = getCachedOutput();
                 String buildCompletedRegex = "build completed in [\\d]+ms";
                 String curlCompletedRegex = "executing curl completed in [\\d]+ms";
@@ -177,6 +180,7 @@ public class RunSession {
                                         terminate();
                                         if (!useOutputCache()) {
                                             StringJoiner outputJoiner = new StringJoiner(OUTPUT_DELIMITTER);
+                                            getOutputCache().forEach(outputJoiner::add);
                                             getCacheStorage().set(getOutputCacheId(), outputJoiner.toString());
                                         }
                                     });
@@ -226,7 +230,7 @@ public class RunSession {
     }
 
     public boolean useOutputCache() {
-        return getCacheStorage().contains(getOutputCacheId());
+        return useOutputCache;
     }
 
     public List<String> getCachedOutput() {
