@@ -39,27 +39,16 @@ public class ControllerRunner {
         log.info("Starting Ballerina Playground Controller with role: " + controllerRole + "...");
 
         // Read control flags
-        String bpgNamespace = EnvUtils.getEnvStringValue(Constants.ENV_BPG_NAMESPACE, Constants.DEFAULT_BALLERINA_PLAYGROUND_NAMESPACE);
-        String launcherImageName = EnvUtils.getRequiredEnvStringValue(Constants.ENV_LAUNCHER_IMAGE_NAME);
-        String nfsServerIP = EnvUtils.getRequiredEnvStringValue(Constants.ENV_BGP_NFS_SERVER_IP);
-        String rootDomainName = EnvUtils.getEnvStringValue(Constants.ENV_ROOT_DOMAIN_NAME, Constants.DEFAULT_ROOT_DOMAIN_NAME);
-
-        // Auto scaling factors are defaulted to test values
-        int stepUp = EnvUtils.getEnvIntValue(Constants.ENV_STEP_UP, 2);
-        int stepDown = EnvUtils.getEnvIntValue(Constants.ENV_STEP_DOWN, 1);
-        int desiredCount = EnvUtils.getEnvIntValue(Constants.ENV_DESIRED_COUNT, 5);
-        int maxCount = EnvUtils.getEnvIntValue(Constants.ENV_MAX_COUNT, 10);
-        int freeBufferCount = EnvUtils.getEnvIntValue(Constants.ENV_FREE_BUFFER, 2);
+        String bpgNamespace = EnvUtils.getEnvStringValue(Constants.ENV_BPG_NAMESPACE,
+                Constants.DEFAULT_BALLERINA_PLAYGROUND_NAMESPACE);
 
         // Create a k8s client to interact with the k8s API. The client is per namespace
         log.info("Creating Kubernetes client...");
-        ContainerRuntimeClient runtimeClient = new KubernetesClientImpl(bpgNamespace, launcherImageName,
-                nfsServerIP, rootDomainName);
+        ContainerRuntimeClient runtimeClient = new KubernetesClientImpl(bpgNamespace);
 
         // Create a cluster mgt instance to scale in/out launcher instances
         log.info("Creating Cluster Manager...");
-        LauncherClusterManager clusterManager = new LauncherClusterManager(desiredCount, maxCount, stepUp, stepDown, freeBufferCount,
-                rootDomainName, runtimeClient, new RedisPersistence());
+        LauncherClusterManager clusterManager = new LauncherClusterManager(runtimeClient, new RedisPersistence());
 
         // Perform role
         switch (controllerRole) {

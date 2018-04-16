@@ -74,7 +74,10 @@ public class ControllerService {
     @POST
     @Path("/launcher/{" + Constants.PATH_PARAM_LAUNCHER_URL + "}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response setLauncherStatus(@PathParam(Constants.PATH_PARAM_LAUNCHER_URL) String launcherSubdomain, StatusUpdateRequest request) {
+    public Response setLauncherStatus(
+            @PathParam(Constants.PATH_PARAM_LAUNCHER_URL) String launcherSubdomain,
+            StatusUpdateRequest request) {
+
         // Check if sent status is valid
         switch (request.getStatus()) {
             case MemberConstants.MEMBER_STATUS_FREE:

@@ -23,9 +23,9 @@ import java.util.List;
 
 public interface ContainerRuntimeClient {
 
-    public boolean createDeployment(int deploymentNameSuffix, String reason);
+    public boolean createDeployment(int deploymentNameSuffix, String rootDomainName, String reason);
 
-    public boolean createService(int serviceNameSuffix, String reason);
+    public boolean createService(int serviceNameSuffix, String rootDomainName, String reason);
 
     public boolean deleteDeployment(String deploymentName);
 

@@ -40,8 +40,12 @@ public class Constants {
     public static final String ENV_ROOT_DOMAIN_NAME = "ROOT_DOMAIN_NAME";
 
     // Default values
-    public static final String DEFAULT_ROOT_DOMAIN_NAME = "playground.preprod.ballerina.io";
     public static final String DEFAULT_BALLERINA_PLAYGROUND_NAMESPACE = "ballerina-playground";
+    public static final int DEFAULT_STEP_UP = 2;
+    public static final int DEFAULT_STEP_DOWN = 1;
+    public static final int DEFAULT_DESIRED_COUNT = 5;
+    public static final int DEFAULT_MAX_COUNT = 10;
+    public static final int DEFAULT_FREE_BUFFER = 2;
 
     // API Path Parameters
     public static final String PATH_PARAM_LAUNCHER_URL = "launcher-url";

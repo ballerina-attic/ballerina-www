@@ -22,6 +22,7 @@ import io.fabric8.kubernetes.client.Watcher;
 import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
 import org.ballerinalang.platform.playground.controller.persistence.Persistence;
 import org.ballerinalang.platform.playground.controller.util.Constants;
+import org.ballerinalang.platform.playground.utils.EnvUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,20 +42,24 @@ public class LauncherClusterManager {
     private ContainerRuntimeClient runtimeClient;
     private Persistence persistence;
 
-    public LauncherClusterManager(int desiredCount, int maxCount, int stepUp, int stepDown,
-                                  int freeBufferCount, String rootDomainName, ContainerRuntimeClient runtimeClient,
-                                  Persistence persistence) {
+    public LauncherClusterManager(ContainerRuntimeClient runtimeClient, Persistence persistence) {
 
-        this.stepDown = stepDown;
-        this.stepUp = stepUp;
-        this.freeBufferCount = freeBufferCount;
-        this.maxCount = maxCount;
-        this.desiredCount = desiredCount;
-        this.rootDomainName = rootDomainName;
+        // Auto scaling factors are defaulted to test values
+        this.stepUp = EnvUtils.getEnvIntValue(Constants.ENV_STEP_UP, Constants.DEFAULT_STEP_UP);
+        this.stepDown = EnvUtils.getEnvIntValue(Constants.ENV_STEP_DOWN, Constants.DEFAULT_STEP_DOWN);
+        this.desiredCount = EnvUtils.getEnvIntValue(Constants.ENV_DESIRED_COUNT, Constants.DEFAULT_DESIRED_COUNT);
+        this.maxCount = EnvUtils.getEnvIntValue(Constants.ENV_MAX_COUNT, Constants.DEFAULT_MAX_COUNT);
+        this.freeBufferCount = EnvUtils.getEnvIntValue(Constants.ENV_FREE_BUFFER, Constants.DEFAULT_FREE_BUFFER);
+
+        // Root domain name should be pronounced in the artifacts to be clear
+        this.rootDomainName = EnvUtils.getRequiredEnvStringValue(Constants.ENV_ROOT_DOMAIN_NAME);
+
         this.runtimeClient = runtimeClient;
         this.persistence = persistence;
 
         // If there are no launcher URLs in the persistence, try to collect any running valid launchers.
+        // This will mostly be effective in the initial startup only, as there will always be a pool of
+        // launcher URLs in the persistence.
         if (getTotalLaunchers().size() == 0) {
             log.info("Initializing launcher list with any found existing launchers as free ones...");
 
@@ -302,8 +307,8 @@ public class LauncherClusterManager {
     }
 
     private boolean createLauncher(int deploymentNameSuffix, String reason) {
-        boolean depCreated = runtimeClient.createDeployment(deploymentNameSuffix, reason);
-        boolean svcCreated = runtimeClient.createService(deploymentNameSuffix, reason);
+        boolean depCreated = runtimeClient.createDeployment(deploymentNameSuffix, rootDomainName, reason);
+        boolean svcCreated = runtimeClient.createService(deploymentNameSuffix, rootDomainName, reason);
 
         return depCreated && svcCreated;
     }
@@ -365,7 +370,9 @@ public class LauncherClusterManager {
                     cleanOrphanDeployments();
                     cleanOrphanServices();
                 } else {
-                    log.debug("Received action " + action.toString() + " for resource " + resource.getInvolvedObject().getKind() + ":" + resource.getInvolvedObject().getName());
+                    log.debug("Received action " + action.toString() + " for resource "
+                            + resource.getInvolvedObject().getKind() + ":"
+                            + resource.getInvolvedObject().getName());
                 }
             }
 
