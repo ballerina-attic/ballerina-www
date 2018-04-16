@@ -28,10 +28,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.msf4j.MicroservicesRunner;
 
+/**
+ * Main program of the Controller roles.
+ */
 public class ControllerRunner {
 
     private static final Logger log = LoggerFactory.getLogger(ControllerRunner.class);
 
+    /**
+     * Start Controller role based on the BPG_CONTROLLER_ROLE environment variable.
+     * @param args
+     */
     public static void main(String[] args) {
         // Read controller role
         String controllerRole = EnvUtils.getRequiredEnvStringValue(Constants.ENV_CONTROLLER_ROLE);
@@ -53,24 +60,29 @@ public class ControllerRunner {
         // Perform role
         switch (controllerRole) {
             case Constants.CONTROLLER_ROLE_DESIRED_COUNT_CHECK:
+                // Clean launcher URLs and scale at least up to desired count
                 clusterManager.cleanOrphanServices();
                 clusterManager.cleanOrphanDeployments();
                 clusterManager.honourDesiredCount();
 
                 break;
             case Constants.CONTROLLER_ROLE_MAX_COUNT_CHECK:
+                // Check if the max has been exceeded
                 clusterManager.honourMaxCount();
 
                 break;
             case Constants.CONTROLLER_ROLE_URL_VALIDATOR:
+                // Check if there are any invalid launcher URLs
                 clusterManager.validateLauncherUrls();
 
                 break;
             case Constants.CONTROLLER_ROLE_EVENT_WATCHER:
+                // Start watching for DELETE events for Deployments and Services
                 clusterManager.watchAndClean();
 
                 break;
             case Constants.CONTROLLER_ROLE_API_SERVER:
+                // Start the Controller API
                 log.info("Checking for desired count of deployments...");
                 clusterManager.cleanOrphanDeployments();
                 clusterManager.cleanOrphanServices();

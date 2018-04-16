@@ -29,16 +29,44 @@ import org.slf4j.LoggerFactory;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Manager class to handle the functionality on managing the Launcher Clusters and URL lists.
+ */
 public class LauncherClusterManager {
 
     private static final Logger log = LoggerFactory.getLogger(LauncherClusterManager.class);
 
+    /**
+     * The number of launcher instances to scale up at a time.
+     */
     private int stepUp;
+
+    /**
+     * The number of launcher instances to scale down at a time.
+     */
     private int stepDown;
+
+    /**
+     * The number of launcher instances to keep free at a given time. This will be honoured with more
+     * priority than the max count.
+     */
     private int freeBufferCount;
+
+    /**
+     * The number of maximum launcher instances to maintain.
+     */
     private int maxCount;
+
+    /**
+     * The number of minimum launcher instances to be maintained at a given time.
+     */
     private int desiredCount;
+
+    /**
+     * The root domain name of the deployment.
+     */
     private String rootDomainName;
+
     private ContainerRuntimeClient runtimeClient;
     private Persistence persistence;
 
@@ -67,6 +95,9 @@ public class LauncherClusterManager {
         }
     }
 
+    /**
+     * Scale down by stepDown number of times, selecting the most recently created launchers to be killed.
+     */
     public void scaleDown() {
         log.info("Scaling down by [Step Down] " + stepDown + " instances...");
 
@@ -90,6 +121,10 @@ public class LauncherClusterManager {
         }
     }
 
+    /**
+     * Scale up by stepUp number of launchers
+     * @param reason The String reason to scale up.
+     */
     public void scaleUp(String reason) {
         log.info("Scaling up by [Step Up] " + stepUp + " instances...");
 
@@ -110,6 +145,10 @@ public class LauncherClusterManager {
         }
     }
 
+    /**
+     * Check max count, free buffer count, and scale down prioritizing free buffer count over
+     * max count.
+     */
     public void honourMaxCount() {
         // Get free and total counts
         int freeCount = getFreeLaunchers().size();
@@ -151,6 +190,9 @@ public class LauncherClusterManager {
                 " < [Free Buffer Count] " + freeBufferCount);
     }
 
+    /**
+     * Check if desired count is honoured, scale up if not.
+     */
     public void honourDesiredCount() {
         int totalDeploymentCount = getDeployments().size();
         log.info("[Total count] " + totalDeploymentCount + " [Desired Count] " + desiredCount);
@@ -164,6 +206,9 @@ public class LauncherClusterManager {
         }
     }
 
+    /**
+     * Check if free buffer count is available.
+     */
     public void honourFreeBufferCount() {
         // Check if there are enough free launchers
         int freeCount = getFreeLaunchers().size();
@@ -174,6 +219,10 @@ public class LauncherClusterManager {
         }
     }
 
+    /**
+     * Check if there are Services without corresponding Deployments, and clean them up from the launcher
+     * list.
+     */
     public void cleanOrphanServices() {
         log.info("Cleaning orphan Services...");
         List<String> serviceNames = getServices();
@@ -190,6 +239,10 @@ public class LauncherClusterManager {
         }
     }
 
+    /**
+     * Check if there are Deployments without corresponding Services, and clean them up from the launcher
+     * list.
+     */
     public void cleanOrphanDeployments() {
         log.info("Cleaning orphan Deployments...");
         List<String> deploymentNames = getDeployments();
@@ -206,6 +259,9 @@ public class LauncherClusterManager {
         }
     }
 
+    /**
+     * Check if there are valid Services and Deployments for each launcher available on the launcher list.
+     */
     public void validateLauncherUrls() {
         log.info("Validating the existing launcher URL list for missing deployments...");
 
@@ -222,22 +278,43 @@ public class LauncherClusterManager {
         }
     }
 
+    /**
+     * Get the list of Services on the K8S Cluster.
+     * @return
+     */
     public List<String> getServices() {
         return runtimeClient.getServices();
     }
 
+    /**
+     * Get the list of Deployments on the K8S Cluster.
+     * @return
+     */
     public List<String> getDeployments() {
         return runtimeClient.getDeployments();
     }
 
+    /**
+     * Check if a Deploymen exists by the given name.
+     * @param deploymentName
+     * @return
+     */
     public boolean deploymentExists(String deploymentName) {
         return runtimeClient.deploymentExists(deploymentName);
     }
 
+    /**
+     * Check if a Service exists by the given name.
+     * @param serviceName
+     * @return
+     */
     public boolean serviceExists(String serviceName) {
         return runtimeClient.serviceExists(serviceName);
     }
 
+    /**
+     * Iterate through the Deployments list and add any valid Deployment+Service as a free Launcher.
+     */
     private void addAllDeploymentsAsFreeLaunchers() {
         List<String> deployments = getDeployments();
         log.info("Found " + deployments.size() + " deployments to be added");
@@ -250,18 +327,36 @@ public class LauncherClusterManager {
         }
     }
 
+    /**
+     * Get the list of free launchers from the persistence.
+     * @return
+     */
     public List<String> getFreeLaunchers() {
         return persistence.getFreeLauncherUrls();
     }
 
+    /**
+     * Get the full list of launchers from the persistence.
+     * @return
+     */
     public List<String> getTotalLaunchers() {
         return persistence.getTotalLauncherUrls();
     }
 
+    /**
+     * Mark a launcher by the given subdomain as busy.
+     * @param launcherSubDomain
+     * @return
+     */
     public boolean markLauncherAsBusyBySubDomain(String launcherSubDomain) {
         return markLauncherAsBusy(launcherSubDomain + "." + rootDomainName);
     }
 
+    /**
+     * Mark the given launcher URL as busy.
+     * @param launcherUrl
+     * @return
+     */
     public boolean markLauncherAsBusy(String launcherUrl) {
         if (persistence.launcherExists(launcherUrl)) {
             return persistence.markLauncherAsBusy(launcherUrl);
@@ -270,10 +365,20 @@ public class LauncherClusterManager {
         return false;
     }
 
+    /**
+     * Mark a launcher by the given subdomain as free.
+     * @param launcherSubDomain
+     * @return
+     */
     public boolean markLauncherAsFreeBySubDomain(String launcherSubDomain) {
         return markLauncherAsFree(launcherSubDomain + "." + rootDomainName);
     }
 
+    /**
+     * Makr the given launcher URL as free.
+     * @param launcherUrl
+     * @return
+     */
     public boolean markLauncherAsFree(String launcherUrl) {
         if (persistence.launcherExists(launcherUrl)) {
             return persistence.markLauncherAsFree(launcherUrl);
@@ -282,6 +387,12 @@ public class LauncherClusterManager {
         return false;
     }
 
+    /**
+     * Delete launcher URL derived from the object name, from the list of launchers, if it exists, and delete from the K8S cluster.
+     *
+     * @param deploymentName
+     * @return
+     */
     private boolean deleteLauncher(String deploymentName) {
         unregisterLauncherIfExistsByObjectName(deploymentName);
 
@@ -291,12 +402,22 @@ public class LauncherClusterManager {
         return svcDeleted && depDeleted;
     }
 
+    /**
+     * Delete launcher URL, derived from the object name, from the list of launchers, if it exists.
+     *
+     * @param objectName
+     */
     private void unregisterLauncherIfExistsByObjectName(String objectName) {
         // Unregister from launcher list
         String launcherUrl = getLauncherUrlFromObjectName(objectName);
         unregisterLauncherIfExists(launcherUrl);
     }
 
+    /**
+     * Delete launcher URL from the list of launchers, if it exists.
+     *
+     * @param launcherUrl
+     */
     private void unregisterLauncherIfExists(String launcherUrl) {
         log.info("Unregistering launcher [URL] " + launcherUrl);
         if (persistence.launcherExists(launcherUrl)) {
@@ -306,6 +427,13 @@ public class LauncherClusterManager {
         }
     }
 
+    /**
+     * Add a new launcher URL by creating a K8S Deployment+Service pair and adding the entry to persistence.
+     *
+     * @param deploymentNameSuffix
+     * @param reason
+     * @return
+     */
     private boolean createLauncher(int deploymentNameSuffix, String reason) {
         boolean depCreated = runtimeClient.createDeployment(deploymentNameSuffix, rootDomainName, reason);
         boolean svcCreated = runtimeClient.createService(deploymentNameSuffix, rootDomainName, reason);
@@ -313,10 +441,21 @@ public class LauncherClusterManager {
         return depCreated && svcCreated;
     }
 
+    /**
+     * Add a launcher URL by the given object name to the persistence.
+     *
+     * @param deploymentName
+     */
     private void addFreeLauncher(String deploymentName) {
         persistence.addFreeLauncher(getLauncherUrlFromObjectName(deploymentName));
     }
 
+    /**
+     * Get the object name used in the K8S cluster, from the launcher URL.
+     *
+     * @param launchUrl
+     * @return
+     */
     private String getObjectNameFromLauncherUrl(String launchUrl) {
         if (launchUrl != null) {
             String[] domainParts = launchUrl.split("\\.");
@@ -326,6 +465,12 @@ public class LauncherClusterManager {
         throw new IllegalArgumentException("Null launcher URL cannot be processed.");
     }
 
+    /**
+     * Get the launcher URL used in the persistence by the given object name in the K8S cluster.
+     *
+     * @param objectName
+     * @return
+     */
     private String getLauncherUrlFromObjectName(String objectName) {
         if (objectName != null) {
             return objectName.replace(Constants.BPG_APP_TYPE_LAUNCHER, Constants.LAUNCHER_URL_PREFIX) +
@@ -336,6 +481,11 @@ public class LauncherClusterManager {
         throw new IllegalArgumentException("Null Object name cannot be processed.");
     }
 
+    /**
+     * Get the last created increment number of the Deployment/Service in the K8S cluster.
+     *
+     * @return
+     */
     private int getLatestDeploymentNameSuffix() {
         List<String> deploymentList = getDeployments();
         if (deploymentList.size() > 0) {
@@ -351,7 +501,12 @@ public class LauncherClusterManager {
         return 0;
     }
 
-    // This is too slow. Events take about 2 minutes to be received.
+    /**
+     * Start watching the K8S events to see if any related Deployments or Services are being deleted.
+     * If found, run a cleanup of the launcher URLs.
+     *
+     * Note: This is too slow. Events take about 2 minutes to be received.
+     */
     public void watchAndClean() {
         runtimeClient.watchWithWatcher(new Watcher<Event>() {
 

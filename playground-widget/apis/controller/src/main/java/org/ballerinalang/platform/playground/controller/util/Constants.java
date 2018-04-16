@@ -16,6 +16,9 @@
 
 package org.ballerinalang.platform.playground.controller.util;
 
+/**
+ * Constant values specific to the Controller roles.
+ */
 public class Constants {
     public static final String BPG_APP_TYPE_LAUNCHER = "bpg-launcher";
     public static final String LAUNCHER_URL_PREFIX = "launcher";

@@ -61,6 +61,10 @@ import java.util.Map;
 
 import static java.time.temporal.ChronoUnit.MINUTES;
 
+/**
+ * K8S implementation of the Container Runtime Client.
+ *
+ */
 public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     private static final Logger log = LoggerFactory.getLogger(KubernetesClientImpl.class);
@@ -319,17 +323,16 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         k8sClient.events().inNamespace(namespace).watch(watcher);
     }
 
+    /**
+     * Create an Environment Variable entry to be added to a Deployment.
+     * @param key
+     * @param value
+     * @return
+     */
     private EnvVar buildEnvVar(String key, String value) {
         return new EnvVarBuilder()
                 .withName(key)
                 .withValue(value)
                 .build();
-    }
-
-    private long calculateObjectAgeByMinutes(String creationTimestamp) {
-        LocalDate creationDate = LocalDate.parse(creationTimestamp);
-        LocalDate now = LocalDate.now();
-
-        return MINUTES.between(creationDate, now);
     }
 }

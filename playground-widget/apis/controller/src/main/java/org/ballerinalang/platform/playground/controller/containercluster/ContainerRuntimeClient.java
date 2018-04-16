@@ -21,6 +21,9 @@ import io.fabric8.kubernetes.client.Watcher;
 
 import java.util.List;
 
+/**
+ * Container runtime client contract.
+ */
 public interface ContainerRuntimeClient {
 
     public boolean createDeployment(int deploymentNameSuffix, String rootDomainName, String reason);
