@@ -4,7 +4,7 @@ Now that you know a little bit [about Ballerina](/philosophy), let's take it for
 
 ## Install Ballerina
 
-1. Go to [https://ballerina.io/](/) and click **Download**. 
+1. Go to [https://ballerina.io/](/) and click **Download Ballerina**. 
 1. Download Ballerina for your OS and follow the instructions given to set it up. 
 
 > NOTE: Throughout this documentation, `<ballerina_home>` refers to the Ballerina directory you just installed. 
@@ -48,7 +48,7 @@ Check if annotations work by entering some text and seeing proposed suggestions.
 
 ![VS Code Annotations](/img/docs-images/vscode_annotations.png)
 
-You can use your [favourite editor to work on Ballerina code](tools-ides-ballerina-composer.md).
+You can use your [favourite editor to work on Ballerina code](https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md).
 
 Now, let's look at running the same Hello World program you created earlier as a service.
 
@@ -218,4 +218,4 @@ Hello World!
 
 1. In the command line, type `composer`.
 
-1. Access the Composer from the following URL in your browser: http://localhost:9091   
+1. Access the Composer from the following URL in your browser: `http://localhost:9091`
