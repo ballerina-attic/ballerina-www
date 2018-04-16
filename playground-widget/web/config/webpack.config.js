@@ -149,7 +149,7 @@ const codepoints = {}
          new webpack.WatchIgnorePlugin([path.join(composerWebRoot, 'font/dist/')]),
          new WebfontPlugin({
             files: path.join(composerWebRoot, 'font/font-ballerina/icons/**/*.svg'),
-            cssTemplateFontPath: '../fonts/',
+            cssTemplateFontPath: 'fonts/',
             fontName: 'font-ballerina',
             fontHeight: 1000,
             normalize: true,
