@@ -234,9 +234,9 @@ public class LauncherClusterManager {
         List<String> deployments = getDeployments();
         log.info("Found " + deployments.size() + " deployments to be added");
         for (String deployment : deployments) {
-            if (runtimeClient.serviceExists(deployment)){
+            if (runtimeClient.serviceExists(deployment)) {
                 addFreeLauncher(deployment);
-            } else{
+            } else {
                 log.info("Deployment " + deployment + " doesn't have a Service that exposes it. Not adding as a launcher...");
             }
         }
@@ -250,12 +250,20 @@ public class LauncherClusterManager {
         return persistence.getTotalLauncherUrls();
     }
 
+    public boolean markLauncherAsBusyBySubDomain(String launcherSubDomain) {
+        return markLauncherAsBusy(launcherSubDomain + "." + rootDomainName);
+    }
+
     public boolean markLauncherAsBusy(String launcherUrl) {
         if (persistence.launcherExists(launcherUrl)) {
             return persistence.markLauncherAsBusy(launcherUrl);
         }
 
         return false;
+    }
+
+    public boolean markLauncherAsFreeBySubDomain(String launcherSubDomain) {
+        return markLauncherAsFree(launcherSubDomain + "." + rootDomainName);
     }
 
     public boolean markLauncherAsFree(String launcherUrl) {

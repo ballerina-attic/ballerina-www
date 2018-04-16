@@ -92,7 +92,6 @@ public class ControllerRunner {
                 break;
             default:
                 // break down if an invalid role is specified
-                log.error("Invalid Controller Role defined: " + controllerRole);
                 throw new IllegalArgumentException("Invalid Controller Role defined: " + controllerRole);
         }
     }

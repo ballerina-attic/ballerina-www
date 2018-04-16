@@ -52,12 +52,12 @@ public class ControllerServiceManager {
         return launcherToAllocate;
     }
 
-    boolean markLauncherFree(String launcherUrl) {
-        return clusterManager.markLauncherAsFree(launcherUrl);
+    boolean markLauncherFree(String launcherSubDomain) {
+        return clusterManager.markLauncherAsFreeBySubDomain(launcherSubDomain);
     }
 
-    boolean markLauncherBusy(String launcherUrl) {
-        return clusterManager.markLauncherAsBusy(launcherUrl);
+    boolean markLauncherBusy(String launcherSubDomain) {
+        return clusterManager.markLauncherAsBusyBySubDomain(launcherSubDomain);
     }
 
     public String getCacheResponderUrl() {
