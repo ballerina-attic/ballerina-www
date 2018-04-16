@@ -14,8 +14,9 @@ $(document).ready(function () {
 
             // remove latest version
             var ltestIndex = data.findIndex(function(element){
-                return data["version"] == latestVersion;
-            })
+                return element["version"].replace(/ /g, "-").toLowerCase() == latestVersion.replace(/ /g, "-").toLowerCase();
+            });
+            
             if (ltestIndex !== -1) {
                 data.splice(ltestIndex, 1);
             }
