@@ -22,7 +22,7 @@ spec:
       serviceAccount: lb-sa
       serviceAccountName: lb-sa
       containers:
-      - image: gcr.io/${BPG_GCP_PROJECT_ID}/haproxy:0.4v1
+      - image: gcr.io/${BPG_GCP_PROJECT_ID}/haproxy:0.4v2-preprod
         imagePullPolicy: Always
         resources:
           limits:
@@ -60,6 +60,6 @@ spec:
         args:
         - --tcp-services=mysql:3306,nginxsvc:443
         - --syslog=true
-        - --ssl-cert=/etc/certs/sslterm/star_playground_ballerina_io.pem
-        - --ssl-ca-cert=/etc/certs/sslterm/DigiCertCA.crt
+        - --ssl-cert=/etc/certs/sslterm/playground.preprod.ballerina.io.pem
+        - --ssl-ca-cert=/etc/certs/sslterm/playground.preprod.ballerina.io.crt
         - --reload-interval=5s

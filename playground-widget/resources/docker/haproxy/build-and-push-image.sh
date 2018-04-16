@@ -8,6 +8,6 @@ fi
 go fmt
 CGO_ENABLED=0 GOOS=linux godep go build -a -installsuffix cgo -ldflags '-w' -o service_loadbalancer ./service_loadbalancer.go ./loadbalancer_log.go || exit 1
 
-docker build -t gcr.io/${BPG_GCP_PROJECT_ID}/haproxy:0.4v2$1 --no-cache=true .  || exit 1
+docker build -t gcr.io/${BPG_GCP_PROJECT_ID}/haproxy:0.4v2-preprod --no-cache=true .  || exit 1
 
 #gcloud docker -- push gcr.io/${BPG_GCP_PROJECT_ID}/haproxy:0.4v1  || exit 1
