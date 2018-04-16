@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2018, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.ballerinalang.platform.playground.controller.containercluster;
 
 import io.fabric8.kubernetes.api.model.Container;
@@ -124,15 +140,6 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         envVarList.add(buildEnvVar(EnvVariables.ENV_IS_LAUNCHER_CACHE, "false"));
         envVarList.add(buildEnvVar(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL,
                 EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)));
-
-//        envVarList.add(buildEnvVar(Constants.ENV_LAUNCHER_IMAGE_NAME, launcherImageName));
-//        envVarList.add(buildEnvVar(Constants.ENV_DESIRED_COUNT, EnvUtils.getEnvStringValue(Constants.ENV_DESIRED_COUNT)));
-//        envVarList.add(buildEnvVar(Constants.ENV_MAX_COUNT, EnvUtils.getEnvStringValue(Constants.ENV_MAX_COUNT)));
-//        envVarList.add(buildEnvVar(Constants.ENV_STEP_UP, EnvUtils.getEnvStringValue(Constants.ENV_STEP_UP)));
-//        envVarList.add(buildEnvVar(Constants.ENV_STEP_DOWN, EnvUtils.getEnvStringValue(Constants.ENV_STEP_DOWN)));
-//        envVarList.add(buildEnvVar(Constants.ENV_FREE_BUFFER, "6397"));
-//        envVarList.add(buildEnvVar("BPG_SCALING_IDLE_TIMEOUT_MIN", "6397"));
-//        envVarList.add(buildEnvVar("BPG_CONTROLLER_ROLE", "6397"));
 
         launcherContainer.setEnv(envVarList);
 
@@ -316,21 +323,4 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
         return MINUTES.between(creationDate, now);
     }
-
-//    @Override
-//    public org.ballerinalang.platform.playground.controller.containercluster.model.Deployment getDeploymentByName(String deploymentName) {
-//        Deployment deployment = k8sClient.extensions().deployments().inNamespace(namespace).withName(deploymentName).get();
-//
-//        if (deployment == null) {
-//            return null;
-//        }
-//
-//        org.ballerinalang.platform.playground.controller.containercluster.model.Deployment dep = new org.ballerinalang.platform.playground.controller.containercluster.model.Deployment();
-//
-//        dep.setName(deployment.getMetadata().getName());
-//        dep.setNamespace(namespace);
-//        dep.setAge(calculateObjectAge(deployment.getMetadata().getCreationTimestamp()));
-//
-//        return dep;
-//    }
 }
