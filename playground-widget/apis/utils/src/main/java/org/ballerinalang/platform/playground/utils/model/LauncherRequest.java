@@ -13,32 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.utils.cmd.dto;
+package org.ballerinalang.platform.playground.utils.model;
 
 /**
- * Run Command
+ * Launcher Request DTO
  */
-public class RunCommand extends Command {
-
-    private String fileName;
+public class LauncherRequest {
 
     private String source;
 
     private String curl;
-
-    private int noOfCurlExecutions;
-
-    private String dependantService;
-
-    private String cacheId;
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
 
     public String getSource() {
         return source;
@@ -54,29 +38,5 @@ public class RunCommand extends Command {
 
     public void setCurl(String curl) {
         this.curl = curl;
-    }
-
-    public int getNoOfCurlExecutions() {
-        return noOfCurlExecutions;
-    }
-
-    public void setNoOfCurlExecutions(int noOfCurlExecutions) {
-        this.noOfCurlExecutions = noOfCurlExecutions;
-    }
-
-    public String getDependantService() {
-        return dependantService;
-    }
-
-    public void setDependantService(String dependantService) {
-        this.dependantService = dependantService;
-    }
-
-    public String getCacheId() {
-        return cacheId;
-    }
-
-    public void setCacheId(String cacheId) {
-        this.cacheId = cacheId;
     }
 }

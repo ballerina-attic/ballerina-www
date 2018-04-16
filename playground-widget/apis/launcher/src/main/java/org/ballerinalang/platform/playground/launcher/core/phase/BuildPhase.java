@@ -85,7 +85,7 @@ public class BuildPhase implements Phase {
                 Duration buildTime = Duration.between(buildStart, buildStop);
                 if (buildPassed) {
                     runSession.getCacheStorage()
-                            .set(runSession.getSourceMD5(), runSession.getBuildFile().toAbsolutePath().toString());
+                            .set(runSession.getBuildCacheID(), runSession.getBuildFile().toAbsolutePath().toString());
                     runSession.pushMessageToClient(Constants.CONTROL_MSG, Constants.BUILD_STOPPED,
                             "build completed in " + buildTime.toMillis() + "ms");
                     next.run();
