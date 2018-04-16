@@ -1,13 +1,13 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-    $("#iReleseNotes").click(function () {
+    $("#iReleseNotes").click(function() {
         $(".cReleseNotePannel").toggleClass('cShowPlannel');
         $("#iReleseNotes").toggleClass('cShowPlannel');
     });
 
     // Getting latest release information
-    $.getJSON(latest_versions_json, function (data) {
-        $.each(data, function (k, latest_pack) {
+    $.getJSON(latest_versions_json, function(data) {
+        $.each(data, function(k, latest_pack) {
 
 
             var version = latest_pack['version'];
@@ -20,7 +20,7 @@ $(document).ready(function () {
             var macos_pack = latest_pack['macos-installer'];
             var macos_pack_size = latest_pack['macos-installer-size'];
 
-            var product_dist_path = base_download_url+"/" + version_pack + "/";
+            var product_dist_path = base_download_url + "/" + version_pack + "/";
 
             $("#versionInfo").html(version + " (" + formatDate(released_date) + ")");
             $("#stableInfo").html(version + " (" + formatDate(released_date) + ")");
@@ -44,13 +44,13 @@ $(document).ready(function () {
             $("#packMacAsc").attr("href", product_dist_path + macos_pack + ".asc");
 
             var i = 0;
-            $.each(latest_pack['other-artefacts'], function (key, value) {
+            $.each(latest_pack['other-artefacts'], function(key, value) {
 
                 release_content = "<tr>";
-                release_content += '<td style="width: 69%"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
-                release_content += '<td style="width: 7%"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
-                release_content += '<td style="width: 7%"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
-                release_content += '<td style="width: 7%"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
+                release_content += '<td style="width: 69%;"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
+                release_content += '<td style="width: 7%; white-space: nowrap;"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
+                release_content += '<td style="width: 7%; white-space: nowrap;"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
+                release_content += '<td style="width: 7%; white-space: nowrap;"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
                 release_content += "</tr>";
 
                 if (i < latest_pack['other-artefacts'].length / 2) {
@@ -67,8 +67,8 @@ $(document).ready(function () {
     //Nightly Packages
     var nightly_pack = "";
 
-    $.getJSON(nightly_versions_json, function (data) {
-        $.each(data, function (key, nightly_pack) {
+    $.getJSON(nightly_versions_json, function(data) {
+        $.each(data, function(key, nightly_pack) {
 
             var version = nightly_pack['version'];
             var version_pack = version.replace(/ /g, "-").toLowerCase();
@@ -77,15 +77,15 @@ $(document).ready(function () {
             $("#nightlyInfo").html(version + " (" + formatDate(released_date) + ")");
             var nightly_packs = $.merge([nightly_pack['windows-installer'], nightly_pack['linux-installer'], nightly_pack['macos-installer']], nightly_pack['other-artefacts']);
             var i = 0;
-            var product_dist_path = base_download_url+"/" + version_pack + "/";
+            var product_dist_path = base_download_url + "/" + version_pack + "/";
 
-            $.each(nightly_packs, function (key, value) {
+            $.each(nightly_packs, function(key, value) {
 
                 release_content = "<tr>";
                 release_content += '<td style="width: 69%"><a href="' + product_dist_path + value + '" class="cLinkBlack">' + value + '</a></td>';
-                release_content += '<td style="width: 7%"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
-                release_content += '<td style="width: 7%"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
-                release_content += '<td style="width: 7%"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
+                release_content += '<td style="width: 7%; white-space: nowrap;"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
+                release_content += '<td style="width: 7%; white-space: nowrap;"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
+                release_content += '<td style="width: 7%; white-space: nowrap;"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
                 release_content += "</tr>";
 
                 if (i < nightly_packs.length / 2) {
