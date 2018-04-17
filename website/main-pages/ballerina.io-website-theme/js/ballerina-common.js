@@ -57,7 +57,7 @@ $(document).ready(function() {
         '<div class="cFormContainer">' +
         '<form>' +
         '<div class="cFieldContainer">' +
-        '<input maxlength="90" value="" id="emailUser" name="email" placeholder="I consent to join the email list" title="I consent to join the email list" type="text">' +
+        '<input maxlength="90" value="" id="emailUser" name="email" placeholder="Email" title="Join our list by entering your email" type="text">' +
         '</div>' +
         '<div class="cButtonContainer">' +
         '<a class="cBallerinaButtons subscribeUserForm" href="" id="subscribeUserButton"></a>' +
@@ -116,6 +116,34 @@ $(document).ready(function() {
         $(".cDeploymentContent").removeClass('cShow');
         $(".cLifecycleContent").addClass('cShow');
     });
+
+
+
+
+    $(".cSEQUENCEContent").addClass('cShow');
+
+    $(".cSEQUENCE").click(function() {
+        $(".cSEQUENCEContent").addClass('cShow');
+        $(".cCONCURRENCYContent").removeClass('cShow');
+        $(".cTYPEContent").removeClass('cShow');
+
+    });
+
+
+    $(".cCONCURRENCY").click(function() {
+        $(".cSEQUENCEContent").removeClass('cShow');
+        $(".cCONCURRENCYContent").addClass('cShow');
+        $(".cTYPEContent").removeClass('cShow');
+
+    });
+
+
+    $(".cTYPE").click(function() {
+        $(".cSEQUENCEContent").removeClass('cShow');
+        $(".cCONCURRENCYContent").removeClass('cShow');
+        $(".cTYPEContent").addClass('cShow');
+    });
+
 
 
     $(".cSerachIcon").click(function() {
