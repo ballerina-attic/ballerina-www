@@ -20,7 +20,7 @@ spec:
       containers: 
       - name: bpg-controller-container 
         imagePullPolicy: Always 
-        image: gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1-20180417-1828
+        image: gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1-20180417-1956
         # resources: 
         #   requests: 
         #     cpu: 100m 
@@ -43,7 +43,7 @@ spec:
           value: "ballerina-playground"
         -
           name: BPG_LAUNCHER_IMAGE_NAME
-          value: "gcr.io/${BPG_GCP_PROJECT_ID}/launcher:v0.1-20180417-1819"
+          value: "gcr.io/${BPG_GCP_PROJECT_ID}/launcher:v0.1-20180417-1923"
         -
           name: BPG_MIN_CONCURRENT_USERS
           value: "10"
@@ -68,6 +68,9 @@ spec:
         -
           name: BPG_CONTROLLER_INTERNAL_URL
           value: "bpg-controller-internal"
+        -
+          name: BPG_LAUNCHER_HTTPS_PORT
+          value: "8443"
         -
           name: BPG_CONTROLLER_ROLE
           value: "API_SERVER"
