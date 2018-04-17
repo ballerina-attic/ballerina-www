@@ -24,6 +24,12 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 [Ballerina by Guide](/learn/guides/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment and observability. 
 
+## How To's
+
+### How to Structure Ballerina Code
+
+[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, and install Ballerina packages and commands with repositories that are local and remote. It addresses the structure of programs, projects, and packages.
+
 ## Reference Documentation
 
 ### Package and API Documentation
