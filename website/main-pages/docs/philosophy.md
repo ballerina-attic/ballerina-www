@@ -131,7 +131,7 @@
        </div>
    </div>
 </div>
-<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2 cHowBallerinaWorksRow">
+<div class="row cBallerina-io-White-row cPhilosophy cPhilosophy2 cHowBallerinaWorksRow">
    <div class="container">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cPhilosophyWhite cHowballerinaworks">
          <h2 class="cMainH2Title">How Ballerina works</h2>
@@ -140,7 +140,7 @@
             </p>
          </div>
       </div>
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cPhilosophyWidget">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cPhilosophyWidget  cHowballerinaworkswidget">
          <div class="cPhilosophyWidgetContainer">
             <ul  class="nav nav-pills cPhilosophyWidgetControls">
                <li class="cRUNTIME active">
@@ -155,13 +155,13 @@
             </ul>
             <div class="tab-content clearfix cPhilosophyWidgetInnerBox ">
                <div class="tab-pane active" id="1a">
-                  <img src="/img/philosophy-diagrams-for-site-new-02.svg"/>
+                  <img src="/img/philosophy-diagrams-for-site-02.svg"/>
                </div>
                <div class="tab-pane" id="2a">
-                  <img src="/img/philosophy-diagrams-for-site-new-03.svg"/>
+                  <img src="/img/philosophy-diagrams-for-site-03.svg"/>
                </div>
                <div class="tab-pane" id="3a">
-                  <img src="/img/philosophy-diagrams-for-site-new-04.svg"/>
+                  <img src="/img/philosophy-diagrams-for-site-04.svg"/>
                </div>
             </div>
          </div>
@@ -252,7 +252,7 @@
       </div>
    </div>
 </div>
-<div class="row cBallerina-io-White-row  codeSampleBoxes" id="nativeLanguage">
+<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2  codeSampleBoxes" id="nativeLanguage">
    <div class="container">
       <div class="col-xs-12 cPhilosophyWhite cCloudNative">
          <div class="col-xs-12">
@@ -469,7 +469,7 @@
         <!-- end code section -->
     </div>
 </div>
-<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2 codeSampleBoxes" id="integration">
+<div class="row cBallerina-io-White-row cPhilosophy cPhilosophy2 codeSampleBoxes" id="integration">
    <div class="container">
       <div class="col-xs-12 cPhilosophyWhite cCloudNative ">
         <h2 class="cMainH2Title">Integration Framework </h2>
@@ -571,7 +571,7 @@
       </div>
    </div>
 </div>
-<div class="row cBallerina-io-White-row" id="ballerina-by-examples">
+<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2" id="ballerina-by-examples">
    <div class="container">
       <div class="col-xs-12 cPhilosophyWhite cCloudNative ">
             <h2 class="cMainH2Title">Try the language with <br/>Ballerina by Example</h2>
@@ -597,7 +597,7 @@
       </div>
    </div>
 </div>
-<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2" id="ballerina-by-guides">
+<div class="row cBallerina-io-White-row cPhilosophy cPhilosophy2" id="ballerina-by-guides">
    <div class="container">
        <div class="col-xs-12">
             <h2 class="cMainH2Title">Learn integration with <br />Ballerina by Guide</h2>
@@ -621,7 +621,7 @@
       </div>
    </div>
 </div>
-<div class="row cBallerina-io-White-row cPhilosophy cPhilosophy2">
+<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
    <div class="container">
       <div class="col-xs-12 cPhilosophyWhite cCloudNative ">
         <h2 class="cMainH2Title">Open Source</h2>
