@@ -186,8 +186,8 @@ $(document).ready(function() {
 Given line number range this code apply a overlay on top of the syntax hilighting 
 */
 function highlightCodeSection(startLine, endLine, codeBoxId) {
-    if (typeof startLine === 'string') { startLine = parseInt(startLine) }
-    if (typeof endLine === 'string') { endLine = parseInt(endLine) }
+    if (typeof startLine === 'string') { startLine = parseInt(startLine); }
+    if (typeof endLine === 'string') { endLine = parseInt(endLine); }
 
     var overlayHeight = (endLine - (startLine - 1)) * lineHeight;
     var overlayStartPosition = topPadding + (startLine - 1) * lineHeight;
@@ -195,14 +195,14 @@ function highlightCodeSection(startLine, endLine, codeBoxId) {
 }
 
 $(document).ready(function() {
-    $('.codeSampleBoxes .hTrigger').hover(function() {
+    $('.codeSampleBoxes .hTrigger').hover(function(e) {
             var startLine = $(this).attr('data-startLine');
             var endLine = $(this).attr('data-endLine');
 
-            highlightCodeSection(startLine, endLine, 'ballerina_grammar_2');
+            highlightCodeSection(startLine, endLine, $(e.currentTarget).closest('.container').find('.code-wrapper').attr('id'));
         },
         function() {
-            $('#ballerina_grammar_2 .overllay-highlight').css('top', 0).css('height', 0);
+            $('.code-wrapper .overllay-highlight').css('top', 0).css('height', 0);
         }
     );
 });

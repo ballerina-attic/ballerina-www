@@ -281,7 +281,8 @@
             <div class="cPhilosophyWidgetContainer">
                 <div class="tab-content clearfix">
                     <div class="cIntegrationCode">
-                        <div id="code-container-wrapper">
+                        <div id="code-container-wrapper" class="code-wrapper">
+                            <div class="overllay-highlight"></div>
                             <pre id="asynchronous-execution-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
@@ -458,7 +459,7 @@
      </div>
       <div class="col-xs-8 paddingRemove">
             <div class="codeNativeBox">
-                <div id="ballerina_grammar_2">
+                <div id="ballerina_grammar_2" class="code-wrapper">
                     <div class="overllay-highlight"></div>
                     <pre id="type-safe-endpoint-integration-code" class="code-block">
                         <code class="ballerina tab-pane active"></code>
