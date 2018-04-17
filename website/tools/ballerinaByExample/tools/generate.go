@@ -260,6 +260,7 @@ func parseExamples() []*Example {
     exampleNames := readLines(examplesDir + "/" + "examples.txt")
     examples := make([]*Example, 0)
     for _, exampleName := range exampleNames {
+        fmt.Fprintln(os.Stderr, "processing example: " + exampleName)
         if (exampleName != "") && !strings.HasPrefix(exampleName, "#") {
             example := Example{Name: exampleName}
             exampleId := strings.ToLower(exampleName)
@@ -279,8 +280,10 @@ func parseExamples() []*Example {
 
             balFilePath := fileDirPath + exampleId + ".bal"
             if !isFileExist(balFilePath) {
+                fmt.Fprintln(os.Stderr, "Skipping example: " + exampleName + ". File not found: " + balFilePath)
                 continue;
             }
+            fmt.Fprintln(os.Stderr, "processing file : " + balFilePath)
             rearrangedPaths = appendFilePath(rearrangedPaths, descFilePath);
 
             rearrangedPaths = appendFilePath(rearrangedPaths, balFilePath);
