@@ -15,13 +15,17 @@
  */
 package org.ballerinalang.platform.playground.utils.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Launcher Request DTO
  */
 public class LauncherRequest {
 
+    @SerializedName(value = "source")
     private String source;
 
+    @SerializedName(value = "curl")
     private String curl;
 
     public String getSource() {

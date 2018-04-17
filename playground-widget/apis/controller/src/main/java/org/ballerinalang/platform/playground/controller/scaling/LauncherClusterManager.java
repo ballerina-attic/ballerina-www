@@ -106,7 +106,13 @@ public class LauncherClusterManager {
         // Scale down by (1 x stepDown) at a time
         for (int i = 0; i < stepDown; i++) {
             // Get the youngest free launcher URL
-            Collections.sort(urlsToScaleDown);
+            urlsToScaleDown.sort((o1, o2) -> {
+                int mySuffix = Integer.parseInt(o1.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
+                int theirSuffix = Integer.parseInt(o2.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
+
+                return Integer.compare(mySuffix, theirSuffix);
+            });
+
             String launcherUrlToDelete = urlsToScaleDown.get(urlsToScaleDown.size() - 1);
 
             log.info("Cutting down [Launcher URL] " + launcherUrlToDelete + "...");
@@ -123,6 +129,7 @@ public class LauncherClusterManager {
 
     /**
      * Scale up by stepUp number of launchers
+     *
      * @param reason The String reason to scale up.
      */
     public void scaleUp(String reason) {
@@ -195,7 +202,7 @@ public class LauncherClusterManager {
      */
     public void honourDesiredCount() {
         int totalDeploymentCount = getDeployments().size();
-        log.info("[Total count] " + totalDeploymentCount + " [Desired Count] " + desiredCount);
+//        log.info("[Total count] " + totalDeploymentCount + " [Desired Count] " + desiredCount);
 
         while (totalDeploymentCount < desiredCount) {
             log.info("Scaling UP: REASON -> [Total Count] " + totalDeploymentCount + " < [Desired Count] " +
@@ -213,9 +220,10 @@ public class LauncherClusterManager {
         // Check if there are enough free launchers
         int freeCount = getFreeLaunchers().size();
 
-        while (freeCount < freeBufferCount) {
+        while (getFreeLaunchers().size() < freeBufferCount) {
             log.info("Scaling UP: REASON -> [Free Count] " + freeCount + " < [Free Gap] " + freeBufferCount);
             scaleUp("honourFreeBufferCount");
+            freeCount = getFreeLaunchers().size();
         }
     }
 
@@ -280,6 +288,7 @@ public class LauncherClusterManager {
 
     /**
      * Get the list of Services on the K8S Cluster.
+     *
      * @return
      */
     public List<String> getServices() {
@@ -288,6 +297,7 @@ public class LauncherClusterManager {
 
     /**
      * Get the list of Deployments on the K8S Cluster.
+     *
      * @return
      */
     public List<String> getDeployments() {
@@ -296,6 +306,7 @@ public class LauncherClusterManager {
 
     /**
      * Check if a Deploymen exists by the given name.
+     *
      * @param deploymentName
      * @return
      */
@@ -305,6 +316,7 @@ public class LauncherClusterManager {
 
     /**
      * Check if a Service exists by the given name.
+     *
      * @param serviceName
      * @return
      */
@@ -329,6 +341,7 @@ public class LauncherClusterManager {
 
     /**
      * Get the list of free launchers from the persistence.
+     *
      * @return
      */
     public List<String> getFreeLaunchers() {
@@ -337,6 +350,7 @@ public class LauncherClusterManager {
 
     /**
      * Get the full list of launchers from the persistence.
+     *
      * @return
      */
     public List<String> getTotalLaunchers() {
@@ -345,6 +359,7 @@ public class LauncherClusterManager {
 
     /**
      * Mark a launcher by the given subdomain as busy.
+     *
      * @param launcherSubDomain
      * @return
      */
@@ -354,6 +369,7 @@ public class LauncherClusterManager {
 
     /**
      * Mark the given launcher URL as busy.
+     *
      * @param launcherUrl
      * @return
      */
@@ -367,6 +383,7 @@ public class LauncherClusterManager {
 
     /**
      * Mark a launcher by the given subdomain as free.
+     *
      * @param launcherSubDomain
      * @return
      */
@@ -376,6 +393,7 @@ public class LauncherClusterManager {
 
     /**
      * Makr the given launcher URL as free.
+     *
      * @param launcherUrl
      * @return
      */
@@ -488,13 +506,21 @@ public class LauncherClusterManager {
      */
     private int getLatestDeploymentNameSuffix() {
         List<String> deploymentList = getDeployments();
+//        log.info("Currently have " + deploymentList.size() + " deployments...");
         if (deploymentList.size() > 0) {
-            Collections.sort(deploymentList);
-            String lastElement = deploymentList.get(deploymentList.size() - 1);
-            String lastLauncherSuffix = lastElement.substring(
-                    (Constants.BPG_APP_TYPE_LAUNCHER + "-").length(),
-                    lastElement.length());
+            deploymentList.sort((o1, o2) -> {
+                int mySuffix = Integer.parseInt(o1.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
+                int theirSuffix = Integer.parseInt(o2.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
 
+                return Integer.compare(mySuffix, theirSuffix);
+            });
+
+//            log.info("Sorted deployments: " + deploymentList.toString());
+            String lastElement = deploymentList.get(deploymentList.size() - 1);
+//            log.info("Last element: " + lastElement);
+            String lastLauncherSuffix = lastElement.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length());
+
+//            log.info("Picking last deployment suffix: " + lastLauncherSuffix);
             return Integer.parseInt(lastLauncherSuffix);
         }
 
@@ -504,7 +530,7 @@ public class LauncherClusterManager {
     /**
      * Start watching the K8S events to see if any related Deployments or Services are being deleted.
      * If found, run a cleanup of the launcher URLs.
-     *
+     * <p>
      * Note: This is too slow. Events take about 2 minutes to be received.
      */
     public void watchAndClean() {

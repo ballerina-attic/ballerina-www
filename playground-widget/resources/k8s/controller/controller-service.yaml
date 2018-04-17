@@ -3,7 +3,7 @@ kind: Service
 metadata: 
   annotations: 
     serviceloadbalancer/lb.cookie-sticky-session: "true" 
-    serviceloadbalancer/lb.host: controller.playground.ballerina.io 
+    serviceloadbalancer/lb.host: controller.playground.preprod.ballerina.io
     serviceloadbalancer/lb.sslTerm: "true"
   labels:
     app: bpg-controller 
@@ -14,7 +14,7 @@ spec:
   -
     name: "web-port-https"
     port: 443
-    targetPort: 8080
+    targetPort: 8443
   selector: 
     app: bpg-controller 
  
