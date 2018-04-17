@@ -17,7 +17,7 @@ spec:
           -
             name: url-validator-controller
             imagePullPolicy: Always
-            image: gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1-20180417-1828
+            image: gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1-20180417-1956
             env:
             -
               name: BPG_REDIS_WRITE_HOST
@@ -42,7 +42,7 @@ spec:
               value: "ballerina-playground"
             -
               name: BPG_LAUNCHER_IMAGE_NAME
-              value: "gcr.io/${BPG_GCP_PROJECT_ID}/launcher:v0.1-20180417-1819"
+              value: "gcr.io/${BPG_GCP_PROJECT_ID}/launcher:v0.1-20180417-1923"
             -
               name: BPG_MIN_CONCURRENT_USERS
               value: "10"
@@ -67,6 +67,9 @@ spec:
             -
               name: ROOT_DOMAIN_NAME
               value: "playground.preprod.ballerina.io"
+            -
+              name: BPG_LAUNCHER_HTTPS_PORT
+              value: "8443"
             -
               name: BPG_CONTROLLER_ROLE
               value: "URL_VALIDATOR"
