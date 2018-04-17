@@ -252,9 +252,7 @@
          <div class="col-xs-12">
             <h2 class="cMainH2Title">Cloud Native Programming Language </h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol ">
-               <p>Designed to be cloud-first, Ballerina has built-in support for modern web
-                   protocols and data formats, full power of a Turing-complete programming language,
-                   and native support for microservices architectures.
+               <p>Designed to be cloud-first, Ballerina has built-in support for modern web protocols and data formats, full power of a Turing-complete programming language, and native support for microservices architectures.
                </p>
             </div>
          </div>
@@ -265,12 +263,7 @@
                <li class="links first cActive">REST Services</li>
                <li class="links">Full Language</li>
                <li class="links">Asynchronous Execution</li>
-            </ul>
-         </div>
-         <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls">
-            <ul>
                <li class="links">Docker and Kubernetes</li>
-               <li class="links">Type Safety</li>
             </ul>
          </div>
       </div>
@@ -295,14 +288,12 @@
                             <pre class="code-block" id="rest-services-code">
                                 <code class="ballerina tab-pane active code-block"></code>
                             </pre>
-                            <pre class="code-block" id="type-safety-code">
-                                <code class="ballerina tab-pane active code-block"></code>
-                            </pre>
                         </div>
                         <div class="code cOutput">
                             <div class="highlight">
                                 <pre id="rest-services-shell" class="shell-display"></pre>
                                 <pre id="full-language-shell"  class="shell-display"></pre>
+                                <pre id="asynchronous-execution-shell"  class="shell-display"></pre>
                                 <pre id="docker-and-kubernetes-shell"  class="shell-display"></pre>
                             </div>
                         </div>
@@ -380,7 +371,7 @@
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads. Threads can join using different conditions (all end, some end).                          <br />
+                        Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads. Threads can join using different conditions (all end, some end).                        <br />
                     </p>
                 </div>
             </div>
@@ -402,32 +393,17 @@
             </div>
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
                 <div>
+                    <p>
+                        You can then use native Kubernetes client to deploy generated artifacts.
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
+                <div>
                     <p>Ballerina compiler is extensible with packages. This particular example is using the Kubernetes package to generate Kubernetes artifacts and docker image. Other platforms such as Cloud Foundry, Mesos, and so on can have their own packages, annotations, and artifact generation.</p>
-                    </div>
                 </div>
             </div>
-            <div class="col-xs-4 text-display"  id="type-safety-text">
-                <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
-                    <div>
-                        <p>Ballerina is a compiled language with both compile-time and run-time type safety enforcement.</p>
-                    </div>
-                </div>
-                <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
-                    <div>
-                        <p>All variables as well as function parameters and returns need to be typed. This provides for much better developer experience in all major IDEs (with tab completion, tooltips, and code snippets), and makes sure that most issues get caught by Ballerina parser and compiler.</p>
-                    </div>
-                </div>
-                <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
-                    <div>
-                        <p>JSON and XML schemas can be enforced to ensure that your code gets the data that it needs.</p>
-                    </div>
-                </div>
-                <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
-                    <div>
-                        <p>Functions can return union types that can be the actual data, error or null. Your code can then use match to resolve what got returned and handle properly.</p>
-                    </div>
-                </div>
-            </div>
+        </div>
         <!-- end code section -->
     </div>
 </div>
