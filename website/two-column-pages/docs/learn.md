@@ -36,4 +36,4 @@ The [API Documentation](learn/api-docs/) describes the native functions in Balle
 
 ### Command Documentation
 
-The <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/CLI-commands.md" target="_blank">Command Documentation</a> includes a summary of all the commands available in Ballerina and provides links to each command in GitHub.
+The [Command Documentation](/learn/cli-commands/) includes a summary of all the commands available in Ballerina and provides links to each command in GitHub.
