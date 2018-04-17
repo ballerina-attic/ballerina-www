@@ -1,13 +1,14 @@
 // Create JSON, convert it to XML, change data
-json j = {"store":{
-                                   "name":"Anne",
-                                   "address":{
-                                           "street":"Main",
-                                            "city":"94"
-                                     },
-                                  "codes":["4", "8"]
-                                  }
-                    };
+json j = {
+	"store":{
+		"name":"Anne",
+		"address":{
+				"street":"Main",
+				"city":"94"
+		},
+		"codes":["4", "8"]
+	}
+};
 jsonOptions options = {attributePrefix:"#", arrayEntryTag:"wrapper"};
 xml x = j.toXML(options);
 x.store.address.city = "Casablanca";
