@@ -21,9 +21,7 @@
     background-color: #f5f6f6;
     display: inline-block;
     margin-bottom: 20px;
-
     width: 100%;
-
 }
 
 .cPhil-title-boxes-container.cPhil-title-boxes-container-white {
@@ -145,19 +143,15 @@ ul.cPhilosophyWidgetControls {
     width: 130px;
 }
 
+.nav-pills>li.cSEQUENCE {
+    top: 94px;
+    left: -48px;
+    width: 230px
+}
 
-
-
-
-.nav-pills > li.cSEQUENCE {
-   top: 94px;
-left: -48px;
-width: 230px
-} 
-.nav-pills > li.cCONCURRENCY {
-   top: 277px;
-width: 130px;
-    
+.nav-pills>li.cCONCURRENCY {
+    top: 277px;
+    width: 130px;
 }
 
 .cPhilosophyWidgetControls li.cCONCURRENCY a {
@@ -168,52 +162,53 @@ width: 130px;
     width: 133px;
 }
 
-
-
-.nav-pills > li.cTYPE {
+.nav-pills>li.cTYPE {
     top: 409px;
-
-width: 130px;
+    width: 130px;
 }
-
 
 .cPhilosophyWhite.cHowballerinaworks {
     padding-bottom: 10px;
 }
- 
 
-.cRuntimeContent , .cDeploymentContent , .cLifecycleContent {
+.cRuntimeContent,
+.cDeploymentContent,
+.cLifecycleContent {
     display: none;
 }
 
-.cSEQUENCEContent , .cCONCURRENCYContent , .cTYPEContent {
+.cSEQUENCEContent,
+.cCONCURRENCYContent,
+.cTYPEContent {
     display: none;
 }
 
-.cRuntimeContent.cShow , .cDeploymentContent.cShow , .cLifecycleContent.cShow {
+.cRuntimeContent.cShow,
+.cDeploymentContent.cShow,
+.cLifecycleContent.cShow {
     display: block;
 }
 
-.cSEQUENCEContent.cShow , .cCONCURRENCYContent.cShow , .cTYPEContent.cShow {
+.cSEQUENCEContent.cShow,
+.cCONCURRENCYContent.cShow,
+.cTYPEContent.cShow {
     display: block;
 }
 
-
-.cPhilosophyWidgetControls li.cSEQUENCE > a {
+.cPhilosophyWidgetControls li.cSEQUENCE>a {
     width: 259px;
 }
 
-.cHowBallerinaWorksRow  .nav-pills > li.active, .cHowBallerinaWorksRow  .nav-pills > li.active a
-{
+.cHowBallerinaWorksRow .nav-pills>li.active,
+.cHowBallerinaWorksRow .nav-pills>li.active a {
     background-color: #f5f6f6 !important;
 }
 
-.cHowBallerinaWorksRow  .nav-pills > li  a {
+.cHowBallerinaWorksRow .nav-pills>li a {
     border: 1px solid #f5f6f6;
 }
 
-
-.cHowBallerinaWorksRow  .cPhil-title-boxes-container.cPhil-title-boxes-container-white {
+.cHowBallerinaWorksRow .cPhil-title-boxes-container.cPhil-title-boxes-container-white {
     background-color: #f5f6f6 !important;
 }
 
@@ -326,17 +321,24 @@ width: 130px;
     margin: 0;
     width: 100%;
 }
+
+
 /* highlight code segments in phylosophy page */
-#ballerina_grammar_2{
+
+#ballerina_grammar_2 {
     position: relative;
 }
-.overllay-highlight{
+
+.code-wrapper {
+    position: relative;
+}
+
+.overllay-highlight {
     width: 100%;
     background: #34c9bf;
     opacity: 0.2;
     position: absolute;
 }
-
 
 .cCodeDesription {
     padding-left: 14px;
@@ -345,46 +347,59 @@ width: 130px;
     background-repeat: no-repeat;
     margin-bottom: 10px;
 }
+
 div.cCodeDesription.gray {
     background-image: url("/img/gray-arrow.svg");
 }
+
 .cCodeDesription>div {
     background: #ffffff;
     font-size: 16px;
     padding: 7px 20px;
 }
+
 .cCodeDesription.gray>div {
     background: #f2f3f4;
 }
+
 .cCodeDesription:hover {
     padding-left: 14px;
     background-image: url("/img/green-arrow.svg");
     background-position: left center;
     background-repeat: no-repeat;
 }
+
 div.cCodeDesription.gray:hover {
     background-image: url("/img/green-arrow.svg");
 }
-.cCodeDesription:hover > div {
+
+.cCodeDesription:hover>div {
     background-color: #22b7b1;
     color: #fff;
 }
+
 .cCodeDesription.gray:hover>div {
     background-color: #22b7b1;
 }
-.cCodeDesription:hover > div p {
+
+.cCodeDesription:hover>div p {
     color: #fff;
 }
-div.text-display{
+
+div.text-display {
     position: relative;
 }
+
 div.text-display div.cCodeDesription {
     position: absolute;
 }
-div.text-display div.cCodeDesription.gray{
+
+div.text-display div.cCodeDesription.gray {
     position: static;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
+
+
 /*************/
 
 .cCloudNativeCode {
@@ -681,6 +696,7 @@ div.cPhilosophyWidgetContainer.codeNativeBox {
     text-align: left;
     padding: 30px;
     background: #f2f3f4;
+    box-shadow: -5px 6px 8px rgba(0, 0, 0, 0.2);
 }
 
 .codeNativeBox #code-container-wrapper>pre {
