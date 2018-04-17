@@ -26,7 +26,6 @@ import org.ballerinalang.platform.playground.utils.EnvUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -163,8 +162,20 @@ public class LauncherClusterManager {
 
         // Scale down if max is exceeded, irrespective of free buffer count
         if (totalCount > maxCount) {
-            log.info("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Max Count] " + maxCount);
-            scaleDown();
+            log.info("Scaling down until [freeBufferCount] " + freeBufferCount + " is met since [Max Count] "
+                    + maxCount + " has been exceeded.");
+
+            while (freeCount <= freeBufferCount){
+                log.info("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Max Count] " + maxCount);
+                scaleDown();
+                freeCount = getFreeLaunchers().size();
+            }
+
+            totalCount = getTotalLaunchers().size();
+            freeCount = getFreeLaunchers().size();
+
+            log.info("Stats after scale down operation: [Total Count] " + totalCount + ", [Free Count] " + freeCount);
+
             return;
         }
 
@@ -220,7 +231,12 @@ public class LauncherClusterManager {
         // Check if there are enough free launchers
         int freeCount = getFreeLaunchers().size();
 
-        while (getFreeLaunchers().size() < freeBufferCount) {
+        while (freeCount < freeBufferCount) {
+            if (getTotalLaunchers().size() > maxCount) {
+                log.warn("Specified Maximum Concurrency has been exceeded, but scaling up will be permitted. If this " +
+                        "message appears often increase maximum concurrency.");
+            }
+
             log.info("Scaling UP: REASON -> [Free Count] " + freeCount + " < [Free Gap] " + freeBufferCount);
             scaleUp("honourFreeBufferCount");
             freeCount = getFreeLaunchers().size();
