@@ -73,7 +73,65 @@
       </div>
    </div>
 </div>
-<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
+<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2 cDesign-Principles">
+   <div class="container">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cPhilosophyWhite cHowballerinaworks">
+         <h2 class="cMainH2Title">Ballerina Language Design Principles</h2>
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol "></div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cPhilosophyWidget">
+         <div class="cPhilosophyWidgetContainer">
+            <ul  class="nav nav-pills cPhilosophyWidgetControls">
+               <li class="cSEQUENCE active">
+                  <a  href="#1b" data-toggle="tab">SEQUENCE DIAGRAMMATIC</a>
+               </li>
+               <li class="cCONCURRENCY">
+                  <a href="#2b" data-toggle="tab">CONCURRENCY</a>
+               </li>
+               <li class="cTYPE">
+                  <a href="#3b" data-toggle="tab">TYPE SYSTEM</a>
+               </li>
+            </ul>
+            <div class="tab-content clearfix cPhilosophyWidgetInnerBox ">
+               <div class="tab-pane active" id="1b">
+                  <img src="/img/philosophy-principle-diagrams-01.svg"/>
+               </div>
+               <div class="tab-pane" id="2b">
+                  <img src="/img/philosophy-principle-diagrams-02.svg"/>
+               </div>
+               <div class="tab-pane" id="3b">
+                  <img src="/img/philosophy-principle-diagrams-03.svg"/>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cSEQUENCEContent">
+         <p class="cGreenTitle cPhil-box-titles">SEQUENCE DIAGRAMMATIC</p>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+              <p>Ballerina’s underlying language semantics were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow with endpoints, including synchronous and asynchronous calls. The Ballerina Composer is an included tool for creating Ballerina services with sequence diagrams. </p>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cCONCURRENCYContent">
+         <p class="cGreenTitle cPhil-box-titles">CONCURRENCY</p>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+             <p>Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use a full non-blocking policy where no function locks an executing thread, such as an HTTP I/O call awaiting response. These semantics manifest sequence concurrency where workers are independent concurrent actors that do not share state but can interact using messages. Workers and fork/join language semantics abstract the underlying non-blocking approach to enable a simpler concurrency programming model.</p>
+            </div>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTYPEContent">
+         <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p>
+         <div class="cPhil-title-boxes cPhil-title-boxes-white">
+            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+               <p>Ballerina has a structural type system with primitive, object, union, and tuple types. Network systems return messages with different payload types and errors. Ballerina’s type system embraces this variability with an approach based on union types. This typesafe model incorporates type inference at assignment provide numerous compile time integrity checks for network-bound payloads.  </p>
+            </div>
+         </div>
+       </div>
+   </div>
+</div>
+<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2 cHowBallerinaWorksRow">
    <div class="container">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cPhilosophyWhite cHowballerinaworks">
          <h2 class="cMainH2Title">How Ballerina works</h2>
