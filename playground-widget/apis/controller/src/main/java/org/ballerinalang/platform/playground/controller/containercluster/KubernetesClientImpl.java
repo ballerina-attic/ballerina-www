@@ -229,7 +229,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         ServicePort servicePort = new ServicePort();
         servicePort.setName("https-port");
         servicePort.setPort(443);
-        servicePort.setTargetPort(new IntOrString(443));
+        servicePort.setTargetPort(new IntOrString(8443));
         ports.add(servicePort);
 
         // Pod selector

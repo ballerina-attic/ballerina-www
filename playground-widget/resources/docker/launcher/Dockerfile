@@ -34,6 +34,7 @@ ENV PATH $BALLERINA_HOME/bin:$PATH
 RUN mkdir /api/
 COPY netty-transports.yml /api/
 COPY playground-launcher.jar /api/
+COPY ballerinaKeystore.p12 /api/
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 COPY CUSTOMER_DB.h2.db /sample-db/
@@ -41,7 +42,7 @@ COPY backend_time_service.balx /services/
 COPY legacy_service.balx /services/
 COPY stock_quote_service.balx /services/
 
-EXPOSE 80
+EXPOSE 80 8443
 
 # TODO: may need to use a signal aware init system because launchers spawn new processes
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
