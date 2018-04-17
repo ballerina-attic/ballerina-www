@@ -215,12 +215,6 @@
                <p>Ballerina services can optionally delegate circuit breaking and transaction flow logic to a service mesh like Istio or Envoy if present. Ballerina services embed equivalent capabilities, if a service mesh is missing.</p>
             </div>
          </div>
-         <div class="cPhil-title-boxes cPhil-title-boxes-white">
-            <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-               <h3>BALLERINA TOOLS</h3>
-               <p>Get intellisense like autocomplete and debugging within VS Code and IntelliJ using our language server. Ballerina's keywords and syntax structure is designed to represent sequence diagrams. Visualize and edit Ballerina code with Ballerina Composer. Bonus - it also visualizes runtime dev traces.</p>
-            </div>
-         </div>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cLifecycleContent">
          <p class="cGreenTitle cPhil-box-titles">LIFECYCLE ARCHITECTURE</p>
