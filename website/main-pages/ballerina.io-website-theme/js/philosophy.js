@@ -3,7 +3,7 @@ $(document).ready(function () {
 	var example_data = {
 		"Integration Introduction Examples":[
 			{"name": "Hello World Service", "url": "hello-world-service"},
-			{"name": "JSON transformation", "url": "transform-json"},
+			{"name": "JSON Transformation", "url": "transform-json"},
 			{"name": "JSON to XML Conversion", "url": "json-to-xml-conversion"},
 			{"name": "Circuit Breaker", "url": "http-circuit-breaker"},
 			{"name": "Load Balancing", "url": "http-load-balancer"},
@@ -37,29 +37,29 @@ $(document).ready(function () {
 			{"name": "WebSocket Proxy Server", "url": "websocket-proxy-server"}],
 
 		"JMS":[
-			{"name": "JMS Durable Topic Message Subscriber", "url": "jms-durable-topic-message-subscriber"},
-			{"name": "JMS Queue Message Producer Transactional", "url": "jms-queue-message-producer-transactional"},
-			{"name": "JMS Queue Message Producer", "url": "jms-queue-message-producer"},
-			{"name": "JMS Queue Message Receiver Sync Client Ack", "url": "jms-queue-message-receiver-sync-client-ack"},
-			{"name": "JMS Queue Message Receiver Sync", "url": "jms-queue-message-receiver-sync"},
-			{"name": "JMS Queue Message Receiver with Client Acknowledgment", "url": "jms-queue-message-receiver-with-client-acknowledgment"},
-			{"name": "JMS Queue Message Receiver", "url": "jms-queue-message-receiver"},
-			{"name": "JMS Simple Durable Topic Message Subscriber", "url": "jms-simple-durable-topic-message-subscriber"},
-			{"name": "JMS Simple Queue Message Producer", "url": "jms-simple-queue-message-producer"},
-			{"name": "JMS Simple Queue Message Receiver", "url": "jms-simple-queue-message-receiver"},
-			{"name": "JMS Simple Topic Message Producer", "url": "jms-simple-topic-message-producer"},
-			{"name": "JMS Simple Topic Message Subscriber", "url": "jms-simple-topic-message-subscriber"},
-			{"name": "JMS Topic Message Producer", "url": "jms-topic-message-producer"},
-			{"name": "JMS Topic Message Subscriber", "url": "jms-topic-message-subscriber"}],
+			{"name": "Durable Topic Message Subscriber", "url": "jms-durable-topic-message-subscriber"},
+			{"name": "Queue Message Producer Transactional", "url": "jms-queue-message-producer-transactional"},
+			{"name": "Queue Message Producer", "url": "jms-queue-message-producer"},
+			{"name": "Queue Message Receiver Sync Client Ack", "url": "jms-queue-message-receiver-sync-client-ack"},
+			{"name": "Queue Message Receiver Sync", "url": "jms-queue-message-receiver-sync"},
+			{"name": "Queue Message Receiver with Client Acknowledgment", "url": "jms-queue-message-receiver-with-client-acknowledgment"},
+			{"name": "Queue Message Receiver", "url": "jms-queue-message-receiver"},
+			{"name": "Simple Durable Topic Message Subscriber", "url": "jms-simple-durable-topic-message-subscriber"},
+			{"name": "Simple Queue Message Producer", "url": "jms-simple-queue-message-producer"},
+			{"name": "Simple Queue Message Receiver", "url": "jms-simple-queue-message-receiver"},
+			{"name": "Simple Topic Message Producer", "url": "jms-simple-topic-message-producer"},
+			{"name": "Simple Topic Message Subscriber", "url": "jms-simple-topic-message-subscriber"},
+			{"name": "Topic Message Producer", "url": "jms-topic-message-producer"},
+			{"name": "Topic Message Subscriber", "url": "jms-topic-message-subscriber"}],
 
 
 		"gRPC":[
-			{"name": "gRPC Bidirectional Streaming", "url": "grpc-bidirectional-streaming"},
-			{"name": "gRPC Client Streaming", "url": "grpc-client-streaming"},
-			{"name": "gRPC Secured Unary", "url": "grpc-secured-unary"},
-			{"name": "gRPC Server Streaming", "url": "grpc-server-streaming"},
-			{"name": "gRPC Unary Blocking", "url": "grpc-unary-blocking"},
-			{"name": "gRPC Unary Non Blocking", "url": "grpc-unary-non-blocking"}],
+			{"name": "Bidirectional Streaming", "url": "grpc-bidirectional-streaming"},
+			{"name": "Client Streaming", "url": "grpc-client-streaming"},
+			{"name": "Secured Unary", "url": "grpc-secured-unary"},
+			{"name": "Server Streaming", "url": "grpc-server-streaming"},
+			{"name": "Unary Blocking", "url": "grpc-unary-blocking"},
+			{"name": "Unary Non Blocking", "url": "grpc-unary-non-blocking"}],
 
 		"Core Language Examples":[
 			{"name": "Hello World - Main", "url": "hello-world"},
@@ -114,14 +114,14 @@ $(document).ready(function () {
 			{"name": "Ternary Operators", "url": "ternary"}],
 
 		"Unit Testing":[
-			{"name": "Testerina Assertions", "url": "testerina-assertions"},
-			{"name": "Testerina Before After Suite", "url": "testerina-before-after-suite"},
-			{"name": "Testerina Before After", "url": "testerina-before-after"},
-			{"name": "Testerina Before Each", "url": "testerina-before-each"},
-			{"name": "Testerina Data Provider", "url": "testerina-data-provider"},
-			{"name": "Testerina Depends On", "url": "testerina-depends-on"},
-			{"name": "Testerina Function Mocks", "url": "testerina-function-mocks"},
-			{"name": "Testerina Groups", "url": "testerina-groups"}],
+			{"name": "Assertions", "url": "testerina-assertions"},
+			{"name": "Before After Suite", "url": "testerina-before-after-suite"},
+			{"name": "Before After", "url": "testerina-before-after"},
+			{"name": "Before Each", "url": "testerina-before-each"},
+			{"name": "Data Provider", "url": "testerina-data-provider"},
+			{"name": "Depends On", "url": "testerina-depends-on"},
+			{"name": "Function Mocks", "url": "testerina-function-mocks"},
+			{"name": "Groups", "url": "testerina-groups"}],
 
 		"Standard Library":[
 			{"name": "Date Time", "url": "date-time"},
@@ -141,7 +141,7 @@ $(document).ready(function () {
 			{"name": "Taint Checking", "url": "taint-checking"}],
 
 		"Data Management":[
-			{"name": "SQL Client connector", "url": "sql-connector"}],
+			{"name": "SQL Client Connector", "url": "sql-connector"}],
 
 		"Streams":[
 			{"name": "Streams", "url": "streams"},
