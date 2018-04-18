@@ -6,10 +6,145 @@ Developers and third parties can extend the behavior of Ballerina and package th
 3. Add new annotations to Ballerina source files that the compiler can act on to alter binaries and generate artifacts.
 
 ## Create Client Connectors
+A client connector is instantiated by developers when they create an `endpoint` object within their code. You can create your own connectors that are part of Ballerina packages that you push into a Ballerina registry, such as what is available at Ballerina Central.
+
+To create a client connector, you:
+1. Create a Ballerina package in a Ballerina project.
+2. Create an object with an `init()` and `getClient()` function.
+3. Implement the `init()` function, which is called when the user instantiates an endpoint.
+4. Implement the `getClient()` function, which is called when the connection must be returned.
+5. Build the package and push it into a registry for usage by others.
+
+### The Twilio Connector
+You can see the source code for this example at:
+1. [Single file](https://github.com/muthulee/package-twilio-super-simple/blob/master/twilio/twilio_endpoint.bal) version (easier for reading).
+2. Production version (split across files in a good project structure).
+
+WSO2 has created a connector for Twilio and pushed it into Ballerina Central as `wso2/twilio`. You can find this connector on the command line:
+```bash
+ballerina search twilio
+```
+
+The Twilio connector reuses the HTTP client connector and adds some additional properties in order to create a programmable connection with a Twilio endpoint. A simple Ballerina program that would use this connector might be the following:
+```ballerina
+import ballerina/http;
+import wso2/twilio;
+
+function main(string[] args) {
+    endpoint TwilioClient twilioClient {
+        clientConfig:{
+            auth:{
+                scheme:"basic",
+                username: "",
+                password: ""
+            }
+        }
+    };
+
+    Account account = check twilioClient->getAccountDetails();
+    io:println(account);
+}
+```
+
+In this example, the endpoint is going to instantiate a TwilioClient object. This object takes an input parameter defined as a `clientConfig` object. The `clientConfig` object includes an `auth` object which is part of the `http:Client` connector, which is distributed as part of the standard library. 
+
+The Twilio connector then defines a custom function, `getAccountDetails()` which is called by the end user to interact with the endpoint. The package developer will also implement a `TwilioClient::init()` method which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
+
+### The TwilioClient Object
+The connector is a data structure that is represented by an `object`.
+
+```ballerina
+public type Client object {
+
+    // Data structure that will hold config info and a connector
+    public {
+        TwilioConfiguration twilioConfig;
+        TwilioConnector twilioConnector = new;
+    }
+
+    public function init (TwilioConfiguration twilioConfig);
+    public function getClient () returns TwilioConnector;
+};
+
+// Part of the TwilioClient object and passed as an input parameter to
+// the connector when it is instantiated
+public type TwilioConfiguration {
+
+    // This type is a record defined in the http system library
+    http:ClientEndpointConfig clientConfig;
+};
+
+// The actual connector object, which also includes a reference to the
+// standard connector that is in the http system library
+public type TwilioConnector object {
+    public {
+        string accountSid;
+        http:Client basicClient;
+    }
+
+    public function getAccountDetails() returns (Account|error);
+};
+```
+
+### Implement the `init()` Function for the Connector
+We now implement the method that will be called when an endpoint is instantiated. The function name is the object we created with `::init()` provided to reference that init method. The initialization method can accept a single parameter. When the end user calles the `endpoint` object, the record literals after the endpoint object will be mapped and passed in as the parameter to this method.
+
+```ballerina
+public function TwilioClient::init (TwilioConfiguration twilioConfig) {
+
+    // Navigate our client object into the targets file of the http::Client object
+    twilioConfig.clientConfig.targets = [{url:BASE_URL}];
+    var usernameOrEmpty = twilioConfig.clientConfig.auth.username;
+    string username;
+    string password;
+    match usernameOrEmpty {
+        string usernameString => username = usernameString;
+        () => {
+            error err;
+            err.message = "Username cannot be empty";
+            throw err;
+              }
+    }
+    var passwordOrEmpty = twilioConfig.clientConfig.auth.password;
+    match passwordOrEmpty {
+        string passwordString => password = passwordString;
+        () => {
+            error err;
+            err.message = "Password cannot be empty";
+            throw err;
+        }
+    }
+
+    http:AuthConfig authConfig = {scheme:"basic", username:username , password:password};
+    
+    // We can reference the fields of the TwilioClient object
+    self.twilioConnector.accountSid = username;
+    twilioConfig.clientConfig.auth = authConfig;
+    
+    // Calling initialize of the embedded http client object
+    self.twilioConnector.basicClient.init(twilioConfig.clientConfig);
+}
+```
+
+### Implement the `getClient()` Function for the Connector
+The `getClient()` function is called whenever the system needs to return an active connection to the end user developer for use in their code. We've already initialized the conneciton and its saved within the TwilioClient object.
+
+```ballerina
+public function TwilioClient::getClient () returns TwilioConnector {
+    return self.twilioConnector;
+}
+```
+
+### Learn More
+You can create connectors for a range of protocols and interfaces, including those endpoints which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
+
+**** TODO - ADD LIST
+**** TODO - CHANGE TO TwilioClient
+**** TODO - Add links to the actual project
 
 ## Create Server Listeners
 
-## Create Custom Annotations
+## Create Custom Annotations & Builder Extensions
 Annotations decorate objects in Ballerina code. The Ballerina compiler parses annotations into an AST that can be read and acted upon. You can introduce custom annotations for use by others with Ballerina and package builder extensions that can act on those annotations. The builder can generate additional artifacts as part of the build process.
 
 Custom annotations are how the `ballerinax/docker` and `ballerinax/kubernetes` packages work. They introduce new annotations such as `@docker` and `@kubernetes` that can be attached to different parts of Ballerina code. The builder detects these annotations and then runs a post-compile process that generates deployment artifacts for direct deployment to those environments. 
