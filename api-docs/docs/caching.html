@@ -102,10 +102,12 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                   <div class="cLectColStyle cLeftColTop">
-                      <div class="cBallerina-io-docs-Title">PRIMITIVE TYPES</div>
-                    
+                      <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
+                        <div class="cCollaps-Menu-first">
+                          
+                        </div>
                      </div>
-                  </div>
+                </div>
                 <div class="cBlallerina-io-docs-right-nav-container">
                   <div class="cLectColStyle cLeftColTop">
                   <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
@@ -561,19 +563,6 @@
                                  
                                  <ul class="construct-inner-items-ul">
                                     <li>
-                                       <a href="#Cache-evictCache">
-                                          <div class="construct-icon">
-                                             <span class="fw-function"> </span>
-                                          </div>
-                                          <div class="construct-name">
-                                             evictCache
-                                          </div>
-                                       </a>
-                                    </li>
-                                 </ul>
-                                 
-                                 <ul class="construct-inner-items-ul">
-                                    <li>
                                        <a href="#Cache-get">
                                           <div class="construct-icon">
                                              <span class="fw-function"> </span>
@@ -606,19 +595,6 @@
                                           </div>
                                           <div class="construct-name">
                                              keys
-                                          </div>
-                                       </a>
-                                    </li>
-                                 </ul>
-                                 
-                                 <ul class="construct-inner-items-ul">
-                                    <li>
-                                       <a href="#Cache-getLRUCacheKeys">
-                                          <div class="construct-icon">
-                                             <span class="fw-function"> </span>
-                                          </div>
-                                          <div class="construct-name">
-                                             getLRUCacheKeys
                                           </div>
                                        </a>
                                     </li>
@@ -806,7 +782,11 @@
                            <a href="/learn">Learn</a>
                         </li>
                         <li>»</li>
-                        <li></li>
+                         <li>
+                           <a href="/learn/api-docs/">API Docs</a>
+                        </li>
+                        <li>»</li>
+                        <li> package </li>
                      </ul>
                   </div>
                </div>
@@ -842,45 +822,7 @@
                                        <p>
                                           <span class="fw-right gray xs-icon"></span>Represents a cache.
                                        </p>
-                                        
-                                       <table>
-                                          <tr>
-                                             <th class="cAPI-table-name">Parameter Name</th>
-                                             <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
-                                             <th class="cAPI-table-desc">Description</th>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">capacity</td>
-                                             <td class="cAPI-table-type">int</td>
-                                             <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">entries</td>
-                                             <td class="cAPI-table-type">map</td>
-                                             <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">expiryTimeMillis</td>
-                                             <td class="cAPI-table-type">int</td>
-                                             <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">evictionFactor</td>
-                                             <td class="cAPI-table-type">float</td>
-                                             <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
-                                          </tr>
-                                          
-                                       </table>
-                                        
+                                         
                                        <div class="function-wrapper">
                                           <ul>
                                              
@@ -910,6 +852,7 @@
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -942,6 +885,7 @@
                                                    <span class="fw-right gray xs-icon"></span>Returns the size of the cache.
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -1001,21 +945,6 @@
                                              </li>
                                              
                                              <li>
-                                                <h2 id="Cache-evictCache">
-                                                   <span class=fw-function></span>
-                                                   <span class="thin-text light-gray">
-                                                   <Cache>
-                                                   </span>
-                                                   evictCache() 
-                                                </h2>
-                                                
-                                                <p>
-                                                   <span class="fw-right gray xs-icon"></span>Evicts the cache when cache is full.
-                                                </p>
-                                                  
-                                             </li>
-                                             
-                                             <li>
                                                 <h2 id="Cache-get">
                                                    <span class=fw-function></span>
                                                    <span class="thin-text light-gray">
@@ -1046,6 +975,7 @@
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -1106,6 +1036,7 @@
                                                    keys() returns (string[]) 
                                                 </h2>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -1119,55 +1050,6 @@
                                                       <td class="cAPI-table-type">string[]</td>
                                                       <td class="cAPI-table-defult"></td>
                                                       <td class="cAPI-table-desc"></td>
-                                                   </tr>
-                                                   
-                                                </table>
-                                                
-                                             </li>
-                                             
-                                             <li>
-                                                <h2 id="Cache-getLRUCacheKeys">
-                                                   <span class=fw-function></span>
-                                                   <span class="thin-text light-gray">
-                                                   <Cache>
-                                                   </span>
-                                                   getLRUCacheKeys(int numberOfKeysToEvict) returns (string[]) 
-                                                </h2>
-                                                
-                                                <p>
-                                                   <span class="fw-right gray xs-icon"></span>Returns the key of the Least Recently Used cache entry. This is used to remove cache entries if the cache is full.
-                                                </p>
-                                                 
-                                                <table>
-                                                   <tr>
-                                                      <th class="cAPI-table-name">Parameter Name</th>
-                                                      <th class="cAPI-table-type">Data Type</th>
-                                                      <th class="cAPI-table-type"></th>
-                                                      <th class="cAPI-table-desc">Description</th>
-                                                   </tr>
-                                                   
-                                                   <tr>
-                                                      <td class="cAPI-table-name">numberOfKeysToEvict</td>
-                                                      <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
-                                                      <td class="cAPI-table-desc"></td>
-                                                   </tr>
-                                                   
-                                                </table>
-                                                 
-                                                <table>
-                                                   <tr>
-                                                      <th class="cAPI-table-name"></th>
-                                                      <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
-                                                      <th class="cAPI-table-desc">Description</th>
-                                                   </tr>
-                                                   
-                                                   <tr>
-                                                      <td class="cAPI-table-name"></td>
-                                                      <td class="cAPI-table-type">string[]</td>
-                                                      <td class="cAPI-table-defult"></td>
-                                                      <td class="cAPI-table-desc">numberOfKeysToEvict - number of keys to be evicted</td>
                                                    </tr>
                                                    
                                                 </table>
@@ -1198,7 +1080,17 @@
       </div>
       <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
       </div>
-      <script type="text/javascript" src="/search/search.js"/>
+      <script>
+   $(document).ready(function() {
+         $(".cSideBar-Button").click(function() {
+            $(".cSideBar-Button").toggleClass('cOpen');
+            $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
+          });
+    });
+    
+      </script>
+     <script type="text/javascript" src="/search/search.js">
+     </script>
       </body>
       </html>
 

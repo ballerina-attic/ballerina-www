@@ -102,10 +102,12 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                   <div class="cLectColStyle cLeftColTop">
-                      <div class="cBallerina-io-docs-Title">PRIMITIVE TYPES</div>
-                    
+                      <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
+                        <div class="cCollaps-Menu-first">
+                          
+                        </div>
                      </div>
-                  </div>
+                </div>
                 <div class="cBlallerina-io-docs-right-nav-container">
                   <div class="cLectColStyle cLeftColTop">
                   <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
@@ -1459,7 +1461,11 @@
                            <a href="/learn">Learn</a>
                         </li>
                         <li>»</li>
-                        <li></li>
+                         <li>
+                           <a href="/learn/api-docs/">API Docs</a>
+                        </li>
+                        <li>»</li>
+                        <li> package </li>
                      </ul>
                   </div>
                </div>
@@ -1681,6 +1687,7 @@
                                           
                                        </table>
                                         
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -1743,6 +1750,7 @@
                                           
                                        </table>
                                         
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -1805,6 +1813,7 @@
                                           
                                        </table>
                                         
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -1867,6 +1876,7 @@
                                           
                                        </table>
                                         
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -1929,6 +1939,7 @@
                                           
                                        </table>
                                         
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -1991,6 +2002,7 @@
                                           
                                        </table>
                                         
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -2053,6 +2065,7 @@
                                           
                                        </table>
                                         
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -2116,28 +2129,28 @@
                                              <td class="cAPI-table-name">fileName</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">Default filename for storing the bodypart, if the receiving agent wishes to store it in an external file</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">disposition</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">Indicates how the body part should be presented (inline, attachment or as form-data)</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">name</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">Represent the field name in case of &#x27;multipart/form-data&#x27;</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">parameters</td>
                                              <td class="cAPI-table-type">map&lt;string&gt;</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">A set of parameters, specified in attribute&#x3D;value notation</td>
                                           </tr>
                                           
                                        </table>
@@ -2183,28 +2196,28 @@ level message and an entity(body part) inside of a multipart entity.
                                              <td class="cAPI-table-name">contentType</td>
                                              <td class="cAPI-table-type">MediaType</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">Describes the data contained in the body of the entity</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">contentId</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">Helps one body of an entity to make a reference to another</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">size</td>
                                              <td class="cAPI-table-type">int</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">Represent the size of the entity</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">contentDisposition</td>
                                              <td class="cAPI-table-type">ContentDisposition</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">Represent values related to Content-Disposition header</td>
                                           </tr>
                                           
                                        </table>
@@ -2321,6 +2334,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                    <span class="fw-right gray xs-icon"></span>Given an entity, get the entity body in json form.
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2385,6 +2399,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                    <span class="fw-right gray xs-icon"></span>Given an entity, get the entity body in xml form.
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2449,6 +2464,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                    <span class="fw-right gray xs-icon"></span>Given an entity, get the entity body in text form.
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2514,6 +2530,7 @@ level message and an entity(body part) inside of a multipart entity.
     using getEntityWrapper() method instead
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2578,6 +2595,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                    <span class="fw-right gray xs-icon"></span>Given an entity, get the entity body as a byte channel.
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2610,6 +2628,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                    <span class="fw-right gray xs-icon"></span>Given an entity, get its body parts.
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2642,6 +2661,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                    <span class="fw-right gray xs-icon"></span>Given an entity, get the body parts as a byte channel.
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2723,6 +2743,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2773,6 +2794,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2805,6 +2827,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                    <span class="fw-right gray xs-icon"></span>Get all header names.
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2980,6 +3003,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -3042,28 +3066,28 @@ level message and an entity(body part) inside of a multipart entity.
                                              <td class="cAPI-table-name">primaryType</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">Declares the general type of data</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">subType</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">A specific format of the primary type data</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">suffix</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">Identify the semantics of a specific media type</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">parameters</td>
                                              <td class="cAPI-table-type">map&lt;string&gt;</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">A set of parameters, specified in an attribute&#x3D;value notation</td>
                                           </tr>
                                           
                                        </table>
@@ -3084,6 +3108,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                    <span class="fw-right gray xs-icon"></span>Get “primaryType/subtype+suffix” combination in string format.
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -3116,6 +3141,7 @@ level message and an entity(body part) inside of a multipart entity.
                                                    <span class="fw-right gray xs-icon"></span>Convert the media type to a string suitable for use as the value of a corresponding HTTP header.
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -4023,7 +4049,17 @@ level message and an entity(body part) inside of a multipart entity.
       </div>
       <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
       </div>
-      <script type="text/javascript" src="/search/search.js"/>
+      <script>
+   $(document).ready(function() {
+         $(".cSideBar-Button").click(function() {
+            $(".cSideBar-Button").toggleClass('cOpen');
+            $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
+          });
+    });
+    
+      </script>
+     <script type="text/javascript" src="/search/search.js">
+     </script>
       </body>
       </html>
 

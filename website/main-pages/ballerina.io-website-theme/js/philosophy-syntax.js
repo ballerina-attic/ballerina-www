@@ -138,31 +138,45 @@ var loadData = function(linkText, sectionId, init) {
                 $('#' + fileName + "-code")
                     .height(preHeight)
                     .addClass('ballerina-pre-wrapper')
-                    .prepend(
-                        $(lines)
-                    );
-                var codeboxContainerHeight = $('#' + fileName + "-text").prev().height();
-                //$('#' + fileName + '-text').css('height', codeboxContainerHeight + 'px');
+                    .prepend($(lines));
+
+                //position code description boxes to align with highlighting area
                 $('#' + fileName + '-text ' + '.hTrigger').each(function() {
                     var startLine = $(this).attr('data-startLine');
-                    var startLineOverrride = $(this).attr('data-overrideStart');
-                    if (typeof startLineOverrride !== typeof undefined && startLineOverrride !== false) {
-                        //Directly taking the pixle height
-                        var startPosition = parseInt(startLineOverrride);
-                    } else {
-                        //Calculating the position base on the line height
-                        var startPosition = parseInt(startLine) * lineHeight + 40;
-                        startPosition = startPosition - $(this).height() / 2;
+                    var overlayStartPosition = topPadding + (startLine - 1) * lineHeight + 30;
+                    var topPosition = overlayStartPosition;
+
+                    $(this).attr('data-position', overlayStartPosition);
+
+                    if ($(this).prev().length > 0) {
+                        var prevElemsHeight = 0;
+                        var prevElemsMarginTop = 0;
+                        var prevElemsMarginBottom = 0;
+
+                        $(this).prevAll().each(function() {
+                            prevElemsHeight += $(this).height();
+                            prevElemsMarginTop += parseInt($(this).css('margin-top'));
+                            prevElemsMarginBottom += parseInt($(this).css('margin-bottom'));
+                        });
+                        topPosition = overlayStartPosition - ($(this).prev().data('position') + prevElemsHeight);
+                        if (topPosition < 0) {
+                            topPosition = 0;
+                        }
+
+                        if ($(this).hasClass('cOutputDesription')) {
+                            topPosition = overlayStartPosition + ($('#' + fileName + '-code').height() - (prevElemsHeight + prevElemsMarginTop) - 7 - topPadding);
+                        }
                     }
 
-                    $(this).css('top', startPosition + "px");
+                    $(this).css('margin-top', topPosition);
                 });
+
 
             }
         }
     });
 
-}
+};
 
 $(document).ready(function() {
     //Load data on click callback
@@ -185,24 +199,32 @@ $(document).ready(function() {
 /*
 Given line number range this code apply a overlay on top of the syntax hilighting 
 */
-function highlightCodeSection(startLine, endLine, codeBoxId) {
+function highlightCodeSection(startLine, endLine, codeBoxId, highlighter, offset) {
     if (typeof startLine === 'string') { startLine = parseInt(startLine); }
     if (typeof endLine === 'string') { endLine = parseInt(endLine); }
 
     var overlayHeight = (endLine - (startLine - 1)) * lineHeight;
     var overlayStartPosition = topPadding + (startLine - 1) * lineHeight;
-    $('#' + codeBoxId + ' .overllay-highlight').css('top', overlayStartPosition + 'px').css('height', overlayHeight + 'px');
+    $('#' + codeBoxId + ' ' + highlighter).css('top', (overlayStartPosition + offset)).css('height', overlayHeight);
 }
 
 $(document).ready(function() {
     $('.codeSampleBoxes .hTrigger').hover(function(e) {
             var startLine = $(this).attr('data-startLine');
             var endLine = $(this).attr('data-endLine');
+            var highlighter = '.overllay-highlight';
+            var offset = 0;
 
-            highlightCodeSection(startLine, endLine, $(e.currentTarget).closest('.container').find('.code-wrapper').attr('id'));
+            if ($(this).hasClass('cOutputDesription')) {
+                highlighter = '.output-overllay-highlight';
+                offset = 7;
+            }
+
+            highlightCodeSection(startLine, endLine, $(e.currentTarget).closest('.container').find('.code-wrapper').attr('id'), highlighter, offset);
         },
         function() {
             $('.code-wrapper .overllay-highlight').css('top', 0).css('height', 0);
+            $('.code-wrapper .output-overllay-highlight').css('top', 0).css('height', 0);
         }
     );
 });

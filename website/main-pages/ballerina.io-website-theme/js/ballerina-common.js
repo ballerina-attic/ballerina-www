@@ -244,9 +244,16 @@ function formatDate(date, format) {
     }
 }
 
-$(document).ready(function() {
-    $(".cBallerina-io-packages").click(function() {
-        $(".cCollaps-Menu").toggleClass('cOpenMenu');
-        $(".cBallerina-io-packages").toggleClass('cOpenMenu');
+
+   $(document).ready(function() {
+            $(".cBallerina-io-packages").click(function() {
+                $(".cCollaps-Menu").toggleClass('cOpenMenu');
+                $(".cBallerina-io-packages").toggleClass('cOpenMenu');
+            });
+            
+            $(".cBallerina-io-primitive-types").click(function() {
+                $(".cCollaps-Menu-first").toggleClass('cOpenMenu');
+                $(".cBallerina-io-primitive-types").toggleClass('cOpenMenu');
+             });
     });
-});
+

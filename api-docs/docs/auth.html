@@ -102,10 +102,12 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                   <div class="cLectColStyle cLeftColTop">
-                      <div class="cBallerina-io-docs-Title">PRIMITIVE TYPES</div>
-                    
+                      <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
+                        <div class="cCollaps-Menu-first">
+                          
+                        </div>
                      </div>
-                  </div>
+                </div>
                 <div class="cBlallerina-io-docs-right-nav-container">
                   <div class="cLectColStyle cLeftColTop">
                   <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
@@ -618,32 +620,6 @@
                                        </a>
                                     </li>
                                  </ul>
-                                 
-                                 <ul class="construct-inner-items-ul">
-                                    <li>
-                                       <a href="#JWTAuthProvider-authenticateFromCache">
-                                          <div class="construct-icon">
-                                             <span class="fw-function"> </span>
-                                          </div>
-                                          <div class="construct-name">
-                                             authenticateFromCache
-                                          </div>
-                                       </a>
-                                    </li>
-                                 </ul>
-                                 
-                                 <ul class="construct-inner-items-ul">
-                                    <li>
-                                       <a href="#JWTAuthProvider-addToAuthenticationCache">
-                                          <div class="construct-icon">
-                                             <span class="fw-function"> </span>
-                                          </div>
-                                          <div class="construct-name">
-                                             addToAuthenticationCache
-                                          </div>
-                                       </a>
-                                    </li>
-                                 </ul>
                                   
                               </ul>
                            </div>
@@ -841,7 +817,11 @@
                            <a href="/learn">Learn</a>
                         </li>
                         <li>»</li>
-                        <li></li>
+                         <li>
+                           <a href="/learn/api-docs/">API Docs</a>
+                        </li>
+                        <li>»</li>
+                        <li> package </li>
                      </ul>
                   </div>
                </div>
@@ -1059,6 +1039,7 @@ etc. should be object-wise similar
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -1108,6 +1089,7 @@ etc. should be object-wise similar
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -1198,6 +1180,7 @@ etc. should be object-wise similar
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -1247,6 +1230,7 @@ etc. should be object-wise similar
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -1309,14 +1293,14 @@ etc. should be object-wise similar
                                              <td class="cAPI-table-name">jwtAuthProviderConfig</td>
                                              <td class="cAPI-table-type">JWTAuthProviderConfig</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">JWTAuthProviderConfig object</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">authCache</td>
                                              <td class="cAPI-table-type">Cache</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">Authentication cache object</td>
                                           </tr>
                                           
                                        </table>
@@ -1350,6 +1334,7 @@ etc. should be object-wise similar
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -1367,93 +1352,6 @@ etc. should be object-wise similar
                                                    
                                                 </table>
                                                 
-                                             </li>
-                                             
-                                             <li>
-                                                <h2 id="JWTAuthProvider-authenticateFromCache">
-                                                   <span class=fw-function></span>
-                                                   <span class="thin-text light-gray">
-                                                   <JWTAuthProvider>
-                                                   </span>
-                                                   authenticateFromCache(string jwtToken) returns ((boolean,jwtPayload)) 
-                                                </h2>
-                                                 
-                                                <table>
-                                                   <tr>
-                                                      <th class="cAPI-table-name">Parameter Name</th>
-                                                      <th class="cAPI-table-type">Data Type</th>
-                                                      <th class="cAPI-table-type"></th>
-                                                      <th class="cAPI-table-desc">Description</th>
-                                                   </tr>
-                                                   
-                                                   <tr>
-                                                      <td class="cAPI-table-name">jwtToken</td>
-                                                      <td class="cAPI-table-type">string</td>
-                                                      <td class="cAPI-table-defult"></td>
-                                                      <td class="cAPI-table-desc"></td>
-                                                   </tr>
-                                                   
-                                                </table>
-                                                 
-                                                <table>
-                                                   <tr>
-                                                      <th class="cAPI-table-name"></th>
-                                                      <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
-                                                      <th class="cAPI-table-desc">Description</th>
-                                                   </tr>
-                                                   
-                                                   <tr>
-                                                      <td class="cAPI-table-name"></td>
-                                                      <td class="cAPI-table-type">(boolean,jwtPayload)</td>
-                                                      <td class="cAPI-table-defult"></td>
-                                                      <td class="cAPI-table-desc"></td>
-                                                   </tr>
-                                                   
-                                                </table>
-                                                
-                                             </li>
-                                             
-                                             <li>
-                                                <h2 id="JWTAuthProvider-addToAuthenticationCache">
-                                                   <span class=fw-function></span>
-                                                   <span class="thin-text light-gray">
-                                                   <JWTAuthProvider>
-                                                   </span>
-                                                   addToAuthenticationCache(string jwtToken, int exp, Payload payload) 
-                                                </h2>
-                                                 
-                                                <table>
-                                                   <tr>
-                                                      <th class="cAPI-table-name">Parameter Name</th>
-                                                      <th class="cAPI-table-type">Data Type</th>
-                                                      <th class="cAPI-table-type"></th>
-                                                      <th class="cAPI-table-desc">Description</th>
-                                                   </tr>
-                                                   
-                                                   <tr>
-                                                      <td class="cAPI-table-name">jwtToken</td>
-                                                      <td class="cAPI-table-type">string</td>
-                                                      <td class="cAPI-table-defult"></td>
-                                                      <td class="cAPI-table-desc"></td>
-                                                   </tr>
-                                                   
-                                                   <tr>
-                                                      <td class="cAPI-table-name">exp</td>
-                                                      <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
-                                                      <td class="cAPI-table-desc"></td>
-                                                   </tr>
-                                                   
-                                                   <tr>
-                                                      <td class="cAPI-table-name">payload</td>
-                                                      <td class="cAPI-table-type">Payload</td>
-                                                      <td class="cAPI-table-defult"></td>
-                                                      <td class="cAPI-table-desc"></td>
-                                                   </tr>
-                                                   
-                                                </table>
-                                                 
                                              </li>
                                              
                                           </ul>
@@ -1480,7 +1378,17 @@ etc. should be object-wise similar
       </div>
       <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
       </div>
-      <script type="text/javascript" src="/search/search.js"/>
+      <script>
+   $(document).ready(function() {
+         $(".cSideBar-Button").click(function() {
+            $(".cSideBar-Button").toggleClass('cOpen');
+            $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
+          });
+    });
+    
+      </script>
+     <script type="text/javascript" src="/search/search.js">
+     </script>
       </body>
       </html>
 

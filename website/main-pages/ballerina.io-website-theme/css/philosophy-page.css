@@ -332,7 +332,8 @@ ul.cPhilosophyWidgetControls {
     position: relative;
 }
 
-.overllay-highlight {
+.overllay-highlight,
+.output-overllay-highlight {
     width: 100%;
     background: #34c9bf;
     opacity: 0.2;
@@ -342,7 +343,7 @@ ul.cPhilosophyWidgetControls {
 .cCodeDesription {
     padding-left: 14px;
     background-image: url("/img/white-arrow.svg");
-    background-position: left center;
+    background-position: left -14px;
     background-repeat: no-repeat;
     margin-bottom: 10px;
 }
@@ -353,7 +354,7 @@ div.cCodeDesription.gray {
 
 .cCodeDesription>div {
     background: #ffffff;
-    font-size: 16px;
+    font-size: 15px;
     padding: 7px 20px;
 }
 
@@ -361,15 +362,12 @@ div.cCodeDesription.gray {
     background: #f2f3f4;
 }
 
-.cCodeDesription:hover {
+.cCodeDesription:hover,
+.cCodeDesription.gray:hover {
     padding-left: 14px;
     background-image: url("/img/green-arrow.svg");
-    background-position: left center;
+    background-position: left -15px;
     background-repeat: no-repeat;
-}
-
-div.cCodeDesription.gray:hover {
-    background-image: url("/img/green-arrow.svg");
 }
 
 .cCodeDesription:hover>div {
@@ -392,6 +390,10 @@ div.text-display {
 div.text-display div.cCodeDesription {
     position: static;
     margin-bottom: 20px;
+}
+
+div.text-display div.cCodeDesription p {
+    font-size: 15px;
 }
 
 
@@ -669,6 +671,10 @@ div.text-display div.cCodeDesription {
 
 .cCloudNative-code-sections.cActiveBox {
     display: block;
+}
+
+.code.cOutput {
+    position: relative;
 }
 
 .cOutput .highlight pre {

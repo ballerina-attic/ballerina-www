@@ -21,11 +21,12 @@ ENV DEBUG_PORT 5005
 RUN apk update && apk add bash
 
 RUN mkdir /api/
+COPY ballerinaKeystore.p12 /api/
 COPY netty-transports.yml /api/
 COPY playground-cache-responder.jar /api/
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-EXPOSE 80
+EXPOSE 80 8443
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
