@@ -100,18 +100,26 @@ public class LauncherClusterManager {
     public void scaleDown() {
         log.info("Scaling down by [Step Down] " + stepDown + " instances...");
 
-        List<String> urlsToScaleDown = getFreeLaunchers();
-
         // Scale down by (1 x stepDown) at a time
         for (int i = 0; i < stepDown; i++) {
-            // Get the youngest free launcher URL
+            // Get free launchers
+            List<String> urlsToScaleDown = getFreeLaunchers();
+
+            log.info("URLs to scale down: " + urlsToScaleDown.toString());
+
+            // Sort by launcher url. This will sort the oldest first, making it possible to take the youngest out of the
+            // tail
             urlsToScaleDown.sort((o1, o2) -> {
-                int mySuffix = Integer.parseInt(o1.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
-                int theirSuffix = Integer.parseInt(o2.substring((Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
+                int mySuffix = Integer.parseInt(o1.split("\\.")[0].substring(
+                        (Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
+
+                int theirSuffix = Integer.parseInt(o2.split("\\.")[0].substring(
+                        (Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
 
                 return Integer.compare(mySuffix, theirSuffix);
             });
 
+            // Get the youngest free launcher URL
             String launcherUrlToDelete = urlsToScaleDown.get(urlsToScaleDown.size() - 1);
 
             log.info("Cutting down [Launcher URL] " + launcherUrlToDelete + "...");
@@ -194,9 +202,10 @@ public class LauncherClusterManager {
         }
 
         // Scale down if desired count is exceeded, but with more free launchers than buffer count by stepDown count
-        if ((freeCount + stepDown) >= freeBufferCount) {
-            log.info("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Desired Count] " + maxCount +
-                    " AND [Free Count] + [Step Down] " + freeCount + " + " + stepDown +
+        // TODO: to test scale down
+        if ((freeCount - stepDown) >= freeBufferCount) {
+            log.info("Scaling DOWN: REASON -> [Total Count] " + totalCount + " > [Desired Count] " + desiredCount +
+                    " AND [Free Count] - [Step Down] " + freeCount + " - " + stepDown +
                     " >= [Free Buffer Count] " + freeBufferCount);
 
             scaleDown();
