@@ -24,7 +24,9 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 [Ballerina by Guide](/learn/guides/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment and observability. 
 
-## How To's
+### Editors, IDEs and the Ballerina Composer
+
+<a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md" target="_blank">Editors, IDEs and the Ballerina Composer</a> is a topic that introduces you to several tools that can help create, document, and test your code. These tools can be various editors, IDEs, and a graphical visualization tool for your code called the Ballerina Composer.
 
 ### How to Structure Ballerina Code
 
@@ -36,10 +38,6 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 The [API Documentation](learn/api-docs/) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
 
-### Editors, IDEs and the Ballerina Composer
-
-<a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md" target="_blank">Editors, IDEs and the Ballerina Composer</a> is a topic that introduces you to several tools that can help create, document, and test your code. These tools can be various editors, IDEs, and a graphical visualization tool for your code called the Ballerina Composer.
-
 ### Command Documentation
 
-The [Command Documentation](/learn/cli-commands/) includes a summary of all the commands available in Ballerina and provides links to each command in GitHub.
+The [Command Documentation](/learn/cli-commands/) includes a summary of all the commands available in Ballerina.
