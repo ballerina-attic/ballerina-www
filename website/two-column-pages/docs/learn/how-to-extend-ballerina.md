@@ -182,6 +182,16 @@ public type Account {
     string updatedDate;
 };
 ```
+
+### Publish Your Connector
+You can publish your custom connector for others to use into a Ballerina registry, such as Ballerina Central. You will need to have your connector as part of a package, and built using Ballerina's project and build management tooling.
+
+Once you have built the package, you can `ballerina push <org-name>/<package-name>` and your package will be available at Ballerina Central for others to use. The `<org-name>` is defined in the `Ballerina.toml` that resides with the project and must match the organization name that is attached to your account at Ballerina Central. The `<package-name>` is defined by the folder that you placed the source code within the Ballerina project.
+
+You will need to have an account at Ballerina Central and your CLI token from central placed into your Ballerina settings. The `ballerina deploy` command will initiate an OAuth flow that automates this for you, even if you do not already have an existing account on Ballerina Central.
+
+**** INSERT LINK TO STRUCTURE BALLERINA CODE HERE
+
 ### Learn More
 You can create connectors for a range of protocols and interfaces, including those endpoints which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
 
