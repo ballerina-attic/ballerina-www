@@ -32,6 +32,10 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 [How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, and install Ballerina packages and commands with repositories that are local and remote. It addresses the structure of programs, projects, and packages.
 
+### How to Write Secure Ballerina Code
+
+[How to Write Secure Ballerina Code](/learn/how-to-observe-ballerina-code/) provides guidelines on writing secure Ballerina programs, while demonstrating different security features and controls available within Ballerina.
+
 ### How to Observe Ballerina Code
 
 [How to Observe Ballerina Code](/learn/how-to-observe-ballerina-code/) instructs you on how to use logging, metrics, and tracing to observe Ballerina programs.
