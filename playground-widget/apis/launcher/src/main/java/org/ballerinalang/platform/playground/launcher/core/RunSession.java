@@ -114,9 +114,9 @@ public class RunSession {
         }
         try {
             if (runCommand.getCacheId() != null) {
-                String cacheId = new String(Base64.getDecoder().decode(runCommand.getCacheId().getBytes()));
-                setOutputCacheId(cacheId);
-                String[] cacheIdParts = cacheId.split(CACHE_ID_SEP);
+                setOutputCacheId(runCommand.getCacheId());
+                String cacheIdDecoded = new String(Base64.getDecoder().decode(runCommand.getCacheId().getBytes()));
+                String[] cacheIdParts = cacheIdDecoded.split(CACHE_ID_SEP);
                 setBuildCacheID(cacheIdParts[1]);
             } else {
                 setBuildCacheID(CacheUtils.getBuildCacheID(runCommand));
@@ -371,7 +371,7 @@ public class RunSession {
     }
 
     public void terminate() {
-        if (buildPhase != null) {
+        if (buildPhase != null && !this.useBuildCache()) {
             buildPhase.terminate(this);
         }
         if (dependantServicePhase != null) {
