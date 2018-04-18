@@ -41,14 +41,14 @@ service<http:Service> helloWorld bind {port:9091} {
 ```
 
 If the end user saved this file as `hello_world.bal` then after building the file (with our custom build extension) will produce:
-    ``` bash
-    $> tree
-    ├── hello_world.bal
-    ├── hello_world.balx
-    └── hello_world.txt
-    $> cat hello_world.txt
-    Guten Tag!
-    ```
+``` bash
+$> tree
+├── hello_world.bal
+├── hello_world.balx
+└── hello_world.txt
+$> cat hello_world.txt
+Guten Tag!
+```
 
 ### Custom Annotation Getting Started
 The source code and results for this example are on [GitHub](https://github.com/ballerinax/hello).
@@ -92,11 +92,17 @@ A Ballerina "builder extension" is Java code that the build process will load an
 * `public void codeGenerated(Path binaryPath)`
 
 ### Create a Maven Project
-Create a maven project. 
-mvn archetype:generate -DgroupId=ballerinax.hello -DartifactId=hello-extension -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+We have a Maven arctetype that will create a sample template that can be used for writing the Ballerina builder extension.
 
-This will create a maven project in following structure.
-	.
+```
+mvn archetype:generate -DgroupId=ballerinax.hello 
+                       -DartifactId=hello-extension 
+		       -DarchetypeArtifactId=maven-archetype-quickstart 
+		       -DinteractiveMode=false
+```
+
+This will create a maven project in following structure. 
+```bash	.
 ├── pom.xml
 ├── src
 │   ├── main
@@ -110,23 +116,19 @@ This will create a maven project in following structure.
 │               └── hello
 │                   └── AppTest.java
 └── target
+```
 
-
-
-Add ballerina as the parent for generated pom.xml.
-https://github.com/ballerinax/hello/blob/master/pom.xml#L21-L25
-
-
+In the `pom.xml`, add Ballerina as the parent:
+```xml
 <parent>
    <groupId>org.ballerinalang</groupId>
    <artifactId>ballerina-parent</artifactId>
    <version>0.970.0-beta1-SNAPSHOT</version>
 </parent>
+```
 
-
-Add ballerina maven dependencies to the generated pom file.
-https://github.com/ballerinax/hello/blob/master/pom.xml#L34-L78
-
+In the `pom.xml` add Ballerina's maven dependencies:
+```xml
 <dependencies>
    <dependency>
        <groupId>junit</groupId>
@@ -172,10 +174,11 @@ https://github.com/ballerinax/hello/blob/master/pom.xml#L34-L78
        <scope>test</scope>
    </dependency>
 </dependencies>
+```
 
-Add repository information
-https://github.com/ballerinax/hello/blob/master/pom.xml#L80-L113
+In the `pom.xml`, add Ballerina's repository information
 
+```xml
 <repositories>
    <repository>
        <id>wso2.releases</id>
@@ -210,15 +213,17 @@ https://github.com/ballerinax/hello/blob/master/pom.xml#L80-L113
        </releases>
    </repository>
 </repositories>
+```
 
-Make sure you are able to build the project.
+Make sure you are able to build the project:
+```bash
+mvn clean install
+```
 
+### Create Custom Annotation Definition
+In the maven project, create a hello-extension/src/main/ballerina/ballerinax/docker/annotation.bal file.
 
-Adding annotation definitions:
-
-Create hello-extension/src/main/ballerina/ballerinax/docker/annotation.bal file.
-
-
+```bash
 ├── pom.xml
 ├── src
 │   ├── main
@@ -236,30 +241,31 @@ Create hello-extension/src/main/ballerina/ballerinax/docker/annotation.bal file.
 │               └── hello
 │                   └── AppTest.java
 └── target
+```
 
-
-	
-Define annotations in annotation.bal.
-https://github.com/ballerinax/hello/blob/master/src/main/ballerina/ballerinax/hello/annotation.bal
-
+The annotation is defined using Ballerina syntax in the `annotation.bal`:
+```ballerina
 package ballerinax.hello;
 
-@Description {value:"Hello annotation configuration"}
-@Field {value:"salutation: Greeting or Acknowledgement"}
+@Description {value:"THIS TEXT APPEARS IN API DOCS"}
+@Field {value:"salutation: THIS TEXT APPEARS IN API DOCS"}
 public type HelloConfiguration {
    string salutation;
 };
 
-@Description {value:"Configurations annotation for Docker"}
+@Description {value:"THIS TEXT APPEARS IN API DOCS"}
 public annotation <service> Greeting HelloConfiguration;
 
+// You can replace the <> value with different objects this annotation may attach to
+```
 
-Remove the generated App.java and AppTest.java files from maven repositroy.
+##### Remove Some Unnecessary Files
+Remove the archetype generated `App.java` and `AppTest.java` files. They are needed.
 
+##### Define an Extension Provider
+Create `HelloExtensionProvider.java` class in `hello/src/main/java/org/ballerinax/hello` package. This class will implement `SystemPackageRepositoryProvider`. 
 
-Create HelloExtensionProvider.java class in hello/src/main/java/org/ballerinax/hello package. This class should implement SystemPackageRepositoryProvider. 
-https://github.com/ballerinax/hello/blob/master/src/main/java/org/ballerinax/hello/HelloExtensionProvider.java
-
+```java
 package org.ballerinax.hello;
 
 import org.ballerinalang.annotation.JavaSPIService;
@@ -277,13 +283,13 @@ public class HelloExtensionProvider implements SystemPackageRepositoryProvider {
    public Repo loadRepository() {
        return new JarRepo(SystemPackageRepositoryProvider.getClassUri(this));
    }
-
 }
+```
 
+##### Update the pom.xml
 
-
-Configure bsc plugin in the pom.xml.
-https://github.com/ballerinax/hello/blob/master/pom.xml#L206-L229
+Configure bsc plugin in the `pom.xml`:
+```xml
 <!-- For ballerina annotation processing →
 <resources>
    <resource>
@@ -323,10 +329,11 @@ https://github.com/ballerinax/hello/blob/master/pom.xml#L206-L229
        </execution>
    </executions>
 </plugin>
+```
 
-Configure maven shade plugin. This plugin manges the packaging of dependency jar files.
-Ballerina Tools distribution contains all the dependency jars we have used in the plugin. Since we are copying the final jar to ballerina tools, we are excluding the ballerina dependencies from the final jar.
-https://github.com/ballerinax/hello/blob/master/pom.xml#L230-L276
+Configure the maven shade plugin. This plugin manages the packaging of dependency jar files. The Ballerina Tools distribution contains all the dependency jars we have used in the plugin. Since we are copying the final jar to Ballerina tools, we are excluding the Ballerina dependencies from the final jar.
+
+```xml
 <plugin>
    <artifactId>maven-shade-plugin</artifactId>
    <version>2.4.3</version>
@@ -374,13 +381,11 @@ https://github.com/ballerinax/hello/blob/master/pom.xml#L230-L276
        </execution>
    </executions>
 </plugin>
+```
 
+Configure Maven compiler plugin. Ballerina requires Java8 for the builder extensions.
 
-
-Configure maven compiler plugin. Since ballerina is build on java8 the project should compile on java8.
-https://github.com/ballerinax/hello/blob/master/pom.xml#L195-L203
-
-
+```xml
 <plugin>
    <groupId>org.apache.maven.plugins</groupId>
    <artifactId>maven-compiler-plugin</artifactId>
@@ -390,23 +395,24 @@ https://github.com/ballerinax/hello/blob/master/pom.xml#L195-L203
        <target>1.8</target>
    </configuration>
 </plugin>
+```
 
-Build the project. 
+##### Verify the Annotation
+Build the project and verify that the JAR file is built. The JAR file will contain your annotation definitions.
+```bash
 mvn clean install
+```
 
-Resulting target/hello-extension-1.0-SNAPSHOT.jar file now has the annotation definitions. Copy the jar file to <ballerina_tools_home>/bre/lib folder.
+The resulting `target/hello-extension-1.0-SNAPSHOT.jar` will have the annotation definitions. 
 
+Place the jar file at `<ballerina_tools_home>/bre/lib` of your Ballerina distribution.
 
-Create a sample ballerina file with annotation and make sure you can compile the ballerina file without errors.
-
-
+You can now verify that the annotation is present even though we cannot react to it yet. Create a sample Ballerina file with your  annotation and make sure that Ballerina can compile the file without errors.
+```ballerina
 import ballerina/http;
 import ballerinax/hello;
 
 @hello:Greeting{salutation : "Guten Tag!"}
-@http:ServiceConfig {
-   basePath:"/helloWorld"
-}
 service<http:Service> helloWorld bind {port:9091} {
    sayHello(endpoint outboundEP, http:Request request) {
        http:Response response = new;
@@ -414,12 +420,12 @@ service<http:Service> helloWorld bind {port:9091} {
        _ = outboundEP -> respond(response);
    }
 }
+```
 
-Writing the processor
-Create a java class as HelloPlugin.java in hello/src/main/java/org/ballerinax/hello package. Override the supported annotation methods.
-https://github.com/ballerinax/hello/blob/master/src/main/java/org/ballerinax/hello/HelloPlugin.java
+### Write the Build Extension Processor
+Create `HelloPlugin.java` in `hello/src/main/java/org/ballerinax/hello` package. We will then implement the annotation methods that we want to act upon. 
 
-
+```java
 package org.ballerinax.hello;
 
 import org.ballerinalang.compiler.plugins.AbstractCompilerPlugin;
@@ -449,14 +455,15 @@ import java.util.List;
 public class HelloPlugin extends AbstractCompilerPlugin {
    private DiagnosticLog dlog;
 
-
    @Override
    public void init(DiagnosticLog diagnosticLog) {
        this.dlog = diagnosticLog;
    }
 
+   // Our annotation is attached to service<> objects
    @Override
    public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations) {
+
        //process annotation
        for (AnnotationAttachmentNode attachmentNode : annotations) {
            List<BLangRecordLiteral.BLangRecordKeyValue> keyValues =
@@ -509,12 +516,26 @@ public class HelloPlugin extends AbstractCompilerPlugin {
        Files.write(Paths.get(targetFilePath), context.getBytes(StandardCharsets.UTF_8));
    }
 }
-Since we have declared annotation only for a service we will only be overriding the public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations) {} method. The annotation value is read and cached in a singleton model class. Upon receiving the code generated event, we are extracting the output-file name and write the value from model class to a file.
 
-Create a org.ballerinalang.compiler.plugins.CompilerPlugin file in hello/src/main/resources/META-INF/services directory. This file is read by the compiler and register our HelloPlugin.java class as an extension. The events will be received by the registered classes. The file should contain the fully qualified class name of the extension. 
-https://github.com/ballerinax/hello/blob/master/src/main/resources/META-INF/services/org.ballerinalang.compiler.plugins.CompilerPlugin
+```
+
+The annotation value is read and cached in a singleton model class. Upon receiving the code generated event, we are extracting the output file name and write the value from the model class to a file.
+
+Create an file named `org.ballerinalang.compiler.plugins.CompilerPlugin` in `hello/src/main/resources/META-INF/services` directory. This file is read by the compiler and registers our `HelloPlugin.java` class as an extension. The events will be received by the registered classes. The file should contain the fully qualified Java class name of the builder extension. 
+```
 org.ballerinax.hello.HelloPlugin
+```
 
-Build the project and replace the jar file in <ballerina_tools_home>/bre/lib directory with latest.
-Compile the sample ballerina file we created earlier. There should be a text file created with annotation value.
-https://github.com/ballerinax/hello/tree/master/sample
+Rebuild the maven project and replace the jar file in `<ballerina_tools_home>/bre/lib` with the latest. You should now be able to compile the sample Ballerina file we created earlier. There should be a text file created with annotation value.
+
+### Learn More About Java Libraries for Builder Extensions
+First, the Ballerina developers will be eager and excited to help you if you run into any issues with writing Java extensions that parse the AST. AST parsing is a bit of a different world and it does take some work to learn all of the libraries. You can post questions on the ballerina-dev Google group, chat in our Slack channel, or post onto StackOverflow with the #ballerina label.
+
+Second, the fastest way to learn about advanced annotation processing is to review the processors for Docker and Kubernetes.
+Docker:
+1. The Ballerina file defining the annotation.
+2. The Java code with the builder extension.
+
+Kubernetes
+1. The Ballerina file defining the annotation.
+2. The Java code with the builder extension.
