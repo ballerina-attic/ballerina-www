@@ -150,7 +150,11 @@ var loadData = function(linkText, sectionId, init) {
                     if ($(this).prev().length > 0) {
                         var prevElemBottom = $(this).prev().height() + parseInt($(this).prev().css('top')) + 20;
 
-                        if (overlayStartPosition < prevElemBottom) {
+                        if ($(this).hasClass('cOutputDesription')) {
+                            topPosition = (($('#' + fileName + '-code').height() + overlayStartPosition) + codeOutputBoxOffset);
+                        }
+
+                        if (topPosition < prevElemBottom) {
                             topPosition = prevElemBottom;
                             $(this).css('background-image', 'none');
                         }
