@@ -221,7 +221,6 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         labels.put("reason", reason);
 
         // Port to be exposed
-        // TODO: get port details from environment variables
         List<ServicePort> ports = new ArrayList<>();
         ServicePort servicePort = new ServicePort();
         servicePort.setName("https-port");
