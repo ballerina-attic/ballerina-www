@@ -50,18 +50,23 @@ class RunSession {
      * @param {String} curl - curl command
      * @param {Number} noOfCurlExecutions - no of curl executions
      * @param {String} dependantService - name of any dependantService
+     * @param {String} cacheId - cacheID
      *
      * @memberof LaunchManager
      */
-    run(fileName, source, curl, noOfCurlExecutions, dependantService) {
-        this.sendMessage({
+    run(fileName, source, curl, noOfCurlExecutions, dependantService, cacheId = undefined) {
+        const cmd = {
             command: 'run',
             fileName,
             source,
             curl,
             noOfCurlExecutions,
             dependantService,
-        });
+        };
+        if (cacheId) {
+            cmd['cacheId'] = cacheId;
+        }
+        this.sendMessage(cmd);
     }
 
     /**
