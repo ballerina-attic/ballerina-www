@@ -40,8 +40,6 @@ $(document).ready(function() {
         '</div>' +
         '</div>';
 
-
-
     var footer = '<div class="container">' +
         '<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-left-col cBallerinaFooterLinks">' +
         '<ul>' +
@@ -89,10 +87,6 @@ $(document).ready(function() {
     $(".ballerina").removeClass('cBasicCode');
     $(".bash").removeClass('cBasicCode');
 
-});
-
-$(document).ready(function() {
-
     $(".cRuntimeContent").addClass('cShow');
 
     $(".cRUNTIME").click(function() {
@@ -116,9 +110,6 @@ $(document).ready(function() {
         $(".cDeploymentContent").removeClass('cShow');
         $(".cLifecycleContent").addClass('cShow');
     });
-
-
-
 
     $(".cSEQUENCEContent").addClass('cShow');
 
@@ -205,7 +196,7 @@ $(document).ready(function() {
         }
         lines = lines + '</div>';
         //calculate <pre> height and set it to the container
-        var preHeight = numberOfLines*18 + 20;
+        var preHeight = numberOfLines * 18 + 20;
         $(this).parent()
             .height(preHeight)
             .addClass('ballerina-pre-wrapper')
@@ -253,6 +244,7 @@ function formatDate(date, format) {
     }
 }
 
+
    $(document).ready(function() {
             $(".cBallerina-io-packages").click(function() {
                 $(".cCollaps-Menu").toggleClass('cOpenMenu');
@@ -264,3 +256,4 @@ function formatDate(date, format) {
                 $(".cBallerina-io-primitive-types").toggleClass('cOpenMenu');
              });
     });
+

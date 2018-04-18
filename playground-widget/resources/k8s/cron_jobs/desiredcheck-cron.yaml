@@ -17,7 +17,7 @@ spec:
           -
             name: desiredcheck-controller
             imagePullPolicy: Always
-            image: gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1
+            image: gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1-20180417-1956
             env:
             -
               name: BPG_REDIS_WRITE_HOST
@@ -36,13 +36,13 @@ spec:
               value: "ballerina-playground"
             -
               name: BPG_LAUNCHER_IMAGE_NAME
-              value: "gcr.io/${BPG_GCP_PROJECT_ID}/launcher:latest"
+              value: "gcr.io/${BPG_GCP_PROJECT_ID}/launcher:v0.1-20180417-1923"
             -
-              name: BPG_SCALING_DESIRED
-              value: "3"
+              name: BPG_MIN_CONCURRENT_USERS
+              value: "10"
             -
-              name: BPG_SCALING_MAX
-              value: "8"
+              name: BPG_MAX_CONCURRENT_USERS
+              value: "40"
             -
               name: BPG_SCALING_STEP_UP
               value: "2"
@@ -61,6 +61,9 @@ spec:
             -
               name: ROOT_DOMAIN_NAME
               value: "playground.preprod.ballerina.io"
+            -
+              name: BPG_LAUNCHER_HTTPS_PORT
+              value: "8443"
             -
               name: BPG_CONTROLLER_ROLE
               value: "DESIRED_CHECK"

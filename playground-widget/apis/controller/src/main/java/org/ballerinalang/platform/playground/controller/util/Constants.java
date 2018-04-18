@@ -36,11 +36,12 @@ public class Constants {
     public static final String ENV_LAUNCHER_IMAGE_NAME = "BPG_LAUNCHER_IMAGE_NAME";
     public static final String ENV_STEP_UP = "BPG_SCALING_STEP_UP";
     public static final String ENV_STEP_DOWN = "BPG_SCALING_STEP_DOWN";
-    public static final String ENV_DESIRED_COUNT = "BPG_SCALING_DESIRED";
-    public static final String ENV_MAX_COUNT = "BPG_SCALING_MAX";
+    public static final String ENV_DESIRED_COUNT = "BPG_MIN_CONCURRENT_USERS";
+    public static final String ENV_MAX_COUNT = "BPG_MAX_CONCURRENT_USERS";
     public static final String ENV_FREE_BUFFER = "BPG_SCALING_FREE_BUFFER";
     public static final String ENV_BGP_NFS_SERVER_IP = "BGP_NFS_SERVER_IP";
     public static final String ENV_ROOT_DOMAIN_NAME = "ROOT_DOMAIN_NAME";
+    public static final String ENV_BPG_LAUNCHER_HTTPS_PORT = "BPG_LAUNCHER_HTTPS_PORT";
 
     // Default values
     public static final String DEFAULT_BALLERINA_PLAYGROUND_NAMESPACE = "ballerina-playground";
@@ -49,6 +50,7 @@ public class Constants {
     public static final int DEFAULT_DESIRED_COUNT = 5;
     public static final int DEFAULT_MAX_COUNT = 10;
     public static final int DEFAULT_FREE_BUFFER = 2;
+    public static final int DEFAULT_LAUNCHER_HTTPS_PORT = 8443;
 
     // API Path Parameters
     public static final String PATH_PARAM_LAUNCHER_URL = "launcher-url";

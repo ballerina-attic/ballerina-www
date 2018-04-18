@@ -64,9 +64,11 @@ $(document).ready(function() {
 
     //Nightly Packages
     var nightly_pack = "";
+    $("#nightlyPackContainer").hide();
 
     $.getJSON(nightly_versions_json, function(nightly_pack) {
 
+        $("#nightlyPackContainer").show();
         var version = nightly_pack['version'];
         var version_pack = version.replace(/ /g, "-").toLowerCase();
         var released_date = nightly_pack['release-date'];
@@ -98,5 +100,5 @@ $(document).ready(function() {
             $("#nightlyPackages" + row_id).append(release_content);
             i++;
         });
-    });
+    }).fail(function() {$("#nightlyPackContainer").hide();});
 });

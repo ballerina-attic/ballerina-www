@@ -13,6 +13,7 @@ import (
     "strings"
     "text/template"
     "bytes"
+    "errors"
 )
 
 var cacheDir = "/tmp/gobyexample-cache"
@@ -256,11 +257,11 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string, string) {
     return segs, filecontent, completeCode
 }
 
-func parseExamples() []*Example {
+func  parseExamples() []*Example {
     exampleNames := readLines(examplesDir + "/" + "examples.txt")
     examples := make([]*Example, 0)
     for _, exampleName := range exampleNames {
-        fmt.Fprintln(os.Stderr, "processing example: " + exampleName)
+        fmt.Fprintln(os.Stdout, "processing bbe: " + exampleName)
         if (exampleName != "") && !strings.HasPrefix(exampleName, "#") {
             example := Example{Name: exampleName}
             exampleId := strings.ToLower(exampleName)
@@ -280,10 +281,10 @@ func parseExamples() []*Example {
 
             balFilePath := fileDirPath + exampleId + ".bal"
             if !isFileExist(balFilePath) {
-                fmt.Fprintln(os.Stderr, "Skipping example: " + exampleName + ". File not found: " + balFilePath)
+                fmt.Fprintln(os.Stderr, "[WARN] Skipping bbe : " + exampleName + ". File not found: " + balFilePath)
                 continue;
             }
-            fmt.Fprintln(os.Stderr, "processing file : " + balFilePath)
+
             rearrangedPaths = appendFilePath(rearrangedPaths, descFilePath);
 
             rearrangedPaths = appendFilePath(rearrangedPaths, balFilePath);
@@ -296,36 +297,12 @@ func parseExamples() []*Example {
                 rearrangedPaths = appendFilePath(rearrangedPaths, fileDirPath + exampleId + ".client.sh");
             }
             sourcePaths = rearrangedPaths;
-
-            for _, sourcePath := range sourcePaths {
-                if strings.HasSuffix(sourcePath, ".hash") {
-                    example.GoCodeHash, example.UrlHash = parseHashFile(sourcePath)
-                } else {
-                    sourceSegs, filecontents, fullcode := parseAndRenderSegs(sourcePath)
-                    if filecontents != "" {
-                        example.GoCode = filecontents
-                    }
-
-                    // We do this since the ".description" file is not read first. If it is the first file in the
-                    // directory, it will be read first. then we don't need this check.What we do
-                    if strings.HasSuffix(sourcePath, ".description") {
-                        descFileContent = sourceSegs[0].Docs;
-			example.Descs = descFileContent;
-                    } else {
-                        example.Segs = append(example.Segs, sourceSegs)
-                    }
-		    example.FullCode = example.FullCode + fullcode
-
-                }
+            updatedExamplesList, pErr := prepareExample(sourcePaths, example, examples)
+            if pErr != nil {
+                fmt.Fprintln(os.Stderr, "[WARN] Skipping bbe : "+example.Name, pErr)
+                continue;
             }
-
-            example.FullCode = cachedPygmentize("bal", example.FullCode)
-            newCodeHash := sha1Sum(example.GoCode)
-            if example.GoCodeHash != newCodeHash {
-                example.UrlHash = resetUrlHashFile(newCodeHash, example.GoCode, "examples/"+example.Id+"/"+example.Id+".hash")
-            }
-            example.GithubLink = githubBallerinaByExampleBaseURL+ "/examples/"+example.Id+"/"
-            examples = append(examples, &example)
+            examples = updatedExamplesList
         }
     }
 
@@ -342,6 +319,56 @@ func parseExamples() []*Example {
     }
 
     return examples
+}
+
+func prepareExample(sourcePaths []string, example Example, currentExamplesList []*Example) (updatedExamplesList []*Example, err error) {
+    defer func() {
+        if r := recover(); r != nil {
+            fmt.Fprintln(os.Stderr, "An error occured while processing bbe : "+example.Name)
+            // find out exactly what the error was and set err
+            switch x := r.(type) {
+            case string:
+                err = errors.New(x)
+            case error:
+                err = x
+            default:
+                err = errors.New("Unknown panic")
+            }
+            // invalidate rep
+            updatedExamplesList = nil
+            // return the modified err and rep
+        }
+    }()
+    for _, sourcePath := range sourcePaths {
+
+        if strings.HasSuffix(sourcePath, ".hash") {
+            example.GoCodeHash, example.UrlHash = parseHashFile(sourcePath)
+        } else {
+            sourceSegs, filecontents, fullcode := parseAndRenderSegs(sourcePath)
+            if filecontents != "" {
+                example.GoCode = filecontents
+            }
+
+            // We do this since the ".description" file is not read first. If it is the first file in the
+            // directory, it will be read first. then we don't need this check.What we do
+            if strings.HasSuffix(sourcePath, ".description") {
+                descFileContent = sourceSegs[0].Docs;
+                example.Descs = descFileContent;
+            } else {
+                example.Segs = append(example.Segs, sourceSegs)
+            }
+            example.FullCode = example.FullCode + fullcode
+
+        }
+    }
+    example.FullCode = cachedPygmentize("bal", example.FullCode)
+    newCodeHash := sha1Sum(example.GoCode)
+    if example.GoCodeHash != newCodeHash {
+        example.UrlHash = resetUrlHashFile(newCodeHash, example.GoCode, "examples/"+example.Id+"/"+example.Id+".hash")
+    }
+    example.GithubLink = githubBallerinaByExampleBaseURL + "/examples/" + example.Id + "/"
+    currentExamplesList = append(currentExamplesList, &example)
+    return currentExamplesList, nil
 }
 
 func renderIndex(examples []*Example) {

@@ -15,10 +15,12 @@
  */
 package org.ballerinalang.platform.playground.launcher.core.util;
 
+import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.ballerinalang.platform.playground.utils.EnvUtils;
@@ -43,6 +45,7 @@ public class LauncherUtils {
             HttpClient client = HttpClients.createDefault();
             HttpPost post = new HttpPost(getControllerURL());
             post.setEntity(new StringEntity(statusUpdateRequest.toString()));
+            post.setHeader(HttpHeaders.CONTENT_TYPE, ContentType.APPLICATION_JSON.toString());
             HttpResponse response = client.execute(post);
             if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
                 logger.error("Error while marking launcher node as free. "

@@ -25,9 +25,7 @@ RUN mkdir -p /api && \
     adduser -g '' -s /bin/bash -D -G troupe ballerina
 
 # Copy artifacts
-COPY playground-controller-${CONTROLLER_VERSION}.jar /api/
-COPY netty-transports.yml /api/
-COPY init.sh /api/
+COPY * /api/
 
 # Change permission
 RUN chown -R ballerina:troupe /api && \

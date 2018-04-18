@@ -53,17 +53,13 @@ import org.ballerinalang.platform.playground.utils.EnvVariables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.time.temporal.ChronoUnit.MINUTES;
-
 /**
  * K8S implementation of the Container Runtime Client.
- *
  */
 public class KubernetesClientImpl implements ContainerRuntimeClient {
 
@@ -225,11 +221,13 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         labels.put("reason", reason);
 
         // Port to be exposed
+        // TODO: get port details from environment variables
         List<ServicePort> ports = new ArrayList<>();
         ServicePort servicePort = new ServicePort();
         servicePort.setName("https-port");
         servicePort.setPort(443);
-        servicePort.setTargetPort(new IntOrString(443));
+        servicePort.setTargetPort(new IntOrString(
+                EnvUtils.getEnvIntValue(Constants.ENV_BPG_LAUNCHER_HTTPS_PORT, Constants.DEFAULT_LAUNCHER_HTTPS_PORT)));
         ports.add(servicePort);
 
         // Pod selector
@@ -325,6 +323,7 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
     /**
      * Create an Environment Variable entry to be added to a Deployment.
+     *
      * @param key
      * @param value
      * @return
