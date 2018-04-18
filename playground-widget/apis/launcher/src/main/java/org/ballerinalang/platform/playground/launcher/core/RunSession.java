@@ -25,6 +25,8 @@ import org.ballerinalang.platform.playground.launcher.core.phase.StartDependantS
 import org.ballerinalang.platform.playground.launcher.core.phase.StartPhase;
 import org.ballerinalang.platform.playground.launcher.core.phase.TryItPhase;
 import org.ballerinalang.platform.playground.launcher.core.util.LauncherUtils;
+import org.ballerinalang.platform.playground.utils.EnvUtils;
+import org.ballerinalang.platform.playground.utils.EnvVariables;
 import org.ballerinalang.platform.playground.utils.cache.CacheUtils;
 import org.ballerinalang.platform.playground.utils.cmd.dto.Command;
 import org.ballerinalang.platform.playground.utils.cmd.dto.Message;
@@ -57,6 +59,8 @@ public class RunSession {
     private static final String OUTPUT_DELIMITTER= "---OUTPUT----";
 
     private static final String CACHE_ID_SEP = "\\.";
+
+    private static final String DEFAULT_CACHE_MOUNT_PATH = "/mnt/build/cache";
 
     private final Session transportSession;
 
@@ -111,9 +115,9 @@ public class RunSession {
         try {
             if (runCommand.getCacheId() != null) {
                 String cacheId = new String(Base64.getDecoder().decode(runCommand.getCacheId().getBytes()));
+                setOutputCacheId(cacheId);
                 String[] cacheIdParts = cacheId.split(CACHE_ID_SEP);
-                setBuildCacheID(cacheIdParts[0]);
-                setOutputCacheId(cacheIdParts[1]);
+                setBuildCacheID(cacheIdParts[1]);
             } else {
                 setBuildCacheID(CacheUtils.getBuildCacheID(runCommand));
                 setOutputCacheId(CacheUtils.getOutputCacheID(runCommand));
@@ -384,7 +388,9 @@ public class RunSession {
 
     private void createSourceFile() {
         try {
-            Path sourceRoot = Files.createTempDirectory("playground-sample");
+            String cacheMount = EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_CACHE_MOUNT,
+                    DEFAULT_CACHE_MOUNT_PATH);
+            Path sourceRoot = Files.createTempDirectory(Paths.get(cacheMount), "playground-sample");
             File tmpFile = File.createTempFile("playground-sample", ".bal", sourceRoot.toFile());
             FileUtils.writeStringToFile(tmpFile, runCommand.getSource());
             sourceFile = tmpFile.toPath();
