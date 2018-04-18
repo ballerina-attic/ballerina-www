@@ -8,6 +8,7 @@ we search for a file "rest-services-run.txt" file as well
 */
 var lineHeight = 18;
 var topPadding = 4;
+var codeOutputBoxOffset = 7;
 var editor = null,
     editorRun = null;
 
@@ -146,32 +147,21 @@ var loadData = function(linkText, sectionId, init) {
                     var overlayStartPosition = topPadding + (startLine - 1) * lineHeight + 30;
                     var topPosition = overlayStartPosition;
 
-                    $(this).attr('data-position', overlayStartPosition);
-
                     if ($(this).prev().length > 0) {
-                        var prevElemsHeight = 0;
-                        var prevElemsMarginTop = 0;
-                        var prevElemsMarginBottom = 0;
+                        var prevElemBottom = $(this).prev().height() + parseInt($(this).prev().css('top')) + 20;
 
-                        $(this).prevAll().each(function() {
-                            prevElemsHeight += $(this).height();
-                            prevElemsMarginTop += parseInt($(this).css('margin-top'));
-                            prevElemsMarginBottom += parseInt($(this).css('margin-bottom'));
-                        });
-                        topPosition = overlayStartPosition - ($(this).prev().data('position') + prevElemsHeight);
-                        if (topPosition < 0) {
-                            topPosition = 0;
-                        }
-
-                        if ($(this).hasClass('cOutputDesription')) {
-                            topPosition = overlayStartPosition + ($('#' + fileName + '-code').height() - (prevElemsHeight + prevElemsMarginTop) - 7 - topPadding);
+                        if (overlayStartPosition < prevElemBottom) {
+                            topPosition = prevElemBottom;
+                            $(this).css('background-image', 'none');
                         }
                     }
 
-                    $(this).css('margin-top', topPosition);
+                    $(this).css('top', topPosition);
                 });
 
-
+                var $lastCodeDescriptionBox = $('#' + fileName + '-text ' + '.hTrigger:last-child');
+                var codeboxContainerHeight = $lastCodeDescriptionBox.height() + parseInt($lastCodeDescriptionBox.css('top')) + 20;
+                $('#' + fileName + '-text').css('height', codeboxContainerHeight);
             }
         }
     });
@@ -217,7 +207,7 @@ $(document).ready(function() {
 
             if ($(this).hasClass('cOutputDesription')) {
                 highlighter = '.output-overllay-highlight';
-                offset = 7;
+                offset = codeOutputBoxOffset;
             }
 
             highlightCodeSection(startLine, endLine, $(e.currentTarget).closest('.container').find('.code-wrapper').attr('id'), highlighter, offset);
