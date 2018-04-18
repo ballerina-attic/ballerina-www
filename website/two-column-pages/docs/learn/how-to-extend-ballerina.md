@@ -90,6 +90,10 @@ public type TwilioConnector object {
 We now implement the method that will be called when an endpoint is instantiated. The function name is the object we created with `::init()` provided to reference that init method. The initialization method can accept a single parameter. When the end user calles the `endpoint` object, the record literals after the endpoint object will be mapped and passed in as the parameter to this method.
 
 ```ballerina
+
+// Constant
+@final string BASE_URL = "https://api.twilio.com/2010-04-01";
+
 public function TwilioClient::init (TwilioConfiguration twilioConfig) {
 
     // Navigate our client object into the targets file of the http::Client object
@@ -135,6 +139,49 @@ public function TwilioClient::getClient () returns TwilioConnector {
 }
 ```
 
+### Implement Custom Functions For Endpoint Interaction
+While the `TwilioClient` object implements `init()` and `getClient()`, if you want to explose custom actions for your end users to use against the connector, these are defined in the `TwilioConnector` object which was initialized and stored as a reference to the `TwilioClient` object. You can add as many or as few custom functions to this object.
+
+In our example, we added a `getAccountDetails()` function that can be invoked as part of the endpoint by the end user:
+```ballerina
+// Account is a custom object that represents Twilio data return values.
+// The -> represents making a non-blocking worker call over the network
+// twilioClient is the end user's endpoint that uses the TwilioClient connector
+// getAccountDetails() is our custom function
+Account account = check twilioClient->getAccountDetails();
+```
+
+And within the package that includes your custom connector, we have these additional items that define the custom function:
+```ballerina
+// Constants
+@final string ACCOUNTS_API = "/Accounts/";
+@final string RESPONSE_TYPE_JSON = ".json";
+
+public function TwilioConnector::getAccountDetails() returns (Account|error) {
+    endpoint http:Client httpClient = self.basicClient;
+    http:Request request = new();
+
+    string requestPath = ACCOUNTS_API + self.accountSid + RESPONSE_TYPE_JSON;
+    var response = httpClient -> get(requestPath, request);
+    var jsonResponse = parseResponseToJson(response);
+    match jsonResponse {
+        json jsonPayload => { return mapJsonToAccount(jsonPayload); }
+        error err => return err;
+    }
+}
+```
+
+And the `Account` record is also defined in the same file:
+```ballerina
+public type Account {
+    string sid;
+    string name;
+    string status;
+    string ^"type";    // type is a keyword and therefore escaped
+    string createdDate;
+    string updatedDate;
+};
+```
 ### Learn More
 You can create connectors for a range of protocols and interfaces, including those endpoints which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
 
