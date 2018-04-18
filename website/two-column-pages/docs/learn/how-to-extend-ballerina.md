@@ -18,7 +18,7 @@ To create a client connector, you:
 ### The Twilio Connector
 You can see the source code for this example at:
 1. [Single file](https://github.com/muthulee/package-twilio-super-simple/blob/master/twilio/twilio_endpoint.bal) version (easier for reading).
-2. Production version (split across files in a good project structure).
+2. [Multiple files](https://github.com/muthulee/package-client-endpoint-guide/tree/master/clientendpointsample) version (split across files following good project structure).
 
 WSO2 has created a connector for Twilio and pushed it into Ballerina Central as `wso2/twilio`. You can find this connector on the command line:
 ```bash
@@ -185,9 +185,7 @@ public type Account {
 ### Learn More
 You can create connectors for a range of protocols and interfaces, including those endpoints which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
 
-**** TODO - ADD LIST
-**** TODO - CHANGE TO TwilioClient
-**** TODO - Add links to the actual project
+**** TODO - ADD LIST OF PRODUCTION CONNECTORS AS EXAMPLES
 
 ## Create Server Listeners
 
