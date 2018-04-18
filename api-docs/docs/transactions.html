@@ -102,10 +102,12 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                   <div class="cLectColStyle cLeftColTop">
-                      <div class="cBallerina-io-docs-Title">PRIMITIVE TYPES</div>
-                    
+                      <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
+                        <div class="cCollaps-Menu-first">
+                          
+                        </div>
                      </div>
-                  </div>
+                </div>
                 <div class="cBlallerina-io-docs-right-nav-container">
                   <div class="cLectColStyle cLeftColTop">
                   <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
@@ -1126,7 +1128,11 @@
                            <a href="/learn">Learn</a>
                         </li>
                         <li>»</li>
-                        <li></li>
+                         <li>
+                           <a href="/learn/api-docs/">API Docs</a>
+                        </li>
+                        <li>»</li>
+                        <li> package </li>
                      </ul>
                   </div>
                </div>
@@ -1262,6 +1268,12 @@
                                           <span class="fw-struct sm-icon"></span>
                                           public object LocalProtocol
                                        </h2>
+                                       
+                                       <p>
+                                          <span class="fw-right gray xs-icon"></span>&lt;pre&gt;&lt;code&gt;This represents the protocol associated with the coordination type.
+&lt;/code&gt;&lt;/pre&gt;
+
+                                       </p>
                                         
                                        <p>
                                           <label class="table-header-text">Fields:</label>
@@ -1279,7 +1291,10 @@
                                              <td class="cAPI-table-name">name</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">&lt;ul&gt;
+&lt;li&gt;protocol name&lt;/li&gt;
+&lt;/ul&gt;
+</td>
                                             
                                           </tr>
                                           
@@ -1295,7 +1310,10 @@
                                              <td class="cAPI-table-name">protocolFn</td>
                                              <td class="cAPI-table-type">function(string, int, string)returns(boolean)</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">&lt;ul&gt;
+&lt;li&gt;This function will be called only if the participant is local. This avoid calls over the network.&lt;/li&gt;
+&lt;/ul&gt;
+</td>
                                             
                                           </tr>
                                           
@@ -1578,6 +1596,12 @@
                                           <span class="fw-struct sm-icon"></span>
                                           public object Protocol
                                        </h2>
+                                       
+                                       <p>
+                                          <span class="fw-right gray xs-icon"></span>&lt;pre&gt;&lt;code&gt;This represents the protocol associated with the coordination type.
+&lt;/code&gt;&lt;/pre&gt;
+
+                                       </p>
                                         
                                        <p>
                                           <label class="table-header-text">Fields:</label>
@@ -1595,7 +1619,10 @@
                                              <td class="cAPI-table-name">name</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">&lt;ul&gt;
+&lt;li&gt;protocol name&lt;/li&gt;
+&lt;/ul&gt;
+</td>
                                             
                                           </tr>
                                           
@@ -1740,6 +1767,12 @@
                                           <span class="fw-struct sm-icon"></span>
                                           public object RemoteProtocol
                                        </h2>
+                                       
+                                       <p>
+                                          <span class="fw-right gray xs-icon"></span>&lt;pre&gt;&lt;code&gt;This represents the protocol associated with the coordination type.
+&lt;/code&gt;&lt;/pre&gt;
+
+                                       </p>
                                         
                                        <p>
                                           <label class="table-header-text">Fields:</label>
@@ -1757,7 +1790,10 @@
                                              <td class="cAPI-table-name">name</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">&lt;ul&gt;
+&lt;li&gt;protocol name&lt;/li&gt;
+&lt;/ul&gt;
+</td>
                                             
                                           </tr>
                                           
@@ -1765,7 +1801,11 @@
                                              <td class="cAPI-table-name">url</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">&lt;ul&gt;
+&lt;li&gt;protocol URL. This URL will have a value only if the participant is remote. If the participant is local,
+the &lt;code&gt;protocolFn&lt;/code&gt; will be called&lt;/li&gt;
+&lt;/ul&gt;
+</td>
                                             
                                           </tr>
                                           
@@ -1916,7 +1956,14 @@
                                           <span class="fw-function sm-icon"> </span>
                                           public function getCurrentTransactionId() returns (string) 
                                        </h2>
+                                       
+                                       <p>
+                                          <span class="fw-right gray xs-icon"></span>&lt;pre&gt;&lt;code&gt;Get the current transaction id.
+&lt;/code&gt;&lt;/pre&gt;
+
+                                       </p>
                                          
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -1975,6 +2022,7 @@
                                           
                                        </table>
                                         
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -2033,6 +2081,7 @@
                                           
                                        </table>
                                         
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -2091,6 +2140,7 @@
                                           
                                        </table>
                                         
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -2131,6 +2181,12 @@
                                           <span class="fw-function sm-icon"> </span>
                                           public function registerParticipantWithRemoteInitiator(string transactionId, int transactionBlockId, string registerAtURL, RemoteProtocol[] participantProtocols) returns (TransactionContext | error) 
                                        </h2>
+                                       
+                                       <p>
+                                          <span class="fw-right gray xs-icon"></span>&lt;pre&gt;&lt;code&gt;Registers a participant with the initiator&#x27;s coordinator. This function will be called by the participant
+&lt;/code&gt;&lt;/pre&gt;
+
+                                       </p>
                                         
                                        <table>
                                           <tr>
@@ -2144,23 +2200,29 @@
                                              <td class="cAPI-table-name">transactionId</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"> - ID of the transaction to which this participant is registering with
-    </td>
+                                             <td class="cAPI-table-desc">&lt;ul&gt;
+&lt;li&gt;ID of the transaction to which this participant is registering with&lt;/li&gt;
+&lt;/ul&gt;
+</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">transactionBlockId</td>
                                              <td class="cAPI-table-type">int</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"> - The local ID of the transaction block on the participant
-    </td>
+                                             <td class="cAPI-table-desc">&lt;ul&gt;
+&lt;li&gt;The local ID of the transaction block on the participant&lt;/li&gt;
+&lt;/ul&gt;
+</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">registerAtURL</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"> - The URL of the initiator to which this participant will register with
+                                             <td class="cAPI-table-desc">&lt;ul&gt;
+&lt;li&gt;The URL of the initiator to which this participant will register with&lt;/li&gt;
+&lt;/ul&gt;
 </td>
                                           </tr>
                                           
@@ -2173,6 +2235,7 @@
                                           
                                        </table>
                                         
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -2219,24 +2282,7 @@
                                           <span class="fw-struct sm-icon"></span>
                                           public type Participant2pcClient object
                                        </h2>
-                                        
-                                       <table>
-                                          <tr>
-                                             <th class="cAPI-table-name">Parameter Name</th>
-                                             <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
-                                             <th class="cAPI-table-desc">Description</th>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">clientEP</td>
-                                             <td class="cAPI-table-type">Participant2pcClientEP</td>
-                                             <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
-                                          </tr>
-                                          
-                                       </table>
-                                        
+                                         
                                        <div class="function-wrapper">
                                           <ul>
                                              
@@ -2266,6 +2312,7 @@
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2318,6 +2365,7 @@
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2363,31 +2411,7 @@
                                           <span class="fw-struct sm-icon"></span>
                                           public type Participant2pcClientEP object
                                        </h2>
-                                        
-                                       <table>
-                                          <tr>
-                                             <th class="cAPI-table-name">Parameter Name</th>
-                                             <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
-                                             <th class="cAPI-table-desc">Description</th>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">httpClient</td>
-                                             <td class="cAPI-table-type">Client</td>
-                                             <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">conf</td>
-                                             <td class="cAPI-table-type">Participant2pcClientConfig</td>
-                                             <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
-                                          </tr>
-                                          
-                                       </table>
-                                        
+                                         
                                        <div class="function-wrapper">
                                           <ul>
                                              
@@ -2428,6 +2452,7 @@
                                                    getClient() returns (Participant2pcClient) 
                                                 </h2>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2867,7 +2892,17 @@
       </div>
       <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
       </div>
-      <script type="text/javascript" src="/search/search.js"/>
+      <script>
+   $(document).ready(function() {
+         $(".cSideBar-Button").click(function() {
+            $(".cSideBar-Button").toggleClass('cOpen');
+            $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
+          });
+    });
+    
+      </script>
+     <script type="text/javascript" src="/search/search.js">
+     </script>
       </body>
       </html>
 
