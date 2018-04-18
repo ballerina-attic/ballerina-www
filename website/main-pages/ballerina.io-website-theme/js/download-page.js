@@ -76,7 +76,7 @@ $(document).ready(function() {
         $("#nightlyInfo").html(version + " (" + formatDate(released_date) + ")");
         var nightly_packs = $.merge([nightly_pack['windows-installer'], nightly_pack['linux-installer'], nightly_pack['macos-installer']], nightly_pack['other-artefacts']);
         var i = 0;
-        var product_dist_path = base_download_url + "/" + version_pack + "/";
+        var product_dist_path = nightly_download_url + "/";
 
         if (nightly_packs.length == 0) {
             $("#nightlyPackContainer").hide();
