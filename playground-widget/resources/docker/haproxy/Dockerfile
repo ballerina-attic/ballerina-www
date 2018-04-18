@@ -40,7 +40,7 @@ RUN chmod +x /haproxy_reload
 
 # Adding Certificates
 RUN mkdir -p /etc/certs/sslterm
-COPY certs/* /etc/certs/sslterm/
-COPY certs/* /etc/certs/sslterm/
+COPY certs/*.pem /etc/certs/sslterm/
+COPY certs/*.crt /etc/certs/sslterm/
 
 RUN touch /var/run/haproxy.pid
