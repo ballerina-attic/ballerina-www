@@ -683,11 +683,6 @@
                     <p>Stream queries allow time windows and use the concept of "language integrated queries". This integrates SQL-like semantics into the language with full type safety and syntax checking.</p>
                 </div>
             </div>
-            <div data-startLine="18" data-endLine="19" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>This is an example of a lambda which is used to handle the results.</p>
-                </div>
-            </div>
         </div>
     </div>
 </div>
