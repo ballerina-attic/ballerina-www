@@ -102,7 +102,7 @@
                         <img src="/img/philosophy-principle-diagrams-02.svg" />
                     </div>
                     <div class="tab-pane" id="3b">
-                        <img src="/img/philosophy-principle-diagrams-03.svg" />
+                        <img src="/img/philosophy-principle-diagrams-03-2.svg" />
                     </div>
                 </div>
             </div>
@@ -111,8 +111,17 @@
             <p class="cGreenTitle cPhil-box-titles">SEQUENCE DIAGRAMMATIC</p>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <p>Ballerina’s underlying language semantics were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow with endpoints,
-                        including synchronous and asynchronous calls. The Ballerina Composer is an included tool for creating Ballerina services with sequence diagrams. </p>
+                    <p>Sequence diagrams are a reflection of how designers and architects think and document interconnected and integrated systems. Ballerina’s syntax is designed around  sequence diagrams, and subsequently the way a developer thinks when writing Ballerina code encourages strong interaction best practices. </p>
+                </div>
+            </div>
+            <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <p>Ballerina’s underlying language semantics were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow with endpoints, including synchronous and asynchronous calls. The Ballerina Composer is an included tool for creating Ballerina services with sequence diagrams. </p>
+                </div>
+            </div>
+             <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <p>Ballerina represents clients, workers and remote systems as different actors in the sequence diagram. In code, remote endpoints are interfaced via connectors, which offer type safe actions. Graphically, each connector is represented as an actor in the sequence diagram (i.e. a vertical line) and actions are represented as interactions with those actors.</p>
                 </div>
             </div>
         </div>
@@ -120,9 +129,13 @@
             <p class="cGreenTitle cPhil-box-titles">CONCURRENCY</p>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <p>Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use a full non-blocking policy where no function locks an executing thread, such as an HTTP I/O call awaiting response. These
-                        semantics manifest sequence concurrency where workers are independent concurrent actors that do not share state but can interact using messages. Workers and fork/join language semantics abstract the underlying non-blocking approach
-                        to enable a simpler concurrency programming model.</p>
+                    <p>The sequence diagrammitic approach of Ballerina has an innate approach to parallelism and concurrency. The associated design principle is to think parallel first, not sequential first, since interactions with remote parties are always involving multiple workers. Local concurrency is also captured with each worker represented as an actor in the sequence diagram. Interactions between workers are handled as message passing, with no shared state.</p>
+                </div>
+                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <p>Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use a full non-blocking policy where no function locks an executing thread, such as an HTTP I/O call awaiting response. Workers and fork/join language semantics abstract the underlying non-blocking approach to enable a simpler concurrency programming model.</p>
+                </div>
+                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <p>As applications become distributed, integrating across increasingly diverse endpoints, building robust concurrent systems is becoming a greater challenge. Ballerina’s concurrency model is designed to provide a simple, robust approach with non-blocking semantics and execution.</p>
                 </div>
             </div>
         </div>
@@ -130,8 +143,17 @@
             <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <p>Ballerina has a structural type system with primitive, object, union, and tuple types. Network systems return messages with different payload types and errors. Ballerina’s type system embraces this variability with an approach based
-                        on union types. This typesafe model incorporates type inference at assignment provide numerous compile time integrity checks for network-bound payloads. </p>
+                    <p>Ballerina has a structural type system with primitive, record, object, tuple and union types. This typesafe model incorporates type inference at assignment and provides numerous compile time integrity checks for connectors, logic and network-bound payloads.  </p>
+                </div>
+            </div>
+            <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <p>Individual network endpoints often return messages with different payload types and errors, depending on their inputs and logic. Ballerina’s type system embraces this variability with an approach based on union types. Union types explicitly capture this semantics without requiring developers to create unnecessary “wrapper” types. This approach also enhances the handling of null values. By default, types do not support null values. Developers must explicitly create union types to handle nulls. The result is that null exceptions cannot happen and the language syntax and compiler identifies whether null handling logic is required or not.</p>
+                </div>
+            </div>
+            <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <p>The Ballerina type system has rich built in support for JSON, XML, streams and tables, as well as direct support for ProtoBuf and gRPC. The result is clean, readable code for dealing with network payloads, SQL programming and stream processing. Data transformation logic isn’t encumbered with complex generated types, third-party library code or other obfuscation - simple clear readable code captures interactions with heterogenous data and transformation logic.</p>
                 </div>
             </div>
         </div>
