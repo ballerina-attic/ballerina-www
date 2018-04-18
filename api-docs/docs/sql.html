@@ -102,10 +102,12 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                   <div class="cLectColStyle cLeftColTop">
-                      <div class="cBallerina-io-docs-Title">PRIMITIVE TYPES</div>
-                    
+                      <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
+                        <div class="cCollaps-Menu-first">
+                          
+                        </div>
                      </div>
-                  </div>
+                </div>
                 <div class="cBlallerina-io-docs-right-nav-container">
                   <div class="cLectColStyle cLeftColTop">
                   <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
@@ -1350,7 +1352,11 @@
                            <a href="/learn">Learn</a>
                         </li>
                         <li>»</li>
-                        <li></li>
+                         <li>
+                           <a href="/learn/api-docs/">API Docs</a>
+                        </li>
+                        <li>»</li>
+                        <li> package </li>
                      </ul>
                   </div>
                </div>
@@ -1673,6 +1679,7 @@ map a result row</td>
                                           
                                        </table>
                                         
+                                       <div class="cReturnTableHeader"></div>
                                        <table>
                                           <tr>
                                              <th class="cAPI-table-name"></th>
@@ -1736,14 +1743,14 @@ map a result row</td>
                                              <td class="cAPI-table-name">epName</td>
                                              <td class="cAPI-table-type">string</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">The name of the endpoint</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">config</td>
                                              <td class="cAPI-table-type">ClientEndpointConfiguration</td>
                                              <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc"></td>
+                                             <td class="cAPI-table-desc">The configurations associated with the endpoint</td>
                                           </tr>
                                           
                                           <tr>
@@ -1842,6 +1849,7 @@ map a result row</td>
                                                    <span class="fw-right gray xs-icon"></span>Returns the connector that client code uses
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -1916,7 +1924,7 @@ map a result row</td>
                                                    <span class="thin-text light-gray">
                                                    <SQLClient>
                                                    </span>
-                                                   call(string sqlQuery, typedesc | null recordType) returns (table[] | error) 
+                                                   call(string sqlQuery, typedesc[] | null recordType) returns (table[] | error) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1940,13 +1948,14 @@ map a result row</td>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">recordType</td>
-                                                      <td class="cAPI-table-type">typedesc | null</td>
+                                                      <td class="cAPI-table-type">typedesc[] | null</td>
                                                       <td class="cAPI-table-defult"></td>
                                                       <td class="cAPI-table-desc"></td>
                                                    </tr>
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2003,6 +2012,7 @@ map a result row</td>
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2035,6 +2045,7 @@ map a result row</td>
                                                    <span class="fw-right gray xs-icon"></span>The close action implementation for SQL connector to shutdown the connection pool.
                                                 </p>
                                                   
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2084,6 +2095,7 @@ map a result row</td>
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2133,6 +2145,7 @@ map a result row</td>
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2190,6 +2203,7 @@ map a result row</td>
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -2247,6 +2261,7 @@ map a result row</td>
                                                    
                                                 </table>
                                                  
+                                                <div class="cReturnTableHeader"></div>
                                                 <table>
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
@@ -3550,7 +3565,17 @@ map a result row</td>
       </div>
       <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
       </div>
-      <script type="text/javascript" src="/search/search.js"/>
+      <script>
+   $(document).ready(function() {
+         $(".cSideBar-Button").click(function() {
+            $(".cSideBar-Button").toggleClass('cOpen');
+            $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
+          });
+    });
+    
+      </script>
+     <script type="text/javascript" src="/search/search.js">
+     </script>
       </body>
       </html>
 
