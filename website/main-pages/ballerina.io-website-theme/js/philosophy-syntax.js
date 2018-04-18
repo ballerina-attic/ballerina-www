@@ -142,7 +142,7 @@ var loadData = function(linkText, sectionId, init) {
                         $(lines)
                     );
                 var codeboxContainerHeight = $('#' + fileName + "-text").prev().height();
-                $('#' + fileName + '-text').css('height', codeboxContainerHeight + 'px');
+                //$('#' + fileName + '-text').css('height', codeboxContainerHeight + 'px');
                 $('#' + fileName + '-text ' + '.hTrigger').each(function() {
                     var startLine = $(this).attr('data-startLine');
                     var startLineOverrride = $(this).attr('data-overrideStart');

@@ -146,8 +146,7 @@ var example_data = [
 					{"name": "Simple Topic Message Producer", "url": "jms-simple-topic-message-producer"},
 					{"name": "Simple Topic Message Subscriber", "url": "jms-simple-topic-message-subscriber"},
 					{"name": "Topic Message Producer", "url": "jms-topic-message-producer"},
-					{"name": "Topic Message Subscriber", "url": "jms-topic-message-subscriber"},
-					{"name": "Send JMS Message to HTTP Endpoint", "url": "send-jms-message-to-http-endpoint"}]
+					{"name": "Topic Message Subscriber", "url": "jms-topic-message-subscriber"}]
 	},
 	{
 			"title": "Standard Library",
