@@ -20,6 +20,14 @@ ENV DEBUG_PORT 5005
 
 RUN apk update && apk add bash
 
+COPY ballerina-tools.zip /root/
+RUN mkdir /ballerina \
+    && unzip /root/ballerina-tools.zip -d /ballerina/ \
+    && mv /ballerina/ballerina* /ballerina/runtime \
+    && mkdir -p /ballerina/runtime/logs \
+    && rm /root/ballerina-tools.zip
+ENV BALLERINA_HOME /ballerina/runtime
+
 RUN mkdir /api/
 COPY netty-transports.yml /api/
 COPY playground-parser.jar /api/
