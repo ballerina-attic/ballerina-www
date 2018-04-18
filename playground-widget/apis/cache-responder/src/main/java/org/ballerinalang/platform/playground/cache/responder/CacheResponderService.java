@@ -15,9 +15,7 @@
  */
 package org.ballerinalang.platform.playground.cache.responder;
 
-import com.google.gson.Gson;
 import org.ballerinalang.platform.playground.launcher.core.RunSession;
-import org.ballerinalang.platform.playground.utils.RedisClient;
 import org.ballerinalang.platform.playground.utils.cache.CacheUtils;
 import org.ballerinalang.platform.playground.utils.cmd.CommandUtils;
 import org.ballerinalang.platform.playground.utils.cmd.dto.Command;
@@ -31,7 +29,7 @@ import javax.websocket.OnError;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
-import javax.ws.rs.Path;
+import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +37,7 @@ import java.util.Map;
 /**
  * Ballerina Cache Responder Service for playground
  */
-@Path("/api/cache")
+@ServerEndpoint(value = "/api/run")
 public class CacheResponderService {
 
     private static final Logger logger = LoggerFactory.getLogger(CacheResponderService.class);
