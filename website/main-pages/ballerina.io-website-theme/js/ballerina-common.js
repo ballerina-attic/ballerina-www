@@ -47,7 +47,7 @@ $(document).ready(function() {
         '<li><a class="cBioFooterLink" href="https://github.com/ballerina-lang/ballerina/blob/master/LICENSE">Code License</a></li>' +
         '<li><a class="cBioFooterLink" href="/license-of-site">Site License</a></li>' +
         '<li><a class="cBioFooterLink" href="/terms-of-service">TERMS OF SERVICE</a></li>' +
-        '<li><a class="cBioFooterLink" href="/terms-of-service">PRIVACY POLICY</a></li>' +
+        '<li><a class="cBioFooterLink" href="/privacy-policy">PRIVACY POLICY</a></li>' +
         '</ul>' +
         '</div>' +
         '<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-middle-col cBallerinaFooterSignUp">' +
