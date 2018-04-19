@@ -12,78 +12,6 @@ var codeOutputBoxOffset = 7;
 var editor = null,
     editorRun = null;
 
-/*
- * Register ballerina language for highlightJS
- * Grammer: https://github.com/ballerina-platform/ballerina-lang/blob/master/compiler/ballerina-lang/src/main/resources/grammar/BallerinaLexer.g4
- */
-hljs.registerLanguage('ballerina', function() {
-    return {
-        "k": "package import as public private native service resource function object annotation parameter transformer worker endpoint " +
-            "bind xmlns returns version documentation deprecated new if else match foreach while next break fork join some all timeout " +
-            "try catch finally throw return transaction abort fail onretry retries onabort oncommit lengthof with in lock untaint start await but check",
-        "i": {},
-        "c": [{
-            "cN": "ballerinadoc",
-            "b": "/\\*\\*",
-            "e": "\\*/",
-            "r": 0,
-            "c": [{
-                "cN": "ballerinadoctag",
-                "b": "(^|\\s)@[A-Za-z]+"
-            }]
-        }, {
-            "cN": "comment",
-            "b": "//",
-            "e": "$",
-            "c": [{
-                "b": {}
-            }, {
-                "cN": "label",
-                "b": "XXX",
-                "e": "$",
-                "eW": true,
-                "r": 0
-            }]
-        }, {
-            "cN": "comment",
-            "b": "/\\*",
-            "e": "\\*/",
-            "c": [{
-                "b": {}
-            }, {
-                "cN": "label",
-                "b": "XXX",
-                "e": "$",
-                "eW": true,
-                "r": 0
-            }, "self"]
-        }, {
-            "cN": "string",
-            "b": "\"",
-            "e": "\"",
-            "i": "\\n",
-            "c": [{
-                "b": "\\\\[\\s\\S]",
-                "r": 0
-            }, {
-                "cN": "constant",
-                "b": "\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]",
-                "r": 0
-            }]
-        }, {
-            "cN": "number",
-            "b": "(\\b(0b[01_]+)|\\b0[xX][a-fA-F0-9_]+|(\\b[\\d_]+(\\.[\\d_]*)?|\\.[\\d_]+)([eE][-+]?\\d+)?)[lLfF]?",
-            "r": 0
-        }, {
-            "cN": "annotation",
-            "b": "@[A-Za-z]+"
-        }, {
-            "cN": "type",
-            "b": "\\b(int|float|boolean|string|blob|map|jsonOptions|json|xml|table|stream|any|typedesc|type|future|var|error)",
-        }]
-    };
-});
-
 var loadData = function(linkText, sectionId, init) {
     var fileName = linkText.toLowerCase().replace(/\s/g, "-");
     $('#' + sectionId + ' .text-display').hide();
@@ -142,17 +70,25 @@ var loadData = function(linkText, sectionId, init) {
                     .prepend($(lines));
 
                 //position code description boxes to align with highlighting area
-                $('#' + fileName + '-text ' + '.hTrigger').each(function() {
+                $('#' + fileName + "-code").closest('.code-wrapper').find('.overlay-highlight').remove();
+                $('#' + fileName + '-text ' + '.hTrigger').each(function(i, n) {
                     var startLine = $(this).attr('data-startLine');
+                    var endLine = $(this).attr('data-endLine');
                     var overlayStartPosition = topPadding + (startLine - 1) * lineHeight + 30;
+                    var overlayHeight = (endLine - (startLine - 1)) * lineHeight;
                     var topPosition = overlayStartPosition;
+                    var hightLighterPosition = topPosition;
+                    var hightlighterId = (fileName + '-highlighter-' + i);
+                    var offset = 0;
 
-                    if ($(this).prev().length > 0) {
+                    if ($(this).prev().length >= 0) {
                         var prevElemBottom = $(this).prev().height() + parseInt($(this).prev().css('top')) + 20;
 
                         if ($(this).hasClass('cOutputDesription')) {
                             topPosition = (($('#' + fileName + '-code').height() + overlayStartPosition) + codeOutputBoxOffset);
                         }
+
+                        hightLighterPosition = topPosition;
 
                         if (topPosition < prevElemBottom) {
                             topPosition = prevElemBottom;
@@ -160,7 +96,18 @@ var loadData = function(linkText, sectionId, init) {
                         }
                     }
 
-                    $(this).css('top', topPosition);
+                    $(this)
+                        .css('top', topPosition)
+                        .attr('data-toggle-highlight', hightlighterId);
+
+                    $(this)
+                        .closest('.container')
+                        .find('.code-wrapper')
+                        .prepend('<div id="' + hightlighterId + '" class="overlay-highlight"></div>');
+
+                    $('#' + hightlighterId)
+                        .css('top', ((hightLighterPosition - 30) + offset))
+                        .css('height', overlayHeight);
                 });
 
                 var $lastCodeDescriptionBox = $('#' + fileName + '-text ' + '.hTrigger:last-child');
@@ -190,35 +137,24 @@ $(document).ready(function() {
     loadData($('#integration li.first').text(), 'integration', false);
 });
 
-/*
-Given line number range this code apply a overlay on top of the syntax hilighting 
-*/
-function highlightCodeSection(startLine, endLine, codeBoxId, highlighter, offset) {
-    if (typeof startLine === 'string') { startLine = parseInt(startLine); }
-    if (typeof endLine === 'string') { endLine = parseInt(endLine); }
-
-    var overlayHeight = (endLine - (startLine - 1)) * lineHeight;
-    var overlayStartPosition = topPadding + (startLine - 1) * lineHeight;
-    $('#' + codeBoxId + ' ' + highlighter).css('top', (overlayStartPosition + offset)).css('height', overlayHeight);
-}
-
 $(document).ready(function() {
     $('.codeSampleBoxes .hTrigger').hover(function(e) {
-            var startLine = $(this).attr('data-startLine');
-            var endLine = $(this).attr('data-endLine');
-            var highlighter = '.overllay-highlight';
-            var offset = 0;
-
-            if ($(this).hasClass('cOutputDesription')) {
-                highlighter = '.output-overllay-highlight';
-                offset = codeOutputBoxOffset;
-            }
-
-            highlightCodeSection(startLine, endLine, $(e.currentTarget).closest('.container').find('.code-wrapper').attr('id'), highlighter, offset);
+            $('#' + $(this).data('toggle-highlight')).css('opacity', 0.2);
         },
         function() {
-            $('.code-wrapper .overllay-highlight').css('top', 0).css('height', 0);
-            $('.code-wrapper .output-overllay-highlight').css('top', 0).css('height', 0);
+            $('.overlay-highlight').css('opacity', 0);
         }
     );
+
+    $('.code-wrapper').on('mouseenter', '.overlay-highlight', function(e) {
+        $('#' + $(e.currentTarget).data('toggle-highlight')).css('opacity', 0.2);
+        $('[data-toggle-highlight="' + $(this).attr('id') + '"]')
+            .addClass('active');
+    });
+
+    $('.code-wrapper').on('mouseout', '.overlay-highlight', function(e) {
+        $('#' + $(e.currentTarget).data('toggle-highlight')).css('opacity', 0);
+        $('[data-toggle-highlight="' + $(this).attr('id') + '"]')
+            .removeClass('active');
+    });
 });

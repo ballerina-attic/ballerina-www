@@ -329,18 +329,6 @@ ul.cPhilosophyWidgetControls {
     position: relative;
 }
 
-.code-wrapper {
-    position: relative;
-}
-
-.overllay-highlight,
-.output-overllay-highlight {
-    width: 100%;
-    background: #34c9bf;
-    opacity: 0.2;
-    position: absolute;
-}
-
 .cCodeDesription {
     padding-left: 14px;
     background-image: url("/img/white-arrow.svg");
@@ -364,23 +352,28 @@ div.cCodeDesription.gray {
 }
 
 .cCodeDesription:hover,
-.cCodeDesription.gray:hover {
+.cCodeDesription.gray:hover,
+.cCodeDesription.active,
+.cCodeDesription.gray.active {
     padding-left: 14px;
     background-image: url("/img/green-arrow.svg");
     background-position: left -15px;
     background-repeat: no-repeat;
 }
 
-.cCodeDesription:hover>div {
+.cCodeDesription:hover>div,
+.cCodeDesription.active>div {
     background-color: #22b7b1;
     color: #fff;
 }
 
-.cCodeDesription.gray:hover>div {
+.cCodeDesription.gray:hover>div,
+.cCodeDesription.gray.active>div {
     background-color: #22b7b1;
 }
 
-.cCodeDesription:hover>div p {
+.cCodeDesription:hover>div p,
+.cCodeDesription.active>div p {
     color: #fff;
 }
 
@@ -422,6 +415,38 @@ div.text-display div.cCodeDesription p {
 
 .cIntegrationCode .view-lines {
     background-color: #f5f6f6;
+}
+
+.cIntegrationCode code,
+.codeNativeBox code {
+    z-index: 2;
+}
+
+.code-wrapper {
+    position: relative;
+}
+
+.overlay-highlight,
+.output-overlay-highlight {
+    width: 100%;
+    background: #34c9bf;
+    opacity: 0.2;
+    position: absolute;
+}
+
+.cIntegrationCode .overlay-highlight,
+.cIntegrationCode .output-overlay-highlight,
+.codeNativeBox .overlay-highlight,
+.codeNativeBox .output-overlay-highlight {
+    opacity: 0;
+    z-index: 3;
+}
+
+.cIntegrationCode .overlay-highlight:hover,
+.cIntegrationCode .output-overlay-highlight:hover,
+.codeNativeBox .overlay-highlight:hover,
+.codeNativeBox .output-overlay-highlight:hover {
+    opacity: 0.2 !important;
 }
 
 
