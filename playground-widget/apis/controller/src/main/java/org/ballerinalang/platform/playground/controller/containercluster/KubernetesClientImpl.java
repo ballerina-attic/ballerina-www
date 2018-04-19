@@ -47,11 +47,11 @@ import io.fabric8.kubernetes.api.model.extensions.DeploymentSpecBuilder;
 import io.fabric8.kubernetes.client.DefaultKubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClient;
 import io.fabric8.kubernetes.client.Watcher;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.ballerinalang.platform.playground.controller.util.Constants;
 import org.ballerinalang.platform.playground.utils.EnvUtils;
 import org.ballerinalang.platform.playground.utils.EnvVariables;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,7 +63,7 @@ import java.util.Map;
  */
 public class KubernetesClientImpl implements ContainerRuntimeClient {
 
-    private static final Logger log = LoggerFactory.getLogger(KubernetesClientImpl.class);
+    private static final Log log = LogFactory.getLog(KubernetesClientImpl.class);
 
     private KubernetesClient k8sClient;
     private String namespace;

@@ -16,6 +16,8 @@
 
 package org.ballerinalang.platform.playground.controller.service;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.ballerinalang.platform.playground.controller.scaling.LauncherClusterManager;
 import org.ballerinalang.platform.playground.controller.util.Constants;
 import org.ballerinalang.platform.playground.utils.EnvUtils;
@@ -28,7 +30,7 @@ import java.util.List;
  * Perform business logic to help the Controller API.
  */
 public class ControllerServiceManager {
-    private static final Logger log = LoggerFactory.getLogger(ControllerServiceManager.class);
+    private static final Log log = LogFactory.getLog(ControllerServiceManager.class);
 
     private LauncherClusterManager clusterManager;
 

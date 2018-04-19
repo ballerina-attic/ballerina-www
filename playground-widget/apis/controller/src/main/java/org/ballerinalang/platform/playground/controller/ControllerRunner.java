@@ -16,6 +16,8 @@
 
 package org.ballerinalang.platform.playground.controller;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
 import org.ballerinalang.platform.playground.controller.containercluster.KubernetesClientImpl;
 import org.ballerinalang.platform.playground.controller.persistence.RedisPersistence;
@@ -33,7 +35,7 @@ import org.wso2.msf4j.MicroservicesRunner;
  */
 public class ControllerRunner {
 
-    private static final Logger log = LoggerFactory.getLogger(ControllerRunner.class);
+    private static final Log log = LogFactory.getLog(ControllerRunner.class);
 
     /**
      * Start Controller role based on the BPG_CONTROLLER_ROLE environment variable.
