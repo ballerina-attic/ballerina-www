@@ -261,7 +261,7 @@ var example_data = [
 
 			div_content += '</ul>';
 
-			var row_id = i % 3;
+			var row_id = i % 2;
 			$(".bbgfeatureSet" + row_id).append(div_content);
 			i++;
 	});
