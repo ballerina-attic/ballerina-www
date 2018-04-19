@@ -700,7 +700,7 @@
 <div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2" id="ballerina-by-examples">
     <div class="container">
         <div class="col-xs-12 cPhilosophyWhite cCloudNative ">
-            <h2 class="cMainH2Title">Try the language with <br/>Ballerina by Example</h2>
+            <h2 class="cMainH2Title">Try the language with Ballerina by Example</h2>
             <div class="col-xs-12 col-md-6 cInnerPageContentCol ">
                 <p>Ballerina by Example teaches you the language incrementally with commented examples that cover every nuance of our syntax. </p>
             </div>
@@ -726,7 +726,7 @@
 <div class="row cBallerina-io-White-row cPhilosophy cPhilosophy2" id="ballerina-by-guides">
     <div class="container">
         <div class="col-xs-12">
-            <h2 class="cMainH2Title">Learn integration with <br />Ballerina by Guide</h2>
+            <h2 class="cMainH2Title">Learn integration with Ballerina by Guide</h2>
             <div class="col-xs-6 paddingRemove">
                 <p>Ballerina by Guide are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment and observability.</p>
             </div>
