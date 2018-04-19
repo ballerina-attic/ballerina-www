@@ -381,19 +381,6 @@
                         <li>
                            <!--Package Name-->
                            
-                           <a href="primitive-types.html">
-                            
-                           <span class="bold">Primitive Types</span>
-                           
-                           </a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
                            <a href="auth.html">
                             
                            <span class="bold">auth</span>
@@ -819,13 +806,6 @@
                         </li>
                      </ul>
                      
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
                      <ul class=" active-package">
                         <li>
                            <!--Package Name-->
@@ -1048,6 +1028,66 @@
                                         package 
                                     </h1>
                                     
+                                    <div class="cAPIdocsDescription">
+                                       <h2>Package Overview</h2>
+<p>This package provides a basic API to manage logs in packages and files.</p>
+<h3>Loggers</h3>
+<p>Loggers are defined over packages and there are dedicated loggers for each package. Packages that have loggers defined over it prints the logs that include the date, time, log level, package name, and more.  For example, given below is a log printed for the <code>foo</code> package.</p>
+<p><code>2018-04-09 11:33:21,300 ERROR [foo] - This is an error log.</code></p>
+<h3>Log Outputs</h3>
+<p>In Ballerina, all the logs are written to the <code>stderr</code> stream by default. Therefore, the logs are printed in the console. This makes it easy to debug the code in a container environment.</p>
+<p>Log outputs can be printed to a log file using a CLI argument or using configurations.</p>
+<p>Different output logging levels can be defined for packages. For more information, see the <strong>Log Level</strong> section.</p>
+<h3>Log Level</h3>
+<p>This package provides functions to log at the <code>DEBUG</code>, <code>ERROR</code>, <code>INFO</code>, <code>TRACE</code>, <code>WARN</code>, <code>OFF</code>, and <code>ALL</code> levels. By default, all log messages are logged to the console at the <code>INFO</code> level. The <code>OFF</code> log level turns off logging and the <code>ALL</code> log level allows all log levels.</p>
+<h2>Sample</h2>
+<p>Follow the steps given below to run the sample and get sample log outputs.</p>
+<ol>
+<li>Create a directory named <code>foo</code>, add the code given below to a  file, and name the file <code>test.bal</code>.</li>
+</ol>
+<pre><code class="language-ballerina">	package foo;
+	import ballerina/log;
+
+	function main(string[] args) {
+    	  error err = {message: &quot;error occurred&quot;};
+    	  log:printDebug(&quot;debug log&quot;);
+    	  log:printError(&quot;error log&quot;);
+    	  log:printErrorCause(&quot;error log with cause&quot;, err);
+    	  log:printInfo(&quot;info log&quot;);
+    	  log:printTrace(&quot;trace log&quot;);
+    	  log:printWarn(&quot;warn log&quot;);		
+	}
+</code></pre>
+<ol start="2">
+<li>
+<p>Navigate to the directory where the <code>test.bal</code> file is saved via the terminal and run the file using the command given below.</p>
+<p><code>ballerina run foo/</code></p>
+</li>
+<li>
+<p>By default, the logs are printed to the console. To write logs to the <code>test.log</code> file, execute the following command.
+<code>ballerina run foo/ 2&gt; test.log</code></p>
+</li>
+<li>
+<p>Controlling the log level of the <code>foo</code> package:</p>
+<ul>
+<li>
+<p>The log level for the <code>foo</code> package can be changed to ERROR using CLI arguments as shown below.
+<code>ballerina run foo/ -e foo.loglevel=ERROR</code></p>
+</li>
+<li>
+<p>To set the log level of the <code>foo</code> pacakge using a configuration file, create a file named <code>ballerina.conf</code> in the source root of <code>test.bal</code>, and copy the following entry.</p>
+<pre><code class="language-ballerina"> [foo]
+ loglevel=&quot;ERROR&quot;
+</code></pre>
+</li>
+</ul>
+<p>Next, run the <code>test.bal</code> file to print the ERROR logs.
+<code>ballerina run foo/</code></p>
+</li>
+</ol>
+
+                                    </div>
+                                    
                                     
                                     <div class="construct-wrapper">
                                        <!--Primitive Types-->
@@ -1067,14 +1107,14 @@
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">msg</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The message to be logged</td>
                                           </tr>
                                           
@@ -1112,14 +1152,14 @@
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">msg</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The message to be logged</td>
                                           </tr>
                                           
@@ -1157,21 +1197,21 @@
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">msg</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The message to be logged.</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">err</td>
                                              <td class="cAPI-table-type">error</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The error struct to be logged</td>
                                           </tr>
                                           
@@ -1209,14 +1249,14 @@
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">msg</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The message to be logged.</td>
                                           </tr>
                                           
@@ -1254,14 +1294,14 @@
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">msg</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The message to be logged</td>
                                           </tr>
                                           
@@ -1299,14 +1339,14 @@
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">msg</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The message to be logged</td>
                                           </tr>
                                           
