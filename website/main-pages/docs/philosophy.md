@@ -49,7 +49,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget cPhilosophy-widget-middle">
                 <div class="cPhil-green">
-                    <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 cPhil-green-left">
+                    <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 cPhil-green-left hidden-sm">
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 cPhil-green-middle">
                         <span>
@@ -58,7 +58,7 @@
                   Gap<br/>
                   </span>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 cPhil-green-right">
+                    <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 cPhil-green-right hidden-sm">
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
 <div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2 cDesign-Principles">
     <div class="container">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cPhilosophyWhite cHowballerinaworks">
-            <h2 class="cMainH2Title">Ballerina Language Design Principles</h2>
+            <h2 class="cMainH2Title">What are Ballerina's language design principles?</h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol "></div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cPhilosophyWidget">
@@ -102,7 +102,7 @@
                         <img src="/img/philosophy-principle-diagrams-02.svg" />
                     </div>
                     <div class="tab-pane" id="3b">
-                        <img src="/img/philosophy-principle-diagrams-03.svg" />
+                        <img src="/img/philosophy-principle-diagrams-03-2.svg" />
                     </div>
                 </div>
             </div>
@@ -111,8 +111,20 @@
             <p class="cGreenTitle cPhil-box-titles">SEQUENCE DIAGRAMMATIC</p>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <p>Ballerina’s underlying language semantics were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow with endpoints,
-                        including synchronous and asynchronous calls. The Ballerina Composer is an included tool for creating Ballerina services with sequence diagrams. </p>
+                     <h3>LANGUAGE INSPIRATION</h3>
+                    <p>Sequence diagrams are a reflection of how designers and architects think and document interconnected and integrated systems. Ballerina’s syntax is designed around  sequence diagrams, and subsequently the way a developer thinks when writing Ballerina code encourages strong interaction best practices. </p>
+                </div>
+            </div>
+            <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <h3>VISUALIZATION AS SEQUENCE DIAGRAMS</h3>
+                    <p>Ballerina’s underlying language semantics were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow with endpoints, including synchronous and asynchronous calls. The Ballerina Composer is an included tool for creating Ballerina services with sequence diagrams. </p>
+                </div>
+            </div>
+             <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <h3>ACTORS AND ACTIONS</h3>
+                    <p>Ballerina represents clients, workers and remote systems as different actors in the sequence diagram. In code, remote endpoints are interfaced via connectors, which offer type safe actions. Graphically, each connector is represented as an actor in the sequence diagram (i.e. a vertical line) and actions are represented as interactions with those actors.</p>
                 </div>
             </div>
         </div>
@@ -120,9 +132,16 @@
             <p class="cGreenTitle cPhil-box-titles">CONCURRENCY</p>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <p>Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use a full non-blocking policy where no function locks an executing thread, such as an HTTP I/O call awaiting response. These
-                        semantics manifest sequence concurrency where workers are independent concurrent actors that do not share state but can interact using messages. Workers and fork/join language semantics abstract the underlying non-blocking approach
-                        to enable a simpler concurrency programming model.</p>
+                    <h3>SEQUENCE DIAGRAMS AND CONCURRENCY</h3>
+                    <p>The sequence diagrammitic approach of Ballerina has an innate approach to parallelism and concurrency. The associated design principle is to think parallel first, not sequential first, since interactions with remote parties are always involving multiple workers. Local concurrency is also captured with each worker represented as an actor in the sequence diagram. Interactions between workers are handled as message passing, with no shared state.</p>
+                </div>
+                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                     <h3>WORKER SEMANTICS</h3>
+                    <p>Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use a full non-blocking policy where no function locks an executing thread, such as an HTTP I/O call awaiting response. Workers and fork/join language semantics abstract the underlying non-blocking approach to enable a simpler concurrency programming model.</p>
+                </div>
+                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                     <h3>ROBUSTNESS</h3>
+                    <p>As applications become distributed, integrating across increasingly diverse endpoints, building robust concurrent systems is becoming a greater challenge. Ballerina’s concurrency model is designed to provide a simple, robust approach with non-blocking semantics and execution.</p>
                 </div>
             </div>
         </div>
@@ -130,8 +149,20 @@
             <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <p>Ballerina has a structural type system with primitive, object, union, and tuple types. Network systems return messages with different payload types and errors. Ballerina’s type system embraces this variability with an approach based
-                        on union types. This typesafe model incorporates type inference at assignment provide numerous compile time integrity checks for network-bound payloads. </p>
+                    <h3>TYPE SAFETY</h3>
+                    <p>Ballerina has a structural type system with primitive, record, object, tuple and union types. This typesafe model incorporates type inference at assignment and provides numerous compile time integrity checks for connectors, logic and network-bound payloads.  </p>
+                </div>
+            </div>
+            <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <h3>UNION TYPES AND EXPLICIT NULLS</h3>
+                    <p>Individual network endpoints often return messages with different payload types and errors, depending on their inputs and logic. Ballerina’s type system embraces this variability with an approach based on union types. Union types explicitly capture this semantics without requiring developers to create unnecessary “wrapper” types. This approach also enhances the handling of null values. By default, types do not support null values. Developers must explicitly create union types to handle nulls. The result is that null exceptions cannot happen and the language syntax and compiler identifies whether null handling logic is required or not.</p>
+                </div>
+            </div>
+            <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <h3>HETEROGENEOUS DATA HANDLING</h3>
+                    <p>The Ballerina type system has rich built in support for JSON, XML, streams and tables, as well as direct support for ProtoBuf and gRPC. The result is clean, readable code for dealing with network payloads, SQL programming and stream processing. Data transformation logic isn’t encumbered with complex generated types, third-party library code or other obfuscation - simple clear readable code captures interactions with heterogenous data and transformation logic.</p>
                 </div>
             </div>
         </div>
@@ -140,7 +171,7 @@
 <div class="row cBallerina-io-White-row cPhilosophy cPhilosophy2 cHowBallerinaWorksRow">
     <div class="container">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cPhilosophyWhite cHowballerinaworks">
-            <h2 class="cMainH2Title">How Ballerina works</h2>
+            <h2 class="cMainH2Title">How does Ballerina work?</h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol ">
                 <p>Ballerina's syntax, code, and compiler create runtime services and deployment artifacts that are cloud native ready for deployment within your IaaS, orchestrator, or service mesh of choice. The developer experience is designed to maintain
                     flow, where the edit, build, debug cycle is rapid and integrated to your team's lifecycle toolchain.
@@ -266,7 +297,7 @@
     <div class="container">
         <div class="col-xs-12 cPhilosophyWhite cCloudNative">
             <div class="col-xs-12">
-                <h2 class="cMainH2Title">Cloud Native Programming Language </h2>
+                <h2 class="cMainH2Title">What are Ballerina's language features?</h2>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol ">
                     <p>Designed to be cloud-first, Ballerina has built-in support for modern web protocols and data formats, full power of a Turing-complete programming language, and native support for microservices architectures.
                     </p>
@@ -320,7 +351,7 @@
             </div>
         </div>
         <!-- first part end -->
-        <div class="col-xs-4 text-display" id="rest-services-text">
+        <div class="col-xs-4 text-display hidden-sm" id="rest-services-text">
             <div data-startLine="3" data-endLine="3" class="hTrigger cCodeDesription">
                 <div>
                     <p>Ballerina makes it easy to build APIs, provide and consume HTTP, WebSocket, gRPC, Protobuf, and other services. This example demonstrates a simple REST API built with Ballerina.</p>
@@ -341,7 +372,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display" id="full-language-text">
+        <div class="col-xs-4 text-display hidden-sm" id="full-language-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
                 <div>
                     <p>
@@ -371,7 +402,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display" id="asynchronous-execution-text">
+        <div class="col-xs-4 text-display hidden-sm" id="asynchronous-execution-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
                 <div>
                     <p>
@@ -395,7 +426,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display" id="docker-and-kubernetes-text">
+        <div class="col-xs-4 text-display hidden-sm" id="docker-and-kubernetes-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
                 <div>
                     <p>
@@ -430,7 +461,7 @@
 <div class="row cBallerina-io-White-row cPhilosophy cPhilosophy2 codeSampleBoxes" id="integration">
     <div class="container">
         <div class="col-xs-12 cPhilosophyWhite cCloudNative">
-            <h2 class="cMainH2Title">Integration Framework </h2>
+            <h2 class="cMainH2Title">What is in Ballerina's integration framework?</h2>
             <div class="col-xs-12 cInnerPageContentCol ">
                 <p>Ballerina is a language designed to be <em>integration simple</em>. Based around the interactions of sequence diagrams, Ballerina has built-in support for common integration patterns and connectors, including distributed transactions,
                     compensation and circuit breakers. With first-class support for JSON and XML, Ballerina makes it simple and effective to build robust integration across network endpoints.</p>
@@ -454,7 +485,9 @@
                 </ul>
             </div>
         </div>
-        <div class="col-xs-8 paddingRemove">
+    </div>
+    <div class="container">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 paddingRemove">
             <div class="codeNativeBox">
                 <div id="ballerina_grammar_2" class="code-wrapper">
                     <div class="overllay-highlight"></div>
@@ -491,7 +524,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display" id="type-safe-endpoint-integration-text">
+        <div class="col-xs-4 text-display hidden-sm" id="type-safe-endpoint-integration-text">
             <div data-startLine="5" data-endLine="11" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina types can be simple records or more complex objects with public/private fields and associated logic.</p>
@@ -518,7 +551,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display" id="type-safe-connectors-text">
+        <div class="col-xs-4 text-display hidden-sm" id="type-safe-connectors-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina has a built-in concept of connectors to remote endpoints. Connectors are automatically downloaded from Ballerina Central as needed.</p>
@@ -535,7 +568,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display" id="asynchronous-reliable-messaging-text">
+        <div class="col-xs-4 text-display hidden-sm" id="asynchronous-reliable-messaging-text">
             <!-- <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina has a lightweight microservice message broker that provides support for the AMQP protocol and offers asynchronous reliable messaging using queues and topics. Integrating Ballerina services with AMQP is simple.</p>
@@ -557,7 +590,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display" id="distributed-transactions-text">
+        <div class="col-xs-4 text-display hidden-sm" id="distributed-transactions-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The transaction keyword indicates that the Ballerina runtime should engage the transaction co-ordinator.</p>
@@ -574,7 +607,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display" id="circuit-breaker-text">
+        <div class="col-xs-4 text-display hidden-sm" id="circuit-breaker-text">
             <div data-startLine="2" data-endLine="2" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Circuit Breakers are a common way of protecting against distributed failure. Circuit breakers are built into Ballerina.</p>
@@ -591,7 +624,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display" id="built-in-protection-against-injection-attacks-text">
+        <div class="col-xs-4 text-display hidden-sm" id="built-in-protection-against-injection-attacks-text">
             <!-- <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>A common issue in building distributed systems is that data coming over the wire cannot be trusted not to include injection attacks.</p>
@@ -618,7 +651,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display" id="json-and-xml-text">
+        <div class="col-xs-4 text-display hidden-sm" id="json-and-xml-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>JSON and XML are first class citizens in Ballerina.</p>
@@ -630,7 +663,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display" id="stream-processing-and-async-text">
+        <div class="col-xs-4 text-display hidden-sm" id="stream-processing-and-async-text">
             <!-- <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
             <div>
                     <p>Ballerina has built in support for stream processing queries. This allows developers to write structured queries on streams of data. Streams are unbounded sets of events, such as stock tickers, twitter hashtags or other real-time data.</p>
@@ -659,11 +692,6 @@
             <div data-startLine="11" data-endLine="17" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Stream queries allow time windows and use the concept of "language integrated queries". This integrates SQL-like semantics into the language with full type safety and syntax checking.</p>
-                </div>
-            </div>
-            <div data-startLine="18" data-endLine="19" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>This is an example of a lambda which is used to handle the results.</p>
                 </div>
             </div>
         </div>
@@ -706,11 +734,9 @@
         <div class="col-xs-12 cPhilosophyWhite cCloudNative">
             <div id="ballerina-by-example">
                 <div class="cLanguageFeaturesContainer">
-                    <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures bbgfeatureSet0">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cLanguageFeatures bbgfeatureSet0">
                     </div>
-                    <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures bbgfeatureSet1">
-                    </div>
-                    <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures bbgfeatureSet2">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cLanguageFeatures bbgfeatureSet1">
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -722,7 +748,7 @@
 <div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
     <div class="container">
         <div class="col-xs-12 cPhilosophyWhite cCloudNative ">
-            <h2 class="cMainH2Title">Open Source</h2>
+            <h2 class="cMainH2Title">What are Ballerina's Open Source repos?</h2>
             <div class="col-xs-12 cInnerPageContentCol ">
                 <p>Apache-licensed software and community-driven projects. </p>
             </div>

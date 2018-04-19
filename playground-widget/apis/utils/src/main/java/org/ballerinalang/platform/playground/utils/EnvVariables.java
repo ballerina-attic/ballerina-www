@@ -28,4 +28,5 @@ public class EnvVariables {
     public static final String ENV_BPG_LAUNCHER_SELF_URL = "BPG_LAUNCHER_SELF_URL";
     public static final String ENV_BPG_CONTROLLER_INTERNAL_URL = "BPG_CONTROLLER_INTERNAL_URL";
     public static final String ENV_IS_LAUNCHER_CACHE = "BPG_LAUNCHER_CACHE_NODE";
+    public static final String ENV_BPG_CACHE_MOUNT = "BPG_CACHE_MOUNT";
 }

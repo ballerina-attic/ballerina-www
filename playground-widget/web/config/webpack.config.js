@@ -30,7 +30,7 @@
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
  const hashToUse = isProductionBuild ? 'chunkhash' : 'hash';
- const backendHost = 'playground.ballerina.io';
+ const backendHost = 'playground.preprod.ballerina.io';
 
  const moduleRoot = path.resolve(__dirname, '../');
  const buildPath = path.resolve(__dirname, '../build');

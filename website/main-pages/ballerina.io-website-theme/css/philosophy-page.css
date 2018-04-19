@@ -48,7 +48,8 @@
 
 .cGreenTitle.cPhil-box-titles {
     color: #22b7b1;
-    margin-top: -25px;
+    margin-top: -45px;
+    margin-bottom: 20px;
 }
 
 .row.cBallerina-io-Gray-row.cPhilosophy {
@@ -388,7 +389,7 @@ div.text-display {
 }
 
 div.text-display div.cCodeDesription {
-    position: static;
+    position: absolute;
     margin-bottom: 20px;
 }
 
@@ -454,7 +455,7 @@ div.text-display div.cCodeDesription p {
 
 .cLanguageFeatures li.cTableTitle {
     padding-left: 0;
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 
 .cLanguageFeatures ul {
@@ -491,6 +492,7 @@ div.text-display div.cCodeDesription p {
     text-align: left;
     vertical-align: top;
     height: 50px;
+    font-size: 14px;
 }
 
 .OpenSourceTable td:first-child {
@@ -720,4 +722,14 @@ div.cPhilosophyWidgetContainer.codeNativeBox {
 
 .cInnerPageContentCol {
     padding-left: 0;
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    .cGreenTitle.cPhil-box-titles {
+        margin-top: 50px !important;
+    }
+    .cPhil-Gray,
+    .cPhil-green {
+        min-height: 270px;
+    }
 }

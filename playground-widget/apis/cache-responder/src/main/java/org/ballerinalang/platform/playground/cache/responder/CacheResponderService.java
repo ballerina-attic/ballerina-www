@@ -55,17 +55,15 @@ public class CacheResponderService {
         if (command instanceof RunCommand) {
             RunCommand runCommand = (RunCommand) command;
             String outputCacheID = runCommand.getCacheId();
-            if (CacheUtils.cacheExists(outputCacheID)) {
+            if (outputCacheID != null && CacheUtils.cacheExists(outputCacheID)) {
                 runSessionMap.get(session.getId()).processCommand(runCommand);
             } else {
                 session.getBasicRemote().sendText("{ error: \"No cache found for the request\" }");
-                session.close();
             }
         } else if (command.getCommand().equals("stop")) {
             runSessionMap.get(session.getId()).processCommand(command);
         } else {
             session.getBasicRemote().sendText("{ error: \"Unsupported command\" }");
-            session.close();
         }
     }
 
