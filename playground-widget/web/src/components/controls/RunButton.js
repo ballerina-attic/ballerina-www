@@ -2,26 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'semantic-ui-react'
 import Console from '../console/Console';
-import { RUN_API_URL, FETCH_LAUNCHER_API } from '../../utils';
+import { fetchLauncherURL } from '../../utils';
 import RunSession from '../../run-session';
-import axios from 'axios';
 import './RunButton.scss';
-
-function fetchLauncherURL(sample) {
-    const payload = {
-        source: sample.content,
-        curl: sample.curl
-    };
-    return axios.post(FETCH_LAUNCHER_API, payload,
-            { 
-                headers: {
-                    'content-type': 'application/json; charset=utf-8',
-                } 
-            })
-            .then((response) => {
-                return response.data;
-            });
-}
 
 const MSG_CODES = {
     BUILD_STARTED: "BUILD_STARTED",
@@ -93,9 +76,9 @@ class RunButton extends React.Component {
             this.clearConsole();
             this.appendToConsole('waiting on remote server...');
             fetchLauncherURL(sample)
-                .then((data) => {
+                .then(({ launcherUrl, cacheId }) => {
                     try {
-                        this.runSession = new RunSession(`wss://${data["launcher-url"]}/api/run`);
+                        this.runSession = new RunSession(launcherUrl);
                         this.runSession.init({ 
                             onMessage: ({ type, message, code }) => {
                                 switch (code) {
@@ -127,7 +110,7 @@ class RunButton extends React.Component {
                             }, 
                             onOpen: () => {
                                 try {
-                                    this.runSession.run(fileName, content, curl, noOfCurlExecutions, dependantService, data["cache-id"]);
+                                    this.runSession.run(fileName, content, curl, noOfCurlExecutions, dependantService, cacheId);
                                     this.props.onRun(sample);
                                 } catch (err) {
                                     this.appendToConsole(err);
