@@ -381,19 +381,6 @@
                         <li>
                            <!--Package Name-->
                            
-                           <a href="primitive-types.html">
-                            
-                           <span class="bold">Primitive Types</span>
-                           
-                           </a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
                            <a href="auth.html">
                             
                            <span class="bold">auth</span>
@@ -847,13 +834,6 @@
                         </li>
                      </ul>
                      
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
                      <ul class=" active-package">
                         <li>
                            <!--Package Name-->
@@ -1036,6 +1016,46 @@
                                         package 
                                     </h1>
                                     
+                                    <div class="cAPIdocsDescription">
+                                       <h2>Package Overview</h2>
+<p>This package provides functions to retrieve Operating System (OS) related metadata and environmental variables. Environment variables are dynamic key value pairs that influences the behaviour of the processes running on an OS, such as <code>BALLERINA_HOME</code> and <code>PATH</code>.</p>
+<h3>Retrieve OS metadata</h3>
+<p>The <code>getArchitecture()</code>, <code>getVersion()</code>, and <code>getName()</code> functions return the architecture, version, and name of the OS where the program is executed.</p>
+<h3>Retrieve environment variables</h3>
+<p>The environmental variables can have many values and these value can be separated using  path separators. The Path separator separates the path values and it is OS specific. Unix-based systems use the colon <code>:</code> as the path separator while Windows-based systems use the semicolon <code>;</code> as the path separator.</p>
+<p>The table given below shows how the <code>getEnv()</code> and <code>getMultivaluedEnv()</code>functions return values that are separated by path separators.</p>
+<p>Statement |Return Values
+--- | ---
+<code>os:getEnv(&quot;PATH&quot;);</code> | <code>“/home/user/ballerina/test:/home/user/ballerina/examples”</code>
+<code>os:getMultivaluedEnv(&quot;PATH&quot;);</code> |<code>[“/home/user/ballerina/test”, “/home/user/ballerina/examples”]</code></p>
+<p>The <code>getEnv()</code> function returns the value of the environment variable in the same format as it stored. If the <code>getEnv()</code> function calls an <code>environmentVariable</code> that does not exist, it returns <code>null</code>.</p>
+<p>If the environment variable returns a value that has more than one path and they are separated by path separators, the <code>getMultivaluedEnv()</code> function returns these values as an array of paths.</p>
+<h2>Samples</h2>
+<h3>Retrieve OS metadata</h3>
+<p>The sample given below prints the name, version, and architecture of the OS.</p>
+<pre><code class="language-ballerina">function main(string... args) {
+   io:println(&quot;OS meta-data&quot;);
+   // Prints the name of the OS.
+   io:println(&quot;Name : &quot; + os:getName());
+   // Prints the version of the OS.
+   io:println(&quot;Version : &quot; + os:getVersion());
+   // Prints the architecture of the OS.
+   io:println(&quot;Architecture :&quot; + os:getArchitecture());
+}
+</code></pre>
+<h3>Retrieve environment variables</h3>
+<p>The function given below returns the value of the environment variable.</p>
+<pre><code class="language-ballerina">function main(string... s) {
+   string environmentVariable = &quot;BALLERINA_HOME&quot;;
+   // Get the environment variable value.
+   string environmentValue = os:getEnv(environmentVariable);
+   // Print the value of the environment variable.
+   io:println(&quot;Value of environment variable '&quot; + environmentVariable + &quot;': &quot; + environmentValue);
+}
+</code></pre>
+
+                                    </div>
+                                    
                                     
                                     <div class="construct-wrapper">
                                        <!--Primitive Types-->
@@ -1056,14 +1076,14 @@
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">string </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">OS architecture if the OS can be identified, an empty string otherwise</td>
                                           </tr>
                                           
@@ -1101,14 +1121,14 @@
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">name</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Name of the environment variable</td>
                                           </tr>
                                           
@@ -1119,14 +1139,14 @@
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">string </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Environment variable value if it exists, otherwise an empty string</td>
                                           </tr>
                                           
@@ -1164,14 +1184,14 @@
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">name</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Name of the environment variable</td>
                                           </tr>
                                           
@@ -1182,14 +1202,14 @@
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">string[] </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Environment variable values as an array if the provided environment variable exists, otherwise an empty array</td>
                                           </tr>
                                           
@@ -1228,14 +1248,14 @@
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">string </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">OS name if the OS can be identified, an empty string otherwise</td>
                                           </tr>
                                           
@@ -1274,14 +1294,14 @@
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">string </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">OS version if the OS can be identified, an empty string otherwise</td>
                                           </tr>
                                           

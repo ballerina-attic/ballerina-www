@@ -381,19 +381,6 @@
                         <li>
                            <!--Package Name-->
                            
-                           <a href="primitive-types.html">
-                            
-                           <span class="bold">Primitive Types</span>
-                           
-                           </a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
                            <a href="auth.html">
                             
                            <span class="bold">auth</span>
@@ -465,7 +452,7 @@
                            <div class="constructs-wrapper">
                               <!--Construct of Package-->
                               <ul class="constructs-ul">
-                                                                           
+                                                                     
                               </ul>
                            </div>
                            
@@ -777,13 +764,6 @@
                         </li>
                      </ul>
                      
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
                      <ul class=" active-package">
                         <li>
                            <!--Package Name-->
@@ -795,30 +775,6 @@
                               <!--Construct of Package-->
                               <ul class="constructs-ul">
                                  
-                                 <li>
-                                    <a href="#Connection">
-                                       <div class="construct-icon">
-                                          <span class="fw-struct"> </span>
-                                       </div>
-                                       <div class="construct-name">
-                                          Connection
-                                          
-                                       </div>
-                                    </a>
-                                 </li>
-                                  
-                                 <li>
-                                    <a href="#FSError">
-                                       <div class="construct-icon">
-                                          <span class="fw-struct"> </span>
-                                       </div>
-                                       <div class="construct-name">
-                                          FSError
-                                          
-                                       </div>
-                                    </a>
-                                 </li>
-                                  
                                  <li>
                                     <a href="#FileEvent">
                                        <div class="construct-icon">
@@ -966,19 +922,6 @@
                                  
                                  <ul class="construct-inner-items-ul">
                                     <li>
-                                       <a href="#Listener-initEndpoint">
-                                          <div class="construct-icon">
-                                             <span class="fw-function"> </span>
-                                          </div>
-                                          <div class="construct-name">
-                                             initEndpoint
-                                          </div>
-                                       </a>
-                                    </li>
-                                 </ul>
-                                 
-                                 <ul class="construct-inner-items-ul">
-                                    <li>
                                        <a href="#Listener-register">
                                           <div class="construct-icon">
                                              <span class="fw-function"> </span>
@@ -998,19 +941,6 @@
                                           </div>
                                           <div class="construct-name">
                                              start
-                                          </div>
-                                       </a>
-                                    </li>
-                                 </ul>
-                                 
-                                 <ul class="construct-inner-items-ul">
-                                    <li>
-                                       <a href="#Listener-getClient">
-                                          <div class="construct-icon">
-                                             <span class="fw-function"> </span>
-                                          </div>
-                                          <div class="construct-name">
-                                             getClient
                                           </div>
                                        </a>
                                     </li>
@@ -1262,15 +1192,15 @@
                                     </h1>
                                     
                                     <div class="cAPIdocsDescription">
-                                       <h1>Package overview</h1>
+                                       <h2>Package overview</h2>
 <p>This package provides local file system operations, such as extending the <code>ballerina/io</code> package and performing I/O operations on files, and creating, deleting, modifying, and validating the files.</p>
-<h2>Perform file I/O operations</h2>
+<h3>Perform file I/O operations</h3>
 <p>File I/O operations, such as writing, updating, copying, and moving, can be achieved in conjunction with the <code>ballerina/io</code> package when using <code>Path</code>.</p>
-<h2>Create, delete, and modify files</h2>
-<p>The <code>ballerina/file</code> package  provides functions to manage metadata in the files and perform operations, such as for creating, and deleting files. The package can make the file system operations listen to a directory, identify events, and resiprocate.</p>
-<h2>Validate files</h2>
-<p>Validation is required to ensure that all the pre-conditions and post-conditions of an operation are satisfied. This package supports pre-validation and post-validation actions through functions such as <code>exists()</code> and <code>isDirectory()</code> respectively.</p>
-<h2>Types of file paths</h2>
+<h3>Create, delete, and modify files</h3>
+<p>The <code>ballerina/file</code> package  provides functions to manage metadata in the files and perform operations, such as creating and deleting files. The package can make the file system operations listen to a directory, identify events, and reciprocate.</p>
+<h3>Validate files</h3>
+<p>Validation is required to ensure that all the pre-conditions and post-conditions of an operation are satisfied. This package supports pre-validation and post-validation actions through functions such as <code>exists()</code> and <code>isDirectory()</code>.</p>
+<h3>Types of file paths</h3>
 <p>The <code>Path</code> is a unique identifier that can either be absolute or relative. The absolute path or the full path name is the location of a file relative to the root directory. The relative path indicates the location of a file relative to the current location of the execution.</p>
 <pre><code class="language-ballerina">string relativePathValue = “./doc”;
 file:Path relativePath = new(relativePathValue);
@@ -1278,29 +1208,29 @@ file:Path relativePath = new(relativePathValue);
 string absolutePathValue = “/home/user/ballerina/doc”;
 file:Path absolutePath = new(absolutePathValue);
 </code></pre>
-<h2>Absolute paths on different operating systems</h2>
-<p>The absolute path differs from OS (Operating System ) to OS. For example, a Unix based OS defines the path as <code>/home/user/ballerina/examples</code> and a Windows based OS defines the path as <code>C:\windows\user\ballerina\examples</code>.</p>
-<h2>Convert relative paths to absolute paths</h2>
+<h3>Absolute paths on different operating systems</h3>
+<p>The absolute path differs in each operating system (OS). For example, a Unix-based OS defines the path as <code>/home/user/ballerina/examples</code> and a Windows-based OS defines the path as <code>C:\windows\user\ballerina\examples</code>.</p>
+<h3>Convert relative paths to absolute paths</h3>
 <p>The <code>toAbsolutePath()</code> function converts a relative path to an absolute path.</p>
 <pre><code class="language-ballerina">file:Path absolutePath = relativePath.toAbsolutePath();
 </code></pre>
-<h2>Access denied error</h2>
-<p>File and directories are protected entities. The file operations are restricted using various methods depending on the OS. Functions that access a protected or non-existant entity returns an <code>AccessDenied</code> error.</p>
-<h1>Samples</h1>
+<h2>Samples</h2>
+<h3>Write new content to a file</h3>
 <p>The sample given below writes new content to a file.</p>
 <p>The file write operation can be completed using the <code>openFile()</code> and <code>write()</code>functions that are exposed by the <code>ballerina/io</code> package. The <code>openFile()</code> function creates a streaming channel to a local file. Channels provide read or write access to different resources. The permission to perform operations on the file are defined using accessMode.</p>
-<pre><code class="language-ballerina">function testWriteFile(string pathValue,string accessMode,blob content){
-file:Path filePath = new(pathValue);
-//Get the absolute file path.
-string absolutePath = filePath.toAbsolutePath().getPathValue();
-// Open the file that is denoted by the absolute path. 
-io:ByteChannel channel =io:openFile(absolutePath,accessMode);
-//Write the content to the file.
-var result = channel.write(content,0);
-var closeResult = channel.close()
+<pre><code class="language-ballerina">function testWriteFile(string pathValue, string accessMode, blob content) {
+    file:Path filePath = new(pathValue);
+    //Get the absolute file path.
+    string absolutePath = filePath.toAbsolutePath().getPathValue();
+    // Open the file that is denoted by the absolute path.
+    io:ByteChannel channel = io:openFile(absolutePath, accessMode);
+    //Write the content to the file.
+    var result = channel.write(content, 0);
+    var closeResult = channel.close();
 }
 </code></pre>
-<p>The sample give below shows how an endpoint is used to listen to the local folder and identify events, such as creating a new file.</p>
+<h3>Listen and identify events in a local folder</h3>
+<p>The sample given below shows how an endpoint is used to listen to the local folder and identify events, such as creating a new file.</p>
 <p>The <code>onCreate()</code> resource method gets invoked when a file is created inside the <code>target/fs</code> folder. In addition to the above operations, <code>onDelete()</code> and <code>onModify()</code> methods can be used to listen to the delete and modify events respectively.</p>
 <pre><code class="language-ballerina">endpoint file:Listener localFolder {
     path:&quot;target/fs&quot;
@@ -1310,102 +1240,24 @@ service fileSystem bind localFolder {
     }
 }
 </code></pre>
+<h3>Validate the given path and directory</h3>
 <p>The sample given below validates if the given path exists using the <code>exsits()</code> method. If it does exist, it checks whether it is a file or directory using the <code>isDirectory()</code> method.</p>
 <pre><code class="language-ballerina">file:Path directoryPath = new(directoryPathValue);
 file:Path filePath = new(filePathValue);
 // Checks if the file path exists.
 var isExists = file:exists(directoryPath);
 //If the path does not exist, creates a new directory in the given path.
-if(!isExists) {
+if (!isExists) {
     var result = file:createDirectory(directoryPath);
 }
-// Checks if the path represents a directory or file. 
-If(file:isDirectory(directoryPath)) {
+// Checks if the path represents a directory or file.
+if (file:isDirectory(directoryPath)) {
     var createFileResult = file:createFile(filePath);
 }
 </code></pre>
 
                                     </div>
                                     
-                                    
-                                    <div class="construct-wrapper">
-                                       <!--Primitive Types-->
-                                       
-                                       <!-- Function -->
-                                       
-                                       <!-- Struct-binded functions grouped together -->
-                                       
-                                       <h2 id="Connection">
-                                          <span class="fw-struct sm-icon"></span>
-                                          public object Connection
-                                       </h2>
-                                          
-                                       <!-- Connectors and its actions -->
-                                       
-                                       <!-- Objects and its functions -->
-                                       
-                                       <!-- Enums-->
-                                       
-                                       <!-- Annotations-->
-                                       
-                                       <!-- Global Variables-->
-                                       
-                                    </div>
-                                    
-                                    <div class="construct-wrapper">
-                                       <!--Primitive Types-->
-                                       
-                                       <!-- Function -->
-                                       
-                                       <!-- Struct-binded functions grouped together -->
-                                       
-                                       <h2 id="FSError">
-                                          <span class="fw-struct sm-icon"></span>
-                                          public object FSError
-                                       </h2>
-                                       
-                                       <p>
-                                          <span class="fw-right gray xs-icon"></span>Represents an error which will occur while DirectoryListener operations
-                                       </p>
-                                        
-                                       <table>
-                                          <tr>
-                                             <th class="cAPI-table-name">Field Name</th>
-                                             <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult">Default Value</th>
-                                             <th class="cAPI-table-desc">Description</th>
-                                             
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">message</td>
-                                             <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc">An error message explaining about the error</td>
-                                            
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">cause</td>
-                                             <td class="cAPI-table-type">error</td>
-                                             <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc">The error(s) that caused FSError to get thrown</td>
-                                            
-                                          </tr>
-                                          
-                                       </table>
-                                         
-                                       <!-- Connectors and its actions -->
-                                       
-                                       <!-- Objects and its functions -->
-                                       
-                                       <!-- Enums-->
-                                       
-                                       <!-- Annotations-->
-                                       
-                                       <!-- Global Variables-->
-                                       
-                                    </div>
                                     
                                     <div class="construct-wrapper">
                                        <!--Primitive Types-->
@@ -1427,7 +1279,7 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name">Field Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult">Default Value</th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                              
                                           </tr>
@@ -1435,7 +1287,7 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <td class="cAPI-table-name">name</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Absolute file URI for triggerd event</td>
                                             
                                           </tr>
@@ -1443,7 +1295,7 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <td class="cAPI-table-name">operation</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Triggered event action. This can be create, delete or modify</td>
                                             
                                           </tr>
@@ -1482,7 +1334,7 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name">Field Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult">Default Value</th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                              
                                           </tr>
@@ -1490,7 +1342,7 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <td class="cAPI-table-name">message</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc"></td>
                                             
                                           </tr>
@@ -1498,7 +1350,7 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <td class="cAPI-table-name">cause</td>
                                              <td class="cAPI-table-type">error</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc"></td>
                                             
                                           </tr>
@@ -1537,7 +1389,7 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name">Field Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult">Default Value</th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                              
                                           </tr>
@@ -1545,7 +1397,7 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <td class="cAPI-table-name">path</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Listener directory path</td>
                                             
                                           </tr>
@@ -1553,8 +1405,8 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <td class="cAPI-table-name">recursive</td>
                                              <td class="cAPI-table-type">boolean</td>
-                                             <td class="cAPI-table-defult"></td>
-                                             <td class="cAPI-table-desc">Recursively monitor all folders in the given folder path</td>
+                                             <td class="cAPI-table-default"></td>
+                                             <td class="cAPI-table-desc">Recursively monitor all sub folders in the given folder path</td>
                                             
                                           </tr>
                                           
@@ -1590,14 +1442,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">path</td>
                                              <td class="cAPI-table-type">Path</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Reference to the file path location</td>
                                           </tr>
                                           
@@ -1608,14 +1460,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">boolean | IOError </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">error if the directory could not be created</td>
                                           </tr>
                                           
@@ -1653,14 +1505,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">path</td>
                                              <td class="cAPI-table-type">Path</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Reference to the file path location</td>
                                           </tr>
                                           
@@ -1671,14 +1523,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">boolean | IOError </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">error if the file could not be created</td>
                                           </tr>
                                           
@@ -1716,14 +1568,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">path</td>
                                              <td class="cAPI-table-type">Path</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Reference to the file path location</td>
                                           </tr>
                                           
@@ -1734,14 +1586,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">boolean | IOError </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">error if the directory/file could not be deleted</td>
                                           </tr>
                                           
@@ -1779,14 +1631,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">path</td>
                                              <td class="cAPI-table-type">Path</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Refernce to the file location</td>
                                           </tr>
                                           
@@ -1797,14 +1649,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">boolean </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">true if the file exists</td>
                                           </tr>
                                           
@@ -1842,14 +1694,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">path</td>
                                              <td class="cAPI-table-type">Path</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc"></td>
                                           </tr>
                                           
@@ -1860,14 +1712,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">timeTime | IOError </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Last modified time or an error if the path cannot be resolved</td>
                                           </tr>
                                           
@@ -1905,14 +1757,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">path</td>
                                              <td class="cAPI-table-type">Path</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Reference to the file path location</td>
                                           </tr>
                                           
@@ -1923,14 +1775,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">boolean </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">true if the given file path is a directory. It is false otherwise</td>
                                           </tr>
                                           
@@ -1968,14 +1820,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">path</td>
                                              <td class="cAPI-table-type">Path</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Reference to the file path location</td>
                                           </tr>
                                           
@@ -1986,14 +1838,14 @@ If(file:isDirectory(directoryPath)) {
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">Path[] | IOError </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">List of file paths in the directory or an I/O error</td>
                                           </tr>
                                           
@@ -2049,52 +1901,19 @@ If(file:isDirectory(directoryPath)) {
                                                    <tr>
                                                       <th class="cAPI-table-name">Parameter Name</th>
                                                       <th class="cAPI-table-type">Data Type</th>
-                                                      <th class="cAPI-table-type"></th>
+                                                      <th class="cAPI-table-default">Default Value</th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">config</td>
                                                       <td class="cAPI-table-type">ListenerEndpointConfiguration</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The ServiceEndpointConfiguration of the endpoint</td>
                                                    </tr>
                                                    
                                                 </table>
                                                  
-                                             </li>
-                                             
-                                             <li>
-                                                <h3 id="Listener-initEndpoint">
-                                                   <span class=fw-function></span>
-                                                   <span class="thin-text light-gray">
-                                                   <Listener>
-                                                   </span>
-                                                   initEndpoint() returns (error) 
-                                                </h3>
-                                                
-                                                <p>
-                                                   <span class="fw-right gray xs-icon"></span>Gets called when the endpoint is being initialized during the package initialization time
-                                                </p>
-                                                  
-                                                <div class="cReturnTableHeader"></div>
-                                                <table>
-                                                   <tr>
-                                                      <th class="cAPI-table-name"></th>
-                                                      <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
-                                                      <th class="cAPI-table-desc">Description</th>
-                                                   </tr>
-                                                   
-                                                   <tr>
-                                                      <td class="cAPI-table-name"></td>
-                                                      <td class="cAPI-table-type">error</td>
-                                                      <td class="cAPI-table-defult"></td>
-                                                      <td class="cAPI-table-desc">Error occured during initialization</td>
-                                                   </tr>
-                                                   
-                                                </table>
-                                                
                                              </li>
                                              
                                              <li>
@@ -2114,14 +1933,14 @@ If(file:isDirectory(directoryPath)) {
                                                    <tr>
                                                       <th class="cAPI-table-name">Parameter Name</th>
                                                       <th class="cAPI-table-type">Data Type</th>
-                                                      <th class="cAPI-table-type"></th>
+                                                      <th class="cAPI-table-default">Default Value</th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">serviceType</td>
                                                       <td class="cAPI-table-type">typedesc</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The type of the service to be registered</td>
                                                    </tr>
                                                    
@@ -2142,39 +1961,6 @@ If(file:isDirectory(directoryPath)) {
                                                    <span class="fw-right gray xs-icon"></span>Starts the registered service
                                                 </p>
                                                   
-                                             </li>
-                                             
-                                             <li>
-                                                <h3 id="Listener-getClient">
-                                                   <span class=fw-function></span>
-                                                   <span class="thin-text light-gray">
-                                                   <Listener>
-                                                   </span>
-                                                   getClient() returns (Connection) 
-                                                </h3>
-                                                
-                                                <p>
-                                                   <span class="fw-right gray xs-icon"></span>Returns the connector that client code uses
-                                                </p>
-                                                  
-                                                <div class="cReturnTableHeader"></div>
-                                                <table>
-                                                   <tr>
-                                                      <th class="cAPI-table-name"></th>
-                                                      <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
-                                                      <th class="cAPI-table-desc">Description</th>
-                                                   </tr>
-                                                   
-                                                   <tr>
-                                                      <td class="cAPI-table-name"></td>
-                                                      <td class="cAPI-table-type">Connection</td>
-                                                      <td class="cAPI-table-defult"></td>
-                                                      <td class="cAPI-table-desc">The connector that client code uses</td>
-                                                   </tr>
-                                                   
-                                                </table>
-                                                
                                              </li>
                                              
                                              <li>
@@ -2244,14 +2030,14 @@ If(file:isDirectory(directoryPath)) {
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">Path</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">Returns the absolute path reference or an error if the path cannot be derived</td>
                                                    </tr>
                                                    
@@ -2277,14 +2063,14 @@ If(file:isDirectory(directoryPath)) {
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">string</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">Returns the absolute path string value</td>
                                                    </tr>
                                                    
@@ -2310,14 +2096,14 @@ If(file:isDirectory(directoryPath)) {
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">string</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">Returns the name of the file</td>
                                                    </tr>
                                                    

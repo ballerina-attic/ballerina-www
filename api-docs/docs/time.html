@@ -381,19 +381,6 @@
                         <li>
                            <!--Package Name-->
                            
-                           <a href="primitive-types.html">
-                            
-                           <span class="bold">Primitive Types</span>
-                           
-                           </a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
                            <a href="auth.html">
                             
                            <span class="bold">auth</span>
@@ -741,13 +728,6 @@
                   </div>
                   <div class="cLectColStyle">
                      <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
                      
                      <ul class=" ">
                         <li>
@@ -1293,78 +1273,78 @@
                                     </h1>
                                     
                                     <div class="cAPIdocsDescription">
-                                       <p><code>ballerina/time</code> package contains implementations related to time, date and durations.</p>
-<p>It has 2 main Types, <code>Time</code> and <code>Timezone</code>. The type <code>Time</code> represents a particular time with its associated timezone and has <code>time</code> and <code>zone</code> attributes.</p>
-<p><code>time</code> - Time in milliseconds since January 1, 1970, 00:00:00 GMT<br/>
-<code>zone</code> - The <code>Timezone</code> of the time</p>
-<p>The type <code>Timezone</code> represents the timezone information associated with a particular time, and has <code>zoneId</code> and <code>zoneOffset</code> attributes.</p>
-<p><code>zoneId</code> - Short ID of the zone (eg. &quot;America/Panama&quot;) or offset string (eg. &quot;-05:00&quot;)<br/>
-<code>zoneOffset</code> - The offset in seconds</p>
-<h2>Get current time/date</h2>
-<pre><code class="language-ballerina">time:Time time = time:currentTime(); 
-int timeValue = time.time;   // eg. 1523513039 
-string zoneId = time.zone.zoneId; // eg. “America/Panama”
-int zoneoffset = time.zone.zoneOffset; // eg. -05:00
+                                       <h2>Package overview</h2>
+<p>The <code>ballerina/time</code> package provides implementations related to time, date, time zones, and durations.</p>
+<p>The package has two main types as <a href="time.html#Time">Time</a> and <a href="time.html#Timezone">Timezone</a>. The type <code>Time</code> represents a time associated with a given time zone. It has <code>time</code> and <code>zone</code> as attributes. The type <code>Timezone</code> represents the time zone associated with a given time. It has <code>zoneId</code> and <code>zoneOffset</code> as attributes.</p>
+<h2>Samples</h2>
+<h3>Get the current time/date</h3>
+<pre><code class="language-ballerina">time:Time time = time:currentTime(); // Create an object of type ‘Time’.
 
-int nanoTime = time:nanoTime(); //eg. 2426115697486340
+int timeValue = time.time;  // Time in milliseconds since January 1, 1970, 00:00:00 GMT. E.g., 1523513039.
+int nanoTime = time:nanoTime(); // Time in nanoseconds since January 1, 1970, 00:00:00 GMT. E.g., 2426115697486340
+string zoneId = time.zone.zoneId; // Time zone as an identifier. E.g., “America/Panama”.
+int zoneoffset = time.zone.zoneOffset; // Time zone as an offset. E.g., -05:00.
 
-int year = time.year(); //eg. 2018
-int month = time.month(); //eg. 3
-int day = time.day(); //eg. 1
-int hour = time.hour(); //eg. 18 
-int minute = time.minute(); //eg. 56 
-int second = time.second(); //eg. 23
-int milliSecond = time.milliSecond(); //eg. 555 
-string weekday = time.weekday(); //eg. “TUESDAY”
+// Get the current date and time upto milliseconds.
+int year = time.year(); // E.g., 2018
+int month = time.month(); // E.g., 3
+int day = time.day(); // E.g., 1
+int hour = time.hour(); // E.g., 18 
+int minute = time.minute(); // E.g., 56 
+int second = time.second(); // E.g., 23
+int milliSecond = time.milliSecond(); // E.g., 555 
+string weekday = time.weekday(); // Day of the week. E.g., “TUESDAY”.
 </code></pre>
-<h2>Create a time/date object</h2>
-<pre><code class="language-ballerina">//create a time object with zone 
+<h3>Create a time/date object</h3>
+<pre><code class="language-ballerina">// Create an object of type ‘Time’ with time zone.
 time:Timezone zoneIdValue = {zoneId:&quot;America/Panama&quot;};
 time:Time time1 = new (1498488382000, zoneValue);
 
-//create a time object with zone offset 
+// Create an object of type ‘Time’ with the time zone offset.
 time:Timezone zoneOffsetValue = {zoneId:&quot;-05:00&quot;};
 time:Time time2 =new (1498488382000, zoneValue);
 
-//create a time object without zone 
+// Create an object of type ‘Time’ without the time zone.
 time:Timezone noZoneValue = {zoneId:&quot;&quot;};
 time:Time time3 = new (1498488382000, zoneValue);
 
-//create a time object with time and date. eg. 2018-03-28T23:42:45.554-05:00  
+// Create an object of type ‘Time’ with time and date. E.g., 2018-03-28T23:42:45.554-05:00  
 time:Time dateTime = time:createTime(2018, 3, 28, 23, 42, 45, 554, &quot;America/Panama&quot;);
 </code></pre>
-<h2>Format a time/date to string</h2>
+<h3>Format a time/date to a string</h3>
 <pre><code class="language-ballerina">time:Timezone zoneValue = {zoneId:&quot;America/Panama&quot;};
 time:Time time = new (1498488382444, zoneValue);
 
-//Format a time to string of a given format
-string time1 = time.format(&quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;); //”2017-06-26T09:46:22.444-0500”
+//Format a time to a string of a given pattern.
+string time1 = time.format(&quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;); //E.g., “2017-06-26T09:46:22.444-0500”.
 
-//Format a time to string of a RFC-1123 format
-string time2 = time.formatTo(time:TIME_FORMAT_RFC_1123); //&quot;Mon, 26 Jun 2017 09:46:22 -0500”
+//Format a time to a string of the RFC-1123 format.
+string time2 = time.formatTo(time:TIME_FORMAT_RFC_1123); // E.g., &quot;Mon, 26 Jun 2017 09:46:22 -0500”
 
-//Call toString() function
+// Convert a time object to a string value.
 string time3 = time.toString(); //”2017-06-26T09:46:22.444-05:00”
 </code></pre>
-<h2>Parse a string to time/date</h2>
-<pre><code class="language-ballerina">//parse a time string of a given format
-time:Time time1 = time:parse(&quot;2017-06-26T09:46:22.444-0500&quot;, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;);
+<h3>Parse a string to time/date</h3>
+<pre><code class="language-ballerina">// Parse a time string of a given format. 
+time:Time time1 = time:parse(&quot;2017-06-26T09:46:22.444-0500&quot;, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;); // The ‘Z’ stands for the time zone.
 
-//parse a time string of RFC-1123 format
+// Parse a time string of the RFC-1123 format.
 time:Time time2 = time:parseTo(&quot;Wed, 28 Mar 2018 11:56:23 +0530&quot;, time:TIME_FORMAT_RFC_1123);
 </code></pre>
-<h2>Time durations</h2>
-<pre><code class="language-ballerina">//Add a time duration
+<h3>Time durations</h3>
+<pre><code class="language-ballerina">// Add a duration to a given time.
 time:Time time1 = time:parse(&quot;2017-06-26T09:46:22.444-0500&quot;, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;);
-time1 = time.addDuration(1, 1, 1, 1, 1, 1, 1); // Adds 1 year, 1 month, 1 day, 1 hour, 1 minute, 1 second and 1 millisecond
+time1 = time.addDuration(1, 1, 1, 1, 1, 1, 1); // Adds 1 year, 1 month, 1 day, 1 hour, 1 minute, 1 second, and 1 millisecond.
 
-//Subtract a time duration
+// Subtract a duration from a given time.
 time:Time time2 = time:parse(&quot;2016-03-01T09:46:22.444-0500&quot;, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;);
-time2 = time.subtractDuration(1, 1, 1, 1, 1, 1, 1);  // Subtracts 1 year, 1 month, 1 day, 1 hour, 1 minute, 1 second and 1 millisecond
+time2 = time.subtractDuration(1, 1, 1, 1, 1, 1, 1);  // Subtracts 1 year, 1 month, 1 day, 1 hour, 1 minute, 1 second, and 1 millisecond.
 
-//Get duration between 2 time values
+// Get the duration between two times.
 int diffInMillis = time1.time - time2.time;
 </code></pre>
+<h2>Package contents</h2>
+<p><code>&lt;auto-generated from the code comments&gt;</code></p>
 
                                     </div>
                                     
@@ -1389,7 +1369,7 @@ int diffInMillis = time1.time - time2.time;
                                           <tr>
                                              <th class="cAPI-table-name">Field Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult">Default Value</th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                              
                                           </tr>
@@ -1397,7 +1377,7 @@ int diffInMillis = time1.time - time2.time;
                                           <tr>
                                              <td class="cAPI-table-name">zoneId</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Zone short ID or offset string.</td>
                                             
                                           </tr>
@@ -1405,7 +1385,7 @@ int diffInMillis = time1.time - time2.time;
                                           <tr>
                                              <td class="cAPI-table-name">zoneOffset</td>
                                              <td class="cAPI-table-type">int</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The offset in seconds.</td>
                                             
                                           </tr>
@@ -1442,63 +1422,63 @@ int diffInMillis = time1.time - time2.time;
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">year</td>
                                              <td class="cAPI-table-type">int</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The year representation</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">month</td>
                                              <td class="cAPI-table-type">int</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The month-of-year to represent, from 1 (January) to 12 (December)</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">date</td>
                                              <td class="cAPI-table-type">int</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The day-of-month to represent, from 1 to 31</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">hour</td>
                                              <td class="cAPI-table-type">int</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The hour-of-day to represent, from 0 to 23</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">minute</td>
                                              <td class="cAPI-table-type">int</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The minute-of-hour to represent, from 0 to 59</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">second</td>
                                              <td class="cAPI-table-type">int</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The second-of-minute to represent, from 0 to 59</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">milliSecond</td>
                                              <td class="cAPI-table-type">int</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The milli-of-second to represent, from 0 to 999</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">zoneId</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The zone id of the required timezone.If empty the system local timezone will be used</td>
                                           </tr>
                                           
@@ -1509,14 +1489,14 @@ int diffInMillis = time1.time - time2.time;
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">Time </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Time object containing time and zone information.</td>
                                           </tr>
                                           
@@ -1555,14 +1535,14 @@ int diffInMillis = time1.time - time2.time;
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">Time </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Time object containing the time and zone information.</td>
                                           </tr>
                                           
@@ -1601,14 +1581,14 @@ int diffInMillis = time1.time - time2.time;
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">int </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Int value of the current system time in nano seconds</td>
                                           </tr>
                                           
@@ -1646,21 +1626,21 @@ int diffInMillis = time1.time - time2.time;
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">data</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The time text to parse</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">format</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The format which is used to parse the given text</td>
                                           </tr>
                                           
@@ -1671,14 +1651,14 @@ int diffInMillis = time1.time - time2.time;
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">Time </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Time object containing time and zone information.</td>
                                           </tr>
                                           
@@ -1716,21 +1696,21 @@ int diffInMillis = time1.time - time2.time;
                                           <tr>
                                              <th class="cAPI-table-name">Parameter Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">timestamp</td>
                                              <td class="cAPI-table-type">string</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The time text to parse</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">format</td>
                                              <td class="cAPI-table-type">TimeFormat</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">The format which is used to parse the given date/time string</td>
                                           </tr>
                                           
@@ -1741,14 +1721,14 @@ int diffInMillis = time1.time - time2.time;
                                           <tr>
                                              <th class="cAPI-table-name"></th>
                                              <th class="cAPI-table-type">Return Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default"></th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name"></td>
                                              <td class="cAPI-table-type">Time </td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Time object containing time and zone information.</td>
                                           </tr>
                                           
@@ -1790,23 +1770,23 @@ int diffInMillis = time1.time - time2.time;
                                         
                                        <table>
                                           <tr>
-                                             <th class="cAPI-table-name">Parameter Name</th>
+                                             <th class="cAPI-table-name">Field Name</th>
                                              <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-defult"></th>
+                                             <th class="cAPI-table-default">Default Value</th>
                                              <th class="cAPI-table-desc">Description</th>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">time</td>
                                              <td class="cAPI-table-type">int</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default"></td>
                                              <td class="cAPI-table-desc">Time value as milliseconds since epoch.</td>
                                           </tr>
                                           
                                           <tr>
                                              <td class="cAPI-table-name">zone</td>
                                              <td class="cAPI-table-type">Timezone</td>
-                                             <td class="cAPI-table-defult"></td>
+                                             <td class="cAPI-table-default">[]</td>
                                              <td class="cAPI-table-desc">The time   zone of the time.</td>
                                           </tr>
                                           
@@ -1833,14 +1813,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">string</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The ISO 8601 formatted string of the given time.</td>
                                                    </tr>
                                                    
@@ -1865,14 +1845,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name">Parameter Name</th>
                                                       <th class="cAPI-table-type">Data Type</th>
-                                                      <th class="cAPI-table-type"></th>
+                                                      <th class="cAPI-table-default">Default Value</th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">format</td>
                                                       <td class="cAPI-table-type">string</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The format which is used to format the given text</td>
                                                    </tr>
                                                    
@@ -1883,14 +1863,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">string</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The formatted string of the given time.</td>
                                                    </tr>
                                                    
@@ -1915,14 +1895,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name">Parameter Name</th>
                                                       <th class="cAPI-table-type">Data Type</th>
-                                                      <th class="cAPI-table-type"></th>
+                                                      <th class="cAPI-table-default">Default Value</th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">format</td>
                                                       <td class="cAPI-table-type">TimeFormat</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The format which is used to format the given text</td>
                                                    </tr>
                                                    
@@ -1933,14 +1913,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">string</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The formatted string of the given time.</td>
                                                    </tr>
                                                    
@@ -1966,14 +1946,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The year representation.</td>
                                                    </tr>
                                                    
@@ -1999,14 +1979,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The month-of-year, from 1 (January) to 12 (December).</td>
                                                    </tr>
                                                    
@@ -2032,14 +2012,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The day-of-month, from 1 to 31.</td>
                                                    </tr>
                                                    
@@ -2065,14 +2045,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">string</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The weekday representation from SUNDAY to SATURDAY.</td>
                                                    </tr>
                                                    
@@ -2098,14 +2078,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The hour-of-day, from 0 to 23.</td>
                                                    </tr>
                                                    
@@ -2131,14 +2111,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The minute-of-hour to represent, from 0 to 59.</td>
                                                    </tr>
                                                    
@@ -2164,14 +2144,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The second-of-minute, from 0 to 59.</td>
                                                    </tr>
                                                    
@@ -2197,14 +2177,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The milli-of-second, from 0 to 999.</td>
                                                    </tr>
                                                    
@@ -2230,14 +2210,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">(int,int,int)</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The year representation.</td>
                                                    </tr>
                                                    
@@ -2263,14 +2243,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">(int,int,int,int)</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The hour-of-day, from 0 to 23.</td>
                                                    </tr>
                                                    
@@ -2295,56 +2275,56 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name">Parameter Name</th>
                                                       <th class="cAPI-table-type">Data Type</th>
-                                                      <th class="cAPI-table-type"></th>
+                                                      <th class="cAPI-table-default">Default Value</th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">years</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The year representation</td>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">months</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The month-of-year to represent, from 1 (January) to 12 (December)</td>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">days</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The day-of-month to represent, from 1 to 31</td>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">hours</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The hour-of-day to represent, from 0 to 23</td>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">minutes</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The minute-of-hour to represent, from 0 to 59</td>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">seconds</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The second-of-minute to represent, from 0 to 59</td>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">milliSeconds</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The milli-of-second to represent, from 0 to 999</td>
                                                    </tr>
                                                    
@@ -2355,14 +2335,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">Time</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">Time object containing time and zone information after the addition.</td>
                                                    </tr>
                                                    
@@ -2387,56 +2367,56 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name">Parameter Name</th>
                                                       <th class="cAPI-table-type">Data Type</th>
-                                                      <th class="cAPI-table-type"></th>
+                                                      <th class="cAPI-table-default">Default Value</th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">years</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The year representation</td>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">months</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The month-of-year to represent, from 1 (January) to 12 (December)</td>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">days</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The day-of-month to represent, from 1 to 31</td>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">hours</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The hour-of-day to represent, from 0 to 23</td>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">minutes</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The minute-of-hour to represent, from 0 to 59</td>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">seconds</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The second-of-minute to represent, from 0 to 59</td>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">milliSeconds</td>
                                                       <td class="cAPI-table-type">int</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The milli-of-second to represent, from 0 to 999</td>
                                                    </tr>
                                                    
@@ -2447,14 +2427,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">Time</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">Time object containing time and zone information after the subtraction.</td>
                                                    </tr>
                                                    
@@ -2479,14 +2459,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name">Parameter Name</th>
                                                       <th class="cAPI-table-type">Data Type</th>
-                                                      <th class="cAPI-table-type"></th>
+                                                      <th class="cAPI-table-default">Default Value</th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name">zoneId</td>
                                                       <td class="cAPI-table-type">string</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">The new timezone id</td>
                                                    </tr>
                                                    
@@ -2497,14 +2477,14 @@ int diffInMillis = time1.time - time2.time;
                                                    <tr>
                                                       <th class="cAPI-table-name"></th>
                                                       <th class="cAPI-table-type">Return Type</th>
-                                                      <th class="cAPI-table-defult"></th>
+                                                      <th class="cAPI-table-default"></th>
                                                       <th class="cAPI-table-desc">Description</th>
                                                    </tr>
                                                    
                                                    <tr>
                                                       <td class="cAPI-table-name"></td>
                                                       <td class="cAPI-table-type">Time</td>
-                                                      <td class="cAPI-table-defult"></td>
+                                                      <td class="cAPI-table-default"></td>
                                                       <td class="cAPI-table-desc">Time object containing time and zone information after the conversion.</td>
                                                    </tr>
                                                    
@@ -2576,7 +2556,7 @@ int diffInMillis = time1.time - time2.time;
                                           </tr>
                                           <tr>
                                              <td class="cAPI-table-name">TIME_FORMAT_RFC_1123</td>
-                                             <th class="cAPI-table-type">TimeFormat</th>
+                                             <td class="cAPI-table-type">TimeFormat</td>
                                              <td class="cAPI-table-desc"></td>
                                           </tr>
                                        </table>
