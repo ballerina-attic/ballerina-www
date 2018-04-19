@@ -78,7 +78,7 @@
 <div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2 cDesign-Principles">
     <div class="container">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cPhilosophyWhite cHowballerinaworks">
-            <h2 class="cMainH2Title">Ballerina Language Design Principles</h2>
+            <h2 class="cMainH2Title">What are Ballerina's language design principles?</h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol "></div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cPhilosophyWidget">
@@ -171,7 +171,7 @@
 <div class="row cBallerina-io-White-row cPhilosophy cPhilosophy2 cHowBallerinaWorksRow">
     <div class="container">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cPhilosophyWhite cHowballerinaworks">
-            <h2 class="cMainH2Title">How Ballerina works</h2>
+            <h2 class="cMainH2Title">How does Ballerina work?</h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol ">
                 <p>Ballerina's syntax, code, and compiler create runtime services and deployment artifacts that are cloud native ready for deployment within your IaaS, orchestrator, or service mesh of choice. The developer experience is designed to maintain
                     flow, where the edit, build, debug cycle is rapid and integrated to your team's lifecycle toolchain.
@@ -297,7 +297,7 @@
     <div class="container">
         <div class="col-xs-12 cPhilosophyWhite cCloudNative">
             <div class="col-xs-12">
-                <h2 class="cMainH2Title">Cloud Native Programming Language </h2>
+                <h2 class="cMainH2Title">What are Ballerina's language features?</h2>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol ">
                     <p>Designed to be cloud-first, Ballerina has built-in support for modern web protocols and data formats, full power of a Turing-complete programming language, and native support for microservices architectures.
                     </p>
@@ -461,7 +461,7 @@
 <div class="row cBallerina-io-White-row cPhilosophy cPhilosophy2 codeSampleBoxes" id="integration">
     <div class="container">
         <div class="col-xs-12 cPhilosophyWhite cCloudNative">
-            <h2 class="cMainH2Title">Integration Framework </h2>
+            <h2 class="cMainH2Title">What is in Ballerina's integration framework?</h2>
             <div class="col-xs-12 cInnerPageContentCol ">
                 <p>Ballerina is a language designed to be <em>integration simple</em>. Based around the interactions of sequence diagrams, Ballerina has built-in support for common integration patterns and connectors, including distributed transactions,
                     compensation and circuit breakers. With first-class support for JSON and XML, Ballerina makes it simple and effective to build robust integration across network endpoints.</p>
@@ -748,7 +748,7 @@
 <div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
     <div class="container">
         <div class="col-xs-12 cPhilosophyWhite cCloudNative ">
-            <h2 class="cMainH2Title">Open Source</h2>
+            <h2 class="cMainH2Title">What are Ballerina's Open Source repos?</h2>
             <div class="col-xs-12 cInnerPageContentCol ">
                 <p>Apache-licensed software and community-driven projects. </p>
             </div>
