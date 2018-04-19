@@ -17,14 +17,14 @@
 package org.ballerinalang.platform.playground.controller.service;
 
 import io.netty.handler.codec.http.HttpHeaderNames;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.ballerinalang.platform.playground.controller.util.Constants;
 import org.ballerinalang.platform.playground.utils.MemberConstants;
 import org.ballerinalang.platform.playground.utils.cache.CacheUtils;
 import org.ballerinalang.platform.playground.utils.model.LauncherRequest;
 import org.ballerinalang.platform.playground.utils.model.LauncherResponse;
 import org.ballerinalang.platform.playground.utils.model.StatusUpdateRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.OPTIONS;
@@ -41,7 +41,7 @@ import javax.ws.rs.core.Response;
 @Path(value = "/api")
 public class ControllerService {
 
-    private static final Logger log = LoggerFactory.getLogger(ControllerService.class);
+    private static final Log log = LogFactory.getLog(ControllerService.class);
 
     private ControllerServiceManager serviceManager;
 

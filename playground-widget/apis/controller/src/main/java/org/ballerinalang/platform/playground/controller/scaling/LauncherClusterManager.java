@@ -19,12 +19,12 @@ package org.ballerinalang.platform.playground.controller.scaling;
 import io.fabric8.kubernetes.api.model.Event;
 import io.fabric8.kubernetes.client.KubernetesClientException;
 import io.fabric8.kubernetes.client.Watcher;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.ballerinalang.platform.playground.controller.containercluster.ContainerRuntimeClient;
 import org.ballerinalang.platform.playground.controller.persistence.Persistence;
 import org.ballerinalang.platform.playground.controller.util.Constants;
 import org.ballerinalang.platform.playground.utils.EnvUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ import java.util.List;
  */
 public class LauncherClusterManager {
 
-    private static final Logger log = LoggerFactory.getLogger(LauncherClusterManager.class);
+    private static final Log log = LogFactory.getLog(LauncherClusterManager.class);
 
     /**
      * The number of launcher instances to scale up at a time.
@@ -111,10 +111,10 @@ public class LauncherClusterManager {
             // tail
             urlsToScaleDown.sort((o1, o2) -> {
                 int mySuffix = Integer.parseInt(o1.split("\\.")[0].substring(
-                        (Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
+                        (Constants.LAUNCHER_URL_PREFIX + "-").length()));
 
                 int theirSuffix = Integer.parseInt(o2.split("\\.")[0].substring(
-                        (Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
+                        (Constants.LAUNCHER_URL_PREFIX + "-").length()));
 
                 return Integer.compare(mySuffix, theirSuffix);
             });

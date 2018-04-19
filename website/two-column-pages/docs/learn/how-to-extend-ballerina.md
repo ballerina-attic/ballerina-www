@@ -190,7 +190,7 @@ Once you have built the package, you can `ballerina push <org-name>/<package-nam
 
 You will need to have an account at Ballerina Central and your CLI token from central placed into your Ballerina settings. The `ballerina deploy` command will initiate an OAuth flow that automates this for you, even if you do not already have an existing account on Ballerina Central.
 
-**** INSERT LINK TO STRUCTURE BALLERINA CODE HERE
+For more information on how to structure the code you write, see [How to Structure Ballerina Code](/how-to-structure-ballerina-code/.)
 
 ### Learn More
 You can create connectors for a range of protocols and interfaces, including those endpoints which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
@@ -321,12 +321,6 @@ In the `pom.xml` add Ballerina's maven dependencies:
 ```xml
 <dependencies>
    <dependency>
-       <groupId>junit</groupId>
-       <artifactId>junit</artifactId>
-       <version>${junit.version}</version>
-       <scope>test</scope>
-   </dependency>
-   <dependency>
        <groupId>org.ballerinalang</groupId>
        <artifactId>ballerina-lang</artifactId>
    </dependency>
@@ -353,15 +347,6 @@ In the `pom.xml` add Ballerina's maven dependencies:
    <dependency>
        <groupId>org.ballerinalang</groupId>
        <artifactId>ballerina-http</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.slf4j</groupId>
-       <artifactId>slf4j-api</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.slf4j</groupId>
-       <artifactId>slf4j-jdk14</artifactId>
-       <scope>test</scope>
    </dependency>
 </dependencies>
 ```
@@ -390,16 +375,6 @@ In the `pom.xml`, add Ballerina's repository information
        </snapshots>
        <releases>
            <enabled>false</enabled>
-       </releases>
-   </repository>
-   <repository>
-       <id>wso2-nexus</id>
-       <name>WSO2 internal Repository</name>
-       <url>http://maven.wso2.org/nexus/content/groups/wso2-public/</url>
-       <releases>
-           <enabled>true</enabled>
-           <updatePolicy>daily</updatePolicy>
-           <checksumPolicy>ignore</checksumPolicy>
        </releases>
    </repository>
 </repositories>
@@ -450,7 +425,7 @@ public annotation <service> Greeting HelloConfiguration;
 ```
 
 ##### Remove Some Unnecessary Files
-Remove the archetype generated `App.java` and `AppTest.java` files. They are needed.
+Remove the archetype generated `App.java` and `AppTest.java` files. They are not needed.
 
 ##### Define an Extension Provider
 Create `HelloExtensionProvider.java` class in `hello/src/main/java/org/ballerinax/hello` package. This class will implement `SystemPackageRepositoryProvider`. 
@@ -480,7 +455,7 @@ public class HelloExtensionProvider implements SystemPackageRepositoryProvider {
 
 Configure bsc plugin in the `pom.xml`:
 ```xml
-<!-- For ballerina annotation processing →
+<!-- For ballerina annotation processing -->
 <resources>
    <resource>
        <directory>src/main/resources</directory>
@@ -640,6 +615,7 @@ import java.util.List;
 * Compiler plugin to generate greetings.
 */
 @SupportedAnnotationPackages(
+    // Tell compiler we are only interested in ballerinax.hello annotations.
        value = "ballerinax.hello"
 )
 public class HelloPlugin extends AbstractCompilerPlugin {
@@ -647,6 +623,7 @@ public class HelloPlugin extends AbstractCompilerPlugin {
 
    @Override
    public void init(DiagnosticLog diagnosticLog) {
+       // Initialize the logger.
        this.dlog = diagnosticLog;
    }
 
@@ -654,13 +631,15 @@ public class HelloPlugin extends AbstractCompilerPlugin {
    @Override
    public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations) {
 
-       //process annotation
+       //Iterate through the annotation Attachment Node List
        for (AnnotationAttachmentNode attachmentNode : annotations) {
            List<BLangRecordLiteral.BLangRecordKeyValue> keyValues =
                    ((BLangRecordLiteral) ((BLangAnnotationAttachment) attachmentNode).expr).getKeyValuePairs();
+           //Iterate through the annotations
            for (BLangRecordLiteral.BLangRecordKeyValue keyValue : keyValues) {
                String annotationValue = keyValue.getValue().toString();
                switch (keyValue.getKey().toString()) {
+                   //Match annotation key and assign the value to model class
                    case "salutation":
                        HelloModel.getInstance().setGreeting(annotationValue);
                        break;
@@ -679,6 +658,7 @@ public class HelloPlugin extends AbstractCompilerPlugin {
        try {
            writeToFile(greeting, filePath);
        } catch (IOException e) {
+           // This is how you can report compilation errors, warnings, and messages.
            dlog.logDiagnostic(Diagnostic.Kind.ERROR, null, e.getMessage());
        }
    }
@@ -710,6 +690,40 @@ public class HelloPlugin extends AbstractCompilerPlugin {
 ```
 
 The annotation value is read and cached in a singleton model class. Upon receiving the code generated event, we are extracting the output file name and write the value from the model class to a file.
+Create `HelloModel.java` in `hello/src/main/java/org/ballerinax/hello` package.
+```java
+package org.ballerinax.hello;
+
+/**
+ * Model class to store greeting value.
+ */
+public class HelloModel {
+    private static HelloModel instance;
+    private String greeting;
+
+    private HelloModel() {
+        // Initialize with the default greeting.
+        greeting = "Hello!";
+    }
+
+    public static HelloModel getInstance() {
+        synchronized (HelloModel.class) {
+            if (instance == null) {
+                instance = new HelloModel();
+            }
+        }
+        return instance;
+    }
+
+    public String getGreeting() {
+        return greeting;
+    }
+
+    public void setGreeting(String greeting) {
+        this.greeting = greeting;
+    }
+}
+```
 
 Create an file named `org.ballerinalang.compiler.plugins.CompilerPlugin` in `hello/src/main/resources/META-INF/services` directory. This file is read by the compiler and registers our `HelloPlugin.java` class as an extension. The events will be received by the registered classes. The file should contain the fully qualified Java class name of the builder extension. 
 ```

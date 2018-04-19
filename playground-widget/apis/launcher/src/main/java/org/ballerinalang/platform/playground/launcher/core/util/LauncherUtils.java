@@ -15,6 +15,8 @@
  */
 package org.ballerinalang.platform.playground.launcher.core.util;
 
+import com.google.gson.Gson;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -37,19 +39,27 @@ public class LauncherUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(LauncherUtils.class);
 
+    private static Gson gson = new Gson();
+
     public static void markNodeAsFree() {
         StatusUpdateRequest statusUpdateRequest = new StatusUpdateRequest();
         statusUpdateRequest.setStatus(MemberConstants.MEMBER_STATUS_FREE);
+        String request = gson.toJson(statusUpdateRequest);
 
         try {
             HttpClient client = HttpClients.createDefault();
             HttpPost post = new HttpPost(getControllerURL());
-            post.setEntity(new StringEntity(statusUpdateRequest.toString()));
-            post.setHeader(HttpHeaders.CONTENT_TYPE, ContentType.APPLICATION_JSON.toString());
+            HttpEntity reqEntity = new StringEntity(request, ContentType.APPLICATION_JSON);
+            logger.info("Using request: "+ request);
+            post.setEntity(reqEntity);
             HttpResponse response = client.execute(post);
             if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
                 logger.error("Error while marking launcher node as free. "
                         + response.getStatusLine().getReasonPhrase());
+                logger.error("Error code: "
+                        + response.getStatusLine().getStatusCode());
+                logger.error("Error response: "
+                        + response.getEntity().toString());
             }
         } catch (Exception e) {
             logger.error("Error while marking launcher node as free. ", e);
@@ -59,10 +69,11 @@ public class LauncherUtils {
     private static String getControllerURL() {
         String launcherSubDomain = EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_LAUNCHER_SELF_URL)
                 .split("\\.")[0];
-
-        return "http://"
+        String url = "http://"
                 + EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_CONTROLLER_INTERNAL_URL)
                 + "/api/launcher/"
                 + launcherSubDomain;
+        logger.info("Using " + url + " to mark node as free");
+        return url;
     }
 }

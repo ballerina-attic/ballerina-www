@@ -14,6 +14,7 @@ import (
     "text/template"
     "bytes"
     "errors"
+    "encoding/json"
 )
 
 var cacheDir = "/tmp/gobyexample-cache"
@@ -386,19 +387,23 @@ func renderExamples(examples []*Example) {
     check(err)
 
     var exampleItem bytes.Buffer
+    var renderedBBEs = []string{}
     for _, example := range examples {
         exampleF, err := os.Create(siteDir + "/" + example.Id+".html")
         exampleItem.WriteString(example.Id)
         check(err)
         exampleTmpl.Execute(exampleF, example)
+        renderedBBEs = append(renderedBBEs , example.Id)
     }
-    generateJSON(exampleItem.String())
+    generateJSON(renderedBBEs)
 }
 
-func generateJSON(example string) {
-  d1 := []byte(example+"\n")
-  err := ioutil.WriteFile(siteDir+"/examples.json", d1, 0644)
-  check(err)
+func generateJSON(renderedBBEs []string) {
+    urlsJson, _ := json.Marshal(renderedBBEs)
+    fmt.Println("Creating a json file of successful BBEs in : " +siteDir+"/bbes.json")
+    err := ioutil.WriteFile(siteDir+"/bbes.json", urlsJson, 0644)
+    check(err)
+
 }
 
 func appendFilePath(filePaths []string, filePath string) ([]string) {
