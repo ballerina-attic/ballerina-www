@@ -195,7 +195,18 @@ For more information on how to structure the code you write, see [How to Structu
 ### Learn More
 You can create connectors for a range of protocols and interfaces, including those endpoints which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
 
-**** TODO - ADD LIST OF PRODUCTION CONNECTORS AS EXAMPLES
+1. A [Hello Gatsby client](https://github.com/muthulee/package-twilio-super-simple/blob/master/hello/hello_world_endpoint.bal), which is a minimal custom client.
+2. ballerina/http Client [source code](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/ballerina-http/src/main/ballerina/http/client_endpoint.bal).
+3. Source code for a [Salesforce client connector](https://github.com/wso2-ballerina/package-salesforce).
+4. Source code for a [GitHub client connector](https://github.com/wso2-ballerina/package-github).
+5. Source code for a [Jira client connector](https://github.com/wso2-ballerina/package-jira).
+6. Source code for a [Sonaqube client connector](https://github.com/wso2-ballerina/package-sonarqube).
+7. Source code for a [SCIM2 client connector](https://github.com/wso2-ballerina/package-scim2).
+8. Source code for a [Gmail client connector](https://github.com/wso2-ballerina/package-gmail).
+9. Source code for a [Google Spreadsheet client connector](https://github.com/wso2-ballerina/package-googlespreadsheet).
+10. Source code for a [Twitter client connector](https://github.com/wso2-ballerina/package-twitter).
+11. Source code for a [gRPC client connector](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/ballerina-grpc/src/main/ballerina/grpc/client_endpoint.bal).
+12. Source code for a [MySQL client connector](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/database/ballerina-mysql/src/main/ballerina/mysql/mysql_endpoint.bal).
 
 ## Create Server Listeners
 
