@@ -190,7 +190,7 @@ Once you have built the package, you can `ballerina push <org-name>/<package-nam
 
 You will need to have an account at Ballerina Central and your CLI token from central placed into your Ballerina settings. The `ballerina deploy` command will initiate an OAuth flow that automates this for you, even if you do not already have an existing account on Ballerina Central.
 
-**** INSERT LINK TO STRUCTURE BALLERINA CODE HERE
+For more information on how to structure the code you write, see [How to Structure Ballerina Code](/how-to-structure-ballerina-code/.)
 
 ### Learn More
 You can create connectors for a range of protocols and interfaces, including those endpoints which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:

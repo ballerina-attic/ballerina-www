@@ -56,6 +56,10 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.typekit.net/son4ymv.css">
+
+        <script type="text/javascript" src="/js/highlight.pack.js"></script>
+        <link rel="stylesheet" href="/css/highlight.css">
+
         <script src="/js/ballerina-common.js"></script>
         <link rel=stylesheet href="/css/ballerina-io.css">
         <link rel=stylesheet href="/css/ballerina-io-bbe.css">
@@ -202,48 +206,51 @@
         <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
         </div>
         <script>
-                 $(document).ready(function () {
 
-                     $(".switch").click(function () {
-                         $(".cCodeRight").toggleClass('cShow');
-                         $(".cCodeLeft").toggleClass('cHide');
-                     });
+             hljs.initHighlightingOnLoad();
 
-                     // register "copy to clipboard" event to elements with "copy" class
-                     var clipboard = new ClipboardJS('.copy', {
-                         text: function(trigger) {
-                             return $('.FullCode').find('pre').text();
-                         }
-                     });
+             $(document).ready(function () {
 
-                     // Register events show hide tooltip on click event
-                     clipboard.on('success', function(e) {
-                         setTooltip(e.trigger, 'Copied!');
-                         hideTooltip(e.trigger);
-                     });
-
-                     clipboard.on('error', function(e) {
-                         setTooltip(e.trigger, 'Failed!');
-                         hideTooltip(e.trigger);
-                     });
-
-                     $('.copy').tooltip({
-                         trigger: 'click',
-                         placement: 'bottom'
-                     });
-                     $( "a.copy").unbind( "click" );
+                 $(".switch").click(function () {
+                     $(".cCodeRight").toggleClass('cShow');
+                     $(".cCodeLeft").toggleClass('cHide');
                  });
 
-                 function setTooltip(btn, message) {
-                     $(btn).attr('data-original-title', message)
-                             .tooltip('show');
-                 }
+                 // register "copy to clipboard" event to elements with "copy" class
+                 var clipboard = new ClipboardJS('.copy', {
+                     text: function(trigger) {
+                         return $('.FullCode').find('pre').text();
+                     }
+                 });
 
-                 function hideTooltip(btn) {
-                     setTimeout(function() {
-                         $(btn).tooltip('hide').removeAttr('data-original-title');
-                     }, 1000);
-                 }
+                 // Register events show hide tooltip on click event
+                 clipboard.on('success', function(e) {
+                     setTooltip(e.trigger, 'Copied!');
+                     hideTooltip(e.trigger);
+                 });
+
+                 clipboard.on('error', function(e) {
+                     setTooltip(e.trigger, 'Failed!');
+                     hideTooltip(e.trigger);
+                 });
+
+                 $('.copy').tooltip({
+                     trigger: 'click',
+                     placement: 'bottom'
+                 });
+                 $( "a.copy").unbind( "click" );
+             });
+
+             function setTooltip(btn, message) {
+                 $(btn).attr('data-original-title', message)
+                         .tooltip('show');
+             }
+
+             function hideTooltip(btn) {
+                 setTimeout(function() {
+                     $(btn).tooltip('hide').removeAttr('data-original-title');
+                 }, 1000);
+             }
 
 
         </script>

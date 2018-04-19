@@ -1,170 +1,165 @@
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
 <head>
 
-  {%- block site_meta %}
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%- block site_meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% if page and page.is_homepage %}
+    <meta name="description" content="{{ config.site_description }}">{% endif %} {% if config.site_author %}
+    <meta name="author" content="{{ config.site_author }}">{% endif %} {% if config.site_favicon %}
+    <link rel="shortcut icon" href="{{ base_url }}/{{ config.site_favicon }}"> {% else %}
+    <link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %} {%- endblock %} {%- block htmltitle %}
+    <title>{% if page and page.title and not page.is_hompage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+    {%- endblock %} {%- block styles %}
 
-  {% if page and page.is_homepage %}<meta name="description" content="{{ config.site_description }}">{% endif %}
-  {% if config.site_author %}<meta name="author" content="{{ config.site_author }}">{% endif %}
-  {% if config.site_favicon %}<link rel="shortcut icon" href="{{ base_url }}/{{ config.site_favicon }}">
-  {% else %}<link rel="shortcut icon" href="{{ base_url }}/img/favicon.ico">{% endif %}
-  {%- endblock %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  {%- block htmltitle %}
-  <title>{% if page and page.title and not page.is_hompage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
-  {%- endblock %}
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-  {%- block styles %}
+        gtag('config', 'UA-92163714-2');
+    </script>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PSL2TX4');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script src="/js/moment-2.22.0/moment.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    {% if page and page.title == 'Archived' %}
+    <script src="/js/handlebars-4.0.5/handlebars.js"></script>
+    <script src="/js/download/archived_download.js"></script>
+    {% endif %}
+    <script>
+        var base_url = "";
+    </script>
+    <script src="/search/require.js"></script>
+    <script src="{{ base_url }}/js/vs/grammer.js"></script>
+    <script src="{{ base_url }}/js/vs/loader.js"></script>
 
-    gtag('config', 'UA-92163714-2');
-  </script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-PSL2TX4');</script>
-  <!-- End Google Tag Manager -->
-<script src="/js/moment-2.22.0/moment.min.js"></script>
-<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-  {% if page and page.title == 'Archived' %}
-  <script src="/js/handlebars-4.0.5/handlebars.js"></script>
-  <script src="/js/download/archived_download.js"></script>
-  {% endif %}
-<script>var base_url = "";</script>
-  <script src="/search/require.js"></script>
-<script src="{{ base_url }}/js/vs/grammer.js"></script>
-<script src="{{ base_url }}/js/vs/loader.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://use.typekit.net/son4ymv.css">
+    <!-- <link rel="stylesheet" href="{{ base_url }}/js/vs/editor/editor.main.css">-->
 
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      <!-- Optional theme -->
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="/css/highlight.css">
 
-      <link rel="stylesheet" href="https://use.typekit.net/son4ymv.css">
-<!-- <link rel="stylesheet" href="{{ base_url }}/js/vs/editor/editor.main.css">-->
-  <script src="/js/ballerina-common.js"></script>
-
-  <script type="text/javascript" src="/js/highlight.pack.js"></script>
-  <link rel="stylesheet" href="/css/highlight.css">
-
-   <link rel="stylesheet" href="{{ base_url }}/css/ballerina-io.css">
-  {%- for path in extra_css %}
-<!--  <link href="{{ path }}" rel="stylesheet">-->
-  {%- endfor %}
-  {%- endblock %}
-
-  {%- block libs %}
-  {% if page %}
-  <script>
-    // Current page data
-    var mkdocs_page_name = {{ page.title|tojson|safe }};
-    var mkdocs_page_input_path = {{ page.input_path|tojson|safe }};
-    var mkdocs_page_url = {{ page.abs_url|tojson|safe }};
-    var base_download_url = "{{config.extra.base_download_url}}";
-    var nightly_download_url = "{{config.extra.nightly_download_url}}";
-    var archived_versions_json = "{{config.extra.archived_versions_json}}";
-    var releaseNoteFilename = "{{config.extra.archived_release_note_html}}";
-    var nightly_versions_json = "{{config.extra.nightly_versions_json}}";
-    var latest_versions_json = "{{config.extra.latest_versions_json}}";
-  </script>
-  {% endif %}
-
-  {%- endblock %}
-
-  {%- block extrahead %} {% endblock %}
-
-  {%- block analytics %}
-  {% if config.google_analytics %}
-
-  {% endif %}
-  {%- endblock %}
+    <script src="/js/ballerina-common.js"></script>
+    <link rel="stylesheet" href="{{ base_url }}/css/ballerina-io.css"> {%- for path in extra_css %}
+    <!--  <link href="{{ path }}" rel="stylesheet">-->
+    {%- endfor %} {%- endblock %} {%- block libs %} {% if page %}
+    <script>
+        // Current page data
+        var mkdocs_page_name = '{{ page.title | tojson | safe }}'.replace(/^"|"$/g, '');
+        var mkdocs_page_input_path = '{{ page.input_path | tojson | safe }}'.replace(/^"|"$/g, '');
+        var mkdocs_page_url = '{{ page.abs_url | tojson | safe }}'.replace(/^"|"$/g, '');
+        var base_download_url = '{{config.extra.base_download_url}}';
+        var nightly_download_url = '{{config.extra.nightly_download_url}}';
+        var archived_versions_json = '{{config.extra.archived_versions_json}}';
+        var releaseNoteFilename = '{{config.extra.archived_release_note_html}}';
+        var nightly_versions_json = '{{config.extra.nightly_versions_json}}';
+        var latest_versions_json = '{{config.extra.latest_versions_json}}';
+    </script>
+    {% endif %} {%- endblock %} {%- block extrahead %} {% endblock %} {%- block analytics %} {% if config.google_analytics %} {% endif %} {%- endblock %}
 
 </head>
 
 <body class="cBallerina-io" role="document">
 
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+    <!-- End Google Tag Manager (noscript) -->
 
-      {% include "navigation.html" %}
+    {% include "navigation.html" %} {{ page.content }} {% include "footer.html" %}
 
-     {{ page.content }}
-
-       {% include "footer.html" %}
-
-<script>
-
-    require.config({ paths: { 'vs': '../js/vs/' }});
-	require(['vs/editor/editor.main'], function() {
-            monaco.languages.register({ id:'ballerina' });
+    <script>
+        require.config({
+            paths: {
+                'vs': '../js/vs/'
+            }
+        });
+        require(['vs/editor/editor.main'], function() {
+            monaco.languages.register({
+                id: 'ballerina'
+            });
             monaco.languages.setMonarchTokensProvider('ballerina', ballerina_grammar);
 
-            monaco.editor.defineTheme('myTheme',  ballerina_theme);
+            monaco.editor.defineTheme('myTheme', ballerina_theme);
             monaco.editor.setTheme('myTheme');
 
-            var editor1 = monaco.editor.create(document.getElementById("ballerina_grammar"),Object.assign({
-                   value: "function hello() {\n\talert('Hello world 2 !');\n}",
-                   language: "ballerina"
+            var editor1 = monaco.editor.create(document.getElementById("ballerina_grammar"), Object.assign({
+                value: "function hello() {\n\talert('Hello world 2 !');\n}",
+                language: "ballerina"
 
 
-                }, codeEditor));
+            }, codeEditor));
 
-var editor2 = monaco.editor.create(document.getElementById("ballerina_grammar_2"), Object.assign({
-                   value: "function hello() {\n\talert('Hello world 2 !');\n}",
-                   language: "ballerina"
-
-
-                }, codeEditor));
-
-});
+            var editor2 = monaco.editor.create(document.getElementById("ballerina_grammar_2"), Object.assign({
+                value: "function hello() {\n\talert('Hello world 2 !');\n}",
+                language: "ballerina"
 
 
+            }, codeEditor));
+
+        });
 
 
-$(function () {
 
-                var pathname = window.location.pathname;
 
-                  if(pathname.indexOf("learn") != -1){
-$("#learnli").addClass("cActive");
-}
-else if(pathname.indexOf("blog") != -1){
-$("#blogli").addClass("cActive");
-}
-else if(pathname.indexOf("philosophy") != -1){
-$("#philosophyli").addClass("cActive");
-}
-else if(pathname.indexOf("open") != -1){
-$("#openli").addClass("cActive");
-}
-else if(pathname.indexOf("help") != -1){
-$("#helpli").addClass("cActive");
-}
+        $(function() {
 
-            });
+            var pathname = window.location.pathname;
 
-  </script>
-  <script src="/search/search.js"></script>
+            if (pathname.indexOf("learn") != -1) {
+                $("#learnli").addClass("cActive");
+            } else if (pathname.indexOf("blog") != -1) {
+                $("#blogli").addClass("cActive");
+            } else if (pathname.indexOf("philosophy") != -1) {
+                $("#philosophyli").addClass("cActive");
+            } else if (pathname.indexOf("open") != -1) {
+                $("#openli").addClass("cActive");
+            } else if (pathname.indexOf("help") != -1) {
+                $("#helpli").addClass("cActive");
+            }
+
+        });
+    </script>
+    <script src="/search/search.js"></script>
 
 
 </body>
+
 </html>
 {% if page and page.is_homepage %}
 <!--

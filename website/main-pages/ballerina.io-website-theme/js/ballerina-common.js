@@ -1,3 +1,106 @@
+function subscribeUser(email) {
+    $('#subscribeUserMessage').remove("");
+    if (email == "") {
+        $('.cFormContainer').append('<span id="subscribeUserMessage">Please enter your email</span>');
+    } else if (!isEmail(email)) {
+        $('.cFormContainer').append('<span id="subscribeUserMessage">Please enter a valid email</span>');
+    } else {
+        $('.cFieldContainer').hide();
+        $('.cButtonContainer').hide();
+        $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl979?email=" + email + "'></iframe>");
+        $('.cFormContainer').append('<span id="subscribeUserMessage" class="success">Thank you! Stay tuned for updates on Ballerina.</span>');
+        $("#emailUser").val("");
+    }
+    return;
+}
+
+function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+}
+
+function formatDate(date, format) {
+    if (!format) {
+        return moment(date, "YYYY-MM-DD").format('MMM DD, Y');
+    } else {
+        return moment(date, "YYYY-MM-DD").format(format);
+    }
+}
+
+/*
+ * Register ballerina language for highlightJS
+ * Grammer: https://github.com/ballerina-platform/ballerina-lang/blob/master/compiler/ballerina-lang/src/main/resources/grammar/BallerinaLexer.g4
+ */
+if (typeof hljs === 'object') {
+    hljs.registerLanguage('ballerina', function() {
+        return {
+            "k": "package import as public private native service resource function object annotation parameter transformer worker endpoint " +
+                "bind xmlns returns version documentation deprecated new if else match foreach while next break fork join some all timeout " +
+                "try catch finally throw return transaction abort fail onretry retries onabort oncommit lengthof with in lock untaint start await but check",
+            "i": {},
+            "c": [{
+                "cN": "ballerinadoc",
+                "b": "/\\*\\*",
+                "e": "\\*/",
+                "r": 0,
+                "c": [{
+                    "cN": "ballerinadoctag",
+                    "b": "(^|\\s)@[A-Za-z]+"
+                }]
+            }, {
+                "cN": "comment",
+                "b": "//",
+                "e": "$",
+                "c": [{
+                    "b": {}
+                }, {
+                    "cN": "label",
+                    "b": "XXX",
+                    "e": "$",
+                    "eW": true,
+                    "r": 0
+                }]
+            }, {
+                "cN": "comment",
+                "b": "/\\*",
+                "e": "\\*/",
+                "c": [{
+                    "b": {}
+                }, {
+                    "cN": "label",
+                    "b": "XXX",
+                    "e": "$",
+                    "eW": true,
+                    "r": 0
+                }, "self"]
+            }, {
+                "cN": "string",
+                "b": "\"",
+                "e": "\"",
+                "i": "\\n",
+                "c": [{
+                    "b": "\\\\[\\s\\S]",
+                    "r": 0
+                }, {
+                    "cN": "constant",
+                    "b": "\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]",
+                    "r": 0
+                }]
+            }, {
+                "cN": "number",
+                "b": "(\\b(0b[01_]+)|\\b0[xX][a-fA-F0-9_]+|(\\b[\\d_]+(\\.[\\d_]*)?|\\.[\\d_]+)([eE][-+]?\\d+)?)[lLfF]?",
+                "r": 0
+            }, {
+                "cN": "annotation",
+                "b": "@[A-Za-z]+"
+            }, {
+                "cN": "type",
+                "b": "\\b(int|float|boolean|string|blob|map|jsonOptions|json|xml|table|stream|any|typedesc|type|future|var|error)",
+            }]
+        };
+    });
+}
+
 $(document).ready(function() {
 
     var menu = '<div class="container">' +
@@ -78,10 +181,8 @@ $(document).ready(function() {
         '<p>In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Go, Kotlin, Java, Rust, Bootstrap, JavaScript, Jenkins, NPM, Crates, Maven, Gradle, Kubernetes, Envoy, Docker, Microsoft VS Code, Jetbrains IntelliJ, Eclipse Che, WSO2, mkdocs and GitHub.</div>' +
         '</div>';
 
-
     $('#iMainNavigation').append(menu);
     $('#iBallerinaFooter').append(footer);
-
 
     $("code").addClass('cBasicCode');
     $(".ballerina").removeClass('cBasicCode');
@@ -96,14 +197,12 @@ $(document).ready(function() {
 
     });
 
-
     $(".cDEPLOYMENT").click(function() {
         $(".cRuntimeContent").removeClass('cShow');
         $(".cDeploymentContent").addClass('cShow');
         $(".cLifecycleContent").removeClass('cShow');
 
     });
-
 
     $(".cLIFECYCLE").click(function() {
         $(".cRuntimeContent").removeClass('cShow');
@@ -120,7 +219,6 @@ $(document).ready(function() {
 
     });
 
-
     $(".cCONCURRENCY").click(function() {
         $(".cSEQUENCEContent").removeClass('cShow');
         $(".cCONCURRENCYContent").addClass('cShow');
@@ -128,14 +226,11 @@ $(document).ready(function() {
 
     });
 
-
     $(".cTYPE").click(function() {
         $(".cSEQUENCEContent").removeClass('cShow');
         $(".cCONCURRENCYContent").removeClass('cShow');
         $(".cTYPEContent").addClass('cShow');
     });
-
-
 
     $(".cSerachIcon").click(function() {
         $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
@@ -144,7 +239,9 @@ $(document).ready(function() {
         }
     });
 
-    //subscribe form
+    /*
+     * subscribe form
+     */
     $("#subscribeUserButton").click(function(event) {
         event.preventDefault();
         subscribeUser($(this).val());
@@ -158,32 +255,20 @@ $(document).ready(function() {
             $(this).removeAttr("disabled");
         }
     });
-});
 
-function subscribeUser(email) {
-    $('#subscribeUserMessage').remove("");
-    if (email == "") {
-        $('.cFormContainer').append('<span id="subscribeUserMessage">Please enter your email</span>');
-    } else if (!isEmail(email)) {
-        $('.cFormContainer').append('<span id="subscribeUserMessage">Please enter a valid email</span>');
-    } else {
-        $('.cFieldContainer').hide();
-        $('.cButtonContainer').hide();
-        $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl979?email=" + email + "'></iframe>");
-        $('.cFormContainer').append('<span id="subscribeUserMessage" class="success">Thank you! Stay tuned for updates on Ballerina.</span>');
-        $("#emailUser").val("");
-    }
-    return;
-}
+    $(".cBallerina-io-packages").click(function() {
+        $(".cCollaps-Menu").toggleClass('cOpenMenu');
+        $(".cBallerina-io-packages").toggleClass('cOpenMenu');
+    });
 
-function isEmail(email) {
-    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    return regex.test(email);
-}
-/*
-Following script is adding line numbers to the ballerina code blocks in the gneerated documentation
-*/
-$(document).ready(function() {
+    $(".cBallerina-io-primitive-types").click(function() {
+        $(".cCollaps-Menu-first").toggleClass('cOpenMenu');
+        $(".cBallerina-io-primitive-types").toggleClass('cOpenMenu');
+    });
+
+    /*
+     * Following script is adding line numbers to the ballerina code blocks in the gneerated documentation
+     */
     $('pre > code.ballerina').each(function() {
         //cont the number of rows
         //Remove the new line from the end of the text
@@ -234,26 +319,5 @@ $(document).ready(function() {
             }
         });
     });
-})
 
-function formatDate(date, format) {
-    if (!format) {
-        return moment(date, "YYYY-MM-DD").format('MMM DD, Y');
-    } else {
-        return moment(date, "YYYY-MM-DD").format(format);
-    }
-}
-
-
-   $(document).ready(function() {
-            $(".cBallerina-io-packages").click(function() {
-                $(".cCollaps-Menu").toggleClass('cOpenMenu');
-                $(".cBallerina-io-packages").toggleClass('cOpenMenu');
-            });
-            
-            $(".cBallerina-io-primitive-types").click(function() {
-                $(".cCollaps-Menu-first").toggleClass('cOpenMenu');
-                $(".cBallerina-io-primitive-types").toggleClass('cOpenMenu');
-             });
-    });
-
+});
