@@ -15,6 +15,7 @@
  */
 package org.ballerinalang.platform.playground.launcher.core.util;
 
+import com.google.gson.Gson;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
@@ -38,15 +39,18 @@ public class LauncherUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(LauncherUtils.class);
 
+    private static Gson gson = new Gson();
+
     public static void markNodeAsFree() {
         StatusUpdateRequest statusUpdateRequest = new StatusUpdateRequest();
         statusUpdateRequest.setStatus(MemberConstants.MEMBER_STATUS_FREE);
+        String request = gson.toJson(statusUpdateRequest);
 
         try {
             HttpClient client = HttpClients.createDefault();
             HttpPost post = new HttpPost(getControllerURL());
-            HttpEntity reqEntity = new StringEntity(statusUpdateRequest.toString(), ContentType.APPLICATION_JSON);
-            logger.info("Using request: "+ statusUpdateRequest.toString());
+            HttpEntity reqEntity = new StringEntity(request, ContentType.APPLICATION_JSON);
+            logger.info("Using request: "+ request);
             post.setEntity(reqEntity);
             HttpResponse response = client.execute(post);
             if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
