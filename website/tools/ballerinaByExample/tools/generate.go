@@ -152,6 +152,30 @@ type Example struct {
     GithubLink          string
 }
 
+type BBEMeta struct {
+    Name string `json:"name"`
+    Url  string `json:"url"`
+}
+
+type BBECategory struct {
+    Title string      `json:"title"`
+    Column int        `json:"column"`
+    Samples []BBEMeta `json:"samples"`
+}
+
+func getBBECategories() []BBECategory {
+    allBBEsFile := "tools/ballerinaByExample/tools/all-bbes.json"
+    rawCategories, err := ioutil.ReadFile(allBBEsFile)
+    if err != nil {
+        fmt.Fprintln(os.Stderr, "[ERROR] An error occured while processing : "+allBBEsFile,err)
+        os.Exit(1)
+    }
+
+    var categories []BBECategory
+    json.Unmarshal(rawCategories, &categories)
+    return categories
+}
+
 func parseHashFile(sourcePath string) (string, string) {
     lines := readLines(sourcePath)
     return lines[0], lines[1]
@@ -274,18 +298,16 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string, string) {
     return segs, filecontent, completeCode
 }
 
-func  parseExamples() []*Example {
-    exampleNames := readLines(examplesDir + "/" + "examples.txt")
+func  parseExamples(categories []BBECategory) []*Example {
     examples := make([]*Example, 0)
-    for _, exampleName := range exampleNames {
-        fmt.Fprintln(os.Stdout, "processing bbe: " + exampleName)
-        if (exampleName != "") && !strings.HasPrefix(exampleName, "#") {
+    for _, category := range categories {
+        samples := category.Samples
+        fmt.Println("Processing BBE Category : " + category.Title )
+        for _, bbeMeta := range samples {
+            exampleName := bbeMeta.Name
+            exampleId := bbeMeta.Url
+            fmt.Fprintln(os.Stdout, "processing bbe: " + exampleName )
             example := Example{Name: exampleName}
-            exampleId := strings.ToLower(exampleName)
-            exampleId = strings.Replace(exampleId, " ", "-", -1)
-            exampleId = strings.Replace(exampleId, "/", "-", -1)
-            exampleId = strings.Replace(exampleId, "'", "", -1)
-            exampleId = dashPat.ReplaceAllString(exampleId, "-")
             example.Id = exampleId
             example.Segs = make([][]*Seg, 0)
             sourcePaths := mustGlob(examplesDir + "/" + "examples/" + exampleId + "/*")
@@ -416,8 +438,9 @@ func renderExamples(examples []*Example) {
 
 func generateJSON(renderedBBEs []string) {
     urlsJson, _ := json.Marshal(renderedBBEs)
-    fmt.Println("Creating a json file of successful BBEs in : " +siteDir+"/bbes.json")
-    err := ioutil.WriteFile(siteDir+"/bbes.json", urlsJson, 0644)
+    builtBBEsFile := siteDir+"/built-bbes.json"
+    fmt.Println("Creating a json file of successful BBEs in : " + builtBBEsFile)
+    err := ioutil.WriteFile(builtBBEsFile, urlsJson, 0644)
     check(err)
 
 }
@@ -451,7 +474,9 @@ func main() {
     copyFile("tools/ballerinaByExample/templates/favicon.ico", siteDir+"/favicon.ico")
     copyFile("tools/ballerinaByExample/templates/404.html", siteDir+"/404.html")
     copyFile("tools/ballerinaByExample/templates/play.png", siteDir+"/play.png")
-    examples := parseExamples()
+    copyFile("tools/ballerinaByExample/tools/all-bbes.json", siteDir+"/all-bbes.json")
+    bbeCategories := getBBECategories()
+    examples := parseExamples(bbeCategories)
     renderIndex(examples)
     renderExamples(examples)
 }
