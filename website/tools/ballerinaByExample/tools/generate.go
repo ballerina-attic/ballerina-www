@@ -241,7 +241,23 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string, string) {
             seg.DocsRendered = markdown(seg.Docs)
         }
         if seg.Code != "" {
-            seg.CodeRendered = cachedPygmentize(lexer, seg.Code)
+            var matchOpenSpan = regexp.MustCompile("<span(?: [^>]*)?>")
+            var matchCloseSpan = regexp.MustCompile("</span>")
+            var matchOpenPre = regexp.MustCompile("<pre>")
+            var matchClosePre = regexp.MustCompile("</pre>")
+            var codeCssClass = "ballerina"
+
+            if(seg.IsConsoleOutput){
+                codeCssClass = "shell-session"
+            }
+
+            openSpanCleanedString := matchOpenSpan.ReplaceAllString(cachedPygmentize(lexer, seg.Code), "")
+            closeSpanCleanedString := matchCloseSpan.ReplaceAllString(openSpanCleanedString, "")
+            openWrapString := matchOpenPre.ReplaceAllString(closeSpanCleanedString, "<pre><code class=" + codeCssClass + ">")
+            closeWrapString := matchClosePre.ReplaceAllString(openWrapString, "</code></pre>")
+
+            seg.CodeRendered = closeWrapString
+            
             if (!ignoreSegment) {
                 if (!strings.Contains(seg.Code, "$ ")) {
                     completeCode = completeCode + seg.Code
