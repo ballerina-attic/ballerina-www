@@ -31,73 +31,75 @@ function formatDate(date, format) {
  * Register ballerina language for highlightJS
  * Grammer: https://github.com/ballerina-platform/ballerina-lang/blob/master/compiler/ballerina-lang/src/main/resources/grammar/BallerinaLexer.g4
  */
-hljs.registerLanguage('ballerina', function() {
-    return {
-        "k": "package import as public private native service resource function object annotation parameter transformer worker endpoint " +
-            "bind xmlns returns version documentation deprecated new if else match foreach while next break fork join some all timeout " +
-            "try catch finally throw return transaction abort fail onretry retries onabort oncommit lengthof with in lock untaint start await but check",
-        "i": {},
-        "c": [{
-            "cN": "ballerinadoc",
-            "b": "/\\*\\*",
-            "e": "\\*/",
-            "r": 0,
+if (typeof hljs === 'object') {
+    hljs.registerLanguage('ballerina', function() {
+        return {
+            "k": "package import as public private native service resource function object annotation parameter transformer worker endpoint " +
+                "bind xmlns returns version documentation deprecated new if else match foreach while next break fork join some all timeout " +
+                "try catch finally throw return transaction abort fail onretry retries onabort oncommit lengthof with in lock untaint start await but check",
+            "i": {},
             "c": [{
-                "cN": "ballerinadoctag",
-                "b": "(^|\\s)@[A-Za-z]+"
-            }]
-        }, {
-            "cN": "comment",
-            "b": "//",
-            "e": "$",
-            "c": [{
-                "b": {}
+                "cN": "ballerinadoc",
+                "b": "/\\*\\*",
+                "e": "\\*/",
+                "r": 0,
+                "c": [{
+                    "cN": "ballerinadoctag",
+                    "b": "(^|\\s)@[A-Za-z]+"
+                }]
             }, {
-                "cN": "label",
-                "b": "XXX",
+                "cN": "comment",
+                "b": "//",
                 "e": "$",
-                "eW": true,
-                "r": 0
-            }]
-        }, {
-            "cN": "comment",
-            "b": "/\\*",
-            "e": "\\*/",
-            "c": [{
-                "b": {}
+                "c": [{
+                    "b": {}
+                }, {
+                    "cN": "label",
+                    "b": "XXX",
+                    "e": "$",
+                    "eW": true,
+                    "r": 0
+                }]
             }, {
-                "cN": "label",
-                "b": "XXX",
-                "e": "$",
-                "eW": true,
-                "r": 0
-            }, "self"]
-        }, {
-            "cN": "string",
-            "b": "\"",
-            "e": "\"",
-            "i": "\\n",
-            "c": [{
-                "b": "\\\\[\\s\\S]",
+                "cN": "comment",
+                "b": "/\\*",
+                "e": "\\*/",
+                "c": [{
+                    "b": {}
+                }, {
+                    "cN": "label",
+                    "b": "XXX",
+                    "e": "$",
+                    "eW": true,
+                    "r": 0
+                }, "self"]
+            }, {
+                "cN": "string",
+                "b": "\"",
+                "e": "\"",
+                "i": "\\n",
+                "c": [{
+                    "b": "\\\\[\\s\\S]",
+                    "r": 0
+                }, {
+                    "cN": "constant",
+                    "b": "\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]",
+                    "r": 0
+                }]
+            }, {
+                "cN": "number",
+                "b": "(\\b(0b[01_]+)|\\b0[xX][a-fA-F0-9_]+|(\\b[\\d_]+(\\.[\\d_]*)?|\\.[\\d_]+)([eE][-+]?\\d+)?)[lLfF]?",
                 "r": 0
             }, {
-                "cN": "constant",
-                "b": "\\\\[abfnrtv]\\|\\\\x[0-9a-fA-F]*\\\\\\|%[-+# *.0-9]*[dioxXucsfeEgGp]",
-                "r": 0
+                "cN": "annotation",
+                "b": "@[A-Za-z]+"
+            }, {
+                "cN": "type",
+                "b": "\\b(int|float|boolean|string|blob|map|jsonOptions|json|xml|table|stream|any|typedesc|type|future|var|error)",
             }]
-        }, {
-            "cN": "number",
-            "b": "(\\b(0b[01_]+)|\\b0[xX][a-fA-F0-9_]+|(\\b[\\d_]+(\\.[\\d_]*)?|\\.[\\d_]+)([eE][-+]?\\d+)?)[lLfF]?",
-            "r": 0
-        }, {
-            "cN": "annotation",
-            "b": "@[A-Za-z]+"
-        }, {
-            "cN": "type",
-            "b": "\\b(int|float|boolean|string|blob|map|jsonOptions|json|xml|table|stream|any|typedesc|type|future|var|error)",
-        }]
-    };
-});
+        };
+    });
+}
 
 $(document).ready(function() {
 
