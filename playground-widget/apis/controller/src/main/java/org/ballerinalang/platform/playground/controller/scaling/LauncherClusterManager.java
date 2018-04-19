@@ -111,10 +111,10 @@ public class LauncherClusterManager {
             // tail
             urlsToScaleDown.sort((o1, o2) -> {
                 int mySuffix = Integer.parseInt(o1.split("\\.")[0].substring(
-                        (Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
+                        (Constants.LAUNCHER_URL_PREFIX + "-").length()));
 
                 int theirSuffix = Integer.parseInt(o2.split("\\.")[0].substring(
-                        (Constants.BPG_APP_TYPE_LAUNCHER + "-").length()));
+                        (Constants.LAUNCHER_URL_PREFIX + "-").length()));
 
                 return Integer.compare(mySuffix, theirSuffix);
             });
