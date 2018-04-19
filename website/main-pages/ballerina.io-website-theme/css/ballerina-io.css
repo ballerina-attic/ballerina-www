@@ -783,67 +783,38 @@ pre code {
     background-color: #F5F6F6;
 }
 
-.hljs-comment,
-.highlight .c,
-.highlight .c1,
-.highlight .cm,
-.highlight .cp {
+.ballerina .hljs {
+    color: #6A6868;
+}
+
+.ballerina .hljs-comment {
     color: #afafaf;
 }
 
-.hljs-keyword,
-.highlight .nt,
-.highlight .nc,
-.highlight .nb,
-.highlight .kd,
-.highlight .kn {
+.ballerina .hljs-keyword {
     color: #28aae1;
     font-weight: normal;
 }
 
-.hljs-string,
-.hljs-label,
-.hljs-tag .hljs-value,
-.hljs-phpdoc,
-.hljs-dartdoc,
-.tex .hljs-formula,
-.highlight .s,
-.highlight .m,
-.highlight .s1,
-.highlight .s2 {
+.ballerina .hljs-string,
+.ballerina .hljs-label,
+.ballerina .hljs-tag .hljs-value,
+.ballerina .hljs-phpdoc,
+.ballerina .hljs-dartdoc,
+.ballerina .tex .hljs-formula {
     color: #005BD1;
 }
 
-.hljs-type,
-.highlight .k,
-.cOutputTr .highlight .nt,
-.cOutputTr .highlight .nc,
-.cOutputTr .highlight .nb,
-.cOutputTr .highlight .s1,
-.cOutputTr .highlight .s2 {
+.ballerina .hljs-type {
     color: #20b6b0;
 }
 
-.hljs-annotation,
-.highlight .nd {
+.ballerina .hljs-number {
+    color: #008080;
+}
+
+.ballerina .hljs-annotation {
     color: #005BD1;
-}
-
-.highlight .p,
-.hljs {
-    color: #6A6868;
-}
-
-.highlight .kc {
-    color: #15a5a5;
-}
-
-.highlight .mi {
-    color: #09885a;
-}
-
-.highlight .kt {
-    color: #20b6b0;
 }
 
 .rst-content table.docutils td,
@@ -858,17 +829,46 @@ pre code {
 
 .cBBE-body tr:not(.cOutputTr)>td.code {
     background: url("../img/code-bg.gif") #f5f6f6 repeat-y 0 0;
+    vertical-align: top;
 }
 
-.cBBE-body tr.cOutputTr>td.code>.bbe-code-line-numbers {
+.cBBE-body tr:not(.cOutputTr)>td.code code {
+    background-color: transparent;
+}
+
+.cBBE-body tr.cOutputTr>td.code .bbe-code-line-numbers,
+.cBBE-body tr>td.code .line-numbers-wrap {
     display: none;
+}
+
+.cBBE-body tr.cOutputTr>td.code code {
+    background-color: transparent;
+    color: #3ad1ca;
+}
+
+.cBBE-body tr.cTR.hover-enable pre {
+    background-color: transparent;
+}
+
+.cBBE-body tr.cTR.hover-enable:hover td.code {
+    background-color: #cceeec;
+}
+
+.cBBE-body .cOutput {
+    background-color: #585a5e;
+}
+
+.cBBE-body .cOutput .highlight pre {
+    background-color: #585a5e;
+    color: #3ad1ca !important;
+    padding: 10px;
 }
 
 .bbe-code-line-numbers {
     position: absolute;
     left: 45px;
     z-index: 1;
-    margin-top: 2px;
+    margin-top: 4px;
     width: 30px;
     text-align: center;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
