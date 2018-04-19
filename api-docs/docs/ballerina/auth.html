@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'UA-92163714-2');
+      </script>
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-PSL2TX4');
+      </script>
+      <!-- End Google Tag Manager -->
+      <link rel="shortcut icon" href="/img/favicon.ico">
+      <title>Ballerina.io - API Docs</title>
+      <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+         crossorigin="anonymous">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+         crossorigin="anonymous">
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+         crossorigin="anonymous"></script>
+      <!-- Nanoscroller JS -->
+      <script src="docerina-theme/js/jquery.nanoscroller.min.js"></script>
+      <!-- Docerina JS -->
+      <script src="docerina-theme/js/docerina.js"></script>
+      <script type="text/javascript" src="/js/highlight.pack.js"></script>
+      <link rel="stylesheet" href="//use.typekit.net/son4ymv.css" />
+      
+      <link rel="stylesheet" href="/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
+      <link rel="stylesheet" href="/css/highlight.css">
+      <script type="text/javascript" src="/js/ballerina-common.js"></script>
+      <link rel="stylesheet" href="/css/ballerina-io.css">
+      <link rel="stylesheet" href="/css/ballerina-io-docs.css">
+      <link rel="stylesheet" href="/css/ballerina-io-api.css">
+      <script type="text/javascript" >
+         $(document).ready(function(){
+             $('pre > code.language-ballerina').each(function() {
+             //cont the number of rows
+             //Remove the new line from the end of the text
+             var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+             var lines = '<div class="line-numbers-wrap">';
+         
+             //Iterate all the lines and create div elements with line number
+             for (var i = 1; i <= numberOfLines; i++) {
+                 lines = lines + '<div class="line-number">' + i + '</div>';
+             }
+             lines = lines + '</div>';
+             //calculate <pre> height and set it to the container
+             var preHeight = numberOfLines*18 + 20;
+             $(this).parent()
+                 .height(preHeight)
+                 .addClass('ballerina-pre-wrapper')
+                 .prepend(
+                     $(lines)
+                 );
+             });
+             hljs.initHighlighting();
+         })
+         
+      </script>
+      <script>var base_url = "";</script>
+      <script src="/search/require.js"></script>
+   </head>
+   <body class="cBallerina-io" role="document">
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+      <div class="row cBallerina-io-top-row">
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
+            <div class="cTopLine"></div>
+         </div>
+      </div>
+      <div class="row cBallerina-io-Nav" id="iMainNavigation">
+      </div>
+      <div class="row cBallerina-io-Logo-row">
+         <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
+               <a class="cLogo" href="/">
+               <img src="/img/ballerina-logo.png" alt="Ballerina" />
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="row cBallerina-io-Gray-row">
+         <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+                 <div class="cBlallerina-io-docs-right-nav-container">
+                  <div class="cLectColStyle cLeftColTop">
+                      <div class="cBallerina-io-docs-Title cBallerina-io-x">BALLERINA X</div>
+                        <div class="cCollaps-Menu-first">
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#blob">
+                                            <span class="bold">blob</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#map">
+                                            <span class="bold">map</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#future">
+                                            <span class="bold">future</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#float">
+                                            <span class="bold">float</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#record">
+                                            <span class="bold">record</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#xml">
+                                            <span class="bold">xml</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#string">
+                                            <span class="bold">string</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#int">
+                                            <span class="bold">int</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#union">
+                                            <span class="bold">union</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#any">
+                                            <span class="bold">any</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#array">
+                                            <span class="bold">array</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#tuple">
+                                            <span class="bold">tuple</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#stream">
+                                            <span class="bold">stream</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#typedesc">
+                                            <span class="bold">typedesc</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#json">
+                                            <span class="bold">json</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#table">
+                                            <span class="bold">table</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#boolean">
+                                            <span class="bold">boolean</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                        </div>
+                  </div>
+                </div>
+                <div class="cBlallerina-io-docs-right-nav-container">
+                  <div class="cLectColStyle cLeftColTop">
+                      <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
+                        <div class="cCollaps-Menu-first">
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#blob">
+                                            <span class="bold">blob</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#map">
+                                            <span class="bold">map</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#future">
+                                            <span class="bold">future</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#float">
+                                            <span class="bold">float</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#record">
+                                            <span class="bold">record</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#xml">
+                                            <span class="bold">xml</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#string">
+                                            <span class="bold">string</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#int">
+                                            <span class="bold">int</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#union">
+                                            <span class="bold">union</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#any">
+                                            <span class="bold">any</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#array">
+                                            <span class="bold">array</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#tuple">
+                                            <span class="bold">tuple</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#stream">
+                                            <span class="bold">stream</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#typedesc">
+                                            <span class="bold">typedesc</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#json">
+                                            <span class="bold">json</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#table">
+                                            <span class="bold">table</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                                <ul class="">
+                                    <li>
+                                        <a href="primitive-types.html#boolean">
+                                            <span class="bold">boolean</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            
+                        </div>
+                  </div>
+                </div>
+                <div class="cBlallerina-io-docs-right-nav-container">
+                  <div class="cLectColStyle cLeftColTop">
+                  <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
+                     <div class="cCollaps-Menu">
+                     
+                     <ul class=" active-package">
+                        <li>
+                           <!--Package Name-->
+                            
+                           <a>ballerina/
+                           <span class="bold">auth</a>
+                            
+                           <div class="constructs-wrapper">
+                              <!--Construct of Package-->
+                              <ul class="constructs-ul">
+                                             
+                              </ul>
+                           </div>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="builtin.html">ballerina/<span class="bold">builtin</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="caching.html">ballerina/<span class="bold">caching</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="compression.html">ballerina/<span class="bold">compression</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="config.html">ballerina/<span class="bold">config</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="file.html">ballerina/<span class="bold">file</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="grpc.html">ballerina/<span class="bold">grpc</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="http.html">ballerina/<span class="bold">http</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="internal.html">ballerina/<span class="bold">internal</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="io.html">ballerina/<span class="bold">io</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="jwt.html">ballerina/<span class="bold">jwt</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="log.html">ballerina/<span class="bold">log</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="math.html">ballerina/<span class="bold">math</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="mime.html">ballerina/<span class="bold">mime</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="observe.html">ballerina/<span class="bold">observe</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="os.html">ballerina/<span class="bold">os</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="reflect.html">ballerina/<span class="bold">reflect</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="runtime.html">ballerina/<span class="bold">runtime</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="security.crypto.html">ballerina/<span class="bold">security.crypto</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="sql.html">ballerina/<span class="bold">sql</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="swagger.html">ballerina/<span class="bold">swagger</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="task.html">ballerina/<span class="bold">task</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="time.html">ballerina/<span class="bold">time</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="transactions.html">ballerina/<span class="bold">transactions</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="user.html">ballerina/<span class="bold">user</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                           
+                           <a href="util.html">ballerina/<span class="bold">util</span></a>
+                           
+                        </li>
+                     </ul>
+                     
+                     </div>
+                  </div>
+               </div>
+               <div class="cBlallerina-io-docs-left-nav-container">
+                  <div class="cSideBar-Button">
+                     <img src="/img/sidebar.svg" />
+                  </div>
+                  <div class="cLectColStyle">
+                     <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
+                     
+                     <ul class=" active-package">
+                        <li>
+                           <!--Package Name-->
+                            
+                           <a class="cPackageList">ballerina/<span class="bold">auth</a>
+                            
+                           <div class="constructs-wrapper">
+                              <!--Construct of Package-->
+                              <ul class="constructs-ul">
+                                 
+                                 <li>
+                                    <a href="#JWTAuthProviderConfig">
+                                       <div class="construct-icon">
+                                          <span class="fw-struct"> </span>
+                                       </div>
+                                       <div class="construct-name">
+                                          JWTAuthProviderConfig
+                                          
+                                       </div>
+                                    </a>
+                                 </li>
+                                  
+                                 <li>
+                                    <a href="#AuthProvider">
+                                       <div class="construct-icon">
+                                          <span class="fw-struct"> </span>
+                                       </div>
+                                       <div class="construct-name">
+                                          AuthProvider
+                                          
+                                       </div>
+                                    </a>
+                                 </li>
+                                 
+                                 <ul class="construct-inner-items-ul">
+                                    <li>
+                                       <a href="#AuthProvider-authenticate">
+                                          <div class="construct-icon">
+                                             <span class="fw-function"> </span>
+                                          </div>
+                                          <div class="construct-name">
+                                             authenticate
+                                          </div>
+                                       </a>
+                                    </li>
+                                 </ul>
+                                 
+                                 <ul class="construct-inner-items-ul">
+                                    <li>
+                                       <a href="#AuthProvider-getScopes">
+                                          <div class="construct-icon">
+                                             <span class="fw-function"> </span>
+                                          </div>
+                                          <div class="construct-name">
+                                             getScopes
+                                          </div>
+                                       </a>
+                                    </li>
+                                 </ul>
+                                  
+                                 <li>
+                                    <a href="#ConfigAuthProvider">
+                                       <div class="construct-icon">
+                                          <span class="fw-struct"> </span>
+                                       </div>
+                                       <div class="construct-name">
+                                          ConfigAuthProvider
+                                          
+                                       </div>
+                                    </a>
+                                 </li>
+                                 
+                                 <ul class="construct-inner-items-ul">
+                                    <li>
+                                       <a href="#ConfigAuthProvider-authenticate">
+                                          <div class="construct-icon">
+                                             <span class="fw-function"> </span>
+                                          </div>
+                                          <div class="construct-name">
+                                             authenticate
+                                          </div>
+                                       </a>
+                                    </li>
+                                 </ul>
+                                 
+                                 <ul class="construct-inner-items-ul">
+                                    <li>
+                                       <a href="#ConfigAuthProvider-getScopes">
+                                          <div class="construct-icon">
+                                             <span class="fw-function"> </span>
+                                          </div>
+                                          <div class="construct-name">
+                                             getScopes
+                                          </div>
+                                       </a>
+                                    </li>
+                                 </ul>
+                                  
+                                 <li>
+                                    <a href="#JWTAuthProvider">
+                                       <div class="construct-icon">
+                                          <span class="fw-struct"> </span>
+                                       </div>
+                                       <div class="construct-name">
+                                          JWTAuthProvider
+                                          
+                                       </div>
+                                    </a>
+                                 </li>
+                                 
+                                 <ul class="construct-inner-items-ul">
+                                    <li>
+                                       <a href="#JWTAuthProvider-authenticate">
+                                          <div class="construct-icon">
+                                             <span class="fw-function"> </span>
+                                          </div>
+                                          <div class="construct-name">
+                                             authenticate
+                                          </div>
+                                       </a>
+                                    </li>
+                                 </ul>
+                                  
+                              </ul>
+                           </div>
+                           
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                     <ul class=" ">
+                        <li>
+                           <!--Package Name-->
+                             
+                        </li>
+                     </ul>
+                     
+                  </div>
+               </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+               <div class="cBallerina-io-breadcrumbs">
+                  <div role="navigation" aria-label="breadcrumbs navigation">
+                     <ul class="wy-breadcrumbs">
+                        <li>
+                           <a href="/">Home</a>
+                        </li>
+                        <li>»</li>
+                        <li>
+                           <a href="/learn">Learn</a>
+                        </li>
+                        <li>»</li>
+                         <li>
+                           <a href="/learn/api-docs/">API Docs</a>
+                        </li>
+                        <li>»</li>
+                        <li><span class="bold">ballerina/auth</span> package </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="cBlallerina-io-docs-content-container">
+                  <div>
+                     <div>
+                        <div role="main">
+                           <div>
+                              <div id="content" class="nano">
+                                 <div class="nano-content">
+                                    <h1 class="thin-text padding-bottom">
+                                       <span class="bold">ballerina/auth</span>
+                                        package 
+                                    </h1>
+                                    
+                                    
+                                    <div class="construct-wrapper">
+                                       <!--Primitive Types-->
+                                       
+                                       <!-- Function -->
+                                       
+                                       <!-- Struct-binded functions grouped together -->
+                                       
+                                       <h2 id="JWTAuthProviderConfig">
+                                          <span class="fw-struct sm-icon"></span>
+                                          public object JWTAuthProviderConfig
+                                       </h2>
+                                       
+                                       <p>
+                                          <span class="fw-right gray xs-icon"></span>Represents JWT validator configurations
+                                       </p>
+                                        
+                                       <table>
+                                          <tr>
+                                             <th class="cAPI-table-name">Field Name</th>
+                                             <th class="cAPI-table-type">Data Type</th>
+                                             <th class="cAPI-table-default">Default Value</th>
+                                             <th class="cAPI-table-desc">Description</th>
+                                             
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="cAPI-table-name">issuer</td>
+                                             <td class="cAPI-table-type">string</td>
+                                             <td class="cAPI-table-default"></td>
+                                             <td class="cAPI-table-desc"></td>
+                                            
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="cAPI-table-name">audience</td>
+                                             <td class="cAPI-table-type">string</td>
+                                             <td class="cAPI-table-default"></td>
+                                             <td class="cAPI-table-desc"></td>
+                                            
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="cAPI-table-name">clockSkew</td>
+                                             <td class="cAPI-table-type">int</td>
+                                             <td class="cAPI-table-default"></td>
+                                             <td class="cAPI-table-desc"></td>
+                                            
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="cAPI-table-name">certificateAlias</td>
+                                             <td class="cAPI-table-type">string</td>
+                                             <td class="cAPI-table-default"></td>
+                                             <td class="cAPI-table-desc"></td>
+                                            
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="cAPI-table-name">trustStoreFilePath</td>
+                                             <td class="cAPI-table-type">string</td>
+                                             <td class="cAPI-table-default"></td>
+                                             <td class="cAPI-table-desc"></td>
+                                            
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="cAPI-table-name">trustStorePassword</td>
+                                             <td class="cAPI-table-type">string</td>
+                                             <td class="cAPI-table-default"></td>
+                                             <td class="cAPI-table-desc"></td>
+                                            
+                                          </tr>
+                                          
+                                       </table>
+                                         
+                                       <!-- Connectors and its actions -->
+                                       
+                                       <!-- Objects and its functions -->
+                                       
+                                       <!-- Enums-->
+                                       
+                                       <!-- Annotations-->
+                                       
+                                       <!-- Global Variables-->
+                                       
+                                    </div>
+                                    
+                                    <div class="construct-wrapper">
+                                       <!--Primitive Types-->
+                                       
+                                       <!-- Function -->
+                                       
+                                       <!-- Struct-binded functions grouped together -->
+                                       
+                                       <!-- Connectors and its actions -->
+                                       
+                                       <!-- Objects and its functions -->
+                                       
+                                       <h2 id="AuthProvider">
+                                          <span class="fw-struct sm-icon"></span>
+                                          public type AuthProvider object
+                                       </h2>
+                                       
+                                       <p>
+                                          <span class="fw-right gray xs-icon"></span>Represents the auth provider. Any type of implementation, such as ldap, jdbc, file based,
+etc. should be object-wise similar
+                                       </p>
+                                         
+                                       <div class="function-wrapper">
+                                          <ul>
+                                             
+                                             <li>
+                                                <h3 id="AuthProvider-authenticate">
+                                                   <span class=fw-function></span>
+                                                   <span class="thin-text light-gray">
+                                                   <AuthProvider>
+                                                   </span>
+                                                   authenticate(string username, string password) returns (boolean) 
+                                                </h3>
+                                                 
+                                                <table>
+                                                   <tr>
+                                                      <th class="cAPI-table-name">Parameter Name</th>
+                                                      <th class="cAPI-table-type">Data Type</th>
+                                                      <th class="cAPI-table-default">Default Value</th>
+                                                      <th class="cAPI-table-desc">Description</th>
+                                                   </tr>
+                                                   
+                                                   <tr>
+                                                      <td class="cAPI-table-name">username</td>
+                                                      <td class="cAPI-table-type">string</td>
+                                                      <td class="cAPI-table-default"></td>
+                                                      <td class="cAPI-table-desc">user name</td>
+                                                   </tr>
+                                                   
+                                                   <tr>
+                                                      <td class="cAPI-table-name">password</td>
+                                                      <td class="cAPI-table-type">string</td>
+                                                      <td class="cAPI-table-default"></td>
+                                                      <td class="cAPI-table-desc">password</td>
+                                                   </tr>
+                                                   
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                   <tr>
+                                                      <th class="cAPI-table-name"></th>
+                                                      <th class="cAPI-table-type">Return Type</th>
+                                                      <th class="cAPI-table-default"></th>
+                                                      <th class="cAPI-table-desc">Description</th>
+                                                   </tr>
+                                                   
+                                                   <tr>
+                                                      <td class="cAPI-table-name"></td>
+                                                      <td class="cAPI-table-type">boolean</td>
+                                                      <td class="cAPI-table-default"></td>
+                                                      <td class="cAPI-table-desc">boolean: true if authentication is a success, else false</td>
+                                                   </tr>
+                                                   
+                                                </table>
+                                                
+                                             </li>
+                                             
+                                             <li>
+                                                <h3 id="AuthProvider-getScopes">
+                                                   <span class=fw-function></span>
+                                                   <span class="thin-text light-gray">
+                                                   <AuthProvider>
+                                                   </span>
+                                                   getScopes(string username) returns (string[]) 
+                                                </h3>
+                                                
+                                                <p>
+                                                   <span class="fw-right gray xs-icon"></span>Reads the scope(s) for the user with the given username
+                                                </p>
+                                                 
+                                                <table>
+                                                   <tr>
+                                                      <th class="cAPI-table-name">Parameter Name</th>
+                                                      <th class="cAPI-table-type">Data Type</th>
+                                                      <th class="cAPI-table-default">Default Value</th>
+                                                      <th class="cAPI-table-desc">Description</th>
+                                                   </tr>
+                                                   
+                                                   <tr>
+                                                      <td class="cAPI-table-name">username</td>
+                                                      <td class="cAPI-table-type">string</td>
+                                                      <td class="cAPI-table-default"></td>
+                                                      <td class="cAPI-table-desc">user name</td>
+                                                   </tr>
+                                                   
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                   <tr>
+                                                      <th class="cAPI-table-name"></th>
+                                                      <th class="cAPI-table-type">Return Type</th>
+                                                      <th class="cAPI-table-default"></th>
+                                                      <th class="cAPI-table-desc">Description</th>
+                                                   </tr>
+                                                   
+                                                   <tr>
+                                                      <td class="cAPI-table-name"></td>
+                                                      <td class="cAPI-table-type">string[]</td>
+                                                      <td class="cAPI-table-default"></td>
+                                                      <td class="cAPI-table-desc">string[]: array of groups for the user denoted by the username</td>
+                                                   </tr>
+                                                   
+                                                </table>
+                                                
+                                             </li>
+                                             
+                                          </ul>
+                                       </div>
+                                        
+                                       <!-- Enums-->
+                                       
+                                       <!-- Annotations-->
+                                       
+                                       <!-- Global Variables-->
+                                       
+                                    </div>
+                                    
+                                    <div class="construct-wrapper">
+                                       <!--Primitive Types-->
+                                       
+                                       <!-- Function -->
+                                       
+                                       <!-- Struct-binded functions grouped together -->
+                                       
+                                       <!-- Connectors and its actions -->
+                                       
+                                       <!-- Objects and its functions -->
+                                       
+                                       <h2 id="ConfigAuthProvider">
+                                          <span class="fw-struct sm-icon"></span>
+                                          public type ConfigAuthProvider object
+                                       </h2>
+                                       
+                                       <p>
+                                          <span class="fw-right gray xs-icon"></span>Represents the ballerina.conf based auth provider
+                                       </p>
+                                         
+                                       <div class="function-wrapper">
+                                          <ul>
+                                             
+                                             <li>
+                                                <h3 id="ConfigAuthProvider-authenticate">
+                                                   <span class=fw-function></span>
+                                                   <span class="thin-text light-gray">
+                                                   <ConfigAuthProvider>
+                                                   </span>
+                                                   authenticate(string user, string password) returns (boolean) 
+                                                </h3>
+                                                
+                                                <p>
+                                                   <span class="fw-right gray xs-icon"></span>Attempts to authenticate with username and password
+                                                </p>
+                                                 
+                                                <table>
+                                                   <tr>
+                                                      <th class="cAPI-table-name">Parameter Name</th>
+                                                      <th class="cAPI-table-type">Data Type</th>
+                                                      <th class="cAPI-table-default">Default Value</th>
+                                                      <th class="cAPI-table-desc">Description</th>
+                                                   </tr>
+                                                   
+                                                   <tr>
+                                                      <td class="cAPI-table-name">user</td>
+                                                      <td class="cAPI-table-type">string</td>
+                                                      <td class="cAPI-table-default"></td>
+                                                      <td class="cAPI-table-desc"></td>
+                                                   </tr>
+                                                   
+                                                   <tr>
+                                                      <td class="cAPI-table-name">password</td>
+                                                      <td class="cAPI-table-type">string</td>
+                                                      <td class="cAPI-table-default"></td>
+                                                      <td class="cAPI-table-desc">password</td>
+                                                   </tr>
+                                                   
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                   <tr>
+                                                      <th class="cAPI-table-name"></th>
+                                                      <th class="cAPI-table-type">Return Type</th>
+                                                      <th class="cAPI-table-default"></th>
+                                                      <th class="cAPI-table-desc">Description</th>
+                                                   </tr>
+                                                   
+                                                   <tr>
+                                                      <td class="cAPI-table-name"></td>
+                                                      <td class="cAPI-table-type">boolean</td>
+                                                      <td class="cAPI-table-default"></td>
+                                                      <td class="cAPI-table-desc">boolean: true if authentication is a success, else false</td>
+                                                   </tr>
+                                                   
+                                                </table>
+                                                
+                                             </li>
+                                             
+                                             <li>
+                                                <h3 id="ConfigAuthProvider-getScopes">
+                                                   <span class=fw-function></span>
+                                                   <span class="thin-text light-gray">
+                                                   <ConfigAuthProvider>
+                                                   </span>
+                                                   getScopes(string username) returns (string[]) 
+                                                </h3>
+                                                
+                                                <p>
+                                                   <span class="fw-right gray xs-icon"></span>Reads the scope(s) for the user with the given username
+                                                </p>
+                                                 
+                                                <table>
+                                                   <tr>
+                                                      <th class="cAPI-table-name">Parameter Name</th>
+                                                      <th class="cAPI-table-type">Data Type</th>
+                                                      <th class="cAPI-table-default">Default Value</th>
+                                                      <th class="cAPI-table-desc">Description</th>
+                                                   </tr>
+                                                   
+                                                   <tr>
+                                                      <td class="cAPI-table-name">username</td>
+                                                      <td class="cAPI-table-type">string</td>
+                                                      <td class="cAPI-table-default"></td>
+                                                      <td class="cAPI-table-desc"></td>
+                                                   </tr>
+                                                   
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                   <tr>
+                                                      <th class="cAPI-table-name"></th>
+                                                      <th class="cAPI-table-type">Return Type</th>
+                                                      <th class="cAPI-table-default"></th>
+                                                      <th class="cAPI-table-desc">Description</th>
+                                                   </tr>
+                                                   
+                                                   <tr>
+                                                      <td class="cAPI-table-name"></td>
+                                                      <td class="cAPI-table-type">string[]</td>
+                                                      <td class="cAPI-table-default"></td>
+                                                      <td class="cAPI-table-desc">string[]: array of groups for the user denoted by the username</td>
+                                                   </tr>
+                                                   
+                                                </table>
+                                                
+                                             </li>
+                                             
+                                          </ul>
+                                       </div>
+                                        
+                                       <!-- Enums-->
+                                       
+                                       <!-- Annotations-->
+                                       
+                                       <!-- Global Variables-->
+                                       
+                                    </div>
+                                    
+                                    <div class="construct-wrapper">
+                                       <!--Primitive Types-->
+                                       
+                                       <!-- Function -->
+                                       
+                                       <!-- Struct-binded functions grouped together -->
+                                       
+                                       <!-- Connectors and its actions -->
+                                       
+                                       <!-- Objects and its functions -->
+                                       
+                                       <h2 id="JWTAuthProvider">
+                                          <span class="fw-struct sm-icon"></span>
+                                          public type JWTAuthProvider object
+                                       </h2>
+                                       
+                                       <p>
+                                          <span class="fw-right gray xs-icon"></span>Represents a JWT Authenticator
+                                       </p>
+                                        
+                                       <table>
+                                          <tr>
+                                             <th class="cAPI-table-name">Field Name</th>
+                                             <th class="cAPI-table-type">Data Type</th>
+                                             <th class="cAPI-table-default">Default Value</th>
+                                             <th class="cAPI-table-desc">Description</th>
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="cAPI-table-name">jwtAuthProviderConfig</td>
+                                             <td class="cAPI-table-type">JWTAuthProviderConfig</td>
+                                             <td class="cAPI-table-default">[]</td>
+                                             <td class="cAPI-table-desc">JWTAuthProviderConfig object</td>
+                                          </tr>
+                                          
+                                          <tr>
+                                             <td class="cAPI-table-name">authCache</td>
+                                             <td class="cAPI-table-type">Cache</td>
+                                             <td class="cAPI-table-default">BLangTypeInit: new null ([]) </td>
+                                             <td class="cAPI-table-desc">Authentication cache object</td>
+                                          </tr>
+                                          
+                                       </table>
+                                        
+                                       <div class="function-wrapper">
+                                          <ul>
+                                             
+                                             <li>
+                                                <h3 id="JWTAuthProvider-authenticate">
+                                                   <span class=fw-function></span>
+                                                   <span class="thin-text light-gray">
+                                                   <JWTAuthProvider>
+                                                   </span>
+                                                   authenticate(string jwtToken) returns (boolean | error) 
+                                                </h3>
+                                                 
+                                                <table>
+                                                   <tr>
+                                                      <th class="cAPI-table-name">Parameter Name</th>
+                                                      <th class="cAPI-table-type">Data Type</th>
+                                                      <th class="cAPI-table-default">Default Value</th>
+                                                      <th class="cAPI-table-desc">Description</th>
+                                                   </tr>
+                                                   
+                                                   <tr>
+                                                      <td class="cAPI-table-name">jwtToken</td>
+                                                      <td class="cAPI-table-type">string</td>
+                                                      <td class="cAPI-table-default"></td>
+                                                      <td class="cAPI-table-desc"></td>
+                                                   </tr>
+                                                   
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                   <tr>
+                                                      <th class="cAPI-table-name"></th>
+                                                      <th class="cAPI-table-type">Return Type</th>
+                                                      <th class="cAPI-table-default"></th>
+                                                      <th class="cAPI-table-desc">Description</th>
+                                                   </tr>
+                                                   
+                                                   <tr>
+                                                      <td class="cAPI-table-name"></td>
+                                                      <td class="cAPI-table-type">boolean | error</td>
+                                                      <td class="cAPI-table-default"></td>
+                                                      <td class="cAPI-table-desc"></td>
+                                                   </tr>
+                                                   
+                                                </table>
+                                                
+                                             </li>
+                                             
+                                          </ul>
+                                       </div>
+                                        
+                                       <!-- Enums-->
+                                       
+                                       <!-- Annotations-->
+                                       
+                                       <!-- Global Variables-->
+                                       
+                                    </div>
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          
+         </div>
+      </div>
+      <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
+      </div>
+      <script>
+   $(document).ready(function() {
+         $(".cSideBar-Button").click(function() {
+            $(".cSideBar-Button").toggleClass('cOpen');
+            $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
+          });
+    });
+    
+      </script>
+     <script type="text/javascript" src="/search/search.js">
+     </script>
+      </body>
+      </html>
+
