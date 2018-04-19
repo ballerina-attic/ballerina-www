@@ -322,7 +322,6 @@
                 <div class="tab-content clearfix">
                     <div class="cIntegrationCode">
                         <div id="code-container-wrapper" class="code-wrapper">
-                            <div class="overllay-highlight"></div>
                             <pre id="asynchronous-execution-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
@@ -337,7 +336,6 @@
                             </pre>
                         </div>
                         <div class="code cOutput">
-                            <div class="output-overllay-highlight"></div>
                             <div class="highlight">
                                 <pre id="rest-services-shell" class="shell-display"></pre>
                                 <pre id="full-language-shell" class="shell-display"></pre>
@@ -490,7 +488,6 @@
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 paddingRemove">
             <div class="codeNativeBox">
                 <div id="ballerina_grammar_2" class="code-wrapper">
-                    <div class="overllay-highlight"></div>
                     <pre id="type-safe-endpoint-integration-code" class="code-block">
                         <code class="ballerina tab-pane active"></code>
                     </pre>
@@ -516,7 +513,6 @@
                         <code class="ballerina tab-pane active"></code>
                     </pre>
                     <div class="code cOutput">
-                        <div class="output-overllay-highlight"></div>
                         <div class="highlight">
                             <pre id="type-safe-endpoint-integration-shell" class="shell-display"></pre>
                         </div>
