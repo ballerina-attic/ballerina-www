@@ -2,9 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'semantic-ui-react'
 import Console from '../console/Console';
-import { RUN_API_URL } from '../../utils';
+import { RUN_API_URL, FETCH_LAUNCHER_API } from '../../utils';
 import RunSession from '../../run-session';
+import axios from 'axios';
 import './RunButton.scss';
+
+function fetchLauncherURL(sample) {
+    const payload = {
+        source: sample.content,
+        curl: sample.curl
+    };
+    return axios.post(FETCH_LAUNCHER_API, payload,
+            { 
+                headers: {
+                    'content-type': 'application/json; charset=utf-8',
+                } 
+            })
+            .then((response) => {
+                return response.data;
+            });
+}
 
 const MSG_CODES = {
     BUILD_STARTED: "BUILD_STARTED",
@@ -75,63 +92,70 @@ class RunButton extends React.Component {
             const { content, fileName, curl, noOfCurlExecutions = 1, dependantService = '' } = sample;
             this.clearConsole();
             this.appendToConsole('waiting on remote server...');
-            try {
-                this.runSession = new RunSession(RUN_API_URL);
-                this.runSession.init({ 
-                    onMessage: ({ type, message, code }) => {
-                        switch (code) {
-                            case MSG_CODES.DEP_SERVICE_EXECUTION_STARTED:
-                            case MSG_CODES.DEP_SERVICE_EXECUTION_ERROR:
-                            case MSG_CODES.DEP_SERVICE_EXECUTION_STOPPED:
-                            case MSG_CODES.EXECUTION_STARTED:
-                                    break;
-                            case MSG_CODES.EXECUTION_STOPPED:
-                            case MSG_CODES.PROGRAM_TERMINATED:
+            fetchLauncherURL(sample)
+                .then((data) => {
+                    try {
+                        this.runSession = new RunSession(`wss://${data["launcher-url"]}/api/run`);
+                        this.runSession.init({ 
+                            onMessage: ({ type, message, code }) => {
+                                switch (code) {
+                                    case MSG_CODES.DEP_SERVICE_EXECUTION_STARTED:
+                                    case MSG_CODES.DEP_SERVICE_EXECUTION_ERROR:
+                                    case MSG_CODES.DEP_SERVICE_EXECUTION_STOPPED:
+                                    case MSG_CODES.EXECUTION_STARTED:
+                                            break;
+                                    case MSG_CODES.EXECUTION_STOPPED:
+                                    case MSG_CODES.PROGRAM_TERMINATED:
+                                            this.runSession.close();
+                                            this.resetSession();
+                                            break;
+                                    case MSG_CODES.BUILD_ERROR:
+                                    case MSG_CODES.RUN_ABORTED:
+                                            this.appendToConsole(message);
+                                            this.runSession.close();
+                                            this.resetSession();
+                                            break;
+                                    case MSG_CODES.BUILD_STARTED:
+                                            this.appendToConsole(message)
+                                            this.setState({
+                                                runInProgress: true,
+                                                waitingOnRemoteAck: false
+                                            });
+                                            break;
+                                    default: this.appendToConsole(message);
+                                }
+                            }, 
+                            onOpen: () => {
+                                try {
+                                    this.runSession.run(fileName, content, curl, noOfCurlExecutions, dependantService, data["cache-id"]);
+                                    this.props.onRun(sample);
+                                } catch (err) {
+                                    this.appendToConsole(err);
                                     this.runSession.close();
                                     this.resetSession();
-                                    break;
-                            case MSG_CODES.BUILD_ERROR:
-                            case MSG_CODES.RUN_ABORTED:
-                                    this.appendToConsole(message);
-                                    this.runSession.close();
-                                    this.resetSession();
-                                    break;
-                            case MSG_CODES.BUILD_STARTED:
-                                    this.appendToConsole(message)
-                                    this.setState({
-                                        runInProgress: true,
-                                        waitingOnRemoteAck: false
-                                    });
-                                    break;
-                            default: this.appendToConsole(message);
-                        }
-                    }, 
-                    onOpen: () => {
-                        try {
-                            this.runSession.run(fileName, content, curl, noOfCurlExecutions, dependantService);
-                            this.props.onRun(sample);
-                        } catch (err) {
-                            this.appendToConsole(err);
-                            this.runSession.close();
-                            this.resetSession();
-                        }
-                    },
-                    onClose: (evt) => {
-                        if (evt.code !== 1000 && evt.code !== 1006) { 
-                            const err = 'remote server connection was closed due to an error: code:' + evt.code;
-                            this.appendToConsole(err);
-                        }
-                    }, 
-                    onError: (err) => {
-                        const msg = 'error occurred with remote server connection';
-                        this.appendToConsole(msg);
+                                }
+                            },
+                            onClose: (evt) => {
+                                if (evt.code !== 1000 && evt.code !== 1006) { 
+                                    const err = 'remote server connection was closed due to an error: code:' + evt.code;
+                                    this.appendToConsole(err);
+                                }
+                            }, 
+                            onError: (err) => {
+                                const msg = 'error occurred with remote server connection';
+                                this.appendToConsole(msg);
+                                this.resetSession();
+                            },
+                        });
+                    } catch (err) {
+                        this.appendToConsole(err);
                         this.resetSession();
-                    },
-                });
-            } catch (err) {
-                this.appendToConsole(err);
-                this.resetSession();
-            }
+                    }
+                })
+                .catch((err) => {
+                    this.appendToConsole(err);
+                    this.resetSession();
+                })
         }
     }
 
