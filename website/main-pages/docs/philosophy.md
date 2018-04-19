@@ -734,11 +734,9 @@
         <div class="col-xs-12 cPhilosophyWhite cCloudNative">
             <div id="ballerina-by-example">
                 <div class="cLanguageFeaturesContainer">
-                    <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures bbgfeatureSet0">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cLanguageFeatures bbgfeatureSet0">
                     </div>
-                    <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures bbgfeatureSet1">
-                    </div>
-                    <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures bbgfeatureSet2">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cLanguageFeatures bbgfeatureSet1">
                     </div>
                 </div>
                 <div class="clearfix"></div>
