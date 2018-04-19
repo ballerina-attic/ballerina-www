@@ -46,7 +46,7 @@ function main(string[] args) {
 }
 ```
 
-In this example, the endpoint is going to instantiate a TwilioClient object. This object takes an input parameter defined as a `clientConfig` object. The `clientConfig` object includes an `auth` object which is part of the `http:Client` connector, which is distributed as part of the standard library. 
+In this example, the endpoint is going to instantiate a `TwilioClient` object. This object takes an input parameter defined as a `clientConfig` object. The `clientConfig` object includes an `auth` object which is part of the `http:Client` connector, which is distributed as part of the standard library. 
 
 The Twilio connector then defines a custom function, `getAccountDetails()` which is called by the end user to interact with the endpoint. The package developer will also implement a `TwilioClient::init()` method which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
 
@@ -737,9 +737,9 @@ First, the Ballerina developers will be eager and excited to help you if you run
 
 Second, the fastest way to learn about advanced annotation processing is to review the processors for Docker and Kubernetes.
 Docker:
-1. The Ballerina file defining the annotation.
-2. The Java code with the builder extension.
+1. The [Ballerina file defining the annotation](https://github.com/ballerinax/docker/blob/master/src/main/ballerina/ballerinax/docker/annotation.bal).
+2. The [Java code with the builder extension](https://github.com/ballerinax/docker/tree/master/src/main/java/org/ballerinax/docker).
 
 Kubernetes
-1. The Ballerina file defining the annotation.
-2. The Java code with the builder extension.
+1. The [Ballerina file defining the annotation](https://github.com/ballerinax/kubernetes/blob/master/src/main/ballerina/ballerinax/kubernetes/annotation.bal).
+2. The [Java code with the builder extension](https://github.com/ballerinax/kubernetes/tree/master/src/main/java/org/ballerinax/kubernetes).
