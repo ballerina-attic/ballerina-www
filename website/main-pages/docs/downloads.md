@@ -6,7 +6,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cDownloadsHeader">
                 <h1>Downloads</h1>
                 <p>
-                    After download a release for your system, please follow the <a href="#">installation instructions</a>. If you are building from source, follow the <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source">build instructions</a>.
+                    After downloading a release for your system, please follow the installation instructions. If you are building from source, follow the <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source">build instructions</a>.
                 </p>
             </div>
         </div>
