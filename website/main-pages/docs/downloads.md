@@ -22,7 +22,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadLeft">
                 <a id="packWindows" id="packWindows" href="#" class="cDownload">
                     <div>Windows</div>
-                    <div id="packWindowsName" class="cSize"></div>
+                    <div class="cSize">Installer msi <span id="packWindowsName""><span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
                     <li><a id="packWindowsMd5" href="#">md5</a></li>
@@ -33,7 +33,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
                 <a id="packLinux" href="#" class="cDownload">
                     <div>Linux</div>
-                    <div id="packLinuxName" class="cSize"></div>
+                    <div class="cSize">deb Package <span id="packLinuxName"></span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
                     <li><a id="packLinuxMd5" href="#">md5</a></li>
@@ -44,7 +44,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
                 <a id="packMac" href="#" class="cDownload">
                     <div>MacOS</div>
-                    <div id="packMacName" class="cSize"></div>
+                    <div class="cSize">Installer pkg <span id="packMacName"></span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
                     <li><a id="packMacMd5" href="#">md5</a></li>
