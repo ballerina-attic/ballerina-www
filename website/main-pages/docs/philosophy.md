@@ -76,8 +76,7 @@
 <div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2 cDesign-Principles">
     <div class="container">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cPhilosophyWhite cHowballerinaworks">
-            <h2 class="cMainH2Title">What are Ballerina's
-                <br>language design principles?</br></h2>
+            <h2 class="cMainH2Title">What are Ballerina's language design principles?</h2>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol "></div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cPhilosophyWidget">
@@ -702,8 +701,7 @@
     <div class="container">
         <div class="col-xs-12 cPhilosophyWhite cCloudNative">
             <div class="col-xs-12">
-                <h2 class="cMainH2Title">Try the language with
-                    <br>Ballerina by Example</br></h2>
+                <h2 class="cMainH2Title">Try the language with Ballerina by Example</h2>
                 <div class="col-xs-12 col-md-6 cInnerPageContentCol ">
                     <p>Ballerina by Example teaches you the language incrementally with commented examples that cover every nuance of our syntax. </p>
                 </div>
@@ -730,8 +728,7 @@
 <div class="row cBallerina-io-White-row cPhilosophy cPhilosophy2" id="ballerina-by-guides">
     <div class="container">
         <div class="col-xs-12">
-            <h2 class="cMainH2Title">Learn integration with
-                <br>Ballerina by Guide</br></h2>
+            <h2 class="cMainH2Title">Learn integration with Ballerina by Guide</h2>
             <div class="col-xs-6 paddingRemove">
                 <p>Ballerina by Guide are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment and observability.</p>
             </div>
@@ -753,8 +750,7 @@
 <div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
     <div class="container">
         <div class="col-xs-12">
-            <h2 class="cMainH2Title">What are Ballerina's
-                <br>Open Source repos?</br></h2>
+            <h2 class="cMainH2Title">What are Ballerina's Open Source repos?</h2>
             <div class="col-xs-12 cInnerPageContentCol paddingRemove">
                 <p>Apache-licensed software and community-driven projects. </p>
             </div>
