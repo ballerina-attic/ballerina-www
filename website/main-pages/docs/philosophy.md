@@ -815,3 +815,4 @@
 </div>
 <script src="/js/philosophy.js"></script>
 <script src="/js/philosophy-syntax.js"></script>
+<script>printExamples();</script>
