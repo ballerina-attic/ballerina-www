@@ -55,33 +55,14 @@
       <link rel="stylesheet" href="/css/ballerina-io-api.css">
       <script type="text/javascript" >
          $(document).ready(function(){
-             $('pre > code.language-ballerina').each(function() {
-             //cont the number of rows
-             //Remove the new line from the end of the text
-             var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
-             var lines = '<div class="line-numbers-wrap">';
-         
-             //Iterate all the lines and create div elements with line number
-             for (var i = 1; i <= numberOfLines; i++) {
-                 lines = lines + '<div class="line-number">' + i + '</div>';
-             }
-             lines = lines + '</div>';
-             //calculate <pre> height and set it to the container
-             var preHeight = numberOfLines*18 + 20;
-             $(this).parent()
-                 .height(preHeight)
-                 .addClass('ballerina-pre-wrapper')
-                 .prepend(
-                     $(lines)
-                 );
-             });
-             hljs.initHighlighting();
-         })
-         
-          $(document).ready(function(){
+			if(typeof hljs === 'object'){
+                $('code.language-ballerina').addClass();
+                hljs.initHighlighting();
+			}
+
             $( "#iBallerinaXtoc" ).load( "/learn/api-docs/ballerinax/package-list.html" );
             $( "#iBallerinaPACKAGEStoc" ).load( "/learn/api-docs/ballerina/package-list.html" );
-            });
+         });
       </script>
       <script>var base_url = "";</script>
       <script src="/search/require.js"></script>
@@ -697,31 +678,13 @@
       <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
       </div>
       <script>
-   $(document).ready(function() {
-         $(".cSideBar-Button").click(function() {
-            $(".cSideBar-Button").toggleClass('cOpen');
-            $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
-          });
-    });
-    
+        $(document).ready(function() {
+            $(".cSideBar-Button").click(function() {
+                $(".cSideBar-Button").toggleClass('cOpen');
+                $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
+            });
+        });
       </script>
-     <script type="text/javascript" src="/search/search.js">
-     </script>
-      </body>
-      </html>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+     <script type="text/javascript" src="/search/search.js"></script>
+</body>
 </html>
