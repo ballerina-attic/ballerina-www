@@ -100,10 +100,14 @@ public class TryItPhase implements Phase {
                     Duration executionTime = Duration.between(curlStart, curlStop);
                     session.pushMessageToClient(Constants.CONTROL_MSG, Constants.CURL_EXEC_STOPPED,
                             "executing curl completed in " + executionTime.toMillis() + "ms");
+
+                    if (session.getRunCommand().getPostCurlDelay() > 0) {
+                        Thread.sleep(session.getRunCommand().getPostCurlDelay());
+                    }
                     next.run();
                 }
 
-            } catch (IOException e) {
+            } catch (Exception e) {
                 logger.error("Error while sending curl output stream.", e);
             } finally {
                 if (reader != null) {

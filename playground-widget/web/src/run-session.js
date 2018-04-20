@@ -57,7 +57,8 @@ class RunSession {
             curl,
             noOfCurlExecutions = 1,
             dependantService = '',
-            resources = []
+            resources = [],
+            postCurlDelay = 0,
         } = sample;
         const cmd = {
             command: 'run',
@@ -66,7 +67,8 @@ class RunSession {
             curl,
             noOfCurlExecutions,
             dependantService,
-            resources
+            resources,
+            postCurlDelay
         };
         if (cacheId) {
             cmd['cacheId'] = cacheId;
