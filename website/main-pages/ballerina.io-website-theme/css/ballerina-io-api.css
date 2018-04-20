@@ -425,7 +425,7 @@ th {
 }
 
 .cLectColStyle.cLeftColTop.cOpenMenu {
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     padding-top: 20px;
 }
 
@@ -442,6 +442,13 @@ th {
     transition: all 0.2s ease 0s;
     opacity: 1;
     padding-bottom: 30px;
+}
+
+.cCollaps-Menu ul {
+    display: none;
+}
+.cCollaps-Menu.cOpenMenu ul {
+    display: block;
 }
 
 .cBallerina-io-docs-Title.cBallerina-io-packages {
@@ -472,14 +479,6 @@ th {
 /*PREMITIVE TYPES*/
 
 
-/*.cLectColStyle.cLeftColTop {
-    padding-bottom: 0px;
-}
-
-.cLectColStyle.cLeftColTop.cOpenMenu {
-    padding-bottom: 30px;
-}*/
-
 .cCollaps-Menu-first {
     height: 1px;
     display: inline-block;
@@ -489,16 +488,19 @@ th {
 }
 
 
-/*    .cCollaps-Menu ul , .cCollaps-Menu ul li  {
-        display: none;
-    }
-*/
-
 .cCollaps-Menu-first.cOpenMenu {
     height: auto;
     transition: all 0.2s ease 0s;
     opacity: 1;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
+}
+
+.cCollaps-Menu-first ul {
+    display: none;
+}
+
+.cCollaps-Menu-first.cOpenMenu ul {
+    display: block;
 }
 
 .cBallerina-io-docs-Title.cBallerina-io-primitive-types {
@@ -530,3 +532,56 @@ th {
 .cBallerina-io-docs-Title.cOpenMenu {
     padding-bottom: 15px;
 }
+
+/*BALLERINA X*/
+
+
+
+.cCollaps-Menu-second {
+    height: 1px;
+    display: inline-block;
+    overflow: hidden;
+    transition: all 0.2s ease 0s;
+    opacity: 0;
+}
+
+.cCollaps-Menu-second ul {
+    display: none;
+}
+
+.cCollaps-Menu-second.cOpenMenu {
+    height: auto;
+    transition: all 0.2s ease 0s;
+    opacity: 1;
+    padding-bottom: 15px;
+}
+.cCollaps-Menu-second.cOpenMenu ul {
+    display: block;
+}
+
+.cBallerina-io-docs-Title.cBallerina-io-x {
+    cursor: pointer;
+    border: none;
+    /*        padding-bottom: 0;*/
+    margin-bottom: 0;
+    background-image: url("/img/down-arrow.svg");
+    background-size: 20px;
+    background-position: right 4px;
+    background-repeat: no-repeat;
+    line-height: 16px;
+    padding-bottom: 0;
+    cursor: pointer;
+}
+.cBallerina-io-docs-Title.cBallerina-io-x:hover  {
+    color: #222;
+    transition: all 0.2s ease 0s;
+}
+
+
+.cBallerina-io-docs-Title.cBallerina-io-x.cOpenMenu {
+    border-bottom: 1px solid #a6a8ab;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    background-image: url("/img/up-arrow1.svg");
+}
+
