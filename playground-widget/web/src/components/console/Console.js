@@ -94,10 +94,8 @@ class Console extends React.Component {
                         }
                         if (msg.startsWith('executing curl completed in')) {
                             return (
-                            <div>
                                 <div className="console-line">{msg.replace('executing', '')}</div>
-                                <div className="console-line">{'you can edit the code or curl and try again'}</div>
-                            </div>);
+                            );
                         }
                         if (msg.includes('CircuitBreaker failure threshold exceeded')) {
                             return (<div className="console-line bvm-output">{'Circuit tripped : CLOSE -> OPEN'}</div>)
