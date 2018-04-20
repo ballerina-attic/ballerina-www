@@ -30,12 +30,14 @@ class DesignView extends React.Component {
      */
     render() {
         const { DiagramView } = this.state;
+        const diagramSize = { width: 476, height: 285 };
         return (
             <div
                 className='design-view'
                 ref={(ref) => {
                     this.container = ref;
                 }}
+                style={{ ...this.props.size }}
             >
                 {!DiagramView &&
                     <Dimmer active inverted>
@@ -43,8 +45,8 @@ class DesignView extends React.Component {
                     </Dimmer>
                 }
                 {DiagramView &&
-                    <Scrollbars style={{ width: 476, height: 285 }}>
-                        <DiagramView content={this.props.content} />
+                    <Scrollbars style={{ ...diagramSize }}>
+                        <DiagramView content={this.props.content} size={diagramSize} />
                     </Scrollbars>
                 }
             </div>
