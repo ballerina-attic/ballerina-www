@@ -319,47 +319,24 @@ This will create a maven project in following structure.
 └── target
 ```
 
-In the `pom.xml`, add Ballerina as the parent:
+In the `pom.xml`, add Ballerina IO as the parent:
 ```xml
-<parent>
-   <groupId>org.ballerinalang</groupId>
-   <artifactId>ballerina-parent</artifactId>
-   <version>0.970.0-beta1-SNAPSHOT</version>
-</parent>
+    <parent>
+        <groupId>io.ballerina</groupId>
+        <artifactId>ballerina</artifactId>
+        <version>0.970.0-beta4</version>
+    </parent>
 ```
 
 In the `pom.xml` add Ballerina's maven dependencies:
 ```xml
-<dependencies>
-   <dependency>
-       <groupId>org.ballerinalang</groupId>
-       <artifactId>ballerina-lang</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.ballerinalang</groupId>
-       <artifactId>ballerina-launcher</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.ballerinalang</groupId>
-       <artifactId>ballerina-builtin</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.ballerinalang</groupId>
-       <artifactId>ballerina-core</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.ballerinalang</groupId>
-       <artifactId>ballerina-mime</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.ballerinalang</groupId>
-       <artifactId>ballerina-logging</artifactId>
-   </dependency>
-   <dependency>
-       <groupId>org.ballerinalang</groupId>
-       <artifactId>ballerina-http</artifactId>
-   </dependency>
-</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.ballerinalang</groupId>
+            <artifactId>ballerina-lang</artifactId>
+            <version>0.970.0-beta4</version>
+        </dependency>
+    </dependencies>
 ```
 
 In the `pom.xml`, add Ballerina's repository information
@@ -477,7 +454,7 @@ Configure bsc plugin in the `pom.xml`:
 
    <!-- copy ballerina annotation sources to the jar -->
    <resource>
-       <directory>${generated.ballerina.source.directory}</directory>
+       <directory>${project.build.directory}/../src/main/ballerina</directory>
        <targetPath>META-INF/</targetPath>
    </resource>
 </resources>
@@ -490,8 +467,7 @@ Configure bsc plugin in the `pom.xml`:
            <processor>org.ballerinalang.codegen.BallerinaAnnotationProcessor</processor>
        </processors>
        <options>
-           <nativeEntityProviderPackage>org.ballerinalang.net.generated.providers
-           </nativeEntityProviderPackage>
+           <nativeEntityProviderPackage>org.ballerinalang.net.generated.providers</nativeEntityProviderPackage>
            <nativeEntityProviderClass>StandardNativeElementProvider</nativeEntityProviderClass>
        </options>
    </configuration>
