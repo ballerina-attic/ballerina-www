@@ -144,6 +144,7 @@ class BallerinaWidget extends Component {
           }
           <Segment className="console" style={{ height: consoleHeight }}>
             <Console
+              sample={sample}
               ref={(consoleRef) => {
                 this.consoleRef = consoleRef;
               }}

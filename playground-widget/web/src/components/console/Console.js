@@ -66,7 +66,8 @@ class Console extends React.Component {
      * @inheritDoc
      */
     render() {
-        const consoleAreaHeight = this.props.curlVisible ? 106 : 132;
+        const { curlVisible, sample: { noOfCurlExecutions = 0 } } = this.props;
+        const consoleAreaHeight = curlVisible ? 106 : 132;
         return (
             <div 
                 className='console-area'
@@ -91,6 +92,9 @@ class Console extends React.Component {
                         if (msg.startsWith('build completed in')) {
                             return (<div className="console-line">{'building...   ' 
                             + msg.replace('build completed in', 'deployed to kubernetes in')}</div>)
+                        }
+                        if (msg.startsWith('executing curl...') && noOfCurlExecutions > 0) {
+                            return (<div className="console-line">{`executing curl ${noOfCurlExecutions} times...`}</div>)
                         }
                         if (msg.startsWith('executing curl completed in')) {
                             return (
@@ -124,7 +128,9 @@ class Console extends React.Component {
 }
 
 Console.propTypes = {
-    onChange: PropTypes.func,
+    sample: PropTypes.shape({
+        noOfCurlExecutions: PropTypes.number
+    }).isRequired,
     onTryItClick: PropTypes.func,
     curlVisible: PropTypes.bool,
 };
