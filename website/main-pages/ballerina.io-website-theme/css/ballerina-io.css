@@ -145,8 +145,7 @@ a.cLogo img {
 }
 
 ul.navbar-nav {
-    float: right;
-    margin-right: -20px;
+    float: left;
 }
 
 .navbar-brand {
@@ -175,6 +174,7 @@ ul.navbar-nav {
     padding-bottom: 30px;
     background-color: #e7eaeb;
     background-size: 250%;
+    padding-top: 0;
 }
 
 .cBallerina-io-White-row {
@@ -673,13 +673,13 @@ pre>code.ballerina span {
 /*MOBILE */
 
 button.navbar-toggle {
-    background: #464646;
+    background: transparent;
     border-radius: 0;
 }
 
 .navbar-toggle .icon-bar {
     border-radius: 0;
-    background-color: #ffffff;
+    background-color: #464646;
 }
 
 .navbar-collapse.collapse.in .ul.navbar-nav {
@@ -949,6 +949,11 @@ pre code {
     font-weight: 600;
 }
 
+.overlay-highlight,
+.output-overlay-highlight {
+    display: none !important;
+}
+
 
 /* -------------------------------- */
 
@@ -966,9 +971,6 @@ pre code {
         width: 200px;
         line-height: 17px;
     }
-    .cBallerina-io-Gray-row {
-        padding-top: 70px;
-    }
     .cMobileLogo {
         display: block;
         width: 100px;
@@ -982,10 +984,6 @@ pre code {
         height: 65px;
         width: 100%;
         display: inline-block;
-    }
-    ul.navbar-nav {
-        float: right;
-        margin-right: 0px;
     }
     p.navbar-brand {
         font-size: 10px !important;
@@ -1005,7 +1003,7 @@ pre code {
         margin-right: 0;
     }
     .nav.navbar-nav {
-        text-align: right;
+        text-align: left;
     }
     .nav.navbar-nav.cTopNav>li>a {
         font-size: 18px;
@@ -1065,8 +1063,32 @@ pre code {
     .ballerina-playground.ui.container {
         padding-top: 40px;
     }
+    .cBallerina-io-Gray-row {
+        padding-top: 70px;
+    }
+    ul.navbar-nav {
+        float: right;
+        margin-right: -15px;
+    }
+    .cBallerina-io-Home-Right-col.cPhilosophyWidget {
+        padding-right: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    #iBallerinaFooter .cBallerina-io-right-col p {
+        padding-left: 40px;
+        padding-top: 0;
+    }
+    .cBallerina-io-middle-col.cBallerinaFooterSignUp {
+        padding-left: 0;
+        padding-top: 0;
+    }
+    .ballerina-playground.ui.container {
+        padding-top: 0;
+    }
     .overlay-highlight,
     .output-overlay-highlight {
-        display: none !important;
+        display: block !important;
     }
 }
