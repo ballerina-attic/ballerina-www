@@ -34,6 +34,8 @@ public class RunCommand extends Command {
 
     private String[] resources;
 
+    private int postCurlDelay;
+
     public String getFileName() {
         return fileName;
     }
@@ -88,5 +90,13 @@ public class RunCommand extends Command {
 
     public void setResources(String[] resources) {
         this.resources = resources;
+    }
+
+    public int getPostCurlDelay() {
+        return postCurlDelay;
+    }
+
+    public void setPostCurlDelay(int postCurlDelay) {
+        this.postCurlDelay = postCurlDelay;
     }
 }
