@@ -72,7 +72,6 @@ class RunButton extends React.Component {
         });
         const { sample } = this.props;
         if (sample && sample.content) {
-            const { content, fileName, curl, noOfCurlExecutions = 1, dependantService = '' } = sample;
             this.clearConsole();
             this.appendToConsole('waiting on remote server...');
             fetchLauncherURL(sample)
@@ -110,7 +109,7 @@ class RunButton extends React.Component {
                             }, 
                             onOpen: () => {
                                 try {
-                                    this.runSession.run(fileName, content, curl, noOfCurlExecutions, dependantService, cacheId);
+                                    this.runSession.run(sample, cacheId);
                                     this.props.onRun(sample);
                                 } catch (err) {
                                     this.appendToConsole(err);

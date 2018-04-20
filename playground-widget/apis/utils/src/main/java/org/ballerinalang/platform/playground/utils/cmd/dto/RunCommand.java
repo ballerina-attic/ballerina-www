@@ -32,6 +32,8 @@ public class RunCommand extends Command {
 
     private String cacheId;
 
+    private String[] resources;
+
     public String getFileName() {
         return fileName;
     }
@@ -78,5 +80,13 @@ public class RunCommand extends Command {
 
     public void setCacheId(String cacheId) {
         this.cacheId = cacheId;
+    }
+
+    public String[] getResources() {
+        return resources;
+    }
+
+    public void setResources(String[] resources) {
+        this.resources = resources;
     }
 }
