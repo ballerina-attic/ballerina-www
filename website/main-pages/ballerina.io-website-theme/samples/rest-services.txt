@@ -3,12 +3,12 @@
 import ballerina/http;
 
 // Create an HTTP service bound to the endpoint
-@http:ServiceConfig{
+@http:ServiceConfig {
     basePath : "/"
 }
-service<http:Service> hello bind {port:9090}{
+service<http:Service> hello bind {port:9090} {
     // Create a REST resource within the API
-    @http:ResourceConfig {
+    @http:ResourceConfig{
         path : "/",
         methods : ["POST"]
     }
@@ -16,16 +16,16 @@ service<http:Service> hello bind {port:9090}{
     // and a struct with the request data
     hi (endpoint caller, http:Request request) {
         // Create empty response struct
-        http:Response res = {};
+        http:Response res;
         // Try to retrieve parameters
         var  payload = request.getStringPayload();
-        // Different handling depending on whether we got a proper string or not
+        // Different handling depending on if we got proper string or error
         match payload {
             string name => {res.setStringPayload("Hello " + name + "!\n");}
             error err => {res.setStringPayload(err.message);}
-            null => {res.setStringPayload("Failed to retrieve string payload.\n");}
         }    
-        // Return response, '->' signifies remote call, '_' means ignore the function return value
+        // Return response, '->' signifies remote call
+        // '_' means ignore the function return value
         _ = caller -> respond (res);
     }
 }
