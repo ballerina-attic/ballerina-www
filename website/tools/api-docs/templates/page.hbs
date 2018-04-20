@@ -139,56 +139,7 @@
                   <div class="cLectColStyle cLeftColTop">
                   <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
                      <div class="cCollaps-Menu">
-                     {{#each links}}
-                     <ul class=" {{#if active}}active-package{{/if}}">
-                        <li>
-                           <!--Package Name-->
-                           {{#if active}} {{#if caption.isPackageName}}
-                           <a>{{caption.prefix}}
-                           <span class="bold">{{caption.suffix}}</a>
-                           {{/if}} {{#if caption.isStaticCaption}}
-                           <a>
-                           <span class="bold">{{caption.value}}</span>
-                           </a>
-                           {{/if}}
-                           <div class="constructs-wrapper">
-                              <!--Construct of Package-->
-                              <ul class="constructs-ul">
-                                 {{#each constructs}} {{!--
-                                 <li>
-                                    <a href="#{{name}}">
-                                       <div class="construct-icon">
-                                          <span class="{{icon}}"> </span>
-                                       </div>
-                                       <div class="construct-name">
-                                          {{name}} {{#if isFunction}}({{join parameters ", "}}) {{#if returnParams}} ({{join returnParams ", "}}) {{/if}} {{/if}}
-                                          {{#if isConnector}} ({{#each parameters}}{{dataType}} {{name}}{{#unless
-                                          @last}} ,{{/unless}}{{/each}}) {{/if}}
-                                       </div>
-                                    </a>
-                                 </li>
-                                 --}} {{!-- {{#each children}}
-                                 <ul class="construct-inner-items-ul">
-                                    <li>
-                                       <a href="#{{../name}}-{{name}}">
-                                          <div class="construct-icon">
-                                             <span class="{{icon}}"> </span>
-                                          </div>
-                                          <div class="construct-name">
-                                             {{name}}({{join parameters ", "}}) {{#if returnParams}} ({{join returnParams ", "}}) {{/if}}
-                                          </div>
-                                       </a>
-                                    </li>
-                                 </ul>
-                                 {{/each}} --}} {{/each}}
-                              </ul>
-                           </div>
-                           {{else}}
-                           <a href="{{href}}.html">{{#if caption.isPackageName}}{{caption.prefix}}<span class="bold">{{caption.suffix}}</span>{{/if}}{{#if caption.isStaticCaption}}<span class="bold">{{caption.value}}</span>{{/if}}</a>
-                           {{/if}}
-                        </li>
-                     </ul>
-                     {{/each}}
+                     
                      </div>
                   </div>
                </div>
