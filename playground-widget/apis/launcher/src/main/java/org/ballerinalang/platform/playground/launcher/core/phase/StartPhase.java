@@ -31,11 +31,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.stream.Stream;
 
 /**
  * Start Phase of Run
  */
 public class StartPhase implements Phase {
+
+    private static final String BPG_ENV_PREFIX = "BPG_ENV_";
+
+    private static final String JAVA_HOME = "JAVA_HOME";
 
     private static final Logger logger = LoggerFactory.getLogger(StartPhase.class);
 
@@ -55,7 +60,7 @@ public class StartPhase implements Phase {
     @Override
     public void execute(RunSession runSession, Runnable next) throws Exception{
         String[] cmdArray = getRunCommandArray(runSession);
-        Process launchProcess = Runtime.getRuntime().exec(cmdArray, null,
+        Process launchProcess = Runtime.getRuntime().exec(cmdArray, getEnvVars(),
                 runSession.getBuildFile().getParent().toFile());
 
         // kill the program process after specified timeout
@@ -160,5 +165,16 @@ public class StartPhase implements Phase {
         if (StringUtils.isNotBlank(port)) {
             runSession.setServicePort(port);
         }
+    }
+
+    private String[] getEnvVars() {
+        return System.getenv()
+                .entrySet()
+                .stream()
+                .filter(envEntry -> envEntry.getKey().startsWith(BPG_ENV_PREFIX)
+                        || envEntry.getKey().equals(JAVA_HOME))
+                .map(envEntry -> envEntry.getKey().replaceAll(BPG_ENV_PREFIX, "") +
+                        "=" + envEntry.getValue())
+                .toArray(String[]::new);
     }
 }

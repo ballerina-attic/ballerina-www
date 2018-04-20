@@ -82,7 +82,7 @@ public class TryItPhase implements Phase {
                     "only curl cmd is supported");
             return;
         }
-        Process curlProcess = Runtime.getRuntime().exec(cmdArray, null);
+        Process curlProcess = Runtime.getRuntime().exec(cmdArray, new String[0]);
 
         new Thread(() -> {
             BufferedReader reader = null;
