@@ -46,7 +46,7 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ### Package and API Documentation
 
-The [API Documentation](learn/api-docs/) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
+The [API Documentation](/learn/api-docs/ballerina/auth.html) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
 
 ### Command Documentation
 
