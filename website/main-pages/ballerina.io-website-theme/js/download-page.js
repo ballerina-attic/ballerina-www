@@ -23,19 +23,19 @@ $(document).ready(function() {
         $("#versionInfo").html(version + " (" + formatDate(released_date) + ")");
         $("#stableInfo").html(version + " (" + formatDate(released_date) + ")");
 
-        $("#packWindowsName").html(windows_pack + " (" + windows_pack_size + ")");
+        $("#packWindowsName").html("(" + windows_pack_size + ")");
         $("#packWindows").attr("href", product_dist_path + windows_pack);
         $("#packWindowsMd5").attr("href", product_dist_path + windows_pack + ".md5");
         $("#packWindowsSha1").attr("href", product_dist_path + windows_pack + ".sha1");
         $("#packWindowsAsc").attr("href", product_dist_path + windows_pack + ".asc");
 
-        $("#packLinuxName").html(linux_pack + " (" + linux_pack_size + ")");
+        $("#packLinuxName").html("(" + linux_pack_size + ")");
         $("#packLinux").attr("href", product_dist_path + linux_pack);
         $("#packLinuxMd5").attr("href", product_dist_path + linux_pack + ".md5");
         $("#packLinuxSha1").attr("href", product_dist_path + linux_pack + ".sha1");
         $("#packLinuxAsc").attr("href", product_dist_path + linux_pack + ".asc");
 
-        $("#packMacName").html(macos_pack + " (" + macos_pack_size + ")");
+        $("#packMacName").html("(" + macos_pack_size + ")");
         $("#packMac").attr("href", product_dist_path + macos_pack);
         $("#packMacMd5").attr("href", product_dist_path + macos_pack + ".md5");
         $("#packMacSha1").attr("href", product_dist_path + macos_pack + ".sha1");

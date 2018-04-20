@@ -83,14 +83,14 @@ class DiagramView extends React.Component {
     render() {
         const { model } = this.state;
         return (
-        <div>
+        <div className="interaction-diagram" style={{ ...this.props.size }} >
             {!model &&
                     <Dimmer active inverted>
                         <Loader inverted />
                     </Dimmer>
                 }
             {model &&
-                <Diagram mode='action' fitToWidth={true} model={model} width={476} height={285} />
+                <Diagram mode='action' fitToWidth={true} model={model} { ...this.props.size } />
             }
         </div>
         );
@@ -99,6 +99,10 @@ class DiagramView extends React.Component {
 
 DiagramView.propTypes = {
     content: PropTypes.string,
+    size: PropTypes.shape({
+        width: PropTypes.number.isRequired,
+        height: PropTypes.number.isRequired
+    }).isRequired
 };
 
 

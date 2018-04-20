@@ -259,7 +259,6 @@ $(document).ready(function() {
     $(".cBallerina-io-packages").click(function() {
         $(".cCollaps-Menu").toggleClass('cOpenMenu');
         $(".cBallerina-io-packages").toggleClass('cOpenMenu');
-        
         $(".cCollaps-Menu-first").removeClass('cOpenMenu');
         $(".cBallerina-io-primitive-types").removeClass('cOpenMenu');
         $(".cCollaps-Menu-second").removeClass('cOpenMenu');
@@ -269,17 +268,15 @@ $(document).ready(function() {
     $(".cBallerina-io-primitive-types").click(function() {
         $(".cCollaps-Menu-first").toggleClass('cOpenMenu');
         $(".cBallerina-io-primitive-types").toggleClass('cOpenMenu');
-        
         $(".cCollaps-Menu").removeClass('cOpenMenu');
         $(".cBallerina-io-packages").removeClass('cOpenMenu');
         $(".cCollaps-Menu-second").removeClass('cOpenMenu');
         $(".cBallerina-io-x").removeClass('cOpenMenu');
     });
-    
+
     $(".cBallerina-io-x").click(function() {
         $(".cCollaps-Menu-second").toggleClass('cOpenMenu');
         $(".cBallerina-io-x").toggleClass('cOpenMenu');
-        
         $(".cCollaps-Menu").removeClass('cOpenMenu');
         $(".cBallerina-io-packages").removeClass('cOpenMenu');
         $(".cCollaps-Menu-first").removeClass('cOpenMenu');
@@ -289,7 +286,7 @@ $(document).ready(function() {
     /*
      * Following script is adding line numbers to the ballerina code blocks in the gneerated documentation
      */
-    $('pre > code.ballerina').each(function() {
+    $('pre > code.ballerina, pre > code.language-ballerina').each(function() {
         //cont the number of rows
         //Remove the new line from the end of the text
         var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
