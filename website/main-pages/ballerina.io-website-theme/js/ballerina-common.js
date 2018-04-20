@@ -125,7 +125,7 @@ $(document).ready(function() {
         '<li class="toctree-l1"><a class="cBioTopLink" href="https://central.ballerina.io/" target="_blank">Central</a></li>' +
         '<li class="toctree-l1" id="openli"><a class="cBioTopLink" href="/open-source">Open Source</a></li>' +
         '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="/help">Help </a></li>' +
-        '<li class="toctree-l1 hidden-xs"><a class="cSerachIcon" href="#"><img src="/img/search.svg"/></a>' +
+        '<li class="toctree-l1"><a class="cSerachIcon" href="#"><img src="/img/search.svg"/></a>' +
         '<div class="cSearchBoxTopMenu">' +
         '<div role="search">' +
         '<form role="form">' +
@@ -259,11 +259,31 @@ $(document).ready(function() {
     $(".cBallerina-io-packages").click(function() {
         $(".cCollaps-Menu").toggleClass('cOpenMenu');
         $(".cBallerina-io-packages").toggleClass('cOpenMenu');
+        
+        $(".cCollaps-Menu-first").removeClass('cOpenMenu');
+        $(".cBallerina-io-primitive-types").removeClass('cOpenMenu');
+        $(".cCollaps-Menu-second").removeClass('cOpenMenu');
+        $(".cBallerina-io-x").removeClass('cOpenMenu');
     });
 
     $(".cBallerina-io-primitive-types").click(function() {
         $(".cCollaps-Menu-first").toggleClass('cOpenMenu');
         $(".cBallerina-io-primitive-types").toggleClass('cOpenMenu');
+        
+        $(".cCollaps-Menu").removeClass('cOpenMenu');
+        $(".cBallerina-io-packages").removeClass('cOpenMenu');
+        $(".cCollaps-Menu-second").removeClass('cOpenMenu');
+        $(".cBallerina-io-x").removeClass('cOpenMenu');
+    });
+    
+    $(".cBallerina-io-x").click(function() {
+        $(".cCollaps-Menu-second").toggleClass('cOpenMenu');
+        $(".cBallerina-io-x").toggleClass('cOpenMenu');
+        
+        $(".cCollaps-Menu").removeClass('cOpenMenu');
+        $(".cBallerina-io-packages").removeClass('cOpenMenu');
+        $(".cCollaps-Menu-first").removeClass('cOpenMenu');
+        $(".cBallerina-io-primitive-types").removeClass('cOpenMenu');
     });
 
     /*
