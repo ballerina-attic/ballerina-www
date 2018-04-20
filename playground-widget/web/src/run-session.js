@@ -43,25 +43,30 @@ class RunSession {
     }
 
      /**
-     * Send message to run given ballerina source and execute curl after
+     * Send message to run given sample and execute curl after
      * 
-     * @param {String} fileName - fileName
-     * @param {String} source - source
-     * @param {String} curl - curl command
-     * @param {Number} noOfCurlExecutions - no of curl executions
-     * @param {String} dependantService - name of any dependantService
+     * @param {Object} sample - sample
      * @param {String} cacheId - cacheID
      *
      * @memberof LaunchManager
      */
-    run(fileName, source, curl, noOfCurlExecutions, dependantService, cacheId = undefined) {
+    run(sample, cacheId = undefined) {
+        const { 
+            fileName,
+            content,
+            curl,
+            noOfCurlExecutions = 1,
+            dependantService = '',
+            resources = []
+        } = sample;
         const cmd = {
             command: 'run',
             fileName,
-            source,
+            source: content,
             curl,
             noOfCurlExecutions,
             dependantService,
+            resources
         };
         if (cacheId) {
             cmd['cacheId'] = cacheId;

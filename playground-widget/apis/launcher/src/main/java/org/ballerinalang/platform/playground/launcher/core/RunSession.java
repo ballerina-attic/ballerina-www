@@ -395,6 +395,13 @@ public class RunSession {
             FileUtils.writeStringToFile(tmpFile, runCommand.getSource());
             sourceFile = tmpFile.toPath();
             buildFile = Paths.get(tmpFile.getAbsolutePath().replace(".bal", ".balx"));
+
+            // copy resources
+            for (String resource: runCommand.getResources()) {
+                Path sourcePath = Paths.get("/resources/", resource);
+                Files.copy(sourcePath, Paths.get(sourceRoot.toAbsolutePath().toString(),
+                        sourcePath.getFileName().toString()));
+            }
         } catch (IOException e) {
             logger.error("Unable to save sample content to a bal file.", e);
         }

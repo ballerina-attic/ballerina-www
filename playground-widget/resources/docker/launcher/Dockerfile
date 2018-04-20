@@ -34,6 +34,7 @@ RUN mkdir /ballerina \
 ENV BALLERINA_HOME /ballerina/runtime
 ENV PATH $BALLERINA_HOME/bin:$PATH
 
+COPY resources /resources/
 COPY services /services/
 COPY netty-transports.yml /api/
 COPY playground-launcher.jar /api/
