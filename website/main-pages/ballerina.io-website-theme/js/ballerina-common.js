@@ -28,6 +28,34 @@ function formatDate(date, format) {
 }
 
 /*
+ * Following script is adding line numbers to the ballerina code blocks in the gneerated documentation
+ */
+function initCodeLineNumbers() {
+    $('pre > code.ballerina, pre > code.language-ballerina').each(function() {
+
+        if ($(this).parent().find('.line-numbers-wrap').length === 0) {
+            //cont the number of rows
+            //Remove the new line from the end of the text
+            var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+            var lines = '<div class="line-numbers-wrap">';
+
+            //Iterate all the lines and create div elements with line number
+            for (var i = 1; i <= numberOfLines; i++) {
+                lines = lines + '<div class="line-number">' + i + '</div>';
+            }
+            lines = lines + '</div>';
+            //calculate <pre> height and set it to the container
+            var preHeight = numberOfLines * 18 + 20;
+
+            $(this).parent()
+                .addClass('ballerina-pre-wrapper')
+                .prepend($(lines));
+        }
+
+    });
+}
+
+/*
  * Register ballerina language for highlightJS
  * Grammer: https://github.com/ballerina-platform/ballerina-lang/blob/master/compiler/ballerina-lang/src/main/resources/grammar/BallerinaLexer.g4
  */
@@ -283,28 +311,7 @@ $(document).ready(function() {
         $(".cBallerina-io-primitive-types").removeClass('cOpenMenu');
     });
 
-    /*
-     * Following script is adding line numbers to the ballerina code blocks in the gneerated documentation
-     */
-    $('pre > code.ballerina, pre > code.language-ballerina').each(function() {
-        //cont the number of rows
-        //Remove the new line from the end of the text
-        var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
-        var lines = '<div class="line-numbers-wrap">';
-
-        //Iterate all the lines and create div elements with line number
-        for (var i = 1; i <= numberOfLines; i++) {
-            lines = lines + '<div class="line-number">' + i + '</div>';
-        }
-        lines = lines + '</div>';
-        //calculate <pre> height and set it to the container
-        var preHeight = numberOfLines * 18 + 20;
-        $(this).parent()
-            .addClass('ballerina-pre-wrapper')
-            .prepend(
-                $(lines)
-            );
-    });
+    initCodeLineNumbers();
 
     $('.cBBE-body').each(function() {
         var lineCount = 0,

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $("#iGitEdit").hide();
     Handlebars.registerHelper('releasenotesdiv', function(version) {
         return getReleaseNotesDivId(version);
@@ -6,7 +6,7 @@ $(document).ready(function () {
     Handlebars.registerHelper('formatdate', function(date) {
         return formatDate(date);
     });
-    $.getJSON( archived_versions_json, function( data ) {
+    $.getJSON(archived_versions_json, function(data) {
         data.sort(function(a, b) {
             return (new Date(a["release-date"])) < (new Date(b["release-date"]));;
         });
@@ -14,37 +14,40 @@ $(document).ready(function () {
     });
 });
 
-function updateReleaseTable(allData){
-    $.get('/hbs/all_release_notes.hbs', function (data) {
-        var template=Handlebars.compile(data);
+function updateReleaseTable(allData) {
+    $.get('/hbs/all_release_notes.hbs', function(data) {
+        var template = Handlebars.compile(data);
         var elements = $('<div class="cAllReleaseNotes"></div>');
-        allData.forEach(function (item) {
+        allData.forEach(function(item) {
             elements.append(template(item));
             var version = item["version"]
             $("#toc_list").append(
-                    '<li class="toctree-l3"><a href="#'+getReleaseNotesDivId(version)+'">'+version+'</a></li>'
+                '<li class="toctree-l3"><a href="#' + getReleaseNotesDivId(version) + '">' + version + '</a></li>'
             );
         });
         $("#release-notes").after(elements);
-        allData.forEach(function (item) {
+        allData.forEach(function(item) {
             var version = item["version"];
             var releaseNoteUrl = getReleaseNoteURL(version);
-            if(releaseNoteUrl){
-                $.get( releaseNoteUrl, function( data ) {
-                    $("#"+getReleaseNotesDivId(version)+"_note").html( data );
+            if (releaseNoteUrl) {
+                $.get(releaseNoteUrl, function(data) {
+                    $("#" + getReleaseNotesDivId(version) + "_note").html(data);
+                    hljs.initHighlighting.called = false;
+                    hljs.initHighlighting();
+                    initCodeLineNumbers();
                 });
             }
 
-        },'html');
+        }, 'html');
 
     }, 'html');
 }
 
-function getReleaseNotesDivId(version){
+function getReleaseNotesDivId(version) {
     var suffix = "-notes";
-    return (version+suffix).replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "");
+    return (version + suffix).replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "");
 }
 
-function getReleaseNoteURL(version){
-    return base_download_url+"/"+version+"/"+releaseNoteFilename;
+function getReleaseNoteURL(version) {
+    return base_download_url + "/" + version + "/" + releaseNoteFilename;
 }
