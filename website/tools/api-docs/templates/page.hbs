@@ -159,6 +159,7 @@
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
                                         {{#each constructs}}
+                                        {{#unless isGlobalVariable}}
                                         <li>
                                             <a href="#{{name}}">
                                                 <div class="construct-icon">
@@ -182,7 +183,17 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                        {{/each}} {{/each}}
+                                        {{/each}} {{/unless}} {{/each}}
+                                        <li>
+                                            <a href="#GlobalVariables">
+                                                <div class="construct-icon">
+                                                    <span class="fw-globe"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Global Variables
+                                                </div>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 {{else}} {{!--
@@ -233,13 +244,99 @@
                                             <div class="cAPIdocsDescription">
                                                 {{{description}}}
                                             </div>
-                                            {{/if}} {{#each constructs}}
+                                            {{/if}}
+
+                                            <div class="summary-wrapper">
+                                         <!--Primitive Types-->
+                                         <table>
+                                             <caption>Primitives Summary</caption>
+                                             <tr>
+                                                 <th class="cSummary-table-type">Type</th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             {{#each constructs}}
+                                                 {{#if isPrimitiveType}}
+                                                     <tr>
+                                                         <td class="cSummary-table-type"><a href="#{{name}}">{{name}}</td>
+                                                         <td class="cSummary-table-desc">{{{description}}}</td>
+                                                     </tr>
+                                                 {{/if}}
+                                             {{/each}}
+                                         </table>
+                                         <p/><p/>
+                                         <table>
+                                             <caption>Objects Summary</caption>
+                                             <tr>
+                                                 <th class="cSummary-table-type">Object</th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             {{#each constructs}}
+                                                 {{#if isStruct}}
+                                                     <tr>
+                                                         <td class="cSummary-table-type"><a href="#{{name}}">{{name}}</a></td>
+                                                         <td class="cSummary-table-desc">{{{description}}}</td>
+                                                     </tr>
+                                                 {{/if}}
+                                             {{/each}}
+                                         </table>
+                                         <p/><p/>
+                                         <table>
+                                             <caption>Endpoints Summary</caption>
+                                             <tr>
+                                                 <th class="cSummary-table-type">Endpoint</th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             {{#each constructs}}
+                                                 {{#if isConnector}}
+                                                     <tr>
+                                                         <td class="cSummary-table-type"><a href="#{{name}}">{{name}}</a></td>
+                                                         <td class="cSummary-table-desc">{{{description}}}</td>
+                                                     </tr>
+                                                 {{/if}}
+                                             {{/each}}
+                                         </table>
+                                         <p/><p/>
+                                         <table>
+                                             <caption>Annotations Summary</caption>
+                                             <tr>
+                                                 <th class="cSummary-table-type">Annotation</th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             {{#each constructs}}
+                                                 {{#if isAnnotation}}
+                                                     <tr>
+                                                         <td class="cSummary-table-type"><a href="#{{name}}">{{name}}</a></td>
+                                                         <td class="cSummary-table-desc">{{{description}}}</td>
+                                                     </tr>
+                                                 {{/if}}
+                                             {{/each}}
+                                         </table>
+                                         <p/><p/>
+                                         <table>
+                                             <caption>Functions Summary</caption>
+                                             <tr>
+                                                 <th class="cSummary-table-type">Return Type</th>
+                                                 <th class="cSummary-table-desc">Function and Description</th>
+                                             </tr>
+                                             {{#each constructs}}
+                                                 {{#if isFunction}}
+                                                     <tr>
+                                                         <td class="cSummary-table-type">{{#if returnParams}}{{join returnParams ", "}}{{/if}}</td>
+                                                         <td class="cSummary-table-desc"><a href="#{{name}}">{{name}}({{join parameters ", "}})</a></br>{{{description}}}</td>
+                                                     </tr>
+                                                 {{/if}}
+                                             {{/each}}
+                                         </table>
+                                         <p/><p/>
+                                     </div>
+
+                                            {{#each constructs}}
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
                                                 {{#if isPrimitiveType}}
-                                                <h2 id="{{name}}" class="cPrimitive">
+                                                <h3 id="{{name}}" class="cPrimitive">
                                                     <span class="{{icon}} sm-icon"></span> {{name}}
-                                                </h2>
+                                                </h3>
                                                 {{#if description}}
                                                 <div class="cPrimitiveDescription">
                                                     <span class="fw-right gray xs-icon"></span>{{{description}}}
@@ -249,10 +346,10 @@
                                                     <ul>
                                                         {{#each children}}
                                                         <li class="cFunctionList">
-                                                            <h2 id="{{../name}}-{{name}}">
+                                                            <h3 id="{{../name}}-{{name}}">
                                                                 <span class={{icon}}></span>
                                                                 <span class="thin-text light-gray">&lt;{{../name}}&gt;</span> {{name}}({{join parameters ", "}}) {{#if returnParams}}returns ({{join returnParams ", "}}) {{/if}}
-                                                            </h2>
+                                                            </h3>
                                                             {{#if description}}
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>{{{description}}}
@@ -300,9 +397,9 @@
                                                 {{/if}} {{/if}}
                                                 <!-- Function -->
                                                 {{#if isFunction}}
-                                                <h2 id="{{name}}">
+                                                <h3 id="{{name}}">
                                                     <span class="{{icon}} sm-icon"> </span> public function {{name}}({{join parameters ", "}}) {{#if returnParams}}returns ({{join returnParams ", "}}) {{/if}}
-                                                </h2>
+                                                </h3>
                                                 {{#if description}}
                                                 <p>
                                                     <span class="fw-right gray xs-icon"></span>{{{description}}}
@@ -345,9 +442,9 @@
                                                 {{/if}} {{/if}}
                                                 <!-- Struct-binded functions grouped together -->
                                                 {{#if isStruct}}
-                                                <h2 id="{{name}}">
+                                                <h3 id="{{name}}">
                                                     <span class="{{icon}} sm-icon"></span> public object {{name}}
-                                                </h2>
+                                                </h3>
                                                 {{#if description}}
                                                 <p>
                                                     <span class="fw-right gray xs-icon"></span>{{{description}}}
@@ -427,9 +524,9 @@
                                                 {{/if}} {{/if}}
                                                 <!-- Connectors and its actions -->
                                                 {{#if isConnector}}
-                                                <h2 id="{{name}}">
-                                                    <span class="{{icon}} sm-icon"></span> public connector {{name}}
-                                                </h2>
+                                                <h3 id="{{name}}">
+                                                    <span class="{{icon}} sm-icon"></span>Endpoint {{name}}
+                                                </h3>
                                                 {{#if description}}
                                                 <p>
                                                     <span class="fw-right gray xs-icon"></span>{{{description}}}
@@ -437,7 +534,7 @@
                                                 {{/if}} {{#if fields}}
                                                 <table>
                                                     <tr>
-                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-name">Field Name</th>
                                                         <th class="cAPI-table-type">Data Type</th>
                                                         <th class="cAPI-table-default">Default Value</th>
                                                         <th class="cAPI-table-desc">Description</th>
@@ -453,7 +550,6 @@
                                                 </table>
                                                 {{/if}} {{#if children}}
                                                 <div class="function-wrapper">
-                                                    <h2>Actions:</h2>
                                                     <ul>
                                                         {{#each children}}
                                                         <li>
@@ -639,26 +735,27 @@
                                                     </tr>
                                                 </table>
                                                 {{/if}}
+                                                {{/each}}
                                                 <!-- Global Variables-->
-                                                {{#if isGlobalVariable}}
-                                                <h2 id="{{name}}">
-                                                    <span class="{{icon}} sm-icon"></span> {{name}}
+                                                <h2 id="GlobalVariables">
+                                                    <span class="{{icon}} sm-icon"></span> Global Variables
                                                 </h2>
                                                 <table>
                                                     <tr>
-                                                        <th class="cAPI-table-name">Attribute Name</th>
+                                                        <th class="cAPI-table-name">Name</th>
                                                         <th class="cAPI-table-type">Data Type</th>
                                                         <th class="cAPI-table-desc">Description</th>
                                                     </tr>
+                                                    {{#each constructs}}
+                                                    {{#if isGlobalVariable}}
                                                     <tr>
                                                         <td class="cAPI-table-name">{{name}}</td>
                                                         <td class="cAPI-table-type"><a href="{{href}}">{{dataType}}</a></td>
                                                         <td class="cAPI-table-desc">{{{description}}}</td>
                                                     </tr>
+                                                    {{/if}}  {{/each}}
                                                 </table>
-                                                {{/if}}
                                             </div>
-                                            {{/each}}
                                         </div>
                                     </div>
                                 </div>
