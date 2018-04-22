@@ -8,7 +8,7 @@ If a binary distribution is not available for your combination of operating syst
 
 ## System requirements
 
-Ballerina binary distributions are available for these supported operating systems and architectures. Please ensure your system meets these requirements before proceeding. 
+Ballerina binary distributions are available for these supported operating systems and architectures. Please ensure your system meets these requirements before proceeding.
 
 | Operating systems | Architectures |
 | ------------- | :------------- |
@@ -64,4 +64,4 @@ To get help, see the options available in the [help page](/help).
 
 ## What's next
 
-Once you have successfully installed Ballerina, try out the [Quick Tour](/quick-tour) and take Ballerina for its first spin.
+Once you have successfully installed Ballerina, try out the [Quick Tour](/learn/quick-tour) and take Ballerina for its first spin.
