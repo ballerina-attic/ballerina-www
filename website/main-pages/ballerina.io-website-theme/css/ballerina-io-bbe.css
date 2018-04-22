@@ -338,3 +338,58 @@ a.next {
     margin-bottom: 0;
     padding-top: 0;
 }
+
+@media (max-width: 1200px) {
+    .cButtonInfoContainer {
+        width: 45%;
+    }
+    table.cTopBorder-table .cCodeTD , table.cBottomBorder-table .cCodeTD {
+        width: 73%;
+    }
+}
+
+
+@media (max-width: 990px) {
+    a.next p {
+        text-align: right;
+    }
+    td , th {
+        display: list-item !important;
+        list-style: none;
+        width: 100%;
+    }
+    .code , .cLeftTD{
+        width: 100%;
+    }
+    .cRightTD {
+        padding-left: 0;
+    }
+    .cButtonInfoContainer {
+        margin-left: 0;
+        width: 50%;
+    }
+    
+    .bbe-code-line-numbers {
+        display: none;
+    }
+    .cBBE-body tr:not(.cOutputTr) > td.code > .highlight {
+        padding-left: 0;
+    }
+    .cBBE-body tr:not(.cOutputTr) > td.code , .code.leading.cOutput , .cTR:last-child td.code {
+        background-image: none;
+        border: none;
+    }
+    .cTopBorder-table , .cBottomBorder-table {
+        display: none;  
+    }
+    .docs {
+        padding-left: 0;
+        width: 100%;
+    }
+    .highlight {
+        width: 100%;
+        min-width: 100%;
+    }
+    
+    
+}
