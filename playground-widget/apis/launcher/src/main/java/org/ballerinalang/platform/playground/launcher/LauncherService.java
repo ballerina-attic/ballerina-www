@@ -15,9 +15,11 @@
  */
 package org.ballerinalang.platform.playground.launcher;
 
+import com.google.gson.Gson;
 import org.ballerinalang.platform.playground.launcher.core.RunSession;
 import org.ballerinalang.platform.playground.launcher.core.util.LauncherUtils;
 import org.ballerinalang.platform.playground.utils.cmd.CommandUtils;
+import org.ballerinalang.platform.playground.utils.exception.mapper.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,6 +30,7 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,7 +62,14 @@ public class LauncherService {
 
     @OnError
     public void onError(Throwable throwable, Session session) {
-        logger.error("Error occurred in run api" , throwable);
+        logger.error("Error occurred in launcher socket." , throwable);
+        ErrorResponse errorResponse = new ErrorResponse("Error occurred in remote server. Error: "
+                + throwable.getMessage());
+        try {
+            session.getBasicRemote().sendText(new Gson().toJson(errorResponse));
+        } catch (IOException e) {
+            logger.error("Error while sending back error details" , e);
+        }
     }
 
 }

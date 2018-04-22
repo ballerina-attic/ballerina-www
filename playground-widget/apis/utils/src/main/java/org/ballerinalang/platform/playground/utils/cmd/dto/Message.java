@@ -49,4 +49,13 @@ public class Message {
     public void setType(String type) {
         this.type = type;
     }
+
+    public Message() {
+    }
+
+    public Message(String code, String message, String type) {
+        this.code = code;
+        this.message = message;
+        this.type = type;
+    }
 }

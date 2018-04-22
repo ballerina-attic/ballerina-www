@@ -7,6 +7,7 @@ import RunSession from '../../run-session';
 import './RunButton.scss';
 
 const MSG_CODES = {
+    ERROR: "ERROR",
     BUILD_STARTED: "BUILD_STARTED",
     CURL_EXEC_STARTED: "CURL_EXEC_STARTED",
     CURL_EXEC_STOPPED: "CURL_EXEC_STOPPED",
@@ -92,6 +93,7 @@ class RunButton extends React.Component {
                                             this.runSession.close();
                                             this.resetSession();
                                             break;
+                                    case MSG_CODES.ERROR:
                                     case MSG_CODES.BUILD_ERROR:
                                     case MSG_CODES.RUN_ABORTED:
                                             this.appendToConsole(message);
@@ -172,7 +174,7 @@ class RunButton extends React.Component {
                 onClick={runInProgress ? this.onStop : this.onRun}
                 fluid
                 basic
-                disabled={disabled || !(sample && sample.content) || this.state.waitingOnRemoteAck} >
+                disabled={disabled || !(sample && sample.content && sample.content.trim()) || this.state.waitingOnRemoteAck} >
                 <span>{ runInProgress ? 'Stop' : 'Run' }</span>
             </Button>
         );
