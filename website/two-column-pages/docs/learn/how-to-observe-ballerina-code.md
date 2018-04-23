@@ -256,3 +256,99 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 2. Go to http://localhost:9411/zipkin/ and load the web UI of the zipkin to make sure it's functioning properly. The below shown is the sample zipkin dashboard for the hello-world sample in the [Quick Start](#Quick-start)
 <img src="images/zipkin-sample.png" width=700 height=175/>
 
+
+## Distributed Logging
+Ballerina distributed logging and analysis is supported by Elastic Stack. Ballerina has a log package for logging to the console. Sample ballerina program with log package is given below.
+```ballerina
+import ballerina.net.http;
+import ballerina.log;
+
+endpoint<http:Service> storeServiceEndpoint {
+   port : 9090
+}
+
+@http:serviceConfig {basePath:"/StoreService", endpoints:[storeServiceEndpoint]}
+service<http:Service> StoreService {
+
+   resource processOrder (http:ServerConnector conn, http:Request req) {
+       log:printInfo("This is a test Info log");
+       log:printError("This is a test Error log");
+       log:printWarn("This is a test Warn log")
+       http:Response res = {};
+       res.setJsonPayload("Hello World");
+       _ = conn -> respond(res);
+   }
+}
+```
+
+The above logs needs to be pushed to Elastic Stack, therefore users can further analyze the logs. But this log package suppports logging to console only, therefore the logs needs be redirected to a file.
+
+This can be done by running the ballerina service as below. 
+
+```bash
+$ nohup ballerina run ballerinaservice.bal &>> ~/wso2-ballerina/workspace/ballerina.log&
+```
+
+### Setting up Elastic Stack
+Elastic stack comprises of the following components.
+
+1. Beats - Multiple agents that ship data to logstash or elasticsearch. In our context, filebeat will ship the ballerina logs to logstash. Filebeat should be a container running in the same host as the ballerina service. This is so that the log file (ballerina.log) can be mounted to the filebeat container.
+2. Logstash - Used to process and structure the log files received from filebeat and send elasticsearch.
+3. Elasticsearch - Storage and indexing of the logs received by logstash. 
+4. Kibana - Visualizes the data stored in elasticsearch
+
+Elasticsearch and Kibana are provided as cloud services from https://www.elastic.co/cloud with a 14 day trial period. We only have to set up logstash and filebeat containers on premise if you are going ahead with cloud services. If you are not opting for the cloud service, then you have to setup docker containers for all the tools and have it in premise.
+
+**Pre-requisites**
+Make sure you have already installed Docker Community Edition (CE). You can follow [official documentation](https://docs.docker.com/install/) to install the docker.
+
+**Steps**
+1. Download the docker images using the following commands.
+```bash
+# Elasticsearch Image
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.2.2 
+# Kibana Image
+$ docker pull docker.elastic.co/kibana/kibana:6.2.2
+# Filebeat Image 
+$ docker pull docker.elastic.co/beats/filebeat:6.2.2  
+# Logstash Image
+$ docker pull docker.elastic.co/logstash/logstash:6.2.2
+```
+2. Start elastic search and kibana containers with below commands. 
+```bash
+$ docker run -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearch docker.elastic.co/elasticsearch/elasticsearch:6.2.2 
+$ docker run -p 5601:5601 -h kibana --name kibana --link elasticsearch:elasticsearch docker.elastic.co/kibana/kibana:6.2.2 
+```
+Note:
+* Linux users may have to increase the vm.max_map_count for the elasticsearch container to start. To do so run the following command.
+```bash
+$ sudo sysctl -w vm.max_map_count=262144
+```
+* -h flag sets the containers hostname
+* --link flag is used to connect to another container. Then container can consume services using the hostname specified. Kibana container will link to elasticsearch container and can use the “elasticsearch” hostname to talk to that container
+3. Configure logstash to format the ballerina logs. Inorder to do this, you need to create a file named logstash.conf with the following content. 
+For this example I have saved this file at ~/wso2-ballerina/ELK/pipeline/logstash.conf. This should be taken note of because, when starting the logstash container, this file should be bind-mounted onto the container. Logstash container is configured to read a configuration file named “logstash.conf” at startup.
+```
+input {  
+  beats { 
+	port => 5044 
+	}  
+}  
+filter {  
+  grok  {  
+	match => { "message" => "%{TIMESTAMP_ISO8601:date}%{SPACE}%{WORD:logLevel}%{SPACE}\[%{GREEDYDATA:package}\]%{SPACE}\-%{SPACE}%{GREEDYDATA:logMessage}"}  
+  }  
+}   
+output {  
+    elasticsearch {  
+    	hosts => "elasticsearch:9200"  
+    	index => "store"  
+      document_type => "store_logs"  
+	}  
+}
+```
+Note:
+* 3 stages are specified in the pipeline 
+* Input is specified as beats and listens to port 5044.
+* A grok filter is used to structure the ballerina logs.
+* An output is specified to push to elasticsearch. Note here that the host is specified as “elasticsearch:9200”. Hence the elasticsearch container should be linked to the logstash container.
