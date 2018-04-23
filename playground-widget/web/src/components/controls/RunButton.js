@@ -43,6 +43,9 @@ class RunButton extends React.Component {
     }
 
     appendToConsole(messsage, type = 'INFO') {
+        if (messsage instanceof Error) {
+            messsage = 'Error: ' + messsage.message;
+        }
         const { consoleRef } = this.props;
         if (consoleRef) {
             consoleRef.append(messsage);
