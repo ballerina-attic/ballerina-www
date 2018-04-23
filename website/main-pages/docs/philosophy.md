@@ -314,6 +314,7 @@
                 <ul>
                     <li class="links">Docker and Kubernetes</li>
                     <li class="links">JSON and XML</li>
+                    <li class="links">STREAMS</li>
                 </ul>
             </div>
         </div>
@@ -340,6 +341,9 @@
                             <pre id="json-and-xml-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
+                            <pre id="streams-code" class="code-block">
+                                <code class="ballerina tab-pane active"></code>
+                            </pre>
                         </div>
                         <div class="code cOutput">
                             <div class="highlight">
@@ -347,6 +351,7 @@
                                 <pre id="full-language-shell" class="shell-display"></pre>
                                 <pre id="asynchronous-execution-shell" class="shell-display"></pre>
                                 <pre id="docker-and-kubernetes-shell" class="shell-display"></pre>
+                                <pre id="streams-shell" class="shell-display"></pre>
                             </div>
                         </div>
                     </div>
@@ -368,7 +373,7 @@
                     </p>
                 </div>
             </div>
-            <div data-startLine="23" data-endLine="27" class="hTrigger cCodeDesription">
+            <div data-startLine="24" data-endLine="27" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Note how the "match" command in the code is used to handle a union-type return: if the return value is a string - normal processing happens. If our service did not get the string it expected - we use error-handling logic instead.
@@ -377,17 +382,17 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="full-language-text">
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="3" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Ballerina is a full, Turing-complete programming language. It has all the capabilities and powers of a modern programming language.
                     </p>
                 </div>
             </div>
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
+            <div data-startLine="6" data-endLine="6" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        This code sample (generating a random integer, finding its factors, and outputting those as JSON) demonstrates the use of math library, functions, standard types, arrays, flow controls such as the while loop and the if statement.
+                        This example is using a main function. Ballerina applications typically use those for regular console apps. Microservices that expose some functionality as APIs typically do not have main, and have services instead.
                     </p>
                 </div>
             </div>
@@ -398,10 +403,10 @@
                     </p>
                 </div>
             </div>
-            <div data-startLine="6" data-endLine="6" class="hTrigger cCodeDesription">
+            <div data-startLine="18" data-endLine="32" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        This example is using a main function. Ballerina applications typically use those for regular console apps. Microservices that expose some functionality as APIs typically do not have main, and have services instead.
+                        This code sample (generating a random integer, finding its factors, and outputting those as JSON) demonstrates the use of math library, functions, standard types, arrays, flow controls such as the while loop and the if statement.
                     </p>
                 </div>
             </div>
@@ -414,38 +419,32 @@
                     </p>
                 </div>
             </div>
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
+            <div data-startLine="5" data-endLine="8" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        Asynchronous calls to functions and endpoints create a future
-                        <type> variable that can then be passed further to other calls is needed. Once the actual value is needed, the wait operator can be used to wait for the actual return.
+                        Asynchronous calls to functions and endpoints create a future&lt;type&gt; variable that can then be passed further to other calls is needed. Once the actual value is needed, the wait operator can be used to wait for the actual return.
                     </p>
                 </div>
             </div>
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
+            <div data-startLine="16" data-endLine="32" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads. Threads can join using different conditions (all end, some end). <br />
+                        Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads. Threads can join using different conditions (all end, some end).
                     </p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="docker-and-kubernetes-text">
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
+            <div data-startLine="5" data-endLine="11" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Ballerina applications can have docker and Kubernetes annotations added to their services and endpoints.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
+                        <br><br>
                         Compiler reads these annotations and uses them to identify which endpoints need to be exposed and how, and which services need to become what kind of containers.
                     </p>
                 </div>
             </div>
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
+            <div data-startLine="15" data-endLine="15" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         You can then use native Kubernetes client to deploy generated artifacts.
@@ -460,14 +459,56 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="json-and-xml-text">
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>JSON and XML are first class citizens in Ballerina.</p>
                 </div>
             </div>
-            <div data-startLine="12" data-endLine="13" class="hTrigger cCodeDesription gray">
+            <div data-startLine="7" data-endLine="18" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>You can easily construct them, manipulate their elements, enforce their schema, get and return them from services, transform one into the other.</p>
+                    <p>You can construct JSON and XML objects inline or from other variables, arrays, and values.</p>
+                </div>
+            </div>
+            <div data-startLine="27" data-endLine="33" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>You can convert JSON to XML and XML to JSON, access individual elements, and use various functions.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="streams-text">
+            <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>Ballerina provides first class support for streams. You can build streaming queries by using the user friendly syntax provided by Ballerina The queries include, projection, filtering, windows, stream joins and patterns.</p>
+                </div>
+            </div>
+            <div data-startLine="18" data-endLine="26" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>Define stream-processing query that will get evaluated over the incoming stream and create a new aggregation stream when the query condition is met.</p>
+                </div>
+            </div>
+            <div data-startLine="30" data-endLine="31" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>Create the input and output streams and bind them to specific event types.</p>
+                </div>
+            </div>
+            <div data-startLine="32" data-endLine="32" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>Start the stream processing function.</p>
+                </div>
+            </div>
+            <div data-startLine="33" data-endLine="33" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>Subscribe to the output stream. Each time that stream has events our function will be called.</p>
+                </div>
+            </div>
+            <div data-startLine="34" data-endLine="39" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>Create 3 events and push them into the input stream.</p>
+                </div>
+            </div>
+            <div data-startLine="43" data-endLine="45" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>This function gets called each time there is an event in the output stream and prints that event to the console.</p>
                 </div>
             </div>
         </div>
@@ -491,14 +532,13 @@
                     <li class="links first cActive">TYPE SAFE ENDPOINT INTEGRATION</li>
                     <li class="links">TYPE SAFE CONNECTORS</li>
                     <li class="links">ASYNCHRONOUS RELIABLE MESSAGING</li>
-                    <li class="links">DISTRIBUTED TRANSACTIONS</li>
                 </ul>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls">
                 <ul>
+                    <li class="links">DISTRIBUTED TRANSACTIONS</li>
                     <li class="links">CIRCUIT BREAKER</li>
                     <li class="links">BUILT IN PROTECTION AGAINST INJECTION ATTACKS</li>
-                    <li class="links">STREAM PROCESSING AND ASYNC</li>
                 </ul>
             </div>
         </div>
@@ -523,9 +563,6 @@
                         <code class="ballerina tab-pane active"></code>
                     </pre>
                     <pre id="built-in-protection-against-injection-attacks-code" class="code-block">
-                        <code class="ballerina tab-pane active"></code>
-                    </pre>
-                    <pre id="stream-processing-and-async-code" class="code-block">
                         <code class="ballerina tab-pane active"></code>
                     </pre>
                     <div class="code cOutput">
@@ -660,38 +697,6 @@
             <div data-startLine="24" data-endLine="24" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Developers can write simple code or use packages to protect against injection attacks.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="stream-processing-and-async-text">
-            <!-- <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
-            <div>
-                    <p>Ballerina has built in support for stream processing queries. This allows developers to write structured queries on streams of data. Streams are unbounded sets of events, such as stock tickers, twitter hashtags or other real-time data.</p>
-                </div>
-            </div> -->
-            <div data-startLine="2" data-endLine="2" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Any function can be called asynchronously using "start", which returns a future.</p>
-                </div>
-            </div>
-            <div data-startLine="4" data-endLine="4" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Streams are native types in Ballerina. Each stream consists of events, and each event has a type - in this case a "StockUpdate".</p>
-                </div>
-            </div>
-            <div data-startLine="8" data-endLine="8" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Streams can be subcribed to, or published to.</p>
-                </div>
-            </div>
-            <div data-startLine="10" data-endLine="10" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Because streams are unbounded, stream processing continues until the program is terminated.</p>
-                </div>
-            </div>
-            <div data-startLine="11" data-endLine="17" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Stream queries allow time windows and use the concept of "language integrated queries". This integrates SQL-like semantics into the language with full type safety and syntax checking.</p>
                 </div>
             </div>
         </div>
