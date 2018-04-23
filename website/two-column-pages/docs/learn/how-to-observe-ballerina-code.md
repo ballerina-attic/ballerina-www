@@ -62,9 +62,15 @@ step="PT1M"
 
 The descriptions of each configurations above is provided below with possible alternate options.
 
-|Configuration Key | Description | Default Value | Possible Values 
-|--- | --- | --- | --- 
-|b7a.observability.metrics.enabled | Whether metrics monitoring is enabled (true) or disabled (false) | false | true / false 
+Configuration Key | Description | Default Value | Possible Values 
+--- | --- | --- | --- 
+b7a.observability.metrics.enabled | Whether metrics monitoring is enabled (true) or disabled (false) | false | true or false
+b7a.observability.metrics.provider | Provider name which implements Metrics interface. This is only required to be modified if a a custom provider is implemented and needs to be used. | micrometer | micrometer or if any custom implementation, then name of the provider.
+b7a.observability.metrics.micrometer.registry.name | Name of the registry used in micrometer | prometheus | prometheus 
+b7a.observability.metrics.prometheus.port | The value of the port in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the ballerina program. | 9797 | Any suitable value for port 0 - 0 - 65535. However, within that range, ports 0 - 1023 are generally reserved for specific purposes, therefore it's advisable to select a port without that range. 
+b7a.observability.metrics.prometheus.hostname | The hostname in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the ballerina program. | 0.0.0.0 | IP or Hostname or 0.0.0.0 of the node in which the ballerina program is running.
+b7a.observability.metrics.prometheus.descriptions | This flag indicates whether meter descriptions should be sent to Prometheus. Turn this off to minimize the amount of data sent on each scrape. | false | true or false
+b7a.observability.metrics.prometheus.step | The step size to use in computing windowed statistics like max. To get the most out of these statistics, align the step interval to be close to your scrape interval. | PT1M (1 minute) | The formats accepted are based on the ISO-8601 duration format PnDTnHnMn.nS with days considered to be exactly 24 hours.
 
 
 ## Distributed Tracing
