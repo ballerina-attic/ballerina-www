@@ -1,4 +1,4 @@
-# How to Observe Ballerina Code
+# How to Observe Ballerina Programs
 
 ## Introduction
 Monitoring, logging, and distributed tracing are key aspects of observability.
