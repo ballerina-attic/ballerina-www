@@ -7,6 +7,7 @@ Ballerina services that are using the below mentioned service/client connectors 
 * HTTP/HTTPS
 * SQL 
 
+
 ## Quick Start
 Ballerina service is by default observable. However observability is disabled by default and it can be enabled by either adding inline parameter and upating the configuration.
 
@@ -30,9 +31,7 @@ enabled=true
 # Flag to enable Metrics
 enabled=true
 ```
-
 The ballerina program needs to be started as below with eith --config or -c inline parameter and provide the path of the configuration file to adhere to the configuration.
-
 ```
 $ ballerina run hello_service.bal --config <path-to-conf>/ballerina.conf
 ```
@@ -42,7 +41,7 @@ Metrics help to monitor the runtime behaviour of the service. Therefore, metrics
 
 Metrics, by default, supports Prometheus. In order to support Prometheus, an HTTP endpoint starts with the context of `/metrics` in default port 9797 when starting the Ballerina program. 
 
-### Configuration
+### Configure Ballerina
 This section focuses on the ballerina configurations that are available for metrics monitoring with Prometheus, and the sample configuration is provided below.
 
 ```
@@ -72,6 +71,48 @@ b7a.observability.metrics.prometheus.hostname | The hostname in which the servic
 b7a.observability.metrics.prometheus.descriptions | This flag indicates whether meter descriptions should be sent to Prometheus. Turn this off to minimize the amount of data sent on each scrape. | false | true or false
 b7a.observability.metrics.prometheus.step | The step size to use in computing windowed statistics like max. To get the most out of these statistics, align the step interval to be close to your scrape interval. | PT1M (1 minute) | The formats accepted are based on the ISO-8601 duration format PnDTnHnMn.nS with days considered to be exactly 24 hours.
 
+### Configure External Systems
+There are mainly two systems involved in collecting and visualizing the metrics. Prometheus is used to collect the metrics from the ballerina program and Graphana integrates with prometheus to visualize the metrics in the dashboard. 
+
+#### Prometheus
+Prometheus is used as the monitoring system, which pulls out the metrics collected from the ballerina service '/metrics'. There are many ways to install the Prometheus and you can find the possible options from [installation guide](https://prometheus.io/docs/prometheus/latest/installation/).  
+
+This section focuses on quick installation of Prometheus with docker, and configure it to collect metrics from ballerina program with default configurations. Below provided steps needs to be followed to configure the Prometheus.
+
+1. Create a prometheus.yml file in /tmp/ directory.
+2. Use following content for /tmp/prometheus.yml. Go to [this](https://prometheus.io/docs/introduction/first_steps/), if you need more information.
+   Please note the targets should contain the host and port of the '/metrics' service that's exposed from ballerina program for metrics collection. Let's say if the IP of the host in which the ballerina program is running is a.b.c.d and the port is default 9797 (configured from b7a.observability.metrics.prometheus.port configuration in ballerina configuration file), then the sample configuration in prometheus will be as below.
+```
+global:
+  scrape_interval: 	15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+	static_configs:
+  	  - targets: ['a.b.c.d:9797']
+```
+
+3. Start the Prometheus server as docker container with below command.
+
+```bash
+docker run -p 19090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml \ prom/prometheus
+```
+
+Once the above steps are completed, the Prometheus can be accessed from http://localhost:19090/ from where the docker is running. 
+
+#### Grafana
+Let’s use Grafana to visualize metrics in dashboard. For this, we need install Grafana, and and the Prometheus as a datasource to fetch the data from. Follow the below provided steps and configure Grafana. 
+
+1. Start Grafana as docker container with below command. For more information, please go to [link](https://hub.docker.com/r/grafana/grafana/).
+```bash
+docker run -d --name=grafana -p 3000:3000 grafana/grafana
+```
+2. Go to http://localhost:3000/ from where the docker is running, and access the Grafana dashboard. 
+3. Login to the dashboard with default user, username: admin and password: admin
+4. Add prometheus as datasource with direct access configuration as provided below. 
+![add-prometheus-datasource](images/grafana-prometheus-datasource.png)
+5. Now you can import the default grafana dashboard which has some default graphs to visualize the request/response metrics. 
 
 ## Distributed Tracing
 
@@ -135,49 +176,6 @@ port=9797
 enabled=true
 ```
 
-### Configure External Systems
-We will use docker images for external systems.
-
-#### Prometheus
-Prometheus is used as the monitoring system.
-
-We need to create a prometheus.yml file in /tmp/ directory.
-
-Use following content for /tmp/prometheus.yml. See https://prometheus.io/docs/introduction/first_steps/
-
-```
-global:
-  scrape_interval: 	15s
-  evaluation_interval: 15s
-
-scrape_configs:
-  - job_name: 'prometheus'
-	static_configs:
-  	  - targets: ['172.17.0.1:9797']
-```
-
-Make sure to use your local Docker IP.
-
-Run docker:
-
-```bash
-docker run -p 19090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml \ prom/prometheus
-```
-
-See https://prometheus.io/docs/prometheus/latest/installation/
-
-Prometheus can be accessed from http://localhost:19090/
-
-#### Grafana
-Let’s use Grafana to visualize metrics.
-
-Run docker:
-
-```bash
-docker run -d --name=grafana -p 3000:3000 grafana/grafana
-```
-
-See https://hub.docker.com/r/grafana/grafana/
 
 
 #### Jaeger
