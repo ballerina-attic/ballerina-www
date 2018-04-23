@@ -538,7 +538,7 @@
                 <ul>
                     <li class="links">DISTRIBUTED TRANSACTIONS</li>
                     <li class="links">CIRCUIT BREAKER</li>
-                    <li class="links">BUILT IN PROTECTION AGAINST INJECTION ATTACKS</li>
+                    <li class="links">PROTECTION AGAINST INJECTION ATTACKS</li>
                 </ul>
             </div>
         </div>
@@ -562,7 +562,7 @@
                     <pre id="circuit-breaker-code" class="code-block">
                         <code class="ballerina tab-pane active"></code>
                     </pre>
-                    <pre id="built-in-protection-against-injection-attacks-code" class="code-block">
+                    <pre id="protection-against-injection-attacks-code" class="code-block">
                         <code class="ballerina tab-pane active"></code>
                     </pre>
                     <div class="code cOutput">
@@ -581,7 +581,7 @@
             </div>
             <div data-startLine="31" data-endLine="31" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Integration often has to deal with complex distributed errors. Ballerina has powerful error handling capabilities based around union types. The /check/ operator makes it easy to pass the error back to the caller.</p>
+                    <p>Integration often has to deal with complex distributed errors. Ballerina has powerful error handling capabilities based around union types. The <em>check</em> operator makes it easy to pass the error back to the caller.</p>
                 </div>
             </div>
             <div data-startLine="33" data-endLine="33" class="hTrigger cCodeDesription gray">
@@ -650,6 +650,11 @@
                     <p>Any remote systems, including XA-enabled databases, other Ballerina services or Spring services using the Ballerina Bridge will be enrolled into the transaction.</p>
                 </div>
             </div>
+            <div data-startLine="15" data-endLine="16" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>Ballerina has built in support for SQL and Tables.</p>
+                </div>
+            </div>
             <div data-startLine="26" data-endLine="27" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>If the transaction fails, then all the work will be rolled back.</p>
@@ -657,44 +662,49 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="circuit-breaker-text">
-            <div data-startLine="2" data-endLine="2" class="hTrigger cCodeDesription gray">
+            <div data-startLine="3" data-endLine="3" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>This line configures how long before the remote service is considered to timeout</p>
+                </div>
+            </div>
+            <div data-startLine="4" data-endLine="4" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Circuit Breakers are a common way of protecting against distributed failure. Circuit breakers are built into Ballerina.</p>
                 </div>
             </div>
-            <div data-startLine="3" data-endLine="6" class="hTrigger cCodeDesription gray">
+            <div data-startLine="5" data-endLine="8" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The circuit breaker is looking for errors across a rolling time window.</p>
                 </div>
             </div>
-            <div data-startLine="8" data-endLine="8" class="hTrigger cCodeDesription gray">
+            <div data-startLine="10" data-endLine="10" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>After breaking the circuit, the circuit breaker will not send any more requests to the backend until the resetTime.</p>
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="built-in-protection-against-injection-attacks-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="protection-against-injection-attacks-text">
             <!-- <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>A common issue in building distributed systems is that data coming over the wire cannot be trusted not to include injection attacks.</p>
                 </div>
             </div> -->
-            <div data-startLine="4" data-endLine="4" class="hTrigger cCodeDesription gray">
+            <div data-startLine="5" data-endLine="5" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Ballerina assumes that all data coming over the wire is tainted.</p>
+                    <p>Ballerina assumes that all data coming over the wire is tainted..</p>
                 </div>
             </div>
-            <div data-startLine="8" data-endLine="8" class="hTrigger cCodeDesription gray">
+            <div data-startLine="10" data-endLine="10" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Compilation time checks prevent code that requires untainted data from accessing tainted data.</p>
                 </div>
             </div>
-            <div data-startLine="18" data-endLine="20" class="hTrigger cCodeDesription gray">
+            <div data-startLine="21" data-endLine="21" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Simple annotations allow developers to mark parameters that could contain injection attacks.</p>
                 </div>
             </div>
-            <div data-startLine="24" data-endLine="24" class="hTrigger cCodeDesription gray">
+            <div data-startLine="28" data-endLine="28" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Developers can write simple code or use packages to protect against injection attacks.</p>
                 </div>
