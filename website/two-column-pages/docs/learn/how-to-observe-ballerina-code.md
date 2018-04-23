@@ -66,7 +66,7 @@ ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 curl http://localhost:9090/hello/sayHello
 ```
 7. Now go to imported dashboard in grafana and check the metrics. Similarly go to Jaeger dashboard at http://localhost:16686/ and check the traces. 
-<img src="images/jaeger-sample-dashboard.png" width="800" height="300"/>
+<img src="images/jaeger-sample-dashboard.png" width="700" height="150"/>
  
 ## Metrics Monitoring
 Metrics help to monitor the runtime behaviour of the service. Therefore, metrics is a vital part of monitoring Ballerina or actually considered as monitoring itself. However, metrics is not the same as analytics. For example, you should not use metrics to do something like per-request billing. Metrics are used to measure what Ballerina code does in runtime to make better decisions using the numbers. The code generates business value when it is run in production. Therefore, it is imperative to continuously measure the code in production.
