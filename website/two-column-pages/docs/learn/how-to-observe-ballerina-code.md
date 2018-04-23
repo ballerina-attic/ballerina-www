@@ -1,59 +1,52 @@
 # How to Observe Ballerina Programs
 
 ## Introduction
-Monitoring, logging, and distributed tracing are key aspects of observability.
+Observability is a measure of how well internal states of a system can be inferred from knowledge of its external outputs. Monitoring, logging, and distributed tracing are key methods which reveals the internal state of the system, indeed the observability. Therefore ballerina provides default support for monitoring metrics such as request count and response time statistics, log processing and analysis, and distributed tracing according to [OpenTracing](https://github.com/opentracing/specification/blob/master/specification.md) specification, which collectively yields the full observability for ballerina services. 
 
-## Configurations
-Ballerina is by default observable. However observability is disabled by default via configuration. Observability can be enabled from configurations.
+Ballerina services that are using the below mentioned service/client connectors are observable by default. 
+* HTTP/HTTPS
+* SQL 
 
-Example configuration:
+## Quick Start
+Ballerina service is by default observable. However observability is disabled by default and it can be enabled by either adding inline parameter and upating the configuration.
+
+### Inline Parameter
+Observability for ballerina service can be enabled with a short hand inline parameter --observe as shown below. This enables observability for ballerina service with default settings, and publish the distributed tracing information to [Jaeger](https://www.jaegertracing.io/) and metrics information to [Prometheus](https://prometheus.io/). 
+
 ```
-[observability]
+$ ballerina run hello_service.bal --observe
 
-[observability.metrics]
-# Flag to enable Metrics
-enabled=true
+```
 
-[observability.tracing]
+### Configuration file
+Observability can be enabled from configuration. An example configuration which starts observability with metrics monitoring and distributed tracing with default configurations is given below. 
+
+```
+[b7a.observability.tracing]
 # Flag to enable Tracing
 enabled=true
-```
 
-### Metrics Configuration
-Metrics help to monitor the runtime behaviour of the service. Therefore, metrics is a vital part of monitoring Ballerina or actually considered as monitoring itself.
-
-However, metrics is not the same as analytics. For example, you should not use metrics to do something like per-request billing.
-
-Metrics are used to measure what Ballerina code does in runtime to make better decisions using the numbers. The code generates business value when it is run in production. Therefore, it is imperative to continuously measure the code in production.
-
-Metrics, by default, supports Prometheus. In order to support Prometheus, an HTTP endpoint starts when starting the Ballerina program. The context is `/metrics`.
-
-The default port is 9797. The port can be changed from the configuration.
-
-```
-[observability]
-
-[observability.metrics]
+[b7a.observability.metrics]
 # Flag to enable Metrics
 enabled=true
-# Prometheus HTTP endpoint hostname
-hostname="localhost"
-# Prometheus HTTP endpoint port. Metrics will be exposed in /metrics context.
-# E.g., http://localhost:9797/metrics
-port=9797
-# Flag to indicate whether meter descriptions should be sent to Prometheus.
-# Turn this off to minimize the amount of data sent on each scrape.
-descriptions=false
-# The step size to use in computing windowed statistics like max. The default is 1 minute.
-# To get the most out of these statistics, align the step interval to be close to your scrape interval.
-step="PT1M"
 ```
 
-> Note: The configurations have b7a prepended to them.
+The ballerina program needs to be started as below with eith --config or -c inline parameter and provide the path of the configuration file to adhere to the configuration.
+
+```
+$ ballerina run hello_service.bal --config <path-to-conf>/ballerina.conf
+```
+ 
+## Metrics Monitoring
+Metrics help to monitor the runtime behaviour of the service. Therefore, metrics is a vital part of monitoring Ballerina or actually considered as monitoring itself. However, metrics is not the same as analytics. For example, you should not use metrics to do something like per-request billing. Metrics are used to measure what Ballerina code does in runtime to make better decisions using the numbers. The code generates business value when it is run in production. Therefore, it is imperative to continuously measure the code in production.
+
+Metrics, by default, supports Prometheus. In order to support Prometheus, an HTTP endpoint starts with the context of `/metrics` in default port 9797 when starting the Ballerina program. 
+
+### Configuration
+This section focuses on the ballerina configurations that are available for metrics monitoring with Prometheus, and the sample configuration is provided below.
 
 ```
 [b7a.observability.metrics]
-# Flag to enable Metrics
 enabled=true
 provider="micrometer"
 
@@ -61,13 +54,20 @@ provider="micrometer"
 registry.name="prometheus"
 
 [b7a.observability.metrics.prometheus]
-port=9700
+port=9797
 hostname="0.0.0.0"
 descriptions=false
 step="PT1M"
 ```
 
-### Tracing Configuration
+The descriptions of each configurations above is provided below with possible alternate options.
+
+|Configuration Key | Description | Default Value | Possible Values 
+|--- | --- | --- | --- 
+|b7a.observability.metrics.enabled | Whether metrics monitoring is enabled (true) or disabled (false) | false | true / false 
+
+
+## Distributed Tracing
 
 Tracing provides information regarding the roundtrip of a service invocation based on the concept of spans, which are structured in a hierarchy based on the cause and effect concept. Tracers propagate across several services, depicting a high level view of interconnections among services as well, hence coining the term distributed tracing.
 
