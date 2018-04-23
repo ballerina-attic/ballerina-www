@@ -383,7 +383,9 @@ public class RunSession {
         if (tryItPhase != null) {
             tryItPhase.terminate(this);
         }
-        LauncherUtils.markNodeAsFree();
+        if (!EnvUtils.getEnvBooleanValue(EnvVariables.ENV_IS_LAUNCHER_CACHE, false)) {
+            LauncherUtils.markNodeAsFree();
+        }
     }
 
     private void createSourceFile() {
