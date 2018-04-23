@@ -217,12 +217,12 @@ $ maven clean install
 6. Change below configuration name to zipkin, therefore all tracers will be sent to zipkin instead of default tracer jeager. 
 ```
 [b7a.observability.tracing]
-name=zipkin
+name="zipkin"
 ```
 7. The below provided configuration is the sample configuration options available for zipkin tracer. 
 ```
 [b7a.observability.tracing.zipkin]
-reporter.hostname=localhost
+reporter.hostname="localhost"
 reporter.port=9411
 ```
 
@@ -253,4 +253,6 @@ Similar to jaeger, zipkin is another distributed tracing system that is supporte
 ```bash
 docker run -d -p 9411:9411 openzipkin/zipkin
 ```
-2. Go to http://localhost:9411/zipkin/ and load the web UI of the zipkin to make sure it's functioning properly.
+2. Go to http://localhost:9411/zipkin/ and load the web UI of the zipkin to make sure it's functioning properly. The below shown is the sample zipkin dashboard for the hello-world sample in the [Quick Start](#Quick-start)
+<img src="images/zipkin-sample.png" width=700 height=175/>
+
