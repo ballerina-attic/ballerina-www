@@ -319,13 +319,13 @@ $ docker pull docker.elastic.co/logstash/logstash:6.2.2
 $ docker run -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearch docker.elastic.co/elasticsearch/elasticsearch:6.2.2 
 $ docker run -p 5601:5601 -h kibana --name kibana --link elasticsearch:elasticsearch docker.elastic.co/kibana/kibana:6.2.2 
 ```
-Note:
-* Linux users may have to increase the vm.max_map_count for the elasticsearch container to start. To do so run the following command.
-```bash
-$ sudo sysctl -w vm.max_map_count=262144
-```
-* -h flag sets the containers hostname
-* --link flag is used to connect to another container. Then container can consume services using the hostname specified. Kibana container will link to elasticsearch container and can use the “elasticsearch” hostname to talk to that container
+  Note:
+  * Linux users may have to increase the vm.max_map_count for the elasticsearch container to start. To do so run the following command.
+   ```bash
+   $ sudo sysctl -w vm.max_map_count=262144
+   ```
+  * -h flag sets the containers hostname
+  * --link flag is used to connect to another container. Then container can consume services using the hostname specified. Kibana container will link to elasticsearch container and can use the “elasticsearch” hostname to talk to that container
 3. Configure logstash to format the ballerina logs. Inorder to do this, you need to create a file named logstash.conf with the following content. 
 For this example I have saved this file at ~/wso2-ballerina/ELK/pipeline/logstash.conf. This should be taken note of because, when starting the logstash container, this file should be bind-mounted onto the container. Logstash container is configured to read a configuration file named “logstash.conf” at startup.
 ```
@@ -347,8 +347,8 @@ output {
 	}  
 }
 ```
-Note:
-* 3 stages are specified in the pipeline 
-* Input is specified as beats and listens to port 5044.
-* A grok filter is used to structure the ballerina logs.
-* An output is specified to push to elasticsearch. Note here that the host is specified as “elasticsearch:9200”. Hence the elasticsearch container should be linked to the logstash container.
+  Note:
+  * 3 stages are specified in the pipeline 
+  * Input is specified as beats and listens to port 5044.
+  * A grok filter is used to structure the ballerina logs.
+  * An output is specified to push to elasticsearch. Note here that the host is specified as “elasticsearch:9200”. Hence the elasticsearch container should be linked to the logstash container.
