@@ -8,10 +8,11 @@ import ballerina/http;
 }
 service<http:Service> hello bind {port:9090} {
     // Create a REST resource within the API
-    @http:ResourceConfig{
+    @http:ResourceConfig {
         path : "/",
         methods : ["POST"]
     }
+
     // Parameters include a reference to the caller endpoint
     // and a struct with the request data
     hi (endpoint caller, http:Request request) {
@@ -23,7 +24,7 @@ service<http:Service> hello bind {port:9090} {
         match payload {
             string name => {res.setStringPayload("Hello " + name + "!\n");}
             error err => {res.setStringPayload(err.message);}
-        }    
+        }
         // Return response, '->' signifies remote call
         // '_' means ignore the function return value
         _ = caller -> respond (res);
