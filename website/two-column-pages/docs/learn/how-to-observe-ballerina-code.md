@@ -57,7 +57,7 @@ ballerina: initiating service(s) in 'hello-world-service.bal'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
-3. Install and configure premetheus as mentioned in section [configuring prometheus](#Prometheus)
+3. Install and configure premetheus as mentioned in section [configuring prometheus](#Prometheus)/
 4. Install grafana as mentioned in section [configuring grafana](#grafana)
 5. Install Jaeger as mentioned in section [configuring jaeger](#jeager)
 6. Send few requests to http://localhost:9090/hello/sayHello
@@ -66,6 +66,7 @@ ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 curl http://localhost:9090/hello/sayHello
 ```
 7. Now go to imported dashboard in grafana and check the metrics. Similarly go to Jaeger dashboard at http://localhost:16686/ and check the traces. 
+<img src="images/jaeger-sample-dashboard.png" width="800" height="300"/>
  
 ## Metrics Monitoring
 Metrics help to monitor the runtime behaviour of the service. Therefore, metrics is a vital part of monitoring Ballerina or actually considered as monitoring itself. However, metrics is not the same as analytics. For example, you should not use metrics to do something like per-request billing. Metrics are used to measure what Ballerina code does in runtime to make better decisions using the numbers. The code generates business value when it is run in production. Therefore, it is imperative to continuously measure the code in production.
@@ -127,7 +128,7 @@ scrape_configs:
 3. Start the Prometheus server as docker container with below command.
 
 ```bash
-docker run -p 19090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml \ prom/prometheus
+docker run -p 19090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
 ```
 
 Once the above steps are completed, the Prometheus can be accessed from http://localhost:19090/ from where the docker is running. 
