@@ -34,6 +34,22 @@ public class EnvUtils {
     }
 
     /**
+     * Read environment variable. If no value is found, the provided default value is returned.
+     *
+     * @param key
+     * @param defaultValue
+     * @return
+     */
+    public static boolean getEnvBooleanValue(String key, boolean defaultValue) {
+        try {
+            return getEnvBoolean(key, true);
+        } catch (IllegalArgumentException ex) {
+            log.debug("Environment variable " + key + " not found. Using default value " + defaultValue);
+            return defaultValue;
+        }
+    }
+
+    /**
      * Read environment variable. If no value is found an {@link IllegalArgumentException} is thrown.
      *
      * @param key
@@ -131,6 +147,34 @@ public class EnvUtils {
         } else {
             log.warn("No value found for environment variable " + key);
             return 0;
+        }
+    }
+
+    /**
+     * Read environment variable and return the parsed boolean value. If {@param required} is true, when no value is
+     * found, or the read value cannot be properly parsed as an boolean, an {@link IllegalArgumentException} is thrown.
+     * If {@param required} is false, false is returned for no value or invalid value scenarios.
+     *
+     * @param key
+     * @param required
+     * @return
+     */
+    private static boolean getEnvBoolean(String key, boolean required) {
+        String rawValue = getEnvStringValue(key, required);
+        if (rawValue != null) {
+            try {
+                return Boolean.parseBoolean(rawValue);
+            } catch (Exception e) {
+                if (required) {
+                    throw new IllegalArgumentException("Couldn't parse value set for environment variable " + key, e);
+                }
+
+                log.warn("Couldn't parse value set for environment variable " + key);
+                return false;
+            }
+        } else {
+            log.warn("No value found for environment variable " + key);
+            return false;
         }
     }
 }

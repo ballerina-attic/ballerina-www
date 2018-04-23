@@ -16,6 +16,7 @@
 package org.ballerinalang.platform.playground.launcher.core.cache.adaptor;
 
 import org.ballerinalang.platform.playground.utils.RedisClient;
+import redis.clients.jedis.Jedis;
 
 /**
  * Cache Storage Adaptor for Redis
@@ -25,18 +26,24 @@ public class RedisCacheStorageAdaptor implements CacheStorageAdaptor {
     private RedisClient redisClient;
 
     public RedisCacheStorageAdaptor() {
-        redisClient = new RedisClient();
+        redisClient = RedisClient.getInstance();
     }
 
     public String get(String key) {
-        return redisClient.getReadClient().get(key);
+        try (Jedis client = redisClient.getClient()) {
+            return client.get(key);
+        }
     }
 
     public boolean contains(String key) {
-        return redisClient.getReadClient().exists(key);
+        try (Jedis client = redisClient.getClient()) {
+            return client.exists(key);
+        }
     }
 
     public void set(String key, String value) {
-        redisClient.getWriteClient().set(key, value);
+        try (Jedis client = redisClient.getClient()) {
+            client.set(key, value);
+        }
     }
 }
