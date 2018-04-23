@@ -13,20 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.ballerinalang.platform.playground.parser;
+package org.ballerinalang.platform.playground.utils.exception.mapper;
 
-import org.ballerinalang.platform.playground.utils.exception.mapper.CatchAllExceptionMapper;
-import org.wso2.msf4j.MicroservicesRunner;
+import org.ballerinalang.platform.playground.utils.cmd.dto.Message;
 
 /**
- * Entry point for micro services server
+ * Represents an error response object.
  */
-public class ServiceRunner {
+public class ErrorResponse extends Message {
 
-    public static void main(String[] args) {
-        MicroservicesRunner microservicesRunner = new MicroservicesRunner();
-        microservicesRunner.deploy(new ParserService());
-        microservicesRunner.addExceptionMapper(new CatchAllExceptionMapper());
-        microservicesRunner.start();
+    public static final String ERROR = "Error";
+
+    public ErrorResponse(String message) {
+        super(ERROR, message, ERROR);
     }
 }

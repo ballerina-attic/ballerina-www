@@ -34,11 +34,11 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 [How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and package these customizations for use by others. 
 
-### How to Write Secure Ballerina Code
+### How to Write Secure Ballerina Programs
 
 [How to Write Secure Ballerina Code](/learn/how-to-observe-ballerina-code/) provides guidelines on writing secure Ballerina programs, while demonstrating different security features and controls available within Ballerina.
 
-### How to Observe Ballerina Code
+### How to Observe Ballerina Programs
 
 [How to Observe Ballerina Code](/learn/how-to-observe-ballerina-code/) instructs you on how to use logging, metrics, and tracing to observe Ballerina programs.
 

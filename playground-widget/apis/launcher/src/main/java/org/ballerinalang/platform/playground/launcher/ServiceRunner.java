@@ -19,6 +19,7 @@ import org.ballerinalang.platform.playground.launcher.core.cache.adaptor.CacheSt
 import org.ballerinalang.platform.playground.launcher.core.cache.adaptor.InMemoryCacheStorageAdaptor;
 import org.ballerinalang.platform.playground.utils.EnvUtils;
 import org.ballerinalang.platform.playground.utils.EnvVariables;
+import org.ballerinalang.platform.playground.utils.exception.mapper.CatchAllExceptionMapper;
 import org.wso2.msf4j.MicroservicesRunner;
 
 /**
@@ -34,6 +35,7 @@ public class ServiceRunner {
         }
         MicroservicesRunner microservicesRunner = new MicroservicesRunner();
         microservicesRunner.deployWebSocketEndpoint(new LauncherService());
+        microservicesRunner.addExceptionMapper(new CatchAllExceptionMapper());
         microservicesRunner.start();
     }
 
