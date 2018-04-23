@@ -319,7 +319,7 @@
                                              {{#each constructs}}
                                                  {{#if isPrimitiveType}}
                                                      <tr>
-                                                         <td class="cSummary-table-type"><a href="#{{name}}">{{name}}</td>
+                                                         <td class="cSummary-table-type"><a href="#{{name}}">{{name}}</a></td>
                                                          <td class="cSummary-table-desc">{{{description}}}</td>
                                                      </tr>
                                                  {{/if}}
@@ -411,7 +411,7 @@
                                                  {{#if isFunction}}
                                                      <tr>
                                                          <td class="cSummary-table-type">{{#if returnParams}}{{join returnParams ", "}}{{/if}}</td>
-                                                         <td class="cSummary-table-desc"><a href="#{{name}}">{{name}}({{join parameters ", "}})</a></br>{{{description}}}</td>
+                                                         <td class="cSummary-table-desc"><a href="#{{name}}">{{name}}({{join parameters ", "}})</a><br/>{{{description}}}</td>
                                                      </tr>
                                                  {{/if}}
                                              {{/each}}
@@ -454,7 +454,7 @@
                                                         {{#each children}}
                                                         <li class="cFunctionList">
                                                             <h2 id="{{../name}}-{{name}}">
-                                                                <span class={{icon}}></span>
+                                                                <span class="{{icon}}"></span>
                                                                 <span class="thin-text light-gray">&lt;{{../name}}&gt;</span> {{name}}({{join parameters ", "}}) {{#if returnParams}}returns ({{join returnParams ", "}}) {{/if}}
                                                             </h2>
                                                             {{#if description}}
@@ -581,7 +581,7 @@
                                                         {{#each children}}
                                                         <li>
                                                             <h2 id="{{../name}}-{{name}}">
-                                                                <span class={{icon}}></span>
+                                                                <span class="{{icon}}"></span>
                                                                 <span class="thin-text light-gray">&lt;{{../name}}&gt;</span> {{name}}({{join parameters ", "}}) {{#if returnParams}}returns ({{join returnParams ", "}}) {{/if}}
                                                             </h2>
                                                             {{#if description}}
@@ -661,9 +661,9 @@
                                                         {{#each children}}
                                                         <li>
                                                             <h2 id="{{../name}}-{{name}}">
-                                                                <span class={{icon}}></span>
+                                                                <span class="{{icon}}"></span>
                                                                 <span class="thin-text light-gray">
-                                                   <{{../name}}>
+                                                   &lt;{{../name}}&gt;
                                                    </span> {{name}}({{join parameters ", "}}) {{#if returnParams}}returns ({{join returnParams ", "}}) {{/if}}
                                                             </h2>
                                                             {{#if description}}
@@ -743,9 +743,9 @@
                                                         {{#each children}}
                                                         <li>
                                                             <h2 id="{{../name}}-{{name}}">
-                                                                <span class={{icon}}></span>
+                                                                <span class="{{icon}}"></span>
                                                                 <span class="thin-text light-gray">
-                                                   <{{../name}}>
+                                                   &lt;{{../name}}&gt;
                                                    </span> {{name}}({{join parameters ", "}}) {{#if returnParams}}returns ({{join returnParams ", "}}) {{/if}}
                                                             </h2>
                                                             {{#if description}}
@@ -793,9 +793,9 @@
                                                     </ul>
                                                 </div>
                                                 {{/if}} {{/if}}
+                                            </div>
                                                 {{/each}}
                                             </div>
-                                        </div>
                                         </div>
                                     </div>
                                 </div>
