@@ -30,6 +30,7 @@ Observability for ballerina service can be enabled with a short hand inline para
 
 ```bash
 $ ballerina run hello_service.bal --observe
+
 ballerina: started Prometheus HTTP endpoint localhost/127.0.0.1:9797
 ballerina: started publishing tracers to Jaeger on localhost:5775
 ballerina: initiating service(s) in 'hello-world-service.bal'
@@ -62,9 +63,9 @@ ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 6. Send few requests to http://localhost:9090/hello/sayHello
    Example cURL command:
 ```
-   curl http://localhost:9090/hello/sayHello
-   ```
-7. Now go grafana and check the dashboard. Similary to Jaeger and check the dashboard. 
+curl http://localhost:9090/hello/sayHello
+```
+7. Now go to imported dashboard in grafana and check the metrics. Similarly go to Jaeger dashboard at http://localhost:16686/ and check the traces. 
  
 ## Metrics Monitoring
 Metrics help to monitor the runtime behaviour of the service. Therefore, metrics is a vital part of monitoring Ballerina or actually considered as monitoring itself. However, metrics is not the same as analytics. For example, you should not use metrics to do something like per-request billing. Metrics are used to measure what Ballerina code does in runtime to make better decisions using the numbers. The code generates business value when it is run in production. Therefore, it is imperative to continuously measure the code in production.
@@ -242,7 +243,7 @@ Jeager is the default distributed tracing system that is supported. There are ma
 docker run -d -p5775:5775/udp -p6831:6831/udp -p6832:6832/udp -p5778:5778 -p16686:16686 -p14268:14268 jaegertracing/all-in-one:latest
 ```
 2. Go to http://localhost:16686 and load the web UI of the jaeger to make sure it's functioning properly. The below image is the sample tracing infomration you can see from Jaeger. 
-<img src="images/jaeger-tracing-dashboard.png" width=600 height=500/>
+<img src="images/jaeger-tracing-dashboard.png" width=700 height=500/>
 
 #### Zipkin
 Similar to jaeger, zipkin is another distributed tracing system that is supported by ballerina. There are many different configurations and deployment exists for zipkin, please go to [link](https://github.com/openzipkin/zipkin) for more information. Here we docus on all in one deployment with docker. 
