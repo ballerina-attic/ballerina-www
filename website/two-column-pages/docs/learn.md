@@ -36,7 +36,7 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ### How to Write Secure Ballerina Programs
 
-[How to Write Secure Ballerina Programs](/learn/how-to-secure-ballerina-code/) provides guidelines on writing secure Ballerina programs, while demonstrating different security features and controls available within Ballerina.
+[How to Write Secure Ballerina Programs](/learn/how-to-write-secure-ballerina-code/) provides guidelines on writing secure Ballerina programs, while demonstrating different security features and controls available within Ballerina.
 
 ### How to Observe Ballerina Programs
 
