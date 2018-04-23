@@ -17,7 +17,7 @@ $(document).ready(function () {
 	"Ballerina With Others":[{"name": "Ballerina API Gateway", "desc": "Ballerina services with policies enforced by Ballerina API Gateway", "url": "api-gateway", "git": ""},
 		{"name": "Messaging with JMS", "desc": "Publish and subscribe to messages with a JMS broker", "url": "messaging-with-jms-queues", "git": ""},
 		{"name": "Salesforce-Twilio Integration", "desc": "", "url": "salesforce-twilio-integration", "git": ""},
-		{"name": "Gmail-SpreedSheet Integration ", "desc": "", "url": "gmail-spreadsheet-integration", "git": ""},
+		{"name": "Gmail-Google Sheets Integration", "desc": "", "url": "gmail-spreadsheet-integration", "git": ""},
 		{"name": "SonaQube-GitHub Integration ", "desc": "", "url": "sonarqube-github-integration", "git": ""}
 	]};
 
