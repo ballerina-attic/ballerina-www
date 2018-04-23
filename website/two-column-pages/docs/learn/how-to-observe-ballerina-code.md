@@ -352,3 +352,25 @@ output {
   * Input is specified as beats and listens to port 5044.
   * A grok filter is used to structure the ballerina logs.
   * An output is specified to push to elasticsearch. Note here that the host is specified as “elasticsearch:9200”. Hence the elasticsearch container should be linked to the logstash container.
+4. Start the logstash container by following command. 
+```bash
+$ docker run -h logstash --name logstash --link elasticsearch:elasticsearch -it --rm -v ~/wso2-ballerina/ELK/pipeline:/usr/share/logstash/pipeline/ -p 5044:5044 docker.elastic.co/logstash/logstash:6.2.2
+```
+5. Configure filebeat to ship the ballerina logs. For this, you need to create a file named filebeat.yml with the following content. For this example let's save this file at ~/wso2-ballerina/ELK/filebeat.yml.
+```
+filebeat.prospectors:
+- type: log
+  paths:
+    - /usr/share/filebeat/ballerina.log
+output.logstash:
+  hosts: ["logstash:5044"]
+```
+  Notes:
+  * Here also the host is specified as “logstash:5044”. Hence the logstash container should be linked to this container.
+6. Start the filebeat container with following command. 
+```bash
+$ docker run -v ~/wso2-ballerina/ELK/filebeat.yml:/usr/share/filebeat/filebeat.yml -v ~/wso2-ballerina/workspace/ballerina.log:/usr/share/filebeat/ballerina.log --link logstash:logstash docker.elastic.co/beats/filebeat:6.2.2 
+```
+  Note:
+  * -v flag is used for bind mounting, where the container will read the file from the host machine. Hence bind mounting the configuration file and log file means that filebeat container should be set up in the same host where the log file is being generated.
+6. Access Kibana to visualize the logs at http://localhost:5601.
