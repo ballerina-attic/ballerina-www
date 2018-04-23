@@ -111,7 +111,7 @@ docker run -d --name=grafana -p 3000:3000 grafana/grafana
 2. Go to http://localhost:3000/ from where the docker is running, and access the Grafana dashboard. 
 3. Login to the dashboard with default user, username: admin and password: admin
 4. Add prometheus as datasource with direct access configuration as provided below. 
-<img src="images/grafana-prometheus-datasource.png" width=250 height=300/>
+<img src="images/grafana-prometheus-datasource.png" width=400 height=600/>
 5. Now you can import the default grafana dashboard which has some default graphs to visualize the request/response metrics. 
 
 ## Distributed Tracing
