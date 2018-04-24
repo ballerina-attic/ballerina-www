@@ -36,6 +36,7 @@ service<http:Service> hello bind { port:9090 } {
 }
 ```
 2. The observability is disabled by default and it can be enabled by either adding inline parameter and updating the configuration. This options will enable metrics monitoring and distributed tracing. You will have to follow step-3 and step-4, if you want to have log analysis as well.
+
 Inline Parameter : 
 Observability for ballerina service can be enabled with a short hand inline parameter --observe as shown below. This enables observability for ballerina service with default settings, and publish the distributed tracing information to [Jaeger](https://www.jaegertracing.io/) and metrics information to [Prometheus](https://prometheus.io/). 
 
