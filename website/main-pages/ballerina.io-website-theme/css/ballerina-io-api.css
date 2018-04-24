@@ -327,14 +327,16 @@ th.cAPI-table-desc {
     width: 50%;
 }
 th.cSummary-table-desc {
-    width: 80%;
+    width: 50%;
 }
 
 td.cAPI-table-name,
 td.cAPI-table-type,
 td.cAPI-table-default,
 td.cAPI-table-default,
-td.cSummary-table-type
+td.cSummary-table-type,
+td.cSummary-table-name
+
 {
     font-family: Monaco, Consolas, "Courier New", monospace;
     font-weight: normal;
@@ -376,9 +378,17 @@ th.cAPI-table-default {
     width: 15%;
 }
 
-td.cAPI-table-desc , td.cSummary-table-desc {
+/*.cSummary-table-attach , .cSummary-table-type {
+    display: none;
+}*/
+
+td.cAPI-table-desc , td.cSummary-table-desc , td.cAPI-table-desc p {
     font-family: "pragmatica", sans-serif;
     font-size: 12px;
+}
+
+td.cAPI-table-desc p {
+    margin: 0;
 }
 
 td.cAPI-table-desc code , td.cSummary-table-desc code {
