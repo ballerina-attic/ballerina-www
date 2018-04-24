@@ -1,9 +1,9 @@
 # How to Observe Ballerina Programs
 
 ## Introduction
-Observability is a measure of how well internal states of a system can be inferred from knowledge of its external outputs. Monitoring, logging, and distributed tracing are key methods which reveals the internal state of the system, indeed the observability. Therefore ballerina provides default support for monitoring metrics such as request count and response time statistics, log processing and analysis, and distributed tracing according to [OpenTracing](https://github.com/opentracing/specification/blob/master/specification.md) specification, which collectively yields the full observability for ballerina services. 
+Observability is a measure of how well internal states of a system can be inferred from knowledge of its external outputs. Monitoring, logging, and distributed tracing are key methods which reveal the internal state of the system, indeed the observability. Therefore ballerina provides default support for monitoring metrics such as request count and response time statistics, log processing and analysis, and distributed tracing according to [OpenTracing](https://github.com/opentracing/specification/blob/master/specification.md) specification, which collectively yields the full observability for ballerina services. 
 
-Ballerina services that are using the below mentioned service/client connectors are observable by default. 
+Ballerina services that are using the below-mentioned service/client connectors are observable by default. 
 * HTTP/HTTPS
 * SQL 
 
@@ -39,7 +39,7 @@ Make sure you have already installed Docker Community Edition (CE) to install ex
 2. The observability is disabled by default and it can be enabled by either adding inline parameter and updating the configuration. This options will enable metrics monitoring and distributed tracing. You will have to follow step-3 and step-4, if you want to have log analysis as well.
 
    Inline Parameter : 
-   Observability for ballerina service can be enabled with a short hand inline parameter --observe as shown below. This enables observability for ballerina service with default settings, and publish the distributed tracing information to [Jaeger](https://www.jaegertracing.io/) and metrics information to [Prometheus](https://prometheus.io/). 
+   Observability for ballerina service can be enabled with a shorthand inline parameter --observe as shown below. This enables observability for ballerina service with default settings, and publish the distributed tracing information to [Jaeger](https://www.jaegertracing.io/) and metrics information to [Prometheus](https://prometheus.io/). 
 
     ```bash
     $ ballerina run hello_service.bal --observe
@@ -70,7 +70,7 @@ Make sure you have already installed Docker Community Edition (CE) to install ex
     ballerina: started HTTP/WS endpoint 0.0.0.0:9090
     ```
 3. If you want to perform log analysis then follow this step and step-4, else, please proceed to step 5. 
-   There are some logs added to the service, but these logs needs to be pushed to [Elastic Stack](#Distributed-Logging) to perform the log analysis. But the log package supports logging to console only, therefore the logs needs be redirected to a file as first step, therefore you require to start the service as below along with the option that you have opted to start service in step-2 (inline parameter or passing configuration).
+   There are some logs added to the service, but these logs need to be pushed to [Elastic Stack](#Distributed-Logging) to perform the log analysis. But the log package supports logging to console only, therefore the logs need to be redirected to a file as the first step, therefore you require to start the service as below along with the option that you have opted to start service in step-2 (inline parameter or passing configuration).
    
    Start ballerina service as below for inline parameter. 
    ```bash
@@ -89,14 +89,14 @@ Make sure you have already installed Docker Community Edition (CE) to install ex
     ```bash
     $ curl http://localhost:9090/hello/sayHello
     ```
-9. Now go to imported dashboard in grafana and check the metrics. Similarly go to Jaeger dashboard at http://localhost:16686/ and check the traces. 
+9. Now go to the imported dashboard in grafana and check the metrics. Similarly, go to Jaeger dashboard at http://localhost:16686/ and check the traces. 
     <img src="images/jaeger-sample-dashboard.png" width="700" height="150"/>
 10. If you have followed step-3 and step-4, then you can go to Elastic stack dashboard and visualize.
     <img src="images/kibana-sample-dashboard.png" width="800" height="400"/>
 
 
 ## Metrics Monitoring
-Metrics help to monitor the runtime behaviour of the service. Therefore, metrics is a vital part of monitoring Ballerina or actually considered as monitoring itself. However, metrics is not the same as analytics. For example, you should not use metrics to do something like per-request billing. Metrics are used to measure what Ballerina code does in runtime to make better decisions using the numbers. The code generates business value when it is run in production. Therefore, it is imperative to continuously measure the code in production.
+Metrics help to monitor the runtime behaviour of the service. Therefore, metrics is a vital part of monitoring Ballerina or actually considered as monitoring itself. However, metrics is not the same as analytics. For example, you should not use metrics to do something like per-request billing. Metrics are used to measure what Ballerina code does at runtime to make better decisions using the numbers. The code generates business value when it is run in production. Therefore, it is imperative to continuously measure the code in production.
 
 Metrics, by default, supports Prometheus. In order to support Prometheus, an HTTP endpoint starts with the context of `/metrics` in default port 9797 when starting the Ballerina program. 
 
@@ -118,12 +118,12 @@ descriptions=false
 step="PT1M"
 ```
 
-The descriptions of each configurations above is provided below with possible alternate options.
+The descriptions of each configuration above are provided below with possible alternate options.
 
 Configuration Key | Description | Default Value | Possible Values 
 --- | --- | --- | --- 
 b7a.observability.metrics.enabled | Whether metrics monitoring is enabled (true) or disabled (false) | false | true or false
-b7a.observability.metrics.provider | Provider name which implements Metrics interface. This is only required to be modified if a a custom provider is implemented and needs to be used. | micrometer | micrometer or if any custom implementation, then name of the provider.
+b7a.observability.metrics.provider | Provider name which implements Metrics interface. This is only required to be modified if a custom provider is implemented and needs to be used. | micrometer | micrometer or if any custom implementation, then name of the provider.
 b7a.observability.metrics.micrometer.registry.name | Name of the registry used in micrometer | prometheus | prometheus 
 b7a.observability.metrics.prometheus.port | The value of the port in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the ballerina program. | 9797 | Any suitable value for port 0 - 0 - 65535. However, within that range, ports 0 - 1023 are generally reserved for specific purposes, therefore it's advisable to select a port without that range. 
 b7a.observability.metrics.prometheus.hostname | The hostname in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the ballerina program. | 0.0.0.0 | IP or Hostname or 0.0.0.0 of the node in which the ballerina program is running.
@@ -136,14 +136,14 @@ There are mainly two systems involved in collecting and visualizing the metrics.
 #### Prometheus
 Prometheus is used as the monitoring system, which pulls out the metrics collected from the ballerina service '/metrics'. There are many ways to install the Prometheus and you can find the possible options from [installation guide](https://prometheus.io/docs/prometheus/latest/installation/).  
 
-This section focuses on quick installation of Prometheus with docker, and configure it to collect metrics from ballerina program with default configurations. Below provided steps needs to be followed to configure the Prometheus.
+This section focuses on the quick installation of Prometheus with docker, and configure it to collect metrics from ballerina program with default configurations. Below provided steps needs to be followed to configure the Prometheus.
 
 1. Create a prometheus.yml file in /tmp/ directory.
 2. Use following content for /tmp/prometheus.yml. Go to [this](https://prometheus.io/docs/introduction/first_steps/), if you need more information.
    Please note the targets should contain the host and port of the '/metrics' service that's exposed from ballerina program for metrics collection. Let's say if the IP of the host in which the ballerina program is running is a.b.c.d and the port is default 9797 (configured from b7a.observability.metrics.prometheus.port configuration in ballerina configuration file), then the sample configuration in prometheus will be as below.
    ```yaml
     global:
-      scrape_interval: 	15s
+      scrape_interval:     15s
       evaluation_interval: 15s
     
     scrape_configs:
@@ -155,10 +155,10 @@ This section focuses on quick installation of Prometheus with docker, and config
     ```bash
     $ docker run -p 19090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
     ```
-4. Prometheus dashboard can be accessed from http://localhost:19090/ and  check where the docker is running successfully. 
+4. Prometheus dashboard can be accessed from http://localhost:19090/ and check where the docker is running successfully. 
 
 #### Grafana
-Let’s use Grafana to visualize metrics in dashboard. For this, we need to install Grafana, and and the Prometheus as a datasource to fetch the data from. Follow the below provided steps and configure Grafana. 
+Let’s use Grafana to visualize metrics in a dashboard. For this, we need to install Grafana, and and the Prometheus as a datasource to fetch the data from. Follow the below-provided steps and configure Grafana. 
 
 1. Start Grafana as docker container with below command. For more information, please go to [link](https://hub.docker.com/r/grafana/grafana/).
    ```bash
@@ -173,9 +173,9 @@ Let’s use Grafana to visualize metrics in dashboard. For this, we need to inst
 
 ## Distributed Tracing
 
-Tracing provides information regarding the roundtrip of a service invocation based on the concept of spans, which are structured in a hierarchy based on the cause and effect concept. Tracers propagate across several services which can be deployed in several nodes, depicting a high level view of interconnections among services as well, hence coining the term distributed tracing.
+Tracing provides information regarding the roundtrip of a service invocation based on the concept of spans, which are structured in a hierarchy based on the cause and effect concept. Tracers propagate across several services which can be deployed in several nodes, depicting a high-level view of interconnections among services as well, hence coining the term distributed tracing.
 
-A span is a logical unit of work, which encapsulates a start and end time as well as metadata to give more meaning to the unit of work being completed. For example a span representing a client call to an HTTP endpoint would give the user the latency of the client call and metadata like the HTTP URL being called and HTTP method used. If the span represents an SQL client call, the metadata would include the query being executed.
+A span is a logical unit of work, which encapsulates a start and end time as well as metadata to give more meaning to the unit of work being completed. For example, a span representing a client call to an HTTP endpoint would give the user the latency of the client call and metadata like the HTTP URL being called and HTTP method used. If the span represents an SQL client call, the metadata would include the query being executed.
 
 Tracing gives the user a high-level view of how a single service invocation is processed across several distributed microservices. 
 
@@ -220,7 +220,7 @@ The below table provides the descriptions of each configuration options and poss
 
 Configuration Key | Description | Default Value | Possible Values 
 --- | --- | --- | --- 
-b7a.observability.tracing.jaeger.reporter.hostname | Hostname of the Jaeger server | localhost | IP or hostname of the Jaeger server. If it's running on the same node as ballerina, it can be localhost. 
+b7a.observability.tracing.jaeger.reporter.hostname | Hostname of the Jaeger server | localhost | IP or hostname of the Jaeger server. If it's running on the same node as the ballerina, it can be localhost. 
 b7a.observability.tracing.jaeger.reporter.port | Port of the Jaeger server | 5775 | The port which the Jaeger server is listening to.
 b7a.observability.tracing.jaeger.sampler.type | Type of the sampling methods used in the Jaeger tracer. | const | const, probabilistic, or ratelimiting.
 b7a.observability.tracing.jaeger.sampler.param | It's a floating value. Based on the sampler type, the effect of the sampler param varies. Const - 0 is no sampling and 1 is sample all spans, Probabilistic - must be between 1.0 and 0.0, and Ratelimiting - param specifies rate per second | 1.0 | 0.0 - 1.0
@@ -232,18 +232,18 @@ The tracing of ballerina program can be done via zipkin as well, but the require
 
 1. Go to [ballerina-observability](https://github.com/ballerina-platform/ballerina-observability) and clone the github repository in any preferred location.
 2. Make sure you have installed [apache maven](http://maven.apache.org/).
-3. Open command prompt and build the repository by using [apache maven](http://maven.apache.org/) with below command while being in the root project directory ballerina-observability.
+3. Open a command prompt and build the repository by using [apache maven](http://maven.apache.org/) with below command while being in the root project directory ballerina-observability.
    ```bash   
    $ maven clean install
    ```
-4. Go to path - ballerina-observability/tracing-extensions/modules/ballerina-zipkin-extension/target/distribution.zip and extract it.
-5. Copy all the jars that exists in distribution.zip to 'bre/lib' directory in the ballerina distribution. 
+4. Go to the path - ballerina-observability/tracing-extensions/modules/ballerina-zipkin-extension/target/distribution.zip and extract it.
+5. Copy all the jars that exist in distribution.zip to 'bre/lib' directory in the ballerina distribution. 
 6. Change below configuration name to zipkin, therefore all tracers will be sent to zipkin instead of default tracer jeager.
    ```yaml
    [b7a.observability.tracing]
    name="zipkin"
    ```
-7. The below provided configuration is the sample configuration options available for zipkin tracer. 
+7. The below-provided configuration is the sample configuration options available for zipkin tracer. 
    ```
    [b7a.observability.tracing.zipkin]
    reporter.hostname="localhost"
@@ -254,7 +254,7 @@ The below table provides the descriptions of each configuration options and poss
 
 Configuration Key | Description | Default Value | Possible Values 
 --- | --- | --- | --- 
-b7a.observability.tracing.zipkin.reporter.hostname | Hostname of the Zipkin server | localhost | IP or hostname of the Zipkin server. If it's running on the same node as ballerina, it can be localhost. 
+b7a.observability.tracing.zipkin.reporter.hostname | Hostname of the Zipkin server | localhost | IP or hostname of the Zipkin server. If it's running on the same node as the ballerina, it can be localhost. 
 b7a.observability.tracing.zipkin.reporter.port | Port of the Zipkin server | 9411 | The port which the Zipkin server is listening to.
 
 ### Configure External Systems
@@ -267,11 +267,11 @@ Jeager is the default distributed tracing system that is supported. There are ma
    ```bash
     $ docker run -d -p5775:5775/udp -p6831:6831/udp -p6832:6832/udp -p5778:5778 -p16686:16686 -p14268:14268 jaegertracing/all-in-one:latest
    ```
-2. Go to http://localhost:16686 and load the web UI of the jaeger to make sure it's functioning properly. The below image is the sample tracing infomration you can see from Jaeger. 
+2. Go to http://localhost:16686 and load the web UI of the jaeger to make sure it's functioning properly. The below image is the sample tracing information you can see from Jaeger. 
    <img src="images/jaeger-tracing-dashboard.png" width=700 height=500/>
 
 #### Zipkin
-Similar to jaeger, zipkin is another distributed tracing system that is supported by ballerina. There are many different configurations and deployment exists for zipkin, please go to [link](https://github.com/openzipkin/zipkin) for more information. Here we docus on all in one deployment with docker. 
+Similar to jaeger, zipkin is another distributed tracing system that is supported by the ballerina. There are many different configurations and deployment exists for zipkin, please go to [link](https://github.com/openzipkin/zipkin) for more information. Here we focus on all in one deployment with docker. 
 
 1. Install Zipkin via docker and start the docker container by executing below command.
    ```bash
@@ -282,7 +282,7 @@ Similar to jaeger, zipkin is another distributed tracing system that is supporte
 
 
 ## Distributed Logging
-Ballerina distributed logging and analysis is supported by Elastic Stack. Ballerina has a log package for logging to the console, but this log package supports logging to console only, therefore the logs needs be redirected to a file.
+Ballerina distributed logging and analysis is supported by Elastic Stack. Ballerina has a log package for logging to the console, but this log package supports logging to console only, therefore the logs needs to be redirected to a file.
 
 This can be done by running the ballerina service as below. 
 ```bash
@@ -294,14 +294,14 @@ $ tail -f ~/wso2-ballerina/workspace/ballerina.log
 ```
 
 ### Setting up Elastic Stack
-Elastic stack comprises of the following components.
+The elastic stack comprises of the following components.
 
-1. Beats - Multiple agents that ship data to logstash or elasticsearch. In our context, filebeat will ship the ballerina logs to logstash. Filebeat should be a container running in the same host as the ballerina service. This is so that the log file (ballerina.log) can be mounted to the filebeat container.
+1. Beats - Multiple agents that ship data to logstash or elasticsearch. In our context, filebeat will ship the ballerina logs to logstash. Filebeat should be a container running on the same host as the ballerina service. This is so that the log file (ballerina.log) can be mounted to the filebeat container.
 2. Logstash - Used to process and structure the log files received from filebeat and send elasticsearch.
 3. Elasticsearch - Storage and indexing of the logs received by logstash. 
 4. Kibana - Visualizes the data stored in elasticsearch
 
-Elasticsearch and Kibana are provided as cloud services from https://www.elastic.co/cloud with a 14 day trial period. We only have to set up logstash and filebeat containers on premise if you are going ahead with cloud services. If you are not opting for the cloud service, then you have to setup docker containers for all the tools and have it in premise.
+Elasticsearch and Kibana are provided as cloud services from https://www.elastic.co/cloud with a 14 day trial period. We only have to set up logstash and filebeat containers on-premise if you are going ahead with cloud services. If you are not opting for the cloud service, then you have to setup docker containers for all the tools and have it on-premise.
 
 1. Download the docker images using the following commands.
    ```bash
@@ -326,7 +326,7 @@ Elasticsearch and Kibana are provided as cloud services from https://www.elastic
        ```
   * -h flag sets the containers hostname
   * --link flag is used to connect to another container. Then container can consume services using the hostname specified. Kibana container will link to elasticsearch container and can use the “elasticsearch” hostname to talk to that container
-3. Next steps is, configuring logstash to format the ballerina logs. Inorder to do this, you need to create a file named logstash.conf with the following content. 
+3. Next step is, configuring logstash to format the ballerina logs. Inorder to do this, you need to create a file named logstash.conf with the following content. 
 For this example, let's save this file at ~/wso2-ballerina/ELK/pipeline/logstash.conf. This should be taken note of because, when starting the logstash container, this file should be bind-mounted onto the container. Logstash container is configured to read a configuration file named “logstash.conf” at startup.
    ```
     input {  
@@ -352,7 +352,8 @@ For this example, let's save this file at ~/wso2-ballerina/ELK/pipeline/logstash
   * Input is specified as beats and listens to port 5044.
   * A grok filter is used to structure the ballerina logs.
   * An output is specified to push to elasticsearch. Note here that the host is specified as “elasticsearch:9200”. Hence the elasticsearch container should be linked to the logstash container.
-4. Start the logstash container by following command. 
+  * Make sure the logstash.conf is being stored in the empty directory and not having other unwanted documents within it, because during the startup logstash merges the configurations and make it as a single file, and this operation will fail if there are unrelated configuration files init.
+4. Start the logstash container by the following command. 
    ```bash
     $ docker run -h logstash --name logstash --link elasticsearch:elasticsearch -it --rm -v ~/wso2-ballerina/ELK/pipeline:/usr/share/logstash/pipeline/ -p 5044:5044 docker.elastic.co/logstash/logstash:6.2.2
    ```
@@ -367,7 +368,7 @@ For this example, let's save this file at ~/wso2-ballerina/ELK/pipeline/logstash
    ```
   Note:
   * Here also the host is specified as “logstash:5044”. Hence the logstash container should be linked to this container.
-6. Start the filebeat container with following command. 
+6. Start the filebeat container with the following command. 
    ```bash
     $ docker run -v ~/wso2-ballerina/ELK/filebeat.yml:/usr/share/filebeat/filebeat.yml -v ~/wso2-ballerina/workspace/ballerina.log:/usr/share/filebeat/ballerina.log --link logstash:logstash docker.elastic.co/beats/filebeat:6.2.2 
    ```
