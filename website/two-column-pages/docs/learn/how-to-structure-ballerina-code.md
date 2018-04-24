@@ -5,15 +5,14 @@ Ballerina Central is a globally hosted package management system to discover, do
 
 The `ballerina` tool requires you to organize your code in a specific way. This document explains the simplest way to get up and running with a Ballerina installation.
 
-## Code Organization
-### Overview
+## Overview
 * Ballerina progammers can either place their code into a single source code file or in a *project* directory.
 * A Ballerina *program* is a compiled and linked binary.
 * A *package* is a directory that contains Ballerina source code files.
 * A *repository* is versioned collections of compiled or source code *packages*.
 * A *project* atomically manages a collection of *packages* and *programs*.
 
-### Program
+## Programs
 A *program* is a runtime executable, ending with a `.balx` extension. A *program* is the transitive closure of one Ballerina package without including `ballerina/*` packages, since those are dynamically linked within Ballerina's runtime engine during execution. A *package* that is a *program* compiles into a a file with `.balx` extension, otherwise it is treated as a to-be-linked library that ends with a `.balo` extension.
 
 The program's package must contain a `main()` function (a process entry point) or contain a `service<>` (a network-accessible API).
@@ -46,7 +45,7 @@ service<http:Service> hello bind { port: 9090 } {
 }
 ```
 
-#### Build and Run Programs
+### Build and Run Programs
 You can build and run the `main()` function of a Ballerina file by:
 ```bash
 # Run from any location
@@ -76,7 +75,7 @@ $ ballerina build sample.bal
 $ ballerina run [-s] sample.balx
 ```
 
-### Packages
+## Packages
 A *package* is a directory that contains Ballerina source code files and are part of a namespace. Packages faciliate collaboration, sharing, and reuse. Packages can include functions, connectors, constants, annotations, enumerations, services, and objects. Packages are shared among programs, projects, and users by being pushed into a repository.
 
 Packages:
@@ -86,7 +85,7 @@ Packages:
 
 Package names can contain alphanumeric characters including dots `.`. Dots in a package name have no meaning other than the last segment after the final dot being used as a default alias within your source code. 
 
-#### Importing Packages
+### Importing Packages
 Your Ballerina source files can import packages:
 
 ```ballerina
@@ -125,7 +124,7 @@ service<network:Service> hello bind { port:9090 } {
 }
 ```
 
-#### Package Version Dependency
+### Package Version Dependency
 If your source file is not part of a project, then you can explicitly manage version dependencies of imported packages within the source file using the `import` statement.
 
 If an import statement does not explicitly specify a version, then the compiler will use the `latest` package version from a repository, if one exists. 
@@ -138,7 +137,7 @@ function main(string[] args) {
 }
 ```
 
-#### Importing Different Versions of the Same Package
+### Importing Different Versions of the Same Package
 Your program can import multiple versions of the same package.
 
 ```ballerina
@@ -151,19 +150,19 @@ function main(string[] args) {
 }
 ```
 
-#### Compiled Packages
+### Compiled Packages
 A compiled package is the compiled representation of a single package of Ballerina code, which including transitive dependencies into the compiled unit.
 
 Packages can only be created, versioned, and pushed into a repository as part of a *project*.
 
-#### Running Compiled Packages
+### Running Compiled Packages
 An entrypoint such as a `main()` or a `service<>` that is compiled as part of a named package is automatically linked into a `.balx`. You can run a named, already-compiled package:
 
 ```bash
 ballerina run [-s] <org-name>/<package-name>
 ```
 
-### Projects
+## Projects
 * A *project* is a directory which atomically manages a collection of *packages* and *programs*. It has:
   * A user-managed manifest file, `Ballerina.toml`
   * A Ballerina-managed `.ballerina/` folder with implementation metadata and cache
@@ -171,7 +170,7 @@ ballerina run [-s] <org-name>/<package-name>
 
 Projects are atomically managed, so dependency management, compilation, unit tests, and artifact generation are done collectively across the source code files and packages defined within a project.
 
-#### Create a Project
+### Create a Project
 You can create a project from any folder:
 
 ```bash
@@ -182,12 +181,12 @@ The command will initialize a simple project with a package inside of it. If the
 
 You can optionally run `init` in interactive mode where you can specify overrides for the default files and folders that are created. We will extend the `init` command in the future to be a general purpose template generator creating projects from templates defined by others than the Ballerina team.
 
-#### Create a Package
+### Create a Package
 Each subdirectory of the project root folder defines a single package. The subdirectory's name will be used to name the package. Any additional subdirectories within the package have no semantic meaning and can be used by the developer for organizing files. The package subdirectories can have as many Ballerina source files and all will be included within the package when it is built.
 
 The folders `.ballerina/`, `tests/`, and `resources/` are reserved folder names that can exist within the project root which are ignored as packages. These folders may also exist within a package and are ignored, instead treated as special case folders that contain unit tests or other files that must be included within a package.
 
-#### Project Structure
+### Project Structure
 ```
 /
   .gitignore
@@ -196,8 +195,8 @@ The folders `.ballerina/`, `tests/`, and `resources/` are reserved folder names 
   .ballerina/          # Internal cache management and contains project repository
                        # Project repository is built or downloaded package dependencies
 
-  main.bal             # Part of the “unnamed” package, compiled into a main.balx, error if not an entrypoint
-                       # You can have many files in the "unnamed" package, though it is not advisable
+  main.bal             # Part of the “unnamed” package, compiled into a main.balx
+                       # You can have many files in the "unnamed" package, though unadvisable
 
   package1/            # The source in this directory will be named “<org-name>/package1” 
     Package.md         # Optional, contains descriptive metadata for display at Ballerina Central
@@ -225,21 +224,21 @@ The folders `.ballerina/`, `tests/`, and `resources/` are reserved folder names 
 
 Any source files located in the project root are assumed to be part of the unnamed package. They are each assumed to be entry points and compiled into `target/<file-name>.balx`. This structure is to simplify new development, but not recommended for large projects. Large projects should place the entrypoint or entry service into a named package.
 
-#### Build a Project
+### Build a Project
 Building a project will build all projects and source files found in the project's root folder. Building a project runs through phases including dependency resolution, compilation, artifact generation, and unit test execution.
 
 ```bash
 ballerina build
 ```
 
-#### Build a Package
+### Build a Package
 You can build a single package contained within a project:
 
 ```bash
 ballerina build <package-name>
 ```
 
-#### Version a Package
+### Version a Package
 Packages in a project are assigned their version from within the `Ballerina.toml` file:
 
 ```toml
@@ -251,7 +250,7 @@ All packages built in a project are assigned the same version. If you need two p
 
 Version labels must follow [Semantic Versioning 2.0 rules](https://semver.org/).
 
-#### Assign an Organization Name to a Package
+### Assign an Organization Name to a Package
 A package is assigned an `<org-name>` when it is pushed into a repository. The `<org-name>` is defined in the `Ballerina.toml` and all packages in the same project are assigned the same organization name:
 
 ```toml
@@ -259,7 +258,7 @@ A package is assigned an `<org-name>` when it is pushed into a repository. The `
 org-name = “tyler”
 ```
 
-### Repositories
+## Repositories
 A repository is a collection of packages. A repository helps organize packages used by multiple programs by managing their versions and assets in a central location.
 
 There are four kinds of repositories:
@@ -271,12 +270,12 @@ There are four kinds of repositories:
 
 4. Ballerina Central. Located at http://central.ballerina.io, this centrally managed repository is a community hub to discover, download, and publish Ballerina packages. 
 
-#### Repository Precedence
+### Repository Precedence
 When building a Ballerina program with a project, the build system will search repositories for any imported dependencies. Dependencies are searched in the system, then project, then home, then Ballerina Central repositories for the dependency. Once found, it will be installed into the project repository if not already present.
 
 If a package is discovered at Ballerina Central, the build system will download the package's files before installing into both the home and project repository for reuse. 
 
-#### Package Installation
+### Package Installation
 When building a package in a project, that package is automatically installed into the project's local repository. That package can be shared across other projects by installing it into the home repository.
 
 To install all packages in a project:
@@ -296,13 +295,13 @@ ballerina install <package>
 ballerina push <org-name>/<package-name>:<version> --repository=home
 ```
 
-#### Uninstall a Package in the Home Repository
+### Uninstall a Package in the Home Repository
 You can remove a package from the home repository:
 ```
 ballerina uninstall <org-name>/<package>:<version>
 ```
 
-#### Organizations
+### Organizations
 An organization is a logical name used for grouping packages together under a common namespace within a repository.
 
 All packages installed into a repository must have an organization name. Any installation or pushing of a package into a repository will fail without an organization name.
@@ -315,7 +314,7 @@ Remotely hosted repositories, such as Ballerina Central, can each have their own
 
 When pushing a package from a local computer into a remote repository, such as Ballerina Central, the user's organization name in the remote repository MUST match the `<org-name>` assigned in the Ballerina.toml. If the names do not match, then the push operation will fail. This enforcement may seem arbitrary, however, it is a simple way to ensure organization naming consistency across remote and local development environments.
 
-#### Pulling Remote Packages
+### Pulling Remote Packages
 You can install packages that exist in a remote repository into your home repository through "pulling". Pulling a package discovers and downloads the package source and binaries from a remote repository and installs it into a home repository. When pulling a package, if a remote repository is not specified, then Ballerina Central is assumed.
 
 ```bash
@@ -324,7 +323,7 @@ ballerina pull <org-name>/<package-name>[:<version>] [--repository=<url>]
 
 Projects that perform dependency analysis will automatically pull packages into the home repository and also copy them into the project repository.
 
-#### Pushing Packages Into Remote Repositories
+### Pushing Packages Into Remote Repositories
 "Pushing" a package uploads the associated package files and installs the package into a remote repository. If you do not specify a remote repository URL, then Ballerina Central is assumed. 
 
 ```
@@ -339,7 +338,7 @@ Ballerina Central requires an account in order to push packages. Your account is
 
 Every push of the same package into Ballerina Central REQUIRES a new version, even for minor text updates. We enforce this policy to ensure that projects that make use of dependencies cannot experience accidental behavior drift across two versions of the same package given the same version. Essentially, there is no way to "update" a package for a specific version at Ballerina Central.
 
-#### Removing Packages From Remote Repositories
+### Removing Packages From Remote Repositories
 “Removing” a package deletes the version from the remote registry. If the version specified is the last version found in the repository, then the package is no longer searchable, though the package’s owner may still have an audit history. 
 
 ```bash
