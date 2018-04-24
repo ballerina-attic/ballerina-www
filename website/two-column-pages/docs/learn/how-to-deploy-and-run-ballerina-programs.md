@@ -11,29 +11,19 @@ When you start building a project, the system starts parsing. This is followed b
 These deployment artifacts can be a form of simple files or complex types, like container images, virtual images, etc. The Ballerina builder extension supports the following list of deployment artifacts.
 
 -   [Dockerfiles](https://docs.docker.com/engine/reference/builder/)
-    
 -   [Docker images](https://docs.docker.com/engine/reference/commandline/images/)
-    
 -   [Kubernetes](http://kubernetes.io) artifacts
 
 Ballerina builder extension can be extended to support the following to generate deployment artifacts depending on your requirement. For more information on how to extend Ballerina, see [How to Extend Ballerina](https://ballerina.io/learn/how-to-extend-ballerina/).
 
 -   Simple deployment [shell script](https://en.wikipedia.org/wiki/Shell_script)
-    
 -   [Vagrant](https://www.vagrantup.com/) files
-    
 -   [Puppet](https://puppet.com/) files
-    
 -   [Chef](https://www.chef.io/) files
-    
 -   [Ansible](https://www.ansible.com/) files
-    
 -   [Cloud Formation](https://aws.amazon.com/cloudformation/) scripts
-    
 -   [Virtual images](https://en.wikipedia.org/wiki/Virtual_image)
-    
 -   [Cloud Foundry](https://www.cloudfoundry.org/) artifacts
-    
 -   [DC/OS](https://dcos.io/) artifacts
     
 
@@ -44,9 +34,7 @@ Ballerina builder extension can be extended to support the following to generate
 A developer can enable deployment artifact generation by adding simple annotations to the code. The developer can choose one or more builder extensions within the code to generate these deployment artifacts by following three simple steps.
 
 1.  Import the relevant extension package in the code.
-    
-2.  Add relevant annotation within the code.
-    
+2.  Add relevant annotation within the code. 
 3.  Build the Ballerina project
 
 ### Docker-based Deployment
@@ -58,23 +46,22 @@ import ballerina/http;
 import ballerinax/docker;  
   
 @http:ServiceConfig {  
-basePath:"/helloWorld"  
+	basePath:"/helloWorld"  
 }  
 @docker:Config {
-
-registry:"docker.abc.com",  
-name:"helloworld",  
-tag:"v1.0"
-
+	registry:"docker.abc.com",  
+	name:"helloworld",  
+	tag:"v1.0"
 }  
 service<http:Service> helloWorld bind {9090} {  
-sayHello(endpoint outboundEP, http:Request request) {  
-http:Response response = new;  
-response.setStringPayload("Hello, World from service helloWorld ! \n");  
-_ = outboundEP->respond(response);  
-}  
+	sayHello(endpoint outboundEP, http:Request request) {  
+		http:Response response = new;  
+		response.setStringPayload("Hello, World from service helloWorld ! \n");  
+		_ = outboundEP->respond(response);  
+	}  
 }
 ```
+
 Now your code is ready to generate deployment artifacts. In this case it is a docker image.
 
   
