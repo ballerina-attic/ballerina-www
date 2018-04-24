@@ -37,39 +37,39 @@ service<http:Service> hello bind { port:9090 } {
 ```
 2. The observability is disabled by default and it can be enabled by either adding inline parameter and updating the configuration. This options will enable metrics monitoring and distributed tracing. You will have to follow step-3 and step-4, if you want to have log analysis as well.
 
-Inline Parameter : 
-Observability for ballerina service can be enabled with a short hand inline parameter --observe as shown below. This enables observability for ballerina service with default settings, and publish the distributed tracing information to [Jaeger](https://www.jaegertracing.io/) and metrics information to [Prometheus](https://prometheus.io/). 
+   Inline Parameter : 
+   Observability for ballerina service can be enabled with a short hand inline parameter --observe as shown below. This enables observability for ballerina service with default settings, and publish the distributed tracing information to [Jaeger](https://www.jaegertracing.io/) and metrics information to [Prometheus](https://prometheus.io/). 
 
-```bash
-$ ballerina run hello_service.bal --observe
-
-ballerina: started Prometheus HTTP endpoint localhost/127.0.0.1:9797
-ballerina: started publishing tracers to Jaeger on localhost:5775
-ballerina: initiating service(s) in 'hello-world-service.bal'
-ballerina: started HTTP/WS endpoint 0.0.0.0:9090
-```
-Configuration file: 
-Observability can be enabled from configuration. An example configuration which starts observability with metrics monitoring and distributed tracing with default configurations is given below. 
-```
-[b7a.observability.tracing]
-# Flag to enable Tracing
-enabled=true
-
-[b7a.observability.metrics]
-# Flag to enable Metrics
-enabled=true
-```
-The ballerina program needs to be started as below with eith --config or -c inline parameter and provide the path of the configuration file to adhere to the configuration.
-```bash
-$ ballerina run hello_service.bal --config <path-to-conf>/ballerina.conf
-
-ballerina: started Prometheus HTTP endpoint localhost/127.0.0.1:9797
-ballerina: started publishing tracers to Jaeger on localhost:5775
-ballerina: initiating service(s) in 'hello-world-service.bal'
-ballerina: started HTTP/WS endpoint 0.0.0.0:9090
-```
+    ```bash
+    $ ballerina run hello_service.bal --observe
+    
+    ballerina: started Prometheus HTTP endpoint localhost/127.0.0.1:9797
+    ballerina: started publishing tracers to Jaeger on localhost:5775
+    ballerina: initiating service(s) in 'hello-world-service.bal'
+    ballerina: started HTTP/WS endpoint 0.0.0.0:9090
+    ```
+    Configuration file: 
+    Observability can be enabled from configuration. An example configuration which starts observability with metrics monitoring and distributed tracing with default configurations is given below. 
+    ```
+    [b7a.observability.tracing]
+    # Flag to enable Tracing
+    enabled=true
+    
+    [b7a.observability.metrics]
+    # Flag to enable Metrics
+    enabled=true
+    ```
+    The ballerina program needs to be started as below with eith --config or -c inline parameter and provide the path of the configuration file to adhere to the configuration.
+    ```bash
+    $ ballerina run hello_service.bal --config <path-to-conf>/ballerina.conf
+    
+    ballerina: started Prometheus HTTP endpoint localhost/127.0.0.1:9797
+    ballerina: started publishing tracers to Jaeger on localhost:5775
+    ballerina: initiating service(s) in 'hello-world-service.bal'
+    ballerina: started HTTP/WS endpoint 0.0.0.0:9090
+    ```
 3. If you want to perform log analysis then follow this step and step-4, else, please proceed to step 5. 
-There are some logs added to the service, but these logs needs to be pushed to [Elastic Stack](#Distributed-Logging) to perform the log analysis. But the log package supports logging to console only, therefore the logs needs be redirected to a file as first step, therefore you require to start the service as below along with the option that you have opted to start service in step-2 (inline parameter or passing configuration).
+   There are some logs added to the service, but these logs needs to be pushed to [Elastic Stack](#Distributed-Logging) to perform the log analysis. But the log package supports logging to console only, therefore the logs needs be redirected to a file as first step, therefore you require to start the service as below along with the option that you have opted to start service in step-2 (inline parameter or passing configuration).
    
    Start ballerina service as below for inline parameter. 
    ```bash
@@ -89,9 +89,9 @@ There are some logs added to the service, but these logs needs to be pushed to [
 curl http://localhost:9090/hello/sayHello
 ```
 7. Now go to imported dashboard in grafana and check the metrics. Similarly go to Jaeger dashboard at http://localhost:16686/ and check the traces. 
-<img src="images/jaeger-sample-dashboard.png" width="700" height="150"/>
+    <img src="images/jaeger-sample-dashboard.png" width="700" height="150"/>
 8. If you have followed step-3 and step-4, then you can go to Elastic stack dashboard and visualize.
-<img src="images/kibana-sample-dashboard.png" width="800" height="400"/>
+    <img src="images/kibana-sample-dashboard.png" width="800" height="400"/>
 
 
 ## Metrics Monitoring
