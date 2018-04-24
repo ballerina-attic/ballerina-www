@@ -232,22 +232,22 @@ The tracing of ballerina program can be done via zipkin as well, but the require
 1. Go to [ballerina-observability](https://github.com/ballerina-platform/ballerina-observability) and clone the github repository in any preferred location.
 2. Make sure you have installed [apache maven](http://maven.apache.org/).
 3. Open command prompt and build the repository by using [apache maven](http://maven.apache.org/) with below command while being in the root project directory ballerina-observability.
-  ```bash   
-    $ maven clean install
-  ```
+   ```bash   
+   $ maven clean install
+   ```
 4. Go to path - ballerina-observability/tracing-extensions/modules/ballerina-zipkin-extension/target/distribution.zip and extract it.
 5. Copy all the jars that exists in distribution.zip to 'bre/lib' directory in the ballerina distribution. 
 6. Change below configuration name to zipkin, therefore all tracers will be sent to zipkin instead of default tracer jeager.
-  ```yaml
-    [b7a.observability.tracing]
-    name="zipkin"
-  ```
+   ```yaml
+   [b7a.observability.tracing]
+   name="zipkin"
+   ```
 7. The below provided configuration is the sample configuration options available for zipkin tracer. 
-  ```
-    [b7a.observability.tracing.zipkin]
-    reporter.hostname="localhost"
-    reporter.port=9411
-  ```
+   ```
+   [b7a.observability.tracing.zipkin]
+   reporter.hostname="localhost"
+   reporter.port=9411
+   ```
 
 The below table provides the descriptions of each configuration options and possible values that can be assigned. 
 
@@ -320,9 +320,9 @@ Elasticsearch and Kibana are provided as cloud services from https://www.elastic
    ```
   Note:
   * Linux users may have to increase the vm.max_map_count for the elasticsearch container to start. Execute the following command to do that.
-   ```bash
-   $ sudo sysctl -w vm.max_map_count=262144
-   ```
+       ```bash
+       $ sudo sysctl -w vm.max_map_count=262144
+       ```
   * -h flag sets the containers hostname
   * --link flag is used to connect to another container. Then container can consume services using the hostname specified. Kibana container will link to elasticsearch container and can use the “elasticsearch” hostname to talk to that container
 3. Next steps is, configuring logstash to format the ballerina logs. Inorder to do this, you need to create a file named logstash.conf with the following content. 
@@ -364,7 +364,7 @@ For this example, let's save this file at ~/wso2-ballerina/ELK/pipeline/logstash
     output.logstash:
       hosts: ["logstash:5044"]
    ```
-  Notes:
+  Note:
   * Here also the host is specified as “logstash:5044”. Hence the logstash container should be linked to this container.
 6. Start the filebeat container with following command. 
    ```bash
