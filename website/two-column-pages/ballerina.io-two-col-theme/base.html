@@ -150,11 +150,8 @@
             } else {
                 $('#subscribeMessage').html("Processing...")
                 $.ajax({
-                    type: 'POST',
-                    url: '/slackServiceCall.php',
-                    data: {
-                        email: email
-                    },
+                    type: 'GET',
+                    url: '/slackServiceCall.php?email='+email,
                     success: function(msg) {
                         if (msg == 1) {
                             $('#subscribeMessage').html('<span>Your invitation has been sent to ' + email + '</span>').addClass('success');
