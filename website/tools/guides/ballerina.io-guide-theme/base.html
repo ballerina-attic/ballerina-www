@@ -77,31 +77,11 @@
     {%- endfor %} {%- endblock %} {%- block libs %} {% if page %}
     <script>
         // Current page data
-        var mkdocs_page_name = {
-            {
-                page.title | tojson | safe
-            }
-        };
-        var mkdocs_page_input_path = {
-            {
-                page.input_path | tojson | safe
-            }
-        };
-        var mkdocs_page_url = {
-            {
-                page.abs_url | tojson | safe
-            }
-        };
-        var mkdocs_root_repo = {
-            {
-                config.repo_url | tojson | safe
-            }
-        };
-        var mkdocs_edit_uri = {
-            {
-                config.edit_uri | tojson | safe
-            }
-        };
+        var mkdocs_page_name = {{page.title | tojson | safe}};
+        var mkdocs_page_input_path = {{page.input_path | tojson | safe}};
+        var mkdocs_page_url = {{page.abs_url | tojson | safe}};
+        var mkdocs_root_repo = {{config.repo_url | tojson | safe}};
+        var mkdocs_edit_uri = {{config.edit_uri | tojson | safe}};
         var base_url = "";
     </script>
     {% endif %} {%- endblock %} {%- block extrahead %} {% endblock %} {%- block analytics %} {% if config.google_analytics %} {% endif %} {%- endblock %}
