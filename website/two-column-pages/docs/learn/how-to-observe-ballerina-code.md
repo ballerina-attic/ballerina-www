@@ -12,6 +12,7 @@ Ballerina services that are using the below mentioned service/client connectors 
 Ballerina service is by default observable. This section focuses on enables observability with default systems with Jaeger for distributed tracing, and Prometheus and Grafana for Metrics Monitoring. 
 
 **Pre-requisites**
+
 Make sure you have already installed Docker Community Edition (CE) to install external products such as Jaeger, Prometheus, etc. You can follow [official documentation](https://docs.docker.com/install/) to install the docker.
 
 **Steps**
