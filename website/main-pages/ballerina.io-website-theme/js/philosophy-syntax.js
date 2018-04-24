@@ -92,7 +92,6 @@ var loadData = function(linkText, sectionId, init) {
 
                         if (topPosition < prevElemBottom) {
                             topPosition = prevElemBottom;
-                            $(this).css('background-image', 'none');
                         }
                     }
 
