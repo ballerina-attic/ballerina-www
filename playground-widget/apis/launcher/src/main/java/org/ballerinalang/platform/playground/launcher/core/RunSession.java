@@ -280,6 +280,7 @@ public class RunSession {
     public synchronized void pushMessageToClient(Message status) {
         Gson gson = new Gson();
         String json = gson.toJson(status);
+        logger.info("Sending msg: " + json);
         try {
             if (getSourceFile() != null) {
                 json = json.replaceAll(getSourceFile().getFileName().toAbsolutePath().toString(),
