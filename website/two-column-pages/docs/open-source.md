@@ -10,7 +10,7 @@ We have a low-traffic announcement list that we use to disseminate major news su
 
 <form class="cFormContainerOS">
 <label class="subscribeForm" id="subscribeFormLabelOS">Email Address</label>
-<input class="cTextfieldstyle" maxlength="90" value="" id="emailUserOS" name="email" placeholder="Email" title="Email" type="text">
+<input class="cTextfieldstyle" maxlength="90" value="" id="emailUserOS" name="email" placeholder="I consent to join the email list" title="Email" type="text">
 </form>
 
 ## Version History
