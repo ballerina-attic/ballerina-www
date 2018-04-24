@@ -23,6 +23,9 @@ const MSG_CODES = {
     RUN_ABORTED: "RUN_ABORTED",
 };
 
+const MSG_TYPES = {
+    DATA_MSG: "DATA_MSG"
+};
 class RunButton extends React.Component {
     constructor(...args) {
         super(...args);
@@ -97,6 +100,9 @@ class RunButton extends React.Component {
                                             this.resetSession();
                                             break;
                                     case MSG_CODES.ERROR:
+                                            if (type === MSG_TYPES.DATA_MSG) {
+                                                break;
+                                            }
                                     case MSG_CODES.BUILD_ERROR:
                                     case MSG_CODES.RUN_ABORTED:
                                             this.appendToConsole(message);
