@@ -158,6 +158,7 @@
                                 <div class="constructs-wrapper">
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
+                                        {{#exists constructs "primitive"}}
                                         <li>
                                             <a href="#PrimitivesSummary">
                                                 <div class="construct-icon">
@@ -168,6 +169,8 @@
                                                 </div>
                                             </a>
                                         </li>
+                                        {{/exists}}
+                                        {{#exists constructs "type"}}
                                         <li>
                                             <a href="#TypeDefinitions">
                                                 <div class="construct-icon">
@@ -178,6 +181,8 @@
                                                 </div>
                                             </a>
                                         </li>
+                                        {{/exists}}
+                                        {{#exists constructs "annotation"}}
                                         <li>
                                             <a href="#Annotations">
                                                 <div class="construct-icon">
@@ -188,6 +193,20 @@
                                                 </div>
                                             </a>
                                         </li>
+                                        {{/exists}}
+                                        {{#exists constructs "record"}}
+                                        <li>
+                                            <a href="#RecordsSummary">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Records
+                                                </div>
+                                            </a>
+                                        </li>
+                                        {{/exists}}
+                                        {{#exists constructs "object"}}
                                         <li>
                                             <a href="#ObjectsSummary">
                                                 <div class="construct-icon">
@@ -198,6 +217,8 @@
                                                 </div>
                                             </a>
                                         </li>
+                                        {{/exists}}
+                                        {{#exists constructs "endpoint"}}
                                         <li>
                                             <a href="#EndpointsSummary">
                                                 <div class="construct-icon">
@@ -208,6 +229,8 @@
                                                 </div>
                                             </a>
                                         </li>
+                                        {{/exists}}
+                                        {{#exists constructs "function"}}
                                         <li>
                                             <a href="#FunctionsSummary">
                                                 <div class="construct-icon">
@@ -218,6 +241,8 @@
                                                 </div>
                                             </a>
                                         </li>
+                                        {{/exists}}
+                                        {{#exists constructs "globalvar"}}
                                         <li>
                                             <a href="#GlobalVariables">
                                                 <div class="construct-icon">
@@ -228,6 +253,7 @@
                                                 </div>
                                             </a>
                                         </li>
+                                        {{/exists}}
                                         {{#each constructs}}
                                         {{#unless isGlobalVariable}} {{#unless isType}} {{#unless isAnnotation}}
                                         <li>
@@ -308,10 +334,11 @@
 
                                             <div class="summary-wrapper">
                                         <!--Primitive Types-->
+                                        {{#exists constructs "primitive"}}
                                          <h2 id="PrimitivesSummary">
                                             <span class="fw-globe sm-icon"></span> Primitives Summary
                                         </h2>
-                                         <table>
+                                         <table class="cPrimitive-summary-Table">
                                              <tr>
                                                  <th class="cSummary-table-type">Type</th>
                                                  <th class="cSummary-table-desc">Description</th>
@@ -325,116 +352,172 @@
                                                  {{/if}}
                                              {{/each}}
                                          </table>
+                                         {{/exists}}
                                          <!-- Type Definitions-->
+                                         {{#exists constructs "type"}}
                                         <h2 id="TypeDefinitions">
                                             <span class="fw-constant sm-icon"></span> Type Definitions
                                         </h2>
-                                        <table>
+                                        <table class="cSummary-Table">
                                             <tr>
-                                                <th class="cAPI-table-name">Type</th>
-                                                <th class="cAPI-table-type">Values</th>
-                                                <th class="cAPI-table-desc">Description</th>
+                                                <th class="cSummary-table-name">Type</th>
+                                                <th class="cSummary-table-attach"></th>
+                                                <th class="cSummary-table-type">Values</th>
+                                                <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             {{#each constructs}}
                                             {{#if isType}}
                                             <tr>
-                                                <td class="cAPI-table-name">{{name}}</td>
-                                                <td class="cAPI-table-type">{{valueSet}}</td>
-                                                <td class="cAPI-table-desc">{{{description}}}</td>
+                                                <td class="cSummary-table-name">{{name}}</td>
+                                                <td class="cSummary-table-attach"></td>
+                                                <td class="cSummary-table-type">{{valueSet}}</td>
+                                                <td class="cSummary-table-desc">{{{description}}}</td>
                                             </tr>
                                             {{/if}}  {{/each}}
                                         </table>
+                                        {{/exists}}
                                         <!-- Annotations -->
+                                        {{#exists constructs "annotation"}}
                                         <h2 id="Annotations">
                                             <span class="fw-annotation sm-icon"></span> Annotations
                                         </h2>
-                                        <table>
+                                        <table class="cSummary-Table">
                                             <tr>
-                                                <th class="cAPI-table-name">Name</th>
-                                                <th class="cAPI-table-type">Attachement Points</th>
-                                                <th class="cAPI-table-type">Data Type</th>
-                                                <th class="cAPI-table-desc">Description</th>
+                                                <th class="cSummary-table-name">Name</th>
+                                                <th class="cSummary-table-attach">Attachement Points</th>
+                                                <th class="cSummary-table-type">Data Type</th>
+                                                <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             {{#each constructs}}
                                             {{#if isAnnotation}}
                                             <tr>
-                                                <td class="cAPI-table-name">{{name}}</td>
-                                                <td class="cAPI-table-type">{{attachments}}</td>
-                                                <td class="cAPI-table-type"><a href="{{href}}">{{dataType}}</a></td>
-                                                <td class="cAPI-table-desc">{{{description}}}</td>
+                                                <td class="cSummary-table-name">{{name}}</td>
+                                                <td class="cSummary-table-attach">{{attachments}}</td>
+                                                <td class="cSummary-table-type"><a href="{{href}}">{{dataType}}</a></td>
+                                                <td class="cSummary-table-desc">{{{description}}}</td>
                                             </tr>
                                             {{/if}}  {{/each}}
                                         </table>
-                                        <h2 id="ObjectsSummary">
-                                            <span class="fw-globe sm-icon"></span> Objects Summary
+                                        {{/exists}}
+                                        <!-- records -->
+                                        {{#exists constructs "record"}}
+                                        <h2 id="RecordsSummary">
+                                            <span class="fw-record sm-icon"></span> Records Summary
                                         </h2>
-                                         <table>
+                                         <table class="cSummary-Table">
                                              <tr>
-                                                 <th class="cSummary-table-type">Object</th>
+                                                 <th class="cSummary-table-name">Record</th>
+                                                 <th class="cSummary-table-attach"></th>
+                                                 <th class="cSummary-table-type"></th>
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              {{#each constructs}}
-                                                 {{#if isStruct}}
+                                                 {{#if isRecord}}
                                                      <tr>
-                                                         <td class="cSummary-table-type"><a href="#{{name}}">{{name}}</a></td>
+                                                         <td class="cSummary-table-name"><a href="#{{name}}">{{name}}</a></td>
+                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-type"></td>
                                                          <td class="cSummary-table-desc">{{{description}}}</td>
                                                      </tr>
                                                  {{/if}}
                                              {{/each}}
                                          </table>
-                                         <h2 id="EndpointsSummary">
-                                            <span class="fw-globe sm-icon"></span> Endpoints Summary
+                                         {{/exists}}
+                                        <!-- objects -->
+                                        {{#exists constructs "object"}}
+                                        <h2 id="ObjectsSummary">
+                                            <span class="fw-struct sm-icon"></span> Objects Summary
                                         </h2>
-                                         <table>
+                                         <table class="cSummary-Table">
                                              <tr>
-                                                 <th class="cSummary-table-type">Endpoint</th>
+                                                 <th class="cSummary-table-name">Object</th>
+                                                 <th class="cSummary-table-attach"></th>
+                                                 <th class="cSummary-table-type"></th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             {{#each constructs}}
+                                                 {{#if isObject}}
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#{{name}}">{{name}}</a></td>
+                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-type"></td>
+                                                         <td class="cSummary-table-desc">{{{description}}}</td>
+                                                     </tr>
+                                                 {{/if}}
+                                             {{/each}}
+                                         </table>
+                                         {{/exists}}
+                                         <!-- endpoints -->
+                                         {{#exists constructs "endpoint"}}
+                                         <h2 id="EndpointsSummary">
+                                            <span class="fw-endpoint sm-icon"></span> Endpoints Summary
+                                        </h2>
+                                         <table class="cSummary-Table">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Endpoint</th>
+                                                 <th class="cSummary-table-attach"></th>
+                                                 <th class="cSummary-table-type"></th>
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              {{#each constructs}}
                                                  {{#if isConnector}}
                                                      <tr>
-                                                         <td class="cSummary-table-type"><a href="#{{name}}">{{name}}</a></td>
+                                                         <td class="cSummary-table-name"><a href="#{{name}}">{{name}}</a></td>
+                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-type"></td>
                                                          <td class="cSummary-table-desc">{{{description}}}</td>
                                                      </tr>
                                                  {{/if}}
                                              {{/each}}
                                          </table>
+                                         {{/exists}}
+                                         <!-- functions -->
+                                         {{#exists constructs "function"}}
                                          <h2 id="FunctionsSummary">
-                                            <span class="fw-globe sm-icon"></span> Functions Summary
+                                            <span class="fw-function sm-icon"></span> Functions Summary
                                         </h2>
-                                         <table>
+                                         <table class="cSummary-Table">
                                              <tr>
-                                                 <th class="cSummary-table-type">Return Type</th>
+                                                 <th class="cSummary-table-name">Return Type</th>
+                                                 <th class="cSummary-table-attach"></th>
+                                                 <th class="cSummary-table-type"></th>
                                                  <th class="cSummary-table-desc">Function and Description</th>
                                              </tr>
                                              {{#each constructs}}
                                                  {{#if isFunction}}
                                                      <tr>
-                                                         <td class="cSummary-table-type">{{#if returnParams}}{{join returnParams ", "}}{{/if}}</td>
+                                                         <td class="cSummary-table-name">{{#if returnParams}}{{join returnParams ", "}}{{/if}}</td>
+                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-type"></td>
                                                          <td class="cSummary-table-desc"><a href="#{{name}}">{{name}}({{join parameters ", "}})</a><br/>{{{description}}}</td>
                                                      </tr>
                                                  {{/if}}
                                              {{/each}}
                                          </table>
+                                         {{/exists}}
                                         <!-- Global Variables-->
+                                        {{#exists constructs "globalvar"}}
                                         <h2 id="GlobalVariables">
                                             <span class="fw-globe sm-icon"></span> Global Variables
                                         </h2>
-                                        <table>
+                                        <table class="cSummary-Table">
                                             <tr>
-                                                <th class="cAPI-table-name">Name</th>
-                                                <th class="cAPI-table-type">Data Type</th>
-                                                <th class="cAPI-table-desc">Description</th>
+                                                <th class="cSummary-table-name">Name</th>
+                                                <th class="cSummary-table-attach"></th>
+                                                <th class="cSummary-table-type">Data Type</th>
+                                                <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             {{#each constructs}}
                                             {{#if isGlobalVariable}}
                                             <tr>
-                                                <td class="cAPI-table-name">{{name}}</td>
-                                                <td class="cAPI-table-type"><a href="{{href}}">{{dataType}}</a></td>
-                                                <td class="cAPI-table-desc">{{{description}}}</td>
+                                                <td class="cSummary-table-name">{{name}}</td>
+                                                <td class="cSummary-table-attach"></td>
+                                                <td class="cSummary-table-type"><a href="{{href}}">{{dataType}}</a></td>
+                                                <td class="cSummary-table-desc">{{{description}}}</td>
                                             </tr>
                                             {{/if}}  {{/each}}
                                         </table>
+                                        {{/exists}}
                                      </div>
 
                                             {{#each constructs}}
@@ -710,6 +793,33 @@
                                                         {{/each}}
                                                     </ul>
                                                 </div>
+                                                {{/if}} {{/if}}
+                                                <!-- Records -->
+                                                {{#if isRecord}}
+                                                <h2 id="{{name}}">
+                                                    <span class="{{icon}} sm-icon"></span> public type {{name}}
+                                                </h2>
+                                                {{#if description}}
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>{{{description}}}
+                                                </p>
+                                                {{/if}} {{#if fields}}
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    {{#each fields}}
+                                                    <tr>
+                                                        <td class="cAPI-table-name">{{name}}</td>
+                                                        <td class="cAPI-table-type"><a href="{{href}}">{{dataType}}</a></td>
+                                                        <td class="cAPI-table-default">{{defaultValue}}</td>
+                                                        <td class="cAPI-table-desc">{{{description}}}</td>
+                                                    </tr>
+                                                    {{/each}}
+                                                </table>
                                                 {{/if}} {{/if}}
                                                 <!-- Objects and its functions -->
                                                 {{#if isObject}}
