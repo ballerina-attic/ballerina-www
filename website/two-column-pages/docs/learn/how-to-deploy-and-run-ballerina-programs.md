@@ -46,19 +46,19 @@ import ballerina/http;
 import ballerinax/docker;  
   
 @http:ServiceConfig {  
-	basePath:"/helloWorld"  
+    basePath:"/helloWorld"  
 }  
 @docker:Config {
-	registry:"docker.abc.com",  
-	name:"helloworld",  
-	tag:"v1.0"
+    registry:"docker.abc.com",  
+    name:"helloworld",  
+    tag:"v1.0"
 }  
 service<http:Service> helloWorld bind {9090} {  
-	sayHello(endpoint outboundEP, http:Request request) {  
-		http:Response response = new;  
-		response.setStringPayload("Hello, World from service helloWorld ! \n");  
-		_ = outboundEP->respond(response);  
-	}  
+    sayHello(endpoint outboundEP, http:Request request) {  
+	http:Response response = new;  
+	response.setStringPayload("Hello, World from service helloWorld ! \n");  
+	_ = outboundEP->respond(response);  
+    }  
 }
 ```
 
