@@ -18,23 +18,23 @@ Make sure you have already installed Docker Community Edition (CE). You can foll
 
 1. Create hello-world ballerina service as shown below and save the above service as `hello-world-service.bal`. 
 
-```ballerina
-import ballerina/http;
-import ballerina/log;
-
-
-service<http:Service> hello bind { port:9090 } {
+    ```ballerina
+    import ballerina/http;
+    import ballerina/log;
     
-	sayHello (endpoint conn, http:Request req) {
-	    log:printInfo("This is a test Info log");
-        log:printError("This is a test Error log");
-        log:printWarn("This is a test Warn log");
-    	http:Response res = new;
-    	res.setStringPayload("Hello, World!");
-    	_ = conn -> respond(res);
-	}
-}
-```
+    
+    service<http:Service> hello bind { port:9090 } {
+        
+        sayHello (endpoint conn, http:Request req) {
+            log:printInfo("This is a test Info log");
+            log:printError("This is a test Error log");
+            log:printWarn("This is a test Warn log");
+            http:Response res = new;
+            res.setStringPayload("Hello, World!");
+            _ = conn -> respond(res);
+        }
+    }
+    ```
 2. The observability is disabled by default and it can be enabled by either adding inline parameter and updating the configuration. This options will enable metrics monitoring and distributed tracing. You will have to follow step-3 and step-4, if you want to have log analysis as well.
 
    Inline Parameter : 
@@ -85,9 +85,9 @@ service<http:Service> hello bind { port:9090 } {
 5. Install Jaeger as mentioned in section [configuring jaeger](#jeager)
 6. Send few requests to http://localhost:9090/hello/sayHello
    Example cURL command:
-```
-curl http://localhost:9090/hello/sayHello
-```
+    ```bash
+    $ curl http://localhost:9090/hello/sayHello
+    ```
 7. Now go to imported dashboard in grafana and check the metrics. Similarly go to Jaeger dashboard at http://localhost:16686/ and check the traces. 
     <img src="images/jaeger-sample-dashboard.png" width="700" height="150"/>
 8. If you have followed step-3 and step-4, then you can go to Elastic stack dashboard and visualize.
@@ -140,36 +140,33 @@ This section focuses on quick installation of Prometheus with docker, and config
 1. Create a prometheus.yml file in /tmp/ directory.
 2. Use following content for /tmp/prometheus.yml. Go to [this](https://prometheus.io/docs/introduction/first_steps/), if you need more information.
    Please note the targets should contain the host and port of the '/metrics' service that's exposed from ballerina program for metrics collection. Let's say if the IP of the host in which the ballerina program is running is a.b.c.d and the port is default 9797 (configured from b7a.observability.metrics.prometheus.port configuration in ballerina configuration file), then the sample configuration in prometheus will be as below.
-```
-global:
-  scrape_interval: 	15s
-  evaluation_interval: 15s
-
-scrape_configs:
-  - job_name: 'prometheus'
-	static_configs:
-  	  - targets: ['a.b.c.d:9797']
-```
-
+   ```yaml
+    global:
+      scrape_interval: 	15s
+      evaluation_interval: 15s
+    
+    scrape_configs:
+      - job_name: 'prometheus'
+        static_configs:
+          - targets: ['a.b.c.d:9797']
+   ```
 3. Start the Prometheus server as docker container with below command.
-
-```bash
-docker run -p 19090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
-```
-
-Once the above steps are completed, the Prometheus can be accessed from http://localhost:19090/ from where the docker is running. 
+    ```bash
+    $ docker run -p 19090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+    ```
+4. Prometheus dashboard can be accessed from http://localhost:19090/ and  check where the docker is running successfully. 
 
 #### Grafana
 Let’s use Grafana to visualize metrics in dashboard. For this, we need to install Grafana, and and the Prometheus as a datasource to fetch the data from. Follow the below provided steps and configure Grafana. 
 
 1. Start Grafana as docker container with below command. For more information, please go to [link](https://hub.docker.com/r/grafana/grafana/).
-```bash
-docker run -d --name=grafana -p 3000:3000 grafana/grafana
-```
+   ```bash
+    $ docker run -d --name=grafana -p 3000:3000 grafana/grafana
+   ```
 2. Go to http://localhost:3000/ from where the docker is running, and access the Grafana dashboard. 
 3. Login to the dashboard with default user, username: admin and password: admin
 4. Add prometheus as datasource with direct access configuration as provided below. 
-<img src="images/grafana-prometheus-datasource.png" width=500 height=600/>
+   <img src="images/grafana-prometheus-datasource.png" width=500 height=600/>
 5. Now you can import the default grafana dashboard which has some default graphs to visualize the request/response metrics. 
 
 
@@ -190,7 +187,7 @@ Ballerina supports [OpenTracing](http://opentracing.io/) standards out of the bo
 Tracing can be enabled in ballerina with inline parameter --observe as mentioned in the Quick Start section, as well as configuration option. This section mainly focuses on the configuration option with description and possible values. 
 
 The sample configuration which enables tracing, and uses jaeger as the sample tracer as provided below. 
-```
+```yaml
 [b7a.observability.tracing]
 enabled=true
 name="jaeger"
@@ -204,7 +201,7 @@ b7a.observability.tracing.name | Tracer name which implements tracer interface. 
 
 #### Jaeger
 Jaeger is the default tracer supported by Ballerina. Below is the sample configuration options that are available in the Jaeger.
-```
+```yaml
 [b7a.observability.tracing]
 enabled=true
 name="jaeger"
@@ -235,22 +232,22 @@ The tracing of ballerina program can be done via zipkin as well, but the require
 1. Go to [ballerina-observability](https://github.com/ballerina-platform/ballerina-observability) and clone the github repository in any preferred location.
 2. Make sure you have installed [apache maven](http://maven.apache.org/).
 3. Open command prompt and build the repository by using [apache maven](http://maven.apache.org/) with below command while being in the root project directory ballerina-observability.
-```    
-$ maven clean install
-```
+  ```bash   
+    $ maven clean install
+  ```
 4. Go to path - ballerina-observability/tracing-extensions/modules/ballerina-zipkin-extension/target/distribution.zip and extract it.
 5. Copy all the jars that exists in distribution.zip to 'bre/lib' directory in the ballerina distribution. 
-6. Change below configuration name to zipkin, therefore all tracers will be sent to zipkin instead of default tracer jeager. 
-```
-[b7a.observability.tracing]
-name="zipkin"
-```
+6. Change below configuration name to zipkin, therefore all tracers will be sent to zipkin instead of default tracer jeager.
+  ```yaml
+    [b7a.observability.tracing]
+    name="zipkin"
+  ```
 7. The below provided configuration is the sample configuration options available for zipkin tracer. 
-```
-[b7a.observability.tracing.zipkin]
-reporter.hostname="localhost"
-reporter.port=9411
-```
+  ```
+    [b7a.observability.tracing.zipkin]
+    reporter.hostname="localhost"
+    reporter.port=9411
+  ```
 
 The below table provides the descriptions of each configuration options and possible values that can be assigned. 
 
@@ -266,21 +263,21 @@ Ballerina by default supports Jaerger and Zipkin for distributed tracing. This s
 Jeager is the default distributed tracing system that is supported. There are many possible ways to deploy Jaeger and you can find more information on this [link](https://www.jaegertracing.io/docs/deployment/). Here we focus on all in one deployment with docker.
 
 1. Install Jaeger via docker and start the docker container by executing below command. 
-```bash
-docker run -d -p5775:5775/udp -p6831:6831/udp -p6832:6832/udp -p5778:5778 -p16686:16686 -p14268:14268 jaegertracing/all-in-one:latest
-```
+   ```bash
+    $ docker run -d -p5775:5775/udp -p6831:6831/udp -p6832:6832/udp -p5778:5778 -p16686:16686 -p14268:14268 jaegertracing/all-in-one:latest
+   ```
 2. Go to http://localhost:16686 and load the web UI of the jaeger to make sure it's functioning properly. The below image is the sample tracing infomration you can see from Jaeger. 
-<img src="images/jaeger-tracing-dashboard.png" width=700 height=500/>
+   <img src="images/jaeger-tracing-dashboard.png" width=700 height=500/>
 
 #### Zipkin
 Similar to jaeger, zipkin is another distributed tracing system that is supported by ballerina. There are many different configurations and deployment exists for zipkin, please go to [link](https://github.com/openzipkin/zipkin) for more information. Here we docus on all in one deployment with docker. 
 
 1. Install Zipkin via docker and start the docker container by executing below command.
-```bash
-docker run -d -p 9411:9411 openzipkin/zipkin
-```
+   ```bash
+    $ docker run -d -p 9411:9411 openzipkin/zipkin
+   ```
 2. Go to http://localhost:9411/zipkin/ and load the web UI of the zipkin to make sure it's functioning properly. The below shown is the sample zipkin dashboard for the hello-world sample in the [Quick Start](#Quick-start)
-<img src="images/zipkin-sample.png" width=700 height=175/>
+   <img src="images/zipkin-sample.png" width=700 height=175/>
 
 
 ## Distributed Logging
@@ -306,21 +303,21 @@ Elastic stack comprises of the following components.
 Elasticsearch and Kibana are provided as cloud services from https://www.elastic.co/cloud with a 14 day trial period. We only have to set up logstash and filebeat containers on premise if you are going ahead with cloud services. If you are not opting for the cloud service, then you have to setup docker containers for all the tools and have it in premise.
 
 1. Download the docker images using the following commands.
-```bash
-# Elasticsearch Image
-$ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.2.2 
-# Kibana Image
-$ docker pull docker.elastic.co/kibana/kibana:6.2.2
-# Filebeat Image 
-$ docker pull docker.elastic.co/beats/filebeat:6.2.2  
-# Logstash Image
-$ docker pull docker.elastic.co/logstash/logstash:6.2.2
-```
+   ```bash
+    # Elasticsearch Image
+    $ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.2.2 
+    # Kibana Image
+    $ docker pull docker.elastic.co/kibana/kibana:6.2.2
+    # Filebeat Image 
+    $ docker pull docker.elastic.co/beats/filebeat:6.2.2  
+    # Logstash Image
+    $ docker pull docker.elastic.co/logstash/logstash:6.2.2
+   ```
 2. Start elastic search and kibana containers with below commands. 
-```bash
-$ docker run -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearch docker.elastic.co/elasticsearch/elasticsearch:6.2.2 
-$ docker run -p 5601:5601 -h kibana --name kibana --link elasticsearch:elasticsearch docker.elastic.co/kibana/kibana:6.2.2 
-```
+   ```bash
+    $ docker run -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearch docker.elastic.co/elasticsearch/elasticsearch:6.2.2 
+    $ docker run -p 5601:5601 -h kibana --name kibana --link elasticsearch:elasticsearch docker.elastic.co/kibana/kibana:6.2.2 
+   ```
   Note:
   * Linux users may have to increase the vm.max_map_count for the elasticsearch container to start. Execute the following command to do that.
    ```bash
@@ -330,49 +327,49 @@ $ docker run -p 5601:5601 -h kibana --name kibana --link elasticsearch:elasticse
   * --link flag is used to connect to another container. Then container can consume services using the hostname specified. Kibana container will link to elasticsearch container and can use the “elasticsearch” hostname to talk to that container
 3. Next steps is, configuring logstash to format the ballerina logs. Inorder to do this, you need to create a file named logstash.conf with the following content. 
 For this example, let's save this file at ~/wso2-ballerina/ELK/pipeline/logstash.conf. This should be taken note of because, when starting the logstash container, this file should be bind-mounted onto the container. Logstash container is configured to read a configuration file named “logstash.conf” at startup.
-```
-input {  
-  beats { 
-	port => 5044 
-	}  
-}  
-filter {  
-  grok  {  
-	match => { "message" => "%{TIMESTAMP_ISO8601:date}%{SPACE}%{WORD:logLevel}%{SPACE}\[%{GREEDYDATA:package}\]%{SPACE}\-%{SPACE}%{GREEDYDATA:logMessage}"}  
-  }  
-}   
-output {  
-    elasticsearch {  
-    	hosts => "elasticsearch:9200"  
-    	index => "store"  
-      document_type => "store_logs"  
-	}  
-}
-```
+   ```
+    input {  
+      beats { 
+        port => 5044 
+        }  
+    }  
+    filter {  
+      grok  {  
+        match => { "message" => "%{TIMESTAMP_ISO8601:date}%{SPACE}%{WORD:logLevel}%{SPACE}\[%{GREEDYDATA:package}\]%{SPACE}\-%{SPACE}%{GREEDYDATA:logMessage}"}  
+      }  
+    }   
+    output {  
+        elasticsearch {  
+            hosts => "elasticsearch:9200"  
+            index => "store"  
+          document_type => "store_logs"  
+        }  
+    }
+   ```
   Note:
   * 3 stages are specified in the pipeline 
   * Input is specified as beats and listens to port 5044.
   * A grok filter is used to structure the ballerina logs.
   * An output is specified to push to elasticsearch. Note here that the host is specified as “elasticsearch:9200”. Hence the elasticsearch container should be linked to the logstash container.
 4. Start the logstash container by following command. 
-```bash
-$ docker run -h logstash --name logstash --link elasticsearch:elasticsearch -it --rm -v ~/wso2-ballerina/ELK/pipeline:/usr/share/logstash/pipeline/ -p 5044:5044 docker.elastic.co/logstash/logstash:6.2.2
-```
+   ```bash
+    $ docker run -h logstash --name logstash --link elasticsearch:elasticsearch -it --rm -v ~/wso2-ballerina/ELK/pipeline:/usr/share/logstash/pipeline/ -p 5044:5044 docker.elastic.co/logstash/logstash:6.2.2
+   ```
 5. Configure filebeat to ship the ballerina logs. For this, you need to create a file named filebeat.yml with the following content. As an example, let's save this file at ~/wso2-ballerina/ELK/filebeat.yml.
-```
-filebeat.prospectors:
-- type: log
-  paths:
-    - /usr/share/filebeat/ballerina.log
-output.logstash:
-  hosts: ["logstash:5044"]
-```
+   ```
+    filebeat.prospectors:
+    - type: log
+      paths:
+        - /usr/share/filebeat/ballerina.log
+    output.logstash:
+      hosts: ["logstash:5044"]
+   ```
   Notes:
   * Here also the host is specified as “logstash:5044”. Hence the logstash container should be linked to this container.
 6. Start the filebeat container with following command. 
-```bash
-$ docker run -v ~/wso2-ballerina/ELK/filebeat.yml:/usr/share/filebeat/filebeat.yml -v ~/wso2-ballerina/workspace/ballerina.log:/usr/share/filebeat/ballerina.log --link logstash:logstash docker.elastic.co/beats/filebeat:6.2.2 
-```
+   ```bash
+    $ docker run -v ~/wso2-ballerina/ELK/filebeat.yml:/usr/share/filebeat/filebeat.yml -v ~/wso2-ballerina/workspace/ballerina.log:/usr/share/filebeat/ballerina.log --link logstash:logstash docker.elastic.co/beats/filebeat:6.2.2 
+   ```
   Note:
   * -v flag is used for bind mounting, where the container will read the file from the host machine. Hence bind mounting the configuration file and log file means that filebeat container should be set up in the same host where the log file is being generated.
 6. Access Kibana to visualize the logs at http://localhost:5601 and click on discover and perform more log analysis. 
