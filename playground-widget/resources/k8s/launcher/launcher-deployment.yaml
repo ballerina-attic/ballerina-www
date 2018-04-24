@@ -19,11 +19,15 @@ spec:
       containers:
       - name: bpg-launcher-container
         imagePullPolicy: Always
-        image: gcr.io/${BPG_GCP_PROJECT_ID}/launcher:v0.1-20180423-1421
-        # resources:
-        #   requests:
-        #     cpu: 100m
-        #     memory: 100Mi
+        image: gcr.io/${BPG_GCP_PROJECT_ID}/launcher:v0.1-20180424-0849
+        resources:
+          limits:
+            cpu: "2"
+          requests:
+            cpu: "2"
+        args:
+        - -cpus
+        - "2"
         env:
         - name: BPG_REDIS_WRITE_HOST
           value: "redis-master"

@@ -17,7 +17,7 @@ spec:
           -
             name: maxcheck-controller
             imagePullPolicy: "Always"
-            image: gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1-20180423-1518
+            image: gcr.io/${BPG_GCP_PROJECT_ID}/controller:v0.1-20180424-1009
             env:
             -
               name: BPG_REDIS_WRITE_HOST
@@ -42,7 +42,7 @@ spec:
               value: "ballerina-playground"
             -
               name: BPG_LAUNCHER_IMAGE_NAME
-              value: "gcr.io/${BPG_GCP_PROJECT_ID}/launcher:v0.1-20180423-1421"
+              value: "gcr.io/${BPG_GCP_PROJECT_ID}/launcher:v0.1-20180424-0849"
             -
               name: BPG_MIN_CONCURRENT_USERS
               value: "10"
