@@ -3,8 +3,7 @@
     <div class="container">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-Left-col ">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-main-content-wraper">
-                <p class="cMainParagraph">A programming language and runtime <br/>co-designed to be agile and integration simple.
-                </p>
+                <div style="max-width:600px;"><p class="cMainParagraph">A programming language and runtime <nobr>co-designed</nobr> to be agile and integration simple.</p></div>
                 <p class="cGreenTitle "><a href="/downloads">Download &gt;</a></p>
                 <hr class="cHr">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol">
