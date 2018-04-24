@@ -9,22 +9,33 @@ Ballerina services that are using the below mentioned service/client connectors 
 
 
 ## Quick Start
-Ballerina service is by default observable. This section focuses on enables observability with default systems with Jeager for distributed tracing, and Prometheus and Grafana for Metrics Monitoring. 
+Ballerina service is by default observable. This section focuses on enables observability with default systems with Jaeger for distributed tracing, and Prometheus and Grafana for Metrics Monitoring. 
+
+**Pre-requisites**
+Make sure you have already installed Docker Community Edition (CE). You can follow [official documentation](https://docs.docker.com/install/) to install the docker.
+
+**Steps**
 
 1. Create hello-world ballerina service as shown below and save the above service as `hello-world-service.bal`. 
 
 ```ballerina
 import ballerina/http;
+import ballerina/log;
+
 
 service<http:Service> hello bind { port:9090 } {
+    
 	sayHello (endpoint conn, http:Request req) {
+	    log:printInfo("This is a test Info log");
+        log:printError("This is a test Error log");
+        log:printWarn("This is a test Warn log");
     	http:Response res = new;
     	res.setStringPayload("Hello, World!");
     	_ = conn -> respond(res);
 	}
 }
 ```
-2. The observability is disabled by default and it can be enabled by either adding inline parameter and updating the configuration.
+2. The observability is disabled by default and it can be enabled by either adding inline parameter and updating the configuration. This options will enable metrics monitoring and distributed tracing. You will have to follow step-3 and step-4, if you want to have log analysis as well.
 Inline Parameter : 
 Observability for ballerina service can be enabled with a short hand inline parameter --observe as shown below. This enables observability for ballerina service with default settings, and publish the distributed tracing information to [Jaeger](https://www.jaegertracing.io/) and metrics information to [Prometheus](https://prometheus.io/). 
 
@@ -56,7 +67,18 @@ ballerina: started publishing tracers to Jaeger on localhost:5775
 ballerina: initiating service(s) in 'hello-world-service.bal'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 ```
-
+3. If you want to perform log analysis then follow this step and step-4, else, please proceed to step 5. 
+There are some logs added to the service, but these logs needs to be pushed to [Elastic Stack](#Distributed-Logging) to perform the log analysis. But the log package supports logging to console only, therefore the logs needs be redirected to a file as first step, therefore you require to start the service as below along with the option that you have opted to start service in step-2 (inline parameter or passing configuration).
+   
+   Start ballerina service as below for inline parameter. 
+   ```bash
+   $ nohup ballerina run hello_service.bal --observe > ~/wso2-ballerina/workspace/ballerina.log &
+   ```
+   Start ballerina service as below for with configuration file. 
+   ```bash
+   $ nohup ballerina run hello_service.bal --config <path-to-conf>/ballerina.conf > ~/wso2-ballerina/workspace/ballerina.log &
+   ```
+4. Install Elastic Stack as mentioned in section [setting up elastic stack](#setting-up-elastic-stack)
 3. Install and configure premetheus as mentioned in section [configuring prometheus](#Prometheus)/
 4. Install grafana as mentioned in section [configuring grafana](#grafana)
 5. Install Jaeger as mentioned in section [configuring jaeger](#jeager)
@@ -67,7 +89,10 @@ curl http://localhost:9090/hello/sayHello
 ```
 7. Now go to imported dashboard in grafana and check the metrics. Similarly go to Jaeger dashboard at http://localhost:16686/ and check the traces. 
 <img src="images/jaeger-sample-dashboard.png" width="700" height="150"/>
- 
+8. If you have followed step-3 and step-4, then you can go to Elastic stack dashboard and visualize.
+<img src="images/kibana-sample-dashboard.png" width="700" height="500"/>
+
+
 ## Metrics Monitoring
 Metrics help to monitor the runtime behaviour of the service. Therefore, metrics is a vital part of monitoring Ballerina or actually considered as monitoring itself. However, metrics is not the same as analytics. For example, you should not use metrics to do something like per-request billing. Metrics are used to measure what Ballerina code does in runtime to make better decisions using the numbers. The code generates business value when it is run in production. Therefore, it is imperative to continuously measure the code in production.
 
@@ -258,35 +283,15 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 
 
 ## Distributed Logging
-Ballerina distributed logging and analysis is supported by Elastic Stack. Ballerina has a log package for logging to the console. Sample ballerina program with log package is given below.
-```ballerina
-import ballerina.net.http;
-import ballerina.log;
-
-endpoint<http:Service> storeServiceEndpoint {
-   port : 9090
-}
-
-@http:serviceConfig {basePath:"/StoreService", endpoints:[storeServiceEndpoint]}
-service<http:Service> StoreService {
-
-   resource processOrder (http:ServerConnector conn, http:Request req) {
-       log:printInfo("This is a test Info log");
-       log:printError("This is a test Error log");
-       log:printWarn("This is a test Warn log")
-       http:Response res = {};
-       res.setJsonPayload("Hello World");
-       _ = conn -> respond(res);
-   }
-}
-```
-
-The above logs needs to be pushed to Elastic Stack, therefore users can further analyze the logs. But this log package suppports logging to console only, therefore the logs needs be redirected to a file.
+Ballerina distributed logging and analysis is supported by Elastic Stack. Ballerina has a log package for logging to the console, but this log package supports logging to console only, therefore the logs needs be redirected to a file.
 
 This can be done by running the ballerina service as below. 
-
 ```bash
-$ nohup ballerina run ballerinaservice.bal &>> ~/wso2-ballerina/workspace/ballerina.log&
+$ nohup ballerina run ballerinaservice.bal > ~/wso2-ballerina/workspace/ballerina.log &
+```
+You can view the logs with below command.
+```bash
+$ tail -f ~/wso2-ballerina/workspace/ballerina.log
 ```
 
 ### Setting up Elastic Stack
@@ -299,10 +304,6 @@ Elastic stack comprises of the following components.
 
 Elasticsearch and Kibana are provided as cloud services from https://www.elastic.co/cloud with a 14 day trial period. We only have to set up logstash and filebeat containers on premise if you are going ahead with cloud services. If you are not opting for the cloud service, then you have to setup docker containers for all the tools and have it in premise.
 
-**Pre-requisites**
-Make sure you have already installed Docker Community Edition (CE). You can follow [official documentation](https://docs.docker.com/install/) to install the docker.
-
-**Steps**
 1. Download the docker images using the following commands.
 ```bash
 # Elasticsearch Image
@@ -320,14 +321,14 @@ $ docker run -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearch
 $ docker run -p 5601:5601 -h kibana --name kibana --link elasticsearch:elasticsearch docker.elastic.co/kibana/kibana:6.2.2 
 ```
   Note:
-  * Linux users may have to increase the vm.max_map_count for the elasticsearch container to start. To do so run the following command.
+  * Linux users may have to increase the vm.max_map_count for the elasticsearch container to start. Execute the following command to do that.
    ```bash
    $ sudo sysctl -w vm.max_map_count=262144
    ```
   * -h flag sets the containers hostname
   * --link flag is used to connect to another container. Then container can consume services using the hostname specified. Kibana container will link to elasticsearch container and can use the “elasticsearch” hostname to talk to that container
-3. Configure logstash to format the ballerina logs. Inorder to do this, you need to create a file named logstash.conf with the following content. 
-For this example I have saved this file at ~/wso2-ballerina/ELK/pipeline/logstash.conf. This should be taken note of because, when starting the logstash container, this file should be bind-mounted onto the container. Logstash container is configured to read a configuration file named “logstash.conf” at startup.
+3. Next steps is, configuring logstash to format the ballerina logs. Inorder to do this, you need to create a file named logstash.conf with the following content. 
+For this example, let's save this file at ~/wso2-ballerina/ELK/pipeline/logstash.conf. This should be taken note of because, when starting the logstash container, this file should be bind-mounted onto the container. Logstash container is configured to read a configuration file named “logstash.conf” at startup.
 ```
 input {  
   beats { 
@@ -356,7 +357,7 @@ output {
 ```bash
 $ docker run -h logstash --name logstash --link elasticsearch:elasticsearch -it --rm -v ~/wso2-ballerina/ELK/pipeline:/usr/share/logstash/pipeline/ -p 5044:5044 docker.elastic.co/logstash/logstash:6.2.2
 ```
-5. Configure filebeat to ship the ballerina logs. For this, you need to create a file named filebeat.yml with the following content. For this example let's save this file at ~/wso2-ballerina/ELK/filebeat.yml.
+5. Configure filebeat to ship the ballerina logs. For this, you need to create a file named filebeat.yml with the following content. As an example, let's save this file at ~/wso2-ballerina/ELK/filebeat.yml.
 ```
 filebeat.prospectors:
 - type: log
@@ -373,4 +374,4 @@ $ docker run -v ~/wso2-ballerina/ELK/filebeat.yml:/usr/share/filebeat/filebeat.y
 ```
   Note:
   * -v flag is used for bind mounting, where the container will read the file from the host machine. Hence bind mounting the configuration file and log file means that filebeat container should be set up in the same host where the log file is being generated.
-6. Access Kibana to visualize the logs at http://localhost:5601.
+6. Access Kibana to visualize the logs at http://localhost:5601 and click on discover and perform more log analysis. 
