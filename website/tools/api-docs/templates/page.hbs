@@ -263,7 +263,7 @@
                                                     <span class="{{icon}}"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    {{name}} {{#if isConnector}} ({{#each fields}}<a href="{{href}}">{{dataType}}</a> {{name}}{{#unless @last}} ,{{/unless}}{{/each}}) {{/if}}
+                                                    {{name}}
                                                 </div>
                                             </a>
                                         </li>
@@ -748,7 +748,7 @@
                                                         {{#each children}}
                                                         <li>
                                                             <h2 id="{{../name}}-{{name}}">
-                                                                <span class="{{icon}}"></span>
+                                                                <span class="{{icon}} sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;{{../name}}&gt;
                                                    </span> {{name}}({{join parameters ", "}}) {{#if returnParams}}returns ({{join returnParams ", "}}) {{/if}}
