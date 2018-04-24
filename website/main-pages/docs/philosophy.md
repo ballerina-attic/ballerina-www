@@ -581,7 +581,7 @@
             </div>
             <div data-startLine="31" data-endLine="31" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Integration often has to deal with complex distributed errors. Ballerina has powerful error handling capabilities based around union types. The <em>check</em> operator makes it easy to pass the error back to the caller.</p>
+                    <p>Integration often has to deal with complex distributed errors. Ballerina has error handling capabilities based around union types. The <em>check</em> operator makes it easy to pass the error back to the caller.</p>
                 </div>
             </div>
             <div data-startLine="33" data-endLine="33" class="hTrigger cCodeDesription gray">
