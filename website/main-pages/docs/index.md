@@ -2,10 +2,7 @@
          <div class="container">
                <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Left-col">
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-main-content-wraper">
-                   <p class="cMainParagraph">Ballerina makes it easy to create resilient <br/>
-                       services that integrate and orchestrate <br/>
-                       transactions across distributed endpoints.
-                   </p>
+                   <div style="max-width:500px;"><p class="cMainParagraph">Ballerina makes it easy to create resilient services that integrate and orchestrate transactions across distributed endpoints.</p></div>
                    <p><a class="cGreenLink" href="/philosophy">SEE WHY ></a></p>
                    <div class="cHomeButtonContainer">
                    <a class="cBallerina-io-Home-main-download-button" href="downloads">Download Ballerina
