@@ -20,7 +20,7 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ### Ballerina by Guide
 
-[Ballerina by Guide](/learn/guides/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment and observability. 
+[Ballerina by Guide](/learn/guides/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment and observability.
 
 ### Editors, IDEs and the Ballerina Composer
 
@@ -32,7 +32,7 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ### How to Extend Ballerina
 
-[How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and package these customizations for use by others. 
+[How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and package these customizations for use by others.
 
 ### How to Write Secure Ballerina Programs
 
@@ -46,7 +46,7 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ### Package and API Documentation
 
-The [API Documentation](/learn/api-docs/ballerina/auth.html) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
+The [API Documentation](/learn/api-docs/) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
 
 ### Command Documentation
 
