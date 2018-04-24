@@ -12,7 +12,7 @@ Ballerina services that are using the below mentioned service/client connectors 
 Ballerina service is by default observable. This section focuses on enables observability with default systems with Jaeger for distributed tracing, and Prometheus and Grafana for Metrics Monitoring. 
 
 **Pre-requisites**
-Make sure you have already installed Docker Community Edition (CE). You can follow [official documentation](https://docs.docker.com/install/) to install the docker.
+Make sure you have already installed Docker Community Edition (CE) to install external products such as Jaeger, Prometheus, etc. You can follow [official documentation](https://docs.docker.com/install/) to install the docker.
 
 **Steps**
 
@@ -80,17 +80,17 @@ Make sure you have already installed Docker Community Edition (CE). You can foll
    $ nohup ballerina run hello_service.bal --config <path-to-conf>/ballerina.conf > ~/wso2-ballerina/workspace/ballerina.log &
    ```
 4. Install Elastic Stack as mentioned in section [setting up elastic stack](#setting-up-elastic-stack)
-3. Install and configure premetheus as mentioned in section [configuring prometheus](#Prometheus)/
-4. Install grafana as mentioned in section [configuring grafana](#grafana)
-5. Install Jaeger as mentioned in section [configuring jaeger](#jeager)
-6. Send few requests to http://localhost:9090/hello/sayHello
+5. Install and configure premetheus as mentioned in section [configuring prometheus](#Prometheus)/
+6. Install grafana as mentioned in section [configuring grafana](#grafana)
+7. Install Jaeger as mentioned in section [configuring jaeger](#jeager)
+8. Send few requests to http://localhost:9090/hello/sayHello
    Example cURL command:
     ```bash
     $ curl http://localhost:9090/hello/sayHello
     ```
-7. Now go to imported dashboard in grafana and check the metrics. Similarly go to Jaeger dashboard at http://localhost:16686/ and check the traces. 
+9. Now go to imported dashboard in grafana and check the metrics. Similarly go to Jaeger dashboard at http://localhost:16686/ and check the traces. 
     <img src="images/jaeger-sample-dashboard.png" width="700" height="150"/>
-8. If you have followed step-3 and step-4, then you can go to Elastic stack dashboard and visualize.
+10. If you have followed step-3 and step-4, then you can go to Elastic stack dashboard and visualize.
     <img src="images/kibana-sample-dashboard.png" width="800" height="400"/>
 
 
@@ -372,4 +372,4 @@ For this example, let's save this file at ~/wso2-ballerina/ELK/pipeline/logstash
    ```
   Note:
   * -v flag is used for bind mounting, where the container will read the file from the host machine. Hence bind mounting the configuration file and log file means that filebeat container should be set up in the same host where the log file is being generated.
-6. Access Kibana to visualize the logs at http://localhost:5601 and click on discover and perform more log analysis. 
+7. Access Kibana to visualize the logs at http://localhost:5601 and click on discover and perform more log analysis. 
