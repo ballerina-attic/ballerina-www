@@ -90,7 +90,7 @@ curl http://localhost:9090/hello/sayHello
 7. Now go to imported dashboard in grafana and check the metrics. Similarly go to Jaeger dashboard at http://localhost:16686/ and check the traces. 
 <img src="images/jaeger-sample-dashboard.png" width="700" height="150"/>
 8. If you have followed step-3 and step-4, then you can go to Elastic stack dashboard and visualize.
-<img src="images/kibana-sample-dashboard.png" width="700" height="500"/>
+<img src="images/kibana-sample-dashboard.png" width="800" height="400"/>
 
 
 ## Metrics Monitoring
