@@ -1,7 +1,269 @@
 # How to Deploy and Run Ballerina Programs
 
-
 ## Running Ballerina Programs & Services
+
+Ballerina app can be structured into a single program file, ballerina project or a ballerina package.
+
+### Running Standalone Source
+
+#### Standalone Source
+
+-   A single Ballerina source code file.
+    
+-   Code can be placed into any folder, called the “source root”.
+    
+-   The "source root" must not contain a subdirectory named ".ballerina"
+    
+-   Code files that are in the source root are in the “unnamed” package.
+    
+-   Subdirectories of the “source root” do not have any semantic meaning, ie, they are not considered packages nor does any sibling files.
+    
+-   There are no restrictions on what can be placed inside the Ballerina file, ie, any valid Ballerina code is allowed.  
+    
+
+#### Run a Standalone Source without compiling:
+
+-   If source file contains at least one program entrypoint, which could be a main() for functions or service<> for hosted services then it can be executed using run command.
+    
+```bash
+
+ballerina run foo.bal  
+```
+
+#### Compile standalone source code:
+
+-   If source file contains at least one program entrypoint, which could be a main() for functions or service<> for hosted services then it can be executed using run command
+    
+-   Command:
+```bash
+    ballerina build [-sourceroot] a/b/c/foo.bal [-o outputfilename.balx]
+```
+
+-   Default output filename is the last part of package name or the filename (minus the extension) with the extension “.balx”.
+    
+
+  
+
+### Run compiled source:
+
+-   Command:
+    
+
+-   ballerina run [-s] filename.balx
+    
+
+  
+
+### Running a Program
+
+#### Program:
+
+-   A collection of packages written by the developer
+    
+-   Other dependent packages that the developer imports and uses
+    
+-   A compiled and linked binary, saved with a file that has a .balx extension.
+    
+-   Contains at least one program entrypoint, which could be a main() for functions or service<> for hosted services.
+    
+-   Contains imported dependent packages that exist within a repository
+    
+
+#### Run a program without compiling:
+
+-   To run a Ballerina file that is in the “unnamed” package (i.e. without a package declaration), you have to give the path to the file:
+    ```bash
+    ballerina run [-s] a/b/c/foo.bal
+    ```
+-   The directory of the file becomes the source root (all imports will be resolved relative to that source root)
+    
+-   Note that -s means to run services instead of running main.
+    
+-   You can also alter the location of the source root that the file will be inferred from:
+```bash
+    ballerina run [-s] [-projectroot <path>] foo.bal
+``` 
+
+  
+
+#### Compiled program:
+
+-   A compiled program is the transitive closure of one package of Ballerina source without including ballerina.* packages.
+    
+-   That package must contain either a main() and/or one or more services
+    
+
+
+#### Compile source code in a Program Directory:
+
+-   Command:
+```bash
+     ballerina build [-sourceroot] a/b/c/foo.bal [-o outputfilename.balx]
+```    
+
+-   Default output filename is the last part of package name or the filename (minus the extension) with the extension “.balx”.
+    
+#### Run a compiled program:
+```bash
+ ballerina run [-s] filename.balx
+``` 
+
+### Running a Package
+
+#### Package:
+
+-   A directory that contains Ballerina source code files.
+    
+#### Compiling a package:
+
+-   A compiled package is the compiled representation of a single package of Ballerina code, without including transitive dependencies into the compiled unit.
+    
+-   Command to build all packages as part of a single project:
+    ```bash
+    ballerina build
+    ```
+
+-   Command to build a single package in a project:
+    ```bash
+    ballerina build <package-name>
+    ```
+#### Run a program in a compiled package:
+```bash
+ballerina [-projectroot <path>] run [-s] <package>
+```    
+
+-   The command will look in a Project Repository (if in a project), then Home Repository, then Ballerina Central to find the package and then run it. If the package was in Ballerina Central, it will first pull it into the Home Repository and then execute it.
+    
+
+  
+
+#### Running a Project:
+
+A project is a folder that has:
+
+1.  A user-managed manifest file, Ballerina.toml
+    
+2.  A Ballerina-managed .ballerina/ folder with implementation metadata and cache
+    
+3.  The cache contains the “Project Repository”, a project-specific repository for storing package binaries and dependencies
+    
+A project manifest represents zero or more packages to be built.
+
+#### Compiling a Project:
+
+-   Command to build all packages as part of a single project:
+```bash    
+ballerina build
+```
+
+-   Command to build a single package in a project:
+     ```bash
+      ballerina build <package-name>
+    ```
+
+#### Running a compiled project
+
+-   If a manifest file is present, the “run” command will look to run the specified program in the target/ directory. 
+- These two commands in a project have the same effect  
+```bash
+$ ballerina run main.balx  
+$ ballerina run target/main.balx
+```
+  
+
+## How to configure Ballerina runtime
+
+The `ballerina/config` package provides an API for configuring ballerina source at runtime.
+
+  
+The Ballerina config API allows you to look up values from configuration files, CLI parameters and environment variables. The precedence order for configuration resolution is as follows:
+
+-   CLI parameters
+    
+-   Environment variables
+    
+-   Configuration files
+    
+
+If a specific configuration defined in the file is also defined as an environment variable, the environment variable takes precedence. Similarly, if the same is set as a CLI parameter, it replaces the environment variable value.
+
+  
+
+The configurations are arbitrary key/value pairs with structure.
+
+  
+
+The configuration APIs accept a key and an optional default value. If a mapping does not exist for the specified key, the default value is returned as the configuration value. The default values of these optional configurations are the default values of the return types of the functions.
+
+  
+
+Refer [Config API Documentation]([https://stage.ballerina.io/learn/api-docs/ballerina/config.html](https://stage.ballerina.io/learn/api-docs/ballerina/config.html)) for more information.
+
+  
+
+## How to configure secrets as configuration items
+
+Ballerina provide support for encrypting sensitive data such as passwords and to access them securely via config-api in the code.
+
+### Creating a secured value:
+
+To encrypt a value, the 'ballerina encrypt' command is used.
+
+It prompts the user to enter the value and a secret.
+
+'ballerina' is the value and '12345' is the secret.
+
+```ballerina
+
+$ ballerina encrypt
+Enter value:
+Enter secret:
+Re-enter secret to verify:
+Add the following to the runtime config:
+
+@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
+
+Or add to the runtime command line:
+-e<param>=@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
+```
+
+### Using the secured value at runtime
+
+
+The secured value can be placed in the in the config file as a value. To explicitly specify a configuration file, use either the '--config' or the '-c' flag. The path to the configuration file can be either an absolute or a relative path. If this flag is not set, Ballerina looks for a 'ballerina.conf' file in the directory in which the source files are located.
+
+```ballerina
+[hello]
+http.port=8085
+keystore.password="@encrypted{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}"
+```
+
+The same configurations given via the configuration file can also be given via CLI parameters.
+
+```bash
+
+$ ballerina run config_api.bal -e hello.http.port=8085 -e hello.keystore.password=@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
+```
+
+  
+
+### Decrypting the value
+
+
+If a configuration contains an encrypted value, Ballerina looks for a secret.txt file in the directory in which the source files are located. The secret.txt should contain the secret used to encrypt the value. The secret.txt file will be deleted after it is read.  
+
+If `secret.txt` file is not present then the CLI prompt user for the secret.
+
+  
+
+```ballerina
+
+$ ballerina run --config path/to/conf/file/custom-config-file-name.conf config_api.bal
+ballerina: enter secret for config value decryption:
+
+ballerina: initiating service(s) in 'config_api.bal'
+ballerina: started HTTPS/WSS endpoint 0.0.0.0:8085
+```
 
 
 ## Deploying Ballerina Programs & Services
