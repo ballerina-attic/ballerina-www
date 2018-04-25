@@ -48,7 +48,7 @@
 
 .cGreenTitle.cPhil-box-titles {
     color: #22b7b1;
-    margin-top: -45px;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 
@@ -321,7 +321,19 @@ ul.cPhilosophyWidgetControls {
     margin: 0;
     width: 100%;
 }
-
+/* TYPE SAFETY */
+#type-system-code code{
+    padding:6px;
+    text-align: left;
+    font-size:12px;
+    background: #f5f6f6;
+}
+#type-system-code .line-numbers-wrap{
+    display: none;
+}
+.type-system-code-tab{
+    min-height: 550px;
+}
 
 /* highlight code segments in phylosophy page */
 
@@ -331,6 +343,8 @@ ul.cPhilosophyWidgetControls {
 
 .cCodeDesription {
     padding-left: 14px;
+    padding-right: 30px;
+    min-width: 100%;
     background-image: url("/img/white-arrow.svg");
     background-position: left -14px;
     background-repeat: no-repeat;
@@ -573,7 +587,7 @@ div.text-display div.cCodeDesription p {
     color: #ffffff;
     display: inline-block;
     width: 100%;
-    min-height: 360px;
+    min-height: 270px;
 }
 
 .cPhil-green {
@@ -749,12 +763,22 @@ div.cPhilosophyWidgetContainer.codeNativeBox {
     padding-left: 0;
 }
 
-@media (max-width: 991px) and (min-width: 768px) {
+.cCloudNative .cCloudNativeControls:first-child>ul {
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .cCloudNative .cCloudNativeControls:first-child>ul {
+        margin-bottom: 30px;
+    }
+}
+
+@media (min-width: 992px) {
     .cGreenTitle.cPhil-box-titles {
-        margin-top: 50px !important;
+        margin-top: -45px;
     }
     .cPhil-Gray,
     .cPhil-green {
-        min-height: 270px;
+        min-height: 360px;
     }
 }

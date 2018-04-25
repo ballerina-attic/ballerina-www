@@ -1,4 +1,6 @@
 endpoint http:Client backendClientEP {
+    url: "http://localhost:8080",
+    timeoutMillis:2000,
     circuitBreaker: {
         rollingWindow: {
             timeWindowMillis:10000,
@@ -7,11 +9,5 @@ endpoint http:Client backendClientEP {
         failureThreshold:0.2,
         resetTimeMillis:10000,
         statusCodes:[400, 404, 500]
-    },
-    targets: [
-                {
-                    url: "http://localhost:8080"
-                }
-            ],
-    timeoutMillis:2000
+    }
 };

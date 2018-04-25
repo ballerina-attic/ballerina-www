@@ -9,97 +9,30 @@ Now that you know a little bit [about Ballerina](/philosophy), let's take it for
 
 > NOTE: Throughout this documentation, `<ballerina_home>` refers to the Ballerina directory you just installed. 
 
-## Run HelloWorld
+## Start a project and run a service
 
-Let's get started with a simple Hello World program in Ballerina. Create a file called `hello-world.bal` and copy the following code into it.
+Start your project by navigating to a directory of your choice and running the following command.
 
-```ballerina
-import ballerina.io;
-function main (string[] args) {
-    io:println("Hello, World!");
-} 
+```bash
+ballerina init
 ```
 
-At the command line, navigate to the directory that contains the hello-world.bal file and enter the following command.
+You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you. You can run the service by using a run command.
 
-```
-$ ballerina run hello-world.bal
-```
-
-You will see the following response:
-
-```
-Hello, World!
-```
-
-You just started Ballerina, ran a simple code, and got a response within seconds.
-
-## Set up the Editor
-
-To run this, copy the above code into a hello-world.bal file. Let's try this on VS Code.
-
-```
-code hello-world.bal
-```
-
-Now your file is created and you can add your code inside it. You can find a plugin for Ballerina in the VS Code marketplace. This helps read the `.bal` file using an ideal theme.  
-
-Check if annotations work by entering some text and seeing proposed suggestions.
-
-![VS Code Annotations](/img/docs-images/vscode_annotations.png)
-
-You can use your [favourite editor to work on Ballerina code](https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md).
-
-Now, let's look at running the same Hello World program you created earlier as a service.
-
-## Write and Call an Integration Service
-
-Let's change the Hello World program to a service. Open the `hello-world.bal` file you created and replace the existing code with the following.
-
-```ballerina
-import ballerina/http;
-import ballerina/io;
-
-// A service endpoint listens to HTTP request on port 9090
-endpoint http:ServiceEndpoint listener {
-    port:9090
-};
-
-// A service is a network-accessible API
-// Advertised on '/hello', the port comes from the listener endpoint
-service<http:Service> hello bind listener {
-
-    // A resource is an invokable API method
-    // Accessible on '/hello/sayHello
-    // 'caller' is the client invoking this resource 
-    sayHello (endpoint caller, http:Request request) {
-        http:Response response = {};
-        // A response is what you receive back from the service
-        // Set the response payload
-        response.setStringPayload("Hello Ballerina!\n");
-        // Send a response back to caller
-        // Errors that could occur are ignored using '_'
-        _ = caller -> respond(response);
-    }
-} 
-```
-
-You can run the service by using the same run command you used to run the program earlier.
-
-```
-$ ballerina run hello-world.bal
+```bash
+$ ballerina run hello_service.bal
 ```
 
 You will see the following response.
 
-```
-ballerina: deploying service(s) in 'hello-world.bal'
-ballerina: started HTTP/WS server connector 0.0.0.0:9090
+```bash
+ballerina: initiating service(s) in 'hello_service.bal'
+ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
 This means your service is up and running. You can call the service by opening a new command line window and using the following cURL command.
 
-```
+```bash
 curl http://localhost:9090/hello/sayHello
 ```
 
@@ -108,6 +41,58 @@ You get the following response.
 ```
 Hello Ballerina!
 ```
+
+You just started Ballerina, created a project, started a service, and received a response within minutes.
+
+## Set up the Editor
+
+Let's try this on VS Code.
+
+```bash
+code /<folder path>/hello_service.bal
+```
+
+You can view your service in VS Code.
+
+```ballerina
+// A system package containing protocol access constructs
+// Package objects referenced with 'http:' in code
+import ballerina/http;
+import ballerina/io;
+
+// A service endpoint represents a listener
+endpoint http:Listener listener {
+    port:9090
+};
+
+// A service is a network-accessible API
+// Advertised on '/hello', port comes from listener endpoint
+service<http:Service> hello bind listener {
+
+    // A resource is an invokable API method
+    // Accessible at '/hello/sayHello
+    // 'caller' is the client invoking this resource 
+    sayHello (endpoint caller, http:Request request) {
+
+        // Create object to carry data back to caller
+        http:Response response = new;
+
+        // Objects and structs can have function calls
+        response.setStringPayload("Hello Ballerina!\n");
+
+        // Send a response back to caller
+        // Errors are ignored with '_'
+        // -> indicates a synchronous network-bound call
+        _ = caller -> respond(response);
+    }
+}
+```
+
+You can find a plugin for Ballerina in the VS Code marketplace. This helps read the `.bal` file using an ideal theme. Check if annotations work by entering some text and seeing proposed suggestions.
+
+![VS Code Annotations](/img/docs-images/vscode_annotations.png)
+
+You can use your [favourite editor to work on Ballerina code](https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md).
 
 ## Deploying on Kubernetes
 

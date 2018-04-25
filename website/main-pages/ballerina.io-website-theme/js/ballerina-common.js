@@ -28,6 +28,34 @@ function formatDate(date, format) {
 }
 
 /*
+ * Following script is adding line numbers to the ballerina code blocks in the gneerated documentation
+ */
+function initCodeLineNumbers() {
+    $('pre > code.ballerina, pre > code.language-ballerina').each(function() {
+
+        if ($(this).parent().find('.line-numbers-wrap').length === 0) {
+            //cont the number of rows
+            //Remove the new line from the end of the text
+            var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
+            var lines = '<div class="line-numbers-wrap">';
+
+            //Iterate all the lines and create div elements with line number
+            for (var i = 1; i <= numberOfLines; i++) {
+                lines = lines + '<div class="line-number">' + i + '</div>';
+            }
+            lines = lines + '</div>';
+            //calculate <pre> height and set it to the container
+            var preHeight = numberOfLines * 18 + 20;
+
+            $(this).parent()
+                .addClass('ballerina-pre-wrapper')
+                .prepend($(lines));
+        }
+
+    });
+}
+
+/*
  * Register ballerina language for highlightJS
  * Grammer: https://github.com/ballerina-platform/ballerina-lang/blob/master/compiler/ballerina-lang/src/main/resources/grammar/BallerinaLexer.g4
  */
@@ -172,13 +200,13 @@ $(document).ready(function() {
         '</li>' +
         '<li><a class="cBioFooterLink" href="https://stackoverflow.com/questions/tagged/ballerina" target="_blank"><img src="/img/stackoverflow.svg"/></a></li>' +
         '<li><a class="cBioFooterLink" href="https://twitter.com/ballerinaplat" target="_blank"><img src="/img/twitter.svg"/></a></li>' +
-        '<li><a class="cBioFooterLink" href="https://ballerina-platform.slack.com" target="_blank"><img src="/img/slack.svg"/></a></li>' +
+        '<li><a class="cBioFooterLink" href="/open-source/slack/"><img src="/img/slack.svg"/></a></li>' +
         '</ul>' +
         '<div class="pdframe"></div>' +
         '</div>' +
         '</div>' +
-        '<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-right-col">' +
-        '<p>In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Go, Kotlin, Java, Rust, Bootstrap, JavaScript, Jenkins, NPM, Crates, Maven, Gradle, Kubernetes, Envoy, Docker, Microsoft VS Code, Jetbrains IntelliJ, Eclipse Che, WSO2, mkdocs and GitHub.</div>' +
+        '<div class="col-xs-12 col-sm-10 col-md-6 col-lg-6 cBallerina-io-right-col">' +
+        '<p>In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Java, Go, C, C++, Rust, Haskell, Kotlin, Dart, Typescript, Javascript, Flow, Swift, LangServer, RelaxNG, NPM, Crates, Maven, Gradle, Kubernetes, Docker, Envoy, Markdown, GitHub and WSO2.</p> <p>We used many technologies to build the tools and the website: Bootstrap, JQuery, React JS, MkDocs, Microsoft VS Code, Jetbrains IntelliJ, Eclipse Che and Jenkins.</p></div>' +
         '</div>';
 
     $('#iMainNavigation').append(menu);
@@ -259,35 +287,31 @@ $(document).ready(function() {
     $(".cBallerina-io-packages").click(function() {
         $(".cCollaps-Menu").toggleClass('cOpenMenu');
         $(".cBallerina-io-packages").toggleClass('cOpenMenu');
+        $(".cCollaps-Menu-first").removeClass('cOpenMenu');
+        $(".cBallerina-io-primitive-types").removeClass('cOpenMenu');
+        $(".cCollaps-Menu-second").removeClass('cOpenMenu');
+        $(".cBallerina-io-x").removeClass('cOpenMenu');
     });
 
     $(".cBallerina-io-primitive-types").click(function() {
         $(".cCollaps-Menu-first").toggleClass('cOpenMenu');
         $(".cBallerina-io-primitive-types").toggleClass('cOpenMenu');
+        $(".cCollaps-Menu").removeClass('cOpenMenu');
+        $(".cBallerina-io-packages").removeClass('cOpenMenu');
+        $(".cCollaps-Menu-second").removeClass('cOpenMenu');
+        $(".cBallerina-io-x").removeClass('cOpenMenu');
     });
 
-    /*
-     * Following script is adding line numbers to the ballerina code blocks in the gneerated documentation
-     */
-    $('pre > code.ballerina').each(function() {
-        //cont the number of rows
-        //Remove the new line from the end of the text
-        var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
-        var lines = '<div class="line-numbers-wrap">';
-
-        //Iterate all the lines and create div elements with line number
-        for (var i = 1; i <= numberOfLines; i++) {
-            lines = lines + '<div class="line-number">' + i + '</div>';
-        }
-        lines = lines + '</div>';
-        //calculate <pre> height and set it to the container
-        var preHeight = numberOfLines * 18 + 20;
-        $(this).parent()
-            .addClass('ballerina-pre-wrapper')
-            .prepend(
-                $(lines)
-            );
+    $(".cBallerina-io-x").click(function() {
+        $(".cCollaps-Menu-second").toggleClass('cOpenMenu');
+        $(".cBallerina-io-x").toggleClass('cOpenMenu');
+        $(".cCollaps-Menu").removeClass('cOpenMenu');
+        $(".cBallerina-io-packages").removeClass('cOpenMenu');
+        $(".cCollaps-Menu-first").removeClass('cOpenMenu');
+        $(".cBallerina-io-primitive-types").removeClass('cOpenMenu');
     });
+
+    initCodeLineNumbers();
 
     $('.cBBE-body').each(function() {
         var lineCount = 0,

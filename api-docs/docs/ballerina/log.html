@@ -1,950 +1,601 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
-      <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'UA-92163714-2');
-      </script>
-      <!-- Google Tag Manager -->
-      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-         })(window,document,'script','dataLayer','GTM-PSL2TX4');
-      </script>
-      <!-- End Google Tag Manager -->
-      <link rel="shortcut icon" href="/img/favicon.ico">
-      <title>Ballerina.io - API Docs</title>
-      <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-         crossorigin="anonymous">
-      <!-- Optional theme -->
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-         crossorigin="anonymous">
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-         crossorigin="anonymous"></script>
-      <!-- Nanoscroller JS -->
-      <script src="docerina-theme/js/jquery.nanoscroller.min.js"></script>
-      <!-- Docerina JS -->
-      <script src="docerina-theme/js/docerina.js"></script>
-      <script type="text/javascript" src="/js/highlight.pack.js"></script>
-      <link rel="stylesheet" href="//use.typekit.net/son4ymv.css" />
-      
-      <link rel="stylesheet" href="/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
-      <link rel="stylesheet" href="/css/highlight.css">
-      <script type="text/javascript" src="/js/ballerina-common.js"></script>
-      <link rel="stylesheet" href="/css/ballerina-io.css">
-      <link rel="stylesheet" href="/css/ballerina-io-docs.css">
-      <link rel="stylesheet" href="/css/ballerina-io-api.css">
-      <script type="text/javascript" >
-         $(document).ready(function(){
-             $('pre > code.language-ballerina').each(function() {
-             //cont the number of rows
-             //Remove the new line from the end of the text
-             var numberOfLines = $(this).text().replace(/\n$/, "").split(/\r\n|\r|\n/).length;
-             var lines = '<div class="line-numbers-wrap">';
-         
-             //Iterate all the lines and create div elements with line number
-             for (var i = 1; i <= numberOfLines; i++) {
-                 lines = lines + '<div class="line-number">' + i + '</div>';
-             }
-             lines = lines + '</div>';
-             //calculate <pre> height and set it to the container
-             var preHeight = numberOfLines*18 + 20;
-             $(this).parent()
-                 .height(preHeight)
-                 .addClass('ballerina-pre-wrapper')
-                 .prepend(
-                     $(lines)
-                 );
-             });
-             hljs.initHighlighting();
-         })
-         
-      </script>
-      <script>var base_url = "";</script>
-      <script src="/search/require.js"></script>
-   </head>
-   <body class="cBallerina-io" role="document">
-      <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-92163714-2');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PSL2TX4');
+    </script>
+    <!-- End Google Tag Manager -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <title>Ballerina.io - API Docs</title>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Nanoscroller JS -->
+    <script src="docerina-theme/js/jquery.nanoscroller.min.js"></script>
+    <!-- Docerina JS -->
+    <script src="docerina-theme/js/docerina.js"></script>
+    <script type="text/javascript" src="/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="//use.typekit.net/son4ymv.css" /> 
+    <link rel="stylesheet" href="/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
+    <link rel="stylesheet" href="/css/highlight.css">
+    <script type="text/javascript" src="/js/ballerina-common.js"></script>
+    <link rel="stylesheet" href="/css/ballerina-io.css">
+    <link rel="stylesheet" href="/css/ballerina-io-docs.css">
+    <link rel="stylesheet" href="/css/ballerina-io-api.css">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
+            $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+
+            if (typeof hljs === 'object') {
+                $('code.language-ballerina').addClass('ballerina');
+                hljs.initHighlighting();
+            }
+        });
+    </script>
+    <script>
+        var base_url = "";
+    </script>
+    <script src="/search/require.js"></script>
+</head>
+
+<body class="cBallerina-io" role="document">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <!-- End Google Tag Manager (noscript) -->
-      <div class="row cBallerina-io-top-row">
-         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
-         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="row cBallerina-io-top-row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
             <div class="cTopLine"></div>
-         </div>
-      </div>
-      <div class="row cBallerina-io-Nav" id="iMainNavigation">
-      </div>
-      <div class="row cBallerina-io-Logo-row">
-         <div class="container">
+        </div>
+    </div>
+    <div class="row cBallerina-io-Nav" id="iMainNavigation">
+    </div>
+    <div class="row cBallerina-io-Logo-row">
+        <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
-               <a class="cLogo" href="/">
-               <img src="/img/ballerina-logo.png" alt="Ballerina" />
-               </a>
+                <a class="cLogo" href="/">
+                    <img src="/img/ballerina-logo.png" alt="Ballerina" />
+                </a>
             </div>
-         </div>
-      </div>
-      <div class="row cBallerina-io-Gray-row">
-         <div class="container">
+        </div>
+    </div>
+    <div class="row cBallerina-io-Gray-row">
+        <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
-                 <div class="cBlallerina-io-docs-right-nav-container">
-                  <div class="cLectColStyle cLeftColTop">
-                      <div class="cBallerina-io-docs-Title cBallerina-io-x">BALLERINA X</div>
+                <div class="cBlallerina-io-docs-right-nav-container">
+                    <div class="cLectColStyle cLeftColTop">
+                        <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
                         <div class="cCollaps-Menu-first">
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#blob">
-                                            <span class="bold">blob</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#int">
+                                        <span class="bold">int</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#map">
-                                            <span class="bold">map</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#float">
+                                        <span class="bold">float</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#future">
-                                            <span class="bold">future</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#boolean">
+                                        <span class="bold">boolean</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#float">
-                                            <span class="bold">float</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#string">
+                                        <span class="bold">string</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#record">
-                                            <span class="bold">record</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#json">
+                                        <span class="bold">json</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#xml">
-                                            <span class="bold">xml</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#xml">
+                                        <span class="bold">xml</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#string">
-                                            <span class="bold">string</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#any">
+                                        <span class="bold">any</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#int">
-                                            <span class="bold">int</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#blob">
+                                        <span class="bold">blob</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#union">
-                                            <span class="bold">union</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#typedesc">
+                                        <span class="bold">typedesc</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#any">
-                                            <span class="bold">any</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#record">
+                                        <span class="bold">record</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#array">
-                                            <span class="bold">array</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#array">
+                                        <span class="bold">array</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#tuple">
-                                            <span class="bold">tuple</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#map">
+                                        <span class="bold">map</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#stream">
-                                            <span class="bold">stream</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#union">
+                                        <span class="bold">union</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#typedesc">
-                                            <span class="bold">typedesc</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#tuple">
+                                        <span class="bold">tuple</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#json">
-                                            <span class="bold">json</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#table">
+                                        <span class="bold">table</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#table">
-                                            <span class="bold">table</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#stream">
+                                        <span class="bold">stream</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#boolean">
-                                            <span class="bold">boolean</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#future">
+                                        <span class="bold">future</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
-                        </div>
-                  </div>
-                </div>
-                <div class="cBlallerina-io-docs-right-nav-container">
-                  <div class="cLectColStyle cLeftColTop">
-                      <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
-                        <div class="cCollaps-Menu-first">
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#blob">
-                                            <span class="bold">blob</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#map">
-                                            <span class="bold">map</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#future">
-                                            <span class="bold">future</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#float">
-                                            <span class="bold">float</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#record">
-                                            <span class="bold">record</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#xml">
-                                            <span class="bold">xml</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#string">
-                                            <span class="bold">string</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#int">
-                                            <span class="bold">int</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#union">
-                                            <span class="bold">union</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#any">
-                                            <span class="bold">any</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#array">
-                                            <span class="bold">array</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#tuple">
-                                            <span class="bold">tuple</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#stream">
-                                            <span class="bold">stream</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#typedesc">
-                                            <span class="bold">typedesc</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#json">
-                                            <span class="bold">json</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#table">
-                                            <span class="bold">table</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            
-                                <ul class="">
-                                    <li>
-                                        <a href="primitive-types.html#boolean">
-                                            <span class="bold">boolean</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#function">
+                                        <span class="bold">function</span>
+                                    </a>
+                                </li>
+                            </ul>
                             
                         </div>
-                  </div>
+                    </div>
                 </div>
                 <div class="cBlallerina-io-docs-right-nav-container">
-                  <div class="cLectColStyle cLeftColTop">
-                  <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
-                     <div class="cCollaps-Menu">
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="auth.html">ballerina/<span class="bold">auth</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="builtin.html">ballerina/<span class="bold">builtin</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="caching.html">ballerina/<span class="bold">caching</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="compression.html">ballerina/<span class="bold">compression</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="config.html">ballerina/<span class="bold">config</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="file.html">ballerina/<span class="bold">file</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="grpc.html">ballerina/<span class="bold">grpc</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="http.html">ballerina/<span class="bold">http</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="internal.html">ballerina/<span class="bold">internal</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="io.html">ballerina/<span class="bold">io</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="jwt.html">ballerina/<span class="bold">jwt</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" active-package">
-                        <li>
-                           <!--Package Name-->
-                            
-                           <a>ballerina/
-                           <span class="bold">log</a>
-                            
-                           <div class="constructs-wrapper">
-                              <!--Construct of Package-->
-                              <ul class="constructs-ul">
-                                                   
-                              </ul>
-                           </div>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="math.html">ballerina/<span class="bold">math</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="mime.html">ballerina/<span class="bold">mime</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="observe.html">ballerina/<span class="bold">observe</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="os.html">ballerina/<span class="bold">os</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="reflect.html">ballerina/<span class="bold">reflect</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="runtime.html">ballerina/<span class="bold">runtime</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="security.crypto.html">ballerina/<span class="bold">security.crypto</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="sql.html">ballerina/<span class="bold">sql</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="swagger.html">ballerina/<span class="bold">swagger</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="task.html">ballerina/<span class="bold">task</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="time.html">ballerina/<span class="bold">time</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="transactions.html">ballerina/<span class="bold">transactions</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="user.html">ballerina/<span class="bold">user</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                           
-                           <a href="util.html">ballerina/<span class="bold">util</span></a>
-                           
-                        </li>
-                     </ul>
-                     
-                     </div>
-                  </div>
-               </div>
-               <div class="cBlallerina-io-docs-left-nav-container">
-                  <div class="cSideBar-Button">
-                     <img src="/img/sidebar.svg" />
-                  </div>
-                  <div class="cLectColStyle">
-                     <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" active-package">
-                        <li>
-                           <!--Package Name-->
-                            
-                           <a class="cPackageList">ballerina/<span class="bold">log</a>
-                            
-                           <div class="constructs-wrapper">
-                              <!--Construct of Package-->
-                              <ul class="constructs-ul">
+                    <div class="cLectColStyle cLeftColTop">
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
+
+                        <div class="cCollaps-Menu" id="iBallerinaPACKAGEStoc">
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="cBlallerina-io-docs-right-nav-container">
+                    <div class="cLectColStyle cLeftColTop">
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x">BALLERINAX PACKAGES</div>
+                        <div class="cCollaps-Menu-second" id="iBallerinaXtoc">
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- TODO check existence of links and remove-->
+                <div class="cBlallerina-io-docs-left-nav-container">
+                    <div class="cSideBar-Button">
+                        <img src="/img/sidebar.svg" />
+                    </div>
+                    <div class="cLectColStyle">
+                        <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" active-package">
+                            <li>
+                                <!--Package Name-->
                                  
-                                 <li>
-                                    <a href="#printDebug">
-                                       <div class="construct-icon">
-                                          <span class="fw-function"> </span>
-                                       </div>
-                                       <div class="construct-name">
-                                          printDebug
+                                <a class="cPackageList">ballerina/<span class="bold">log</span></a>  
+                                <div class="constructs-wrapper">
+                                    <!--Construct of Package-->
+                                    <ul class="constructs-ul">
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <li>
+                                            <a href="#FunctionsSummary">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Functions
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        
                                           
-                                       </div>
-                                    </a>
-                                 </li>
-                                  
-                                 <li>
-                                    <a href="#printError">
-                                       <div class="construct-icon">
-                                          <span class="fw-function"> </span>
-                                       </div>
-                                       <div class="construct-name">
-                                          printError
+                                        <li>
+                                            <a href="#printDebug">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    printDebug 
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
                                           
-                                       </div>
-                                    </a>
-                                 </li>
-                                  
-                                 <li>
-                                    <a href="#printErrorCause">
-                                       <div class="construct-icon">
-                                          <span class="fw-function"> </span>
-                                       </div>
-                                       <div class="construct-name">
-                                          printErrorCause
+                                        <li>
+                                            <a href="#printError">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    printError 
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
                                           
-                                       </div>
-                                    </a>
-                                 </li>
-                                  
-                                 <li>
-                                    <a href="#printInfo">
-                                       <div class="construct-icon">
-                                          <span class="fw-function"> </span>
-                                       </div>
-                                       <div class="construct-name">
-                                          printInfo
+                                        <li>
+                                            <a href="#printInfo">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    printInfo 
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
                                           
-                                       </div>
-                                    </a>
-                                 </li>
-                                  
-                                 <li>
-                                    <a href="#printTrace">
-                                       <div class="construct-icon">
-                                          <span class="fw-function"> </span>
-                                       </div>
-                                       <div class="construct-name">
-                                          printTrace
+                                        <li>
+                                            <a href="#printTrace">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    printTrace 
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
                                           
-                                       </div>
-                                    </a>
-                                 </li>
+                                        <li>
+                                            <a href="#printWarn">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    printWarn 
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                    </ul>
+                                </div>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
                                   
-                                 <li>
-                                    <a href="#printWarn">
-                                       <div class="construct-icon">
-                                          <span class="fw-function"> </span>
-                                       </div>
-                                       <div class="construct-name">
-                                          printWarn
-                                          
-                                       </div>
-                                    </a>
-                                 </li>
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
                                   
-                              </ul>
-                           </div>
-                           
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                     <ul class=" ">
-                        <li>
-                           <!--Package Name-->
-                             
-                        </li>
-                     </ul>
-                     
-                  </div>
-               </div>
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
-               <div class="cBallerina-io-breadcrumbs">
-                  <div role="navigation" aria-label="breadcrumbs navigation">
-                     <ul class="wy-breadcrumbs">
-                        <li>
-                           <a href="/">Home</a>
-                        </li>
-                        <li>»</li>
-                        <li>
-                           <a href="/learn">Learn</a>
-                        </li>
-                        <li>»</li>
-                         <li>
-                           <a href="/learn/api-docs/">API Docs</a>
-                        </li>
-                        <li>»</li>
-                        <li><span class="bold">ballerina/log</span> package </li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="cBlallerina-io-docs-content-container">
-                  <div>
-                     <div>
-                        <div role="main">
-                           <div>
-                              <div id="content" class="nano">
-                                 <div class="nano-content">
-                                    <h1 class="thin-text padding-bottom">
-                                       <span class="bold">ballerina/log</span>
-                                        package 
-                                    </h1>
-                                    
-                                    <div class="cAPIdocsDescription">
-                                       <h2>Package Overview</h2>
+                <div class="cBallerina-io-breadcrumbs">
+                    <div role="navigation" aria-label="breadcrumbs navigation">
+                        <ul class="wy-breadcrumbs">
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>»</li>
+                            <li>
+                                <a href="/learn">Learn</a>
+                            </li>
+                            <li>»</li>
+                            <li>
+                                <a href="/learn/api-docs/">API Docs</a>
+                            </li>
+                            <li>»</li>
+                            <li><span class="bold">ballerina/log</span> package </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cBlallerina-io-docs-content-container">
+                    <div>
+                        <div>
+                            <div role="main">
+                                <div>
+                                    <div id="content" class="nano">
+                                        <div class="nano-content">
+                                            <h1 class="thin-text padding-bottom">
+                                                <span class="bold">ballerina/log</span>  package 
+                                            </h1>
+                                            
+                                            <div class="cAPIdocsDescription">
+                                                <h2>Package Overview</h2>
 <p>This package provides a basic API to manage logs in packages and files.</p>
 <h3>Loggers</h3>
 <p>Loggers are defined over packages and there are dedicated loggers for each package. Packages that have loggers defined over it prints the logs that include the date, time, log level, package name, and more.  For example, given below is a log printed for the <code>foo</code> package.</p>
@@ -1001,310 +652,329 @@
 </li>
 </ol>
 
-                                    </div>
-                                    
-                                    
-                                    <div class="construct-wrapper">
-                                       <!--Primitive Types-->
-                                       
-                                       <!-- Function -->
-                                       
-                                       <h2 id="printDebug">
-                                          <span class="fw-function sm-icon"> </span>
-                                          public function printDebug(string msg) 
-                                       </h2>
-                                       
-                                       <p>
-                                          <span class="fw-right gray xs-icon"></span>Logs the specified value at DEBUG level.
-                                       </p>
+                                            </div>
+                                            
+
+                                            <div class="summary-wrapper">
+                                                <h2 class="cPageSubHeading">Package Summary</h2>
+                                        <!--Primitive Types-->
                                         
-                                       <table>
-                                          <tr>
-                                             <th class="cAPI-table-name">Parameter Name</th>
-                                             <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-default">Default Value</th>
-                                             <th class="cAPI-table-desc">Description</th>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">msg</td>
-                                             <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                             <td class="cAPI-table-default"></td>
-                                             <td class="cAPI-table-desc">The message to be logged</td>
-                                          </tr>
-                                          
-                                       </table>
+                                         <!-- Type Definitions-->
                                          
-                                       <!-- Struct-binded functions grouped together -->
-                                       
-                                       <!-- Connectors and its actions -->
-                                       
-                                       <!-- Objects and its functions -->
-                                       
-                                       <!-- Enums-->
-                                       
-                                       <!-- Annotations-->
-                                       
-                                       <!-- Global Variables-->
-                                       
-                                    </div>
-                                    
-                                    <div class="construct-wrapper">
-                                       <!--Primitive Types-->
-                                       
-                                       <!-- Function -->
-                                       
-                                       <h2 id="printError">
-                                          <span class="fw-function sm-icon"> </span>
-                                          public function printError(string msg) 
-                                       </h2>
-                                       
-                                       <p>
-                                          <span class="fw-right gray xs-icon"></span>Logs the specified message at ERROR level.
-                                       </p>
+                                        <!-- Annotations -->
                                         
-                                       <table>
-                                          <tr>
-                                             <th class="cAPI-table-name">Parameter Name</th>
-                                             <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-default">Default Value</th>
-                                             <th class="cAPI-table-desc">Description</th>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">msg</td>
-                                             <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                             <td class="cAPI-table-default"></td>
-                                             <td class="cAPI-table-desc">The message to be logged</td>
-                                          </tr>
-                                          
-                                       </table>
-                                         
-                                       <!-- Struct-binded functions grouped together -->
-                                       
-                                       <!-- Connectors and its actions -->
-                                       
-                                       <!-- Objects and its functions -->
-                                       
-                                       <!-- Enums-->
-                                       
-                                       <!-- Annotations-->
-                                       
-                                       <!-- Global Variables-->
-                                       
-                                    </div>
-                                    
-                                    <div class="construct-wrapper">
-                                       <!--Primitive Types-->
-                                       
-                                       <!-- Function -->
-                                       
-                                       <h2 id="printErrorCause">
-                                          <span class="fw-function sm-icon"> </span>
-                                          public function printErrorCause(string msg, error err) 
-                                       </h2>
-                                       
-                                       <p>
-                                          <span class="fw-right gray xs-icon"></span>Logs the specified message at ERROR level, along with an accompanying error.
-                                       </p>
+                                        <!-- records -->
                                         
-                                       <table>
-                                          <tr>
-                                             <th class="cAPI-table-name">Parameter Name</th>
-                                             <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-default">Default Value</th>
-                                             <th class="cAPI-table-desc">Description</th>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">msg</td>
-                                             <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                             <td class="cAPI-table-default"></td>
-                                             <td class="cAPI-table-desc">The message to be logged.</td>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">err</td>
-                                             <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
-                                             <td class="cAPI-table-default"></td>
-                                             <td class="cAPI-table-desc">The error struct to be logged</td>
-                                          </tr>
-                                          
-                                       </table>
-                                         
-                                       <!-- Struct-binded functions grouped together -->
-                                       
-                                       <!-- Connectors and its actions -->
-                                       
-                                       <!-- Objects and its functions -->
-                                       
-                                       <!-- Enums-->
-                                       
-                                       <!-- Annotations-->
-                                       
-                                       <!-- Global Variables-->
-                                       
-                                    </div>
-                                    
-                                    <div class="construct-wrapper">
-                                       <!--Primitive Types-->
-                                       
-                                       <!-- Function -->
-                                       
-                                       <h2 id="printInfo">
-                                          <span class="fw-function sm-icon"> </span>
-                                          public function printInfo(string msg) 
-                                       </h2>
-                                       
-                                       <p>
-                                          <span class="fw-right gray xs-icon"></span>Logs the specified message at INFO level.
-                                       </p>
+                                        <!-- objects -->
                                         
-                                       <table>
-                                          <tr>
-                                             <th class="cAPI-table-name">Parameter Name</th>
-                                             <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-default">Default Value</th>
-                                             <th class="cAPI-table-desc">Description</th>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">msg</td>
-                                             <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                             <td class="cAPI-table-default"></td>
-                                             <td class="cAPI-table-desc">The message to be logged.</td>
-                                          </tr>
-                                          
-                                       </table>
+                                         <!-- endpoints -->
                                          
-                                       <!-- Struct-binded functions grouped together -->
-                                       
-                                       <!-- Connectors and its actions -->
-                                       
-                                       <!-- Objects and its functions -->
-                                       
-                                       <!-- Enums-->
-                                       
-                                       <!-- Annotations-->
-                                       
-                                       <!-- Global Variables-->
-                                       
-                                    </div>
-                                    
-                                    <div class="construct-wrapper">
-                                       <!--Primitive Types-->
-                                       
-                                       <!-- Function -->
-                                       
-                                       <h2 id="printTrace">
-                                          <span class="fw-function sm-icon"> </span>
-                                          public function printTrace(string msg) 
-                                       </h2>
-                                       
-                                       <p>
-                                          <span class="fw-right gray xs-icon"></span>Logs the specified message at TRACE level.
-                                       </p>
+                                         <!-- functions -->
+                                         
+                                         <h2 id="FunctionsSummary">
+                                            <span class="fw-function sm-icon"></span> Functions
+                                        </h2>
+                                         <table class="cSummary-Table">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Return Type</th>
+                                                 <th class="cSummary-table-attach"></th>
+                                                 <th class="cSummary-table-type"></th>
+                                                 <th class="cSummary-table-desc">Function and Description</th>
+                                             </tr>
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"></td>
+                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-type"></td>
+                                                         <td class="cSummary-table-desc"><a href="#printDebug">printDebug(string msg)</a><br/><p>Logs the specified value at DEBUG level.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"></td>
+                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-type"></td>
+                                                         <td class="cSummary-table-desc"><a href="#printError">printError(string msg)</a><br/><p>Logs the specified message at ERROR level.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"></td>
+                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-type"></td>
+                                                         <td class="cSummary-table-desc"><a href="#printInfo">printInfo(string msg)</a><br/><p>Logs the specified message at INFO level.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"></td>
+                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-type"></td>
+                                                         <td class="cSummary-table-desc"><a href="#printTrace">printTrace(string msg)</a><br/><p>Logs the specified message at TRACE level.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"></td>
+                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-type"></td>
+                                                         <td class="cSummary-table-desc"><a href="#printWarn">printWarn(string msg)</a><br/><p>Logs the specified message at WARN level.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                         </table>
+                                         
+                                        <!-- Global Variables-->
                                         
-                                       <table>
-                                          <tr>
-                                             <th class="cAPI-table-name">Parameter Name</th>
-                                             <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-default">Default Value</th>
-                                             <th class="cAPI-table-desc">Description</th>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">msg</td>
-                                             <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                             <td class="cAPI-table-default"></td>
-                                             <td class="cAPI-table-desc">The message to be logged</td>
-                                          </tr>
-                                          
-                                       </table>
-                                         
-                                       <!-- Struct-binded functions grouped together -->
-                                       
-                                       <!-- Connectors and its actions -->
-                                       
-                                       <!-- Objects and its functions -->
-                                       
-                                       <!-- Enums-->
-                                       
-                                       <!-- Annotations-->
-                                       
-                                       <!-- Global Variables-->
-                                       
+                                     </div>
+                                      
+                                      <div class="cConstructsWraperContainer"> 
+                                            <h2 class="cPageSubHeading"">Package Detail</h2>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="printDebug">
+                                                    <span class="fw-function sm-icon"> </span> public function printDebug(string msg) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Logs the specified value at DEBUG level.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">msg</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The message to be logged</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="printError">
+                                                    <span class="fw-function sm-icon"> </span> public function printError(string msg) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Logs the specified message at ERROR level.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">msg</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The message to be logged</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="printInfo">
+                                                    <span class="fw-function sm-icon"> </span> public function printInfo(string msg) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Logs the specified message at INFO level.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">msg</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The message to be logged.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="printTrace">
+                                                    <span class="fw-function sm-icon"> </span> public function printTrace(string msg) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Logs the specified message at TRACE level.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">msg</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The message to be logged</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="printWarn">
+                                                    <span class="fw-function sm-icon"> </span> public function printWarn(string msg) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Logs the specified message at WARN level.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">msg</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The message to be logged</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                  
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            </div>
+                                        </div>
+                                      </div>
                                     </div>
-                                    
-                                    <div class="construct-wrapper">
-                                       <!--Primitive Types-->
-                                       
-                                       <!-- Function -->
-                                       
-                                       <h2 id="printWarn">
-                                          <span class="fw-function sm-icon"> </span>
-                                          public function printWarn(string msg) 
-                                       </h2>
-                                       
-                                       <p>
-                                          <span class="fw-right gray xs-icon"></span>Logs the specified message at WARN level.
-                                       </p>
-                                        
-                                       <table>
-                                          <tr>
-                                             <th class="cAPI-table-name">Parameter Name</th>
-                                             <th class="cAPI-table-type">Data Type</th>
-                                             <th class="cAPI-table-default">Default Value</th>
-                                             <th class="cAPI-table-desc">Description</th>
-                                          </tr>
-                                          
-                                          <tr>
-                                             <td class="cAPI-table-name">msg</td>
-                                             <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                             <td class="cAPI-table-default"></td>
-                                             <td class="cAPI-table-desc">The message to be logged</td>
-                                          </tr>
-                                          
-                                       </table>
-                                         
-                                       <!-- Struct-binded functions grouped together -->
-                                       
-                                       <!-- Connectors and its actions -->
-                                       
-                                       <!-- Objects and its functions -->
-                                       
-                                       <!-- Enums-->
-                                       
-                                       <!-- Annotations-->
-                                       
-                                       <!-- Global Variables-->
-                                       
-                                    </div>
-                                    
-                                 </div>
-                              </div>
-                           </div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-          
-         </div>
-      </div>
-      <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
-      </div>
-      <script>
-   $(document).ready(function() {
-         $(".cSideBar-Button").click(function() {
-            $(".cSideBar-Button").toggleClass('cOpen');
-            $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
-          });
-    });
-    
-      </script>
-     <script type="text/javascript" src="/search/search.js">
-     </script>
-      </body>
-      </html>
+        </div>
+    </div>
+    <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
+    </div>
+    <script>
+        $(document).ready(function() {
+            $(".cSideBar-Button").click(function() {
+                $(".cSideBar-Button").toggleClass('cOpen');
+                $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
+            });
+        });
+    </script>
+    <script type="text/javascript" src="/search/search.js"></script>
+</body>
+
+</html>
 

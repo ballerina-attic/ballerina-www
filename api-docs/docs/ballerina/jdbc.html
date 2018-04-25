@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-92163714-2');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PSL2TX4');
+    </script>
+    <!-- End Google Tag Manager -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <title>Ballerina.io - API Docs</title>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Nanoscroller JS -->
+    <script src="docerina-theme/js/jquery.nanoscroller.min.js"></script>
+    <!-- Docerina JS -->
+    <script src="docerina-theme/js/docerina.js"></script>
+    <script type="text/javascript" src="/js/highlight.pack.js"></script>
+    <link rel="stylesheet" href="//use.typekit.net/son4ymv.css" /> 
+    <link rel="stylesheet" href="/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
+    <link rel="stylesheet" href="/css/highlight.css">
+    <script type="text/javascript" src="/js/ballerina-common.js"></script>
+    <link rel="stylesheet" href="/css/ballerina-io.css">
+    <link rel="stylesheet" href="/css/ballerina-io-docs.css">
+    <link rel="stylesheet" href="/css/ballerina-io-api.css">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
+            $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+
+            if (typeof hljs === 'object') {
+                $('code.language-ballerina').addClass('ballerina');
+                hljs.initHighlighting();
+            }
+        });
+    </script>
+    <script>
+        var base_url = "";
+    </script>
+    <script src="/search/require.js"></script>
+</head>
+
+<body class="cBallerina-io" role="document">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="row cBallerina-io-top-row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
+            <div class="cTopLine"></div>
+        </div>
+    </div>
+    <div class="row cBallerina-io-Nav" id="iMainNavigation">
+    </div>
+    <div class="row cBallerina-io-Logo-row">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
+                <a class="cLogo" href="/">
+                    <img src="/img/ballerina-logo.png" alt="Ballerina" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row cBallerina-io-Gray-row">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+                <div class="cBlallerina-io-docs-right-nav-container">
+                    <div class="cLectColStyle cLeftColTop">
+                        <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
+                        <div class="cCollaps-Menu-first">
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#int">
+                                        <span class="bold">int</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#float">
+                                        <span class="bold">float</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#boolean">
+                                        <span class="bold">boolean</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#string">
+                                        <span class="bold">string</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#json">
+                                        <span class="bold">json</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#xml">
+                                        <span class="bold">xml</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#any">
+                                        <span class="bold">any</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#blob">
+                                        <span class="bold">blob</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#typedesc">
+                                        <span class="bold">typedesc</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#record">
+                                        <span class="bold">record</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#array">
+                                        <span class="bold">array</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#map">
+                                        <span class="bold">map</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#union">
+                                        <span class="bold">union</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#tuple">
+                                        <span class="bold">tuple</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#table">
+                                        <span class="bold">table</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#stream">
+                                        <span class="bold">stream</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#future">
+                                        <span class="bold">future</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#function">
+                                        <span class="bold">function</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="cBlallerina-io-docs-right-nav-container">
+                    <div class="cLectColStyle cLeftColTop">
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
+
+                        <div class="cCollaps-Menu" id="iBallerinaPACKAGEStoc">
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="cBlallerina-io-docs-right-nav-container">
+                    <div class="cLectColStyle cLeftColTop">
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x">BALLERINAX PACKAGES</div>
+                        <div class="cCollaps-Menu-second" id="iBallerinaXtoc">
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- TODO check existence of links and remove-->
+                <div class="cBlallerina-io-docs-left-nav-container">
+                    <div class="cSideBar-Button">
+                        <img src="/img/sidebar.svg" />
+                    </div>
+                    <div class="cLectColStyle">
+                        <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" active-package">
+                            <li>
+                                <!--Package Name-->
+                                 
+                                <a class="cPackageList">ballerina/<span class="bold">jdbc</span></a>  
+                                <div class="constructs-wrapper">
+                                    <!--Construct of Package-->
+                                    <ul class="constructs-ul">
+                                        
+                                        
+                                        
+                                        
+                                        <li>
+                                            <a href="#RecordsSummary">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Records
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        <li>
+                                            <a href="#ObjectsSummary">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Objects
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        
+                                        <li>
+                                            <a href="#FunctionsSummary">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Functions
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        
+                                          
+                                        <li>
+                                            <a href="#ClientEndpointConfiguration">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    ClientEndpointConfiguration 
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#createClient">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    createClient 
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#Client">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Client 
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Client-getCallerActions">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        getCallerActions
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Client-stop">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        stop
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                            
+                                    </ul>
+                                </div>
+                                
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+                <div class="cBallerina-io-breadcrumbs">
+                    <div role="navigation" aria-label="breadcrumbs navigation">
+                        <ul class="wy-breadcrumbs">
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>»</li>
+                            <li>
+                                <a href="/learn">Learn</a>
+                            </li>
+                            <li>»</li>
+                            <li>
+                                <a href="/learn/api-docs/">API Docs</a>
+                            </li>
+                            <li>»</li>
+                            <li><span class="bold">ballerina/jdbc</span> package </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cBlallerina-io-docs-content-container">
+                    <div>
+                        <div>
+                            <div role="main">
+                                <div>
+                                    <div id="content" class="nano">
+                                        <div class="nano-content">
+                                            <h1 class="thin-text padding-bottom">
+                                                <span class="bold">ballerina/jdbc</span>  package 
+                                            </h1>
+                                            
+
+                                            <div class="summary-wrapper">
+                                                <h2 class="cPageSubHeading">Package Summary</h2>
+                                        <!--Primitive Types-->
+                                        
+                                         <!-- Type Definitions-->
+                                         
+                                        <!-- Annotations -->
+                                        
+                                        <!-- records -->
+                                        
+                                        <h2 id="RecordsSummary">
+                                            <span class="fw-record sm-icon"></span> Records
+                                        </h2>
+                                         <table class="cSummary-Table">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Record</th>
+                                                 <th class="cSummary-table-attach"></th>
+                                                 <th class="cSummary-table-type"></th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#ClientEndpointConfiguration">ClientEndpointConfiguration</a></td>
+                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-type"></td>
+                                                         <td class="cSummary-table-desc"><p>The Client endpoint configuration for SQL databases.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                         </table>
+                                         
+                                        <!-- objects -->
+                                        
+                                        <h2 id="ObjectsSummary">
+                                            <span class="fw-struct sm-icon"></span> Objects
+                                        </h2>
+                                         <table class="cSummary-Table">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Object</th>
+                                                 <th class="cSummary-table-attach"></th>
+                                                 <th class="cSummary-table-type"></th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#Client">Client</a></td>
+                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-type"></td>
+                                                         <td class="cSummary-table-desc"><p>Represents an JDBC SQL client endpoint.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                         </table>
+                                         
+                                         <!-- endpoints -->
+                                         
+                                         <!-- functions -->
+                                         
+                                         <h2 id="FunctionsSummary">
+                                            <span class="fw-function sm-icon"></span> Functions
+                                        </h2>
+                                         <table class="cSummary-Table">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Return Type</th>
+                                                 <th class="cSummary-table-attach"></th>
+                                                 <th class="cSummary-table-type"></th>
+                                                 <th class="cSummary-table-desc">Function and Description</th>
+                                             </tr>
+                                             
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name">CallerActions</td>
+                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-type"></td>
+                                                         <td class="cSummary-table-desc"><a href="#createClient">createClient(ClientEndpointConfiguration config)</a><br/></td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                         </table>
+                                         
+                                        <!-- Global Variables-->
+                                        
+                                     </div>
+                                      
+                                      <div class="cConstructsWraperContainer"> 
+                                            <h2 class="cPageSubHeading"">Package Detail</h2>
+                                            
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="ClientEndpointConfiguration">
+                                                    <span class="fw-record sm-icon"></span> public type ClientEndpointConfiguration
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>The Client endpoint configuration for SQL databases.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">url</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>URL of the database to connect.</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">username</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Username for the database connection.</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">password</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Password for the database connection.</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">poolOptions</td>
+                                                        <td class="cAPI-table-type"><a href="sql.html#PoolOptions">PoolOptions</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Properties for the connection pool configuration.</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">dbOptions</td>
+                                                        <td class="cAPI-table-type"><a href="">map</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Data source specific properties which are used along with the dataSourceClassName.</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="createClient">
+                                                    <span class="fw-function sm-icon"> </span> public function createClient(ClientEndpointConfiguration config) returns (CallerActions) 
+                                                </h2>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">config</td>
+                                                        <td class="cAPI-table-type"><a href="jdbc.html#ClientEndpointConfiguration">ClientEndpointConfiguration</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type"><a href="sql.html#CallerActions">CallerActions</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <h2 id="Client">
+                                                    <span class="fw-struct sm-icon"></span> public type Client object
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Represents an JDBC SQL client endpoint.</p>
+
+                                                </p>
+                                                  
+                                                <div class="function-wrapper">
+                                                    <ul>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-getCallerActions">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> getCallerActions() returns (CallerActions) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Returns the connector that the client code uses.</p>
+
+                                                            </p>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="sql.html#CallerActions">CallerActions</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-stop">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> stop() 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Stops the JDBC client.</p>
+
+                                                            </p>
+                                                              
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                                 
+                                            </div>
+                                                
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
+    </div>
+    <script>
+        $(document).ready(function() {
+            $(".cSideBar-Button").click(function() {
+                $(".cSideBar-Button").toggleClass('cOpen');
+                $(".cBallerina-io-Home-Left-col").toggleClass('cOpen-col');
+            });
+        });
+    </script>
+    <script type="text/javascript" src="/search/search.js"></script>
+</body>
+
+</html>
+

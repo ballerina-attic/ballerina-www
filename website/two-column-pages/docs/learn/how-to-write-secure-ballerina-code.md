@@ -1,4 +1,4 @@
-# How to Write Secure Ballerina Code 
+# How to Write Secure Ballerina Programs 
 
 This document demonstrates different security features and controls available within Ballerina, and serves the purpose of providing guidelines on writing secure Ballerina programs. 
 
