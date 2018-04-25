@@ -779,7 +779,7 @@
                     <p>Annotations allow developers to mark parameters that could contain injection attacks.</p>
                 </div>
             </div>
-            <div data-startLine="28" data-endLine="32" class="hTrigger cCodeDesription gray">
+            <div data-startLine="28" data-endLine="31" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Developers can write simple code or use packages to protect against injection attacks.</p>
                 </div>
