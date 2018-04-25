@@ -333,7 +333,7 @@
                                             {{/if}}
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Summary</h2>
+                                                <h2 class="cPageSubHeading">Package Detail</h2>
                                         <!--Primitive Types-->
                                         {{#exists constructs "primitive"}}
                                          <h2 id="PrimitivesSummary">
@@ -362,7 +362,6 @@
                                         <table class="cSummary-Table">
                                             <tr>
                                                 <th class="cSummary-table-name">Type</th>
-                                                <th class="cSummary-table-attach"></th>
                                                 <th class="cSummary-table-type">Values</th>
                                                 <th class="cSummary-table-desc">Description</th>
                                             </tr>
@@ -370,8 +369,28 @@
                                             {{#if isType}}
                                             <tr>
                                                 <td class="cSummary-table-name">{{name}}</td>
-                                                <td class="cSummary-table-attach"></td>
                                                 <td class="cSummary-table-type">{{valueSet}}</td>
+                                                <td class="cSummary-table-desc">{{{description}}}</td>
+                                            </tr>
+                                            {{/if}}  {{/each}}
+                                        </table>
+                                        {{/exists}}
+                                        <!-- Global Variables-->
+                                        {{#exists constructs "globalvar"}}
+                                        <h2 id="GlobalVariables">
+                                            <span class="fw-globe sm-icon"></span> Global Variables
+                                        </h2>
+                                        <table class="cSummary-Table">
+                                            <tr>
+                                                <th class="cSummary-table-name">Name</th>
+                                                <th class="cSummary-table-type">Data Type</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            {{#each constructs}}
+                                            {{#if isGlobalVariable}}
+                                            <tr>
+                                                <td class="cSummary-table-name">{{name}}</td>
+                                                <td class="cSummary-table-type"><a href="{{href}}">{{dataType}}</a></td>
                                                 <td class="cSummary-table-desc">{{{description}}}</td>
                                             </tr>
                                             {{/if}}  {{/each}}
@@ -385,7 +404,7 @@
                                         <table class="cSummary-Table">
                                             <tr>
                                                 <th class="cSummary-table-name">Name</th>
-                                                <th class="cSummary-table-attach">Attachement Points</th>
+                                                <th class="cSummary-table-attach">Attaches To</th>
                                                 <th class="cSummary-table-type">Data Type</th>
                                                 <th class="cSummary-table-desc">Description</th>
                                             </tr>
@@ -408,7 +427,6 @@
                                          <table class="cSummary-Table">
                                              <tr>
                                                  <th class="cSummary-table-name">Record</th>
-                                                 <th class="cSummary-table-attach"></th>
                                                  <th class="cSummary-table-type"></th>
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
@@ -416,7 +434,6 @@
                                                  {{#if isRecord}}
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#{{name}}">{{name}}</a></td>
-                                                         <td class="cSummary-table-attach"></td>
                                                          <td class="cSummary-table-type"></td>
                                                          <td class="cSummary-table-desc">{{{description}}}</td>
                                                      </tr>
@@ -432,7 +449,6 @@
                                          <table class="cSummary-Table">
                                              <tr>
                                                  <th class="cSummary-table-name">Object</th>
-                                                 <th class="cSummary-table-attach"></th>
                                                  <th class="cSummary-table-type"></th>
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
@@ -440,7 +456,6 @@
                                                  {{#if isObject}}
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#{{name}}">{{name}}</a></td>
-                                                         <td class="cSummary-table-attach"></td>
                                                          <td class="cSummary-table-type"></td>
                                                          <td class="cSummary-table-desc">{{{description}}}</td>
                                                      </tr>
@@ -456,7 +471,6 @@
                                          <table class="cSummary-Table">
                                              <tr>
                                                  <th class="cSummary-table-name">Endpoint</th>
-                                                 <th class="cSummary-table-attach"></th>
                                                  <th class="cSummary-table-type"></th>
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
@@ -464,7 +478,6 @@
                                                  {{#if isConnector}}
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#{{name}}">{{name}}</a></td>
-                                                         <td class="cSummary-table-attach"></td>
                                                          <td class="cSummary-table-type"></td>
                                                          <td class="cSummary-table-desc">{{{description}}}</td>
                                                      </tr>
@@ -480,49 +493,23 @@
                                          <table class="cSummary-Table">
                                              <tr>
                                                  <th class="cSummary-table-name">Return Type</th>
-                                                 <th class="cSummary-table-attach"></th>
                                                  <th class="cSummary-table-type"></th>
                                                  <th class="cSummary-table-desc">Function and Description</th>
                                              </tr>
                                              {{#each constructs}}
                                                  {{#if isFunction}}
                                                      <tr>
-                                                         <td class="cSummary-table-name">{{#if returnParams}}{{join returnParams ", "}}{{/if}}</td>
-                                                         <td class="cSummary-table-attach"></td>
+                                                         <td class="cSummary-table-name">{{name}}</td>
                                                          <td class="cSummary-table-type"></td>
-                                                         <td class="cSummary-table-desc"><a href="#{{name}}">{{name}}({{join parameters ", "}})</a><br/>{{{description}}}</td>
+                                                         <td class="cSummary-table-desc">{{{description}}}</td>
                                                      </tr>
                                                  {{/if}}
                                              {{/each}}
                                          </table>
                                          {{/exists}}
-                                        <!-- Global Variables-->
-                                        {{#exists constructs "globalvar"}}
-                                        <h2 id="GlobalVariables">
-                                            <span class="fw-globe sm-icon"></span> Global Variables
-                                        </h2>
-                                        <table class="cSummary-Table">
-                                            <tr>
-                                                <th class="cSummary-table-name">Name</th>
-                                                <th class="cSummary-table-attach"></th>
-                                                <th class="cSummary-table-type">Data Type</th>
-                                                <th class="cSummary-table-desc">Description</th>
-                                            </tr>
-                                            {{#each constructs}}
-                                            {{#if isGlobalVariable}}
-                                            <tr>
-                                                <td class="cSummary-table-name">{{name}}</td>
-                                                <td class="cSummary-table-attach"></td>
-                                                <td class="cSummary-table-type"><a href="{{href}}">{{dataType}}</a></td>
-                                                <td class="cSummary-table-desc">{{{description}}}</td>
-                                            </tr>
-                                            {{/if}}  {{/each}}
-                                        </table>
-                                        {{/exists}}
                                      </div>
                                       
                                       <div class="cConstructsWraperContainer"> 
-                                            <h2 class="cPageSubHeading"">Package Detail</h2>
                                             {{#each constructs}}
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
