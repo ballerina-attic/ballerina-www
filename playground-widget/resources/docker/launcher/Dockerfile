@@ -36,6 +36,11 @@ ENV PATH $BALLERINA_HOME/bin:$PATH
 
 COPY resources /resources/
 COPY services /services/
+RUN chmod +x /services/src/build.sh
+
+RUN cd /services/src/ && sh build.sh\
+    && cp *.balx ../
+
 COPY netty-transports.yml /api/
 COPY playground-launcher.jar /api/
 
