@@ -9,16 +9,15 @@ function main (string... args) {
         "street":"Main",
         "city":"94"
     };
-    json j = {"Store":{
+    json j = {
+        "Store":{
             "@id":"AST",
             "name":"Anne",
             "address":addr,
             "codes":codes
         }
     };
-    
     j.Store.name = "Jane";
-    
     io:println("Constructed JSON:");
     io:println(j);
 
