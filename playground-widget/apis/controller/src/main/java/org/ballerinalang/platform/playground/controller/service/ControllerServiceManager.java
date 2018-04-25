@@ -43,7 +43,7 @@ public class ControllerServiceManager {
      *
      * @return A String URL pointing to a communicable launcher instance.
      */
-    String allocateFreeLauncher() {
+    synchronized String allocateFreeLauncher() {
         log.info("Looking for free Launchers to allocate...");
         List<String> freeLaunchers = clusterManager.getFreeLaunchers();
 
@@ -71,7 +71,7 @@ public class ControllerServiceManager {
      * @return True if the launcher was successfully marked as free, False if launcher was
      * not found, or failed to be marked as free
      */
-    boolean markLauncherFree(String launcherSubDomain) {
+    synchronized boolean markLauncherFree(String launcherSubDomain) {
         return clusterManager.markLauncherAsFreeBySubDomain(launcherSubDomain);
     }
 
@@ -82,7 +82,7 @@ public class ControllerServiceManager {
      * @return True if the launcher was successfully marked as busy, False if launcher was
      * not found, or failed to be marked as busy
      */
-    boolean markLauncherBusy(String launcherSubDomain) {
+    synchronized boolean markLauncherBusy(String launcherSubDomain) {
         return clusterManager.markLauncherAsBusyBySubDomain(launcherSubDomain);
     }
 

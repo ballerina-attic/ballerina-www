@@ -3,14 +3,14 @@ import ballerina/io;
 import ballerina/math;
 
 // Your Ballerina apps can have services or just a main function
-function main (string[] args) {
+function main (string... args) {
     int num = math:randomInRange ( 1 , 100 );
     // call a function that returns JSON with all factors
     json result = getFactors(num);
     // construct a JSON with the number and factors and print it in console
     json final = {
-        "number" : num,
-        "factors" : result
+        "number": num,
+        "factors": result
     };
     io:println(final);
 }

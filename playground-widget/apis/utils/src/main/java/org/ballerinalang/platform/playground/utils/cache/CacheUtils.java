@@ -20,6 +20,7 @@ import org.ballerinalang.platform.playground.utils.cmd.dto.RunCommand;
 import org.ballerinalang.platform.playground.utils.model.LauncherRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import redis.clients.jedis.Jedis;
 
 import java.security.MessageDigest;
 import java.util.Base64;
@@ -69,7 +70,9 @@ public class CacheUtils {
     }
 
     public static boolean cacheExists(String cacheId) {
-        RedisClient redisClient = new RedisClient();
-        return redisClient.getReadClient().exists(cacheId);
+        RedisClient redisClient = RedisClient.getInstance();
+        try (Jedis client = redisClient.getClient()) {
+            return client.exists(cacheId);
+        }
     }
 }

@@ -1,7 +1,11 @@
 import wso2/twitter;
 
 endpoint twitter:Client twitterEP {
-    // twitter config goes here
+    clientId: config:getAsString("clientId"),
+    clientSecret: config:getAsString("clientSecret"),
+    accessToken: config:getAsString("accessToken"),
+    accessTokenSecret: config:getAsString("accessTokenSecret"),
+    clientConfig: {}
 };
 
 service<http:Service> tweeter bind {port:9090} {

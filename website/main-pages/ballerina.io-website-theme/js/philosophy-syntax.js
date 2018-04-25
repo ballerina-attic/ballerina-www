@@ -22,7 +22,7 @@ var loadData = function(linkText, sectionId, init) {
         url: "../samples/" + fileName + "-shell.txt",
         method: "GET",
         success: function(data) {
-            $('#' + fileName + "-shell").html(data).show();
+            $('#' + fileName + "-shell").text(data).show();
         },
         error: function(data) {
             $('#' + fileName + "-shell").show();
@@ -42,7 +42,7 @@ var loadData = function(linkText, sectionId, init) {
         success: function(data) {
             //Set the code to the container
             var highlightCode = hljs.highlightAuto;
-            $('#' + fileName + "-code > code").html(data);
+            $('#' + fileName + "-code > code").text(data);
 
             //Doing the syntax highlighting
             hljs.highlightBlock($('#' + fileName + "-code > code").get(0));
@@ -92,7 +92,6 @@ var loadData = function(linkText, sectionId, init) {
 
                         if (topPosition < prevElemBottom) {
                             topPosition = prevElemBottom;
-                            $(this).css('background-image', 'none');
                         }
                     }
 
@@ -135,6 +134,13 @@ $(document).ready(function() {
     //Load data on page load
     loadData($('#nativeLanguage li.first').text(), 'nativeLanguage', false);
     loadData($('#integration li.first').text(), 'integration', false);
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var target = $(e.target).attr("href") // activated tab
+        if( target === "#3b"){
+            $('#type-system-code .line-numbers-wrap').remove();
+            loadData('type-system', 'dummyXoXo', false);
+        }
+      });
 });
 
 $(document).ready(function() {

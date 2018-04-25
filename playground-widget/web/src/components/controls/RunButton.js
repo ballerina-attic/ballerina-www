@@ -7,6 +7,7 @@ import RunSession from '../../run-session';
 import './RunButton.scss';
 
 const MSG_CODES = {
+    ERROR: "ERROR",
     BUILD_STARTED: "BUILD_STARTED",
     CURL_EXEC_STARTED: "CURL_EXEC_STARTED",
     CURL_EXEC_STOPPED: "CURL_EXEC_STOPPED",
@@ -22,6 +23,9 @@ const MSG_CODES = {
     RUN_ABORTED: "RUN_ABORTED",
 };
 
+const MSG_TYPES = {
+    DATA_MSG: "DATA_MSG"
+};
 class RunButton extends React.Component {
     constructor(...args) {
         super(...args);
@@ -42,6 +46,9 @@ class RunButton extends React.Component {
     }
 
     appendToConsole(messsage, type = 'INFO') {
+        if (messsage instanceof Error) {
+            messsage = 'Error: ' + messsage.message;
+        }
         const { consoleRef } = this.props;
         if (consoleRef) {
             consoleRef.append(messsage);
@@ -92,6 +99,10 @@ class RunButton extends React.Component {
                                             this.runSession.close();
                                             this.resetSession();
                                             break;
+                                    case MSG_CODES.ERROR:
+                                            if (type === MSG_TYPES.DATA_MSG) {
+                                                break;
+                                            }
                                     case MSG_CODES.BUILD_ERROR:
                                     case MSG_CODES.RUN_ABORTED:
                                             this.appendToConsole(message);
@@ -172,7 +183,7 @@ class RunButton extends React.Component {
                 onClick={runInProgress ? this.onStop : this.onRun}
                 fluid
                 basic
-                disabled={disabled || !(sample && sample.content) || this.state.waitingOnRemoteAck} >
+                disabled={disabled || !(sample && sample.content && sample.content.trim()) || this.state.waitingOnRemoteAck} >
                 <span>{ runInProgress ? 'Stop' : 'Run' }</span>
             </Button>
         );
