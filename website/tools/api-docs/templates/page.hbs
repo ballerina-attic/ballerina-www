@@ -63,8 +63,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            //$("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
+            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -124,8 +124,22 @@
                         <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
 
                         <div class="cCollaps-Menu" id="iBallerinaPACKAGEStoc">
-
-
+                            {{#each links}}
+                             <ul class="{{#if active}}active-package{{/if}}">
+                                <li>
+                                   <!--Package Name-->
+                                   {{#if active}} {{#if caption.isPackageName}}
+                                   <a>{{caption.prefix}}<span class="bold">{{caption.suffix}}</a>
+                                   {{/if}}
+                                   {{#if caption.isStaticCaption}}<a><span class="bold">{{caption.value}}</span></a>
+                                   {{/if}}
+                                   {{else}}
+                                   <a href="{{href}}.html">{{#if caption.isPackageName}}{{caption.prefix}}<span class="bold">{{caption.suffix}}</span>{{/if}}
+                                   {{#if caption.isStaticCaption}}<span class="bold">{{caption.value}}</span>{{/if}}</a>
+                                   {{/if}}
+                                </li>
+                             </ul>
+                             {{/each}}
                         </div>
                     </div>
                 </div>
