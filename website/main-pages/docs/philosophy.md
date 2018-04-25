@@ -9,7 +9,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol">
                     <p>The future apps we write increasingly depend upon programmable endpoints. The discipline of resilient communication between endpoints is integration. It is a domain of hard problems.
                     </p>
-                    <p>Ballerina is a simple programming language whose syntax and runtime address the hard problems of integration. Ballerina is a general purpose, concurrent, transactional and statically & strongly typed programming language with both textual and graphical syntaxes. Its specialization is integration - it brings fundamental concepts, ideas and tools of distributed system integration into the language and offers a type safe, concurrent environment to implement such applications. These include distributed transactions, reliable messaging, stream processing, workflows and container management platforms.
+                    <p>Ballerina is a simple programming language whose syntax and runtime address the hard problems of integration. Ballerina is a general purpose, concurrent, transactional, statically and strongly typed programming language with both textual and graphical syntaxes. Its specialization is integration - it brings fundamental concepts, ideas and tools of distributed system integration into the language and offers a type safe, concurrent environment to implement such applications. These include distributed transactions, reliable messaging, stream processing, workflows and container management platforms.
                     </p>
                 </div>
             </div>
