@@ -736,7 +736,7 @@
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="circuit-breaker-text">
             <div data-startLine="3" data-endLine="3" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>This line configures how long before the remote service is considered to timeout</p>
+                    <p>This line configures how long before the remote service is considered to timeout.</p>
                 </div>
             </div>
             <div data-startLine="4" data-endLine="4" class="hTrigger cCodeDesription gray">
@@ -763,7 +763,7 @@
             </div> -->
             <div data-startLine="5" data-endLine="5" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Ballerina assumes that all data coming over the wire is tainted..</p>
+                    <p>Ballerina assumes that all data coming over the wire is tainted.</p>
                 </div>
             </div>
             <div data-startLine="10" data-endLine="10" class="hTrigger cCodeDesription gray">
