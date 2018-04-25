@@ -68,9 +68,7 @@ ballerina run filename.balx
 
 ### Running a Package
 
-#### Package:
-
-A directory that contains Ballerina source code files.
+Package is a directory that contains Ballerina source code files.
     
 #### Compiling a package:
 
