@@ -269,5 +269,5 @@ To learn more on how these builder extension annotations are used in real world 
 
 ### Extend the Ballerina Build and Deployment
 
-Ballerina builder extension can be extended to support the following to generate deployment artifacts depending on your requirement. For more information on how to extend Ballerina, see [How to Extend Ballerina](https://ballerina.io/learn/how-to-extend-ballerina/).
+Ballerina builder extension can be extended to support any kind of deployment artifacts depending on your requirement. For more information on how to extend Ballerina, see [How to Extend Ballerina](https://ballerina.io/learn/how-to-extend-ballerina/).
 
