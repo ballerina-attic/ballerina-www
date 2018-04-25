@@ -6,24 +6,11 @@ Ballerina app can be structured into a single program file, ballerina project or
 
 ### Running Standalone Source
 
-#### Standalone Source
-
--   A single Ballerina source code file.
-    
--   Code can be placed into any folder, called the “source root”.
-    
--   The "source root" must not contain a subdirectory named ".ballerina"
-    
--   Code files that are in the source root are in the “unnamed” package.
-    
--   Subdirectories of the “source root” do not have any semantic meaning, ie, they are not considered packages nor does any sibling files.
-    
--   There are no restrictions on what can be placed inside the Ballerina file, ie, any valid Ballerina code is allowed.  
-    
+Standalone source is a single Ballerina source code file. Code can be placed into any folder, called the “source root”. The "source root" must not contain a subdirectory named ".ballerina"
 
 #### Run a Standalone Source without compiling:
 
--   If source file contains at least one program entrypoint, which could be a main() for functions or service<> for hosted services then it can be executed using run command.
+If source file contains at least one program entrypoint, which could be a main() for functions or service<> for hosted services then it can be executed using run command.
     
 ```bash
 
@@ -32,109 +19,77 @@ ballerina run foo.bal
 
 #### Compile standalone source code:
 
--   If source file contains at least one program entrypoint, which could be a main() for functions or service<> for hosted services then it can be executed using run command
+Standalone source code can be compiled using below command.it compiled and linked binary, saved with a file that has a .balx extension.
     
--   Command:
 ```bash
     ballerina build [-sourceroot] a/b/c/foo.bal [-o outputfilename.balx]
+```  
+
+Following command will run the compiled binary balx file.
+
+```bash
+ballerina run filename.balx
 ```
-
--   Default output filename is the last part of package name or the filename (minus the extension) with the extension “.balx”.
     
-
-  
-
-### Run compiled source:
-
--   Command:
-    
-
--   ballerina run [-s] filename.balx
-    
-
-  
-
 ### Running a Program
 
-#### Program:
-
--   A collection of packages written by the developer
-    
--   Other dependent packages that the developer imports and uses
-    
--   A compiled and linked binary, saved with a file that has a .balx extension.
-    
--   Contains at least one program entrypoint, which could be a main() for functions or service<> for hosted services.
-    
--   Contains imported dependent packages that exist within a repository
+Program is a collection of packages written by the developer. A program should contain at least one program entrypoint, which could be a main() for functions or service<> for hosted services. 
     
 
 #### Run a program without compiling:
 
--   To run a Ballerina file that is in the “unnamed” package (i.e. without a package declaration), you have to give the path to the file:
+To run a Ballerina file that is in the program directory you have to give the path to the file:
     ```bash
-    ballerina run [-s] a/b/c/foo.bal
+    ballerina run a/b/c/foo.bal
     ```
--   The directory of the file becomes the source root (all imports will be resolved relative to that source root)
-    
--   Note that -s means to run services instead of running main.
-    
--   You can also alter the location of the source root that the file will be inferred from:
+The directory of the file becomes the source root (all imports will be resolved relative to that source root). You can also alter the location of the source root that the file will be inferred from:
 ```bash
-    ballerina run [-s] [-projectroot <path>] foo.bal
+    ballerina run [-projectroot <path>] foo.bal
 ``` 
 
   
-
 #### Compiled program:
 
--   A compiled program is the transitive closure of one package of Ballerina source without including ballerina.* packages.
-    
--   That package must contain either a main() and/or one or more services
+A compiled program is the transitive closure of one package of Ballerina source without including ballerina.* packages. That package must contain either a main() and/or one or more services
     
 
 
 #### Compile source code in a Program Directory:
 
--   Command:
+Ballerina program file can be compiled using below command. Default output filename is the last part of package name or the filename (minus the extension) with the extension “.balx”.
 ```bash
      ballerina build [-sourceroot] a/b/c/foo.bal [-o outputfilename.balx]
 ```    
-
--   Default output filename is the last part of package name or the filename (minus the extension) with the extension “.balx”.
     
 #### Run a compiled program:
 ```bash
- ballerina run [-s] filename.balx
+ ballerina run filename.balx
 ``` 
 
 ### Running a Package
 
 #### Package:
 
--   A directory that contains Ballerina source code files.
+A directory that contains Ballerina source code files.
     
 #### Compiling a package:
 
--   A compiled package is the compiled representation of a single package of Ballerina code, without including transitive dependencies into the compiled unit.
-    
--   Command to build all packages as part of a single project:
+A compiled package is the compiled representation of a single package of Ballerina code, without including transitive dependencies into the compiled unit. Following command build all packages as part of a single project:
     ```bash
     ballerina build
     ```
 
--   Command to build a single package in a project:
+Following command to build a single package in a project:
     ```bash
     ballerina build <package-name>
     ```
 #### Run a program in a compiled package:
+
+The run command will look in a Project Repository (if in a project), then Home Repository, then Ballerina Central to find the package and then run it. If the package was in Ballerina Central, it will first pull it into the Home Repository and then execute it.
+
 ```bash
-ballerina [-projectroot <path>] run [-s] <package>
+ballerina [-projectroot <path>] run <package>
 ```    
-
--   The command will look in a Project Repository (if in a project), then Home Repository, then Ballerina Central to find the package and then run it. If the package was in Ballerina Central, it will first pull it into the Home Repository and then execute it.
-    
-
   
 
 #### Running a Project:
@@ -163,8 +118,7 @@ ballerina build
 
 #### Running a compiled project
 
--   If a manifest file is present, the “run” command will look to run the specified program in the target/ directory. 
-- These two commands in a project have the same effect  
+If a manifest file is present in the project, then “run” command will look to run the specified program in the target/ directory.  These two commands in a project have the same effect  
 ```bash
 $ ballerina run main.balx  
 $ ballerina run target/main.balx
@@ -264,7 +218,6 @@ ballerina: enter secret for config value decryption:
 ballerina: initiating service(s) in 'config_api.bal'
 ballerina: started HTTPS/WSS endpoint 0.0.0.0:8085
 ```
-
 
 ## Deploying Ballerina Programs & Services
 
