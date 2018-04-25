@@ -198,13 +198,13 @@ Ballerina is a modern language that attempts to bring together productive featur
  
 ### Is Ballerina an object-oriented language?
 
-Both objects (types) and functions are first class constructs in Ballerina. Developers have the flexibility to choose the most appropriate option depending on the requirement.
+Both `objects` (`types`) and `functions` are first class constructs in Ballerina. Developers have the flexibility to choose the most appropriate option depending on the requirement.
 
-While Ballerina has objects it can technically be designated an OOP, however, development methodology is not predominantly OOP-based. The design principles are based on sequence diagramming concepts which includes declarative elements that are not purely OOP. 
+While Ballerina has `objects` it can technically be designated an OOP, however, development methodology is not predominantly OOP-based. The design principles are based on sequence diagramming concepts that include declarative elements that are not purely OOP. 
 
 ### Why is there no type inheritance?
 
-Ballerina is based on type equivalence, rather than type inheritance. The type system in ballerina is based on set theory and, therefore, type equivalence has more meaning for this domain than type inheritance.
+Ballerina is based on type equivalence, rather than type inheritance. The type system in Ballerina is based on set theory and, therefore, type equivalence has more meaning for this domain than type inheritance.
 
 ### Why does Ballerina not support overloading of methods and operators?
 
