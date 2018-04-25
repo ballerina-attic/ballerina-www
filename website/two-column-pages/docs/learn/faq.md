@@ -246,7 +246,7 @@ This behavior gives a more natural programming environment for the developer, so
 
 We do not have any plans. The community can add their own packages through Ballerina Central, and we will work hard to delegate frameworks and projects to the community.
 
-### What enterprise patterns, microservices patterns does Ballerina support? 
+### Which enterprise patterns and microservices patterns does Ballerina support? 
 
-See the [Ballerina By Guide](/learn/guides/) to find out how to use Ballerina to do full lifecycle integration development. Many enterprise patterns are demonstrated with Ballerina as an example.
+See the [Ballerina By Guide](/learn/guides/) to find out how to use Ballerina to do full lifecycle integration development. Many enterprise patterns are demonstrated with [Ballerina by Example](/learn/by-example/).
 
