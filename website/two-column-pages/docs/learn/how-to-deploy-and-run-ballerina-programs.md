@@ -1,14 +1,14 @@
 # How to Deploy and Run Ballerina Programs
 
-## Running Ballerina Programs & Services
+## Running Ballerina Programs and Services
 
-Ballerina app can be structured into a single program file, ballerina project or a ballerina package.
+Ballerina app can be structured into a single program file, Ballerina project, or a Ballerina package.
 
 ### Running Standalone Source
 
 Standalone source is a single Ballerina source code file. Code can be placed into any folder, called the “source root”. The "source root" must not contain a subdirectory named ".ballerina"
 
-#### Run a Standalone Source without compiling:
+#### Run a Standalone Source Without Compiling
 
 If source file contains at least one program entrypoint, which could be a main() for functions or service<> for hosted services then it can be executed using run command.
     
@@ -17,7 +17,7 @@ If source file contains at least one program entrypoint, which could be a main()
 ballerina run foo.bal  
 ```
 
-#### Compile standalone source code:
+#### Compile Standalone Source Code
 
 Standalone source code can be compiled using below command. It create linked binary file that has a .balx extension.
     
@@ -36,7 +36,7 @@ ballerina run filename.balx
 Program is a collection of packages written by the developer. A program should contain at least one program entrypoint, which could be a main() for functions or service<> for hosted services. 
     
 
-#### Run a program without compiling:
+#### Run a Program Without Compiling
 
 To run a Ballerina file that is in the program directory you have to give the path to the file:
 ```bash
@@ -46,22 +46,19 @@ The directory of the file becomes the source root (all imports will be resolved 
 ```bash
 ballerina run [-projectroot <path>] foo.bal
 ``` 
-
   
-#### Compiled program:
+#### Compiled Program
 
 A compiled program is the transitive closure of one package of Ballerina source without including ballerina.* packages. That package must contain either a main() and/or one or more services
-    
 
-
-#### Compile source code in a Program Directory:
+#### Compile Source Code in a Program Directory
 
 Ballerina program file can be compiled using below command. Default output filename is the last part of package name or the filename (minus the extension) with the extension “.balx”.
 ```bash
 ballerina build [-sourceroot] a/b/c/foo.bal [-o outputfilename.balx]
 ```    
     
-#### Run a compiled program:
+#### Run a Compiled Program
 ```bash
 ballerina run filename.balx
 ``` 
@@ -70,7 +67,7 @@ ballerina run filename.balx
 
 Package is a directory that contains Ballerina source code files.
     
-#### Compiling a package:
+#### Compiling a Package
 
 A compiled package is the compiled representation of a single package of Ballerina code, without including transitive dependencies into the compiled unit. Following command build all packages as part of a single project:
 ```bash
@@ -81,16 +78,15 @@ Following command to build a single package in a project:
 ```bash
 ballerina build <package-name>
 ```
-#### Run a program in a compiled package:
+#### Run a Program in a Compiled Package
 
 The run command will look in a Project Repository (if in a project), then Home Repository, then Ballerina Central to find the package and then run it. If the package was in Ballerina Central, it will first pull it into the Home Repository and then execute it.
 
 ```bash
 ballerina [-projectroot <path>] run <package>
 ```    
-  
 
-#### Running a Project:
+#### Running a Project
 
 A project is a folder that has:
 
@@ -104,38 +100,33 @@ A project manifest represents zero or more packages to be built.
 
 #### Compiling a Project:
 
--   Command to build all packages as part of a single project:
-```bash    
-ballerina build
-```
+* Command to build all packages as part of a single project:
+   ```bash    
+   ballerina build
+   ```
 
--   Command to build a single package in a project:
-```bash
-ballerina build <package-name>
-```
+* Command to build a single package in a project:
+   ```bash
+   ballerina build <package-name>
+   ```
 
-#### Running a compiled project
+#### Running a Compiled Project
 
 If a manifest file is present in the project, then “run” command will look to run the specified program in the target/ directory.  These two commands in a project have the same effect  
 ```bash
 $ ballerina run main.balx  
 $ ballerina run target/main.balx
 ```
-  
 
-## How to configure Ballerina runtime
+## How to Configure Ballerina Runtime
 
 The `ballerina/config` package provides an API for configuring ballerina source at runtime.
 
-  
 The Ballerina config API allows you to look up values from configuration files, CLI parameters and environment variables. The precedence order for configuration resolution is as follows:
 
--   CLI parameters
-    
--   Environment variables
-    
--   Configuration files
-    
+* CLI parameters
+* Environment variables   
+* Configuration files
 
 If a specific configuration defined in the file is also defined as an environment variable, the environment variable takes precedence. Similarly, if the same is set as a CLI parameter, it replaces the environment variable value.
 
@@ -146,17 +137,13 @@ The configuration APIs accept a key and an optional default value. If a mapping 
 
 Refer [Config API Documentation]([https://stage.ballerina.io/learn/api-docs/ballerina/config.html](https://stage.ballerina.io/learn/api-docs/ballerina/config.html)) for more information.
 
-## How to configure secrets as configuration items
+## How to Configure Secrets as Configuration Items
 
-Ballerina provide support for encrypting sensitive data such as passwords and to access them securely via config-api in the code.
+Ballerina provides support for encrypting sensitive data such as passwords and allows access to them securely via config-api in the code.
 
-### Creating a secured value:
+### Creating a Secured Value:
 
-To encrypt a value, the 'ballerina encrypt' command is used.
-
-It prompts the user to enter the value and a secret.
-
-'ballerina' is the value and '12345' is the secret.
+To encrypt a value, the `ballerina encrypt` command is used. It prompts the user to enter the value and a secret. In this case, `ballerina` is the value and `12345` is the secret.
 
 ```ballerina
 
@@ -172,10 +159,10 @@ Or add to the runtime command line:
 -e<param>=@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
 ```
 
-### Using the secured value at runtime
+### Using the Secured Value at Runtime
 
 
-The secured value can be placed in the in the config file as a value. To explicitly specify a configuration file, use either the '--config' or the '-c' flag. The path to the configuration file can be either an absolute or a relative path. If this flag is not set, Ballerina looks for a 'ballerina.conf' file in the directory in which the source files are located.
+The secured value can be placed in the in the config file as a value. To explicitly specify a configuration file, use either the `--config` or the `-c` flag. The path to the configuration file can be either an absolute or a relative path. If this flag is not set, Ballerina looks for a `ballerina.conf` file in the directory in which the source files are located.
 
 ```ballerina
 [hello]
@@ -190,16 +177,11 @@ The same configurations given via the configuration file can also be given via C
 $ ballerina run config_api.bal -e hello.http.port=8085 -e hello.keystore.password=@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
 ```
 
-  
-
-### Decrypting the value
-
+### Decrypting the Value
 
 If a configuration contains an encrypted value, Ballerina looks for a secret.txt file in the directory in which the source files are located. The secret.txt should contain the secret used to encrypt the value. The secret.txt file will be deleted after it is read.  
 
-If `secret.txt` file is not present then the CLI prompt user for the secret.
-
-  
+If `secret.txt` file is not present, the CLI prompts the user for the secret.
 
 ```ballerina
 
@@ -210,7 +192,7 @@ ballerina: initiating service(s) in 'config_api.bal'
 ballerina: started HTTPS/WSS endpoint 0.0.0.0:8085
 ```
 
-## Deploying Ballerina Programs & Services
+## Deploying Ballerina Programs and Services
 
 Ballerina has builder extensions that run after the compilation phase. These extensions analyze code to generate deployment artifacts and utilities to make deployment of your apps and services easier.
 
@@ -228,7 +210,7 @@ A developer can enable deployment artifact generation by adding simple annotatio
 
 1.  Import the relevant extension package in the code.
 2.  Add relevant annotation within the code. 
-3.  Build the Ballerina project
+3.  Build the Ballerina project.
 
 #### Docker-based Deployment
 
@@ -295,29 +277,28 @@ Access the hello world service with a cURL command:
 $> curl http://localhost:9090/helloWorld/sayHello  
 Hello, World!
 ```
-  
 
 The following features are supported by current Docker builder extension.
 
 -   Dockerfile generation.
 -   Docker image generation.
 -   Docker push support with docker registry.
--   Docker based ballerina debug support.
+-   Docker based Ballerina debug support.
 -   Copy file support.
     
 
-#### Supported Annotations:
+##### Supported Annotations
 
-#### @docker:Config{}
-- Supported with ballerina services or endpoints.
+**@docker:Config{}**
+- Supported with Ballerina services or endpoints.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
-|name|Name of the docker image|output balx file name|
+|name|Name of the docker image|output .balx file name|
 |registry|Docker registry|None|
 |tag|Docker image tag|latest|
 |buildImage|Whether to build docker image|true|
-|dockerHost|Docker host IP and docker PORT. ( e.g minikube IP and docker PORT)|unix:///var/run/docker.sock|
+|dockerHost|Docker host IP and docker PORT (e.g., minikube IP and docker PORT)|unix:///var/run/docker.sock|
 |dockerCertPath|Docker cert path|null|
 |baseImage|Base image to create the docker image|ballerina/ballerina:latest|
 |enableDebug|Enable debug for ballerina|false|
@@ -326,41 +307,41 @@ The following features are supported by current Docker builder extension.
 |username|Username for docker registry|None|
 |password|Password for docker registry|None|
 
-#### @docker:CopyFiles{}
-- Supported with ballerina services or endpoints.
+**@docker:CopyFiles{}**
+- Supported with Ballerina services or endpoints.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
-|source|source path of the file (in your machine)|None|
-|target|target path (inside container)|None|
-|isBallerinaConf|flag whether file is a ballerina config file|false|
+|source|Source path of the file (in your machine)|None|
+|target|Target path (inside container)|None|
+|isBallerinaConf|Flag whether the file is a Ballerina config file|false|
 
-#### @docker:Expose{}
-- Supported with ballerina endpoints.
+**@docker:Expose{}**
+- Supported with Ballerina endpoints.
 
 For more information, see the [Docker build extension github repo](https://github.com/ballerinax/docker).
 
-### Kubernetes Based Deployment
+#### Kubernetes-based Deployment
 
 If you wish to see how container orchestration systems are supported by the builder extension, see [Kubernetes builder extension github repo](https://github.com/ballerinax/kubernetes).
   
 The following functionalities are supported by Kubernetes builder extension.
 
--   Kubernetes deployment support.
--   Kubernetes service support.   
--   Kubernetes liveness probe support.
--   Kubernetes ingress support.
--   Kubernetes horizontal pod autoscaler support.
--   Docker image generation.
--   Docker push support with remote docker registry.
--   Kubernetes secret support.
--   Kubernetes config map support.
--   Kubernetes persistent volume claim support.
+-   Kubernetes deployment support
+-   Kubernetes service support
+-   Kubernetes liveness probe support
+-   Kubernetes ingress support
+-   Kubernetes horizontal pod autoscaler support
+-   Docker image generation
+-   Docker push support with remote docker registry
+-   Kubernetes secret support
+-   Kubernetes config map support
+-   Kubernetes persistent volume claim support
     
-### Supported Annotations:
+##### Supported Annotations
 
-#### @kubernetes:Deployment{}
-- Supported with ballerina services or endpoints.
+**@kubernetes:Deployment{}**
+- Supported with Ballerina services or endpoints.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
@@ -370,44 +351,44 @@ The following functionalities are supported by Kubernetes builder extension.
 |enableLiveness|Enable or disable liveness probe|disable|
 |initialDelaySeconds|Initial delay in seconds before performing the first probe|10s|
 |periodSeconds|Liveness probe interval|5s|
-|livenessPort|Port which the Liveness probe check|\<ServicePort\>|
+|livenessPort|Port that the liveness probe checks|\<ServicePort\>|
 |imagePullPolicy|Docker image pull policy|IfNotPresent|
 |image|Docker image with tag|<output file name>:latest|
 |env|List of environment variables|null|
 |buildImage|Building docker image|true|
 |copyFiles|Copy external files for Docker image|null|
-|dockerHost|Docker host IP and docker PORT.(e.g "tcp://192.168.99.100:2376")|null|
+|dockerHost|Docker host IP and docker PORT (e.g., "tcp://192.168.99.100:2376")|null|
 |dockerCertPath|Docker cert path|null|
 |push|Push docker image to registry. This can only be true if image build is true.|false|
 |username|Username for the docker registry|null|
 |password|Password for the docker registry|null|
 |baseImage|Base image to create the docker image|ballerina/ballerina:latest|
 
-#### @kubernetes:Service{}
-- Supported with ballerina endpoints.
+**@kubernetes:Service{}**
+- Supported with Ballerina endpoints.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
-|name|Name of the Service|\<ballerina service name\>-service|
-|labels|Labels for service|"app: \<outputfilename\>"|
+|name|Name of the service|\<ballerina service name\>-service|
+|labels|Labels for the service|"app: \<outputfilename\>"|
 |serviceType|Service type of the service|ClusterIP|
-|port|Service port|Port of the ballerina service|
+|port|Service port|Port of the Ballerina service|
 
-#### @kubernetes:Ingress{}
-- Supported with ballerina endpoints.
+**@kubernetes:Ingress{}**
+- Supported with Ballerina endpoints.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
-|name|Name of the Ingress|\<ballerina service name\>-ingress
+|name|Name of Ingress|\<ballerina service name\>-ingress
 |labels|Labels for service|"app: \<outputfilename\>"
-|hostname|Host name of the ingress|\<ballerina service name\>.com
+|hostname|Host name of Ingress|\<ballerina service name\>.com
 |path|Resource path.|/
-|targetPath|This will use for URL rewrite.|null
+|targetPath|This is used for URL rewrite.|null
 |ingressClass|Ingress class|nginx
 |enableTLS|Enable ingress TLS|false
 
-#### @kubernetes:HPA{}
-- Supported with ballerina services.
+**@kubernetes:HPA{}**
+- Supported with Ballerina services.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
@@ -417,8 +398,8 @@ The following functionalities are supported by Kubernetes builder extension.
 |maxReplicas|Maximum number of replicas|minReplicas+1|
 |cpuPrecentage|CPU percentage to start scaling|50|
 
-#### @kubernetes:Secret{}
-- Supported with ballerina service.
+**@kubernetes:Secret{}**
+- Supported with Ballerina service.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
@@ -427,8 +408,8 @@ The following functionalities are supported by Kubernetes builder extension.
 |readOnly|Is mount read only|true|
 |data|Paths to data files|null|
 
-#### @kubernetes:ConfigMap{}
-- Supported with ballerina services.
+**@kubernetes:ConfigMap{}**
+- Supported with Ballerina services.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
@@ -438,8 +419,8 @@ The following functionalities are supported by Kubernetes builder extension.
 |ballerinaConf|Ballerina conf file location|null|
 |data|Paths to data files|null|
 
-#### @kubernetes:PersistentVolumeClaim{}
-- Supported with ballerina services.
+**@kubernetes:PersistentVolumeClaim{}**
+- Supported with Ballerina services.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
@@ -449,8 +430,8 @@ The following functionalities are supported by Kubernetes builder extension.
 |accessMode|Access mode|ReadWriteOnce|
 |volumeClaimSize|Size of the volume claim|null|
 
-#### @kubernetes:Job{}
-- Supported with ballerina main function.
+**@kubernetes:Job{}**
+- Supported with Ballerina main function.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
@@ -471,9 +452,9 @@ The following functionalities are supported by Kubernetes builder extension.
 |password|Password for the docker registry|null|
 |baseImage|Base image to create the docker image|ballerina/ballerina:latest|
   
-To learn more on how these builder extension annotations are used in real world scenarios, see the deployment section in [Ballerina by Guide](https://ballerina.io/learn/guides/).
+To learn more on how these builder extension annotations are used in real world scenarios, see the deployment section in [Ballerina by Guide](/learn/guides/).
 
 ### Extend the Ballerina Build and Deployment
 
-Ballerina builder extension can be extended to support any kind of deployment artifacts depending on your requirement. For more information on how to extend Ballerina, see [How to Extend Ballerina](https://ballerina.io/learn/how-to-extend-ballerina/).
+Ballerina builder extension can be extended to support any kind of deployment artifacts depending on your requirement. For more information on how to extend Ballerina, see [How to Extend Ballerina](/learn/how-to-extend-ballerina/).
 
