@@ -97,8 +97,12 @@
                     <div class="tab-pane" id="2b">
                         <img src="/img/philosophy-principle-diagrams-02.svg" />
                     </div>
-                    <div class="tab-pane" id="3b">
-                        <img src="/img/philosophy-principle-diagrams-03-2.svg" />
+                    <div class="tab-pane type-system-code-tab" id="3b">
+                        <div class="code-wrapper">
+                            <pre id="type-system-code" class="code-block">
+                                <code class="ballerina tab-pane active"></code>
+                            </pre>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -303,15 +307,16 @@
         <div class="col-xs-12 cCloudNative">
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls">
                 <ul>
-                    <li class="links first cActive">REST Services</li>
-                    <li class="links">Full Language</li>
-                    <li class="links">Asynchronous Execution</li>
+                    <li class="links first cActive">API CONSTRUCTS</li>
+                    <li class="links">LOGIC LANGUAGE</li>
+                    <li class="links">ASYNCHRONOUS</li>
+                    <li class="links">JSON and XML</li>
                 </ul>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls">
                 <ul>
-                    <li class="links">Docker and Kubernetes</li>
-                    <li class="links">JSON and XML</li>
+                    <li class="links">ANNOTATIONS</li>
+                    <li class="links">STATICALLY AND STRONGLY TYPED</li>
                     <li class="links">STREAMS</li>
                 </ul>
             </div>
@@ -324,19 +329,22 @@
                 <div class="tab-content clearfix">
                     <div class="cIntegrationCode">
                         <div id="code-container-wrapper" class="code-wrapper">
-                            <pre id="asynchronous-execution-code" class="code-block">
+                            <pre id="api-constructs-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
-                            <pre id="docker-and-kubernetes-code" class="code-block">
+                            <pre id="logic-language-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
-                            <pre id="full-language-code" class="code-block">
-                                <code class="ballerina tab-pane active"></code>
-                            </pre>
-                            <pre id="rest-services-code" class="code-block" >
+                            <pre id="asynchronous-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
                             <pre id="json-and-xml-code" class="code-block">
+                                <code class="ballerina tab-pane active"></code>
+                            </pre>
+                            <pre id="annotations-code" class="code-block">
+                                <code class="ballerina tab-pane active"></code>
+                            </pre>
+                            <pre id="statically-and-strongly-typed-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
                             <pre id="streams-code" class="code-block">
@@ -345,10 +353,11 @@
                         </div>
                         <div class="code cOutput">
                             <div class="highlight">
-                                <pre id="rest-services-shell" class="shell-display"></pre>
-                                <pre id="full-language-shell" class="shell-display"></pre>
-                                <pre id="asynchronous-execution-shell" class="shell-display"></pre>
-                                <pre id="docker-and-kubernetes-shell" class="shell-display"></pre>
+                                <pre id="api-constructs-shell" class="shell-display"></pre>
+                                <pre id="logic-language-shell" class="shell-display"></pre>
+                                <pre id="asynchronous-shell" class="shell-display"></pre>
+                                <pre id="json-and-xml-shell" class="shell-display"></pre>
+                                <pre id="annotations-shell" class="shell-display"></pre>
                                 <pre id="streams-shell" class="shell-display"></pre>
                             </div>
                         </div>
@@ -358,20 +367,22 @@
             </div>
         </div>
         <!-- first part end -->
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="rest-services-text">
-            <div data-startLine="3" data-endLine="3" class="hTrigger cCodeDesription">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="api-constructs-text">
+            <div data-startLine="1" data-endLine="3" class="hTrigger cCodeDesription">
                 <div>
                     <p>Ballerina makes it easy to build APIs, provide and consume HTTP, WebSocket, gRPC, Protobuf, and other services. This example demonstrates a simple REST API built with Ballerina.</p>
                 </div>
             </div>
-            <div data-startLine="6" data-endLine="8" class="hTrigger cCodeDesription">
+            <div data-startLine="10" data-endLine="21" class="hTrigger cCodeDesription">
                 <div>
                     <p>
+                        Services, resources, endpoints, request and response objects are all native language constructs.
+                        <br><br>
                         Ballerina’s built-in support for HTTP includes session-handling, Swagger generation, chunking, CORS, redirects, failover, load-balancing, circuit breaker pattern, return code, data format enforcement, error handling, and much more.
                     </p>
                 </div>
             </div>
-            <div data-startLine="24" data-endLine="27" class="hTrigger cCodeDesription">
+            <div data-startLine="23" data-endLine="26" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Note how the "match" command in the code is used to handle a union-type return: if the return value is a string - normal processing happens. If our service did not get the string it expected - we use error-handling logic instead.
@@ -379,25 +390,25 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="full-language-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="logic-language-text">
             <div data-startLine="1" data-endLine="3" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        Ballerina is a full, Turing-complete programming language. It has all the capabilities and powers of a modern programming language.
+                        Ballerina is a compiled, type safe, Turing-complete, concurrent programming language. It is extensible with packages and ships with over 30 libraries.
                     </p>
                 </div>
             </div>
             <div data-startLine="6" data-endLine="6" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        This example is using a main function. Ballerina applications typically use those for regular console apps. Microservices that expose some functionality as APIs typically do not have main, and have services instead.
+                        Ballerina programs have entry points with either main functions for console apps or service&lt;&gt; objects for hosted services.
                     </p>
                 </div>
             </div>
             <div data-startLine="11" data-endLine="14" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        Note that json is a first-class data type just like int.
+                        JSON is a first-class data type just like int, float, string, boolean, xml, and others.
                     </p>
                 </div>
             </div>
@@ -409,7 +420,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="asynchronous-execution-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="asynchronous-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
                 <div>
                     <p>
@@ -432,79 +443,140 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="docker-and-kubernetes-text">
-            <div data-startLine="5" data-endLine="11" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        Ballerina applications can have docker and Kubernetes annotations added to their services and endpoints.
-                        <br><br>
-                        Compiler reads these annotations and uses them to identify which endpoints need to be exposed and how, and which services need to become what kind of containers.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="15" data-endLine="15" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        You can then use native Kubernetes client to deploy generated artifacts.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
-                <div>
-                    <p>Ballerina compiler is extensible with packages. This particular example is using the Kubernetes package to generate Kubernetes artifacts and docker image. Other platforms such as Cloud Foundry, Mesos, and so on can have their own packages,
-                        annotations, and artifact generation.</p>
-                </div>
-            </div>
-        </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="json-and-xml-text">
-            <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription">
                 <div>
                     <p>JSON and XML are first class citizens in Ballerina.</p>
                 </div>
             </div>
-            <div data-startLine="7" data-endLine="18" class="hTrigger cCodeDesription gray">
+            <div data-startLine="7" data-endLine="19" class="hTrigger cCodeDesription">
                 <div>
                     <p>You can construct JSON and XML objects inline or from other variables, arrays, and values.</p>
                 </div>
             </div>
-            <div data-startLine="27" data-endLine="33" class="hTrigger cCodeDesription gray">
+            <div data-startLine="26" data-endLine="32" class="hTrigger cCodeDesription">
                 <div>
                     <p>You can convert JSON to XML and XML to JSON, access individual elements, and use various functions.</p>
                 </div>
             </div>
         </div>
+        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="annotations-text">
+            <div data-startLine="1" data-endLine="3" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        Packages extend the language not just with objects and functions, but also with annotations.
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="5" data-endLine="10" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        Annotations can extend Ballerina parser, compiler, and runtime behavior. For example, this annotation comes from kubernetes package and instructs the build process to generate a Docker image file and deployment artifacts.
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="12" data-endLine="17" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        These annotations provide additional fields for the generated swagger/openapi definition.
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="20" data-endLine="29" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        These http annotations modify the way the HTTP service and resource are exposed.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="statically-and-strongly-typed-text">
+            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        Ballerina is a strongly-typed compiled language. This approach allows developers to catch significant percentage of errors at coding and compilation time and thus boosts developer productivity.
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="7" data-endLine="7" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        Types have methods for data manipulation.
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="11" data-endLine="13" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        JSON and XML are first-class citizens with rich set of built-in functionality.
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="16" data-endLine="16" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        Union types make it easier to program functions that may return multiple types or may fail.
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="20" data-endLine="20" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        To make developers more productive, var shorthand can be used instead of providing complex type signatures. In that case, Ballerina compiler will still infer the type best on the assignment statement and perform the corresponding consistency checks in the subsequent code.
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="25" data-endLine="36" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        Ballerina includes objects.
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="34" data-endLine="34" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        Packages (such as 'mime' in this example) can come with the types of their own.
+                    </p>
+                </div>
+            </div>
+        </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="streams-text">
-            <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription">
                 <div>
-                    <p>Ballerina provides first class support for streams. You can build streaming queries by using the user friendly syntax provided by Ballerina The queries include, projection, filtering, windows, stream joins and patterns.</p>
+                    <p>
+                        Ballerina provides first class support for streams. You can build streaming queries by using the user friendly syntax provided by Ballerina The queries include, projection, filtering, windows, stream joins and patterns.
+                    </p>
                 </div>
             </div>
-            <div data-startLine="18" data-endLine="26" class="hTrigger cCodeDesription gray">
+            <div data-startLine="18" data-endLine="26" class="hTrigger cCodeDesription">
                 <div>
-                    <p>Define stream-processing query that will get evaluated over the incoming stream and create a new aggregation stream when the query condition is met.</p>
+                    <p>
+                        Define the stream-processing query that will get evaluated over the incoming stream and create a new aggregation stream when the query condition is met.
+                    </p>
                 </div>
             </div>
-            <div data-startLine="30" data-endLine="31" class="hTrigger cCodeDesription gray">
+            <div data-startLine="30" data-endLine="31" class="hTrigger cCodeDesription">
                 <div>
                     <p>Create the input and output streams and bind them to specific event types.</p>
                 </div>
             </div>
-            <div data-startLine="32" data-endLine="32" class="hTrigger cCodeDesription gray">
+            <div data-startLine="32" data-endLine="32" class="hTrigger cCodeDesription">
                 <div>
                     <p>Start the stream processing function.</p>
                 </div>
             </div>
-            <div data-startLine="33" data-endLine="33" class="hTrigger cCodeDesription gray">
+            <div data-startLine="33" data-endLine="33" class="hTrigger cCodeDesription">
                 <div>
                     <p>Subscribe to the output stream. Each time that stream has events our function will be called.</p>
                 </div>
             </div>
-            <div data-startLine="34" data-endLine="39" class="hTrigger cCodeDesription gray">
+            <div data-startLine="34" data-endLine="39" class="hTrigger cCodeDesription">
                 <div>
                     <p>Create 3 events and push them into the input stream.</p>
                 </div>
             </div>
-            <div data-startLine="43" data-endLine="45" class="hTrigger cCodeDesription gray">
+            <div data-startLine="43" data-endLine="46" class="hTrigger cCodeDesription">
                 <div>
                     <p>This function gets called each time there is an event in the output stream and prints that event to the console.</p>
                 </div>
@@ -530,13 +602,14 @@
                     <li class="links first cActive">TYPE SAFE ENDPOINT INTEGRATION</li>
                     <li class="links">TYPE SAFE CONNECTORS</li>
                     <li class="links">ASYNCHRONOUS RELIABLE MESSAGING</li>
+                    <li class="links">DISTRIBUTED TRANSACTIONS</li>
                 </ul>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls">
                 <ul>
-                    <li class="links">DISTRIBUTED TRANSACTIONS</li>
                     <li class="links">CIRCUIT BREAKER</li>
                     <li class="links">PROTECTION AGAINST INJECTION ATTACKS</li>
+                    <li class="links">DOCKER AND KUBERNETES</li>
                 </ul>
             </div>
         </div>
@@ -563,9 +636,13 @@
                     <pre id="protection-against-injection-attacks-code" class="code-block">
                         <code class="ballerina tab-pane active"></code>
                     </pre>
+                    <pre id="docker-and-kubernetes-code" class="code-block">
+                        <code class="ballerina tab-pane active"></code>
+                    </pre>
                     <div class="code cOutput">
                         <div class="highlight">
                             <pre id="type-safe-endpoint-integration-shell" class="shell-display"></pre>
+                            <pre id="docker-and-kubernetes-shell" class="shell-display"></pre>
                         </div>
                     </div>
                 </div>
@@ -662,7 +739,7 @@
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="circuit-breaker-text">
             <div data-startLine="3" data-endLine="3" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>This line configures how long before the remote service is considered to timeout</p>
+                    <p>This line configures how long before the remote service is considered to timeout.</p>
                 </div>
             </div>
             <div data-startLine="4" data-endLine="4" class="hTrigger cCodeDesription gray">
@@ -689,7 +766,7 @@
             </div> -->
             <div data-startLine="5" data-endLine="5" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Ballerina assumes that all data coming over the wire is tainted..</p>
+                    <p>Ballerina assumes that all data coming over the wire is tainted.</p>
                 </div>
             </div>
             <div data-startLine="10" data-endLine="10" class="hTrigger cCodeDesription gray">
@@ -705,6 +782,29 @@
             <div data-startLine="28" data-endLine="28" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Developers can write simple code or use packages to protect against injection attacks.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="docker-and-kubernetes-text">
+            <div data-startLine="5" data-endLine="8" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>
+                        Compiler reads these annotations and uses them to identify which endpoints need to be exposed and how, and which services need to become what kind of containers.
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="13" data-endLine="14" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>
+                        You can then use native Kubernetes client to deploy generated artifacts.
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="22" data-endLine="26" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>
+                        Ballerina compiler is extensible with packages. This particular example is using the Kubernetes package to generate Kubernetes artifacts and docker image. Other platforms such as Cloud Foundry, Mesos, and so on can have their own packages, annotations, and artifact generation.
+                    </p>
                 </div>
             </div>
         </div>

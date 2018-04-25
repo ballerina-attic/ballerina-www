@@ -22,6 +22,5 @@ Request an invite below.
 <form>
 <label class="subscribeForm">Email Address</label>
 <input maxlength="90" value="" id="email" name="email" placeholder="Email" title="Email" class="cTextfieldstyle slackSubscribeEmail" type="text">
-<a class="cBallerinaButtons" href="" id="slackSubscribeButton">Submit</a>
 <span id="subscribeMessage"></span>
 </form>
