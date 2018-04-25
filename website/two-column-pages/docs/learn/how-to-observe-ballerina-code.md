@@ -2,10 +2,10 @@
 
 ## Introduction
 Observability is a measure of how well internal states of a system can be inferred from knowledge of its external outputs. Monitoring, logging, and distributed tracing are key methods that reveal the internal state of the system to provide the observability. Therefore, Ballerina becomes fully observable by having default support for connecting with external systems to monitor metrics such as request count and response time statistics, log processing and analysis, and perform distributed tracing. 
-HTTP/HTTPS based Ballerina services and any client connectors are observable by default. But HTTP/HTTPS and SQL client connectors captures some more [additional information](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) as well to make tracing and metrics monitoring more informative.  
+HTTP/HTTPS based Ballerina services and any client connectors are observable by default. But HTTP/HTTPS and SQL client connectors capture some more [additional information](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) as well to make tracing and metrics monitoring more informative.  
 
 ## Getting Started
-A Ballerina service is by default observable. This section focuses on enabling observability with default systems with Jaeger for distributed tracing, and Prometheus and Grafana for Metrics Monitoring. 
+A Ballerina service is by default observable. This section focuses on enabling observability with default systems such as Prometheus and Grafana for metrics monitoring and Jaeger for distributed tracing. 
 
 **Pre-requisites**
 
@@ -134,7 +134,7 @@ Prometheus is used as the monitoring system, which pulls out the metrics collect
 This section focuses on the quick installation of Prometheus with docker, and configure it to collect metrics from Ballerina program with default configurations. Below provided steps needs to be followed to configure the Prometheus.
 
 1. Create a prometheus.yml file in /tmp/ directory.
-2. Use following content for /tmp/prometheus.yml. Go to [this](https://prometheus.io/docs/introduction/first_steps/), if you need more information.
+2. Use following content for /tmp/prometheus.yml. Go to [official documentation of Prometheus](https://prometheus.io/docs/introduction/first_steps/), if you need more information.
    Please note the targets should contain the host and port of the '/metrics' service that's exposed from Ballerina program for metrics collection. Let's say if the IP of the host in which the Ballerina program is running is a.b.c.d and the port is default 9797 (configured from b7a.observability.metrics.prometheus.port configuration in Ballerina configuration file), then the sample configuration in Prometheus will be as below.
    ```yaml
     global:
@@ -150,10 +150,10 @@ This section focuses on the quick installation of Prometheus with docker, and co
     ```bash
     $ docker run -p 19090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
     ```
-4. Prometheus dashboard can be accessed from http://localhost:19090/ and check where the docker is running successfully. 
+4. Go to http://localhost:19090/ and check Prometheus dashboard to validate docker is running successfully. 
 
 #### Grafana
-Let’s use Grafana to visualize metrics in a dashboard. For this, we need to install Grafana, and and the Prometheus as a datasource to fetch the data from. Follow the below-provided steps and configure Grafana. 
+Let’s use Grafana to visualize metrics in a dashboard. For this, we need to install Grafana, and configure Prometheus as a datasource. Follow the below-provided steps and configure Grafana. 
 
 1. Start Grafana as docker container with below command. For more information, please go to [link](https://hub.docker.com/r/grafana/grafana/).
    ```bash
