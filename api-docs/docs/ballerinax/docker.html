@@ -51,20 +51,19 @@
     <link rel="stylesheet" href="//use.typekit.net/son4ymv.css" /> 
     <link rel="stylesheet" href="/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
-    <link rel="stylesheet" href="/css/highlight.css">
     <script type="text/javascript" src="/js/ballerina-common.js"></script>
     <link rel="stylesheet" href="/css/ballerina-io.css">
     <link rel="stylesheet" href="/css/ballerina-io-docs.css">
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
+            // $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
+            $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+
             if (typeof hljs === 'object') {
-                $('code.language-ballerina').addClass();
+                $('code.language-ballerina').addClass('ballerina');
                 hljs.initHighlighting();
             }
-
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
         });
     </script>
     <script>
@@ -105,24 +104,8 @@
                             
                             <ul class="">
                                 <li>
-                                    <a href="primitive-types.html#blob">
-                                        <span class="bold">blob</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            
-                            <ul class="">
-                                <li>
-                                    <a href="primitive-types.html#map">
-                                        <span class="bold">map</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            
-                            <ul class="">
-                                <li>
-                                    <a href="primitive-types.html#future">
-                                        <span class="bold">future</span>
+                                    <a href="primitive-types.html#int">
+                                        <span class="bold">int</span>
                                     </a>
                                 </li>
                             </ul>
@@ -137,16 +120,8 @@
                             
                             <ul class="">
                                 <li>
-                                    <a href="primitive-types.html#record">
-                                        <span class="bold">record</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            
-                            <ul class="">
-                                <li>
-                                    <a href="primitive-types.html#xml">
-                                        <span class="bold">xml</span>
+                                    <a href="primitive-types.html#boolean">
+                                        <span class="bold">boolean</span>
                                     </a>
                                 </li>
                             </ul>
@@ -161,16 +136,16 @@
                             
                             <ul class="">
                                 <li>
-                                    <a href="primitive-types.html#int">
-                                        <span class="bold">int</span>
+                                    <a href="primitive-types.html#json">
+                                        <span class="bold">json</span>
                                     </a>
                                 </li>
                             </ul>
                             
                             <ul class="">
                                 <li>
-                                    <a href="primitive-types.html#union">
-                                        <span class="bold">union</span>
+                                    <a href="primitive-types.html#xml">
+                                        <span class="bold">xml</span>
                                     </a>
                                 </li>
                             </ul>
@@ -185,24 +160,8 @@
                             
                             <ul class="">
                                 <li>
-                                    <a href="primitive-types.html#array">
-                                        <span class="bold">array</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            
-                            <ul class="">
-                                <li>
-                                    <a href="primitive-types.html#tuple">
-                                        <span class="bold">tuple</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            
-                            <ul class="">
-                                <li>
-                                    <a href="primitive-types.html#stream">
-                                        <span class="bold">stream</span>
+                                    <a href="primitive-types.html#blob">
+                                        <span class="bold">blob</span>
                                     </a>
                                 </li>
                             </ul>
@@ -217,8 +176,40 @@
                             
                             <ul class="">
                                 <li>
-                                    <a href="primitive-types.html#json">
-                                        <span class="bold">json</span>
+                                    <a href="primitive-types.html#record">
+                                        <span class="bold">record</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#array">
+                                        <span class="bold">array</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#map">
+                                        <span class="bold">map</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#union">
+                                        <span class="bold">union</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#tuple">
+                                        <span class="bold">tuple</span>
                                     </a>
                                 </li>
                             </ul>
@@ -233,8 +224,24 @@
                             
                             <ul class="">
                                 <li>
-                                    <a href="primitive-types.html#boolean">
-                                        <span class="bold">boolean</span>
+                                    <a href="primitive-types.html#stream">
+                                        <span class="bold">stream</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#future">
+                                        <span class="bold">future</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            <ul class="">
+                                <li>
+                                    <a href="primitive-types.html#function">
+                                        <span class="bold">function</span>
                                     </a>
                                 </li>
                             </ul>
@@ -247,20 +254,61 @@
                         <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
 
                         <div class="cCollaps-Menu" id="iBallerinaPACKAGEStoc">
-
-
+                            
+                             <ul class="active-package">
+                                <li>
+                                   <!--Package Name-->
+                                    
+                                   <a>ballerinax/<span class="bold">docker</a>
+                                   
+                                   
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="kubernetes.html">ballerinax/<span class="bold">kubernetes</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
                         </div>
                     </div>
                 </div>
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x">BALLERINA X</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x">BALLERINAX PACKAGES</div>
                         <div class="cCollaps-Menu-second" id="iBallerinaXtoc">
-
-
+                            
+                             <ul class="active-package">
+                                <li>
+                                   <!--Package Name-->
+                                    
+                                   <a>ballerinax/<span class="bold">docker</a>
+                                   
+                                   
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="kubernetes.html">ballerinax/<span class="bold">kubernetes</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
                         </div>
                     </div>
                 </div>
+                <!-- TODO check existence of links and remove-->
                 <div class="cBlallerina-io-docs-left-nav-container">
                     <div class="cSideBar-Button">
                         <img src="/img/sidebar.svg" />
@@ -272,91 +320,102 @@
                             <li>
                                 <!--Package Name-->
                                  
-                                <a class="cPackageList">ballerinax/<span class="bold">docker</a>  
+                                <a class="cPackageList">ballerinax/<span class="bold">docker</span></a>  
                                 <div class="constructs-wrapper">
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
                                         
+                                        
+                                        
+                                        <li>
+                                            <a href="#Annotations">
+                                                <div class="construct-icon">
+                                                    <span class="fw-annotation"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Annotations
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        <li>
+                                            <a href="#RecordsSummary">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Records
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                          
                                         <li>
                                             <a href="#DockerConfiguration">
                                                 <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
+                                                    <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    DockerConfiguration 
+                                                    DockerConfiguration
                                                 </div>
                                             </a>
                                         </li>
-                                         
+                                            
+                                          
                                         <li>
                                             <a href="#ExposeConfig">
                                                 <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
+                                                    <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    ExposeConfig 
+                                                    ExposeConfig
                                                 </div>
                                             </a>
                                         </li>
-                                         
+                                            
+                                          
                                         <li>
                                             <a href="#FileConfig">
                                                 <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
+                                                    <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    FileConfig 
+                                                    FileConfig
                                                 </div>
                                             </a>
                                         </li>
-                                         
+                                            
+                                          
                                         <li>
                                             <a href="#FileConfigs">
                                                 <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
+                                                    <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    FileConfigs 
+                                                    FileConfigs
                                                 </div>
                                             </a>
                                         </li>
-                                         
-                                        <li>
-                                            <a href="#Config">
-                                                <div class="construct-icon">
-                                                    <span class="fw-annotation"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Config 
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#CopyFiles">
-                                                <div class="construct-icon">
-                                                    <span class="fw-annotation"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    CopyFiles 
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
-                                        <li>
-                                            <a href="#Expose">
-                                                <div class="construct-icon">
-                                                    <span class="fw-annotation"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Expose 
-                                                </div>
-                                            </a>
-                                        </li>
-                                         
+                                            
+                                             
+                                             
+                                             
                                     </ul>
                                 </div>
                                 
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
                             </li>
                         </ul>
                         
@@ -393,7 +452,119 @@
                                             <h1 class="thin-text padding-bottom">
                                                 <span class="bold">ballerinax/docker</span>  package 
                                             </h1>
+                                            
+
+                                            <div class="summary-wrapper">
+                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                        <!--Primitive Types-->
+                                        
+                                         <!-- Type Definitions-->
+                                         
+                                        <!-- Global Variables-->
+                                        
+                                        <!-- records -->
+                                        
+                                        <h3 id="RecordsSummary">Records</h3>
+                                         <table class="cSummary-Table c2Col-Medium">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Record</th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
                                              
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#DockerConfiguration">DockerConfiguration</a></td>
+                                                         <td class="cSummary-table-desc"><p>Docker annotation configuration</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#ExposeConfig">ExposeConfig</a></td>
+                                                         <td class="cSummary-table-desc"><p>Expose ports for docker</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#FileConfig">FileConfig</a></td>
+                                                         <td class="cSummary-table-desc"><p>External file type for docker</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#FileConfigs">FileConfigs</a></td>
+                                                         <td class="cSummary-table-desc"><p>External File configurations for docker</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                         </table>
+                                         
+                                        <!-- objects -->
+                                        
+                                         <!-- endpoints -->
+                                         
+                                         <!-- functions -->
+                                         
+                                         <!-- Annotations -->
+                                        
+                                        <h3 id="Annotations">Annotations</h3>
+                                        <table class="cSummary-Table">
+                                            <tr>
+                                                <th class="cSummary-table-name">Name</th>
+                                                <th class="cSummary-table-attach">Attaches To</th>
+                                                <th class="cSummary-table-type">Data Type</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">Config</td>
+                                                <td class="cSummary-table-attach">endpoint, service</td>
+                                                <td class="cSummary-table-type"><a href="docker.html#DockerConfiguration">DockerConfiguration</a></td>
+                                                <td class="cSummary-table-desc"><p>@docker:Config annotation to configure docker artifact generation</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">CopyFiles</td>
+                                                <td class="cSummary-table-attach">endpoint, service</td>
+                                                <td class="cSummary-table-type"><a href="docker.html#FileConfigs">FileConfigs</a></td>
+                                                <td class="cSummary-table-desc"><p>@docker:CopyFile annotation to copy external files to docker image</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">Expose</td>
+                                                <td class="cSummary-table-attach">endpoint</td>
+                                                <td class="cSummary-table-type"><a href="docker.html#ExposeConfig">ExposeConfig</a></td>
+                                                <td class="cSummary-table-desc"><p>@docker:Expose annotation to expose ballerina ports</p>
+</td>
+                                            </tr>
+                                              
+                                        </table>
+                                        
+                                     </div>
+                                      
+                                      <div class="cConstructsWraperContainer"> 
+                                            
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
                                                 
@@ -401,8 +572,12 @@
                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
                                                 <h2 id="DockerConfiguration">
-                                                    <span class="fw-struct sm-icon"></span> public object DockerConfiguration
+                                                    <span class="fw-record sm-icon"></span> public type DockerConfiguration
                                                 </h2>
                                                 
                                                 <p>
@@ -416,7 +591,6 @@
                                                         <th class="cAPI-table-type">Data Type</th>
                                                         <th class="cAPI-table-default">Default Value</th>
                                                         <th class="cAPI-table-desc">Description</th>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -427,7 +601,6 @@
 <li>Name of the docker image</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -438,7 +611,6 @@
 <li>Docker registry url</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -446,10 +618,9 @@
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
-<li>Docker registry url</li>
+<li>Docker image tag</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -460,7 +631,6 @@
 <li>Docker registry username</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -471,7 +641,6 @@
 <li>Docker registry password</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -482,7 +651,6 @@
 <li>Base image for Dockerfile</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -493,7 +661,6 @@
 <li>Enable pushing docker image to registry</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -504,7 +671,6 @@
 <li>Enable docker image build</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -515,7 +681,6 @@
 <li>Enable ballerina debug</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -526,7 +691,6 @@
 <li>Ballerina debug port</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -537,7 +701,6 @@
 <li>Docker host IP and docker PORT. ( e.g minikube IP and docker PORT)</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -548,23 +711,14 @@
 <li>Docker certificate path</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                 </table>
-                                                  
-                                                <!-- Connectors and its actions -->
-                                                
+                                                 
                                                 <!-- Objects and its functions -->
                                                 
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
                                             </div>
-                                            
+                                                
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
                                                 
@@ -572,27 +726,23 @@
                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
                                                 <h2 id="ExposeConfig">
-                                                    <span class="fw-struct sm-icon"></span> public object ExposeConfig
+                                                    <span class="fw-record sm-icon"></span> public type ExposeConfig
                                                 </h2>
                                                 
                                                 <p>
                                                     <span class="fw-right gray xs-icon"></span><p>Expose ports for docker</p>
 
                                                 </p>
-                                                   
-                                                <!-- Connectors and its actions -->
-                                                
+                                                  
                                                 <!-- Objects and its functions -->
                                                 
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
                                             </div>
-                                            
+                                                
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
                                                 
@@ -600,8 +750,12 @@
                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
                                                 <h2 id="FileConfig">
-                                                    <span class="fw-struct sm-icon"></span> public object FileConfig
+                                                    <span class="fw-record sm-icon"></span> public type FileConfig
                                                 </h2>
                                                 
                                                 <p>
@@ -615,7 +769,6 @@
                                                         <th class="cAPI-table-type">Data Type</th>
                                                         <th class="cAPI-table-default">Default Value</th>
                                                         <th class="cAPI-table-desc">Description</th>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -626,7 +779,6 @@
 <li>source path of the file (in your machine)</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -637,7 +789,6 @@
 <li>target path (inside container)</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                     <tr>
@@ -648,23 +799,14 @@
 <li>Flag to specify ballerina config file</li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                 </table>
-                                                  
-                                                <!-- Connectors and its actions -->
-                                                
+                                                 
                                                 <!-- Objects and its functions -->
                                                 
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
                                             </div>
-                                            
+                                                
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
                                                 
@@ -672,8 +814,12 @@
                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
                                                 <h2 id="FileConfigs">
-                                                    <span class="fw-struct sm-icon"></span> public object FileConfigs
+                                                    <span class="fw-record sm-icon"></span> public type FileConfigs
                                                 </h2>
                                                 
                                                 <p>
@@ -687,34 +833,24 @@
                                                         <th class="cAPI-table-type">Data Type</th>
                                                         <th class="cAPI-table-default">Default Value</th>
                                                         <th class="cAPI-table-desc">Description</th>
-
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">files</td>
-                                                        <td class="cAPI-table-type"><a href="">FileConfig[]</a></td>
-                                                        <td class="cAPI-table-default">[]</td>
+                                                        <td class="cAPI-table-type"><a href="">docker:FileConfig[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
 <li>Array of <a href="docker.html#FileConfig">FileConfig</a></li>
 </ul>
 </td>
-
                                                     </tr>
                                                     
                                                 </table>
-                                                  
-                                                <!-- Connectors and its actions -->
-                                                
+                                                 
                                                 <!-- Objects and its functions -->
                                                 
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <!-- Global Variables-->
-                                                
                                             </div>
-                                            
+                                                
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
                                                 
@@ -724,38 +860,12 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Records -->
+                                                
                                                 <!-- Objects and its functions -->
                                                 
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <h2 id="Config">
-                                                    <span class="fw-annotation sm-icon"></span> public annotation Config
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>@docker:Config annotation to configure docker artifact generation</p>
-
-                                                </p>
-                                                
-                                                <p>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Attachment Points</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="cAPI-table-name">endpoint, service</td>
-                                                        <td class="cAPI-table-type"><a href="docker.html#DockerConfiguration">DockerConfiguration</a></td>
-                                                    </tr>
-                                                </table>
-                                                
-                                                <!-- Global Variables-->
-                                                
                                             </div>
-                                            
+                                                
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
                                                 
@@ -765,38 +875,12 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Records -->
+                                                
                                                 <!-- Objects and its functions -->
                                                 
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <h2 id="CopyFiles">
-                                                    <span class="fw-annotation sm-icon"></span> public annotation CopyFiles
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>@docker:CopyFile annotation to copy external files to docker image</p>
-
-                                                </p>
-                                                
-                                                <p>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Attachment Points</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="cAPI-table-name">endpoint, service</td>
-                                                        <td class="cAPI-table-type"><a href="docker.html#FileConfigs">FileConfigs</a></td>
-                                                    </tr>
-                                                </table>
-                                                
-                                                <!-- Global Variables-->
-                                                
                                             </div>
-                                            
+                                                
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
                                                 
@@ -806,39 +890,15 @@
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Records -->
+                                                
                                                 <!-- Objects and its functions -->
                                                 
-                                                <!-- Enums-->
-                                                
-                                                <!-- Annotations-->
-                                                
-                                                <h2 id="Expose">
-                                                    <span class="fw-annotation sm-icon"></span> public annotation Expose
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>@docker:Expose annotation to expose ballerina ports</p>
-
-                                                </p>
-                                                
-                                                <p>
-                                                </p>
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Attachment Points</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="cAPI-table-name">endpoint</td>
-                                                        <td class="cAPI-table-type"><a href="docker.html#ExposeConfig">ExposeConfig</a></td>
-                                                    </tr>
-                                                </table>
-                                                
-                                                <!-- Global Variables-->
+                                            </div>
                                                 
                                             </div>
-                                            
                                         </div>
+                                      </div>
                                     </div>
                                 </div>
                             </div>
@@ -846,7 +906,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <div id="iBallerinaFooter" class="row cBallerina-io-White-row">
@@ -863,3 +922,4 @@
 </body>
 
 </html>
+
