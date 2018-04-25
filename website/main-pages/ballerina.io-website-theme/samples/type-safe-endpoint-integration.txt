@@ -29,8 +29,8 @@ service<http:Service> Pay bind listener {
         // check will cause the service to send back an error 
         // if the payload is not JSON
         json payload = check request.getJsonPayload();
-        // The next line shows type-safe parsing of JSON into an object
-        Payment | error p = <Payment>payload;
+        // The next line shows type safe parsing of JSON into an object
+        Payment | error p = <Payment> payload;
         // match allows us to handle the error specifically
         match p {
             Payment x => {

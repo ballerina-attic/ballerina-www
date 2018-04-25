@@ -206,8 +206,7 @@ $(document).ready(function() {
         '</div>' +
         '</div>' +
         '<div class="col-xs-12 col-sm-10 col-md-6 col-lg-6 cBallerina-io-right-col">' +
-        '<p>In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Java, Go, C, C++, Rust, Haskell, Kotlin, Dart, Typescript, Javascript, Flow, Swift, RelaxNG, NPM, Crates, Maven, Gradle, Kubernetes, Docker, Envoy, Markdown, GitHub, Eclipse Che and WSO2. <br>
-We used many technologies to build the tools and the website: Bootstrap, JQuery, React JS, MkDocs, Microsoft VS Code, Jetbrains IntelliJ and Jenkins.</p></div>' +
+        '<p>In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Java, Go, C, C++, Rust, Haskell, Kotlin, Dart, Typescript, Javascript, Flow, Swift, RelaxNG, NPM, Crates, Maven, Gradle, Kubernetes, Docker, Envoy, Markdown, GitHub and WSO2. <br>We used many technologies to build the tools and the website: Bootstrap, JQuery, React JS, MkDocs, Microsoft VS Code, Jetbrains IntelliJ, Eclipse Che and Jenkins.</p></div>' +
         '</div>';
 
     $('#iMainNavigation').append(menu);

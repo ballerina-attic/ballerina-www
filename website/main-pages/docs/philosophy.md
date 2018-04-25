@@ -3,8 +3,7 @@
     <div class="container">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-Left-col ">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-main-content-wraper">
-                <p class="cMainParagraph">A programming language and runtime <br/>co-designed to be agile and integration simple.
-                </p>
+                <div style="max-width:600px;"><p class="cMainParagraph">A programming language and runtime <nobr>co-designed</nobr> to be agile and integration simple.</p></div>
                 <p class="cGreenTitle "><a href="/downloads">Download &gt;</a></p>
                 <hr class="cHr">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol">
@@ -581,7 +580,7 @@
             </div>
             <div data-startLine="31" data-endLine="31" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Integration often has to deal with complex distributed errors. Ballerina has powerful error handling capabilities based around union types. The <em>check</em> operator makes it easy to pass the error back to the caller.</p>
+                    <p>Integration often has to deal with complex distributed errors. Ballerina has error handling capabilities based around union types. The <em>check</em> operator makes it easy to pass the error back to the caller.</p>
                 </div>
             </div>
             <div data-startLine="33" data-endLine="33" class="hTrigger cCodeDesription gray">
