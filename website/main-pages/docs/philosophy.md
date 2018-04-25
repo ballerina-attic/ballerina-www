@@ -597,7 +597,7 @@
                 <ul>
                     <li class="links first cActive">TYPE SAFE ENDPOINT INTEGRATION</li>
                     <li class="links">TYPE SAFE CONNECTORS</li>
-                    <li class="links">ASYNCHRONOUS RELIABLE MESSAGING</li>
+                    <li class="links">RELIABLE MESSAGING</li>
                     <li class="links">DISTRIBUTED TRANSACTIONS</li>
                 </ul>
             </div>
@@ -620,7 +620,7 @@
                     <pre id="type-safe-connectors-code" class="code-block">
                         <code class="ballerina tab-pane active"></code>
                     </pre>
-                    <pre id="asynchronous-reliable-messaging-code" class="code-block">
+                    <pre id="reliable-messaging-code" class="code-block">
                         <code class="ballerina tab-pane active"></code>
                     </pre>
                     <pre id="distributed-transactions-code" class="code-block">
@@ -650,12 +650,12 @@
                     <p>Ballerina types can be simple records or more complex objects with public/private fields and associated logic.</p>
                 </div>
             </div>
-            <div data-startLine="31" data-endLine="31" class="hTrigger cCodeDesription gray">
+            <div data-startLine="30" data-endLine="30" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Integration often has to deal with complex distributed errors. Ballerina has error handling capabilities based around union types. The <em>check</em> operator makes it easy to pass the error back to the caller.</p>
                 </div>
             </div>
-            <div data-startLine="33" data-endLine="33" class="hTrigger cCodeDesription gray">
+            <div data-startLine="32" data-endLine="32" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Converting a JSON into an object simply involves casting it as that object. An error is returned if the JSON has the wrong schema.</p>
                 </div>
@@ -674,21 +674,16 @@
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="type-safe-connectors-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Ballerina has a built-in concept of connectors to remote endpoints. Connectors are automatically downloaded from Ballerina Central as needed.</p>
+                    <p>Ballerina has constructs for managing connectors to endpoints. Connectors can be pulled by version from network repositories as needed.</p>
                 </div>
             </div>
-            <div data-startLine="16" data-endLine="16" class="hTrigger cCodeDesription gray">
+            <div data-startLine="20" data-endLine="20" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The connector has strongly typed parameters and returns, meaning that compile-time checking validates the types.</p>
                 </div>
             </div>
-            <div data-startLine="19" data-endLine="19" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Built in JSON datatypes make using JSON natural and effective.</p>
-                </div>
-            </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="asynchronous-reliable-messaging-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="reliable-messaging-text">
             <!-- <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina has a lightweight microservice message broker that provides support for the AMQP protocol and offers asynchronous reliable messaging using queues and topics. Integrating Ballerina services with AMQP is simple.</p>
@@ -696,7 +691,7 @@
             </div> -->
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Support for the Ballerina Message Broker is provided by the built-in “ballerina/mb” package.</p>
+                    <p>Support for the Ballerina Message Broker is provided by the “ballerina/mb” package.</p>
                 </div>
             </div>
             <div data-startLine="4" data-endLine="8" class="hTrigger cCodeDesription gray">
@@ -718,39 +713,44 @@
             </div>
             <div data-startLine="3" data-endLine="4" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Any remote systems, including XA-enabled databases, other Ballerina services or Spring services using the Ballerina Bridge will be enrolled into the transaction.</p>
+                    <p>Any remote systems, including XA-enabled databases, other Ballerina services or legacy services that use the Ballerina Bridge will be enrolled into the transaction.</p>
                 </div>
             </div>
             <div data-startLine="15" data-endLine="16" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Ballerina has built in support for SQL and Tables.</p>
+                    <p>Ballerina supports SQL access to databases and in-memory tables, as well pure programmatic access to databases based on language integrated query constructs.</p>
                 </div>
             </div>
-            <div data-startLine="26" data-endLine="27" class="hTrigger cCodeDesription gray">
+            <div data-startLine="27" data-endLine="27" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>Everything within the {} of the transaction block is part of the transaction. The transaction will be committed if possible when the final curly brace is reached.</p>
+                </div>
+            </div>
+            <div data-startLine="28" data-endLine="29" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>If the transaction fails, then all the work will be rolled back.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="circuit-breaker-text">
-            <div data-startLine="3" data-endLine="3" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>This line configures how long before the remote service is considered to timeout.</p>
-                </div>
-            </div>
-            <div data-startLine="4" data-endLine="4" class="hTrigger cCodeDesription gray">
+            <div data-startLine="2" data-endLine="2" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Circuit Breakers are a common way of protecting against distributed failure. Circuit breakers are built into Ballerina.</p>
                 </div>
             </div>
-            <div data-startLine="5" data-endLine="8" class="hTrigger cCodeDesription gray">
+            <div data-startLine="3" data-endLine="6" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The circuit breaker is looking for errors across a rolling time window.</p>
                 </div>
             </div>
-            <div data-startLine="10" data-endLine="10" class="hTrigger cCodeDesription gray">
+            <div data-startLine="8" data-endLine="8" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>After breaking the circuit, the circuit breaker will not send any more requests to the backend until the resetTime.</p>
+                </div>
+            </div>
+            <div data-startLine="12" data-endLine="12" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>This line configures how long before the remote service is considered to timeout.</p>
                 </div>
             </div>
         </div>
@@ -770,12 +770,12 @@
                     <p>Compilation time checks prevent code that requires untainted data from accessing tainted data.</p>
                 </div>
             </div>
-            <div data-startLine="21" data-endLine="21" class="hTrigger cCodeDesription gray">
+            <div data-startLine="22" data-endLine="22" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Simple annotations allow developers to mark parameters that could contain injection attacks.</p>
+                    <p>Annotations allow developers to mark parameters that could contain injection attacks.</p>
                 </div>
             </div>
-            <div data-startLine="28" data-endLine="28" class="hTrigger cCodeDesription gray">
+            <div data-startLine="28" data-endLine="32" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Developers can write simple code or use packages to protect against injection attacks.</p>
                 </div>
