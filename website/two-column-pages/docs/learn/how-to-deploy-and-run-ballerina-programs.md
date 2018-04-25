@@ -1,10 +1,10 @@
 # How to Deploy and Run Ballerina Programs
 
 
-##Running Ballerina Programs & Services
+## Running Ballerina Programs & Services
 
 
-##Deploying Ballerina Programs & Services
+## Deploying Ballerina Programs & Services
 
 Ballerina has builder extensions that run after the compilation phase. These extensions analyze code to generate deployment artifacts and utilities to make deployment of your apps and services easier.
 
