@@ -63,8 +63,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            //$("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
+            $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -92,7 +92,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -101,8 +101,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -124,22 +124,8 @@
                         <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
 
                         <div class="cCollaps-Menu" id="iBallerinaPACKAGEStoc">
-                            {{#each links}}
-                             <ul class="{{#if active}}active-package{{/if}}">
-                                <li>
-                                   <!--Package Name-->
-                                   {{#if active}} {{#if caption.isPackageName}}
-                                   <a>{{caption.prefix}}<span class="bold">{{caption.suffix}}</a>
-                                   {{/if}}
-                                   {{#if caption.isStaticCaption}}<a><span class="bold">{{caption.value}}</span></a>
-                                   {{/if}}
-                                   {{else}}
-                                   <a href="{{href}}.html">{{#if caption.isPackageName}}{{caption.prefix}}<span class="bold">{{caption.suffix}}</span>{{/if}}
-                                   {{#if caption.isStaticCaption}}<span class="bold">{{caption.value}}</span>{{/if}}</a>
-                                   {{/if}}
-                                </li>
-                             </ul>
-                             {{/each}}
+
+
                         </div>
                     </div>
                 </div>
@@ -152,7 +138,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- TODO check existence of links and remove-->
                 <div class="cBlallerina-io-docs-left-nav-container">
                     <div class="cSideBar-Button">
                         <img src="/img/sidebar.svg" />
@@ -176,7 +161,7 @@
                                         <li>
                                             <a href="#PrimitivesSummary">
                                                 <div class="construct-icon">
-                                                    <span class="fw-primitive"> </span>
+                                                    <span class="fw-variable"> </span>
                                                 </div>
                                                 <div class="construct-name">
                                                     Primitives
@@ -188,7 +173,7 @@
                                         <li>
                                             <a href="#TypeDefinitions">
                                                 <div class="construct-icon">
-                                                    <span class="fw-type"> </span>
+                                                    <span class="fw-constant"> </span>
                                                 </div>
                                                 <div class="construct-name">
                                                     Type Definitions
@@ -212,7 +197,7 @@
                                         <li>
                                             <a href="#RecordsSummary">
                                                 <div class="construct-icon">
-                                                    <span class="fw-record"> </span>
+                                                    <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
                                                     Records
@@ -276,7 +261,7 @@
                                                     <span class="{{icon}}"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    {{name}}
+                                                    {{name}} {{#if isConnector}} ({{#each fields}}<a href="{{href}}">{{dataType}}</a> {{name}}{{#unless @last}} ,{{/unless}}{{/each}}) {{/if}}
                                                 </div>
                                             </a>
                                         </li>
@@ -310,7 +295,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -351,7 +336,7 @@
                                         <!--Primitive Types-->
                                         {{#exists constructs "primitive"}}
                                          <h2 id="PrimitivesSummary">
-                                            <span class="fw-primitive sm-icon"></span> Primitives 
+                                            <span class="fw-globe sm-icon"></span> Primitives 
                                         </h2>
                                          <table class="cPrimitive-summary-Table c2Col-Narrow">
                                              <tr>
@@ -542,7 +527,7 @@
                                                                 <tr>
                                                                     <td class="cAPI-table-name">{{name}}</td>
                                                                     <td class="cAPI-table-type"><a href="{{href}}">{{dataType}}</a></td>
-                                                                    <td class="cAPI-table-default">{{defaultValue}}</td>
+                                                                    <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc">{{{description}}}</td>
                                                                 </tr>
                                                                 {{/each}}
@@ -592,7 +577,7 @@
                                                     <tr>
                                                         <td class="cAPI-table-name">{{name}}</td>
                                                         <td class="cAPI-table-type"><a href="{{href}}">{{dataType}}</a></td>
-                                                        <td class="cAPI-table-default">{{defaultValue}}</td>
+                                                        <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc">{{{description}}}</td>
                                                     </tr>
                                                     {{/each}}
@@ -669,7 +654,7 @@
                                                                 <tr>
                                                                     <td class="cAPI-table-name">{{name}}</td>
                                                                     <td class="cAPI-table-type"><a href="{{href}}">{{dataType}}</a></td>
-                                                                    <td class="cAPI-table-default">{{defaultValue}}</td>
+                                                                    <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc">{{{description}}}</td>
                                                                 </tr>
                                                                 {{/each}}
@@ -730,7 +715,7 @@
                                                         {{#each children}}
                                                         <li>
                                                             <h2 id="{{../name}}-{{name}}">
-                                                                <span class="{{icon}} sm-icon"></span>
+                                                                <span class="{{icon}}"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;{{../name}}&gt;
                                                    </span> {{name}}({{join parameters ", "}}) {{#if returnParams}}returns ({{join returnParams ", "}}) {{/if}}
@@ -751,7 +736,7 @@
                                                                 <tr>
                                                                     <td class="cAPI-table-name">{{name}}</td>
                                                                     <td class="cAPI-table-type"><a href="{{href}}">{{dataType}}</a></td>
-                                                                    <td class="cAPI-table-default">{{defaultValue}}</td>
+                                                                    <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc">{{{description}}}</td>
                                                                 </tr>
                                                                 {{/each}}
@@ -860,7 +845,7 @@
                                                                 <tr>
                                                                     <td class="cAPI-table-name">{{name}}</td>
                                                                     <td class="cAPI-table-type"><a href="{{href}}">{{dataType}}</a></td>
-                                                                    <td class="cAPI-table-default">{{defaultValue}}</td>
+                                                                    <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc">{{{description}}}</td>
                                                                 </tr>
                                                                 {{/each}}
