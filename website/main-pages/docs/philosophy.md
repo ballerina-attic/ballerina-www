@@ -97,8 +97,12 @@
                     <div class="tab-pane" id="2b">
                         <img src="/img/philosophy-principle-diagrams-02.svg" />
                     </div>
-                    <div class="tab-pane" id="3b">
-                        <img src="/img/philosophy-principle-diagrams-03-2.svg" />
+                    <div class="tab-pane type-system-code-tab" id="3b">
+                        <div class="code-wrapper">
+                            <pre id="type-system-code" class="code-block">
+                                <code class="ballerina tab-pane active"></code>
+                            </pre>
+                        </div>
                     </div>
                 </div>
             </div>

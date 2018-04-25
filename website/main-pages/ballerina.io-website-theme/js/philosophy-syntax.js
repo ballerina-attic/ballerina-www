@@ -134,6 +134,13 @@ $(document).ready(function() {
     //Load data on page load
     loadData($('#nativeLanguage li.first').text(), 'nativeLanguage', false);
     loadData($('#integration li.first').text(), 'integration', false);
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var target = $(e.target).attr("href") // activated tab
+        if( target === "#3b"){
+            $('#type-system-code .line-numbers-wrap').remove();
+            loadData('type-system', 'dummyXoXo', false);
+        }
+      });
 });
 
 $(document).ready(function() {
