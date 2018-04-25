@@ -3,7 +3,7 @@
 ## Introduction
 Observability is a measure of how well internal states of a system can be inferred from knowledge of its external outputs. Monitoring, logging, and distributed tracing are key methods that reveal the internal state of the system to provide the observability. Therefore, Ballerina provides default support for monitoring metrics such as request count and response time statistics, log processing and analysis, and distributed tracing according to the [OpenTracing](https://github.com/opentracing/specification/blob/master/specification.md) specification, which collectively yields the full observability for Ballerina services. 
 
-HTTP/HTTPS based Ballerina services are observable by default. Further any client connectors observable by default, but HTTP/HTTPS and SQL client connectors captures some specific additional information that makes tracing and metrics monitoring more informative.  
+HTTP/HTTPS based Ballerina services and any client connectors observable by default. But HTTP/HTTPS and SQL client connectors captures some more additional information as well to make tracing and metrics monitoring more informative.  
 
 ## Getting Started
 A Ballerina service is by default observable. This section focuses on enables observability with default systems with Jaeger for distributed tracing, and Prometheus and Grafana for Metrics Monitoring. 
