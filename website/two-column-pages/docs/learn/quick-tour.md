@@ -244,22 +244,23 @@ Now your code is ready to generate deployment artifacts. In this case it is a do
 ```bash
 $> ballerina build hello_world_docker.bal
 @docker 		 - complete 3/3
+```
+
 Run following command to start docker container: 
+
+```bash
 docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
 ```
 
-```bash
-$> tree
-.
-├── README.md
-├── docker
-│   └── Dockerfile
-├── hello_world_docker.bal
-└── hello_world_docker.balx
-```
+Run the following command to check if docker is running.
 
 ```bash
-$> docker images
+> docker images
+```
+
+If docker is running, you see output similar to the following.
+
+```
 REPOSITORY                 TAG                 IMAGE ID            CREATED              SIZE
 docker.abc.com/helloworld   v1              df83ae43f69b        2 minutes ago        102MB
 ```
@@ -268,11 +269,16 @@ You can run a docker container and access it with your code by just copying and 
 
 ```bash
 docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
-130ded2ae413d0c37021f2026f3a36ed92e993c39c260815e3aa5993d947dd00
 ```
+
+Run the following to get details of the docker container.
 
 ```bash
 docker ps
+```
+You see output similar to the following.
+
+```
 CONTAINER ID        IMAGE                            COMMAND                  CREATED                  STATUS              PORTS                    NAMES
 130ded2ae413        docker.abc.com/helloworld:v1.0   "/bin/sh -c 'balleri…"   Less than a second ago   Up 3 seconds        0.0.0.0:9090->9090/tcp   thirsty_hopper
 ```
@@ -292,7 +298,7 @@ Hello, World!
 
 For the `ballerina push` command to work, you need to copy and paste your Ballerina Central access token in Settings.toml in your home repository (<USER_HOME>/.ballerina/). 
 
-Register on Ballerina central and visit user dashboard at https://central.ballerina.io/dashboard to gain access to your user token.  
+Register on Ballerina Central and visit user dashboard at https://central.ballerina.io/dashboard to gain access to your user token.  
 
 Once that is done, push your package to Ballerina Central.
 
