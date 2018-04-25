@@ -32,9 +32,9 @@ Make sure you have already installed Docker Community Edition (CE) to setup exte
         }
     }
     ```
-2. The observability is disabled by default and it can be enabled either by adding '--observe' flag or updating the configuration. This option enables metrics monitoring and distributed tracing. You will have to follow step-3 and step-4, if you want to have log analysis as well.
-   '--observe' Flag : 
-   Observability for Ballerina service can be enabled with a flag '--observe' as shown below. This enables observability for Ballerina service with default settings, and collect the distributed tracing information with [Jaeger](https://www.jaegertracing.io/) and metrics information with [Prometheus](https://prometheus.io/). 
+2. The observability is disabled by default and it can be enabled either by adding `--observe` flag or updating the configuration. This option enables metrics monitoring and distributed tracing. You will have to follow step-3 and step-4, if you want to have log analysis as well.
+   `--observe` Flag : 
+   Observability for Ballerina service can be enabled with a flag `--observe` as shown below. This enables observability for Ballerina service with default settings, and collect the distributed tracing information with [Jaeger](https://www.jaegertracing.io/) and metrics information with [Prometheus](https://prometheus.io/). 
 
     ```bash
     $ ballerina run hello_service.bal --observe
@@ -55,7 +55,7 @@ Make sure you have already installed Docker Community Edition (CE) to setup exte
     # Flag to enable Tracing
     enabled=true
     ```
-    The Ballerina program needs to be started as below with either '--config' or '-c' flag and provide the path of the configuration file to adhere to the configuration as sh.
+    The Ballerina program needs to be started as below with either `--config` or `--c` flag and provide the path of the configuration file to adhere to the configuration as sh.
     ```bash
     $ ballerina run hello_service.bal --config <path-to-conf>/ballerina.conf
     
@@ -65,13 +65,13 @@ Make sure you have already installed Docker Community Edition (CE) to setup exte
     ballerina: started HTTP/WS endpoint 0.0.0.0:9090
     ```
 3. If you want to perform log analysis then follow this step and step-4, else, please proceed to step 5. 
-   There are some logs added to the service, but these logs need to be pushed to [Elastic Stack](#Distributed-Logging) to perform the log analysis. But the log package supports logging to console only, therefore the logs need to be redirected to a file as the first step, therefore you require to start the service as below along with the option that you have opted to start service in step-2 ('--observe' flag or passing configuration).
+   There are some logs added to the service, but these logs need to be pushed to [Elastic Stack](#Distributed-Logging) to perform the log analysis. But the log package supports logging to console only, therefore the logs need to be redirected to a file as the first step, therefore you require to start the service as below along with the option that you have opted to start service in step-2 (`--observe` flag or passing configuration).
    
-   Start Ballerina service -observe flag. 
+   Start Ballerina service `--observe` flag. 
    ```bash
    $ nohup ballerina run hello_service.bal --observe > ~/wso2-ballerina/workspace/ballerina.log &
    ```
-   Start Ballerina service with onfiguration file. 
+   Start Ballerina service with configuration file. 
    ```bash
    $ nohup ballerina run hello_service.bal --config <path-to-conf>/ballerina.conf > ~/wso2-ballerina/workspace/ballerina.log &
    ```
@@ -180,7 +180,7 @@ Tracing gives the user a high-level view of how a single service invocation is p
 Ballerina supports [OpenTracing](http://opentracing.io/) standards out of the box. This means that Ballerina services can be traced using OpenTracing implementations like [Jaeger](http://www.jaegertracing.io/), and [Zipkin](https://zipkin.io/). Jaeger is the default tracer of Ballerina.
 
 ### Configure Ballerina
-Tracing can be enabled in Ballerina with '--observe' flag as mentioned in the [Getting Started](#getting-started) section, as well as configuration option. This section mainly focuses on the configuration option with description and possible values. 
+Tracing can be enabled in Ballerina with `--observe` flag as mentioned in the [Getting Started](#getting-started) section, as well as configuration option. This section mainly focuses on the configuration option with description and possible values. 
 
 The sample configuration that enables tracing, and uses Jaeger as the sample tracer as provided below. 
 ```yaml
