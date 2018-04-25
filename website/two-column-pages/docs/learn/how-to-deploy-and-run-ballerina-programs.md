@@ -44,7 +44,7 @@ ballerina run a/b/c/foo.bal
 ```
 The directory of the file becomes the source root (all imports will be resolved relative to that source root). You can also alter the location of the source root that the file will be inferred from:
 ```bash
-    ballerina run [-projectroot <path>] foo.bal
+ballerina run [-projectroot <path>] foo.bal
 ``` 
 
   
@@ -58,12 +58,12 @@ A compiled program is the transitive closure of one package of Ballerina source 
 
 Ballerina program file can be compiled using below command. Default output filename is the last part of package name or the filename (minus the extension) with the extension “.balx”.
 ```bash
-     ballerina build [-sourceroot] a/b/c/foo.bal [-o outputfilename.balx]
+ballerina build [-sourceroot] a/b/c/foo.bal [-o outputfilename.balx]
 ```    
     
 #### Run a compiled program:
 ```bash
- ballerina run filename.balx
+ballerina run filename.balx
 ``` 
 
 ### Running a Package
@@ -75,14 +75,14 @@ A directory that contains Ballerina source code files.
 #### Compiling a package:
 
 A compiled package is the compiled representation of a single package of Ballerina code, without including transitive dependencies into the compiled unit. Following command build all packages as part of a single project:
-    ```bash
-    ballerina build
-    ```
+```bash
+ballerina build
+```
 
 Following command to build a single package in a project:
-    ```bash
-    ballerina build <package-name>
-    ```
+```bash
+ballerina build <package-name>
+```
 #### Run a program in a compiled package:
 
 The run command will look in a Project Repository (if in a project), then Home Repository, then Ballerina Central to find the package and then run it. If the package was in Ballerina Central, it will first pull it into the Home Repository and then execute it.
@@ -112,9 +112,9 @@ ballerina build
 ```
 
 -   Command to build a single package in a project:
-     ```bash
-      ballerina build <package-name>
-    ```
+```bash
+ballerina build <package-name>
+```
 
 #### Running a compiled project
 
@@ -141,19 +141,12 @@ The Ballerina config API allows you to look up values from configuration files, 
 
 If a specific configuration defined in the file is also defined as an environment variable, the environment variable takes precedence. Similarly, if the same is set as a CLI parameter, it replaces the environment variable value.
 
-  
-
 The configurations are arbitrary key/value pairs with structure.
-
-  
 
 The configuration APIs accept a key and an optional default value. If a mapping does not exist for the specified key, the default value is returned as the configuration value. The default values of these optional configurations are the default values of the return types of the functions.
 
-  
 
 Refer [Config API Documentation]([https://stage.ballerina.io/learn/api-docs/ballerina/config.html](https://stage.ballerina.io/learn/api-docs/ballerina/config.html)) for more information.
-
-  
 
 ## How to configure secrets as configuration items
 
