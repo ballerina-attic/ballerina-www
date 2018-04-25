@@ -58,7 +58,7 @@ Finally, working with Ballerina is intended to be cloud native - the language ha
 
 ### What are Ballerina’s ancestors?
 
-Ballerina has been inspired by Java, Go, C, C++, Rust, Haskell, Kotlin, Dart, TypeScript, JavaScript, Swift and other languages. The package management system is inspired from Docker and Elm. However, it is a new language. In every respect the language was designed by thinking about what integration programmers do and how to make integration programming agile, more effective, and more fun. 
+In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Java, Go, C, C++, Rust, Haskell, Kotlin, Dart, TypeScript, JavaScript, Flow, Swift, RelaxNG, NPM, Crates, Maven, Gradle, Kubernetes, Docker, Envoy, Markdown, GitHub, and WSO2. We used many technologies to build the tools and the website: Bootstrap, JQuery, React JS, MkDocs, Microsoft VS Code, Jetbrains IntelliJ, Eclipse Che and Jenkins. The package management system is inspired by Docker and Elm. However, it is a new language. In every respect the language was designed by thinking about what integration programmers do and how to make integration programming agile, more effective, and more fun. 
 
 ### What are the guiding principles in the design?
 
