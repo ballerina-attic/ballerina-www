@@ -29,7 +29,8 @@ Ballerina standard library makes sure untrusted data cannot be used with securit
 Security sensitive functions and actions of Ballerina standard libraries are decorated with  `@sensitive` parameter annotation that denotes untrusted (tainted) data should not be passed to the parameter. For example, `sqlQuery` parameter of `ballerina/sql`, `select` action.
 
 ```ballerina
-public native function select (@sensitive string sqlQuery, (typedesc|()) recordType, Parameter... parameters) returns @tainted (table|error);
+public native function select (@sensitive string sqlQuery, (typedesc|()) recordType,
+                               Parameter... parameters) returns @tainted (table|error);
 ```
 
 Consider the following example that constructs a SQL query with a tainted argument:
