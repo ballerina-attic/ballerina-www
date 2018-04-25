@@ -25,8 +25,7 @@ function secureOperation (@sensitive string data) {
 
 // the @untainted annotation indicates that the return 
 // from this method is no longer tainted
-function sanitizeAndReturnUntainted (string input) 
-    returns @untainted string {
-        Regex reg = {pattern:"[^a-zA-Z]"};
-        return check input.replaceAllWithRegex(reg, "");
+function sanitizeAndReturnUntainted (string input) returns @untainted string {
+    Regex reg = {pattern:"[^a-zA-Z]"};
+    return check input.replaceAllWithRegex(reg, "");
 }
