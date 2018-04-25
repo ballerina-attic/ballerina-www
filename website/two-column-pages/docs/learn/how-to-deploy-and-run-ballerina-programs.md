@@ -19,10 +19,10 @@ ballerina run foo.bal
 
 #### Compile standalone source code:
 
-Standalone source code can be compiled using below command.it compiled and linked binary, saved with a file that has a .balx extension.
+Standalone source code can be compiled using below command. It create linked binary file that has a .balx extension.
     
 ```bash
-    ballerina build [-sourceroot] a/b/c/foo.bal [-o outputfilename.balx]
+ballerina build [-sourceroot] a/b/c/foo.bal [-o outputfilename.balx]
 ```  
 
 Following command will run the compiled binary balx file.
@@ -39,9 +39,9 @@ Program is a collection of packages written by the developer. A program should c
 #### Run a program without compiling:
 
 To run a Ballerina file that is in the program directory you have to give the path to the file:
-    ```bash
-    ballerina run a/b/c/foo.bal
-    ```
+```bash
+ballerina run a/b/c/foo.bal
+```
 The directory of the file becomes the source root (all imports will be resolved relative to that source root). You can also alter the location of the source root that the file will be inferred from:
 ```bash
     ballerina run [-projectroot <path>] foo.bal
