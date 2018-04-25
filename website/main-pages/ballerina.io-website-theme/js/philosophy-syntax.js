@@ -42,7 +42,7 @@ var loadData = function(linkText, sectionId, init) {
         success: function(data) {
             //Set the code to the container
             var highlightCode = hljs.highlightAuto;
-            $('#' + fileName + "-code > code").html(data);
+            $('#' + fileName + "-code > code").text(data);
 
             //Doing the syntax highlighting
             hljs.highlightBlock($('#' + fileName + "-code > code").get(0));
