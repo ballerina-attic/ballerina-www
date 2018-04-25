@@ -20,7 +20,7 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ### Ballerina by Guide
 
-[Ballerina by Guide](/learn/guides/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment and observability.
+[Ballerina by Guide](/learn/guides/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
 
 ### Editors, IDEs and the Ballerina Composer
 
@@ -28,7 +28,7 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ### How to Structure Ballerina Code
 
-[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, and install Ballerina packages and commands with repositories that are local and remote. It addresses the structure of programs, projects, and packages.
+[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, and install Ballerina packages and commands with repositories that are local and remote. 
 
 ### How to Extend Ballerina
 
@@ -47,7 +47,3 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 ### Package and API Documentation
 
 The [API Documentation](/learn/api-docs/?latest) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
-
-### Command Documentation
-
-The [Command Documentation](/learn/cli-commands/) includes a summary of all the commands available in Ballerina.
