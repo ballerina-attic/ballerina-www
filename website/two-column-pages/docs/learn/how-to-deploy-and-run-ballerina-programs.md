@@ -1,12 +1,14 @@
 # How to Deploy and Run Ballerina Programs
 
-One of the main goals of Ballerina is to empower the developer. This increasingly disrupts the developer’s flow around edit, build, test, and repeat.
+
+##Running Ballerina Programs & Services
+
+
+##Deploying Ballerina Programs & Services
 
 Ballerina has builder extensions that run after the compilation phase. These extensions analyze code to generate deployment artifacts and utilities to make deployment of your apps and services easier.
 
 When you start building a project, the system starts parsing. This is followed by dependency analysis, compilation, and a phase at which deployment artifact generation can take place.
-
-## Deployment Echo System
 
 These deployment artifacts can be a form of simple files or complex types, like container images, virtual images, etc. The Ballerina builder extension supports the following list of deployment artifacts.
 
@@ -14,22 +16,7 @@ These deployment artifacts can be a form of simple files or complex types, like 
 -   [Docker images](https://docs.docker.com/engine/reference/commandline/images/)
 -   [Kubernetes](http://kubernetes.io) artifacts
 
-Ballerina builder extension can be extended to support the following to generate deployment artifacts depending on your requirement. For more information on how to extend Ballerina, see [How to Extend Ballerina](https://ballerina.io/learn/how-to-extend-ballerina/).
-
--   Simple deployment [shell script](https://en.wikipedia.org/wiki/Shell_script)
--   [Vagrant](https://www.vagrantup.com/) files
--   [Puppet](https://puppet.com/) files
--   [Chef](https://www.chef.io/) files
--   [Ansible](https://www.ansible.com/) files
--   [Cloud Formation](https://aws.amazon.com/cloudformation/) scripts
--   [Virtual images](https://en.wikipedia.org/wiki/Virtual_image)
--   [Cloud Foundry](https://www.cloudfoundry.org/) artifacts
--   [DC/OS](https://dcos.io/) artifacts
-    
-
-## Enabling Deployment Options
-
-  
+### How to Enable Deployment Options
 
 A developer can enable deployment artifact generation by adding simple annotations to the code. The developer can choose one or more builder extensions within the code to generate these deployment artifacts by following three simple steps.
 
@@ -37,7 +24,7 @@ A developer can enable deployment artifact generation by adding simple annotatio
 2.  Add relevant annotation within the code. 
 3.  Build the Ballerina project
 
-### Docker-based Deployment
+#### Docker-based Deployment
 
 See the following example on how a developer can add Docker support in the code.
 
@@ -113,11 +100,9 @@ The following features are supported by current Docker builder extension.
 -   Copy file support.
     
 
-### Supported Annotations:
+#### Supported Annotations:
 
-## Supported Annotations:
-
-### @docker:Config{}
+#### @docker:Config{}
 - Supported with ballerina services or endpoints.
 
 |**Annotation Name**|**Description**|**Default value**|
@@ -135,7 +120,7 @@ The following features are supported by current Docker builder extension.
 |username|Username for docker registry|None|
 |password|Password for docker registry|None|
 
-### @docker:CopyFiles{}
+#### @docker:CopyFiles{}
 - Supported with ballerina services or endpoints.
 
 |**Annotation Name**|**Description**|**Default value**|
@@ -144,12 +129,12 @@ The following features are supported by current Docker builder extension.
 |target|target path (inside container)|None|
 |isBallerinaConf|flag whether file is a ballerina config file|false|
 
-### @docker:Expose{}
+#### @docker:Expose{}
 - Supported with ballerina endpoints.
 
 For more information, see the [Docker build extension github repo](https://github.com/ballerinax/docker).
 
-## Kubernetes Based Deployment
+### Kubernetes Based Deployment
 
 If you wish to see how container orchestration systems are supported by the builder extension, see [Kubernetes builder extension github repo](https://github.com/ballerinax/kubernetes).
   
@@ -166,9 +151,9 @@ The following functionalities are supported by Kubernetes builder extension.
 -   Kubernetes config map support.
 -   Kubernetes persistent volume claim support.
     
-## Supported Annotations:
+### Supported Annotations:
 
-### @kubernetes:Deployment{}
+#### @kubernetes:Deployment{}
 - Supported with ballerina services or endpoints.
 
 |**Annotation Name**|**Description**|**Default value**|
@@ -192,7 +177,7 @@ The following functionalities are supported by Kubernetes builder extension.
 |password|Password for the docker registry|null|
 |baseImage|Base image to create the docker image|ballerina/ballerina:latest|
 
-### @kubernetes:Service{}
+#### @kubernetes:Service{}
 - Supported with ballerina endpoints.
 
 |**Annotation Name**|**Description**|**Default value**|
@@ -202,7 +187,7 @@ The following functionalities are supported by Kubernetes builder extension.
 |serviceType|Service type of the service|ClusterIP|
 |port|Service port|Port of the ballerina service|
 
-### @kubernetes:Ingress{}
+#### @kubernetes:Ingress{}
 - Supported with ballerina endpoints.
 
 |**Annotation Name**|**Description**|**Default value**|
@@ -215,7 +200,7 @@ The following functionalities are supported by Kubernetes builder extension.
 |ingressClass|Ingress class|nginx
 |enableTLS|Enable ingress TLS|false
 
-### @kubernetes:HPA{}
+#### @kubernetes:HPA{}
 - Supported with ballerina services.
 
 |**Annotation Name**|**Description**|**Default value**|
@@ -226,7 +211,7 @@ The following functionalities are supported by Kubernetes builder extension.
 |maxReplicas|Maximum number of replicas|minReplicas+1|
 |cpuPrecentage|CPU percentage to start scaling|50|
 
-### @kubernetes:Secret{}
+#### @kubernetes:Secret{}
 - Supported with ballerina service.
 
 |**Annotation Name**|**Description**|**Default value**|
@@ -236,7 +221,7 @@ The following functionalities are supported by Kubernetes builder extension.
 |readOnly|Is mount read only|true|
 |data|Paths to data files|null|
 
-### @kubernetes:ConfigMap{}
+#### @kubernetes:ConfigMap{}
 - Supported with ballerina services.
 
 |**Annotation Name**|**Description**|**Default value**|
@@ -247,7 +232,7 @@ The following functionalities are supported by Kubernetes builder extension.
 |ballerinaConf|Ballerina conf file location|null|
 |data|Paths to data files|null|
 
-### @kubernetes:PersistentVolumeClaim{}
+#### @kubernetes:PersistentVolumeClaim{}
 - Supported with ballerina services.
 
 |**Annotation Name**|**Description**|**Default value**|
@@ -258,7 +243,7 @@ The following functionalities are supported by Kubernetes builder extension.
 |accessMode|Access mode|ReadWriteOnce|
 |volumeClaimSize|Size of the volume claim|null|
 
-### @kubernetes:Job{}
+#### @kubernetes:Job{}
 - Supported with ballerina main function.
 
 |**Annotation Name**|**Description**|**Default value**|
@@ -280,5 +265,9 @@ The following functionalities are supported by Kubernetes builder extension.
 |password|Password for the docker registry|null|
 |baseImage|Base image to create the docker image|ballerina/ballerina:latest|
   
-
 To learn more on how these builder extension annotations are used in real world scenarios, see the deployment section in [Ballerina by Guide](https://ballerina.io/learn/guides/).
+
+### Extend the Ballerina Build and Deployment
+
+Ballerina builder extension can be extended to support the following to generate deployment artifacts depending on your requirement. For more information on how to extend Ballerina, see [How to Extend Ballerina](https://ballerina.io/learn/how-to-extend-ballerina/).
+
