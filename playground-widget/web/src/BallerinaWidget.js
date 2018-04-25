@@ -83,9 +83,9 @@ class BallerinaWidget extends Component {
                     : undefined;
     const consoleHeight = this.state.curlVisible ? 140 : 168;
     return (
-    <Container className="ballerina-playground ballerina-editor">
+    <Container className="ballerina-playground">
       {sample &&
-      <div className="playground-widget">
+      <div className="playground-content">
         <Segment.Group className="header">
           <Segment
             className="sample-title"
