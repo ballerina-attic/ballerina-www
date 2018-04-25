@@ -354,7 +354,6 @@
                                 <pre id="asynchronous-shell" class="shell-display"></pre>
                                 <pre id="json-and-xml-shell" class="shell-display"></pre>
                                 <pre id="annotations-shell" class="shell-display"></pre>
-                                <pre id="statically-and-strongly-typed-shell" class="shell-display"></pre>
                                 <pre id="streams-shell" class="shell-display"></pre>
                             </div>
                         </div>

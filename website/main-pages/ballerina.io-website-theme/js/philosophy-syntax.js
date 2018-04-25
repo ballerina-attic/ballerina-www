@@ -22,7 +22,7 @@ var loadData = function(linkText, sectionId, init) {
         url: "../samples/" + fileName + "-shell.txt",
         method: "GET",
         success: function(data) {
-            $('#' + fileName + "-shell").html(data).show();
+            $('#' + fileName + "-shell").text(data).show();
         },
         error: function(data) {
             $('#' + fileName + "-shell").show();
