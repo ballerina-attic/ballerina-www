@@ -15,11 +15,13 @@
  */
 package org.ballerinalang.platform.playground.cache.responder;
 
+import com.google.gson.Gson;
 import org.ballerinalang.platform.playground.launcher.core.RunSession;
 import org.ballerinalang.platform.playground.utils.cache.CacheUtils;
 import org.ballerinalang.platform.playground.utils.cmd.CommandUtils;
 import org.ballerinalang.platform.playground.utils.cmd.dto.Command;
 import org.ballerinalang.platform.playground.utils.cmd.dto.RunCommand;
+import org.ballerinalang.platform.playground.utils.exception.mapper.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,6 +46,8 @@ public class CacheResponderService {
 
     private Map<String, RunSession> runSessionMap = new HashMap<String, RunSession>();
 
+    private Gson gson = new Gson();
+
     @OnOpen
     public void onOpen (Session session) {
         runSessionMap.put(session.getId(), new RunSession(session));
@@ -58,12 +62,12 @@ public class CacheResponderService {
             if (outputCacheID != null && CacheUtils.cacheExists(outputCacheID)) {
                 runSessionMap.get(session.getId()).processCommand(runCommand);
             } else {
-                session.getBasicRemote().sendText("{ error: \"No cache found for the request\" }");
+                session.getBasicRemote().sendText(gson.toJson(new ErrorResponse("No cache found for the request.")));
             }
         } else if (command.getCommand().equals("stop")) {
             runSessionMap.get(session.getId()).processCommand(command);
         } else {
-            session.getBasicRemote().sendText("{ error: \"Unsupported command\" }");
+            session.getBasicRemote().sendText(gson.toJson(new ErrorResponse("Unsupported command")));
         }
     }
 
@@ -75,6 +79,13 @@ public class CacheResponderService {
 
     @OnError
     public void onError(Throwable throwable, Session session) {
-        logger.error("Error occurred in run api" , throwable);
+        logger.error("Error occurred in launcher socket." , throwable);
+        ErrorResponse errorResponse = new ErrorResponse("Error occurred in remote server. Error: "
+                + throwable.getMessage());
+        try {
+            session.getBasicRemote().sendText(gson.toJson(errorResponse));
+        } catch (IOException e) {
+            logger.error("Error while sending back error details" , e);
+        }
     }
 }

@@ -16,30 +16,38 @@
 package org.ballerinalang.platform.playground.utils;
 
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 
 /**
  * Redis Client
  */
 public class RedisClient {
 
-    // Redis write instance
-    private Jedis master;
+    private static JedisPool pool;
 
-    // Redis read instance
-    private Jedis slave;
+    private static RedisClient instance;
 
-    public RedisClient() {
-        master = new Jedis(EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_HOST),
+    private RedisClient() {
+        pool = new JedisPool(new JedisPoolConfig(),
+                EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_WRITE_HOST),
                 EnvUtils.getRequiredEnvIntValue(EnvVariables.ENV_BPG_REDIS_WRITE_PORT));
-        slave = new Jedis(EnvUtils.getRequiredEnvStringValue(EnvVariables.ENV_BPG_REDIS_READ_HOST),
-                EnvUtils.getRequiredEnvIntValue(EnvVariables.ENV_BPG_REDIS_READ_PORT));
     }
 
-    public Jedis getWriteClient() {
-        return master;
+    public static RedisClient getInstance () {
+        if (instance == null) {
+            instance = new RedisClient();
+        }
+        return instance;
     }
 
-    public Jedis getReadClient() {
-        return slave;
+    public Jedis getClient() {
+        return pool.getResource();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        pool.close();
     }
 }

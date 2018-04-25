@@ -18,6 +18,7 @@ package org.ballerinalang.platform.playground.controller.persistence;
 
 import org.ballerinalang.platform.playground.utils.MemberConstants;
 import org.ballerinalang.platform.playground.utils.RedisClient;
+import redis.clients.jedis.Jedis;
 import redis.clients.jedis.ScanParams;
 import redis.clients.jedis.ScanResult;
 
@@ -37,25 +38,31 @@ public class RedisPersistence implements Persistence {
     private RedisClient redisClient;
 
     public RedisPersistence() {
-        redisClient = new RedisClient();
+        redisClient = RedisClient.getInstance();
     }
 
     @Override
     public void addFreeLaunchers(List<String> launcherUrls) {
         Map<String, String> launchers = launcherUrls.stream()
                 .collect(Collectors.toMap((url) -> url, (url) -> MemberConstants.MEMBER_STATUS_FREE));
-        redisClient.getWriteClient().hmset(CACHE_KEY_LAUNCHERS_LIST, launchers);
+        try (Jedis client = redisClient.getClient()) {
+            client.hmset(CACHE_KEY_LAUNCHERS_LIST, launchers);
+        }
     }
 
     @Override
     public void addFreeLauncher(String launcherUrl) {
-        redisClient.getWriteClient().hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, MemberConstants.MEMBER_STATUS_FREE);
+        try (Jedis client = redisClient.getClient()) {
+           client.hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, MemberConstants.MEMBER_STATUS_FREE);
+        }
     }
 
     @Override
     public void unregisterLauncher(String launcherUrl) {
-        if (redisClient.getReadClient().hexists(CACHE_KEY_LAUNCHERS_LIST, launcherUrl)) {
-            redisClient.getWriteClient().hdel(CACHE_KEY_LAUNCHERS_LIST, launcherUrl);
+        try (Jedis client = redisClient.getClient()) {
+            if (client.hexists(CACHE_KEY_LAUNCHERS_LIST, launcherUrl)) {
+                client.hdel(CACHE_KEY_LAUNCHERS_LIST, launcherUrl);
+            }
         }
     }
 
@@ -71,40 +78,50 @@ public class RedisPersistence implements Persistence {
 
     @Override
     public List<String> getTotalLauncherUrls() {
-        return new ArrayList<>( redisClient.getReadClient().hkeys(CACHE_KEY_LAUNCHERS_LIST));
+        try (Jedis client = redisClient.getClient()) {
+            return new ArrayList<>(client.hkeys(CACHE_KEY_LAUNCHERS_LIST));
+        }
     }
 
     @Override
     public boolean markLauncherAsFree(String launcherUrl) {
-        redisClient.getWriteClient().hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, MemberConstants.MEMBER_STATUS_FREE);
+        try (Jedis client = redisClient.getClient()) {
+            client.hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, MemberConstants.MEMBER_STATUS_FREE);
+        }
         return true;
     }
 
     @Override
     public boolean markLauncherAsBusy(String launcherUrl) {
-        redisClient.getWriteClient().hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, MemberConstants.MEMBER_STATUS_BUSY);
+        try (Jedis client = redisClient.getClient()) {
+            client.hset(CACHE_KEY_LAUNCHERS_LIST, launcherUrl, MemberConstants.MEMBER_STATUS_BUSY);
+        }
         return true;
     }
 
     @Override
     public boolean launcherExists(String launcherUrl) {
-        return redisClient.getReadClient().hexists(CACHE_KEY_LAUNCHERS_LIST, launcherUrl);
+        try (Jedis client = redisClient.getClient()) {
+            return client.hexists(CACHE_KEY_LAUNCHERS_LIST, launcherUrl);
+        }
     }
 
     private List<String> searchLaunchersByStatus(String status) {
         List<String> freeLaunchers = new ArrayList<>();
         String cursor = "";
         ScanParams params = new ScanParams();
-        while (!cursor.equals("0")) {
-            ScanResult<Map.Entry<String, String>> result
-                    = redisClient.getReadClient().hscan(CACHE_KEY_LAUNCHERS_LIST,
+        try (Jedis client = redisClient.getClient()) {
+            while (!cursor.equals("0")) {
+                ScanResult<Map.Entry<String, String>> result
+                        = client.hscan(CACHE_KEY_LAUNCHERS_LIST,
                         cursor.isEmpty() ? "0" : cursor, params);
-            cursor = result.getStringCursor();
-            result.getResult()
-                    .stream()
-                    .filter(entry -> entry.getValue().equals(status))
-                    .forEach(entry -> freeLaunchers.add(entry.getKey()));
+                cursor = result.getStringCursor();
+                result.getResult()
+                        .stream()
+                        .filter(entry -> entry.getValue().equals(status))
+                        .forEach(entry -> freeLaunchers.add(entry.getKey()));
+            }
+            return freeLaunchers;
         }
-        return freeLaunchers;
     }
 }

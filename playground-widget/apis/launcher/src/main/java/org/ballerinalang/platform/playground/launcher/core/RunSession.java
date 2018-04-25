@@ -280,6 +280,7 @@ public class RunSession {
     public synchronized void pushMessageToClient(Message status) {
         Gson gson = new Gson();
         String json = gson.toJson(status);
+        logger.info("Sending msg: " + json);
         try {
             if (getSourceFile() != null) {
                 json = json.replaceAll(getSourceFile().getFileName().toAbsolutePath().toString(),
@@ -383,7 +384,9 @@ public class RunSession {
         if (tryItPhase != null) {
             tryItPhase.terminate(this);
         }
-        LauncherUtils.markNodeAsFree();
+        if (!EnvUtils.getEnvBooleanValue(EnvVariables.ENV_IS_LAUNCHER_CACHE, false)) {
+            LauncherUtils.markNodeAsFree();
+        }
     }
 
     private void createSourceFile() {

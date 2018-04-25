@@ -30,6 +30,8 @@ import io.fabric8.kubernetes.api.model.PodSpec;
 import io.fabric8.kubernetes.api.model.PodSpecBuilder;
 import io.fabric8.kubernetes.api.model.PodTemplateSpec;
 import io.fabric8.kubernetes.api.model.PodTemplateSpecBuilder;
+import io.fabric8.kubernetes.api.model.Quantity;
+import io.fabric8.kubernetes.api.model.ResourceRequirementsBuilder;
 import io.fabric8.kubernetes.api.model.Service;
 import io.fabric8.kubernetes.api.model.ServiceBuilder;
 import io.fabric8.kubernetes.api.model.ServiceList;
@@ -108,9 +110,25 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
         launcherContainer.setPorts(containerPorts);
 
+        String cpuLimit = EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_LAUNCHER_CPU_LIMIT,
+                Constants.DEFAULT_CPU_LIMIT);
+        String cpuRequest = EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_LAUNCHER_CPU_REQUEST,
+                Constants.DEFAULT_CPU_REQUEST);
+        Map<String, Quantity> limits = new HashMap<>();
+        limits.put(Constants.CPU_RESOURCE, new Quantity(cpuLimit));
+
+        Map<String, Quantity> requests = new HashMap<>();
+        limits.put(Constants.CPU_RESOURCE, new Quantity(cpuRequest));
+
+        ResourceRequirementsBuilder resourceRequirementsBuilder = new ResourceRequirementsBuilder();
+        resourceRequirementsBuilder.withLimits(limits);
+        resourceRequirementsBuilder.withRequests(requests);
+        launcherContainer.setResources(resourceRequirementsBuilder.build());
+
         // Volume mount to container
         List<VolumeMount> volumeMounts = new ArrayList<>();
-        VolumeMount nfsVolumeMount = new VolumeMount("/mnt/build/cache", "nfs-build-cache", false, "");
+        VolumeMount nfsVolumeMount = new VolumeMount("/mnt/build/cache", "nfs-build-cache",
+                false, "");
         volumeMounts.add(nfsVolumeMount);
 
         launcherContainer.setVolumeMounts(volumeMounts);

@@ -26,6 +26,7 @@ import org.ballerinalang.platform.playground.controller.service.ControllerServic
 import org.ballerinalang.platform.playground.controller.service.ControllerServiceManager;
 import org.ballerinalang.platform.playground.controller.util.Constants;
 import org.ballerinalang.platform.playground.utils.EnvUtils;
+import org.ballerinalang.platform.playground.utils.exception.mapper.CatchAllExceptionMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.msf4j.MicroservicesRunner;
@@ -94,6 +95,7 @@ public class ControllerRunner {
                 ControllerServiceManager serviceManager = new ControllerServiceManager(clusterManager);
                 MicroservicesRunner microservicesRunner = new MicroservicesRunner();
                 microservicesRunner.deploy(new ControllerService(serviceManager));
+                microservicesRunner.addExceptionMapper(new CatchAllExceptionMapper());
                 microservicesRunner.start();
 
                 break;

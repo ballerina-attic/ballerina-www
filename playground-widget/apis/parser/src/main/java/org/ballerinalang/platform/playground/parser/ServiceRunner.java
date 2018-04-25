@@ -15,6 +15,7 @@
  */
 package org.ballerinalang.platform.playground.parser;
 
+import org.ballerinalang.platform.playground.utils.exception.mapper.CatchAllExceptionMapper;
 import org.wso2.msf4j.MicroservicesRunner;
 
 /**
@@ -25,6 +26,7 @@ public class ServiceRunner {
     public static void main(String[] args) {
         MicroservicesRunner microservicesRunner = new MicroservicesRunner();
         microservicesRunner.deploy(new ParserService());
+        microservicesRunner.addExceptionMapper(new CatchAllExceptionMapper());
         microservicesRunner.start();
     }
 }

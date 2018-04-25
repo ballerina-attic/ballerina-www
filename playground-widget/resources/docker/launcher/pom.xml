@@ -84,10 +84,25 @@
                         </goals>
                         <configuration>
                             <target name="Copy other resource files">
-                                <copy todir="${basedir}">
+                                <copy todir="${basedir}/resources/data-service/">
                                     <fileset
-                                            dir="${basedir}/../../../web/guides/playground-data-service/src">
+                                            dir="${playground.guides.dir}/playground-data-service/src">
                                         <include name="*.db"/>
+                                        <include name="*.conf"/>
+                                    </fileset>
+                                </copy>
+                                <copy todir="${basedir}/services/src">
+                                    <fileset
+                                            dir="${playground.guides.dir}/playground-async-invocation/src/">
+                                        <include name="stock_quote_service.bal"/>
+                                    </fileset>
+                                    <fileset
+                                            dir="${playground.guides.dir}/playground-external-service/src">
+                                        <include name="backend_time_service.bal"/>
+                                    </fileset>
+                                    <fileset
+                                            dir="${playground.guides.dir}/playground-circuit-breaker/src/">
+                                        <include name="legacy_service.bal"/>
                                     </fileset>
                                 </copy>
                             </target>
@@ -97,4 +112,7 @@
             </plugin>
         </plugins>
     </build>
+    <properties>
+        <playground.guides.dir>${basedir}/../../../web/guides</playground.guides.dir>
+    </properties>
 </project>
