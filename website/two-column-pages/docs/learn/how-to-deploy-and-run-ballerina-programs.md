@@ -25,7 +25,7 @@ Standalone source code can be compiled using below command. It create linked bin
 ballerina build [-sourceroot] a/b/c/foo.bal [-o outputfilename.balx]
 ```  
 
-Following command will run the compiled binary balx file.
+Following command run the binary balx file.
 
 ```bash
 ballerina run filename.balx
