@@ -8,7 +8,7 @@ This approach makes it unnecessary for developers to review best practice coding
 
 A taint analysis mechanism is used to achieve this.
 
-Parameters in function calls can be designated as security-sensitive. The compiler will generate an error if you pass untrusted data into a security-sensitive parameter:
+Parameters in function calls can be designated as security-sensitive. The compiler will generate an error if you pass untrusted data (tainted data) into a security-sensitive parameter:
 
 
 ```
@@ -17,7 +17,7 @@ tainted value passed to sensitive parameter 'sqlQuery'
 
 We require developers to explicitly mark all values passed into security-sensitive parameters as "trusted". This explicit check forces developers and code reviewers to verify that the values being passed into the parameter are not vulnerable to a security violation.
 
-Ballerina standard library makes sure untrusted data cannot be used with security sensitive parameters such as file name, file paths, permission flags, SQL queries, request URLs and configuration keys, preventing  vulnerabilities, including:
+Ballerina standard library makes sure untrusted data cannot be used with security sensitive parameters such as SQL queries, file paths, file name, permission flags, request URLs and configuration keys, preventing  vulnerabilities, including:
 
 * SQL Injection
 * Path Manipulation
@@ -26,7 +26,7 @@ Ballerina standard library makes sure untrusted data cannot be used with securit
 * Unvalidated Redirect (Open Redirect)
 
 ### Ensuring security of Ballerina standard libraries
-Security sensitive functions and actions of Ballerina standard libraries are decorated with  `@sensitive` parameter annotation that denotes untrusted (tainted) data should not be passed to the parameter. For example, `sqlQuery` parameter of `ballerina/sql`, `select` action.
+Security sensitive functions and actions of Ballerina standard libraries are decorated with  `@sensitive` parameter annotation that denotes untrusted data (tainted data) should not be passed to the parameter. For example, `sqlQuery` parameter of `ballerina/sql`, `select` action.
 
 ```ballerina
 public native function select (@sensitive string sqlQuery, (typedesc|()) recordType,
@@ -75,9 +75,11 @@ Command-line arguments to Ballerina programs and inputs received through service
 
 For example, the select action of the SQL client connector highlighted above returns a `@tainted table`, which means any value read from a database is considered untrusted.
 
+If return was not explicitly annotated, Ballerina will infer the tainted status of the return by analyzing how tainted status of parameters affect tainted status of the return.
+
 ### Securely using tainted data with security sensitive parameters
 
-There can be certain situations where a tainted value must be passed into a security sensitive parameter. In such situations, it is essential to do proper data validation or data sanitization to make sure input does not result in a security threat. Once proper controls are in place, "untaint" unary expression can be used to denote that the proceeding value is trusted:
+There can be certain situations where a tainted value must be passed into a security sensitive parameter. In such situations, it is essential to do proper data validation or data sanitization to make sure input does not result in a security threat. Once proper controls are in place, `untaint` unary expression can be used to denote that the proceeding value is trusted:
 
 ```ballerina
 // Execute select query using the untrusted (tainted) student ID
