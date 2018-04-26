@@ -17,12 +17,12 @@ This section focuses on enabling Ballerina service observability with some out o
 Ballerina logs can be fed to any external log monitoring system like Elastic Stack to perform log monitoring and 
 analysis.
 
-**Pre-requisites**
+### Pre-requisites
 
 Make sure you have already installed [Docker](https://www.docker.com/) to setup external products such as Jaeger,
 Prometheus, etc. You can follow [official documentation](https://docs.docker.com/install/) to install Docker.
 
-**Steps**
+### Steps
 
 **Step 1:** Install and configure Prometheus, Grafana, Jeager to Observe Ballerina 
 
@@ -154,7 +154,7 @@ Therefore, it is imperative to continuously measure the code in production.
 Metrics, by default, supports Prometheus. In order to support Prometheus, an HTTP endpoint starts with the context
 of `/metrics` in default port 9797 when starting the Ballerina program.
 
-### Advance metrics configuration for Ballerina
+### Advanced metrics configuration for Ballerina
 This section focuses on the Ballerina configurations that are available for metrics monitoring with Prometheus,
 and the sample configuration is provided below.
 
@@ -271,7 +271,7 @@ Ballerina supports [OpenTracing](http://opentracing.io/) standards out of the bo
 can be traced using OpenTracing implementations like [Jaeger](http://www.jaegertracing.io/), and
 [Zipkin](https://zipkin.io/). Jaeger is the default tracer of Ballerina.
 
-### Advance tracing configuration for Ballerina
+### Advanced tracing configuration for Ballerina
 
 Tracing can be enabled in Ballerina with `--observe` flag as mentioned in the [Getting Started](#getting-started) section, as well as configuration option. This section mainly focuses on the configuration options with description and possible values.
 
