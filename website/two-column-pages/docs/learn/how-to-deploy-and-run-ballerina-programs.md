@@ -413,7 +413,7 @@ kubectl apply -f ./kubernetes/
 
 ```
 You can verify that the docker image that we specified in @kubernetes:Deployment is created, by using `docker images` command.
-Also the Kubernetes artifacts related our service, will be generated in addition to balx.
+Also the Kubernetes artifacts related your service, will be generated in addition to balx.
 
 ```bash
 $ tree
