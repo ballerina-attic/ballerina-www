@@ -391,7 +391,7 @@ trust-store-passoword = "xyz123"
 ```
 
 
-Here you have use @kubernetes:Deployment to specify the docker image name which will be created as part of building this service. CopyFiles field is used to copy the MySQL jar file into the ballerina bre/lib folder.
+Here we have used @kubernetes:Deployment to specify the docker image name which will be created as part of building this service. CopyFiles field is used to copy the MySQL jar file into the ballerina bre/lib folder.
 
 @kubernetes:Service {} will create a Kubernetes service which will expose the Ballerina service that is running on a Pod.
 
