@@ -56,11 +56,10 @@ The `<package>` is the name of the package which is the same as the directory na
 ## Configuring Your Ballerina Runtimes
 
 ### Ballerina Runtime Configuration Files
-TODO: SECTION ON ballerina.conf, how it is found, how it is loaded, and how to find out what params you can configure
-zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 
-TODO THIS IS SOME STUFF THAT I FOUND BELOW THAT PROBABLY BELONGS HERE
-To explicitly specify a configuration file, use either the `--config` or the `-c` flag. The path to the configuration file can be either an absolute or a relative path. If this flag is not set, Ballerina looks for a `ballerina.conf` file in the directory in which the source files are located.
+Ballerina runtime can be configured using configuration parameters. Configuration parameters are arbitrary key/value pairs with structure. The `ballerina/config` package provides an API for sourcing configuration parameters and using them within source code. Refer [Config API Documentation](https://stage.ballerina.io/learn/api-docs/ballerina/config.html).
+
+The configuration APIs accept a key and an optional default value. If a mapping does not exist for the specified key, the default value is returned as the configuration value. The default values of these optional configurations are the default values of the return types of the functions.
 
 ### Sourcing Parameters Into Ballerina Programs
 Configuration parameters for your programs and apps cna be defined on the CLI, as an environment variable, or from a configuration file, with loading and override precedence in the same order.
@@ -70,11 +69,64 @@ Configuration parameters are arbitrary key/value pairs with structure. The `ball
 The configuration APIs accept a key and an optional default value. If a mapping does not exist for the specified key, the default value is returned as the configuration value. The default values of these optional configurations are the default values of the return types of the functions.
 
 #### Sourcing CLI Parameters
-TODO: Need an example of setting CLI and reading it in app
+Consider following example which reads ballerina config value and print it.
+
+```ballerina
+import ballerina/io;
+import ballerina/config;
+
+function main(string... args) {
+  string name = config:getAsString("hello.user.name");
+  io:println("Hello, " + name + " !");
+}
+```
+
+The config key is `hello.user.name`. To pass a value to this config from CLI we can run following command. The `-e` argument passes the key and value to the program.
+```bash
+ballerina run main.bal -e hello.user.name=Ballerina
+Hello, Ballerina !
+```
+
 #### Sourcing Environment Parameters
-TODO: Need an example of setting an environment variable on CLI and reading it in app
+The value can be passed as an environment variable as well. Here as the value we are passing the name of environment variable with `@env:{}` syntax.
+
+```bash
+export NAME=Ballerina
+ballerina run main.bal -e hello.user.name=@env:{NAME}
+Hello, Ballerina !
+```
+
 #### Sourcing Configuration Values
-TODO: Need an example of getting a configuration value from a file and reading it in app
+
+The value can be passed as a config file as well. A configuration file should conform to the [TOML](https://github.com/toml-lang/toml) format. Ballerina only supports the following features of TOML: value types (string, int, float and boolean), tables and nested tables. Given below is a sample ballerina.conf:
+
+```toml
+[hello.user]
+name="Ballerina"
+```
+
+When running a program with config api lookups, Ballerina looks for a `ballerina.conf` file in the directory in which the source files are located.
+
+If ballerina.conf resides in the same directory as main.bal, `balllerina run` can be used without any arguement.
+```bash
+ballerina run main.bal
+Hello, Ballerina !
+```
+To explicitly specify a configuration file, use either the `--config` or the `-c` flag. The path to the configuration file can be either an absolute or a relative path. 
+```bash
+ballerina run main.bal -c ../../ballerina.conf
+Hello, Ballerina !
+
+ballerina run main.bal --config ../../ballerina.conf
+Hello, Ballerina !
+
+ballerina run main.bal -c /Users/anuruddha/Desktop/ballerina.conf
+Hello, Ballerina !
+
+ballerina run main.bal --config /Users/anuruddha/Desktop/ballerina.conf
+Hello, Ballerina !
+```
+
 
 #### Configure Secrets as Configuration Items
 Ballerina provides support for encrypting sensitive data such as passwords and allows access to them securely through the configuraiton API in the code.
