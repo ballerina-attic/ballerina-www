@@ -343,4 +343,11 @@ $(document).ready(function() {
         });
     });
 
+  //disable enter key in searchbox
+  $('#form-control').on('keypress', function(event) {
+      if (event.which === 13) {
+          event.preventDefault();
+      }
+  });
+
 });
