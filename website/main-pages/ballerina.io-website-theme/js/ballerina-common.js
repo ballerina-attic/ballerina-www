@@ -123,7 +123,8 @@ if (typeof hljs === 'object') {
                 "b": "@[A-Za-z]+"
             }, {
                 "cN": "type",
-                "b": "(?<![a-zA-Z0-9])(int|float|boolean|string|blob|map|jsonOptions|json|xml|table|stream|any|typedesc|type|future|var|error)(?![a-zA-Z0-9])",
+                "b": "\\b(int|float|boolean|string|blob|map|jsonOptions|json|xml|table|stream|any|typedesc|type|future|var|error)\\b",
+                "r": 0
             }]
         };
     });

@@ -8,12 +8,15 @@ we search for a file "rest-services-run.txt" file as well
 */
 var lineHeight = 18;
 var topPadding = 4;
-var codeOutputBoxOffset = 7;
+var codeBoxOffset = 2;
+var codeOutputBoxOffset = 5;
 var editor = null,
     editorRun = null;
 
 var loadData = function(linkText, sectionId, init) {
     var fileName = linkText.toLowerCase().replace(/\s/g, "-");
+    var codeBlockBgColor = (sectionId == 'integration') ? '#fff' : '#f5f6f6';
+
     $('#' + sectionId + ' .text-display').hide();
     $('#' + sectionId + ' .shell-display').hide();
     $('#' + sectionId + ' .code-block').hide();
@@ -31,7 +34,7 @@ var loadData = function(linkText, sectionId, init) {
 
     $('#' + fileName + "-text").show();
     $('#' + fileName + "-code").show().attr('style', 'display: flex;' +
-        'background: #fff; ' +
+        'background: ' + codeBlockBgColor + '; ' +
         'border-radius: 0; ' +
         'margin-bottom: 0');
     $('#' + fileName + "-code > code").show().attr('style', 'white-space:pre; width: 100%;');
@@ -74,7 +77,7 @@ var loadData = function(linkText, sectionId, init) {
                 $('#' + fileName + '-text ' + '.hTrigger').each(function(i, n) {
                     var startLine = $(this).attr('data-startLine');
                     var endLine = $(this).attr('data-endLine');
-                    var overlayStartPosition = topPadding + (startLine - 1) * lineHeight + 30;
+                    var overlayStartPosition = topPadding + (startLine - 1) * lineHeight + 30 + codeBoxOffset;
                     var overlayHeight = (endLine - (startLine - 1)) * lineHeight;
                     var topPosition = overlayStartPosition;
                     var hightLighterPosition = topPosition;
@@ -134,13 +137,13 @@ $(document).ready(function() {
     //Load data on page load
     loadData($('#nativeLanguage li.first').text(), 'nativeLanguage', false);
     loadData($('#integration li.first').text(), 'integration', false);
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
         var target = $(e.target).attr("href") // activated tab
-        if( target === "#3b"){
+        if (target === "#3b") {
             $('#type-system-code .line-numbers-wrap').remove();
             loadData('type-system', 'dummyXoXo', false);
         }
-      });
+    });
 });
 
 $(document).ready(function() {
