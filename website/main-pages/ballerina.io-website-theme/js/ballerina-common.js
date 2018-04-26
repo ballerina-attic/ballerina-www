@@ -1,15 +1,15 @@
 function subscribeUser(email) {
     $('#subscribeUserMessage').remove("");
     if (email == "") {
-        $("#emailUser").attr("placeholder","Please enter your email");
+        $("#emailUser").attr("placeholder", "Please enter your email");
     } else if (!isEmail(email)) {
         $("#emailUser").val("");
-        $("#emailUser").attr("placeholder","Please enter a valid email");
+        $("#emailUser").attr("placeholder", "Please enter a valid email");
 
     } else {
         $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl9799e?email=" + email + "'></iframe>");
         $("#emailUser").val("");
-        $("#emailUser").attr("placeholder","Your email address has been added");
+        $("#emailUser").attr("placeholder", "Your email address has been added");
     }
     return;
 }
@@ -344,11 +344,26 @@ $(document).ready(function() {
         });
     });
 
-  //disable enter key in searchbox
-  $('#form-control').on('keypress', function(event) {
-      if (event.which === 13) {
-          event.preventDefault();
-      }
-  });
+    //disable enter key in searchbox
+    $('#form-control').on('keypress', function(event) {
+        if (event.which === 13) {
+            event.preventDefault();
+        }
+    });
+
+    $('a[href^="http://www.youtube.com/watch?"]').each(function(i, elem) {
+        /*
+         * Use below example code block in markdown files and replace <your-video-id> with video ID which on youtube URL
+         * 
+         * <a href="http://www.youtube.com/watch?feature=player_embedded&v=<your-video-id>" target="_blank">
+         *     <img src="http://img.youtube.com/vi/<your-video-id>/0.jpg" alt="Ballerina: How it all started" width="480" height="360" border="10" />
+         * </a>
+         */
+        var $iframe = $('<iframe width="' + $('img', elem).attr('width') + '" ' +
+            'height="' + $('img', elem).attr('height') + '" ' +
+            'src="https://www.youtube.com/embed/' + getUrlVars($(elem).attr('href')).v + '" ' +
+            'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+        $(elem).replaceWith($iframe);
+    });
 
 });
