@@ -482,13 +482,11 @@ password="@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}"
 scopes="hello"
 ```
 
-Restart the service using the following command.
+Restart the service using the following command. Since passwords are encrypted, the Config API will request for the decryption key. Use 'ballerina' as the decryption key in this sample.
 
 ```
 ballerina run --config sample-users.toml basic_auth_sample.bal
 ```
-
-Since passwords are encrypted, the Config API will request for the decryption key. Use 'ballerina' as the decryption key in this sample. 
 
 Once service is restarted with the configuration file in place, 'generalUser' will not be able to invoke the service due to authorization failure:
 
