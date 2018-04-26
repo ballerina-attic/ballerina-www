@@ -1,49 +1,49 @@
 # Learn Ballerina
 
-Ballerina is a general purpose, concurrent and strongly typed programming language with both textual and graphical syntaxes, optimized for integration. It is designed to make it easier to write programs that integrate with data sources, services, and network-connected APIs of all kinds. 
+Ballerina is a simple programming language whose syntax and runtime address the hard problems of integration and is designed to be integration simple. Based around the interactions of sequence diagrams, Ballerina has built-in support for common integration patterns and connectors, including distributed transactions, compensation, and circuit breakers.
 
-Although Ballerina is optimized primarily for such programs, it can be used to program anything. However, it is recommended to use Ballerina if a significant portion of the program is related to integrating with data sources, services, or network-connected APIs.
+## Installation
 
-## Getting Started
+### Getting Started
 
-The Getting Started section includes instructions on how to download Ballerina and install the tools that come along with it. This also includes system requirements, details on how to test your installation, and instructions on how to uninstall Ballerina.
+The [Getting Started](/learn/getting-started/) section includes instructions on how to download Ballerina and install the tools that come along with it. This also includes system requirements and instructions on how to uninstall Ballerina.
 
-## Quick Tour
+## Learning Ballerina
 
-The [Quick Tour](https://github.com/ballerina-lang/ballerina/blob/master/docs/quick-tour.md) gives you instructions on how to start Ballerina, run a simple code, and get a response within seconds. It also introduces the means to quickly get started and take Ballerina for its first spin.
+### Quick Tour
 
-## Ballerina by Example
+The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ballerina, run a simple code, and get a response within seconds. It also introduces the means to quickly get started and take Ballerina for its first spin.
 
-[Ballerina by Example](/learn/by-example/) is one of the easiest ways to learn Ballerina. This consists of a series of example programs that provide annotations alongside the code for guidance on how to use the example.
+### Ballerina by Example
 
-## Ballerina by Guide
+[Ballerina by Example](/learn/by-example/) teaches you the language incrementally with commented examples that cover every nuance of our syntax.
 
-Ballerina by Guide is a series of long form examples that showcase a complete lifecycle of development with Ballerina including setting up the environment, using tools, build system, authoring code, running tests, and deploying within an architecture environment. Guides illustrate collaboration across multiple Ballerina Platform components, such as the language and the API gateway for example. Each guide exists in a separate repository of its own in a dedicated organization.
+### Ballerina by Guide
 
-## How to Structure Ballerina Code
+[Ballerina by Guide](/learn/guides/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
 
-The How to Structure Ballerina Code topic expands on the structure of programs, directories, packages, and repositories.
+### Editors, IDEs and the Ballerina Composer
 
-## Editors, IDEs and the Ballerina Composer
+<a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md" target="_blank">Editors, IDEs and the Ballerina Composer</a> is a topic that introduces you to several tools that can help create, document, and test your code. These tools can be various editors, IDEs, and a graphical visualization tool for your code called the Ballerina Composer.
 
-[Editors, IDEs and the Ballerina Composer](https://github.com/ballerina-lang/ballerina/blob/master/docs/tools-ides-ballerina-composer.md) is a topic that introduces you to several tools that can help create, document, and test your code. These tools can be various editors, IDEs, and a graphical visualization tool for your code called the Ballerina Composer.
+### How to Structure Ballerina Code
 
-## Language Specification
+[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, and install Ballerina packages and commands with repositories that are local and remote. 
 
-The Language Specification is a set of documents that explain more about the inner workings of the Ballerina language itself.  
+### How to Extend Ballerina
 
-## Command Documentation
+[How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and package these customizations for use by others.
 
-The Command Documentation includes a summary of all the commands available in Ballerina and provides links to each command in GitHub.
+### How to Write Secure Ballerina Programs
 
-## Package and API Documentation
+[How to Write Secure Ballerina Programs](/learn/how-to-write-secure-ballerina-code/) provides guidelines on writing secure Ballerina programs, while demonstrating different security features and controls available within Ballerina.
 
-The [API Documentation](https://ballerinalang.org/docs/api/0.964.0/) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
+### How to Observe Ballerina Programs
 
-## Articles 
+[How to Observe Ballerina Code](/learn/how-to-observe-ballerina-code/) instructs you on how to use logging, metrics, and tracing to observe Ballerina programs.
 
-There are various [articles](https://blog-stage.ballerina.io/) available that are written about various aspects of Ballerina. These can help you learn more.
+## Reference Documentation
 
-## Talks 
+### Package and API Documentation
 
-There are talks available about Ballerina in our [video channel](https://www.youtube.com/channel/UCBMvET-T1YshLrJRLpuKJ5g).
+The [API Documentation](/learn/api-docs/?latest) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.

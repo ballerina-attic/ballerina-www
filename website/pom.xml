@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.ballerinalang.platform</groupId>
         <artifactId>ballerina-www-parent</artifactId>
-        <version>0.970.0-alpha1-SNAPSHOT</version>
+        <version>0.8-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>ballerina-io-website</artifactId>
@@ -34,35 +34,29 @@
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-tools</artifactId>
             <type>zip</type>
-            <version>${ballerina.version}</version>
+            <version>${ballerina.release.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-examples</artifactId>
             <type>zip</type>
-            <version>${ballerina.version}</version>
+            <version>${ballerina.bbe.release.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-api-docs</artifactId>
             <type>zip</type>
-            <version>${ballerina.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ballerinalang.platform</groupId>
             <artifactId>ballerina-playground-widget</artifactId>
             <type>zip</type>
-            <version>${ballerina.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ballerinalang.platform</groupId>
             <artifactId>ballerina-blog</artifactId>
-            <type>zip</type>
-            <version>${ballerina.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ballerinalang.guides</groupId>
-            <artifactId>playground-hello-service</artifactId>
             <type>zip</type>
             <version>${ballerina.version}</version>
         </dependency>
@@ -94,26 +88,6 @@
                             <stripVersion>true</stripVersion>
                         </configuration>
                     </execution>
-                    <execution>
-                        <id>unpack-guides</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>unpack-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <includeArtifactIds>
-                                playground-hello-service
-                            </includeArtifactIds>
-                            <outputDirectory>
-                                ${project.build.directory}/dependencies/guides
-                            </outputDirectory>
-                            <overWriteReleases>false</overWriteReleases>
-                            <overWriteSnapshots>true</overWriteSnapshots>
-                            <useSubDirectoryPerArtifact>false</useSubDirectoryPerArtifact>
-                            <stripClassifier>true</stripClassifier>
-                            <stripVersion>true</stripVersion>
-                        </configuration>
-                    </execution>
                 </executions>
             </plugin>
             <plugin>
@@ -130,38 +104,32 @@
                         <configuration>
                             <target name="Copy BBE and Guide files">
                                  <copy todir="${bbe.source.dir}">
-                                    <fileset 
-                                    dir="${project.build.directory}/dependencies/ballerina-examples-${ballerina.version}">
-                                        <include name="**/*.*"/>
-                                    </fileset>
-                                </copy>
-                                <copy todir="${guides.source.dir}/playground">
-                                    <fileset 
-                                    dir="${project.build.directory}/dependencies/guides/playground-hello-service-${ballerina.version}">
+                                    <fileset
+                                    dir="${project.build.directory}/dependencies/ballerina-examples-${ballerina.bbe.release.version}">
                                         <include name="**/*.*"/>
                                     </fileset>
                                 </copy>
                                 <copy todir="${guides.source.dir}">
-                                    <fileset 
+                                    <fileset
                                     dir="${basedir}/tools/guides">
                                         <include name="**/*.*"/>
                                     </fileset>
                                 </copy>
                                 <copy todir="${webroot.dir}/playground">
-                                    <fileset 
-                                        dir="${project.build.directory}/dependencies/ballerina-playground-widget-${ballerina.version}">
+                                    <fileset
+                                        dir="${project.build.directory}/dependencies/ballerina-playground-widget-${project.version}">
                                         <include name="**/*.*"/>
                                         <exclude name="**/*.map" />
                                     </fileset>
                                 </copy>
                                 <copy todir="${webroot.dir}/learn/api-docs">
-                                    <fileset 
-                                        dir="${project.build.directory}/dependencies/ballerina-api-docs-${ballerina.version}">
+                                    <fileset
+                                        dir="${project.build.directory}/dependencies/ballerina-api-docs-${project.version}">
                                         <include name="**/*.*"/>
                                     </fileset>
                                 </copy>
                                 <copy todir="${webroot.dir}/blog">
-                                    <fileset 
+                                    <fileset
                                         dir="${project.build.directory}/dependencies/ballerina-blog-${ballerina.version}">
                                         <include name="**/*.*"/>
                                     </fileset>
@@ -252,6 +220,20 @@
                             </arguments>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>build-search-json</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <executable>python</executable>
+                            <arguments>
+                                <argument>tools/search/search-generator.py</argument>
+                                <argument>${webroot.dir}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
@@ -279,7 +261,7 @@
     </build>
     <properties>
         <bbe.source.dir>${project.build.directory}/sources/examples</bbe.source.dir>
-        <guides.source.dir>${project.build.directory}/sources/guides</guides.source.dir>
+        <guides.source.dir>${basedir}/guides</guides.source.dir>
         <webroot.dir>${project.build.directory}/webroot</webroot.dir>
         <bbe.site.dir>${webroot.dir}/learn/by-example</bbe.site.dir>
         <guides.site.dir>${webroot.dir}/learn/guides</guides.site.dir>

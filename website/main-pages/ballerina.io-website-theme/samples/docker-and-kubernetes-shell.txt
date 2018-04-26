@@ -1,0 +1,23 @@
+$ ballerina build demo.bal
+@docker                                  - complete 3/3
+@kubernetes:Deployment                   - complete 1/1
+@kubernetes:Service                      - complete 1/1
+
+Run following command to deploy kubernetes artifacts:
+kubectl apply -f /Users/user/proj/kubernetes/
+
+$ kubectl apply -f /Users/user/proj/kubernetes/
+deployment "ballerina-demo" created
+service "ballerina-demo" created
+
+$ kubectl get pods
+NAME                              READY     STATUS    RESTARTS   AGE
+ballerina-demo-74b6fb687c-mbrq2   1/1       Running   0          10s
+
+$ kubectl get svc
+NAME             TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)  AGE
+ballerina-demo   NodePort    10.98.238.0   <none>        9090:31977/TCP  24s
+kubernetes       ClusterIP   10.96.0.1     <none>        443/TCP  2d
+
+$ curl -X POST  http://localhost:31977/demo
+Hello World!

@@ -3,8 +3,12 @@
 ## setting up for development
 
 1. `git clone https://github.com/ballerina-platform/ballerina-www.git`
-2. `git submodule init`
-3. `git submodule update`
+2. `git submodule update --init --recursive`
+3. `sudo easy_install pip`
+4. `sudo pip install mkdocs`
+5. `sudo pip install bs4`
+6. `sudo pip install lxml`
+7. `mvn clean install`
 
 ## starting widget in development server
 

@@ -1,0 +1,10 @@
+ballerina run test.balx
+ballerina: initiating service(s) in 'test.balx'
+ballerina: started HTTP/WS server connector 0.0.0.0:9090
+
+curl -X POST -d '{"year":2019}'  http://localhost:9090/payment
+{"name":"","cardnumber":"","month":0,"year":2019,"cvc":0}
+
+curl -X POST -d '{"year":"twenty-ten"}'  http://localhost:9090/payment
+cannot convert 'json' to type 'Payment': error while mapping 'year': 
+incompatible types: expected 'int', found 'string' in json

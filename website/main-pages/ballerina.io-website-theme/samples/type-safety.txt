@@ -1,0 +1,40 @@
+struct person {
+    string fname;
+    string lname;
+    int age;
+}
+
+struct movie {
+    string title;
+    string year;
+    string released;
+    person writer;
+}
+
+endpoint http:ServiceEndpoint listener {
+    port:9090
+};
+
+service<http:Service> movies bind listener{
+    @http:ResourceConfig{
+        path : "/add",
+        methods : ["POST"]
+    }
+    add (endpoint caller, http:Request request) {
+        http:Response res = {};
+        // Try to retrieve parameters
+        var  payload = request.getJsonPayload();
+        // Different handling depending on whether we got a JSON or not
+        match payload {
+            movie mv => {
+                // your normal logic goes here
+                // you can be sure that the JSON got retrieved
+                // and it complies with the schema of the movie struct
+            }
+            error | null err => {
+                // your error-handling logic goes here
+            }
+        }    
+        _ = caller -> respond (res);
+    }
+}
