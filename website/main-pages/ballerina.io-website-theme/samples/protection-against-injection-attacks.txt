@@ -1,3 +1,4 @@
+// protection against injection attacks
 service<http:Service> tweeter bind {port:9090} {
    postMethod (endpoint caller, http:Request req) {
         // data coming over the wire is 
