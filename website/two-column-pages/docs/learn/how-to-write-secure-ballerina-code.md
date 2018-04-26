@@ -1,20 +1,23 @@
-# How to Write Secure Ballerina Programs 
+# How to Write Secure Ballerina Programs
 
-This document demonstrates different security features and controls available within Ballerina, and serves the purpose of providing guidelines on writing secure Ballerina programs. 
+This document demonstrates different security features and controls available within Ballerina, and serves the purpose of providing guidelines on writing secure Ballerina programs.
 
 ## Secure by Design
 
-Unlike any other programming language, Ballerina is designed to make sure programs written with Ballerina are inherently secure. Due to this, it is unnecessary to provide a complicated list of best practices that should be followed to avoid security vulnerabilities. Instead, the Ballerina language compiler takes care of making sure that the Ballerina program does not introduce security vulnerabilities. A comprehensive taint analysis mechanism is used to achieve this.
+This approach makes it unnecessary for developers to review best practice coding lists that itemize how to avoid security vulnerabilities. The Ballerina compiler ensures that Ballerina programs do not introduce security vulnerabilities.
 
-Whenever you come across a compiler error similar to the following, Ballerina prevents you from introducing a security vulnerability, by passing untrusted data to a security sensitive parameter:
+A taint analysis mechanism is used to achieve this.
+
+Parameters in function calls can be designated as security-sensitive. The compiler will generate an error if you pass untrusted data (tainted data) into a security-sensitive parameter:
+
 
 ```
 tainted value passed to sensitive parameter 'sqlQuery'
 ```
 
-In order to mitigate the identified security risk, you should perform proper validation or sanitization of untrusted data and explicitly mark such data trusted.
+We require developers to explicitly mark all values passed into security-sensitive parameters as "trusted". This explicit check forces developers and code reviewers to verify that the values being passed into the parameter are not vulnerable to a security violation.
 
-Ballerina standard library makes sure untrusted data cannot be used with security sensitive parameters such as file name, file paths, permission flags, SQL queries, request URLs and configuration keys, resulting in Ballerina programs being inherently resilient to major security vulnerabilities, including: 
+Ballerina standard library makes sure untrusted data cannot be used with security sensitive parameters such as SQL queries, file paths, file name, permission flags, request URLs and configuration keys, preventing  vulnerabilities, including:
 
 * SQL Injection
 * Path Manipulation
@@ -23,21 +26,14 @@ Ballerina standard library makes sure untrusted data cannot be used with securit
 * Unvalidated Redirect (Open Redirect)
 
 ### Ensuring security of Ballerina standard libraries
-Security sensitive functions and actions of Ballerina standard libraries will carry "@sensitive" parameter annotation that denotes untrusted (tainted) data should not be passed to the parameter. One example of such parameter is the "sqlQuery" parameter of the SQL client connector actions.
+Security sensitive functions and actions of Ballerina standard libraries are decorated with  `@sensitive` parameter annotation that denotes untrusted data (tainted data) should not be passed to the parameter. For example, `sqlQuery` parameter of `ballerina/sql`, `select` action.
 
 ```ballerina
-@Description {value:"The select action implementation for SQL connector to select data from tables."}
-@Param {value:"sqlQuery: SQL query to execute"}
-@Param {value:"parameters: Parameter array used with the SQL query"}
-@Return {value:"Result set for the given query"}
-@Return {value:"The Error occured during SQL client invocation"} 
-public native function select (@sensitive string sqlQuery, (Parameter[] | ()) parameters,
-   (typedesc | ()) recordType) returns @tainted (table | error);
+public native function select (@sensitive string sqlQuery, (typedesc|()) recordType,
+                               Parameter... parameters) returns @tainted (table|error);
 ```
 
-Since "sqlQuery" has been marked security sensitive, a user will not be able to pass tainted data as the SQL query, which would otherwise lead to SQL injection vulnerabilities. 
-
-Consider the following example that constructs the SQL query based on user provided, tainted argument: 
+Consider the following example that constructs a SQL query with a tainted argument:
 
 ```ballerina
 import ballerina/mysql;
@@ -47,49 +43,54 @@ endpoint mysql:Client testDB {
    port: 3306
 };
 
-public function main (string[] args) {
+type ResultStudent {
+    string NAME,
+};
+
+function main (string... args) {
    // Construct student ID based on user input.
    string studentId = "S_" + args[0];
 
    // Execute select query using the untrusted (tainted) student ID
-   var dt = testDB -> select("SELECT  NAME FROM STUDENT WHERE ID = " + studentId, null, null);
+   var dt = testDB -> select("SELECT NAME FROM STUDENT WHERE ID = " + studentId, ResultStudent);
    var closeStatus = testDB -> close();
    return;
 }
 ```
 
-Ballerina compiler will generate the following error when attempting to compile this code. 
+The Ballerina compiler will generate an error:
 
 ```
 tainted value passed to sensitive parameter 'sqlQuery'
 ```
 
-In order to get the program to compile, it is required to make use of query parameters: 
+In order to compile, the program is modified to use query parameters:
 
 ```ballerina
-   sql:Parameter paramId = { sqlType:sql: TYPE_VARCHAR, value: studentId };
-   sql:Parameter[] parameters = [ paramId ];
-   var dt = testDB -> select("SELECT  NAME FROM STUDENT WHERE ID = ?", parameters, null);
+sql:Parameter paramId = ( sql:TYPE_VARCHAR, studentId );
+var dt = testDB -> select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent, paramId);
 ```
 
-Command-line arguments to Ballerina programs and inputs received through service resources are considered tainted. Additionally, return values of certain functions and actions are marked with "@tainted" annotation to denote that the resulting value should be considered as untrusted data.
+Command-line arguments to Ballerina programs and inputs received through service resources are considered tainted. Additionally, return values of certain functions and actions are marked with `@tainted` annotation to denote that the resulting value should be considered as untrusted data.
 
-For example, the "select" action of the SQL client connector highlighted above returns a "@tainted table", which means any value read from a database is considered untrusted.
+For example, the select action of the SQL client connector highlighted above returns a `@tainted table`, which means any value read from a database is considered untrusted.
+
+If return was not explicitly annotated, Ballerina will infer the tainted status of the return by analyzing how tainted status of parameters affect tainted status of the return.
 
 ### Securely using tainted data with security sensitive parameters
 
-There can be certain situations where a tainted value must be passed into a security sensitive parameter. In such situations, it is essential to do proper data validation or data sanitization to make sure input does not result in a security threat. Once proper controls are in place, "untaint" unary expression can be used to denote that the proceeding value is trusted:
+There can be certain situations where a tainted value must be passed into a security sensitive parameter. In such situations, it is essential to do proper data validation or data sanitization to make sure input does not result in a security threat. Once proper controls are in place, `untaint` unary expression can be used to denote that the proceeding value is trusted:
 
 ```ballerina
 // Execute select query using the untrusted (tainted) student ID
 boolean isValid = isNumeric(studentId);
 if (isValid) {
-   var dt = testDB -> select("SELECT  NAME FROM STUDENT WHERE ID = " + untaint studentId, null, null);
+   var dt = testDB -> select("SELECT NAME FROM STUDENT WHERE ID = " + untaint studentId, ResultStudent);
 }
 // ...
 ```
 
-Additionally, return values can be annotated with "@untainted" annotation to denote that the return value should be considered trusted (even though return value is derived from tainted data):
+Additionally, return values can be annotated with `@untainted` to denote that the return value should be trusted (even though return value is derived from tainted data):
 
 ```ballerina
 // Execute select query using the untrusted (tainted) student ID
@@ -101,11 +102,50 @@ function sanitizeSortColumn (string columnName) returns @untainted string {
 // ...
 ```
 
-## Securing Passwords and Secrets 
-Ballerina provides an API for accessing configuration values from different sources. Please refer to the Config API example for more details. 
+## Securing Passwords and Secrets
 
-When a configuration value contains a password or a secret, such value should be encrypted for additional protection. Ballerina Config API can automatically decrypt encrypted configuration values. Please refer to "Securing Configuration Values" guide for more details. 
+Ballerina provides an API for accessing configuration values from different sources. Please refer to the Config API Ballerina by Example for details.
 
-## Authentication and Authorization 
-Ballerina service can be configured to enforce authentication and authorization checks. In situations where a service should have controlled access, follow the "Securing RESTful Services" guide to enforce required checks. If you are working with JWT based authentication and authorization, follow the "API Gateway" [TODO: Add link] guide.
+Configuration values containing passwords or secrets should be encrypted. The Ballerina Config API will decrypt such configuration values when being accessed.
 
+Use the following command, in order to encrypt a configuration value:
+
+```
+ballerina encrypt
+```
+
+The encrypt command will prompt for the plain-text value to be encrypted and an encryption secret.
+
+```
+ballerina encrypt
+Enter value:
+
+Enter secret:
+
+Re-enter secret to verify:
+
+Add the following to the runtime config:
+@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
+
+Or add to the runtime command line:
+-e<param>=@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
+```
+
+Ballerina uses AES, CBC mode with PKCS#5 padding for encryption. The generated encrypted value should be used in place of the plain-text configuration value.
+
+For example, contents of a configuration file that includes a secret value should look as follows:
+
+```
+api.secret="@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}"
+api.provider="not-a-security-sensitive-value"
+```
+
+When running a Ballerina program that uses encrypted configuration values, Ballerina will require the secret used during the encryption process to perform the decryption.
+
+Ballerina will first look for a file named `secret.txt`. If such file exists, Ballerina will read the decryption secret from the file and immediately remove the file to make sure secret cannot be accessed afterwards. If the secret file is not present, the Ballerina program will prompt for the decryption secret.
+
+The file based approach is useful in automated deployments. The file containing the decryption secret can be deployed along with the Ballerina program. The name and the path of the secret file can be configured using the `b7a.config.secret` runtime parameter:
+
+```
+ballerina run -eb7a.config.secret=path/to/secret/file securing_configuration_values.balx
+```
