@@ -187,7 +187,8 @@ Testerina supports the following assertions
 |```assertNotEquals(Any actual, Any expected, string message) ```| Asserts that the actual is not equal to the expected, with an optional message. |
 |```assertFail(string message)```|Fails the test. Useful when we want to fail a test while in execution based on a check for a condition.|
 
-Following are some samples which uses assertFails
+Following are some samples which uses assertFails,
+
 ```` ballerina
 @test:config {}
 function testLarge() {
@@ -222,71 +223,41 @@ function foo(){
 }
 ```
 ## Service start/stop Utility
+
 Testerina provides the functionality to start/stop all services of a developer preferred ballerina package.
 
-Signature
-Description
-test:startServices(string packageName) (boolean isSuccessful)
-
-Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an exception.
-
-boolean isSuccessful = test:startServices(“org.abc.services”);
-
-
-test:stopServices(string packageName)
-
-
-Stops all the services of package identified by ‘packageName’. 
-
-test:stopServices(“org.abc.services”);
+| Signature | Description |
+|-----------|-------------|
+|```test:startServices(string packageName) (boolean isSuccessful)```|Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an exception. e.g : ```boolean isSuccessful = test:startServices(“org.abc.services”);```|
+|```test:stopServices(string packageName)```| Stops all the services of package identified by ‘packageName’.```test:stopServices(“org.abc.services”);```|
 
 ## Service skeleton start/stop utility
 Testerina provides the functionality to start/stop service skeletons generated from Swagger definitions.
 
-Signature
-Description
-test:startServiceSkeleton
-(string packageName, string swaggerFilePath) 
-(boolean isSuccessful)
-
-
-Start a service skeleton from a given Swagger definition in the given ballerina package. If it is successful returns true else returns false or throws an exception.
-
-boolean isSuccessful =  test:startServiceSkeleton("petstore.service.skeleton",                                                "/tmp/petstore.yaml");
-
-When the tests are executing service skeleton related ballerina definition will be generated and started.
-Host names, ports you have defined in the Swagger definition will be used when starting the service. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service.
-
-
-test:stopServiceSkeleton
-(string packageName)
-
-
-Stop a service skeleton and cleanup created directories of a given ballerina package. This function would first try to stop the service that was created using test:startServiceSkeleton function and then would try to clean up the directories created.
-
-test:stopServiceSkeleton(“petstore.service.skeleton”);
+| Signature | Description |
+|-----------|-------------|
+|```test:startServiceSkeleton(string packageName, string swaggerFilePath) (boolean isSuccessful)```|Start a service skeleton from a given Swagger definition in the given ballerina package. If it is successful returns true else returns false or throws an exception. e.g : ```boolean isSuccessful =  test:startServiceSkeleton("petstore.service.skeleton",                                                "/tmp/petstore.yaml");```When the tests are executing service skeleton related ballerina definition will be generated and started.Host names, ports you have defined in the Swagger definition will be used when starting the service. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service. |
+|```test:stopServiceSkeleton (string packageName) ```| Stop a service skeleton and cleanup created directories of a given ballerina package. This function would first try to stop the service that was created using test:startServiceSkeleton function and then would try to clean up the directories created. e.g : ```test:stopServiceSkeleton(“petstore.service.skeleton”);```|
 
 ## Function mocks
 Testerina provides the functionality to mock a function in a different third-party package with your own Ballerina function which will help you to test your package independently. 
 
 
-Annotation
-Description
-@test:Mock {} 
+
+##### ```@test:Mock {} ```
+
 The function specified following the annotation will be a mock function which will get triggered every time the original function is called. The original function that will be mocked should be defined using the annotation parameters.
 
-Parameters:
-
-packageName: “<package name>” 
-Name of the package where the function to be mocked resides in. 
+*Parameters:*
+packageName: “<package name>”  : Name of the package where the function to be mocked resides in. 
 Default: 
 packageName: “.”
 
-functionName: “<function name>” 
-Name of the function to be mocked. 
+functionName: “<function name>” : Name of the function to be mocked. 
 Default: 
 functionName: null
 
+``` ballerina
 Eg:
 
 package mypackage;
@@ -313,3 +284,4 @@ function testAssertIntEquals () {
     answer = sanitize(5);
     test:assertEquals(answer, 0.75, msg = "function mocking failed");
 }
+```
