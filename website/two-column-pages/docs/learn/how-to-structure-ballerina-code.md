@@ -13,9 +13,9 @@ The `ballerina` tool requires you to organize your code in a specific way. This 
 * A *project* atomically manages a collection of *packages* and *programs*.
 
 ## Programs
-A *program* is a runtime executable, ending with a `.balx` extension. A *program* is the transitive closure of one Ballerina package without including `ballerina/*` packages, since those are dynamically linked within Ballerina's runtime engine during execution. A *package* that is a *program* compiles into a a file with `.balx` extension, otherwise it is treated as a to-be-linked library that ends with a `.balo` extension.
+A *program* is a runtime executable, ending with a `.balx` extension. A *program* is the transitive closure of one Ballerina package without including `ballerina/*` packages, since those are dynamically linked within Ballerina's runtime engine during execution. A *package* that is a *program* compiles into a file with a `.balx` extension, otherwise it is treated as a to-be-linked library that ends with a `.balo` extension.
 
-The program's package must contain a `main()` function (a process entry point) or contain a `service<>` (a network-accessible API).
+The program's package must contain a `main()` function (a process entry point) or contain a `service` (a network-accessible API).
 
 A program can import dependent *packages* which are stored within a *repository*. 
 
@@ -26,7 +26,7 @@ Suppose you have the following structure:
   sample.bal
 ```
 
-and `sample.bal` contained both a `main()` entry point and a `service<>`:
+and `sample.bal` contained both a `main()` entry point and a `service`:
 
 ```ballerina
 import ballerina/http;
@@ -242,7 +242,7 @@ ballerina build <package-name>
 Packages in a project are assigned their version from within the `Ballerina.toml` file:
 
 ```toml
-# The current version, obeying semver
+# The current version, obeying [semver](https://semver.org/)
 version = “string” 
 ```
 
