@@ -305,7 +305,7 @@
             </div>
         </div>
         <div class="col-xs-12 cCloudNative">
-            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls">
+            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls cCloudNativeNavLeftSide">
                 <ul>
                     <li class="links first cActive">API CONSTRUCTS</li>
                     <li class="links">LOGIC LANGUAGE</li>
@@ -597,7 +597,7 @@
             </div>
         </div>
         <div class="col-xs-12 cCloudNative">
-            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls">
+            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls cIntegrationFrameworkNavLeftSide">
                 <ul>
                     <li class="links first cActive">TYPE SAFE ENDPOINT INTEGRATION</li>
                     <li class="links">TYPE SAFE CONNECTORS</li>
