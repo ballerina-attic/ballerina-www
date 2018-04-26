@@ -79,7 +79,7 @@ if (typeof hljs === 'object') {
                 "lengthof typeof enum import version public private attach as native documentation lock " +
                 "from on select group by having order where followed insert into update delete set for " +
                 "window query annotation package type typedesc connector function resource service action " +
-                "worker struct transformer endpoint object const true false reply create parameter",
+                "worker struct transformer endpoint object const true false reply create parameter match but",
             "i": {},
             "c": [{
                 "cN": "ballerinadoc",
