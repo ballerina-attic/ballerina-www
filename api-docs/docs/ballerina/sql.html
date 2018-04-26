@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -86,7 +86,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -95,8 +95,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -1268,7 +1268,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -1323,10 +1323,9 @@
                                                 <td class="cSummary-table-name">Direction</td>
                                                 <td class="cSummary-table-type">OUT | INOUT | IN</td>
                                                 <td class="cSummary-table-desc"><p>The direction of the parameter.</p>
-<pre><code>IN - IN parameters are used to send values to stored procedures
+<p>IN - IN parameters are used to send values to stored procedures
 OUT - OUT parameters are used to get values from stored procedures
-INOUT - INOUT parameters are used to send values and get values from stored procedures
-</code></pre>
+INOUT - INOUT parameters are used to send values and get values from stored procedures</p>
 </td>
                                             </tr>
                                               
@@ -1342,42 +1341,35 @@ INOUT - INOUT parameters are used to send values and get values from stored proc
                                                 <td class="cSummary-table-name">SQLType</td>
                                                 <td class="cSummary-table-type">VARCHAR | VARBINARY | TINYINT | TIMESTAMP | TIME | STRUCT | SMALLINT | REFCURSOR | REAL | NVARCHAR | NUMERIC | NCLOB | NCHAR | LONGVARCHAR | LONGVARBINARY | LONGNVARCHAR | INTEGER | FLOAT | DOUBLE | DECIMAL | DATETIME | DATE | CLOB | CHAR | BOOLEAN | BLOB | BIT | BINARY | BIGINT | ARRAY</td>
                                                 <td class="cSummary-table-desc"><p>The SQL Datatype of the parameter.</p>
-<pre><code>VARCHAR - Small, variable-length character string
+<p>VARCHAR - Small, variable-length character string
 CHAR - Small, fixed-length character string
 LONGVARCHAR - Large, variable-length character string
 NCHAR - Small, fixed-length character string with unicode support
-LONGNVARCHAR - Large, variable-length character string with unicode support
-
-BIT - Single bit value that can be zero or one, or nil
+LONGNVARCHAR - Large, variable-length character string with unicode support</p>
+<p>BIT - Single bit value that can be zero or one, or nil
 BOOLEAN - Boolean value either True or false
 TINYINT - 8-bit integer value which may be unsigned or signed
 SMALLINT - 16-bit signed integer value which may be unsigned or signed
 INTEGER - 32-bit signed integer value which may be unsigned or signed
-BIGINT - 64-bit signed integer value which may be unsigned or signed
-
-NUMERIC - Fixed-precision and scaled decimal values
+BIGINT - 64-bit signed integer value which may be unsigned or signed</p>
+<p>NUMERIC - Fixed-precision and scaled decimal values
 DECIMAL - Fixed-precision and scaled decimal values
 REAL - Single precision floating point number
 FLOAT - Double precision floating point number
-DOUBLE - Double precision floating point number
-
-BINARY - Small, fixed-length binary value
+DOUBLE - Double precision floating point number</p>
+<p>BINARY - Small, fixed-length binary value
 BLOB - Binary Large Object
 LONGVARBINARY - Large, variable-length binary value
-VARBINARY - Small, variable-length binary value
-
-CLOB - Character Large Object.
-NCLOB - Character large objects in multibyte national character set
-
-DATE - Date consisting of day, month, and year
+VARBINARY - Small, variable-length binary value</p>
+<p>CLOB - Character Large Object.
+NCLOB - Character large objects in multibyte national character set</p>
+<p>DATE - Date consisting of day, month, and year
 TIME - Time consisting of hours, minutes, and seconds
 DATETIME - Both DATE and TIME with additional a nanosecond field
-TIMESTAMP - Both DATE and TIME with additional a nanosecond field
-
-ARRAY - Composite data value that consists of zero or more elements of a specified data type
+TIMESTAMP - Both DATE and TIME with additional a nanosecond field</p>
+<p>ARRAY - Composite data value that consists of zero or more elements of a specified data type
 STRUCT - User defined structured type, consists of one or more attributes
-REFCURSOR - Cursor value
-</code></pre>
+REFCURSOR - Cursor value</p>
 </td>
                                             </tr>
                                               
@@ -2005,7 +1997,7 @@ REFCURSOR - Cursor value
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">sqlType</td>
-                                                        <td class="cAPI-table-type"><a href="#SQLType">TIMESTAMP|VARCHAR|BOOLEAN|BINARY|BLOB|DATE|LONGVARBINARY|NVARCHAR|REAL|NUMERIC|SMALLINT|ARRAY|NCLOB|TIME|DECIMAL|LONGNVARCHAR|DATETIME|FLOAT|VARBINARY|LONGVARCHAR|STRUCT|REFCURSOR|BIGINT|NCHAR|INTEGER|BIT|DOUBLE|CHAR|CLOB|TINYINT</a></td>
+                                                        <td class="cAPI-table-type"><a href="#SQLType">STRUCT|LONGNVARCHAR|BLOB|DATE|NCLOB|NUMERIC|VARCHAR|LONGVARBINARY|BINARY|INTEGER|BIGINT|NVARCHAR|ARRAY|NCHAR|LONGVARCHAR|CHAR|FLOAT|BOOLEAN|SMALLINT|BIT|DOUBLE|DECIMAL|VARBINARY|DATETIME|CLOB|TIMESTAMP|TIME|REFCURSOR|TINYINT|REAL</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The data type of the corresponding SQL parameter</p>
 </td>
@@ -2021,7 +2013,7 @@ REFCURSOR - Cursor value
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">direction</td>
-                                                        <td class="cAPI-table-type"><a href="#Direction">IN|OUT|INOUT</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Direction">OUT|IN|INOUT</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Direction of the SQL Parameter OUT, or INOUT - Default value is IN</p>
 </td>

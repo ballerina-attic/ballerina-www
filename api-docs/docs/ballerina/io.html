@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -86,7 +86,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -95,8 +95,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -1638,7 +1638,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -1826,13 +1826,10 @@ match csvChannel.getTable(Employee) {
                                                 <td class="cSummary-table-name">Format</td>
                                                 <td class="cSummary-table-type">tdf | default | csv</td>
                                                 <td class="cSummary-table-desc"><p>Format which will be used to represent the CSV.</p>
-<pre><code>DEFAULT - Would default to the format specified by CSVChannel. Presidence will be given to field
-separator and record separator.
-
-CSV - Field separator would be &quot;,&quot; and the record separator would be new line.
-
-TDF - Field separator will be tab and record separator will be new line.
-</code></pre>
+<p>DEFAULT - Would default to the format specified by CSVChannel. Presidence will be given to field
+separator and record separator.</p>
+<p>CSV - Field separator would be &quot;,&quot; and the record separator would be new line.</p>
+<p>TDF - Field separator will be tab and record separator will be new line.</p>
 </td>
                                             </tr>
                                               
@@ -2374,7 +2371,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openCsvFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, rw|w|a|r mode, :|	|, fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, w|a|r|rw mode, :|	|, fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2400,7 +2397,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">mode</td>
-                                                        <td class="cAPI-table-type"><a href="#Mode">rw|w|a|r</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Mode">w|a|r|rw</a></td>
                                                         <td class="cAPI-table-default">r</td>
                                                         <td class="cAPI-table-desc"><p>Permission which should be used to open CSV file</p>
 </td>
@@ -2467,7 +2464,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, rw|w|a|r accessMode) returns (ByteChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, w|a|r|rw accessMode) returns (ByteChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2493,7 +2490,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">accessMode</td>
-                                                        <td class="cAPI-table-type"><a href="#Mode">rw|w|a|r</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Mode">w|a|r|rw</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Permission to open the file</p>
 </td>
@@ -2930,11 +2927,9 @@ APPEND - append to existing file instead of replacing</p>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span><p>Source bytes from a given input/output resource.</p>
-<pre><code>    Number of bytes returned will be &lt; 0 if the file reached its end.
-
-    This operation will be asynchronous, where the total number of required bytes might not be returned at a given
-    time.
-</code></pre>
+<p>Number of bytes returned will be &lt; 0 if the file reached its end.</p>
+<p>This operation will be asynchronous, where the total number of required bytes might not be returned at a given
+time.</p>
 
                                                             </p>
                                                              
@@ -2987,8 +2982,7 @@ APPEND - append to existing file instead of replacing</p>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span><p>Sink bytes from a given input/output resource.</p>
-<pre><code>    This operation will be asynchronous, write might return without writing all the content.
-</code></pre>
+<p>This operation will be asynchronous, write might return without writing all the content.</p>
 
                                                             </p>
                                                              
