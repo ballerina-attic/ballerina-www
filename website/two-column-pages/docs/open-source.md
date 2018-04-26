@@ -53,7 +53,7 @@ To file non-security issues:
 
 If you are unsure whether you have found a bug, please consider searching existing issues in GitHub and asking in [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev).
 
-**Contribute Code**
+### Contribute Code
 
 Ballerina is an open source project and any contributions from the wider community is much appreciated. We would love for you to join our team!
 
