@@ -1,153 +1,89 @@
-# How to Deploy and Run Ballerina Programs
+# How to Run and Deploy Ballerina Programs
 
 ## Running Ballerina Programs and Services
+A Ballerina application can either be:
+1. A `main()` function that runs as a terminating process.
+2. A `service<>` which is a hosted non-terminating process.
 
-Ballerina app can be structured into a single program file, Ballerina project, or a Ballerina package.
+Both of these are considered "entrypoints" for program execution. 
 
-### Running Standalone Source
+These applications can be structured into a single program file or a Ballerina package. A collection of packages or source files can be managed together with versioning and dependency management as part of a Ballerina project. 
 
-Standalone source is a single Ballerina source code file. Code can be placed into any folder, called the “source root”. The "source root" must not contain a subdirectory named ".ballerina"
+Source files and packages can contain zero or more entrypoints, and the runtime engine has precedence and sequence rules for choosing which entrypoint to execute.
 
-#### Run a Standalone Source Without Compiling
+### Running Standalone Source Code
+A single Ballerina source code file can be placed into any folder. 
 
-If source file contains at least one program entrypoint, which could be a main() for functions or service<> for hosted services then it can be executed using run command.
+If source file contains at least one entrypoint then it can be executed using run command.
     
 ```bash
-
 ballerina run foo.bal  
 ```
 
-#### Compile Standalone Source Code
-
-Standalone source code can be compiled using below command. It create linked binary file that has a .balx extension.
+You can compile a source file with an entrypoint into a linked binary that has a .balx extension.
     
 ```bash
-ballerina build [-sourceroot] a/b/c/foo.bal [-o outputfilename.balx]
+ballerina build a/b/c/foo.bal [-o outputfilename.balx]
 ```  
 
-Following command run the binary balx file.
-
+And you can run .balx files directly:
 ```bash
 ballerina run filename.balx
 ```
-    
-### Running a Program
 
-Program is a collection of packages written by the developer. A program should contain at least one program entrypoint, which could be a main() for functions or service<> for hosted services. 
-    
+### Running a Project
+A project is a folder that manages source files and packages as part of a common versioning, dependency management, build, and execution. You can build and run items collectively or individually as packages. See How To Structure Ballerina Programs for in-depth structuring of projects.
 
-#### Run a Program Without Compiling
-
-To run a Ballerina file that is in the program directory you have to give the path to the file:
-```bash
-ballerina run a/b/c/foo.bal
-```
-The directory of the file becomes the source root (all imports will be resolved relative to that source root). You can also alter the location of the source root that the file will be inferred from:
-```bash
-ballerina run [-projectroot <path>] foo.bal
-``` 
-  
-#### Compiled Program
-
-A compiled program is the transitive closure of one package of Ballerina source without including ballerina.* packages. That package must contain either a main() and/or one or more services
-
-#### Compile Source Code in a Program Directory
-
-Ballerina program file can be compiled using below command. Default output filename is the last part of package name or the filename (minus the extension) with the extension “.balx”.
-```bash
-ballerina build [-sourceroot] a/b/c/foo.bal [-o outputfilename.balx]
-```    
-    
-#### Run a Compiled Program
-```bash
-ballerina run filename.balx
-``` 
-
-### Running a Package
-
-Package is a directory that contains Ballerina source code files.
-    
-#### Compiling a Package
-
-A compiled package is the compiled representation of a single package of Ballerina code, without including transitive dependencies into the compiled unit. Following command build all packages as part of a single project:
-```bash
+Build all source files and packages of a project:
+```bash    
 ballerina build
 ```
 
-Following command to build a single package in a project:
+Build a single package in a project:
 ```bash
 ballerina build <package-name>
 ```
-#### Run a Program in a Compiled Package
 
-The run command will look in a Project Repository (if in a project), then Home Repository, then Ballerina Central to find the package and then run it. If the package was in Ballerina Central, it will first pull it into the Home Repository and then execute it.
-
+Options for running programs with entrypoints in a project:  
 ```bash
+ballerina run main.balx  
+ballerina run target/main.balx
 ballerina [-projectroot <path>] run <package>
-```    
-
-#### Running a Project
-
-A project is a folder that has:
-
-1.  A user-managed manifest file, Ballerina.toml
-    
-2.  A Ballerina-managed .ballerina/ folder with implementation metadata and cache
-    
-3.  The cache contains the “Project Repository”, a project-specific repository for storing package binaries and dependencies
-    
-A project manifest represents zero or more packages to be built.
-
-#### Compiling a Project:
-
-* Command to build all packages as part of a single project:
-   ```bash    
-   ballerina build
-   ```
-
-* Command to build a single package in a project:
-   ```bash
-   ballerina build <package-name>
-   ```
-
-#### Running a Compiled Project
-
-If a manifest file is present in the project, then “run” command will look to run the specified program in the target/ directory.  These two commands in a project have the same effect  
-```bash
-$ ballerina run main.balx  
-$ ballerina run target/main.balx
 ```
 
-## How to Configure Ballerina Runtime
+The `<package>` is the name of the package which is the same as the directory name that holds source files. 
 
-The `ballerina/config` package provides an API for configuring ballerina source at runtime.
+## Configuring Your Ballerina Runtimes
 
-The Ballerina config API allows you to look up values from configuration files, CLI parameters and environment variables. The precedence order for configuration resolution is as follows:
+### Ballerina Runtime Configuration Files
+TODO: SECTION ON ballerina.conf, how it is found, how it is loaded, and how to find out what params you can configure
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 
-* CLI parameters
-* Environment variables   
-* Configuration files
+TODO THIS IS SOME STUFF THAT I FOUND BELOW THAT PROBABLY BELONGS HERE
+To explicitly specify a configuration file, use either the `--config` or the `-c` flag. The path to the configuration file can be either an absolute or a relative path. If this flag is not set, Ballerina looks for a `ballerina.conf` file in the directory in which the source files are located.
 
-If a specific configuration defined in the file is also defined as an environment variable, the environment variable takes precedence. Similarly, if the same is set as a CLI parameter, it replaces the environment variable value.
+### Sourcing Parameters Into Ballerina Programs
+Configuration parameters for your programs and apps cna be defined on the CLI, as an environment variable, or from a configuration file, with loading and override precedence in the same order.
 
-The configurations are arbitrary key/value pairs with structure.
+Configuration parameters are arbitrary key/value pairs with structure. The `ballerina/config` package provides an API for sourcing configuration parameters and using them within source code. [Config API Documentation]([https://stage.ballerina.io/learn/api-docs/ballerina/config.html](https://stage.ballerina.io/learn/api-docs/ballerina/config.html)).
 
 The configuration APIs accept a key and an optional default value. If a mapping does not exist for the specified key, the default value is returned as the configuration value. The default values of these optional configurations are the default values of the return types of the functions.
 
+#### Sourcing CLI Parameters
+TODO: Need an example of setting CLI and reading it in app
+#### Sourcing Environment Parameters
+TODO: Need an example of setting an environment variable on CLI and reading it in app
+#### Sourcing Configuration Values
+TODO: Need an example of getting a configuration value from a file and reading it in app
 
-Refer [Config API Documentation]([https://stage.ballerina.io/learn/api-docs/ballerina/config.html](https://stage.ballerina.io/learn/api-docs/ballerina/config.html)) for more information.
+#### Configure Secrets as Configuration Items
+Ballerina provides support for encrypting sensitive data such as passwords and allows access to them securely through the configuraiton API in the code.
 
-## How to Configure Secrets as Configuration Items
-
-Ballerina provides support for encrypting sensitive data such as passwords and allows access to them securely via config-api in the code.
-
-### Creating a Secured Value:
-
-To encrypt a value, the `ballerina encrypt` command is used. It prompts the user to enter the value and a secret. In this case, `ballerina` is the value and `12345` is the secret.
+##### Creating a Secured Value
+The `ballerina encrypt` command will encrypt parameters that can be securely sourced from your code files. For example, let's create a secure parameter named `ballerina` with the value `12345` as the secret.
 
 ```ballerina
-
-$ ballerina encrypt
+ballerina encrypt
 Enter value:
 Enter secret:
 Re-enter secret to verify:
@@ -159,33 +95,26 @@ Or add to the runtime command line:
 -e<param>=@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
 ```
 
-### Using the Secured Value at Runtime
+##### Using the Secured Value at Runtime
+The secured value can be placed in a config file as a value or passed on the command line. 
 
-
-The secured value can be placed in the in the config file as a value. To explicitly specify a configuration file, use either the `--config` or the `-c` flag. The path to the configuration file can be either an absolute or a relative path. If this flag is not set, Ballerina looks for a `ballerina.conf` file in the directory in which the source files are located.
-
-```ballerina
+```
 [hello]
 http.port=8085
 keystore.password="@encrypted{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}"
 ```
 
-The same configurations given via the configuration file can also be given via CLI parameters.
+or:
 
 ```bash
-
-$ ballerina run config_api.bal -e hello.http.port=8085 -e hello.keystore.password=@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
+ballerina run config_api.bal -e hello.http.port=8085 -e hello.keystore.password=@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
 ```
 
-### Decrypting the Value
+##### Decrypting the Value
+If a configuration contains an encrypted value, Ballerina looks for a `secret.txt` file in the directory in which the source files are located. The `secret.txt` should contain the secret used to encrypt the value. The `secret.txt` file will be deleted after it is read. If `secret.txt` file is not present, the CLI prompts the user for the secret.
 
-If a configuration contains an encrypted value, Ballerina looks for a secret.txt file in the directory in which the source files are located. The secret.txt should contain the secret used to encrypt the value. The secret.txt file will be deleted after it is read.  
-
-If `secret.txt` file is not present, the CLI prompts the user for the secret.
-
-```ballerina
-
-$ ballerina run --config path/to/conf/file/custom-config-file-name.conf config_api.bal
+```bash
+ballerina run --config path/to/conf/file/custom-config-file-name.conf config_api.bal
 ballerina: enter secret for config value decryption:
 
 ballerina: initiating service(s) in 'config_api.bal'
@@ -193,7 +122,9 @@ ballerina: started HTTPS/WSS endpoint 0.0.0.0:8085
 ```
 
 ## Deploying Ballerina Programs and Services
+Deploying a Ballerina program or service is the process of creating assets that ready the program and services(s) for activation in another runtime, such as Docker Engine, Moby, Kubernetes, or Cloud Foundry. The Ballerina compiler is able to generate the necessary artifacts for different deployment annotations based upon annotations that decorate the source code, which provide compiler instructions for artifact generation.
 
+### How Deployment Works
 Ballerina has builder extensions that run after the compilation phase. These extensions analyze code to generate deployment artifacts and utilities to make deployment of your apps and services easier.
 
 When you start building a project, the system starts parsing. This is followed by dependency analysis, compilation, and a phase at which deployment artifact generation can take place.
@@ -204,15 +135,16 @@ These deployment artifacts can be a form of simple files or complex types, like 
 -   [Docker images](https://docs.docker.com/engine/reference/commandline/images/)
 -   [Kubernetes](http://kubernetes.io) artifacts
 
-### How to Enable Deployment Options
+It is possible for third parties and the ecosystem to create their own annotations and builder extensions that generate different kinds of deployment artifacts. You can publish these extensions within Ballerina Central for others to use. For more information, see How To Extend Ballerina.
 
-A developer can enable deployment artifact generation by adding simple annotations to the code. The developer can choose one or more builder extensions within the code to generate these deployment artifacts by following three simple steps.
+### How to Enable Deployment
+A developer enables deployment artifact generation by adding annotations to their Ballerina code: 
 
 1.  Import the relevant extension package in the code.
 2.  Add relevant annotation within the code. 
 3.  Build the Ballerina project.
 
-#### Docker-based Deployment
+#### Docker-Based Deployment
 
 See the following example on how a developer can add Docker support in the code.
 
@@ -237,8 +169,7 @@ service<http:Service> helloWorld bind {9090} {
 }
 ```
 
-Now your code is ready to generate deployment artifacts. In this case it is a docker image.
-
+Now your code is ready to generate deployment artifacts. In this case it is a Docker image.
   
 ```bash
 $> ballerina build hello_world_docker.bal  
@@ -278,7 +209,7 @@ $> curl http://localhost:9090/helloWorld/sayHello
 Hello, World!
 ```
 
-The following features are supported by current Docker builder extension.
+The following features are supported by the Docker builder extension.
 
 -   Dockerfile generation.
 -   Docker image generation.
@@ -286,8 +217,7 @@ The following features are supported by current Docker builder extension.
 -   Docker based Ballerina debug support.
 -   Copy file support.
     
-
-##### Supported Annotations
+##### Supported Docker Annotations
 
 **@docker:Config{}**
 - Supported with Ballerina services or endpoints.
@@ -321,12 +251,12 @@ The following features are supported by current Docker builder extension.
 
 For more information, see the [Docker build extension github repo](https://github.com/ballerinax/docker).
 
-#### Kubernetes-based Deployment
+#### Kubernetes-Based Deployment
 
+TODO: THIS DOESN"T MAKE SENSE - WHY ARE WE POINTING TO A GITHUB REPO?  WE SHOULD NEVER DO THAT IF POSSIBLE.
 If you wish to see how container orchestration systems are supported by the builder extension, see [Kubernetes builder extension github repo](https://github.com/ballerinax/kubernetes).
   
-The following functionalities are supported by Kubernetes builder extension.
-
+The following Kubernetes configuration are supported:
 -   Kubernetes deployment support
 -   Kubernetes service support
 -   Kubernetes liveness probe support
@@ -338,7 +268,7 @@ The following functionalities are supported by Kubernetes builder extension.
 -   Kubernetes config map support
 -   Kubernetes persistent volume claim support
     
-##### Supported Annotations
+##### Supported Kubernetes Annotations
 
 **@kubernetes:Deployment{}**
 - Supported with Ballerina services or endpoints.
@@ -452,9 +382,5 @@ The following functionalities are supported by Kubernetes builder extension.
 |password|Password for the docker registry|null|
 |baseImage|Base image to create the docker image|ballerina/ballerina:latest|
   
-To learn more on how these builder extension annotations are used in real world scenarios, see the deployment section in [Ballerina by Guide](/learn/guides/).
-
-### Extend the Ballerina Build and Deployment
-
-Ballerina builder extension can be extended to support any kind of deployment artifacts depending on your requirement. For more information on how to extend Ballerina, see [How to Extend Ballerina](/learn/how-to-extend-ballerina/).
-
+### Extend Ballerina Deployment and Annotations
+Ballerina can be augmented with your own annotations that represent your own unique deployment artifacts. You can also write builder extensions that generate these files during compilation. For more information on how to extend Ballerina, see [How to Extend Ballerina](/learn/how-to-extend-ballerina/).
