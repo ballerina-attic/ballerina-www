@@ -267,25 +267,24 @@ The following Kubernetes configuration are supported:
 -   Kubernetes config map support
 -   Kubernetes persistent volume claim support
 
-Following sample explain how you can use some of these Kubernetes capabilities by using Kubernetes annotation support in Ballerina.
+Following ballerina code section explain how you can use some of these Kubernetes capabilities by using Kubernetes annotation support in Ballerina.
 
 ```ballerina
 package data_backed_service;
-
-// Other imports
 import ballerinax/kubernetes;
-
-// Employee type definition
 
 // Create SQL endpoint to MySQL database
 endpoint mysql:Client employeeDB {
-    host:"mysql-service",
+    host:config:getAsString("db-host"),
     port:3306,
-    name:"EMPLOYEE_RECORDS",
-    username:"root",
-    password:"root",
-    poolOptions:{maximumPoolSize:5}
+    name:config:getAsString("db"),
+    username:config:getAsString("db-username"),
+    password:config:getAsString("db-passowrd"),
 };
+
+@kubernetes:ConfigMap {
+    ballerinaConf:"./database.toml",
+}
 
 @kubernetes:Ingress {
     hostname:"ballerina.guides.io",
@@ -306,7 +305,17 @@ endpoint mysql:Client employeeDB {
 }
 
 endpoint http:Listener listener {
-    port:9090
+    port:9090,
+    secureSocket:{
+        keyStore:{
+            path:"${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password:getAsString("key-store-passowrd")
+        },
+        trustStore:{
+            path:"${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password:getAsString("trust-store-passowrd")
+        }
+    }
 };
 
 @http:ServiceConfig {
@@ -314,6 +323,19 @@ endpoint http:Listener listener {
 }
 service<http:Service> employee_data_service bind listener {
 ```
+
+Sample content of the data-service.toml
+
+```toml
+# Ballerina database config file
+db-host = ""
+db = ""
+db-username = "root"
+db-passoword = ""
+key-store-passoword = ""
+trust-store-passoword = ""
+```
+
 
 Here we have used @kubernetes:Deployment to specify the docker image name which will be created as part of building this service. CopyFiles field is used to copy the MySQL jar file into the ballerina bre/lib folder. Make sure to replace the <path_to_JDBC_jar> with your JDBC jar's path.
 
