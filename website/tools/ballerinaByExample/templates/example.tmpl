@@ -184,12 +184,27 @@
                         </tr>
                     </table>
 
-                    {{range .Segs}}
+                    {{range  $i, $element := .Segs}}
+                        {{range .}}
+                            {{if ne $i 0}}
+                                {{if and (not .CodeLeading) (not .IsConsoleOutput)}}
+                                    <div class="bal-separator">
+                                        <!-- This table is a temporary table to add spacing between output and next bal file-->
+                                        <table class="cTopBorder-table">
+                                            <tbody><tr>
+                                                <td class="cCodeTD"></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody></table>
+                                    </div>
+                                {{end}}
+                            {{end}}
+                        {{end}}
 
                     <div>
 
                         <table class="cBBE-body">
-                            {{range .}}
+                            {{range $element}}
                             <tr class="cTR{{if and (not .DocEmpty) (not .IsConsoleOutput)}} hover-enable{{end}}{{if .IsConsoleOutput}} cOutputTr{{end}}">
 
                                 <td class="code{{if .CodeEmpty}} empty{{end}}{{if .CodeLeading}} leading{{end}}{{if .IsConsoleOutput}} cOutput{{end}}">

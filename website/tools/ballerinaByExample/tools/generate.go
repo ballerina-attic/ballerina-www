@@ -313,6 +313,10 @@ func  parseExamples(categories []BBECategory) []*Example {
         for _, bbeMeta := range samples {
             exampleName := bbeMeta.Name
             exampleId := strings.ToLower(bbeMeta.Url)
+            if  len(exampleId) == 0 {
+                fmt.Fprintln(os.Stderr,"\t[WARN] Skipping bbe : " + exampleName + ". Folder path is not defined")
+                continue;
+            }
             exampleId = strings.Replace(exampleId, " ", dirPathWordSeparator, -1)
             exampleId = strings.Replace(exampleId, "/", dirPathWordSeparator, -1)
             exampleId = strings.Replace(exampleId, "'", "", -1)
@@ -341,7 +345,7 @@ func  parseExamples(categories []BBECategory) []*Example {
 
             balFiles := getAllBalFiles(fileDirPath);
             if len(balFiles) == 0 {
-                fmt.Fprintln(os.Stderr, "\t[WARN] Skipping bbe : " + exampleName + ". No .bal files are found")
+                fmt.Fprintln(os.Stderr, "\t[WARN] Skipping bbe : " + exampleName + ". No *.bal files are found")
                 continue;
             }
 
@@ -352,15 +356,11 @@ func  parseExamples(categories []BBECategory) []*Example {
                 rearrangedPaths = appendFilePath(rearrangedPaths, balFilePath);
 
                 consoleOutputFilePath :=  currentSample + consoleOutputExtn
-                defaultOutputFilePAth := fileDirPath + exampleBaseFilePattern + consoleOutputExtn
                 serverOutputFilePath := currentSample + serverOutputPrefix + consoleOutputExtn
                 clientOutputFilePath := currentSample + clientOutputPrefix + consoleOutputExtn
 
                 if isFileExist(consoleOutputFilePath) {
                     rearrangedPaths = append(rearrangedPaths, consoleOutputFilePath)
-                } else if isFileExist(defaultOutputFilePAth){
-                    fmt.Fprintln(os.Stderr,"\t[WARN] Output file " + consoleOutputFilePath +" is not found. Instead using "+ defaultOutputFilePAth)
-                    rearrangedPaths = append(rearrangedPaths, defaultOutputFilePAth)
                 } else {
                     var hasOutput = false
                     if isFileExist(serverOutputFilePath) {
