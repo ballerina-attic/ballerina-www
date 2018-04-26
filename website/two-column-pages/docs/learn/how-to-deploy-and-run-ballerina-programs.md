@@ -615,4 +615,4 @@ curl -v -X POST -d '{"name":"Alice", "age":20,"ssn":123456789,"employeeId":1}' \
 |baseImage|Base image to create the Docker image|ballerina/ballerina:latest|
   
 ### Extend Ballerina Deployment and Annotations
-Ballerina can be augmented with your own annotations that represent your own unique deployment artifacts. You can also write builder extensions that generate these files during compilation. For more information on how to extend Ballerina, see [How to Extend Ballerina](https://stage.ballerina.io/learn/how-to-extend-ballerina/).
+Ballerina can be augmented with your own annotations that represent your own unique deployment artifacts. You can also write builder extensions that generate these files during compilation. For more information on how to extend Ballerina, see [How to Extend Ballerina](/learn/how-to-extend-ballerina/).
