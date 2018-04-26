@@ -561,7 +561,7 @@ curl -v -X POST -d '{"name":"Alice", "age":20,"ssn":123456789,"employeeId":1}' \
 |cpuPrecentage|CPU percentage to start scaling|50|
 
 **@kubernetes:Secret{}**
-- Supported with Ballerina service.
+- Supported with Ballerina services.
 
 |**Annotation Name**|**Description**|**Default value**|
 |--|--|--|
