@@ -360,7 +360,7 @@ $(document).ready(function() {
     });
 
     //disable enter key in searchbox
-    $('#form-control').on('keypress', function(event) {
+    $('.form-control').on('keypress', function(event) {
         if (event.which === 13) {
             event.preventDefault();
         }
@@ -368,9 +368,9 @@ $(document).ready(function() {
 
     $('a[href^="http://www.youtube.com/watch?"]').each(function(i, elem) {
         /*
-         * Use below example code block in markdown files and replace <your-video-id> with video ID 
+         * Use below example code block in markdown files and replace <your-video-id> with video ID
          * which on youtube URL & <alt-text> with some alternative text for the video
-         * 
+         *
          * <a href="http://www.youtube.com/watch?feature=player_embedded&v=<your-video-id>" target="_blank">
          *     <img src="http://img.youtube.com/vi/<your-video-id>/0.jpg" alt="<alt-text>" width="480" height="360" border="10" />
          * </a>
