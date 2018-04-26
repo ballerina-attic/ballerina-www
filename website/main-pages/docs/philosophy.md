@@ -688,22 +688,22 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="reliable-messaging-text">
-            <!-- <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina has a lightweight microservice message broker that provides support for the AMQP protocol and offers asynchronous reliable messaging using queues and topics. Integrating Ballerina services with AMQP is simple.</p>
                 </div>
-            </div> -->
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
+            </div>
+            <div data-startLine="2" data-endLine="2" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Support for the Ballerina Message Broker is provided by the “ballerina/mb” package.</p>
                 </div>
             </div>
-            <div data-startLine="4" data-endLine="8" class="hTrigger cCodeDesription gray">
+            <div data-startLine="5" data-endLine="9" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Messaging endpoints can listen or publish to queues or topics. This listener endpoint will create an event for every incoming message.</p>
                 </div>
             </div>
-            <div data-startLine="10" data-endLine="15" class="hTrigger cCodeDesription gray">
+            <div data-startLine="11" data-endLine="16" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>A message-driven service is invoked every time a message is received on a queue or topic.</p>
                 </div>
@@ -737,51 +737,51 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="circuit-breaker-text">
-            <div data-startLine="2" data-endLine="2" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Circuit Breakers are a common way of protecting against distributed failure. Circuit breakers are built into Ballerina.</p>
                 </div>
             </div>
-            <div data-startLine="3" data-endLine="6" class="hTrigger cCodeDesription gray">
+            <div data-startLine="4" data-endLine="7" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The circuit breaker is looking for errors across a rolling time window.</p>
                 </div>
             </div>
-            <div data-startLine="8" data-endLine="8" class="hTrigger cCodeDesription gray">
+            <div data-startLine="9" data-endLine="9" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>After breaking the circuit, the circuit breaker will not send any more requests to the backend until the resetTime.</p>
                 </div>
             </div>
-            <div data-startLine="12" data-endLine="12" class="hTrigger cCodeDesription gray">
+            <div data-startLine="13" data-endLine="13" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>This line configures how long before the remote service is considered to timeout.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm" id="protection-against-injection-attacks-text">
-            <!-- <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>A common issue in building distributed systems is that data coming over the wire cannot be trusted not to include injection attacks.</p>
                 </div>
-            </div> -->
-            <div data-startLine="5" data-endLine="5" class="hTrigger cCodeDesription gray">
+            </div>
+            <div data-startLine="6" data-endLine="6" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina assumes that all data coming over the wire is tainted.</p>
                 </div>
             </div>
-            <div data-startLine="10" data-endLine="10" class="hTrigger cCodeDesription gray">
+            <div data-startLine="11" data-endLine="11" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Compilation time checks prevent code that requires untainted data from accessing tainted data.</p>
                 </div>
             </div>
-            <div data-startLine="22" data-endLine="22" class="hTrigger cCodeDesription gray">
+            <div data-startLine="23" data-endLine="23" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Annotations allow developers to mark parameters that could contain injection attacks.</p>
                 </div>
             </div>
-            <div data-startLine="28" data-endLine="31" class="hTrigger cCodeDesription gray">
+            <div data-startLine="29" data-endLine="32" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Developers can write simple code or use packages to protect against injection attacks.</p>
+                    <p>Developers can write their own code or use packages to protect against injection attacks.</p>
                 </div>
             </div>
         </div>
