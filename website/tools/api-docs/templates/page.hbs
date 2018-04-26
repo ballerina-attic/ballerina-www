@@ -447,13 +447,13 @@
                                         </h3>
                                          <table class="cSummary-Table c2Col-Medium">
                                              <tr>
-                                                 <th class="cSummary-table-name">Return Type</th>
-                                                 <th class="cSummary-table-desc">Function and Description</th>
+                                                 <th class="cSummary-table-name">Function</th>
+                                                 <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              {{#each constructs}}
                                                  {{#if isFunction}}
                                                      <tr>
-                                                         <td class="cSummary-table-name">{{name}}</td>
+                                                         <td class="cSummary-table-name"><a href="#{{name}}">{{name}}</a></td>
                                                         <td class="cSummary-table-desc">{{{description}}}</td>
                                                      </tr>
                                                  {{/if}}
