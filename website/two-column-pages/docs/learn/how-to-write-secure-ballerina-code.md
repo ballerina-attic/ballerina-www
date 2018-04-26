@@ -15,7 +15,7 @@ Parameters in function calls can be designated as security-sensitive. The compil
 tainted value passed to sensitive parameter 'sqlQuery'
 ```
 
-We require developers to explicitly mark all values passed into security-sensitive parameters as "trusted". This explicit check forces developers and code reviewers to verify that the values being passed into the parameter are not vulnerable to a security violation.
+We require developers to explicitly mark all values passed into security-sensitive parameters as 'trusted'. This explicit check forces developers and code reviewers to verify that the values being passed into the parameter are not vulnerable to a security violation.
 
 Ballerina standard library makes sure untrusted data cannot be used with security sensitive parameters such as SQL queries, file paths, file name, permission flags, request URLs and configuration keys, preventing  vulnerabilities, including:
 
@@ -236,7 +236,7 @@ curl -v https://localhost:9090/hello
 request failed: Authentication failure
 ```
 
-Since we used JWT authentication scheme, it is now required to send a valid, signed JWT with the HTTP request. Once a request is made with such JWT, the service will response successfully:
+Since we used JWT authentication scheme, it is now required to send a valid, signed JWT with the HTTP request. Once a request is made with a signed JWT, the service sends a successful response.
 
 ```
 curl -k -v -H "Authorization:Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYWxsZXJpbmEiLCJpc3MiOiJiYWxsZXJpbmEiLCJleHAiOjI4MTg0MTUwMTksImlhdCI6MTUyNDU3NTAxOSwianRpIjoiZjVhZGVkNTA1ODVjNDZmMmI4Y2EyMzNkMGMyYTNjOWQiLCJhdWQiOlsiYmFsbGVyaW5hIiwiYmFsbGVyaW5hLm9yZyIsImJhbGxlcmluYS5pbyJdfQ.X2mHWCr8A5UaJFvjSPUammACnTzFsTdre-P5yWQgrwLBmfcpr9JaUuq4sEwp6to3xSKN7u9QKqRLuWH1SlcphDQn6kdF1ZrCgXRQ0HQTilZQU1hllZ4c7yMNtMgMIaPgEBrStLX1Ufr6LpDkTA4VeaPCSqstHt9WbRzIoPQ1fCxjvHBP17ShiGPRza9p_Z4t897s40aQMKbKLqLQ8rEaYAcsoRBXYyUhb_PRS-YZtIdo7iVmkMVFjYjHvmYbpYhNo57Z1Y5dNa8h8-4ON4CXzcJ1RzuyuFVz1a3YL3gWTsiliVmno7vKyRo8utirDRIPi0dPJPuWi2uMtJkqdkpzJQ" https://localhost:9091/hello
@@ -303,7 +303,7 @@ sayHello (endpoint caller, http:Request req) {
 
 ### JWT Based Authorization and Authorization
 
-Ballerina uses scope based authorization. The JWT can include scopes available for the user. The scopes can then be validated in the Ballerina service. For example, the following service will only allow invocations, if "hello" scope is available for the user.
+Ballerina uses scope based authorization. The JWT can include scopes available for the user. The scopes can then be validated in the Ballerina service. For example, the following service will only allow invocations, if 'hello' scope is available for the user.
 
 Note that the `authConfig` attribute of the `@http:ServiceConfig` annotation has been modified to enforce the authorization check.
 
@@ -374,7 +374,7 @@ curl -k -v -H "Authorization:Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWI
 request failed: Authorization failure
 ```
 
-Request with correct scope attribute included will result in a successful invocation. Example of such JWT is as follows:
+Request with correct scope attribute included will result in a successful invocation. An example of a JWT that has the correct scope attribute is as follows.
 
 ```
 {
@@ -427,7 +427,7 @@ sayHello (endpoint caller, http:Request req) {
 
 ### Basic Authentication and Authorization
 
-Ballerina supports Basic Authentication for services. scheme of `http:AuthProvider` should be set to basic in order to enforce basic authentication. Since user information is provided using a configuration file `authProvider` should be set to `config`.
+Ballerina supports Basic Authentication for services. The `scheme` field of `http:AuthProvider` should be set to basic in order to enforce Basic Authentication. Since user information is provided using a configuration file `authProvider` should be set to `config`.
 
 ```ballerina
 import ballerina/http;
@@ -468,7 +468,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
 }
 ```
 
-To enforce Basic Authentication, users and scopes should be configured through a configuration file. The following example file introduces two users. The `generalUser` has no scopes and the `admin` user has the `hello` scope.
+To enforce Basic Authentication, users and scopes should be configured through a configuration file. The following example file introduces two users. The 'generalUser' has no scopes and the 'admin' user has the 'hello' scope.
 
 ```
 ballerina.conf
@@ -482,7 +482,7 @@ password="@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}"
 scopes="hello"
 ```
 
-Once service is restarted with the configuration file in place, `generalUser` will not be able to invoke the service due to authorization failure:
+Once service is restarted with the configuration file in place, 'generalUser' will not be able to invoke the service due to authorization failure:
 
 ```
 curl -v -u generalUser:password https://localhost:9091/hello
@@ -501,7 +501,7 @@ curl -v -u generalUser:password https://localhost:9091/hello
 request failed: Authorization failure
  ```
 
-`Admin` user will be able to invoke the service:
+'Admin' user will be able to invoke the service:
 
 ```
 curl -v -u admin:password https://localhost:9091/hello
@@ -522,7 +522,7 @@ Hello, World!
 
 ### Authenticating with Downstream Services
 
-Ballerina client connectors can be configured to include authentication and authorization information with requests sent to external or downstream services. Downstream services can be authenticated using JWT, OAuth2 or Basic Authentication.
+Ballerina client connectors can be configured to include authentication and authorization information with requests sent to external or downstream services. Downstream services can be authenticated using JWT, OAuth2, or Basic Authentication.
 
 #### JWT Based Client Authentication
 
