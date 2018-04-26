@@ -25,9 +25,9 @@ The simple form of tests assumes the tests to be available in the same source fi
 
 For structured projects, it is recommended to use a structured test model that is aligned with standard package semantics. 
 
-A package is mapped to a test suite. A package specific unit and integration tests needs to be placed in a subfolder called tests/ under the package. All tests within a package’s tests/ subfolder are considered to be part of the same test suite.
+A package is mapped to a test suite. A package specific unit and integration tests needs to be placed in a subfolder called `tests/` under the package. All tests within a package’s `tests/` subfolder are considered to be part of the same test suite.
 
-Integration tests that are used to test the sources of combination of packages of a project needs to be placed at the project root level folder called tests/.
+Integration tests that are used to test the sources of combination of packages of a project needs to be placed at the project root level folder called `tests/`.
 
 ### Project Structure
 ```
