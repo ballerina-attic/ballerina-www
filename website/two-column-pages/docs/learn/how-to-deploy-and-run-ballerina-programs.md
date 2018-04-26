@@ -279,11 +279,11 @@ endpoint mysql:Client employeeDB {
     port:3306,
     name:config:getAsString("db"),
     username:config:getAsString("db-username"),
-    password:config:getAsString("db-passowrd"),
+    password:config:getAsString("db-passowrd")
 };
 
 @kubernetes:ConfigMap {
-    ballerinaConf:"./database.toml",
+    ballerinaConf:"./data-service.toml",
 }
 
 @kubernetes:Ingress {
@@ -328,36 +328,62 @@ Sample content of the data-service.toml
 
 ```toml
 # Ballerina database config file
-db-host = ""
-db = ""
+db-host = "mysql-server"
+db = "EMPLOYEE_RECORDS"
 db-username = "root"
-db-passoword = ""
-key-store-passoword = ""
-trust-store-passoword = ""
+db-passoword = "root"
+key-store-passoword = "abc123"
+trust-store-passoword = "xyz123"
 ```
 
 
-Here we have used @kubernetes:Deployment to specify the docker image name which will be created as part of building this service. CopyFiles field is used to copy the MySQL jar file into the ballerina bre/lib folder. Make sure to replace the <path_to_JDBC_jar> with your JDBC jar's path.
+Here you have use @kubernetes:Deployment to specify the docker image name which will be created as part of building this service. CopyFiles field is used to copy the MySQL jar file into the ballerina bre/lib folder. Make sure to replace the <path_to_JDBC_jar> with your JDBC jar's path.
 
-We have also specified @kubernetes:Service {} so that it will create a Kubernetes service which will expose the Ballerina service that is running on a Pod.
+@kubernetes:Service {} will create a Kubernetes service which will expose the Ballerina service that is running on a Pod.
 
-In addition we have used @kubernetes:Ingress which is the external interface to access your service (with path / and host name ballerina.guides.io)
+In addition you can use @kubernetes:Ingress which is the external interface to access your service (with path / and host name ballerina.guides.io)
 
 Now you can build a Ballerina executable archive (.balx) of the service that we developed above, using the following command. It points to the service file that we developed above and it will create an executable binary out of that. This will also create the corresponding docker image and the Kubernetes artifacts using the Kubernetes annotations that you have configured above.
 
 ```bash
 $ballerina build data_backed_service
 
+@kubernetes:Docker 		 - complete 3/3
+@kubernetes:Deployment 		 - complete 1/1
+@kubernetes:Service 		 - complete 1/1
+@kubernetes:Ingress  		 - complete 1/1
+@kubernetes:Secret  		 - complete 2/2
+@kubernetes:ConfigMap  		 - complete 1/1
+
 Run following command to deploy kubernetes artifacts:  
-kubectl apply -f ./target/data_backed_service/kubernetes
+kubectl apply -f ./kubernetes
+```
+You can verify that the docker image that we specified in @kubernetes:Deployment is created, by using docker images.
+Also the Kubernetes artifacts related our service, will be generated in addition to balx.
+
+```bash
+$> tree
+    ├── README.md
+    ├── hello_world_secret_mount_k8s.bal
+    ├── hello_world_secret_mount_k8s.balx
+    ├── kubernetes
+    │   ├── docker
+    │   │   └── Dockerfile
+    │   ├── hello_world_secret_mount_k8s_deployment.yaml
+    │   ├── hello_world_secret_mount_k8s_ingress.yaml
+    │   ├── hello_world_secret_mount_k8s_secret.yaml
+    │   └── hello_world_secret_mount_k8s_svc.yaml
+    └── secrets
+        ├── MySecret1.txt
+        ├── MySecret2.txt
+        └── MySecret3.txt
+
 ```
 
-You can verify that the docker image that we specified in @kubernetes:Deployment is created, by using docker images.
-Also the Kubernetes artifacts related our service, will be generated in ./target/data_backed_service/kubernetes.
 Now you can create the Kubernetes deployment using:
 
 ```bash
-$kubectl apply -f ./target/data_backed_service/kubernetes 
+$kubectl apply -f ./kubernetes 
 
 deployment.extensions "ballerina-guides-employee-database-service" created
 ingress.extensions "ballerina-guides-employee-database-service" created
