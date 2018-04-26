@@ -13,7 +13,8 @@ as well to make tracing and metrics monitoring more informative.
 
 ## Getting Started
 A Ballerina service is by default observable. This section focuses on enabling observability with default systems such
-as [Prometheus] and [Grafana] for metrics monitoring and [Jaeger] for distributed tracing.
+as [Prometheus] and [Grafana] for metrics monitoring and [Jaeger] for distributed tracing. Ballerina logs can
+be read and fed to any external log monitoring system like Elastic Stack to perform log monitoring and analysis.
 
 **Pre-requisites**
 
@@ -22,7 +23,7 @@ Prometheus, etc. You can follow [official documentation](https://docs.docker.com
 
 **Steps**
 
-**Step 1:** Create Hello World Ballerina service as shown below and save it as `hello-world-service.bal`.
+**Step 1:** Create Hello World Ballerina service as shown below and save it as `hello_world_service.bal`.
 
 ```ballerina
 import ballerina/http;
@@ -30,20 +31,20 @@ import ballerina/log;
 
 service<http:Service> hello bind { port:9090 } {
     
-    sayHello (endpoint conn, http:Request req) {
+    sayHello (endpoint caller, http:Request req) {
         log:printInfo("This is a test Info log");
         log:printError("This is a test Error log");
         log:printWarn("This is a test Warn log");
         http:Response res = new;
         res.setStringPayload("Hello, World!");
-        _ = conn -> respond(res);
+        _ = caller -> respond(res);
     }
 }
 ```
 
 **Step 2:** The observability is disabled by default and it can be enabled either by adding `--observe` flag or updating
-the configuration. This option enables metrics monitoring and distributed tracing. You will have to follow step 3 and
-step 4, if you want to have log analysis as well.
+the configuration. This option enables metrics monitoring and distributed tracing. You will have to follow
+step 3 and step 4, if you want to monitor logs as well.
 
 Using `--observe` flag:
 
@@ -52,11 +53,11 @@ for Ballerina service with default settings, and collect the distributed tracing
 and metrics with [Prometheus].
 
 ```bash
-$ ballerina run --observe hello_service.bal
+$ ballerina run --observe hello_world_service.bal
 
 ballerina: started Prometheus HTTP endpoint localhost/127.0.0.1:9797
 ballerina: started publishing tracers to Jaeger on localhost:5775
-ballerina: initiating service(s) in 'hello-world-service.bal'
+ballerina: initiating service(s) in 'hello_world_service.bal'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
@@ -79,17 +80,16 @@ The Ballerina program needs to be started as below with either `--config` or `--
 configuration file to adhere to the configuration as shown below.
 
 ```bash
-$ ballerina run --config <path-to-conf>/ballerina.conf hello_service.bal
+$ ballerina run --config <path-to-conf>/ballerina.conf hello_world_service.bal
 
 ballerina: started Prometheus HTTP endpoint localhost/127.0.0.1:9797
 ballerina: started publishing tracers to Jaeger on localhost:5775
-ballerina: initiating service(s) in 'hello-world-service.bal'
+ballerina: initiating service(s) in 'hello_world_service.bal'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
-**Step 3:** Start Ballerina Service.
-
-There are some logs added to the service. The log package supports logging to the console only, therefore the logs need
+**Step 3:** Follow this step if you want to monitor Ballerina logs. In the Ballerina service, there are some
+logs added to the service. The log package supports logging to the console only, therefore the logs need
 to be redirected to a file if you want to perform log analysis. Those logs need to be pushed to
 [Elastic Stack](#Distributed-Logging) to perform the log analysis.
 
@@ -99,13 +99,13 @@ using configuration file).
 Start Ballerina service with `--observe` flag:
 
 ```bash
-$ nohup ballerina run --observe hello_service.bal > ballerina.log &
+$ nohup ballerina run --observe hello_world_service.bal > ballerina.log &
 ```
 
 Start Ballerina service with configuration file:
 
 ```bash
-$ nohup ballerina run --config <path-to-conf>/ballerina.conf hello_service.bal > ballerina.log &
+$ nohup ballerina run --config <path-to-conf>/ballerina.conf hello_world_service.bal > ballerina.log &
 ```
 
 **Step 4:** Install Elastic Stack as mentioned in section [Setting up Elastic Stack](#setting-up-elastic-stack). You may
@@ -113,7 +113,7 @@ skip this step, if you do not want to monitor logs.
 
 **Step 5:** Install and configure Prometheus as mentioned in section [Setting up Prometheus](#Prometheus).
 
-**Step 6:** Install Grafana as mentioned in section [Setting up Grafana](#Grafana).
+**Step 6:** Install and configure Grafana as mentioned in section [Setting up Grafana](#Grafana).
 
 **Step 7:** Install Jaeger as mentioned in section [Setting up Jaeger](#jaeger-server).
 
@@ -304,7 +304,7 @@ Configuration Key | Description | Default Value | Possible Values
 b7a.observability.tracing.jaeger.reporter.hostname | Hostname of the Jaeger server | localhost | IP or hostname of the Jaeger server. If it is running on the same node as the Ballerina, it can be localhost. 
 b7a.observability.tracing.jaeger.reporter.port | Port of the Jaeger server | 5775 | The port which the Jaeger server is listening to.
 b7a.observability.tracing.jaeger.sampler.type | Type of the sampling methods used in the Jaeger tracer. | const | const, probabilistic, or ratelimiting.
-b7a.observability.tracing.jaeger.sampler.param | It is a floating value. Based on the sampler type, the effect of the sampler param varies. Const - 0 is no sampling and 1 is sample all spans, Probabilistic - must be between 1.0 and 0.0, and Ratelimiting - param specifies rate per second | 1.0 | 0.0 - 1.0
+b7a.observability.tracing.jaeger.sampler.param | It is a floating value. Based on the sampler type, the effect of the sampler param varies. Const - 0 is no sampling and 1 is sample all spans, Probabilistic - must be between 1.0 and 0.0, and Ratelimiting - param specifies rate per second | 1.0 | For Const 0 or 1, for Probabilistic 0.0 to 1.0, for Ratelimiting any positive integer
 b7a.observability.tracing.jaeger.reporter.flush.interval.ms | Jaeger client will be sending the spans to the server at this interval. | 2000 | Any positive integer value.
 b7a.observability.tracing.jaeger.reporter.max.buffer.spans | Queue size of the Jaeger client. | 2000 | Any positive integer value.
 
