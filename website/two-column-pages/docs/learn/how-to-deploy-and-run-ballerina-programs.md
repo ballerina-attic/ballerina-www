@@ -125,7 +125,7 @@ Hello, Ballerina !
 
 
 #### Configure Secrets as Configuration Items
-Ballerina provides support for encrypting sensitive data such as passwords and allows access to them securely through the configuraiton API in the code.
+Ballerina provides support for encrypting sensitive data such as passwords and allows access to them securely through the configuration API in the code.
 
 ##### Creating a Secured Value
 The `ballerina encrypt` command will encrypt parameters that can be securely sourced from your code files. For example, let's create a secure parameter named `ballerina` with the value `12345` as the secret.
@@ -222,7 +222,7 @@ Now your code is ready to generate deployment artifacts. In this case it is a Do
 ```bash
 $> ballerina build hello_world_docker.bal  
 @docker - complete 3/3  
-Run following command to start docker container:  
+Run the following command to start docker container:  
 docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
 ```
   
