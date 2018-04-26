@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -86,7 +86,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -95,8 +95,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -987,19 +987,6 @@
                                         
                                         
                                         <li>
-                                            <a href="#TypeDefinitions">
-                                                <div class="construct-icon">
-                                                    <span class="fw-type"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Type Definitions
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        
-                                        
-                                        <li>
                                             <a href="#RecordsSummary">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
@@ -1037,6 +1024,18 @@
                                         
                                         
                                         <li>
+                                            <a href="#TypeDefinitions">
+                                                <div class="construct-icon">
+                                                    <span class="fw-type"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Type Definitions
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        <li>
                                             <a href="#GlobalVariables">
                                                 <div class="construct-icon">
                                                     <span class="fw-globe"> </span>
@@ -1047,6 +1046,8 @@
                                             </a>
                                         </li>
                                         
+                                        
+
                                         
                                           
                                         <li>
@@ -1268,7 +1269,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -1299,11 +1300,329 @@
                                                 <span class="bold">ballerina/sql</span>  package 
                                             </h1>
                                             
+                                            <div class="cAPIdocsDescription">
+                                                <h2>Package overview</h2>
+<p>This package provides the common record types and constants required for other data management packages such as <code>jdbc</code>, <code>mysql</code>, and <code>h2</code>.</p>
+<h3>PoolOptions</h3>
+<p>The PoolOptions type the properties that are used to configure DB connection pool. This is used with <code>jdbc</code>, <code>mysql</code>, and <code>h2</code> endpoints to configure the connection pool associated with the endpoint.</p>
+<h3>SQLType</h3>
+<p>The SQLType represents the SQL data type of a given parameter. When using a parameter, use the same SQL type as the actual database table column type. Otherwise data loss can occur.</p>
+<h3>Direction</h3>
+<p>The Direction type represents the direction of the parameter. IN parameters are used to send values to stored procedures or pass parameters to other functions like select, update, etc. This is the default direction of a parameter. The OUT parameters are used to get values from stored procedures. The INOUT parameters are used to send values and retrieve values from stored procedures.</p>
+<h3>Parameter</h3>
+<p>The Parameter type represents a parameter for the SQL actions when a variable needs to be passed into the action.</p>
+
+                                            </div>
+                                            
 
                                             <div class="summary-wrapper">
                                                 <h2 class="cPageSubHeading">Package Detail</h2>
                                         <!--Primitive Types-->
                                         
+                                         
+                                        <!-- records -->
+                                        
+                                        <h3 id="RecordsSummary">Records</h3>
+                                         <table class="cSummary-Table c2Col-Medium">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Record</th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#Parameter">Parameter</a></td>
+                                                         <td class="cSummary-table-desc"><p>Parameter represents a parameter for the SQL actions when a variable parameter needs to pass to the action.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#PoolOptions">PoolOptions</a></td>
+                                                         <td class="cSummary-table-desc"><p>Represents the properties which are used to configure DB connection pool.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                         </table>
+                                         
+                                        <!-- objects -->
+                                        
+                                        <h3 id="ObjectsSummary"> Objects</h3>
+                                         <table class="cSummary-Table c2Col-Medium">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Object</th>
+                                              
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#CallerActions">CallerActions</a></td>
+                                                     
+                                                         <td class="cSummary-table-desc"><p>The Caller actions for SQL databases.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                         </table>
+                                         
+                                         <!-- endpoints -->
+                                         
+                                         <!-- functions -->
+                                         
+                                         <h3 id="FunctionsSummary">
+                                           Functions
+                                        </h3>
+                                         <table class="cSummary-Table c2Col-Medium">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Function</th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#close">close</a></td>
+                                                        <td class="cSummary-table-desc"><p>The close action implementation for SQL connector to shutdown the connection pool.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                         </table>
+                                         
                                          <!-- Type Definitions-->
                                          
                                         <h3>Type Definitions</h3>
@@ -1323,10 +1642,9 @@
                                                 <td class="cSummary-table-name">Direction</td>
                                                 <td class="cSummary-table-type">OUT | INOUT | IN</td>
                                                 <td class="cSummary-table-desc"><p>The direction of the parameter.</p>
-<pre><code>IN - IN parameters are used to send values to stored procedures
+<p>IN - IN parameters are used to send values to stored procedures
 OUT - OUT parameters are used to get values from stored procedures
-INOUT - INOUT parameters are used to send values and get values from stored procedures
-</code></pre>
+INOUT - INOUT parameters are used to send values and get values from stored procedures</p>
 </td>
                                             </tr>
                                               
@@ -1342,42 +1660,35 @@ INOUT - INOUT parameters are used to send values and get values from stored proc
                                                 <td class="cSummary-table-name">SQLType</td>
                                                 <td class="cSummary-table-type">VARCHAR | VARBINARY | TINYINT | TIMESTAMP | TIME | STRUCT | SMALLINT | REFCURSOR | REAL | NVARCHAR | NUMERIC | NCLOB | NCHAR | LONGVARCHAR | LONGVARBINARY | LONGNVARCHAR | INTEGER | FLOAT | DOUBLE | DECIMAL | DATETIME | DATE | CLOB | CHAR | BOOLEAN | BLOB | BIT | BINARY | BIGINT | ARRAY</td>
                                                 <td class="cSummary-table-desc"><p>The SQL Datatype of the parameter.</p>
-<pre><code>VARCHAR - Small, variable-length character string
+<p>VARCHAR - Small, variable-length character string
 CHAR - Small, fixed-length character string
 LONGVARCHAR - Large, variable-length character string
 NCHAR - Small, fixed-length character string with unicode support
-LONGNVARCHAR - Large, variable-length character string with unicode support
-
-BIT - Single bit value that can be zero or one, or nil
+LONGNVARCHAR - Large, variable-length character string with unicode support</p>
+<p>BIT - Single bit value that can be zero or one, or nil
 BOOLEAN - Boolean value either True or false
 TINYINT - 8-bit integer value which may be unsigned or signed
 SMALLINT - 16-bit signed integer value which may be unsigned or signed
 INTEGER - 32-bit signed integer value which may be unsigned or signed
-BIGINT - 64-bit signed integer value which may be unsigned or signed
-
-NUMERIC - Fixed-precision and scaled decimal values
+BIGINT - 64-bit signed integer value which may be unsigned or signed</p>
+<p>NUMERIC - Fixed-precision and scaled decimal values
 DECIMAL - Fixed-precision and scaled decimal values
 REAL - Single precision floating point number
 FLOAT - Double precision floating point number
-DOUBLE - Double precision floating point number
-
-BINARY - Small, fixed-length binary value
+DOUBLE - Double precision floating point number</p>
+<p>BINARY - Small, fixed-length binary value
 BLOB - Binary Large Object
 LONGVARBINARY - Large, variable-length binary value
-VARBINARY - Small, variable-length binary value
-
-CLOB - Character Large Object.
-NCLOB - Character large objects in multibyte national character set
-
-DATE - Date consisting of day, month, and year
+VARBINARY - Small, variable-length binary value</p>
+<p>CLOB - Character Large Object.
+NCLOB - Character large objects in multibyte national character set</p>
+<p>DATE - Date consisting of day, month, and year
 TIME - Time consisting of hours, minutes, and seconds
 DATETIME - Both DATE and TIME with additional a nanosecond field
-TIMESTAMP - Both DATE and TIME with additional a nanosecond field
-
-ARRAY - Composite data value that consists of zero or more elements of a specified data type
+TIMESTAMP - Both DATE and TIME with additional a nanosecond field</p>
+<p>ARRAY - Composite data value that consists of zero or more elements of a specified data type
 STRUCT - User defined structured type, consists of one or more attributes
-REFCURSOR - Cursor value
-</code></pre>
+REFCURSOR - Cursor value</p>
 </td>
                                             </tr>
                                               
@@ -1666,309 +1977,6 @@ REFCURSOR - Cursor value
                                               
                                         </table>
                                         
-                                        <!-- records -->
-                                        
-                                        <h3 id="RecordsSummary">Records</h3>
-                                         <table class="cSummary-Table c2Col-Medium">
-                                             <tr>
-                                                 <th class="cSummary-table-name">Record</th>
-                                                 <th class="cSummary-table-desc">Description</th>
-                                             </tr>
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#Parameter">Parameter</a></td>
-                                                         <td class="cSummary-table-desc"><p>CallParam represents a parameter for the SQL call action where OUT or INOUT parameter is required.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#PoolOptions">PoolOptions</a></td>
-                                                         <td class="cSummary-table-desc"><p>Represents the properties which are used to configure DB connection pool.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                         </table>
-                                         
-                                        <!-- objects -->
-                                        
-                                        <h3 id="ObjectsSummary"> Objects</h3>
-                                         <table class="cSummary-Table c2Col-Medium">
-                                             <tr>
-                                                 <th class="cSummary-table-name">Object</th>
-                                              
-                                                 <th class="cSummary-table-desc">Description</th>
-                                             </tr>
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#CallerActions">CallerActions</a></td>
-                                                     
-                                                         <td class="cSummary-table-desc"><p>The Caller actions for SQL databases.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                         </table>
-                                         
-                                         <!-- endpoints -->
-                                         
-                                         <!-- functions -->
-                                         
-                                         <h3 id="FunctionsSummary">
-                                           Functions
-                                        </h3>
-                                         <table class="cSummary-Table c2Col-Medium">
-                                             <tr>
-                                                 <th class="cSummary-table-name">Return Type</th>
-                                                 <th class="cSummary-table-desc">Function and Description</th>
-                                             </tr>
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name">close</td>
-                                                        <td class="cSummary-table-desc"><p>The close action implementation for SQL connector to shutdown the connection pool.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                         </table>
-                                         
                                          <!-- Annotations -->
                                         
                                      </div>
@@ -1991,7 +1999,7 @@ REFCURSOR - Cursor value
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>CallParam represents a parameter for the SQL call action where OUT or INOUT parameter is required.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Parameter represents a parameter for the SQL actions when a variable parameter needs to pass to the action.</p>
 
                                                 </p>
                                                  
@@ -2005,7 +2013,7 @@ REFCURSOR - Cursor value
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">sqlType</td>
-                                                        <td class="cAPI-table-type"><a href="#SQLType">TIMESTAMP|VARCHAR|BOOLEAN|BINARY|BLOB|DATE|LONGVARBINARY|NVARCHAR|REAL|NUMERIC|SMALLINT|ARRAY|NCLOB|TIME|DECIMAL|LONGNVARCHAR|DATETIME|FLOAT|VARBINARY|LONGVARCHAR|STRUCT|REFCURSOR|BIGINT|NCHAR|INTEGER|BIT|DOUBLE|CHAR|CLOB|TINYINT</a></td>
+                                                        <td class="cAPI-table-type"><a href="#SQLType">SMALLINT|STRUCT|DATETIME|CHAR|BOOLEAN|REFCURSOR|BIT|TINYINT|NCLOB|DOUBLE|BIGINT|LONGVARBINARY|BLOB|TIME|NUMERIC|NVARCHAR|DECIMAL|LONGVARCHAR|FLOAT|ARRAY|NCHAR|DATE|LONGNVARCHAR|INTEGER|VARCHAR|CLOB|TIMESTAMP|VARBINARY|BINARY|REAL</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The data type of the corresponding SQL parameter</p>
 </td>
@@ -2021,7 +2029,7 @@ REFCURSOR - Cursor value
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">direction</td>
-                                                        <td class="cAPI-table-type"><a href="#Direction">IN|OUT|INOUT</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Direction">INOUT|IN|OUT</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Direction of the SQL Parameter OUT, or INOUT - Default value is IN</p>
 </td>
@@ -2228,7 +2236,7 @@ to the pool</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerActions&gt;
-                                                   </span> call(string sqlQuery, typedesc[]? recordType, string|int|boolean|float|sql:Parameter[] parameters) returns (table[] | error) 
+                                                   </span> call(string sqlQuery, typedesc[]? recordType, string|int|boolean|float|sql:Parameter[] parameters) returns (table[] | null | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2262,7 +2270,7 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="">string|int|boolean|float|sql:Parameter[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">string</a>|<a href="#int">int</a>|<a href="#boolean">boolean</a>|<a href="#float">float</a>|<a href="#sql:Parameter[]">sql:Parameter[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -2280,9 +2288,9 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">table[] | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">table[] </a>|<a href="primitive-types.html#null"> null </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>A <code>table[]</code> if there are tables returned by the call action and else nill,
+                                                                    <td class="cAPI-table-desc"><p>A <code>table[]</code> if there are tables returned by the call action and else nil,
 <code>error</code> will be returned if there is any error</p>
 </td>
                                                                 </tr>
@@ -2338,7 +2346,7 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="">string|int|boolean|float|sql:Parameter[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">string</a>|<a href="#int">int</a>|<a href="#boolean">boolean</a>|<a href="#float">float</a>|<a href="#sql:Parameter[]">sql:Parameter[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -2356,7 +2364,7 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">table | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">table </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>A <code>table</code> returned by the sql query statement else <code>error</code> will be returned if there is any error</p>
 </td>
@@ -2397,7 +2405,7 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="">string|int|boolean|float|sql:Parameter[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">string</a>|<a href="#int">int</a>|<a href="#boolean">boolean</a>|<a href="#float">float</a>|<a href="#sql:Parameter[]">sql:Parameter[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -2415,7 +2423,7 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">int | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p><code>int</code> number of rows updated by the statement and else <code>error</code> will be returned if there is any error</p>
 </td>
@@ -2474,7 +2482,7 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">int[] | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">int[] </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>An <code>int[]</code> array of updated row count by each of statements in batch and
 else <code>error</code> will be returned if there is any error</p>
@@ -2525,7 +2533,7 @@ generated keys during the update action.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="">string|int|boolean|float|sql:Parameter[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">string</a>|<a href="#int">int</a>|<a href="#boolean">boolean</a>|<a href="#float">float</a>|<a href="#sql:Parameter[]">sql:Parameter[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -2543,7 +2551,7 @@ generated keys during the update action.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">(int,string[]) | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">(int</a>,<a href="|builtin.html#error">string[]) | error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>A <code>Tuple</code> will be returned and would represent updated row count during the query exectuion,
 aray of auto generated key values during the query execution, in order.
@@ -2606,7 +2614,7 @@ table that allows performing select/update operations over the actual database t
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">table | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">table </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>

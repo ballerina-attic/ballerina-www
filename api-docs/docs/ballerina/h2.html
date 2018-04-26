@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -86,7 +86,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -95,8 +95,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -895,8 +895,6 @@
                                     <ul class="constructs-ul">
                                         
                                         
-                                        
-                                        
                                         <li>
                                             <a href="#RecordsSummary">
                                                 <div class="construct-icon">
@@ -924,6 +922,9 @@
                                         
                                         
                                         
+                                        
+
+                                        
                                           
                                         <li>
                                             <a href="#ClientEndpointConfiguration">
@@ -947,32 +948,6 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-getCallerActions">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        getCallerActions
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-stop">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        stop
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                             
                                     </ul>
                                 </div>
@@ -1123,7 +1098,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -1154,15 +1129,33 @@
                                                 <span class="bold">ballerina/h2</span>  package 
                                             </h1>
                                             
+                                            <div class="cAPIdocsDescription">
+                                                <h2>Package overview</h2>
+<p>This package provides the functionality required to access and manipulate data stored in an H2 database.</p>
+<h3>Endpoint</h3>
+<p>To access a database, you must first create an <code>endpoint</code>, which is a virtual representation of the physical endpoint of the H2 database that you are trying to connect to. Create an endpoint of the H2 client type (i.e., <code>h2:Client</code>) and provide the necessary connection parameters. This will create a pool of connections to the given H2 database. A sample for creating an endpoint with an H2 client can be found below.</p>
+<h3>Database operations</h3>
+<p>Once the endpoint is created, database operations can be executed through that endpoint. This package provides support for creating tables and executing stored procedures. It also supports selecting, inserting, deleting, updating, and batch updating data. For more details on the supported actions, refer to the <code>jdbc</code> package. Details of the SQL data types and query parameters relevant to these database operations can be found in the documentation for the <code>sql</code> package.</p>
+<h2>Samples</h2>
+<h3>Creating an endpoint</h3>
+<pre><code class="language-ballerina">endpoint h2:Client testDB {
+    path: &quot;/home/ballerina/test/&quot;,
+    name: &quot;testdb&quot;,
+    username: &quot;SA&quot;,
+    password: &quot;&quot;,
+    poolOptions: { maximumPoolSize: 5 }
+};
+</code></pre>
+<p>The full list of endpoint properties can be found in the <code>sql:PoolOptions</code> type.</p>
+
+                                            </div>
+                                            
 
                                             <div class="summary-wrapper">
                                                 <h2 class="cPageSubHeading">Package Detail</h2>
                                         <!--Primitive Types-->
                                         
-                                         <!-- Type Definitions-->
                                          
-                                        <!-- Global Variables-->
-                                        
                                         <!-- records -->
                                         
                                         <h3 id="RecordsSummary">Records</h3>
@@ -1211,6 +1204,10 @@
                                          
                                          <!-- functions -->
                                          
+                                         <!-- Type Definitions-->
+                                         
+                                        <!-- Global Variables-->
+                                        
                                          <!-- Annotations -->
                                         
                                      </div>
@@ -1295,7 +1292,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">poolOptions</td>
-                                                        <td class="cAPI-table-type"><a href="sql.html#PoolOptions">other</a></td>
+                                                        <td class="cAPI-table-type"><a href="sql.html#PoolOptions">ballerina.sql:PoolOptions</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Properties for the connection pool configuration</p>
 </td>
@@ -1336,61 +1333,7 @@
                                                     <span class="fw-right gray xs-icon"></span><p>Represents an H2 client endpoint.</p>
 
                                                 </p>
-                                                  
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-getCallerActions">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> getCallerActions() returns (CallerActions) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Returns the connector that the client code uses.</p>
-
-                                                            </p>
-                                                              
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="sql.html#CallerActions">CallerActions</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-stop">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> stop() 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Stops the JDBC client.</p>
-
-                                                            </p>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                   
                                             </div>
                                                 
                                             </div>

@@ -753,11 +753,18 @@ button.navbar-toggle {
     color: #20b6b0;
     margin: 20px 0 10px 0;
     padding: 0px;
+    white-space: normal;
 }
 
 #mkdocs-search-results>article>p {
     margin: 0 0 4px;
     font-size: 15px;
+}
+
+#mkdocs-search-results>p.error {
+    color: #b6b7b7;
+    padding: 6px 12px;
+    font-size: 14px;
 }
 
 #mkdocs-search-results>article:first-child {
@@ -1097,5 +1104,8 @@ pre code {
     .overlay-highlight,
     .output-overlay-highlight {
         display: block !important;
+    }
+    #mkdocs-search-results>article>h3>a {
+        white-space: nowrap;
     }
 }

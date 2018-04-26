@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -86,7 +86,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -95,8 +95,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -1036,30 +1036,6 @@
                                         
                                         
                                         <li>
-                                            <a href="#TypeDefinitions">
-                                                <div class="construct-icon">
-                                                    <span class="fw-type"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Type Definitions
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        
-                                        <li>
-                                            <a href="#Annotations">
-                                                <div class="construct-icon">
-                                                    <span class="fw-annotation"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Annotations
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        
-                                        <li>
                                             <a href="#RecordsSummary">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
@@ -1083,6 +1059,17 @@
                                         </li>
                                         
                                         
+                                        <li>
+                                            <a href="#EndpointsSummary">
+                                                <div class="construct-icon">
+                                                    <span class="fw-endpoint"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Endpoints
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
                                         
                                         <li>
                                             <a href="#FunctionsSummary">
@@ -1096,26 +1083,29 @@
                                         </li>
                                         
                                         
+                                        
+                                        
                                         <li>
-                                            <a href="#GlobalVariables">
+                                            <a href="#Annotations">
                                                 <div class="construct-icon">
-                                                    <span class="fw-globe"> </span>
+                                                    <span class="fw-annotation"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Global Variables
+                                                    Annotations
                                                 </div>
                                             </a>
                                         </li>
                                         
+
                                         
                                           
                                         <li>
-                                            <a href="#HubClientEndpointConfiguration">
+                                            <a href="#HubClientEndpointConfig">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    HubClientEndpointConfiguration
+                                                    HubClientEndpointConfig
                                                 </div>
                                             </a>
                                         </li>
@@ -1182,24 +1172,12 @@
                                             
                                           
                                         <li>
-                                            <a href="#SubscriptionDetails">
-                                                <div class="construct-icon">
-                                                    <span class="fw-record"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    SubscriptionDetails
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
-                                            <a href="#addWebSubLinkHeaders">
+                                            <a href="#addWebSubLinkHeader">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    addWebSubLinkHeaders
+                                                    addWebSubLinkHeader
                                                 </div>
                                             </a>
                                         </li>
@@ -1230,33 +1208,21 @@
                                             
                                           
                                         <li>
-                                            <a href="#validateSignature">
+                                            <a href="#Client">
                                                 <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
+                                                    <span class="fw-endpoint"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    validateSignature
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
-                                            <a href="#CallerActions">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    CallerActions
+                                                    Client
                                                 </div>
                                             </a>
                                         </li>
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#CallerActions-subscribe">
+                                                <a href="#Client-subscribe">
                                                     <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
+                                                        <span class="fw-action"> </span>
                                                     </div>
                                                     <div class="construct-name">
                                                         subscribe
@@ -1267,9 +1233,9 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#CallerActions-unsubscribe">
+                                                <a href="#Client-unsubscribe">
                                                     <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
+                                                        <span class="fw-action"> </span>
                                                     </div>
                                                     <div class="construct-name">
                                                         unsubscribe
@@ -1280,9 +1246,9 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#CallerActions-registerTopic">
+                                                <a href="#Client-registerTopic">
                                                     <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
+                                                        <span class="fw-action"> </span>
                                                     </div>
                                                     <div class="construct-name">
                                                         registerTopic
@@ -1293,9 +1259,9 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#CallerActions-unregisterTopic">
+                                                <a href="#Client-unregisterTopic">
                                                     <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
+                                                        <span class="fw-action"> </span>
                                                     </div>
                                                     <div class="construct-name">
                                                         unregisterTopic
@@ -1306,9 +1272,9 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#CallerActions-publishUpdate">
+                                                <a href="#Client-publishUpdate">
                                                     <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
+                                                        <span class="fw-action"> </span>
                                                     </div>
                                                     <div class="construct-name">
                                                         publishUpdate
@@ -1319,9 +1285,9 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#CallerActions-notifyUpdate">
+                                                <a href="#Client-notifyUpdate">
                                                     <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
+                                                        <span class="fw-action"> </span>
                                                     </div>
                                                     <div class="construct-name">
                                                         notifyUpdate
@@ -1332,80 +1298,15 @@
                                             
                                           
                                         <li>
-                                            <a href="#Client">
+                                            <a href="#">
                                                 <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
+                                                    <span class=""> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Client
+                                                    
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-init">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        init
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-register">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        register
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-start">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        start
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-getCallerActions">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        getCallerActions
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-stop">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        stop
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                             
                                           
                                         <li>
@@ -1440,83 +1341,6 @@
                                                     </div>
                                                     <div class="construct-name">
                                                         buildUnsubscriptionVerificationResponse
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                            
-                                          
-                                        <li>
-                                            <a href="#Listener">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Listener
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-init">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        init
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-register">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        register
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-start">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        start
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-getCallerActions">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        getCallerActions
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-stop">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        stop
                                                     </div>
                                                 </a>
                                             </li>
@@ -1586,19 +1410,6 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#WebSubHub-stop">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        stop
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
                                                 <a href="#WebSubHub-publishUpdate">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
@@ -1636,33 +1447,7 @@
                                             </li>
                                         </ul>
                                             
-                                           
                                              
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
-                                         
                                     </ul>
                                 </div>
                                 
@@ -1672,7 +1457,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -1703,281 +1488,254 @@
                                                 <span class="bold">ballerina/websub</span>  package 
                                             </h1>
                                             
+                                            <div class="cAPIdocsDescription">
+                                                <h2>Package overview</h2>
+<p>This package contains an implementation of the W3C <a href="https://www.w3.org/TR/websub/"><strong>WebSub</strong></a> recommendation, which facilitates a push-based content delivery/notification mechanism between publishers and subscribers.</p>
+<p>This implementation supports introducing all WebSub components: subscribers, publishers, and hubs.</p>
+<ul>
+<li>Subscriber - A party interested in receiving update notifications for particular topics.</li>
+<li>Publisher - A party that advertises topics to which interested parties subscribe in order to receive notifications
+on occurrence of events.</li>
+<li>Hub - A party that accepts subscription requests from subscribers and delivers content to the subscribers when the topic
+is updated by the topic's publisher.</li>
+</ul>
+<h4>Basic Flow with WebSub</h4>
+<ol>
+<li>
+<p>Subscriber discovers the topics it needs to subscribe to in order to receive updates/content and discovers the hub(s) where it can subscribe.</p>
+</li>
+<li>
+<p>Subscriber sends a subscription request to a hub, specifying the topic it needs to receive notifications for along
+with other subscription parameters, such as:</p>
+<ul>
+<li>The callback URL where content is expected to be delivered</li>
+<li>(Optional) A lease seconds value indicating how long the subscriber wants the subscription to stay active</li>
+<li>(Optional) A secret to use for <a href="https://www.w3.org/TR/websub/#signing-content">authenticated content distribution</a></li>
+</ul>
+</li>
+<li>
+<p>The hub sends an intent verification request to the specified callback URL, and if the response indicates verification
+(by echoing a challenge specified in the request) by the subscriber, the subscription is added for the topic at the
+hub.</p>
+</li>
+<li>
+<p>Publisher notifies the hub of updates to the topic, and the content to deliver is identified.</p>
+</li>
+<li>
+<p>The hub delivers the identified content to the subscribers of the topic.</p>
+</li>
+</ol>
+<h4>Features</h4>
+<p>This package allows introducing a WebSub Subscriber Service with <code>onIntentVerification</code>, which accepts HTTP GET requests for intent verification, and <code>onNotification</code>, which accepts HTTP POST requests for notifications. The WebSub Subscriber Service provides the following capabilities:</p>
+<ul>
+<li>Subscription Requests are sent at service start time for the hub and topic, which are either specified as annotations or discovered based on the resource URL specified as an annotation.</li>
+<li>Auto Intent Verification against the topic specified as an annotation, or discovered based on the resource URL specified as an annotation, if <code>onIntentVerification</code> is not specified.</li>
+<li>Signature Validation for authenticated content distribution if a secret is specified for the subscription.</li>
+</ul>
+<p>A WebSub compliant hub based on the Ballerina Message Broker is also available for use as a remote hub or to be used by publishers who want to have their own internal hub. Ballerina's WebSub Hub honors specified lease periods and supports authenticated content distribution.</p>
+<p>Ballerina WebSub publishers can use utility functions to add WebSub link headers indicating the hub and topic
+URLs, which facilitates WebSub discovery.</p>
+<p>A hub client endpoint is also made available to publishers and subscribers to perform the following:</p>
+<ol>
+<li>Publishers
+<ul>
+<li>Register a topic at the Hub</li>
+<li>Publish to the hub, indicating an update of the topic</li>
+</ul>
+</li>
+<li>Subscribers
+<ul>
+<li>Subscribe/Unsubscribe to topics at a hub</li>
+</ul>
+</li>
+</ol>
+<h2>Samples</h2>
+<p>This sample demonstrates a Subscriber Service with <code>subscribeOnStartUp</code> set to true, which will result in a
+subscription request being sent to the specified hub for the specified topic, with the specified lease seconds value
+and the specified secret for authenticated content distribution.
+Since an <code>onIntentVerification</code> resource is not included, intent verification for subscription and unsubscription
+requests would happen automatically, if the topic specified in the request matches that specified as an annotation or
+that discovered for the annotated resource URL.</p>
+<pre><code class="language-ballerina">import ballerina/log;
+import ballerina/mime;
+import ballerina/http;
+import ballerina/websub;
+
+endpoint websub:Listener websubEP {
+    port: 8181
+};
+
+@websub:SubscriberServiceConfig {
+    path: &quot;/websub&quot;,
+    subscribeOnStartUp: true,
+    topic: &quot;http://www.websubpubtopic.com&quot;,
+    hub: &quot;https://localhost:9191/websub/hub&quot;,
+    leaseSeconds: 3600000,
+    secret: &quot;Kslk30SNF2AChs2&quot;
+}
+service websubSubscriber bind websubEP {
+
+    onNotification(websub:Notification notification) {
+        log:printInfo(&quot;WebSub Notification Received: &quot; + notification.payload.toString());
+    }
+ 
+}
+</code></pre>
+<p>Explicit intent verification can be done by introducing an <code>onIntentVerification</code> resource.</p>
+<pre><code class="language-ballerina">import ballerina/log;
+import ballerina/mime;
+import ballerina/http;
+import ballerina/websub;
+
+endpoint websub:Listener websubEP {
+    port: 8181
+};
+
+@websub:SubscriberServiceConfig {
+    path: &quot;/websub&quot;,
+    subscribeOnStartUp: true,
+    topic: &quot;http://www.websubpubtopic.com&quot;,
+    hub: &quot;https://localhost:9191/websub/hub&quot;,
+    leaseSeconds: 3600000,
+    secret: &quot;Kslk30SNF2AChs2&quot;
+}
+service websubSubscriber bind websubEP {
+
+    onIntentVerification(endpoint caller, websub:IntentVerificationRequest request) {
+        http:Response response = new;
+        // Insert logic to build subscription/unsubscription intent verification response
+        caller-&gt;respond(response) but { 
+            error e =&gt; log:printError(&quot;Error responding to intent verification request&quot;, err = e) 
+        };
+    }
+
+    onNotification(websub:Notification notification) {
+        log:printInfo(&quot;WebSub Notification Received: &quot; + notification.payload.toString());
+    }
+    
+}
+</code></pre>
+<p>Functions are made available on the <code>websub:IntentVerificationRequest</code> to build a subscription or unsubscription
+verification response, specifying the topic to verify intent against:</p>
+<pre><code class="language-ballerina">http:Response response = request.buildSubscriptionVerificationResponse(topic = &lt;TOPIC_TO_VERIFY_FOR&gt;);
+</code></pre>
+<pre><code class="language-ballerina">http:Response response = request.buildUnsubscriptionVerificationResponse(topic = &lt;TOPIC_TO_VERIFY_FOR&gt;);
+</code></pre>
+<p>Ballerina publishers can start up and publish directly to the Ballerina WebSub hub.</p>
+<pre><code class="language-ballerina">import ballerina/log;
+import ballerina/runtime;
+import ballerina/websub;
+
+function main(string... args) {
+
+    log:printInfo(&quot;Starting up the Ballerina Hub Service&quot;);
+    websub:WebSubHub webSubHub = websub:startUpBallerinaHub(port = 9191);
+
+    var registrationResponse = webSubHub.registerTopic(&quot;http://www.websubpubtopic.com&quot;);
+    match (registrationResponse) {
+        error webSubError =&gt; log:printError(&quot;Error occurred registering topic: &quot; + webSubError.message);
+        () =&gt; log:printInfo(&quot;Topic registration successful!&quot;);
+    }
+
+    // Make the publisher wait until the subscriber subscribes at the hub.
+    runtime:sleep(20000);
+
+    log:printInfo(&quot;Publishing update to internal Hub&quot;);
+    var publishResponse = webSubHub.publishUpdate(&quot;http://www.websubpubtopic.com&quot;,
+                                                   {&quot;action&quot;: &quot;publish&quot;, &quot;mode&quot;: &quot;internal-hub&quot;});
+    match (publishResponse) {
+        error webSubError =&gt; log:printError(&quot;Error notifying hub: &quot; + webSubError.message);
+        () =&gt; log:printInfo(&quot;Update notification successful!&quot;);
+    }
+
+    // Make sure the service is running until the subscriber receives the update notification.
+    runtime:sleep(5000);
+}
+</code></pre>
+<p>Ballerina publishers can also use the hub client endpoint to register topics at Ballerina WebSub hubs
+and publish/notify updates to the remote hubs.</p>
+<pre><code class="language-ballerina">import ballerina/log;
+import ballerina/runtime;
+import ballerina/websub;
+
+endpoint websub:Client websubHubClientEP {
+    url: &quot;https://localhost:9191/websub/hub&quot;
+};
+
+function main(string... args) {
+
+    var registrationResponse = websubHubClientEP-&gt;registerTopic(&quot;http://www.websubpubtopic.com&quot;);
+    match (registrationResponse) {
+        error webSubError =&gt; log:printError(&quot;Error occurred registering topic: &quot; + webSubError.message);
+        () =&gt; log:printInfo(&quot;Topic registration successful!&quot;);
+    }
+
+    // Make the publisher wait until the subscriber subscribes at the hub.
+    runtime:sleep(10000);
+
+    log:printInfo(&quot;Publishing update to remote Hub&quot;);
+    var publishResponse = websubHubClientEP-&gt;publishUpdate(&quot;http://www.websubpubtopic.com&quot;,
+                                                            {&quot;action&quot;: &quot;publish&quot;, &quot;mode&quot;: &quot;remote-hub&quot;});
+    match (publishResponse) {
+        error webSubError =&gt; log:printError(&quot;Error notifying hub: &quot; + webSubError.message);
+        () =&gt; log:printInfo(&quot;Update notification successful!&quot;);
+    }
+
+}
+</code></pre>
+<p>The hub client endpoint can also be used by subscribers to send subscription and unsubscription requests explicitly.</p>
+<pre><code class="language-ballerina">import ballerina/log;
+import ballerina/runtime;
+import ballerina/websub;
+
+endpoint websub:Client websubHubClientEP {
+    url: &quot;https://localhost:9191/websub/hub&quot;
+};
+
+function main(string... args) {
+
+    // Send subscription request for a subscriber service.
+    websub:SubscriptionChangeRequest subscriptionRequest = { topic: &quot;http://www.websubpubtopic.com&quot;, 
+                                                             callback: &quot;http://localhost:8181/websub&quot;,
+                                                             secret: &quot;Kslk30SNF2AChs2&quot; };
+
+    var response = websubHubClientEP-&gt;subscribe(subscriptionRequest);
+    match (response) {
+        websub:SubscriptionChangeResponse subscriptionChangeResponse =&gt; {
+            log:printInfo(&quot;Subscription Request successful at Hub [&quot; + subscriptionChangeResponse.hub 
+                    + &quot;] for Topic [&quot; + subscriptionChangeResponse.topic + &quot;]&quot;);
+        }
+        error e =&gt; {
+            log:printError(&quot;Error occurred with Subscription Request&quot;, err = e);
+        }
+    }
+
+    // Send unsubscription request for the subscriber service.
+    websub:SubscriptionChangeRequest unsubscriptionRequest = { topic: &quot;http://www.websubpubtopic.com&quot;,
+                                                               callback: &quot;http://localhost:8181/websub&quot; };
+
+    response = websubHubClientEP-&gt;unsubscribe(unsubscriptionRequest);
+    match (response) {
+        websub:SubscriptionChangeResponse subscriptionChangeResponse =&gt; {
+            log:printInfo(&quot;Unsubscription Request successful at Hub [&quot; + subscriptionChangeResponse.hub
+                    + &quot;] for Topic [&quot; + subscriptionChangeResponse.topic + &quot;]&quot;);
+        }
+        error e =&gt; {
+            log:printError(&quot;Error occurred with Unsubscription Request&quot;, err = e);
+        }
+    }
+
+}
+</code></pre>
+
+                                            </div>
+                                            
 
                                             <div class="summary-wrapper">
                                                 <h2 class="cPageSubHeading">Package Detail</h2>
                                         <!--Primitive Types-->
                                         
-                                         <!-- Type Definitions-->
                                          
-                                        <h3>Type Definitions</h3>
-                                        <table class="cSummary-Table c3Col-Narrow">
-                                            <tr>
-                                                <th class="cSummary-table-name">Type</th>
-                                                <th class="cSummary-table-type">Values</th>
-                                                <th class="cSummary-table-desc">Description</th>
-                                            </tr>
-                                            
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TopicIdentifier</td>
-                                                <td class="cSummary-table-type">TOPIC_ID_PAYLOAD_KEY | TOPIC_ID_HEADER_AND_PAYLOAD | TOPIC_ID_HEADER</td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                        </table>
-                                        
-                                        <!-- Global Variables-->
-                                        
-                                        <h3 id="GlobalVariables">Global Variables</h3>
-                                        <table class="cSummary-Table c3Col-Narrow">
-                                            <tr>
-                                                <th class="cSummary-table-name">Name</th>
-                                                <th class="cSummary-table-type">Data Type</th>
-                                                <th class="cSummary-table-desc">Description</th>
-                                            </tr>
-                                            
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">CONTENT_TYPE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">HUB_CALLBACK</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">HUB_CHALLENGE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">HUB_LEASE_SECONDS</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">HUB_MODE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">HUB_SECRET</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">HUB_TOPIC</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">MD5</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">MODE_PUBLISH</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">MODE_REGISTER</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">MODE_SUBSCRIBE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">MODE_UNREGISTER</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">MODE_UNSUBSCRIBE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">PUBLISHER_SECRET</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">PUBLISHER_SIGNATURE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">REMOTE_PUBLISHING_MODE_DIRECT</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">REMOTE_PUBLISHING_MODE_FETCH</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">SHA1</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">SHA256</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TOPIC_ID_HEADER</td>
-                                                <td class="cSummary-table-type"><a href="#TopicIdentifier">TopicIdentifier</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TOPIC_ID_HEADER_AND_PAYLOAD</td>
-                                                <td class="cSummary-table-type"><a href="#TopicIdentifier">TopicIdentifier</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TOPIC_ID_PAYLOAD_KEY</td>
-                                                <td class="cSummary-table-type"><a href="#TopicIdentifier">TopicIdentifier</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">X_HUB_SIGNATURE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">X_HUB_TOPIC</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">X_HUB_UUID</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                        </table>
-                                        
                                         <!-- records -->
                                         
                                         <h3 id="RecordsSummary">Records</h3>
@@ -1989,8 +1747,8 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#HubClientEndpointConfiguration">HubClientEndpointConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"><p>Object representing the WebSub Hub Client Endpoint configuration.</p>
+                                                         <td class="cSummary-table-name"><a href="#HubClientEndpointConfig">HubClientEndpointConfig</a></td>
+                                                         <td class="cSummary-table-desc"><p>Record representing the configuration parameters for the WebSub Hub Client Endpoint.</p>
 </td>
                                                      </tr>
                                                  
@@ -1998,7 +1756,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Notification">Notification</a></td>
-                                                         <td class="cSummary-table-desc"><p>Record representing the WebSubSubscriber notification received.</p>
+                                                         <td class="cSummary-table-desc"><p>Record representing the WebSub Content Delivery Request received.</p>
 </td>
                                                      </tr>
                                                  
@@ -2014,7 +1772,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#SubscriberServiceEndpointConfiguration">SubscriberServiceEndpointConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"><p>Object representing the configuration for the WebSubSubscriber Service Endpoint.</p>
+                                                         <td class="cSummary-table-desc"><p>Object representing the configuration for the WebSub Subscriber Service Endpoint.</p>
 </td>
                                                      </tr>
                                                  
@@ -2022,7 +1780,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#SubscriptionChangeRequest">SubscriptionChangeRequest</a></td>
-                                                         <td class="cSummary-table-desc"><p>Record to represent a WebSub subscription request.</p>
+                                                         <td class="cSummary-table-desc"><p>Record representing a WebSub subscription change request.</p>
 </td>
                                                      </tr>
                                                  
@@ -2030,73 +1788,9 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#SubscriptionChangeResponse">SubscriptionChangeResponse</a></td>
-                                                         <td class="cSummary-table-desc"><p>Record to represent subscription/unsubscription details on success.</p>
+                                                         <td class="cSummary-table-desc"><p>Record representing subscription/unsubscription details if a subscription/unsubscription request is successful.</p>
 </td>
                                                      </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#SubscriptionDetails">SubscriptionDetails</a></td>
-                                                         <td class="cSummary-table-desc"><p>Struct to represent Subscription Details retrieved from the database.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
                                                  
                                              
                                                  
@@ -2155,37 +1849,9 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#CallerActions">CallerActions</a></td>
-                                                     
-                                                         <td class="cSummary-table-desc"><p>The HTTP based Caller actions for outbound WebSub Subscription, Unsubscription, Registration, Unregistration and
-Notification requests to a Hub.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#Client">Client</a></td>
-                                                     
-                                                         <td class="cSummary-table-desc"><p>Object representing the WebSub Hub Client Endpoint.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#IntentVerificationRequest">IntentVerificationRequest</a></td>
                                                      
-                                                         <td class="cSummary-table-desc"><p>Object representing and intent verification request received.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#Listener">Listener</a></td>
-                                                     
-                                                         <td class="cSummary-table-desc"><p>Object representing the WebSubSubscriber Service Endpoint.</p>
+                                                         <td class="cSummary-table-desc"><p>Object representing an intent verification request received.</p>
 </td>
                                                      </tr>
                                                  
@@ -2211,61 +1877,9 @@ Notification requests to a Hub.</p>
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#WebSubHub">WebSubHub</a></td>
                                                      
-                                                         <td class="cSummary-table-desc"><p>Object to represent a WebSub Hub.</p>
+                                                         <td class="cSummary-table-desc"><p>Object representing a Ballerina WebSub Hub.</p>
 </td>
                                                      </tr>
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
                                                  
                                              
                                                  
@@ -2274,15 +1888,11 @@ Notification requests to a Hub.</p>
                                          
                                          <!-- endpoints -->
                                          
-                                         <!-- functions -->
-                                         
-                                         <h3 id="FunctionsSummary">
-                                           Functions
-                                        </h3>
+                                        <h3 id="EndpointsSummary"><span class="fw-endpoint sm-icon"></span> Endpoints</h3>
                                          <table class="cSummary-Table c2Col-Medium">
                                              <tr>
-                                                 <th class="cSummary-table-name">Return Type</th>
-                                                 <th class="cSummary-table-desc">Function and Description</th>
+                                                 <th class="cSummary-table-name">Endpoint</th>
+                                                 <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              
                                                  
@@ -2300,8 +1910,57 @@ Notification requests to a Hub.</p>
                                                  
                                              
                                                  
+                                             
+                                                 
+                                             
+                                                 
                                                      <tr>
-                                                         <td class="cSummary-table-name">addWebSubLinkHeaders</td>
+                                                         <td class="cSummary-table-name"><a href="#Client">Client</a></td>
+                                                        <td class="cSummary-table-desc"><p>Object representing the WebSub Hub Client Endpoint.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                         </table>
+                                         
+                                         <!-- functions -->
+                                         
+                                         <h3 id="FunctionsSummary">
+                                           Functions
+                                        </h3>
+                                         <table class="cSummary-Table c2Col-Medium">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Function</th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#addWebSubLinkHeader">addWebSubLinkHeader</a></td>
                                                         <td class="cSummary-table-desc"><p>Function to add link headers to a response to allow WebSub discovery.</p>
 </td>
                                                      </tr>
@@ -2309,7 +1968,7 @@ Notification requests to a Hub.</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">interceptWebSubRequest</td>
+                                                         <td class="cSummary-table-name"><a href="#interceptWebSubRequest">interceptWebSubRequest</a></td>
                                                         <td class="cSummary-table-desc"><p>The function called to validate signature for content received by WebSub services.</p>
 </td>
                                                      </tr>
@@ -2317,72 +1976,10 @@ Notification requests to a Hub.</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">startUpBallerinaHub</td>
+                                                         <td class="cSummary-table-name"><a href="#startUpBallerinaHub">startUpBallerinaHub</a></td>
                                                         <td class="cSummary-table-desc"><p>Starts up the Ballerina Hub.</p>
 </td>
                                                      </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name">validateSignature</td>
-                                                        <td class="cSummary-table-desc"><p>Function to validate the signature header included in the notification.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
                                                  
                                              
                                                  
@@ -2401,10 +1998,14 @@ Notification requests to a Hub.</p>
                                              
                                          </table>
                                          
+                                         <!-- Type Definitions-->
+                                         
+                                        <!-- Global Variables-->
+                                        
                                          <!-- Annotations -->
                                         
                                         <h3 id="Annotations">Annotations</h3>
-                                        <table class="cSummary-Table">
+                                        <table class="cSummary-Table c4Col-Narrow">
                                             <tr>
                                                 <th class="cSummary-table-name">Name</th>
                                                 <th class="cSummary-table-attach">Attaches To</th>
@@ -2427,43 +2028,14 @@ Notification requests to a Hub.</p>
                                               
                                               
                                               
-                                              
-                                              
-                                              
-                                              
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">SubscriberServiceConfig</td>
                                                 <td class="cSummary-table-attach">service</td>
                                                 <td class="cSummary-table-type"><a href="websub.html#SubscriberServiceConfiguration">SubscriberServiceConfiguration</a></td>
-                                                <td class="cSummary-table-desc"><p>WebSubSubscriber Configuration for the service.</p>
+                                                <td class="cSummary-table-desc"><p>WebSub Subscriber Configuration for the service, indicating subscription related parameters.</p>
 </td>
                                             </tr>
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
                                               
                                         </table>
                                         
@@ -2482,12 +2054,12 @@ Notification requests to a Hub.</p>
                                                 
                                                 <!-- Records -->
                                                 
-                                                <h2 id="HubClientEndpointConfiguration">
-                                                    <span class="fw-record sm-icon"></span> public type HubClientEndpointConfiguration
+                                                <h2 id="HubClientEndpointConfig">
+                                                    <span class="fw-record sm-icon"></span> public type HubClientEndpointConfig
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Object representing the WebSub Hub Client Endpoint configuration.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Record representing the configuration parameters for the WebSub Hub Client Endpoint.</p>
 
                                                 </p>
                                                  
@@ -2511,7 +2083,7 @@ Notification requests to a Hub.</p>
                                                         <td class="cAPI-table-name">secureSocket</td>
                                                         <td class="cAPI-table-type"><a href="http.html#SecureSocket">ballerina.http:SecureSocket?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>SSL/TLS related options</p>
+                                                        <td class="cAPI-table-desc"><p>SSL/TLS related options for the underlying HTTP Client</p>
 </td>
                                                     </tr>
                                                     
@@ -2519,7 +2091,16 @@ Notification requests to a Hub.</p>
                                                         <td class="cAPI-table-name">auth</td>
                                                         <td class="cAPI-table-type"><a href="http.html#AuthConfig">ballerina.http:AuthConfig?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Authentication mechanism for the underlying HTTP Client</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">followRedirects</td>
+                                                        <td class="cAPI-table-type"><a href="http.html#FollowRedirects">ballerina.http:FollowRedirects?</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>HTTP redirect related configuration</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -2544,7 +2125,7 @@ Notification requests to a Hub.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Record representing the WebSubSubscriber notification received.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Record representing the WebSub Content Delivery Request received.</p>
 
                                                 </p>
                                                  
@@ -2560,7 +2141,7 @@ Notification requests to a Hub.</p>
                                                         <td class="cAPI-table-name">payload</td>
                                                         <td class="cAPI-table-type"><a href="">json</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The payload of the notification received</p>
+                                                        <td class="cAPI-table-desc"><p>The JSON payload of the notification received</p>
 </td>
                                                     </tr>
                                                     
@@ -2626,7 +2207,7 @@ Notification requests to a Hub.</p>
                                                         <td class="cAPI-table-name">subscribeOnStartUp</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Whether a subscription request is expected to be sent on start up</p>
+                                                        <td class="cAPI-table-desc"><p>Boolean indicating whether a subscription request is expected to be sent on start up</p>
 </td>
                                                     </tr>
                                                     
@@ -2651,7 +2232,7 @@ specified</p>
                                                         <td class="cAPI-table-name">topic</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The topic to which this WebSub subscriber (callback) should be registered</p>
+                                                        <td class="cAPI-table-desc"><p>The topic for which this WebSub subscriber (callback) should be registered</p>
 </td>
                                                     </tr>
                                                     
@@ -2695,6 +2276,15 @@ specified</p>
 </td>
                                                     </tr>
                                                     
+                                                    <tr>
+                                                        <td class="cAPI-table-name">followRedirects</td>
+                                                        <td class="cAPI-table-type"><a href="http.html#FollowRedirects">ballerina.http:FollowRedirects?</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The HTTP redirect related configuration specifying if subscription requests should be sent
+to redirected hubs/topics</p>
+</td>
+                                                    </tr>
+                                                    
                                                 </table>
                                                  
                                                 <!-- Objects and its functions -->
@@ -2717,7 +2307,7 @@ specified</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Object representing the configuration for the WebSubSubscriber Service Endpoint.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Object representing the configuration for the WebSub Subscriber Service Endpoint.</p>
 
                                                 </p>
                                                  
@@ -2755,7 +2345,7 @@ specified</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">topicIdentifier</td>
-                                                        <td class="cAPI-table-type"><a href="#TopicIdentifier">TOPIC_ID_HEADER|TOPIC_ID_PAYLOAD_KEY|TOPIC_ID_HEADER_AND_PAYLOAD?</a></td>
+                                                        <td class="cAPI-table-type"><a href="#TopicIdentifier">TOPIC_ID_PAYLOAD_KEY|TOPIC_ID_HEADER_AND_PAYLOAD|TOPIC_ID_HEADER?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The identifier based on which dispatching should happen for custom subscriber services</p>
 </td>
@@ -2807,7 +2397,7 @@ specified</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Record to represent a WebSub subscription request.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Record representing a WebSub subscription change request.</p>
 
                                                 </p>
                                                  
@@ -2874,7 +2464,7 @@ sent</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Record to represent subscription/unsubscription details on success.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Record representing subscription/unsubscription details if a subscription/unsubscription request is successful.</p>
 
                                                 </p>
                                                  
@@ -2921,82 +2511,8 @@ sent</p>
                                                 
                                                 <!-- Function -->
                                                 
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <h2 id="SubscriptionDetails">
-                                                    <span class="fw-record sm-icon"></span> public type SubscriptionDetails
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Struct to represent Subscription Details retrieved from the database.</p>
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Field Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">topic</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The topic for which the subscription is added</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">callback</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The callback specified for the particular subscription</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">secret</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The secret to be used for authenticated content distribution</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">leaseSeconds</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The lease second period specified for the particular subscription</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">createdAt</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The time at which the subscription was created</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <h2 id="addWebSubLinkHeaders">
-                                                    <span class="fw-function sm-icon"> </span> public function addWebSubLinkHeaders(ballerina.http:Response response, string[] hubs, string topic) returns (Response) 
+                                                <h2 id="addWebSubLinkHeader">
+                                                    <span class="fw-function sm-icon"> </span> public function addWebSubLinkHeader(ballerina.http:Response response, string[] hubs, string topic) returns (Response) 
                                                 </h2>
                                                 
                                                 <p>
@@ -3032,7 +2548,7 @@ sent</p>
                                                         <td class="cAPI-table-name">topic</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The topic to which subscribers need to subscribe to, to receive updates for the resource/topic</p>
+                                                        <td class="cAPI-table-desc"><p>The topic to which subscribers need to subscribe to, to receive updates for the resource</p>
 </td>
                                                     </tr>
                                                     
@@ -3202,98 +2718,16 @@ sent</p>
                                                 
                                                 <!-- Function -->
                                                 
-                                                <h2 id="validateSignature">
-                                                    <span class="fw-function sm-icon"> </span> public function validateSignature(string xHubSignature, string stringPayload, string secret) returns (error) 
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Function to validate the signature header included in the notification.</p>
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Parameter Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">xHubSignature</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The X-Hub-Signature header included in the notification request from the hub</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">stringPayload</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The string representation of the notification payload received</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">secret</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The secret used when subscribing</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="cReturnTableHeader"></div>
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name"></th>
-                                                        <th class="cAPI-table-type">Return Type</th>
-                                                        <th class="cAPI-table-default"></th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="#error">error</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p><code>error</code> if an error occurs validating the signature or the signature is invalid</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                                <h2 id="CallerActions">
-                                                    <span class="fw-struct sm-icon"></span> public type CallerActions object
+                                                <h2 id="Client">
+                                                    <span class="fw-endpoint sm-icon"></span>Endpoint Client
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>The HTTP based Caller actions for outbound WebSub Subscription, Unsubscription, Registration, Unregistration and
-Notification requests to a Hub.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Object representing the WebSub Hub Client Endpoint.</p>
 
                                                 </p>
                                                  
@@ -3318,15 +2752,15 @@ Notification requests to a Hub.</p>
                                                     <ul>
                                                         
                                                         <li>
-                                                            <h2 id="CallerActions-subscribe">
-                                                                <span class="fw-function"></span>
+                                                            <h2 id="Client-subscribe">
+                                                                <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;CallerActions&gt;
+                                                   &lt;Client&gt;
                                                    </span> subscribe(websub:SubscriptionChangeRequest subscriptionRequest) returns (SubscriptionChangeResponse | error) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Function to send a subscription request to a WebSub Hub.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sends a subscription request to a WebSub Hub.</p>
 
                                                             </p>
                                                              
@@ -3342,7 +2776,7 @@ Notification requests to a Hub.</p>
                                                                     <td class="cAPI-table-name">subscriptionRequest</td>
                                                                     <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeRequest">websub:SubscriptionChangeRequest</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The SubscriptionChangeRequest containing subscription details</p>
+                                                                    <td class="cAPI-table-desc"><p>The <code>SubscriptionChangeRequest</code> containing subscription details</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3359,7 +2793,7 @@ Notification requests to a Hub.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">SubscriptionChangeResponse | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeResponse">SubscriptionChangeResponse </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p><code>SubscriptionChangeResponse</code> indicating subscription details, if the request was successful else
 <code>error</code> if an error occurred with the subscription request</p>
@@ -3371,15 +2805,15 @@ Notification requests to a Hub.</p>
                                                         </li>
                                                         
                                                         <li>
-                                                            <h2 id="CallerActions-unsubscribe">
-                                                                <span class="fw-function"></span>
+                                                            <h2 id="Client-unsubscribe">
+                                                                <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;CallerActions&gt;
+                                                   &lt;Client&gt;
                                                    </span> unsubscribe(websub:SubscriptionChangeRequest unsubscriptionRequest) returns (SubscriptionChangeResponse | error) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Function to send an unsubscription request to a WebSub Hub.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sends an unsubscription request to a WebSub Hub.</p>
 
                                                             </p>
                                                              
@@ -3395,7 +2829,7 @@ Notification requests to a Hub.</p>
                                                                     <td class="cAPI-table-name">unsubscriptionRequest</td>
                                                                     <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeRequest">websub:SubscriptionChangeRequest</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The SubscriptionChangeRequest containing unsubscription details</p>
+                                                                    <td class="cAPI-table-desc"><p>The <code>SubscriptionChangeRequest</code> containing unsubscription details</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3412,7 +2846,7 @@ Notification requests to a Hub.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">SubscriptionChangeResponse | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeResponse">SubscriptionChangeResponse </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p><code>SubscriptionChangeResponse</code> indicating unsubscription details, if the request was successful else
 <code>error</code> if an error occurred with the unsubscription request</p>
@@ -3424,16 +2858,16 @@ Notification requests to a Hub.</p>
                                                         </li>
                                                         
                                                         <li>
-                                                            <h2 id="CallerActions-registerTopic">
-                                                                <span class="fw-function"></span>
+                                                            <h2 id="Client-registerTopic">
+                                                                <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;CallerActions&gt;
+                                                   &lt;Client&gt;
                                                    </span> registerTopic(string topic, string? secret) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Function to register a topic in a Ballerina WebSub Hub against which subscribers can subscribe and the publisher
-will publish updates, with a secret which will be used in signature generation if specified.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Registers a topic in a Ballerina WebSub Hub against which subscribers can subscribe and the publisher will
+publish updates, with a secret which will be used in signature generation if specified.</p>
 
                                                             </p>
                                                              
@@ -3485,15 +2919,15 @@ will publish updates, with a secret which will be used in signature generation i
                                                         </li>
                                                         
                                                         <li>
-                                                            <h2 id="CallerActions-unregisterTopic">
-                                                                <span class="fw-function"></span>
+                                                            <h2 id="Client-unregisterTopic">
+                                                                <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;CallerActions&gt;
+                                                   &lt;Client&gt;
                                                    </span> unregisterTopic(string topic, string? secret) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Function to unregister a topic in a Ballerina WebSub Hub.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Unregisters a topic in a Ballerina WebSub Hub.</p>
 
                                                             </p>
                                                              
@@ -3545,15 +2979,15 @@ will publish updates, with a secret which will be used in signature generation i
                                                         </li>
                                                         
                                                         <li>
-                                                            <h2 id="CallerActions-publishUpdate">
-                                                                <span class="fw-function"></span>
+                                                            <h2 id="Client-publishUpdate">
+                                                                <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;CallerActions&gt;
+                                                   &lt;Client&gt;
                                                    </span> publishUpdate(string topic, json payload, string? secret, string signatureMethod, map&lt;string&gt;? headers) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Function to publish an update to a remote Ballerina WebSub Hub.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Publishes an update to a remote Ballerina WebSub Hub.</p>
 
                                                             </p>
                                                              
@@ -3599,7 +3033,7 @@ will publish updates, with a secret which will be used in signature generation i
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
-                                                                    <td class="cAPI-table-type"><a href="">map&lt;string&gt;?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">map<string>?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
                                                                     <td class="cAPI-table-desc"><p>The headers, if any, that need to be set</p>
 </td>
@@ -3629,15 +3063,15 @@ will publish updates, with a secret which will be used in signature generation i
                                                         </li>
                                                         
                                                         <li>
-                                                            <h2 id="CallerActions-notifyUpdate">
-                                                                <span class="fw-function"></span>
+                                                            <h2 id="Client-notifyUpdate">
+                                                                <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;CallerActions&gt;
+                                                   &lt;Client&gt;
                                                    </span> notifyUpdate(string topic, map&lt;string&gt;? headers) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Function to notify a remote WebSub Hub that an update is available to fetch, for hubs that require publishing to
+                                                                <span class="fw-right gray xs-icon"></span><p>Notifies a remote WebSub Hub that an update is available to fetch, for hubs that require publishing to
 happen as such.</p>
 
                                                             </p>
@@ -3660,7 +3094,7 @@ happen as such.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
-                                                                    <td class="cAPI-table-type"><a href="">map&lt;string&gt;?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">map<string>?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
                                                                     <td class="cAPI-table-desc"><p>The headers, if any, that need to be set</p>
 </td>
@@ -3692,6 +3126,10 @@ happen as such.</p>
                                                     </ul>
                                                 </div>
                                                  
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
                                             </div>
                                                 
                                             <div class="construct-wrapper">
@@ -3707,168 +3145,6 @@ happen as such.</p>
                                                 
                                                 <!-- Objects and its functions -->
                                                 
-                                                <h2 id="Client">
-                                                    <span class="fw-struct sm-icon"></span> public type Client object
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Object representing the WebSub Hub Client Endpoint.</p>
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Field Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">config</td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#HubClientEndpointConfiguration">websub:HubClientEndpointConfiguration</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-init">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> init(websub:HubClientEndpointConfiguration config) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Gets called when the endpoint is being initialized during package init.</p>
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">config</td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#HubClientEndpointConfiguration">websub:HubClientEndpointConfiguration</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The configuration for the endpoint</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-register">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> register(typedesc serviceType) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Gets called whenever a service attaches itself to this endpoint and during package init.</p>
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">serviceType</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#typedesc">typedesc</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The service attached</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-start">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> start() 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Starts the registered service.</p>
-
-                                                            </p>
-                                                              
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-getCallerActions">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> getCallerActions() returns (CallerActions) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Returns the connector that client code uses.</p>
-
-                                                            </p>
-                                                              
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#CallerActions">CallerActions</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p><code>CallerActions</code> The caller actions available for clients</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-stop">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> stop() 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Stops the registered service.</p>
-
-                                                            </p>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
                                             </div>
                                                 
                                             <div class="construct-wrapper">
@@ -3889,7 +3165,7 @@ happen as such.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Object representing and intent verification request received.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Object representing an intent verification request received.</p>
 
                                                 </p>
                                                  
@@ -3956,7 +3232,7 @@ is being done for subscription</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Function to build intent verification response for subscription requests sent.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Builds the response for the request, verifying intention to subscribe, if the topic matches that expected.</p>
 
                                                             </p>
                                                              
@@ -4009,7 +3285,7 @@ used</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Function to build intent verification response for unsubscription requests sent.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Builds the response for the request, verifying intention to unsubscribe, if the topic matches that expected.</p>
 
                                                             </p>
                                                              
@@ -4051,184 +3327,6 @@ used</p>
                                                                 
                                                             </table>
                                                             
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                                <h2 id="Listener">
-                                                    <span class="fw-struct sm-icon"></span> public type Listener object
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Object representing the WebSubSubscriber Service Endpoint.</p>
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Field Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">config</td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#SubscriberServiceEndpointConfiguration">websub:SubscriberServiceEndpointConfiguration</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The configuration for the endpoint</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-init">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> init(websub:SubscriberServiceEndpointConfiguration config) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Gets called when the endpoint is being initialized during package init.</p>
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">config</td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriberServiceEndpointConfiguration">websub:SubscriberServiceEndpointConfiguration</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The Subscriber Service Endpoint Configuration of the endpoint</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-register">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> register(typedesc serviceType) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Gets called whenever a service attaches itself to this endpoint and during package init.</p>
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">serviceType</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#typedesc">typedesc</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The service attached</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-start">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> start() 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Starts the registered service.</p>
-
-                                                            </p>
-                                                              
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-getCallerActions">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> getCallerActions() returns (Connection) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Returns the connector that client code uses.</p>
-
-                                                            </p>
-                                                              
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#Connection">Connection</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p><code>http:Connection</code> The connector that client code uses</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-stop">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> stop() 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Stops the registered service.</p>
-
-                                                            </p>
-                                                              
                                                         </li>
                                                         
                                                     </ul>
@@ -4389,7 +3487,7 @@ used</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Object to represent a WebSub Hub.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Object representing a Ballerina WebSub Hub.</p>
 
                                                 </p>
                                                  
@@ -4412,40 +3510,6 @@ used</p>
                                                  
                                                 <div class="function-wrapper">
                                                     <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="WebSubHub-stop">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;WebSubHub&gt;
-                                                   </span> stop() returns (boolean) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Stops the started up Ballerina Hub.</p>
-
-                                                            </p>
-                                                              
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p><code>boolean</code> indicating whether the internal Ballerina Hub was stopped</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
                                                         
                                                         <li>
                                                             <h2 id="WebSubHub-publishUpdate">
@@ -4614,396 +3678,6 @@ used</p>
                                                     </ul>
                                                 </div>
                                                  
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
                                             </div>
                                                 
                                             <div class="construct-wrapper">

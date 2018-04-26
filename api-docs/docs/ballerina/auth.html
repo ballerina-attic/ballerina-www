@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -86,7 +86,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -95,8 +95,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -846,8 +846,6 @@
                                     <ul class="constructs-ul">
                                         
                                         
-                                        
-                                        
                                         <li>
                                             <a href="#RecordsSummary">
                                                 <div class="construct-icon">
@@ -874,6 +872,9 @@
                                         
                                         
                                         
+                                        
+                                        
+
                                         
                                           
                                         <li>
@@ -1301,7 +1302,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -1332,15 +1333,27 @@
                                                 <span class="bold">ballerina/auth</span>  package 
                                             </h1>
                                             
+                                            <div class="cAPIdocsDescription">
+                                                <h2>Package Overview</h2>
+<p>This package provides a set of default authentication providers that can be extended to create new authentication providers.</p>
+<h3>Authentication Provider</h3>
+<p>An authentication provider defines an authentication scheme that could be used to protect endpoints. The <code>auth:AuthProvider</code> type acts as the interface for all the authentication providers. Any type of implementation, such as LDAP, JDBC, and file based, should be object-wise similar.</p>
+<p>By default there are two implementations of that. They are, <code>auth:ConfigAuthProvider</code> which authenticates based on usernames and passwords stored in ‘ballerina.conf’, and <code>auth:JWTAuthProvider</code> which authenticates by validating a JWT. It is possible to implement more such authentication mechanisms.</p>
+<p>When creating a new authentication provider, there are two functions that need to be implemented.</p>
+<ul>
+<li><code>authenticate</code> : authenticate the user based on a credential, which can be username/password or a token such as JWT.</li>
+<li><code>getScopes</code> : provide the scopes associated with the user. Scopes are primarily permissions that are required to access a protected resource.</li>
+</ul>
+<h2>Package Contents</h2>
+
+                                            </div>
+                                            
 
                                             <div class="summary-wrapper">
                                                 <h2 class="cPageSubHeading">Package Detail</h2>
                                         <!--Primitive Types-->
                                         
-                                         <!-- Type Definitions-->
                                          
-                                        <!-- Global Variables-->
-                                        
                                         <!-- records -->
                                         
                                         <h3 id="RecordsSummary">Records</h3>
@@ -1431,6 +1444,10 @@ object-wise similar</p>
                                          
                                          <!-- functions -->
                                          
+                                         <!-- Type Definitions-->
+                                         
+                                        <!-- Global Variables-->
+                                        
                                          <!-- Annotations -->
                                         
                                      </div>
@@ -2318,7 +2335,7 @@ object-wise similar</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">boolean | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>true if authentication is a success, else false</p>
 </td>

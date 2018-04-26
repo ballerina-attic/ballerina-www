@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -86,7 +86,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -95,8 +95,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -861,8 +861,6 @@
                                         
                                         
                                         
-                                        
-                                        
                                         <li>
                                             <a href="#ObjectsSummary">
                                                 <div class="construct-icon">
@@ -877,6 +875,9 @@
                                         
                                         
                                         
+                                        
+                                        
+
                                         
                                           
                                         <li>
@@ -1165,7 +1166,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -1217,7 +1218,6 @@ cache.put(&quot;key-a&quot;, &quot;value-a&quot;);
 // Use the same key to retrieve the value.
 string returnValue = &lt;string&gt;cache.get(&quot;key-a&quot;);
 </code></pre>
-<h2>Package contents</h2>
 
                                             </div>
                                             
@@ -1226,10 +1226,7 @@ string returnValue = &lt;string&gt;cache.get(&quot;key-a&quot;);
                                                 <h2 class="cPageSubHeading">Package Detail</h2>
                                         <!--Primitive Types-->
                                         
-                                         <!-- Type Definitions-->
                                          
-                                        <!-- Global Variables-->
-                                        
                                         <!-- records -->
                                         
                                         <!-- objects -->
@@ -1257,6 +1254,10 @@ string returnValue = &lt;string&gt;cache.get(&quot;key-a&quot;);
                                          
                                          <!-- functions -->
                                          
+                                         <!-- Type Definitions-->
+                                         
+                                        <!-- Global Variables-->
+                                        
                                          <!-- Annotations -->
                                         
                                      </div>
@@ -1464,8 +1465,8 @@ string returnValue = &lt;string&gt;cache.get(&quot;key-a&quot;);
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Returns the cached value associated with the given key. If the provided cache key is not found, an error will
-be thrown. So use the hasKey function to check for the existance of a particular key.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Returns the cached value associated with the given key. If the provided cache key is not found, ()
+will be returned.</p>
 
                                                             </p>
                                                              

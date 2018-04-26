@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -86,7 +86,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -95,8 +95,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -1029,19 +1029,6 @@
                                         
                                         
                                         <li>
-                                            <a href="#TypeDefinitions">
-                                                <div class="construct-icon">
-                                                    <span class="fw-type"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Type Definitions
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        
-                                        
-                                        <li>
                                             <a href="#RecordsSummary">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
@@ -1079,6 +1066,18 @@
                                         
                                         
                                         <li>
+                                            <a href="#TypeDefinitions">
+                                                <div class="construct-icon">
+                                                    <span class="fw-type"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Type Definitions
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        <li>
                                             <a href="#GlobalVariables">
                                                 <div class="construct-icon">
                                                     <span class="fw-globe"> </span>
@@ -1089,6 +1088,8 @@
                                             </a>
                                         </li>
                                         
+                                        
+
                                         
                                           
                                         <li>
@@ -1283,32 +1284,6 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Participant2pcClientEP-init">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        init
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Participant2pcClientEP-getCallerActions">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        getCallerActions
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                             
                                            
                                          
@@ -1343,7 +1318,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -1379,194 +1354,7 @@
                                                 <h2 class="cPageSubHeading">Package Detail</h2>
                                         <!--Primitive Types-->
                                         
-                                         <!-- Type Definitions-->
                                          
-                                        <h3>Type Definitions</h3>
-                                        <table class="cSummary-Table c3Col-Narrow">
-                                            <tr>
-                                                <th class="cSummary-table-name">Type</th>
-                                                <th class="cSummary-table-type">Values</th>
-                                                <th class="cSummary-table-desc">Description</th>
-                                            </tr>
-                                            
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TransactionState</td>
-                                                <td class="cSummary-table-type">prepared | committed | active | aborted</td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                        </table>
-                                        
-                                        <!-- Global Variables-->
-                                        
-                                        <h3 id="GlobalVariables">Global Variables</h3>
-                                        <table class="cSummary-Table c3Col-Narrow">
-                                            <tr>
-                                                <th class="cSummary-table-name">Name</th>
-                                                <th class="cSummary-table-type">Data Type</th>
-                                                <th class="cSummary-table-desc">Description</th>
-                                            </tr>
-                                            
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">COMMAND_ABORT</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">COMMAND_COMMIT</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">COMMAND_PREPARE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">NOTIFY_RESULT_ABORTED_STR</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">NOTIFY_RESULT_COMMITTED_STR</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">NOTIFY_RESULT_FAILED_EOT_STR</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">NOTIFY_RESULT_NOT_PREPARED_STR</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">OUTCOME_ABORTED</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">OUTCOME_COMMITTED</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">PREPARE_RESULT_ABORTED_STR</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">PREPARE_RESULT_COMMITTED_STR</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">PREPARE_RESULT_PREPARED_STR</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">PREPARE_RESULT_READ_ONLY_STR</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TRANSACTION_UNKNOWN</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TXN_STATE_ACTIVE</td>
-                                                <td class="cSummary-table-type"><a href="#TransactionState">TransactionState</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TXN_STATE_PREPARED</td>
-                                                <td class="cSummary-table-type"><a href="#TransactionState">TransactionState</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                        </table>
-                                        
                                         <!-- records -->
                                         
                                         <h3 id="RecordsSummary">Records</h3>
@@ -1786,8 +1574,8 @@
                                         </h3>
                                          <table class="cSummary-Table c2Col-Medium">
                                              <tr>
-                                                 <th class="cSummary-table-name">Return Type</th>
-                                                 <th class="cSummary-table-desc">Function and Description</th>
+                                                 <th class="cSummary-table-name">Function</th>
+                                                 <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              
                                                  
@@ -1812,7 +1600,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">getCurrentTransactionId</td>
+                                                         <td class="cSummary-table-name"><a href="#getCurrentTransactionId">getCurrentTransactionId</a></td>
                                                         <td class="cSummary-table-desc"><p>Get the current transaction id. This function is useful for user code to save state against a transaction ID,
 so that when the <code>oncommit</code> or <code>onabort</code> functions registered for a transaction can retrieve that state using the
 transaction  that is passed in to those functions.</p>
@@ -1822,7 +1610,7 @@ transaction  that is passed in to those functions.</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">registerParticipantWithRemoteInitiator</td>
+                                                         <td class="cSummary-table-name"><a href="#registerParticipantWithRemoteInitiator">registerParticipantWithRemoteInitiator</a></td>
                                                         <td class="cSummary-table-desc"><p>Registers a participant with the initiator's coordinator. This function will be called by the participant</p>
 </td>
                                                      </tr>
@@ -1868,6 +1656,194 @@ transaction  that is passed in to those functions.</p>
                                              
                                          </table>
                                          
+                                         <!-- Type Definitions-->
+                                         
+                                        <h3>Type Definitions</h3>
+                                        <table class="cSummary-Table c3Col-Narrow">
+                                            <tr>
+                                                <th class="cSummary-table-name">Type</th>
+                                                <th class="cSummary-table-type">Values</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TransactionState</td>
+                                                <td class="cSummary-table-type">prepared | committed | active | aborted</td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                        </table>
+                                        
+                                        <!-- Global Variables-->
+                                        
+                                        <h3 id="GlobalVariables">Global Variables</h3>
+                                        <table class="cSummary-Table c3Col-Narrow">
+                                            <tr>
+                                                <th class="cSummary-table-name">Name</th>
+                                                <th class="cSummary-table-type">Data Type</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">COMMAND_ABORT</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">COMMAND_COMMIT</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">COMMAND_PREPARE</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">NOTIFY_RESULT_ABORTED_STR</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">NOTIFY_RESULT_COMMITTED_STR</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">NOTIFY_RESULT_FAILED_EOT_STR</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">NOTIFY_RESULT_NOT_PREPARED_STR</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">OUTCOME_ABORTED</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">OUTCOME_COMMITTED</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">PREPARE_RESULT_ABORTED_STR</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">PREPARE_RESULT_COMMITTED_STR</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">PREPARE_RESULT_PREPARED_STR</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">PREPARE_RESULT_READ_ONLY_STR</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TRANSACTION_UNKNOWN</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TXN_STATE_ACTIVE</td>
+                                                <td class="cSummary-table-type"><a href="#TransactionState">TransactionState</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TXN_STATE_PREPARED</td>
+                                                <td class="cSummary-table-type"><a href="#TransactionState">TransactionState</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                        </table>
+                                        
                                          <!-- Annotations -->
                                         
                                      </div>
@@ -2432,7 +2408,7 @@ transaction  that is passed in to those functions.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">TransactionContext | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="transactions.html#TransactionContext">TransactionContext </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
@@ -2505,7 +2481,7 @@ transaction  that is passed in to those functions.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">string | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -2557,7 +2533,7 @@ transaction  that is passed in to those functions.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">string | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -2587,68 +2563,7 @@ transaction  that is passed in to those functions.</p>
                                                 <h2 id="Participant2pcClientEP">
                                                     <span class="fw-struct sm-icon"></span> public type Participant2pcClientEP object
                                                 </h2>
-                                                  
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Participant2pcClientEP-init">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Participant2pcClientEP&gt;
-                                                   </span> init(transactions:Participant2pcClientConfig conf) 
-                                                            </h2>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">conf</td>
-                                                                    <td class="cAPI-table-type"><a href="transactions.html#Participant2pcClientConfig">transactions:Participant2pcClientConfig</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Participant2pcClientEP-getCallerActions">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Participant2pcClientEP&gt;
-                                                   </span> getCallerActions() returns (Participant2pcClient) 
-                                                            </h2>
-                                                              
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="transactions.html#Participant2pcClient">Participant2pcClient</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                   
                                             </div>
                                                 
                                             <div class="construct-wrapper">

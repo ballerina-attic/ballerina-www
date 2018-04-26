@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -86,7 +86,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -95,8 +95,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -909,8 +909,6 @@
                                     <ul class="constructs-ul">
                                         
                                         
-                                        
-                                        
                                         <li>
                                             <a href="#RecordsSummary">
                                                 <div class="construct-icon">
@@ -948,6 +946,20 @@
                                         </li>
                                         
                                         
+                                        <li>
+                                            <a href="#TypeDefinitions">
+                                                <div class="construct-icon">
+                                                    <span class="fw-type"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Type Definitions
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        
+
                                         
                                           
                                         <li>
@@ -1107,6 +1119,18 @@
                                             
                                           
                                         <li>
+                                            <a href="#execBallerina">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    execBallerina
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
                                             <a href="#getModifiedTime">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
@@ -1215,6 +1239,7 @@
                                             </li>
                                         </ul>
                                             
+                                           
                                     </ul>
                                 </div>
                                 
@@ -1350,7 +1375,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -1386,10 +1411,7 @@
                                                 <h2 class="cPageSubHeading">Package Detail</h2>
                                         <!--Primitive Types-->
                                         
-                                         <!-- Type Definitions-->
                                          
-                                        <!-- Global Variables-->
-                                        
                                         <!-- records -->
                                         
                                         <h3 id="RecordsSummary">Records</h3>
@@ -1475,6 +1497,10 @@
                                              
                                                  
                                              
+                                                 
+                                             
+                                                 
+                                             
                                          </table>
                                          
                                         <!-- objects -->
@@ -1526,12 +1552,16 @@
                                                  
                                              
                                                  
+                                             
+                                                 
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Path">Path</a></td>
                                                      
                                                          <td class="cSummary-table-desc"><p>Reference to the file location.</p>
 </td>
                                                      </tr>
+                                                 
+                                             
                                                  
                                              
                                          </table>
@@ -1545,8 +1575,8 @@
                                         </h3>
                                          <table class="cSummary-Table c2Col-Medium">
                                              <tr>
-                                                 <th class="cSummary-table-name">Return Type</th>
-                                                 <th class="cSummary-table-desc">Function and Description</th>
+                                                 <th class="cSummary-table-name">Function</th>
+                                                 <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              
                                                  
@@ -1563,7 +1593,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">compress</td>
+                                                         <td class="cSummary-table-name"><a href="#compress">compress</a></td>
                                                         <td class="cSummary-table-desc"><p>Compresses a directory.</p>
 </td>
                                                      </tr>
@@ -1571,7 +1601,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">compressToBlob</td>
+                                                         <td class="cSummary-table-name"><a href="#compressToBlob">compressToBlob</a></td>
                                                         <td class="cSummary-table-desc"><p>Compresses a directory into a blob.</p>
 </td>
                                                      </tr>
@@ -1579,7 +1609,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">createDirectory</td>
+                                                         <td class="cSummary-table-name"><a href="#createDirectory">createDirectory</a></td>
                                                         <td class="cSummary-table-desc"><p>Creates a directory in the specified location.</p>
 </td>
                                                      </tr>
@@ -1587,7 +1617,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">createFile</td>
+                                                         <td class="cSummary-table-name"><a href="#createFile">createFile</a></td>
                                                         <td class="cSummary-table-desc"><p>Creates a file in the specified location.</p>
 </td>
                                                      </tr>
@@ -1595,7 +1625,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">decompress</td>
+                                                         <td class="cSummary-table-name"><a href="#decompress">decompress</a></td>
                                                         <td class="cSummary-table-desc"><p>Decompresses a compressed file.</p>
 </td>
                                                      </tr>
@@ -1603,7 +1633,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">decompressFromBlob</td>
+                                                         <td class="cSummary-table-name"><a href="#decompressFromBlob">decompressFromBlob</a></td>
                                                         <td class="cSummary-table-desc"><p>Decompresses a blob into a directory.</p>
 </td>
                                                      </tr>
@@ -1611,7 +1641,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">delete</td>
+                                                         <td class="cSummary-table-name"><a href="#delete">delete</a></td>
                                                         <td class="cSummary-table-desc"><p>Deletes a file/directory from the specified path.</p>
 </td>
                                                      </tr>
@@ -1619,7 +1649,15 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">getModifiedTime</td>
+                                                         <td class="cSummary-table-name"><a href="#execBallerina">execBallerina</a></td>
+                                                        <td class="cSummary-table-desc"><p>Executes a ballerina command</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#getModifiedTime">getModifiedTime</a></td>
                                                         <td class="cSummary-table-desc"><p>Retrieves the last modified time of the path.</p>
 </td>
                                                      </tr>
@@ -1627,7 +1665,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">issue</td>
+                                                         <td class="cSummary-table-name"><a href="#issue">issue</a></td>
                                                         <td class="cSummary-table-desc"><p>Issue a JWT token.</p>
 </td>
                                                      </tr>
@@ -1635,7 +1673,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">list</td>
+                                                         <td class="cSummary-table-name"><a href="#list">list</a></td>
                                                         <td class="cSummary-table-desc"><p>Returns the list of paths in the directory.</p>
 </td>
                                                      </tr>
@@ -1643,7 +1681,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">parseJson</td>
+                                                         <td class="cSummary-table-name"><a href="#parseJson">parseJson</a></td>
                                                         <td class="cSummary-table-desc"><p>Parse JSON string to generate JSON object.</p>
 </td>
                                                      </tr>
@@ -1651,7 +1689,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">pathExists</td>
+                                                         <td class="cSummary-table-name"><a href="#pathExists">pathExists</a></td>
                                                         <td class="cSummary-table-desc"><p>Check for existance of the file.</p>
 </td>
                                                      </tr>
@@ -1659,7 +1697,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">validate</td>
+                                                         <td class="cSummary-table-name"><a href="#validate">validate</a></td>
                                                         <td class="cSummary-table-desc"><p>Validity given JWT token.</p>
 </td>
                                                      </tr>
@@ -1667,8 +1705,52 @@
                                              
                                                  
                                              
+                                                 
+                                             
                                          </table>
                                          
+                                         <!-- Type Definitions-->
+                                         
+                                        <h3>Type Definitions</h3>
+                                        <table class="cSummary-Table c3Col-Narrow">
+                                            <tr>
+                                                <th class="cSummary-table-name">Type</th>
+                                                <th class="cSummary-table-type">Values</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">BallerinaCommand</td>
+                                                <td class="cSummary-table-type">version | uninstall | test | swagger | search | run | push | pull | install | init | grpc | encrypt | docker | doc | build</td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                        </table>
+                                        
+                                        <!-- Global Variables-->
+                                        
                                          <!-- Annotations -->
                                         
                                      </div>
@@ -2182,7 +2264,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">blob | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#blob">blob </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Compressed blob of the file</p>
 </td>
@@ -2243,7 +2325,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">boolean | IOError</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean </a>|<a href="internal.html#IOError"> IOError</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>error if the directory could not be created</p>
 </td>
@@ -2304,7 +2386,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">boolean | IOError</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean </a>|<a href="internal.html#IOError"> IOError</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>error if the file could not be created</p>
 </td>
@@ -2503,9 +2585,84 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">boolean | IOError</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean </a>|<a href="internal.html#IOError"> IOError</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>error if the directory/file could not be deleted</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="execBallerina">
+                                                    <span class="fw-function sm-icon"> </span> public function execBallerina(docker|install|pull|version|test|build|push|uninstall|run|encrypt|search|init|grpc|doc|swagger command, string packagePath) returns (string | error) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Executes a ballerina command</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">command</td>
+                                                        <td class="cAPI-table-type"><a href="#BallerinaCommand">docker</a>|<a href="#install">install</a>|<a href="#pull">pull</a>|<a href="#version">version</a>|<a href="#test">test</a>|<a href="#build">build</a>|<a href="#push">push</a>|<a href="#uninstall">uninstall</a>|<a href="#run">run</a>|<a href="#encrypt">encrypt</a>|<a href="#search">search</a>|<a href="#init">init</a>|<a href="#grpc">grpc</a>|<a href="#doc">doc</a>|<a href="#swagger">swagger</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Ballerina command</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">packagePath</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Package path with necessary flags</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string </a>|<a href="builtin.html#error"> error</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Data piped from the standard output and error output of the process</li>
+</ul>
 </td>
                                                     </tr>
                                                     
@@ -2563,7 +2720,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">timeTime | IOError</a></td>
+                                                        <td class="cAPI-table-type"><a href="time.html#Time">timeTime </a>|<a href="internal.html#IOError"> IOError</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Last modified time or an error if the path cannot be resolved</p>
 </td>
@@ -2640,7 +2797,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">string | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>JWT token string</p>
 </td>
@@ -2701,7 +2858,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">Path[] | IOError</a></td>
+                                                        <td class="cAPI-table-type"><a href="">Path[] </a>|<a href="internal.html#IOError"> IOError</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>List of file paths in the directory or an I/O error</p>
 </td>
@@ -2762,7 +2919,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">json | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="">json </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>JSON object.</p>
 </td>
@@ -2892,7 +3049,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">JwtPayload | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="internal.html#JwtPayload">JwtPayload </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>If JWT token is valied true , else false</p>
 </td>
@@ -2999,6 +3156,21 @@
                                                     </ul>
                                                 </div>
                                                  
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
                                             </div>
                                                 
                                             </div>

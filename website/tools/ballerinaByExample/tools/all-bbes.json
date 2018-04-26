@@ -4,16 +4,16 @@
     "column": 0,
     "samples": [
       {
+        "name": "Hello World Service",
+        "url": "hello-world-service"
+      },
+      {
         "name": "Hello World Main",
         "url": "hello-world"
       },
       {
         "name": "Hello World Parallel",
         "url": "hello-world-parallel"
-      },
-      {
-        "name": "Hello World Service",
-        "url": "hello-world-service"
       },
       {
         "name": "Hello World Client",
@@ -51,7 +51,7 @@
       },
       {
         "name": "Rest Parameters",
-        "url": "functions-with-rest-parameters"
+        "url": "functions-with-rest-parameter"
       },
       {
         "name": "Documentation",
@@ -328,7 +328,7 @@
         "url": "join-multiple-streams"
       },
       {
-        "name": "Temporal Aggregations and Windows",
+        "name": "Temporal Aggregations",
         "url": "temporal-aggregations-and-windows"
       },
       {
@@ -372,11 +372,11 @@
         "url": "query-path-matrix-param"
       },
       {
-        "name": "Restrict by media type",
+        "name": "Restrict By Media Type",
         "url": "restrict-by-media-type"
       },
       {
-        "name": "HTTP caching",
+        "name": "HTTP Caching",
         "url": "http-caching-client"
       },
       {
@@ -388,11 +388,11 @@
         "url": "http-trace-logs"
       },
       {
-        "name": "Server-Client (basic https sample)",
+        "name": "Basic HTTPS Listener Client",
         "url": "basic-https-listener-client"
       },
       {
-        "name": "HTTPS Server endpoint",
+        "name": "HTTPS Listener",
         "url": "https-listener"
       },
       {
@@ -400,11 +400,11 @@
         "url": "mutual-ssl"
       },
       {
-        "name": "Request with multiparts",
+        "name": "Request With Multiparts",
         "url": "request-with-multiparts"
       },
       {
-        "name": "Response with multiparts",
+        "name": "Response With Multiparts",
         "url": "response-with-multiparts"
       },
       {
@@ -412,19 +412,15 @@
         "url": "http-cors"
       },
       {
-        "name": "Access logs",
+        "name": "Access Logs",
         "url": "http-access-logs"
       },
       {
-        "name": "Data binding",
+        "name": "Data Binding",
         "url": "http-data-binding"
       },
       {
-        "name": "Hello world service",
-        "url": "hello-world-service"
-      },
-      {
-        "name": "100 continue",
+        "name": "100 Continue",
         "url": "http-100-continue"
       }
     ]
@@ -444,24 +440,24 @@
     ]
   },
   {
-    "title": "Websockets ",
+    "title": "WebSockets ",
     "column": 2,
     "samples": [
       {
-        "name": "HTTP to WebSocket Upgrade",
-        "url": "http-to-websocket-upgrade"
+        "name": "WebSocket Basic Example",
+        "url": "websocket-basic-sample"
       },
       {
-        "name": "WebSocket Chat Application",
-        "url": "websocket-chat-application"
+        "name": "HTTP To WebSocket Upgrade",
+        "url": "http-to-websocket-upgrade"
       },
       {
         "name": "WebSocket Proxy Server",
         "url": "websocket-proxy-server"
       },
       {
-        "name": "WebSocket Basic example",
-        "url": "websocket-basic-sample"
+        "name": "WebSocket Chat Application",
+        "url": "websocket-chat-application"
       }
     ]
   },
@@ -478,8 +474,12 @@
         "url": "passthrough"
       },
       {
-        "name": "Content-based Routing",
+        "name": "Content Based Routing",
         "url": "content-based-routing"
+      },
+      {
+        "name": "Secured Service With Basic Auth",
+        "url": ""
       }
     ]
   },
@@ -502,6 +502,76 @@
       {
         "name": "Retry",
         "url": "http-retry"
+      }
+    ]
+  },
+  {
+    "title": "gRPC",
+    "column": 2,
+    "samples": [
+      {
+        "name": "Unary Blocking",
+        "url": "grpc-unary-blocking"
+      },
+      {
+        "name": "Unary Non-Blocking",
+        "url": "grpc-unary-non-blocking"
+      },
+      {
+        "name": "Server Streaming",
+        "url": "grpc-server-streaming"
+      },
+      {
+        "name": "Client Streaming",
+        "url": "grpc-client-streaming"
+      },
+      {
+        "name": "Bidirectional Streaming",
+        "url": "grpc-bidirectional-streaming"
+      },
+      {
+        "name": "Secured Unary",
+        "url": "grpc-secured-unary"
+      },
+      {
+        "name": "Protobuff-tool",
+        "url": "proto-to-ballerina"
+      }
+    ]
+  },
+  {
+    "title": "WebSub",
+    "column": 2,
+    "samples": [
+      {
+        "name": "WebSub Internal Hub Sample",
+        "url": "websub-internal-hub-sample"
+      },
+      {
+        "name": "WebSub Remote Hub Sample",
+        "url": "websub-remote-hub-sample"
+      },
+      {
+        "name": "WebSub Hub Client Sample",
+        "url": "websub-hub-client-sample"
+      }
+    ]
+  },
+  {
+    "title": "Swagger ",
+    "column": 2,
+    "samples": [
+      {
+        "name": "Client Generation",
+        "url": "client-generation"
+      },
+      {
+        "name": "Ballerina To Swagger",
+        "url": "ballerina-to-swagger"
+      },
+      {
+        "name": "Swagger To Ballerina",
+        "url": "swagger-to-ballerina"
       }
     ]
   },
@@ -550,40 +620,6 @@
       {
         "name": "MySQL Client",
         "url": "mysql-client"
-      }
-    ]
-  },
-  {
-    "title": "gRPC",
-    "column": 2,
-    "samples": [
-      {
-        "name": "Unary blocking",
-        "url": "grpc-unary-blocking"
-      },
-      {
-        "name": "Unary non blocking",
-        "url": "grpc-unary-non-blocking"
-      },
-      {
-        "name": "Server Streaming",
-        "url": "grpc-server-streaming"
-      },
-      {
-        "name": "Client Streaming",
-        "url": "grpc-client-streaming"
-      },
-      {
-        "name": "Bidirectional Streaming",
-        "url": "grpc-bidirectional-streaming"
-      },
-      {
-        "name": "Secured Unary",
-        "url": "grpc-secured-unary"
-      },
-      {
-        "name": "Protobuff-tool",
-        "url": "protobuff-tool"
       }
     ]
   },
@@ -644,23 +680,23 @@
     "column": 3,
     "samples": [
       {
-        "name": "MB Simple Queue Message Receiver",
+        "name": "MB Simple Queue Receiver",
         "url": "mb-simple-queue-message-receiver"
       },
       {
-        "name": "MB Simple Queue Message Producer",
+        "name": "MB Simple Queue Producer",
         "url": "mb-simple-queue-message-producer"
       },
       {
-        "name": "MB Simple Topic Message Subscriber",
+        "name": "MB Simple Topic Subscriber",
         "url": "mb-simple-topic-message-subscriber"
       },
       {
-        "name": "MB Simple Topic Message Publisher",
+        "name": "MB Simple Topic Publisher",
         "url": "mb-simple-topic-message-publisher"
       },
       {
-        "name": "MB Simple Durable Topic Message Subscriber",
+        "name": "MB Simple Durable Topic Subscriber",
         "url": "mb-simple-durable-topic-message-subscriber"
       }
     ]
@@ -670,55 +706,55 @@
     "column": 3,
     "samples": [
       {
-        "name": "Simple Queue Message Receiver",
+        "name": "Simple Queue Receiver",
         "url": "jms-simple-queue-message-receiver"
       },
       {
-        "name": "Simple Queue Message Producer",
+        "name": "Simple Queue Producer",
         "url": "jms-simple-queue-message-producer"
       },
       {
-        "name": "Simple Topic Message Subscriber",
+        "name": "Simple Topic Subscriber",
         "url": "jms-simple-topic-message-subscriber"
       },
       {
-        "name": "Simple Topic Message Producer",
+        "name": "Simple Topic Producer",
         "url": "jms-simple-topic-message-producer"
       },
       {
-        "name": "Simple Durable Topic Message Subscriber",
+        "name": "Simple Durable Topic Subscriber",
         "url": "jms-durable-topic-message-subscriber"
       },
       {
-        "name": "Queue Message Receiver",
+        "name": "Queue Receiver",
         "url": "jms-queue-message-receiver"
       },
       {
-        "name": "Queue Message Producer",
+        "name": "Queue Producer",
         "url": "jms-queue-message-producer"
       },
       {
-        "name": "Topic Message Subscriber",
+        "name": "Topic Subscriber",
         "url": "jms-topic-message-subscriber"
       },
       {
-        "name": "Topic Message Producer",
+        "name": "Topic Producer",
         "url": "jms-topic-message-producer"
       },
       {
-        "name": "Synchronous Queue Message Receiver",
+        "name": "Synchronous Queue Receiver",
         "url": "jms-synchronous-queue-message-receiver"
       },
       {
-        "name": "Queue Message Receiver with Client Acknowledgment",
+        "name": "Queue Receiver with Client Acknowledgment",
         "url": "jms-queue-message-receiver-with-client-acknowledgment"
       },
       {
-        "name": "Durable Topic Message Subscriber",
+        "name": "Durable Topic Subscriber",
         "url": "jms-simple-durable-topic-message-subscriber"
       },
       {
-        "name": "Transactional Queue Message Producer",
+        "name": "Transactional Queue Producer",
         "url": "transactional-queue-message-producer"
       },
       {
@@ -728,24 +764,6 @@
       {
         "name": "Send JMS Message to HTTP Endpoint",
         "url": "send-jms-message-to-http-endpoint"
-      }
-    ]
-  },
-  {
-    "title": "WebSub",
-    "column": 2,
-    "samples": [
-      {
-        "name": "WebSub Internal Hub Sample",
-        "url": "websub-internal-hub-sample"
-      },
-      {
-        "name": "WebSub Remote Hub Sample",
-        "url": "websub-remote-hub-sample"
-      },
-      {
-        "name": "WebSub Hub Client Sample",
-        "url": "websub-hub-client-sample"
       }
     ]
   },
@@ -788,29 +806,11 @@
     ]
   },
   {
-    "title": "Swagger ",
-    "column": 2,
-    "samples": [
-      {
-        "name": "Client Generation",
-        "url": "client-generation"
-      },
-      {
-        "name": "Ballerina To Swagger",
-        "url": "ballerina-to-swagger"
-      },
-      {
-        "name": "Swagger To Ballerina",
-        "url": "swagger-to-ballerina"
-      }
-    ]
-  },
-  {
     "title": "Listeners",
     "column": 3,
     "samples": [
       {
-        "name": "Directory listener",
+        "name": "Directory Listener",
         "url": "directory-listener"
       }
     ]

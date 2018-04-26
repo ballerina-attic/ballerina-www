@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -86,7 +86,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -95,8 +95,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -874,19 +874,6 @@
                                     <ul class="constructs-ul">
                                         
                                         
-                                        <li>
-                                            <a href="#TypeDefinitions">
-                                                <div class="construct-icon">
-                                                    <span class="fw-type"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Type Definitions
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        
-                                        
                                         
                                         
                                         
@@ -903,6 +890,18 @@
                                         
                                         
                                         <li>
+                                            <a href="#TypeDefinitions">
+                                                <div class="construct-icon">
+                                                    <span class="fw-type"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Type Definitions
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        <li>
                                             <a href="#GlobalVariables">
                                                 <div class="construct-icon">
                                                     <span class="fw-globe"> </span>
@@ -913,6 +912,8 @@
                                             </a>
                                         </li>
                                         
+                                        
+
                                         
                                           
                                         <li>
@@ -1124,7 +1125,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -1199,6 +1200,58 @@ function main(string[] args) {
                                                 <h2 class="cPageSubHeading">Package Detail</h2>
                                         <!--Primitive Types-->
                                         
+                                         
+                                        <!-- records -->
+                                        
+                                        <!-- objects -->
+                                        
+                                         <!-- endpoints -->
+                                         
+                                         <!-- functions -->
+                                         
+                                         <h3 id="FunctionsSummary">
+                                           Functions
+                                        </h3>
+                                         <table class="cSummary-Table c2Col-Medium">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Function</th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#crc32">crc32</a></td>
+                                                        <td class="cSummary-table-desc"><p>Returns the CRC32 hash for the provided element. This accepts <code>string</code>, <code>blob</code>, <code>json</code> and <code>xml</code> content.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#hash">hash</a></td>
+                                                        <td class="cSummary-table-desc"><p>Returns the hash of the given string using the specified algorithm.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#hmac">hmac</a></td>
+                                                        <td class="cSummary-table-desc"><p>Returns the HMAC value of the provided base string.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                         </table>
+                                         
                                          <!-- Type Definitions-->
                                          
                                         <h3>Type Definitions</h3>
@@ -1216,7 +1269,7 @@ function main(string[] args) {
                                             <tr>
                                                 <td class="cSummary-table-name">Algorithm</td>
                                                 <td class="cSummary-table-type">SHA256 | SHA1 | MD5</td>
-                                                <td class="cSummary-table-desc"><p>The algorithms which can be used in crypto functions.</p>
+                                                <td class="cSummary-table-desc"><p>The hashing algorithms supported by this package.</p>
 </td>
                                             </tr>
                                               
@@ -1243,76 +1296,28 @@ function main(string[] args) {
                                             <tr>
                                                 <td class="cSummary-table-name">MD5</td>
                                                 <td class="cSummary-table-type"><a href="#Algorithm">Algorithm</a></td>
-                                                <td class="cSummary-table-desc"></td>
+                                                <td class="cSummary-table-desc"><p>The <code>MD5</code> hashing algorithm</p>
+</td>
                                             </tr>
                                               
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">SHA1</td>
                                                 <td class="cSummary-table-type"><a href="#Algorithm">Algorithm</a></td>
-                                                <td class="cSummary-table-desc"></td>
+                                                <td class="cSummary-table-desc"><p>The <code>SHA1</code> hashing algorithm&quot;</p>
+</td>
                                             </tr>
                                               
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">SHA256</td>
                                                 <td class="cSummary-table-type"><a href="#Algorithm">Algorithm</a></td>
-                                                <td class="cSummary-table-desc"></td>
+                                                <td class="cSummary-table-desc"><p>The <code>SHA256</code> hashing algorithm</p>
+</td>
                                             </tr>
                                               
                                         </table>
                                         
-                                        <!-- records -->
-                                        
-                                        <!-- objects -->
-                                        
-                                         <!-- endpoints -->
-                                         
-                                         <!-- functions -->
-                                         
-                                         <h3 id="FunctionsSummary">
-                                           Functions
-                                        </h3>
-                                         <table class="cSummary-Table c2Col-Medium">
-                                             <tr>
-                                                 <th class="cSummary-table-name">Return Type</th>
-                                                 <th class="cSummary-table-desc">Function and Description</th>
-                                             </tr>
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name">crc32</td>
-                                                        <td class="cSummary-table-desc"><p>Returns the CRC32 hash for the provided element. Currently supports strings and blobs.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name">hash</td>
-                                                        <td class="cSummary-table-desc"><p>Returns the hash of the given string using the specified algorithm.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name">hmac</td>
-                                                        <td class="cSummary-table-desc"><p>Returns the HMAC value of the provided base string.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                         </table>
-                                         
                                          <!-- Annotations -->
                                         
                                      </div>
@@ -1329,7 +1334,7 @@ function main(string[] args) {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Returns the CRC32 hash for the provided element. Currently supports strings and blobs.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Returns the CRC32 hash for the provided element. This accepts <code>string</code>, <code>blob</code>, <code>json</code> and <code>xml</code> content.</p>
 
                                                 </p>
                                                  
@@ -1386,7 +1391,7 @@ function main(string[] args) {
                                                 <!-- Function -->
                                                 
                                                 <h2 id="hash">
-                                                    <span class="fw-function sm-icon"> </span> public function hash(string baseString, SHA1|MD5|SHA256 algorithm) returns (string) 
+                                                    <span class="fw-function sm-icon"> </span> public function hash(string baseString, SHA256|MD5|SHA1 algorithm) returns (string) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1412,7 +1417,7 @@ function main(string[] args) {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">algorithm</td>
-                                                        <td class="cAPI-table-type"><a href="#Algorithm">SHA1|MD5|SHA256</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Algorithm">SHA256</a>|<a href="#MD5">MD5</a>|<a href="#SHA1">SHA1</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The hashing algorithm to be used</p>
 </td>
@@ -1455,7 +1460,7 @@ function main(string[] args) {
                                                 <!-- Function -->
                                                 
                                                 <h2 id="hmac">
-                                                    <span class="fw-function sm-icon"> </span> public function hmac(string baseString, string keyString, SHA1|MD5|SHA256 algorithm) returns (string) 
+                                                    <span class="fw-function sm-icon"> </span> public function hmac(string baseString, string keyString, SHA256|MD5|SHA1 algorithm) returns (string) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1489,7 +1494,7 @@ function main(string[] args) {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">algorithm</td>
-                                                        <td class="cAPI-table-type"><a href="#Algorithm">SHA1|MD5|SHA256</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Algorithm">SHA256</a>|<a href="#MD5">MD5</a>|<a href="#SHA1">SHA1</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The hashing algorithm to be used</p>
 </td>

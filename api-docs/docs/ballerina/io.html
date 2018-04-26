@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -86,7 +86,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -95,8 +95,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -917,19 +917,6 @@
                                         
                                         
                                         <li>
-                                            <a href="#TypeDefinitions">
-                                                <div class="construct-icon">
-                                                    <span class="fw-type"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Type Definitions
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        
-                                        
-                                        <li>
                                             <a href="#RecordsSummary">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
@@ -967,6 +954,18 @@
                                         
                                         
                                         <li>
+                                            <a href="#TypeDefinitions">
+                                                <div class="construct-icon">
+                                                    <span class="fw-type"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Type Definitions
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        <li>
                                             <a href="#GlobalVariables">
                                                 <div class="construct-icon">
                                                     <span class="fw-globe"> </span>
@@ -977,6 +976,8 @@
                                             </a>
                                         </li>
                                         
+                                        
+
                                         
                                           
                                         <li>
@@ -1638,7 +1639,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -1788,7 +1789,6 @@ match csvChannel.getTable(Employee) {
    }
 }
 </code></pre>
-<h2>Package contents</h2>
 
                                             </div>
                                             
@@ -1797,176 +1797,7 @@ match csvChannel.getTable(Employee) {
                                                 <h2 class="cPageSubHeading">Package Detail</h2>
                                         <!--Primitive Types-->
                                         
-                                         <!-- Type Definitions-->
                                          
-                                        <h3>Type Definitions</h3>
-                                        <table class="cSummary-Table c3Col-Narrow">
-                                            <tr>
-                                                <th class="cSummary-table-name">Type</th>
-                                                <th class="cSummary-table-type">Values</th>
-                                                <th class="cSummary-table-desc">Description</th>
-                                            </tr>
-                                            
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">Format</td>
-                                                <td class="cSummary-table-type">tdf | default | csv</td>
-                                                <td class="cSummary-table-desc"><p>Format which will be used to represent the CSV.</p>
-<pre><code>DEFAULT - Would default to the format specified by CSVChannel. Presidence will be given to field
-separator and record separator.
-
-CSV - Field separator would be &quot;,&quot; and the record separator would be new line.
-
-TDF - Field separator will be tab and record separator will be new line.
-</code></pre>
-</td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">Mode</td>
-                                                <td class="cSummary-table-type">w | rw | r | a</td>
-                                                <td class="cSummary-table-desc"><p>Represents the set of permissions supported to open file.</p>
-<p>READ - open the file in read mode
-WRITE - open the file in write mode
-READ/WRITE - open the file either to read or write
-APPEND - append to existing file instead of replacing</p>
-</td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">Separator</td>
-                                                <td class="cSummary-table-type">: | , | 	</td>
-                                                <td class="cSummary-table-desc"><p>Field separators which are supported by DelimitedTextRecordChannel.</p>
-</td>
-                                            </tr>
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                        </table>
-                                        
-                                        <!-- Global Variables-->
-                                        
-                                        <h3 id="GlobalVariables">Global Variables</h3>
-                                        <table class="cSummary-Table c3Col-Narrow">
-                                            <tr>
-                                                <th class="cSummary-table-name">Name</th>
-                                                <th class="cSummary-table-type">Data Type</th>
-                                                <th class="cSummary-table-desc">Description</th>
-                                            </tr>
-                                            
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">APPEND</td>
-                                                <td class="cSummary-table-type"><a href="#Mode">Mode</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">COLON</td>
-                                                <td class="cSummary-table-type"><a href="#Separator">Separator</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">COMMA</td>
-                                                <td class="cSummary-table-type"><a href="#Separator">Separator</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">CSV</td>
-                                                <td class="cSummary-table-type"><a href="#Format">Format</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">DEFAULT</td>
-                                                <td class="cSummary-table-type"><a href="#Format">Format</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">READ</td>
-                                                <td class="cSummary-table-type"><a href="#Mode">Mode</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">RW</td>
-                                                <td class="cSummary-table-type"><a href="#Mode">Mode</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TAB</td>
-                                                <td class="cSummary-table-type"><a href="#Separator">Separator</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TDF</td>
-                                                <td class="cSummary-table-type"><a href="#Format">Format</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">WRITE</td>
-                                                <td class="cSummary-table-type"><a href="#Mode">Mode</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                        </table>
-                                        
                                         <!-- records -->
                                         
                                         <h3 id="RecordsSummary">Records</h3>
@@ -2148,15 +1979,15 @@ APPEND - append to existing file instead of replacing</p>
                                         </h3>
                                          <table class="cSummary-Table c2Col-Medium">
                                              <tr>
-                                                 <th class="cSummary-table-name">Return Type</th>
-                                                 <th class="cSummary-table-desc">Function and Description</th>
+                                                 <th class="cSummary-table-name">Function</th>
+                                                 <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">openCsvFile</td>
+                                                         <td class="cSummary-table-name"><a href="#openCsvFile">openCsvFile</a></td>
                                                         <td class="cSummary-table-desc"><p>Retrieves a CSV channel from a give file path.</p>
 </td>
                                                      </tr>
@@ -2164,7 +1995,7 @@ APPEND - append to existing file instead of replacing</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">openFile</td>
+                                                         <td class="cSummary-table-name"><a href="#openFile">openFile</a></td>
                                                         <td class="cSummary-table-desc"><p>Retrieves a ByteChannel from a given file path.</p>
 </td>
                                                      </tr>
@@ -2172,7 +2003,7 @@ APPEND - append to existing file instead of replacing</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">openSecureSocket</td>
+                                                         <td class="cSummary-table-name"><a href="#openSecureSocket">openSecureSocket</a></td>
                                                         <td class="cSummary-table-desc"><p>Opens a secure socket connection with a remote server.</p>
 </td>
                                                      </tr>
@@ -2180,7 +2011,7 @@ APPEND - append to existing file instead of replacing</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">openSocket</td>
+                                                         <td class="cSummary-table-name"><a href="#openSocket">openSocket</a></td>
                                                         <td class="cSummary-table-desc"><p>Opens a socket from a specified network location.</p>
 </td>
                                                      </tr>
@@ -2188,7 +2019,7 @@ APPEND - append to existing file instead of replacing</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">print</td>
+                                                         <td class="cSummary-table-name"><a href="#print">print</a></td>
                                                         <td class="cSummary-table-desc"><p>Prints 'any' value to the STDOUT.</p>
 </td>
                                                      </tr>
@@ -2196,7 +2027,7 @@ APPEND - append to existing file instead of replacing</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">println</td>
+                                                         <td class="cSummary-table-name"><a href="#println">println</a></td>
                                                         <td class="cSummary-table-desc"><p>Prints an any value to the STDOUT in a new line.</p>
 </td>
                                                      </tr>
@@ -2204,7 +2035,7 @@ APPEND - append to existing file instead of replacing</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">readln</td>
+                                                         <td class="cSummary-table-name"><a href="#readln">readln</a></td>
                                                         <td class="cSummary-table-desc"><p>Returns the input read from STDIN.</p>
 </td>
                                                      </tr>
@@ -2212,7 +2043,7 @@ APPEND - append to existing file instead of replacing</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">sprintf</td>
+                                                         <td class="cSummary-table-name"><a href="#sprintf">sprintf</a></td>
                                                         <td class="cSummary-table-desc"><p>Returns a formatted string using the specified format string and arguments.</p>
 </td>
                                                      </tr>
@@ -2256,6 +2087,173 @@ APPEND - append to existing file instead of replacing</p>
                                              
                                          </table>
                                          
+                                         <!-- Type Definitions-->
+                                         
+                                        <h3>Type Definitions</h3>
+                                        <table class="cSummary-Table c3Col-Narrow">
+                                            <tr>
+                                                <th class="cSummary-table-name">Type</th>
+                                                <th class="cSummary-table-type">Values</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">Format</td>
+                                                <td class="cSummary-table-type">tdf | default | csv</td>
+                                                <td class="cSummary-table-desc"><p>Format which will be used to represent the CSV.</p>
+<p>DEFAULT - Would default to the format specified by CSVChannel. Presidence will be given to field
+separator and record separator.</p>
+<p>CSV - Field separator would be &quot;,&quot; and the record separator would be new line.</p>
+<p>TDF - Field separator will be tab and record separator will be new line.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">Mode</td>
+                                                <td class="cSummary-table-type">w | rw | r | a</td>
+                                                <td class="cSummary-table-desc"><p>Represents the set of permissions supported to open file.</p>
+<p>READ - open the file in read mode
+WRITE - open the file in write mode
+READ/WRITE - open the file either to read or write
+APPEND - append to existing file instead of replacing</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">Separator</td>
+                                                <td class="cSummary-table-type">: | , | 	</td>
+                                                <td class="cSummary-table-desc"><p>Field separators which are supported by DelimitedTextRecordChannel.</p>
+</td>
+                                            </tr>
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                        </table>
+                                        
+                                        <!-- Global Variables-->
+                                        
+                                        <h3 id="GlobalVariables">Global Variables</h3>
+                                        <table class="cSummary-Table c3Col-Narrow">
+                                            <tr>
+                                                <th class="cSummary-table-name">Name</th>
+                                                <th class="cSummary-table-type">Data Type</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">APPEND</td>
+                                                <td class="cSummary-table-type"><a href="#Mode">Mode</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">COLON</td>
+                                                <td class="cSummary-table-type"><a href="#Separator">Separator</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">COMMA</td>
+                                                <td class="cSummary-table-type"><a href="#Separator">Separator</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">CSV</td>
+                                                <td class="cSummary-table-type"><a href="#Format">Format</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">DEFAULT</td>
+                                                <td class="cSummary-table-type"><a href="#Format">Format</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">READ</td>
+                                                <td class="cSummary-table-type"><a href="#Mode">Mode</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">RW</td>
+                                                <td class="cSummary-table-type"><a href="#Mode">Mode</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TAB</td>
+                                                <td class="cSummary-table-type"><a href="#Separator">Separator</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TDF</td>
+                                                <td class="cSummary-table-type"><a href="#Format">Format</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">WRITE</td>
+                                                <td class="cSummary-table-type"><a href="#Mode">Mode</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                        </table>
+                                        
                                          <!-- Annotations -->
                                         
                                      </div>
@@ -2374,7 +2372,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openCsvFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, rw|w|a|r mode, :|	|, fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, r|w|a|rw mode, :|	|, fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2400,7 +2398,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">mode</td>
-                                                        <td class="cAPI-table-type"><a href="#Mode">rw|w|a|r</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Mode">r</a>|<a href="#w">w</a>|<a href="#a">a</a>|<a href="#rw">rw</a></td>
                                                         <td class="cAPI-table-default">r</td>
                                                         <td class="cAPI-table-desc"><p>Permission which should be used to open CSV file</p>
 </td>
@@ -2408,7 +2406,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">fieldSeparator</td>
-                                                        <td class="cAPI-table-type"><a href="#Separator">:|	|,</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Separator">:|	|</a></td>
                                                         <td class="cAPI-table-default">,</td>
                                                         <td class="cAPI-table-desc"><p>CSV record seperator (i.e comma or tab)</p>
 </td>
@@ -2467,7 +2465,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, rw|w|a|r accessMode) returns (ByteChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, r|w|a|rw accessMode) returns (ByteChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2493,7 +2491,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">accessMode</td>
-                                                        <td class="cAPI-table-type"><a href="#Mode">rw|w|a|r</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Mode">r</a>|<a href="#w">w</a>|<a href="#a">a</a>|<a href="#rw">rw</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Permission to open the file</p>
 </td>
@@ -2589,7 +2587,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">Socket | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Socket">Socket </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Socket which will represent the network object or an error</p>
 </td>
@@ -2666,7 +2664,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">Socket | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Socket">Socket </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Socket which will allow to communicate with a remote server or error</p>
 </td>
@@ -2930,11 +2928,9 @@ APPEND - append to existing file instead of replacing</p>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span><p>Source bytes from a given input/output resource.</p>
-<pre><code>    Number of bytes returned will be &lt; 0 if the file reached its end.
-
-    This operation will be asynchronous, where the total number of required bytes might not be returned at a given
-    time.
-</code></pre>
+<p>Number of bytes returned will be &lt; 0 if the file reached its end.</p>
+<p>This operation will be asynchronous, where the total number of required bytes might not be returned at a given
+time.</p>
 
                                                             </p>
                                                              
@@ -2967,7 +2963,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">(blob,int) | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#blob">(blob</a>,<a href="primitive-types.html#int|builtin.html#error">int) | error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Content, the number of bytes read or an error</p>
 </td>
@@ -2987,8 +2983,7 @@ APPEND - append to existing file instead of replacing</p>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span><p>Sink bytes from a given input/output resource.</p>
-<pre><code>    This operation will be asynchronous, write might return without writing all the content.
-</code></pre>
+<p>This operation will be asynchronous, write might return without writing all the content.</p>
 
                                                             </p>
                                                              
@@ -3028,7 +3023,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">int | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Offset which should be kept when writing bytes</p>
 </td>
@@ -3096,7 +3091,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">ByteChannel | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">ByteChannel </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Return an encoded ByteChannel or an error</p>
 </td>
@@ -3130,7 +3125,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">ByteChannel | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">ByteChannel </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Return a decoded ByteChannel or an error</p>
 </td>
@@ -3201,7 +3196,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">fs</td>
-                                                                    <td class="cAPI-table-type"><a href="#Separator">:|	|,</a></td>
+                                                                    <td class="cAPI-table-type"><a href="#Separator">:|	|</a></td>
                                                                     <td class="cAPI-table-default">,</td>
                                                                     <td class="cAPI-table-desc"><p>Field separator which will separate between the records in the CSV</p>
 </td>
@@ -3277,7 +3272,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">string[] | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">string[] </a>|<a href="#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>List of fields in the CSV or error</p>
 </td>
@@ -3414,7 +3409,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">table | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">table </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Table which represents CSV records or error</p>
 </td>
@@ -3537,7 +3532,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">string | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Content which is read or an error</p>
 </td>
@@ -3597,7 +3592,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">int | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -3630,7 +3625,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">json | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">json </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Read json string or an error</p>
 </td>
@@ -3664,7 +3659,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">xml | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">xml </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Read xml or an error</p>
 </td>
@@ -3956,7 +3951,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">string[] | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">string[] </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Set of fields included in the record or an error</p>
 </td>
