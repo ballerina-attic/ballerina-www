@@ -242,7 +242,7 @@ $ docker run -d --name=grafana -p 3000:3000 grafana/grafana
 
 **Step 4:** Add Prometheus as datasource with direct access configuration as provided below.
 
-![Grafana Prometheus Datasource](images/grafana-prometheus-datasource.png "Grafana Prometheus Datasource" | =100x)
+![Grafana Prometheus Datasource](images/grafana-prometheus-datasource.png "Grafana Prometheus Datasource")
 
 **Step 5:** Now you can import the default Grafana dashboard which has some default graphs to visualize the request/response metrics.
 
