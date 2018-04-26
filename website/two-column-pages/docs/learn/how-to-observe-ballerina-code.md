@@ -485,13 +485,14 @@ output {
 }
 ```
 
-*Note:* Here the 3 stages are specified in the pipeline. Input is specified as beats and listens to port 5044. 
+Here the 3 stages are specified in the pipeline. Input is specified as beats and listens to port 5044. 
 A grok filter is used to structure the Ballerina logs and the output is specified to push to Elasticsearch on
 `elasticsearch:9200`.
 
-Hence the Elasticsearch container should be linked to the Logstash container.
-
-* Make sure the `logstash.conf` is being stored in the empty directory and not having other unwanted documents within it, because during the startup Logstash merges the configurations and make it as a single file, and this operation will fail if there are unrelated configuration files in it.
+Hence the Elasticsearch container should be linked to the Logstash container. Make sure the `logstash.conf` is being 
+stored in the empty directory and not having other unwanted documents within it, because during the startup Logstash 
+merges the configurations and make it as a single file, and this operation will fail if there are unrelated 
+configuration files in it.
 
 **Step 4:** Start the Logstash container by the following command.
 
@@ -510,7 +511,7 @@ output.logstash:
   hosts: ["logstash:5044"]
 ```
 
-*Note:* Here also the host is specified as `logstash:5044`. Hence the Logstash container should be linked to this container.
+Here also the host is specified as `logstash:5044`. Because the Logstash container should be linked to this container.
 
 **Step 6:** Start the Filebeat container with the following command.
 
@@ -518,7 +519,7 @@ output.logstash:
 $ docker run -v /tmp/filebeat.yml:/usr/share/filebeat/filebeat.yml -v ballerina.log:/usr/share/filebeat/ballerina.log --link logstash:logstash docker.elastic.co/beats/filebeat:6.2.2 
 ```
 
-*Note:* `-v` flag is used for bind mounting, where the container will read the file from the host machine.
+The `-v` flag is used for bind mounting, where the container will read the file from the host machine.
 Hence bind mounting the configuration file and log file means that Filebeat container should be set up in the same
 host where the log file is being generated.
 
