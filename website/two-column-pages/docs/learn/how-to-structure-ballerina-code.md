@@ -144,7 +144,7 @@ Your program can import multiple versions of the same package.
 import tyler/http version 3.0.1 as identity3;
 import tyler/http version 4.5.0 as identity4;
 
-function main(string[] args) {
+function main(string... args) {
   identity3:Person x = identity3:getPerson();
   identity4:Person y = identity4:getPerson();
 }

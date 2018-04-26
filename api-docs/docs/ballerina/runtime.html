@@ -1249,6 +1249,94 @@
                                                 <span class="bold">ballerina/runtime</span>  package 
                                             </h1>
                                             
+                                            <div class="cAPIdocsDescription">
+                                                <h2>Package overview</h2>
+<p>This package includes functions to interact with the runtime, the invocation context and to manage errors.</p>
+<h3>Invocation Context</h3>
+<p>The Invocation Context is a data holder that is created per request and preserved for a single request-response flow.
+The Invocation Context comprises of a unique ID, a <code>UserPrincipal</code> instance that includes user details and an
+<code>AuthContext</code> instance that has the authentication related details if available.</p>
+<h3>Errors</h3>
+<p>The runtime package includes the <code>NullReferenceException</code> and <code>IllegalStateException</code> error types. These two error
+types wrap the <code>error</code> type defined in the <code>ballerina/builtin</code> package. Furthermore, there are utility methods to
+retrieve the current call stack and the particular call stack frame for an error.</p>
+<p>Additionally, the runtime package also contains utility methods to halt a <code>worker</code> (sleep) for a given period of time
+and to look up properties from the runtime context.</p>
+<h3>Samples</h3>
+<p>The following sample shows how to access the Invocation Context, set data to it and access the same.</p>
+<pre><code class="language-ballerina">import ballerina/runtime;
+import ballerina/io;
+
+// set data to the Invocation Context
+// set the username ‘tom’ as the user name
+runtime:getInvocationContext().userPrincipal.username = &quot;tom&quot;;
+// set claims
+map claims = { email: &quot;tom@ballerina.com&quot;, org: &quot;wso2&quot; };
+runtime:getInvocationContext().userPrincipal.claims = claims;
+// set scopes
+string[] scopes = [&quot;email&quot;, &quot;profile&quot;];
+runtime:getInvocationContext().userPrincipal.scopes = scopes;
+// set auth scheme
+runtime:getInvocationContext().authContext.scheme = &quot;jwt&quot;;
+// set auth token
+runtime:getInvocationContext().authContext.authToken = &quot;abc.pqr.xyz&quot;;
+
+// retrieve data from the invocation context
+// retrieve user name
+string userName = runtime:getInvocationContext().userPrincipal.username;
+io:println(userName);
+// retrieve claims
+map retrievedClaims = &lt;map&gt;runtime:getInvocationContext().userPrincipal.claims;
+io:println(retrievedClaims);
+// retrieve scopes
+string[] retrievedScopes = runtime:getInvocationContext().userPrincipal.scopes;
+io:println(retrievedScopes);
+// retrieve auth scheme
+string authScheme = runtime:getInvocationContext().authContext.scheme;
+io:println(authScheme);
+// retrieve auth token
+string token = runtime:getInvocationContext().authContext.authToken;
+io:println(token);
+</code></pre>
+<p>The following sample shows how to halt the current <code>worker</code> for a given time period.</p>
+<pre><code class="language-ballerina">import ballerina/runtime;
+
+// sleep the current worker for 5 seconds
+runtime:sleep(5000);
+</code></pre>
+<p>The following sample shows how to access properties from the runtime.</p>
+<pre><code class="language-ballerina">import ballerina/runtime;
+
+// retrieve the property ‘ballerina version’ from the runtime
+runtime:getProperty(&quot;ballerina.version&quot;);
+</code></pre>
+<p>The following sample shows how to create and throw and error and how to access the call stack for the error.</p>
+<pre><code class="language-ballerina">import ballerina/runtime;
+import ballerina/io;
+
+// prints the current call stack
+io:println(runtime:getCallStack());
+
+function throwError1 () {
+    throwError2();
+}
+
+function throwError2 () {
+    // creates an error with a message
+    error e = { message: &quot;error 2 occured&quot; };
+    throw e;
+}
+
+try {
+    throwError1();
+} catch (error e) {
+    // prints the call stack frame for the error caught
+    io:println(runtime:getErrorCallStackFrame(e));
+}
+</code></pre>
+
+                                            </div>
+                                            
 
                                             <div class="summary-wrapper">
                                                 <h2 class="cPageSubHeading">Package Detail</h2>
@@ -1275,21 +1363,24 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#CallFailedException">CallFailedException</a></td>
-                                                         <td class="cSummary-table-desc"></td>
+                                                         <td class="cSummary-table-desc"><p>Representation of <code>CallFailedException</code></p>
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#CallStackElement">CallStackElement</a></td>
-                                                         <td class="cSummary-table-desc"></td>
+                                                         <td class="cSummary-table-desc"><p>Representation of <code>CallStackElement</code></p>
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#IllegalStateException">IllegalStateException</a></td>
-                                                         <td class="cSummary-table-desc"></td>
+                                                         <td class="cSummary-table-desc"><p>Representation of <code>IllegalStateException</code></p>
+</td>
                                                      </tr>
                                                  
                                              
@@ -1304,7 +1395,8 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#NullReferenceException">NullReferenceException</a></td>
-                                                         <td class="cSummary-table-desc"></td>
+                                                         <td class="cSummary-table-desc"><p>Representation of <code>NullReferenceException</code></p>
+</td>
                                                      </tr>
                                                  
                                              
@@ -1339,8 +1431,8 @@
                                         </h3>
                                          <table class="cSummary-Table c2Col-Medium">
                                              <tr>
-                                                 <th class="cSummary-table-name">Return Type</th>
-                                                 <th class="cSummary-table-desc">Function and Description</th>
+                                                 <th class="cSummary-table-name">Function</th>
+                                                 <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              
                                                  
@@ -1359,21 +1451,23 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">getCallStack</td>
-                                                        <td class="cSummary-table-desc"></td>
+                                                         <td class="cSummary-table-name"><a href="#getCallStack">getCallStack</a></td>
+                                                        <td class="cSummary-table-desc"><p>Retrieves the Call Stack</p>
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">getErrorCallStackFrame</td>
-                                                        <td class="cSummary-table-desc"></td>
+                                                         <td class="cSummary-table-name"><a href="#getErrorCallStackFrame">getErrorCallStackFrame</a></td>
+                                                        <td class="cSummary-table-desc"><p>Retrieves the Call Stack Frame for a particular error</p>
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">getInvocationContext</td>
+                                                         <td class="cSummary-table-name"><a href="#getInvocationContext">getInvocationContext</a></td>
                                                         <td class="cSummary-table-desc"><p>Creates a InvocationContext instance.</p>
 </td>
                                                      </tr>
@@ -1381,7 +1475,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">getProperty</td>
+                                                         <td class="cSummary-table-name"><a href="#getProperty">getProperty</a></td>
                                                         <td class="cSummary-table-desc"><p>Returns the value associated with the specified property name.</p>
 </td>
                                                      </tr>
@@ -1389,7 +1483,7 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">sleep</td>
+                                                         <td class="cSummary-table-name"><a href="#sleep">sleep</a></td>
                                                         <td class="cSummary-table-desc"><p>Halts the current worker for a predefined amount of time.</p>
 </td>
                                                      </tr>
@@ -1469,6 +1563,11 @@
                                                 <h2 id="CallFailedException">
                                                     <span class="fw-record sm-icon"></span> public type CallFailedException
                                                 </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Representation of <code>CallFailedException</code></p>
+
+                                                </p>
                                                  
                                                 <table>
                                                     <tr>
@@ -1482,21 +1581,24 @@
                                                         <td class="cAPI-table-name">message</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Error message</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">cause</td>
                                                         <td class="cAPI-table-type"><a href="#error">error?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>optional <code>error</code> instance</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">causes</td>
                                                         <td class="cAPI-table-type"><a href="">error[]?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>optional array of <code>error</code> instances</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1519,6 +1621,11 @@
                                                 <h2 id="CallStackElement">
                                                     <span class="fw-record sm-icon"></span> public type CallStackElement
                                                 </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Representation of <code>CallStackElement</code></p>
+
+                                                </p>
                                                  
                                                 <table>
                                                     <tr>
@@ -1532,28 +1639,32 @@
                                                         <td class="cAPI-table-name">callableName</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Callable name</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">packageName</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Package name</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">fileName</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>File name</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">lineNumber</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Line number</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1576,6 +1687,11 @@
                                                 <h2 id="IllegalStateException">
                                                     <span class="fw-record sm-icon"></span> public type IllegalStateException
                                                 </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Representation of <code>IllegalStateException</code></p>
+
+                                                </p>
                                                  
                                                 <table>
                                                     <tr>
@@ -1589,14 +1705,16 @@
                                                         <td class="cAPI-table-name">message</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>error message</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">cause</td>
                                                         <td class="cAPI-table-type"><a href="#error">error?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>optional error cause</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1674,6 +1792,11 @@
                                                 <h2 id="NullReferenceException">
                                                     <span class="fw-record sm-icon"></span> public type NullReferenceException
                                                 </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Representation of <code>NullReferenceException</code></p>
+
+                                                </p>
                                                  
                                                 <table>
                                                     <tr>
@@ -1687,14 +1810,16 @@
                                                         <td class="cAPI-table-name">message</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>error message</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">cause</td>
                                                         <td class="cAPI-table-type"><a href="#error">error?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>optional error cause</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1773,6 +1898,11 @@
                                                 <h2 id="getCallStack">
                                                     <span class="fw-function sm-icon"> </span> public function getCallStack() returns (CallStackElement[]) 
                                                 </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Retrieves the Call Stack</p>
+
+                                                </p>
                                                   
                                                 <div class="cReturnTableHeader"></div>
                                                 <table>
@@ -1787,7 +1917,8 @@
                                                         <td class="cAPI-table-name"></td>
                                                         <td class="cAPI-table-type"><a href="">CallStackElement[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Array of <code>CallStackElement</code> elements</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1810,6 +1941,11 @@
                                                 <h2 id="getErrorCallStackFrame">
                                                     <span class="fw-function sm-icon"> </span> public function getErrorCallStackFrame(error? e) returns (CallStackElement) 
                                                 </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Retrieves the Call Stack Frame for a particular error</p>
+
+                                                </p>
                                                  
                                                 <table>
                                                     <tr>
@@ -1823,7 +1959,8 @@
                                                         <td class="cAPI-table-name">e</td>
                                                         <td class="cAPI-table-type"><a href="#error">error?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>optional <code>error</code> instance</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1841,7 +1978,8 @@
                                                         <td class="cAPI-table-name"></td>
                                                         <td class="cAPI-table-type"><a href="runtime.html#CallStackElement">CallStackElement</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p><code>CallStackElement</code> instance</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>

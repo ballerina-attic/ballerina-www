@@ -1129,6 +1129,27 @@
                                                 <span class="bold">ballerina/h2</span>  package 
                                             </h1>
                                             
+                                            <div class="cAPIdocsDescription">
+                                                <h2>Package overview</h2>
+<p>This package provides the functionality required to access and manipulate data stored in an H2 database.</p>
+<h3>Endpoint</h3>
+<p>To access a database, you must first create an <code>endpoint</code>, which is a virtual representation of the physical endpoint of the H2 database that you are trying to connect to. Create an endpoint of the H2 client type (i.e., <code>h2:Client</code>) and provide the necessary connection parameters. This will create a pool of connections to the given H2 database. A sample for creating an endpoint with an H2 client can be found below.</p>
+<h3>Database operations</h3>
+<p>Once the endpoint is created, database operations can be executed through that endpoint. This package provides support for creating tables and executing stored procedures. It also supports selecting, inserting, deleting, updating, and batch updating data. For more details on the supported actions, refer to the <code>jdbc</code> package. Details of the SQL data types and query parameters relevant to these database operations can be found in the documentation for the <code>sql</code> package.</p>
+<h2>Samples</h2>
+<h3>Creating an endpoint</h3>
+<pre><code class="language-ballerina">endpoint h2:Client testDB {
+    path: &quot;/home/ballerina/test/&quot;,
+    name: &quot;testdb&quot;,
+    username: &quot;SA&quot;,
+    password: &quot;&quot;,
+    poolOptions: { maximumPoolSize: 5 }
+};
+</code></pre>
+<p>The full list of endpoint properties can be found in the <code>sql:PoolOptions</code> type.</p>
+
+                                            </div>
+                                            
 
                                             <div class="summary-wrapper">
                                                 <h2 class="cPageSubHeading">Package Detail</h2>
@@ -1271,7 +1292,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">poolOptions</td>
-                                                        <td class="cAPI-table-type"><a href="sql.html#PoolOptions">other</a></td>
+                                                        <td class="cAPI-table-type"><a href="sql.html#PoolOptions">ballerina.sql:PoolOptions</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Properties for the connection pool configuration</p>
 </td>
