@@ -269,6 +269,106 @@ The following Kubernetes configuration are supported:
 
 Following sample explain how you can use some of these Kubernetes capabilities by using Kubernetes annotation support in Ballerina.
 
+```ballerina
+package data_backed_service;
+
+// Other imports
+import ballerinax/kubernetes;
+
+// Employee type definition
+
+// Create SQL endpoint to MySQL database
+endpoint mysql:Client employeeDB {
+    host:"mysql-service",
+    port:3306,
+    name:"EMPLOYEE_RECORDS",
+    username:"root",
+    password:"root",
+    poolOptions:{maximumPoolSize:5}
+};
+
+@kubernetes:Ingress {
+    hostname:"ballerina.guides.io",
+    name:"ballerina-guides-employee-database-service",
+    path:"/"
+}
+
+@kubernetes:Service {
+    serviceType:"NodePort",
+    name:"ballerina-guides-employee-database-service"
+}
+
+@kubernetes:Deployment {
+    image:"ballerina.guides.io/employee_database_service:v1.0",
+    name:"ballerina-guides-employee-database-service",
+    copyFiles:[{target:"/ballerina/runtime/bre/lib",
+                source:<path_to_JDBC_jar>}]
+}
+
+endpoint http:Listener listener {
+    port:9090
+};
+
+@http:ServiceConfig {
+    basePath:"/records"
+}
+service<http:Service> employee_data_service bind listener {
+```
+
+Here we have used @kubernetes:Deployment to specify the docker image name which will be created as part of building this service. CopyFiles field is used to copy the MySQL jar file into the ballerina bre/lib folder. Make sure to replace the <path_to_JDBC_jar> with your JDBC jar's path.
+
+We have also specified @kubernetes:Service {} so that it will create a Kubernetes service which will expose the Ballerina service that is running on a Pod.
+
+In addition we have used @kubernetes:Ingress which is the external interface to access your service (with path / and host name ballerina.guides.io)
+
+Now you can build a Ballerina executable archive (.balx) of the service that we developed above, using the following command. It points to the service file that we developed above and it will create an executable binary out of that. This will also create the corresponding docker image and the Kubernetes artifacts using the Kubernetes annotations that you have configured above.
+
+```bash
+$ballerina build data_backed_service
+
+Run following command to deploy kubernetes artifacts:  
+kubectl apply -f ./target/data_backed_service/kubernetes
+```
+
+You can verify that the docker image that we specified in @kubernetes:Deployment is created, by using docker images.
+Also the Kubernetes artifacts related our service, will be generated in ./target/data_backed_service/kubernetes.
+Now you can create the Kubernetes deployment using:
+
+```bash
+$kubectl apply -f ./target/data_backed_service/kubernetes 
+
+deployment.extensions "ballerina-guides-employee-database-service" created
+ingress.extensions "ballerina-guides-employee-database-service" created
+service "ballerina-guides-employee-database-service" created
+```
+You can verify Kubernetes deployment, service and ingress are running properly, by using following Kubernetes commands.
+
+```bash
+$kubectl get service
+$kubectl get deploy
+$kubectl get pods
+$kubectl get ingress
+```
+If everything is successfully deployed, you can invoke the service either via Node port or ingress.
+Node Port:
+```bash
+curl -v -X POST -d '{"name":"Alice", "age":20,"ssn":123456789,"employeeId":1}' \
+"http://localhost:<Node_Port>/records/employee" -H "Content-Type:application/json" 
+```
+Ingress:
+
+Add /etc/hosts entry to match hostname.
+
+```bash
+127.0.0.1 ballerina.guides.io
+```
+Access the service
+
+```bash
+curl -v -X POST -d '{"name":"Alice", "age":20,"ssn":123456789,"employeeId":1}' \
+"http://ballerina.guides.io/records/employee" -H "Content-Type:application/json"
+```   
+
     
 ##### Supported Kubernetes Annotations
 
