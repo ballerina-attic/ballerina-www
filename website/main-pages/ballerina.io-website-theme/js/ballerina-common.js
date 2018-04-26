@@ -27,6 +27,18 @@ function formatDate(date, format) {
     }
 }
 
+function getUrlVars(url) {
+    var vars = {};
+    var hashes = url.split("?")[1];
+    var hash = hashes.split('&');
+
+    for (var i = 0; i < hash.length; i++) {
+        params = hash[i].split("=");
+        vars[params[0]] = params[1];
+    }
+    return vars;
+}
+
 /*
  * Following script is adding line numbers to the ballerina code blocks in the gneerated documentation
  */
@@ -353,10 +365,11 @@ $(document).ready(function() {
 
     $('a[href^="http://www.youtube.com/watch?"]').each(function(i, elem) {
         /*
-         * Use below example code block in markdown files and replace <your-video-id> with video ID which on youtube URL
+         * Use below example code block in markdown files and replace <your-video-id> with video ID 
+         * which on youtube URL & <alt-text> with some alternative text for the video
          * 
          * <a href="http://www.youtube.com/watch?feature=player_embedded&v=<your-video-id>" target="_blank">
-         *     <img src="http://img.youtube.com/vi/<your-video-id>/0.jpg" alt="Ballerina: How it all started" width="480" height="360" border="10" />
+         *     <img src="http://img.youtube.com/vi/<your-video-id>/0.jpg" alt="<alt-text>" width="480" height="360" border="10" />
          * </a>
          */
         var $iframe = $('<iframe width="' + $('img', elem).attr('width') + '" ' +
