@@ -221,7 +221,7 @@ function foo(){
         assertTrue(e != null); //or some other assertions
     }
 }
-```
+````
 ## Service start/stop Utility
 
 Testerina provides the functionality to start/stop all services of a developer preferred ballerina package.
