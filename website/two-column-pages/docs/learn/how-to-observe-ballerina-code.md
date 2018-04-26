@@ -24,7 +24,7 @@ Prometheus, etc. You can follow [official documentation](https://docs.docker.com
 
 ### Steps
 
-**Step 1:** Install and configure Prometheus, Grafana, Jeager to Observe Ballerina 
+**Step 1:** Install and configure Prometheus, Grafana, Jeager and Elastic Stack to Observe Ballerina 
 
 * Setup Prometheus for collecting metrics information by following section on [Setting up Prometheus](#prometheus).
 * Setup Grafana to visualise metrics by following section on [Setting up Grafana](#grafana).
