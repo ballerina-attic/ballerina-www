@@ -26,6 +26,8 @@ var dirPathWordSeparator = "-"
 var filePathWordSeparator = "_"
 var consoleOutputExtn = ".out"
 var balFileExtn = ".bal"
+var protoFilePathExtn = ".proto"
+var yamlFileExtn = ".yaml"
 var descriptionFileExtn = ".description"
 var serverOutputPrefix = ".server"
 var clientOutputPrefix = ".client"
@@ -125,6 +127,10 @@ func whichLexer(path string) string {
         return "console"
     } else if strings.HasSuffix(path, balFileExtn) {
         return "bal"
+    } else if strings.HasSuffix(path, protoFilePathExtn) {
+        return "bal"
+    } else if strings.HasSuffix(path, yamlFileExtn) {
+        return "yaml"
     } else if strings.HasSuffix(path, descriptionFileExtn) {
         return "description"
     }
@@ -255,7 +261,7 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
         seg.CodeRun = strings.Contains(seg.Code, "package main")
         seg.IsConsoleOutput = strings.HasSuffix(sourcePath, consoleOutputExtn)
     }
-    if strings.HasSuffix(sourcePath, balFileExtn) {
+    if strings.HasSuffix(sourcePath, balFileExtn) || strings.HasSuffix(sourcePath, protoFilePathExtn) || strings.HasSuffix(sourcePath, yamlFileExtn) {
         //segs[0].Docs = descFileContent
         descFileContent = "";
     }
@@ -282,6 +288,10 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string, string) {
                 codeCssClass = "shell-session"
             }
 
+            if lexer == "yaml" {
+                codeCssClass = "yaml"
+            }
+
             openSpanCleanedString := matchOpenSpan.ReplaceAllString(cachedPygmentize(lexer, seg.Code), "")
             closeSpanCleanedString := matchCloseSpan.ReplaceAllString(openSpanCleanedString, "")
             openWrapString := matchOpenPre.ReplaceAllString(closeSpanCleanedString, "<pre><code class=" + codeCssClass + ">")
@@ -298,8 +308,8 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string, string) {
             }
         }
     }
-    // we are only interested in the 'go' code to pass to play.golang.org
-    if lexer != "go" || lexer != "bal" {
+
+    if lexer != "go" || lexer != "bal" || lexer != "yaml" {
         filecontent = ""
     }
     return segs, filecontent, completeCode
@@ -406,7 +416,7 @@ func getAllBalFiles(sourceDir string) []string {
     var files []string
     filepath.Walk(sourceDir, func(path string, f os.FileInfo, _ error) error {
         if !f.IsDir() {
-            if filepath.Ext(path) == balFileExtn {
+            if filepath.Ext(path) == balFileExtn || filepath.Ext(path) == protoFilePathExtn || filepath.Ext(path) == yamlFileExtn{
                 // avoiding sub dirs
                 if  sourceDir+ f.Name()  == path {
                     files = append(files,sourceDir+ f.Name())
