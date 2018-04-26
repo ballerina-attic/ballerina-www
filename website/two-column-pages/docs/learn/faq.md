@@ -214,11 +214,13 @@ In Ballerina, functions can be defined with required parameters, defaultable par
 
 Ballerina also supports the use of function name as a function pointer. This makes it easy to understand code because there is a single function corresponding to a given function name and is more powerful than the use of function overloading.
 
+For more information on the function pointer syntax, see the [Funtion Pointer example](/learn/by-example/function-pointers/).
+
 ### What compiler technology is used to build the compiler?
 
 The Ballerina compiler is written in Java with a generated LL(*) parser using ANTLR4. It generates binary files containing a Ballerina bytecode format that is platform neutral and different than Java’s bytecode.. 
 
-Ballerina compiler is a multi-pass compiler with stages for lexical and syntax analysis, semantic analysis, Code analysis, desugar (remove syntactic sugar) and code generation. 
+Ballerina compiler is a multi-pass compiler with stages for lexical and syntax analysis, semantic analysis, Code analysis, desugar (remove syntactic sugar), and code generation. 
 
 ### How is the runtime support implemented?
 
@@ -230,7 +232,7 @@ The runtime consists of an interpreter, a primitive type system, support for obj
 
 The linker in the Ballerina toolchain creates statically-linked binaries by default. All Ballerina binaries therefore include the Ballerina runtime, along with the runtime type information to support type checks, panic-time stack traces, observability metrics.
 
-A simple Ballerina “hello, world” program compiled and linked statically is around 600 kB.
+A simple Ballerina 'hello, world' program compiled and linked statically is around 600 kB.
 
 ### What is the concurrency/threading model?
 
