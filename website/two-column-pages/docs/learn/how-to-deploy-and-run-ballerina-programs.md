@@ -253,9 +253,8 @@ For more information, see the [Docker build extension github repo](https://githu
 
 #### Kubernetes-Based Deployment
 
-TODO: THIS DOESN"T MAKE SENSE - WHY ARE WE POINTING TO A GITHUB REPO?  WE SHOULD NEVER DO THAT IF POSSIBLE.
-If you wish to see how container orchestration systems are supported by the builder extension, see [Kubernetes builder extension github repo](https://github.com/ballerinax/kubernetes).
-  
+Kubernetes builder extension offers native support for running a ballerina programs on Kubernetes with the use of annotations that you can include as part of your service code. Also, it will take care of the creation of the docker images. So you don't need to explicitly create docker images prior to deploying it on Kubernetes.
+
 The following Kubernetes configuration are supported:
 -   Kubernetes deployment support
 -   Kubernetes service support
@@ -267,6 +266,9 @@ The following Kubernetes configuration are supported:
 -   Kubernetes secret support
 -   Kubernetes config map support
 -   Kubernetes persistent volume claim support
+
+Following sample explain how you can use some of these Kubernetes capabilities by using Kubernetes annotation support in Ballerina.
+
     
 ##### Supported Kubernetes Annotations
 
