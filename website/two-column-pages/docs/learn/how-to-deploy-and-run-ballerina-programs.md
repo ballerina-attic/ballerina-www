@@ -450,7 +450,7 @@ You can verify Kubernetes deployment, service and ingress are running properly, 
 ```bash
 $ kubectl get pods
 NAME                                                          READY     STATUS    RESTARTS   AGE
-ballerina-guides-employee-database-service-57479b7c67-l5v9k   0/1       Running     0          26s
+ballerina-guides-employee-database-service-57479b7c67-l5v9k   1/1       Running     0          26s
 
 $ kubectl get svc
 NAME                                         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE
