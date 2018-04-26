@@ -46,7 +46,7 @@ service<http:Service> hello bind { port:9090 } {
         log:printError("This is a test Error log");
         log:printWarn("This is a test Warn log");
         http:Response res = new;
-        res.setStringPayload("Hello, World!");
+        res.setTextPayload("Hello, World!");
         _ = caller -> respond(res);
     }
 }
@@ -191,21 +191,14 @@ metrics from the Ballerina program and [Grafana] can connect to Prometheus and v
 
 #### Prometheus
 [Prometheus] is used as the monitoring system, which pulls out the metrics collected from the Ballerina service
-'/metrics'. There are many ways to install the Prometheus and you can find the possible options from
+'/metrics'. This section focuses on the quick installation of Prometheus with Docker, and configure it to collect 
+metrics from Ballerina program with default configurations. Below provided steps needs to be followed to configure 
+Prometheus. There are many other ways to install the Prometheus and you can find possible options from
 [installation guide](https://prometheus.io/docs/prometheus/latest/installation/).
-
-This section focuses on the quick installation of Prometheus with Docker, and configure it to collect metrics from
-Ballerina program with default configurations. Below provided steps needs to be followed to configure the Prometheus.
 
 **Step 1:** Create a `prometheus.yml` file in `/tmp/` directory.
 
-**Step 2:** Use following content for `/tmp/prometheus.yml`.
-
-Go to [official documentation of Prometheus](https://prometheus.io/docs/introduction/first_steps/), if you need more
-information. Please note that the targets should contain the host and port of the `/metrics` service
-that's exposed from Ballerina program for metrics collection. Let's say if the IP of the host in which the Ballerina
-program is running is a.b.c.d and the port is default 9797 (configured from `b7a.observability.metrics.prometheus.port`
-configuration in Ballerina configuration file), then the sample configuration in Prometheus will be as below.
+**Step 2:** Add the following content to `/tmp/prometheus.yml`.
 
 ```yaml
 global:
@@ -218,25 +211,31 @@ scrape_configs:
       - targets: ['a.b.c.d:9797']
 ```
 
+Here the targets `'a.b.c.d:9797'` should contain the host and port of the `/metrics` service that's exposed from 
+Ballerina for metrics collection. Add the IP of the host in which the Ballerina program is running as `a.b.c.d` and its
+port (default `9797`).
+If you need more information refer [official documentation of Prometheus](https://prometheus.io/docs/introduction/first_steps/).
+
 **Step 3:** Start the Prometheus server in a Docker container with below command.
 
 ```bash
 $ docker run -p 19090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
 ```
     
-**Step 4:** Go to `http://localhost:19090/` and check Prometheus graph to see whether Ballerina metrics are available.
+**Step 4:** Go to http://localhost:19090/ and check Prometheus graph to see whether Ballerina metrics are available.
 
 #### Grafana
 Let’s use [Grafana] to visualize metrics in a dashboard. For this, we need to install Grafana, and configure
 Prometheus as a datasource. Follow the below provided steps and configure Grafana.
 
-**Step 1:** Start Grafana as docker container with below command. For more information, please go to [link](https://hub.docker.com/r/grafana/grafana/).
+**Step 1:** Start Grafana as docker container with below command.
 
 ```bash
 $ docker run -d --name=grafana -p 3000:3000 grafana/grafana
 ```
+For more information refer [Grafana Site](https://hub.docker.com/r/grafana/grafana/).
 
-**Step 2:** Go to http://localhost:3000/ from where the docker is running, and access the Grafana dashboard.
+**Step 2:** Go to http://localhost:3000/ to access the Grafana dashboard running on Docker.
 
 **Step 3:** Login to the dashboard with default user, username: `admin` and password: `admin`
 
