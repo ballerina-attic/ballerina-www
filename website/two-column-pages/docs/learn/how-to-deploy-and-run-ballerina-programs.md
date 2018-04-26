@@ -459,11 +459,15 @@ $ kubectl get svc
 NAME                                         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE
 ballerina-guides-employee-database-service   NodePort    10.96.24.77   <none>        9090:30281/TCP   51s
 ```
+This is the kubernetes service that expose the listener endpoint.
+
 ```bash
 $ kubectl get ingress
 NAME                                         HOSTS                 ADDRESS   PORTS     AGE
 ballerina-guides-employee-database-service   ballerina.guides.io             80, 443   1m
 ```
+This is the kubernetes nginx rule that expose the hostname to outside world.
+
 ```bash
 $ kubectl get secrets
 NAME                     TYPE                                  DATA      AGE
