@@ -447,7 +447,8 @@ $ docker run -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearch
 $ docker run -p 5601:5601 -h kibana --name kibana --link elasticsearch:elasticsearch docker.elastic.co/kibana/kibana:6.2.2
 ```
 
-**Note:** Linux users may have to increase the `vm.max_map_count` for the Elasticsearch container to start. Execute the following command to do that.
+If you run on Linux you may have to increase the `vm.max_map_count` for the Elasticsearch container to start. 
+Execute the following command to do that.
 
 ```bash
 $ sudo sysctl -w vm.max_map_count=262144
