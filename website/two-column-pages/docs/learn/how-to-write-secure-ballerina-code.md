@@ -158,7 +158,7 @@ Ballerina supports JWT based authentication and and Basic Authentication. When B
 
 _Note: It is recommended to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
 
-### JWT Based Authentication
+### JWT Based Authentication and Authorization
 
 Instead of the `http:Listener` used in creating HTTP server listeners, the `http:SecureListener` should be used to enforce authentication and authorization checks. The security checks enforced by the `http:SecureListeneris` can be configured by using `http:AuthProvider`.
 
@@ -524,7 +524,7 @@ Hello, World!
 
 Ballerina client connectors can be configured to include authentication and authorization information with requests sent to external or downstream services. Downstream services can be authenticated using JWT, OAuth2 or Basic Authentication.
 
-#### JWT Based Authentication
+#### JWT Based Client Authentication
 
 `http:Client` endpoint can be configured to include JWT token as follows:
 
@@ -738,7 +738,7 @@ service<http:Service> updateService bind secureUpdateServiceEp {
 }
 ```
 
-#### OAuth2 Based Authentication
+#### OAuth2 Based Client Authentication
 
 `http:Client` endpoint can be configured to include OAuth2 credentials. This can be done by providing access token and refresh token information:
 
@@ -762,7 +762,7 @@ endpoint http:Client downstreamServiceEP {
 };
 ```
 
-#### Basic Authentication
+#### Basic Authentication Based Client Authentication
 
 `http:Client` endpoint can be configured to include Basic Authentication credentials:
 
