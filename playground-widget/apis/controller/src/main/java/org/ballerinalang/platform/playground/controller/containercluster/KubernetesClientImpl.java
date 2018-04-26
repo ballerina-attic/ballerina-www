@@ -118,11 +118,11 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
         limits.put(Constants.CPU_RESOURCE, new Quantity(cpuLimit));
 
         Map<String, Quantity> requests = new HashMap<>();
-        limits.put(Constants.CPU_RESOURCE, new Quantity(cpuRequest));
+        requests.put(Constants.CPU_RESOURCE, new Quantity(cpuRequest));
 
         ResourceRequirementsBuilder resourceRequirementsBuilder = new ResourceRequirementsBuilder();
-        resourceRequirementsBuilder.withLimits(limits);
-        resourceRequirementsBuilder.withRequests(requests);
+        // resourceRequirementsBuilder.withLimits(limits);
+        // resourceRequirementsBuilder.withRequests(requests);
         launcherContainer.setResources(resourceRequirementsBuilder.build());
 
         // Volume mount to container
