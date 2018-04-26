@@ -74,7 +74,6 @@
         var archived_versions_json = "{{config.extra.archived_versions_json}}";
         var releaseNoteFilename = "{{config.extra.archived_release_note_html}}";
     </script>
-    <script src="/search/require.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/son4ymv.css" />
     <link rel="stylesheet" href="/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
@@ -107,16 +106,15 @@
                 var email = $('#emailUserOS').val();
                 $('#subscribeUserMessage').remove("");
                 if (email == "") {
-                    $('.cFormContainerOS').append('<span id="subscribeUserMessage">Please enter your email</span>');
+                    $('#emailUserOS').val('');
+                    $("#emailUserOS").attr("placeholder","Please enter your email");
                 } else if (!isEmail(email)) {
-                    $('.cFormContainerOS').append('<span id="subscribeUserMessage">Please enter a valid email</span>');
+                    $('#emailUserOS').val('');
+                    $("#emailUserOS").attr("placeholder","Please enter a valid email");
                 } else {
-                    $('#emailUserOS').hide();
-                    $('#subscribeUserButtonOS').hide();
-                    $('#subscribeFormLabelOS').hide();
+                    $('#emailUserOS').val('');
                     $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl979?email=" + email + "'></iframe>");
-                    $('.cFormContainerOS').append('<span id="subscribeUserMessage" class="success">Thank you! Stay tuned for updates on Ballerina.</span>');
-                    $("#emailUserOS").val("");
+                    $("#emailUserOS").attr("placeholder","Thank you! Stay tuned for updates on Ballerina");
                 }
                 return;
             }
@@ -142,22 +140,26 @@
         function inviteSlackUser() {
             $('#subscribeMessage').html('');
             var email = $("#email").val();
-
+            
             if (email == "") {
-                $('#subscribeMessage').html("Please enter your email").removeClass('success');
+                $('#email').val('');
+                $("#email").attr("placeholder","Please enter your email");
             } else if (!isEmail(email)) {
-                $('#subscribeMessage').html("Please enter a valid email").removeClass('success');
+                $('#email').val('');
+                $("#email").attr("placeholder","Please enter a valid email");
             } else {
-                $('#subscribeMessage').html("Processing...")
+                $('#email').val('');
+                $("#email").attr("placeholder","Processing...");
                 $.ajax({
                     type: 'GET',
                     url: '/slackServiceCall.php?email='+email,
                     success: function(msg) {
                         if (msg == 1) {
-                            $('#subscribeMessage').html('<span>Your invitation has been sent to ' + email + '</span>').addClass('success');
-                            $('.subscribeForm').hide();
+                            $('#email').val('');
+                            $("#email").attr("placeholder","Your invitation has been sent to "+email);
                         } else {
-                            $('#subscribeMessage').html('<span>' + msg + '</span>').addClass('success');
+                            $('#email').val('');
+                            $("#email").attr("placeholder",msg);
                         }
                     }
                 });
@@ -165,6 +167,7 @@
             return;
         }
     </script>
+    <script src="/search/require.js"></script>
 </head>
 
 <body class="cBallerina-io" role="document">
