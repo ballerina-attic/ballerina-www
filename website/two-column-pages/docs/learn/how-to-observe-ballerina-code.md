@@ -46,7 +46,7 @@ service<http:Service> hello bind { port:9090 } {
         log:printError("This is a test Error log");
         log:printWarn("This is a test Warn log");
         http:Response res = new;
-        res.setTextPayload("Hello, World!");
+        res.setPayload("Hello, World!");
         _ = caller -> respond(res);
     }
 }
@@ -152,7 +152,7 @@ better decisions using the numbers. The code generates business value when it co
 Therefore, it is imperative to continuously measure the code in production.
 
 Metrics, by default, supports Prometheus. In order to support Prometheus, an HTTP endpoint starts with the context
-of `/metrics` in default port 9797 when starting the Ballerina program.
+of `/metrics` in default port 9797 when star6ting the Ballerina program.
 
 ### Advanced metrics configuration for Ballerina
 This section focuses on the Ballerina configurations that are available for metrics monitoring with Prometheus,
