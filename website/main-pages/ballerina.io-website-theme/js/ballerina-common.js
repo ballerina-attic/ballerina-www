@@ -1,15 +1,15 @@
 function subscribeUser(email) {
     $('#subscribeUserMessage').remove("");
     if (email == "") {
-        $('.cFormContainer').append('<span id="subscribeUserMessage">Please enter your email</span>');
+        $("#emailUser").attr("placeholder","Please enter your email");
     } else if (!isEmail(email)) {
-        $('.cFormContainer').append('<span id="subscribeUserMessage">Please enter a valid email</span>');
-    } else {
-        $('.cFieldContainer').hide();
-        $('.cButtonContainer').hide();
-        $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl979?email=" + email + "'></iframe>");
-        $('.cFormContainer').append('<span id="subscribeUserMessage" class="success">Thank you! Stay tuned for updates on Ballerina.</span>');
         $("#emailUser").val("");
+        $("#emailUser").attr("placeholder","Please enter a valid email");
+
+    } else {
+        $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl9799e?email=" + email + "'></iframe>");
+        $("#emailUser").val("");
+        $("#emailUser").attr("placeholder","Your email address has been added");
     }
     return;
 }
