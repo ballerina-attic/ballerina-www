@@ -397,7 +397,7 @@ Here you have use @kubernetes:Deployment to specify the docker image name which 
 
 In addition you can use @kubernetes:Ingress which is the external interface to access your service (with path / and host name ballerina.guides.io)
 
-Now you can build a Ballerina executable archive (.balx) of the service that we developed above, using the following command. It points to the service file that we developed above and it will create an executable binary out of that. This will also create the corresponding docker image and the Kubernetes artifacts using the Kubernetes annotations that you have configured above.
+Now you can build a Ballerina service that we developed above, using the following command. This will also create the corresponding docker image and the Kubernetes artifacts using the Kubernetes annotations that you have configured above.
 
 ```bash
 $ ballerina build data_backed_service.bal
@@ -412,7 +412,7 @@ Run following command to deploy kubernetes artifacts:
 kubectl apply -f ./kubernetes/
 
 ```
-You can verify that the docker image that we specified in @kubernetes:Deployment is created, by using docker images.
+You can verify that the docker image that we specified in @kubernetes:Deployment is created, by using `docker images` command.
 Also the Kubernetes artifacts related our service, will be generated in addition to balx.
 
 ```bash
@@ -451,24 +451,36 @@ You can verify Kubernetes deployment, service and ingress are running properly, 
 $ kubectl get pods
 NAME                                                          READY     STATUS    RESTARTS   AGE
 ballerina-guides-employee-database-service-57479b7c67-l5v9k   1/1       Running     0          26s
+```
+This is the container based on deployment annotation. This container has the .balx file, secrets, config-maps and dependencies wrapped within. 
 
+```bash
 $ kubectl get svc
 NAME                                         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE
 ballerina-guides-employee-database-service   NodePort    10.96.24.77   <none>        9090:30281/TCP   51s
-
+```
+```bash
 $ kubectl get ingress
 NAME                                         HOSTS                 ADDRESS   PORTS     AGE
 ballerina-guides-employee-database-service   ballerina.guides.io             80, 443   1m
-
+```
+```bash
 $ kubectl get secrets
 NAME                     TYPE                                  DATA      AGE
 listener-secure-socket   Opaque                                2         1m
+```
+The secrets are generated automatically for endpoint keystore and truststores. This secret is mounted to ${ballerina_home}  of the container.
 
+```bash
 $ kubectl get configmap
 NAME                                              DATA      AGE
 employee-data-service-ballerina-conf-config-map   1         2m
-
 ```
+This is the configmaps created for ballerina.conf file as ballerinaConf:"./conf/data-service.toml" attribute is used. 
+At  the run time it is an equivalent of:
+ballerina run <source>.balx --config ./conf/data-service.toml
+Kubernetes extension automatically passes the config file to ballerina program.
+
 If everything is successfully deployed, you can invoke the service either via Node port or ingress.
 Node Port:
 ```bash
