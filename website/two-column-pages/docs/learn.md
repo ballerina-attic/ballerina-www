@@ -28,7 +28,7 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ### How to Structure Ballerina Code
 
-[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, and install Ballerina packages and commands with repositories that are local and remote. 
+[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, and install Ballerina packages and commands with repositories that are local and remote.
 
 ### How to Extend Ballerina
 
@@ -58,7 +58,7 @@ The [API Documentation](/learn/api-docs/?latest) describes the native functions 
 
 ### Language Specification
 
-The [Language Specification]() is a set of documents that explain more about the inner workings of the Ballerina language itself.
+The [Language Specification](/learn/language-specification/) is a set of documents that explain more about the inner workings of the Ballerina language itself.
 
 ### FAQ
 
