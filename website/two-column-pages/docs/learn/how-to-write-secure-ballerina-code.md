@@ -212,7 +212,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
    sayHello (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
-       _ = caler -> respond(resp);
+       _ = caller -> respond(resp);
    }
 }
 ```
@@ -301,7 +301,8 @@ sayHello (endpoint caller, http:Request req) {
 // ...
 ```
 
-### JWT Based Authorization
+### JWT Based Authorization and Authorization
+
 Ballerina uses scope based authorization. The JWT can include scopes available for the user. The scopes can then be validated in the Ballerina service. For example, the following service will only allow invocations, if "hello" scope is available for the user.
 
 Note that the `authConfig` attribute of the `@http:ServiceConfig` annotation has been modified to enforce the authorization check.
@@ -584,6 +585,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
        _ = caller -> respond(resp);
    }
 }
+
 // ----------------------------------------------
 // Following code creates the downstream service
 // ----------------------------------------------
@@ -761,6 +763,7 @@ endpoint http:Client downstreamServiceEP {
 ```
 
 #### Basic Authentication
+
 `http:Client` endpoint can be configured to include Basic Authentication credentials:
 
 ```ballerina
