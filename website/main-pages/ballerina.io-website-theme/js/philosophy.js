@@ -42,7 +42,7 @@ $(document).ready(function () {
 					var url = guide['url'];
 					var git = guide['git'];
 
-					div_content += '<li><a href="/learn/guides/' + url + '">' + name + '</a></li>';
+					div_content += '<li><a href="/learn/by-guide/' + url + '">' + name + '</a></li>';
 			});
 
 			div_content += '</ul>';

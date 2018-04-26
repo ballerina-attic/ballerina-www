@@ -20,7 +20,7 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ### Ballerina by Guide
 
-[Ballerina by Guide](/learn/guides/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
+[Ballerina by Guide](/learn/by-guide/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
 
 ### Editors, IDEs and the Ballerina Composer
 
