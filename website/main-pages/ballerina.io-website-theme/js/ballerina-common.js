@@ -1,15 +1,15 @@
 function subscribeUser(email) {
     $('#subscribeUserMessage').remove("");
     if (email == "") {
-        $("#emailUser").attr("placeholder","Please enter your email");
+        $("#emailUser").attr("placeholder", "Please enter your email");
     } else if (!isEmail(email)) {
         $("#emailUser").val("");
-        $("#emailUser").attr("placeholder","Please enter a valid email");
+        $("#emailUser").attr("placeholder", "Please enter a valid email");
 
     } else {
         $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl9799e?email=" + email + "'></iframe>");
         $("#emailUser").val("");
-        $("#emailUser").attr("placeholder","Your email address has been added");
+        $("#emailUser").attr("placeholder", "Your email address has been added");
     }
     return;
 }
@@ -25,6 +25,18 @@ function formatDate(date, format) {
     } else {
         return moment(date, "YYYY-MM-DD").format(format);
     }
+}
+
+function getUrlVars(url) {
+    var vars = {};
+    var hashes = url.split("?")[1];
+    var hash = hashes.split('&');
+
+    for (var i = 0; i < hash.length; i++) {
+        params = hash[i].split("=");
+        vars[params[0]] = params[1];
+    }
+    return vars;
 }
 
 /*
@@ -62,9 +74,12 @@ function initCodeLineNumbers() {
 if (typeof hljs === 'object') {
     hljs.registerLanguage('ballerina', function() {
         return {
-            "k": "package import as public private native service resource function object annotation parameter transformer worker endpoint " +
-                "bind xmlns returns version documentation deprecated new if else match foreach while next break fork join some all timeout " +
-                "try catch finally throw return transaction abort fail onretry retries onabort oncommit lengthof with in lock untaint start await but check",
+            "k": "if else iterator try catch finally fork join all some while foreach in throw return " +
+                "returns break timeout transaction aborted abort committed failed retries next bind with " +
+                "lengthof typeof enum import version public private attach as native documentation lock " +
+                "from on select group by having order where followed insert into update delete set for " +
+                "window query annotation package type typedesc connector function resource service action " +
+                "worker struct transformer endpoint object const true false reply create parameter match but",
             "i": {},
             "c": [{
                 "cN": "ballerinadoc",
@@ -123,7 +138,8 @@ if (typeof hljs === 'object') {
                 "b": "@[A-Za-z]+"
             }, {
                 "cN": "type",
-                "b": "(?<![a-zA-Z0-9])(int|float|boolean|string|blob|map|jsonOptions|json|xml|table|stream|any|typedesc|type|future|var|error)(?![a-zA-Z0-9])",
+                "b": "\\b(boolean|int|float|string|var|any|datatable|table|blob|map|exception|json|xml|xmlns|error|stream|streamlet|aggregation)\\b",
+                "r": 0
             }]
         };
     });
@@ -343,11 +359,27 @@ $(document).ready(function() {
         });
     });
 
-  //disable enter key in searchbox
-  $('#form-control').on('keypress', function(event) {
-      if (event.which === 13) {
-          event.preventDefault();
-      }
-  });
+    //disable enter key in searchbox
+    $('#form-control').on('keypress', function(event) {
+        if (event.which === 13) {
+            event.preventDefault();
+        }
+    });
+
+    $('a[href^="http://www.youtube.com/watch?"]').each(function(i, elem) {
+        /*
+         * Use below example code block in markdown files and replace <your-video-id> with video ID 
+         * which on youtube URL & <alt-text> with some alternative text for the video
+         * 
+         * <a href="http://www.youtube.com/watch?feature=player_embedded&v=<your-video-id>" target="_blank">
+         *     <img src="http://img.youtube.com/vi/<your-video-id>/0.jpg" alt="<alt-text>" width="480" height="360" border="10" />
+         * </a>
+         */
+        var $iframe = $('<iframe width="' + $('img', elem).attr('width') + '" ' +
+            'height="' + $('img', elem).attr('height') + '" ' +
+            'src="https://www.youtube.com/embed/' + getUrlVars($(elem).attr('href')).v + '" ' +
+            'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+        $(elem).replaceWith($iframe);
+    });
 
 });

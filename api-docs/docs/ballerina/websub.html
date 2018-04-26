@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-            //$("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -86,7 +86,7 @@
     <div class="row cBallerina-io-Nav" id="iMainNavigation">
     </div>
     <div class="row cBallerina-io-Logo-row">
-        <div class="container">
+        <div class="container-fluid">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Logo-Container">
                 <a class="cLogo" href="/">
                     <img src="/img/ballerina-logo.png" alt="Ballerina" />
@@ -95,8 +95,8 @@
         </div>
     </div>
     <div class="row cBallerina-io-Gray-row">
-        <div class="container">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 cBallerina-io-Home-Left-col">
+        <div class="container-fluid">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Left-col">
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
                         <div class="cBallerina-io-docs-Title cBallerina-io-primitive-types">PRIMITIVE TYPES</div>
@@ -1036,30 +1036,6 @@
                                         
                                         
                                         <li>
-                                            <a href="#TypeDefinitions">
-                                                <div class="construct-icon">
-                                                    <span class="fw-type"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Type Definitions
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        
-                                        <li>
-                                            <a href="#Annotations">
-                                                <div class="construct-icon">
-                                                    <span class="fw-annotation"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Annotations
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
-                                        
-                                        <li>
                                             <a href="#RecordsSummary">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
@@ -1097,6 +1073,18 @@
                                         
                                         
                                         <li>
+                                            <a href="#TypeDefinitions">
+                                                <div class="construct-icon">
+                                                    <span class="fw-type"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Type Definitions
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        <li>
                                             <a href="#GlobalVariables">
                                                 <div class="construct-icon">
                                                     <span class="fw-globe"> </span>
@@ -1107,6 +1095,19 @@
                                             </a>
                                         </li>
                                         
+                                        
+                                        <li>
+                                            <a href="#Annotations">
+                                                <div class="construct-icon">
+                                                    <span class="fw-annotation"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Annotations
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+
                                         
                                           
                                         <li>
@@ -1341,71 +1342,6 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-init">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        init
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-register">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        register
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-start">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        start
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-getCallerActions">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        getCallerActions
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-stop">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        stop
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                             
                                           
                                         <li>
@@ -1456,71 +1392,6 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-init">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        init
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-register">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        register
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-start">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        start
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-getCallerActions">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        getCallerActions
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-stop">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        stop
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                             
                                           
                                         <li>
@@ -1583,19 +1454,6 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#WebSubHub-stop">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        stop
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
@@ -1672,7 +1530,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -1708,276 +1566,7 @@
                                                 <h2 class="cPageSubHeading">Package Detail</h2>
                                         <!--Primitive Types-->
                                         
-                                         <!-- Type Definitions-->
                                          
-                                        <h3>Type Definitions</h3>
-                                        <table class="cSummary-Table c3Col-Narrow">
-                                            <tr>
-                                                <th class="cSummary-table-name">Type</th>
-                                                <th class="cSummary-table-type">Values</th>
-                                                <th class="cSummary-table-desc">Description</th>
-                                            </tr>
-                                            
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TopicIdentifier</td>
-                                                <td class="cSummary-table-type">TOPIC_ID_PAYLOAD_KEY | TOPIC_ID_HEADER_AND_PAYLOAD | TOPIC_ID_HEADER</td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                        </table>
-                                        
-                                        <!-- Global Variables-->
-                                        
-                                        <h3 id="GlobalVariables">Global Variables</h3>
-                                        <table class="cSummary-Table c3Col-Narrow">
-                                            <tr>
-                                                <th class="cSummary-table-name">Name</th>
-                                                <th class="cSummary-table-type">Data Type</th>
-                                                <th class="cSummary-table-desc">Description</th>
-                                            </tr>
-                                            
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">CONTENT_TYPE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">HUB_CALLBACK</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">HUB_CHALLENGE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">HUB_LEASE_SECONDS</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">HUB_MODE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">HUB_SECRET</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">HUB_TOPIC</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">MD5</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">MODE_PUBLISH</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">MODE_REGISTER</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">MODE_SUBSCRIBE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">MODE_UNREGISTER</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">MODE_UNSUBSCRIBE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">PUBLISHER_SECRET</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">PUBLISHER_SIGNATURE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">REMOTE_PUBLISHING_MODE_DIRECT</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">REMOTE_PUBLISHING_MODE_FETCH</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">SHA1</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">SHA256</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TOPIC_ID_HEADER</td>
-                                                <td class="cSummary-table-type"><a href="#TopicIdentifier">TopicIdentifier</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TOPIC_ID_HEADER_AND_PAYLOAD</td>
-                                                <td class="cSummary-table-type"><a href="#TopicIdentifier">TopicIdentifier</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">TOPIC_ID_PAYLOAD_KEY</td>
-                                                <td class="cSummary-table-type"><a href="#TopicIdentifier">TopicIdentifier</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">X_HUB_SIGNATURE</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">X_HUB_TOPIC</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">X_HUB_UUID</td>
-                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                        </table>
-                                        
                                         <!-- records -->
                                         
                                         <h3 id="RecordsSummary">Records</h3>
@@ -2401,10 +1990,280 @@ Notification requests to a Hub.</p>
                                              
                                          </table>
                                          
+                                         <!-- Type Definitions-->
+                                         
+                                        <h3>Type Definitions</h3>
+                                        <table class="cSummary-Table c3Col-Narrow">
+                                            <tr>
+                                                <th class="cSummary-table-name">Type</th>
+                                                <th class="cSummary-table-type">Values</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TopicIdentifier</td>
+                                                <td class="cSummary-table-type">TOPIC_ID_PAYLOAD_KEY | TOPIC_ID_HEADER_AND_PAYLOAD | TOPIC_ID_HEADER</td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                        </table>
+                                        
+                                        <!-- Global Variables-->
+                                        
+                                        <h3 id="GlobalVariables">Global Variables</h3>
+                                        <table class="cSummary-Table c3Col-Narrow">
+                                            <tr>
+                                                <th class="cSummary-table-name">Name</th>
+                                                <th class="cSummary-table-type">Data Type</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">CONTENT_TYPE</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">HUB_CALLBACK</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">HUB_CHALLENGE</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">HUB_LEASE_SECONDS</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">HUB_MODE</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">HUB_SECRET</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">HUB_TOPIC</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">MD5</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">MODE_PUBLISH</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">MODE_REGISTER</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">MODE_SUBSCRIBE</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">MODE_UNREGISTER</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">MODE_UNSUBSCRIBE</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">PUBLISHER_SECRET</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">PUBLISHER_SIGNATURE</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">REMOTE_PUBLISHING_MODE_DIRECT</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">REMOTE_PUBLISHING_MODE_FETCH</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">SHA1</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">SHA256</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TOPIC_ID_HEADER</td>
+                                                <td class="cSummary-table-type"><a href="#TopicIdentifier">TopicIdentifier</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TOPIC_ID_HEADER_AND_PAYLOAD</td>
+                                                <td class="cSummary-table-type"><a href="#TopicIdentifier">TopicIdentifier</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TOPIC_ID_PAYLOAD_KEY</td>
+                                                <td class="cSummary-table-type"><a href="#TopicIdentifier">TopicIdentifier</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">X_HUB_SIGNATURE</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">X_HUB_TOPIC</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">X_HUB_UUID</td>
+                                                <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                <td class="cSummary-table-desc"></td>
+                                            </tr>
+                                              
+                                        </table>
+                                        
                                          <!-- Annotations -->
                                         
                                         <h3 id="Annotations">Annotations</h3>
-                                        <table class="cSummary-Table">
+                                        <table class="cSummary-Table c4Col-Narrow">
                                             <tr>
                                                 <th class="cSummary-table-name">Name</th>
                                                 <th class="cSummary-table-attach">Attaches To</th>
@@ -2755,7 +2614,7 @@ specified</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">topicIdentifier</td>
-                                                        <td class="cAPI-table-type"><a href="#TopicIdentifier">TOPIC_ID_HEADER|TOPIC_ID_PAYLOAD_KEY|TOPIC_ID_HEADER_AND_PAYLOAD?</a></td>
+                                                        <td class="cAPI-table-type"><a href="#TopicIdentifier">TOPIC_ID_PAYLOAD_KEY|TOPIC_ID_HEADER|TOPIC_ID_HEADER_AND_PAYLOAD?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The identifier based on which dispatching should happen for custom subscriber services</p>
 </td>
@@ -3732,143 +3591,7 @@ happen as such.</p>
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-init">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> init(websub:HubClientEndpointConfiguration config) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Gets called when the endpoint is being initialized during package init.</p>
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">config</td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#HubClientEndpointConfiguration">websub:HubClientEndpointConfiguration</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The configuration for the endpoint</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-register">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> register(typedesc serviceType) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Gets called whenever a service attaches itself to this endpoint and during package init.</p>
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">serviceType</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#typedesc">typedesc</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The service attached</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-start">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> start() 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Starts the registered service.</p>
-
-                                                            </p>
-                                                              
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-getCallerActions">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> getCallerActions() returns (CallerActions) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Returns the connector that client code uses.</p>
-
-                                                            </p>
-                                                              
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#CallerActions">CallerActions</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p><code>CallerActions</code> The caller actions available for clients</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-stop">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> stop() 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Stops the registered service.</p>
-
-                                                            </p>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                             </div>
                                                 
                                             <div class="construct-wrapper">
@@ -4097,143 +3820,7 @@ used</p>
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="function-wrapper">
-                                                    <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-init">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> init(websub:SubscriberServiceEndpointConfiguration config) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Gets called when the endpoint is being initialized during package init.</p>
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">config</td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriberServiceEndpointConfiguration">websub:SubscriberServiceEndpointConfiguration</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The Subscriber Service Endpoint Configuration of the endpoint</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-register">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> register(typedesc serviceType) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Gets called whenever a service attaches itself to this endpoint and during package init.</p>
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">serviceType</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#typedesc">typedesc</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The service attached</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-start">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> start() 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Starts the registered service.</p>
-
-                                                            </p>
-                                                              
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-getCallerActions">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> getCallerActions() returns (Connection) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Returns the connector that client code uses.</p>
-
-                                                            </p>
-                                                              
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#Connection">Connection</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p><code>http:Connection</code> The connector that client code uses</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-stop">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> stop() 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Stops the registered service.</p>
-
-                                                            </p>
-                                                              
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </div>
-                                                 
+                                                  
                                             </div>
                                                 
                                             <div class="construct-wrapper">
@@ -4412,40 +3999,6 @@ used</p>
                                                  
                                                 <div class="function-wrapper">
                                                     <ul>
-                                                        
-                                                        <li>
-                                                            <h2 id="WebSubHub-stop">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;WebSubHub&gt;
-                                                   </span> stop() returns (boolean) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Stops the started up Ballerina Hub.</p>
-
-                                                            </p>
-                                                              
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p><code>boolean</code> indicating whether the internal Ballerina Hub was stopped</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
                                                         
                                                         <li>
                                                             <h2 id="WebSubHub-publishUpdate">

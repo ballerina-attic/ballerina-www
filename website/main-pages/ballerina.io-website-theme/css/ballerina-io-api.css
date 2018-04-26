@@ -64,7 +64,7 @@
 }
 
 .cLectColStyle ul li a {
-    font-size: 14px;
+    font-size: 13px;
     display: inline-block;
     width: 100%;
     padding: 0px 0;
@@ -367,6 +367,17 @@ h1 {
 .cAPIdocsDescription h1 {
     display: none;
 }
+.cAPIdocsDescription ul , .cAPIdocsDescription ol {
+    padding-left: 20px;
+}
+.cAPIdocsDescription ul li , .cAPIdocsDescription ul li {
+    font-size: 16px;
+line-height: 24px;
+font-weight: 300;
+color: #57595d;
+list-style: disc;
+
+}
 
 .cAPIdocsDescription h2 , h2.cPageSubHeading {
     font-size: 24px;
@@ -478,10 +489,7 @@ th.col-md-7 , th.col-md-7 {
 }*/
 
 th.cAPI-table-desc {
-    width: 50%;
-}
-th.cSummary-table-desc {
-    width: 50%;
+/*    width: 60%;*/
 }
 
 table.cPrimitive-summary-Table th.cSummary-table-desc {
@@ -501,7 +509,7 @@ td.cSummary-table-attach
 {
     font-family: Monaco, Consolas, "Courier New", monospace;
     font-weight: normal;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 th.cAPI-table-name,
@@ -529,13 +537,13 @@ td.cSummary-table-name
 }
 
 .summary-wrapper p {
-    font-size: 12px !important;
+    font-size: 14px !important;
     line-height: 18px !important;
     padding: 0 !important;
     margin: 0 !important;
 }
 
-th.cAPI-table-name , th.cSummary-table-type th.cSummary-table-name {
+/*th.cAPI-table-name , th.cSummary-table-type th.cSummary-table-name {
     width: 20%;
 }
 
@@ -545,7 +553,7 @@ th.cAPI-table-type {
 
 th.cAPI-table-default {
     width: 15%;
-}
+}*/
 
 /*.cSummary-table-attach , .cSummary-table-type {
     display: none;
@@ -553,7 +561,8 @@ th.cAPI-table-default {
 
 td.cAPI-table-desc , td.cSummary-table-desc , td.cAPI-table-desc p {
     font-family: "pragmatica", sans-serif;
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 td.cAPI-table-desc p {
@@ -667,6 +676,8 @@ th {
     background-repeat: no-repeat;
     padding-bottom: 0;
     cursor: pointer;
+    padding-right: 30px;
+    line-height: 16px;
 }
 
 .cBallerina-io-docs-Title.cBallerina-io-packages:hover {
@@ -721,6 +732,7 @@ th {
     line-height: 16px;
     padding-bottom: 0;
     cursor: pointer;
+    padding-right: 30px;
 }
 
 .cBallerina-io-docs-Title.cBallerina-io-primitive-types:hover {
@@ -800,10 +812,12 @@ th {
     margin-bottom: 0;
 }
 
+
+
 /*3 COL NARROW */
 
 table.c3Col-Narrow td.cSummary-table-desc , table.c3Col-Narrow th.cSummary-table-desc {
-    width: 60% !important;
+    width: 50% !important;
 
 }
 table.c3Col-Narrow td.cSummary-table-name , table.c3Col-Narrow th.cSummary-table-name {
@@ -811,7 +825,7 @@ table.c3Col-Narrow td.cSummary-table-name , table.c3Col-Narrow th.cSummary-table
 
 }
 table.c3Col-Narrow td.cSummary-table-type , table.c3Col-Narrow th.cSummary-table-type {
-    width: 20% !important;
+    width: 30% !important;
 
 }
 
@@ -835,11 +849,88 @@ table.c2Col-Wide td.cSummary-table-type , table.c2Col-Wide th.cSummary-table-typ
 
 
 table.c2Col-Medium td.cSummary-table-name , table.c2Col-Medium th.cSummary-table-name {
-    width: 40% !important;
+    width: 20% !important;
 
 }
 table.c2Col-Medium td.cSummary-table-desc , table.c2Col-Medium th.cSummary-table-desc {
-    width: 60% !important;
+    width: 80% !important;
 
 }
 
+
+/*4 COL NARROW*/
+
+table.c4Col-Narrow td.cSummary-table-desc , table.c4Col-Narrow th.cSummary-table-desc {
+    width: 50% !important;
+ 
+}
+
+table.c4Col-Narrow td.cSummary-table-attach , table.c4Col-Narrow th.cSummary-table-attach {
+    width: 10% !important;
+
+}
+
+table.c4Col-Narrow td.cSummary-table-name , table.c4Col-Narrow th.cSummary-table-name {
+    width: 20% !important;
+
+}
+table.c4Col-Narrow td.cSummary-table-type , table.c4Col-Narrow th.cSummary-table-type {
+    width: 20% !important;
+
+}
+
+
+
+
+/*API CONTENT*/
+td.cAPI-table-name ,th.cAPI-table-name {
+    width: 20% !important
+}
+td.cAPI-table-type, th.cAPI-table-type  {
+    width: 10% !important
+} 
+td.cAPI-table-default , th.cAPI-table-default {
+      width: 20% !important
+}
+td.cAPI-table-desc , th.cAPI-table-desc {
+    width: 50% !important;
+}
+
+
+
+td {
+    padding-top: 4px  !important;
+    padding-bottom: 4px !important;
+    line-height: 20px !important;
+    padding-right: 30px!important;
+    text-align: left;
+}
+
+th {
+    text-align: left !important;
+}
+
+.container {
+     padding-left: 50px !important;
+    padding-right: 50px !important;
+    width: 100%;
+}
+.container-fluid {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+@media screen and (max-width: 990px) {
+    .container-fluid , .container  {
+    padding-left: 15px;
+    padding-right: 15px;
+   }
+   
+}
+
+@media screen and (max-width: 768px) {
+.cLectColStyle {
+       padding: 10px;
+   }
+}
