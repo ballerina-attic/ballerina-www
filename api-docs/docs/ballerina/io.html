@@ -1789,7 +1789,6 @@ match csvChannel.getTable(Employee) {
    }
 }
 </code></pre>
-<h2>Package contents</h2>
 
                                             </div>
                                             
@@ -1980,15 +1979,15 @@ match csvChannel.getTable(Employee) {
                                         </h3>
                                          <table class="cSummary-Table c2Col-Medium">
                                              <tr>
-                                                 <th class="cSummary-table-name">Return Type</th>
-                                                 <th class="cSummary-table-desc">Function and Description</th>
+                                                 <th class="cSummary-table-name">Function</th>
+                                                 <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">openCsvFile</td>
+                                                         <td class="cSummary-table-name"><a href="#openCsvFile">openCsvFile</a></td>
                                                         <td class="cSummary-table-desc"><p>Retrieves a CSV channel from a give file path.</p>
 </td>
                                                      </tr>
@@ -1996,7 +1995,7 @@ match csvChannel.getTable(Employee) {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">openFile</td>
+                                                         <td class="cSummary-table-name"><a href="#openFile">openFile</a></td>
                                                         <td class="cSummary-table-desc"><p>Retrieves a ByteChannel from a given file path.</p>
 </td>
                                                      </tr>
@@ -2004,7 +2003,7 @@ match csvChannel.getTable(Employee) {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">openSecureSocket</td>
+                                                         <td class="cSummary-table-name"><a href="#openSecureSocket">openSecureSocket</a></td>
                                                         <td class="cSummary-table-desc"><p>Opens a secure socket connection with a remote server.</p>
 </td>
                                                      </tr>
@@ -2012,7 +2011,7 @@ match csvChannel.getTable(Employee) {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">openSocket</td>
+                                                         <td class="cSummary-table-name"><a href="#openSocket">openSocket</a></td>
                                                         <td class="cSummary-table-desc"><p>Opens a socket from a specified network location.</p>
 </td>
                                                      </tr>
@@ -2020,7 +2019,7 @@ match csvChannel.getTable(Employee) {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">print</td>
+                                                         <td class="cSummary-table-name"><a href="#print">print</a></td>
                                                         <td class="cSummary-table-desc"><p>Prints 'any' value to the STDOUT.</p>
 </td>
                                                      </tr>
@@ -2028,7 +2027,7 @@ match csvChannel.getTable(Employee) {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">println</td>
+                                                         <td class="cSummary-table-name"><a href="#println">println</a></td>
                                                         <td class="cSummary-table-desc"><p>Prints an any value to the STDOUT in a new line.</p>
 </td>
                                                      </tr>
@@ -2036,7 +2035,7 @@ match csvChannel.getTable(Employee) {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">readln</td>
+                                                         <td class="cSummary-table-name"><a href="#readln">readln</a></td>
                                                         <td class="cSummary-table-desc"><p>Returns the input read from STDIN.</p>
 </td>
                                                      </tr>
@@ -2044,7 +2043,7 @@ match csvChannel.getTable(Employee) {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">sprintf</td>
+                                                         <td class="cSummary-table-name"><a href="#sprintf">sprintf</a></td>
                                                         <td class="cSummary-table-desc"><p>Returns a formatted string using the specified format string and arguments.</p>
 </td>
                                                      </tr>
@@ -2373,7 +2372,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openCsvFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, w|r|a|rw mode, :|,|	 fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, r|w|a|rw mode, :|	|, fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2399,7 +2398,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">mode</td>
-                                                        <td class="cAPI-table-type"><a href="#Mode">w|r|a|rw</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Mode">r</a>|<a href="#w">w</a>|<a href="#a">a</a>|<a href="#rw">rw</a></td>
                                                         <td class="cAPI-table-default">r</td>
                                                         <td class="cAPI-table-desc"><p>Permission which should be used to open CSV file</p>
 </td>
@@ -2407,7 +2406,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">fieldSeparator</td>
-                                                        <td class="cAPI-table-type"><a href="#Separator">:|,|	</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Separator">:|	|</a></td>
                                                         <td class="cAPI-table-default">,</td>
                                                         <td class="cAPI-table-desc"><p>CSV record seperator (i.e comma or tab)</p>
 </td>
@@ -2466,7 +2465,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, w|r|a|rw accessMode) returns (ByteChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, r|w|a|rw accessMode) returns (ByteChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2492,7 +2491,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">accessMode</td>
-                                                        <td class="cAPI-table-type"><a href="#Mode">w|r|a|rw</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Mode">r</a>|<a href="#w">w</a>|<a href="#a">a</a>|<a href="#rw">rw</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Permission to open the file</p>
 </td>
@@ -2588,7 +2587,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">Socket | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Socket">Socket </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Socket which will represent the network object or an error</p>
 </td>
@@ -2665,7 +2664,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">Socket | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Socket">Socket </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Socket which will allow to communicate with a remote server or error</p>
 </td>
@@ -2964,7 +2963,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">(blob,int) | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#blob">(blob</a>,<a href="primitive-types.html#int|builtin.html#error">int) | error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Content, the number of bytes read or an error</p>
 </td>
@@ -3024,7 +3023,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">int | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Offset which should be kept when writing bytes</p>
 </td>
@@ -3092,7 +3091,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">ByteChannel | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">ByteChannel </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Return an encoded ByteChannel or an error</p>
 </td>
@@ -3126,7 +3125,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">ByteChannel | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">ByteChannel </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Return a decoded ByteChannel or an error</p>
 </td>
@@ -3171,7 +3170,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CSVChannel&gt;
-                                                   </span> new(io:CharacterChannel channel, :|,|	 fs, int nHeaders) 
+                                                   </span> new(io:CharacterChannel channel, :|	|, fs, int nHeaders) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3197,7 +3196,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">fs</td>
-                                                                    <td class="cAPI-table-type"><a href="#Separator">:|,|	</a></td>
+                                                                    <td class="cAPI-table-type"><a href="#Separator">:|	|</a></td>
                                                                     <td class="cAPI-table-default">,</td>
                                                                     <td class="cAPI-table-desc"><p>Field separator which will separate between the records in the CSV</p>
 </td>
@@ -3273,7 +3272,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">string[] | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">string[] </a>|<a href="#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>List of fields in the CSV or error</p>
 </td>
@@ -3410,7 +3409,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">table | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">table </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Table which represents CSV records or error</p>
 </td>
@@ -3533,7 +3532,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">string | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Content which is read or an error</p>
 </td>
@@ -3593,7 +3592,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">int | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -3626,7 +3625,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">json | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">json </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Read json string or an error</p>
 </td>
@@ -3660,7 +3659,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">xml | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">xml </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Read xml or an error</p>
 </td>
@@ -3952,7 +3951,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">string[] | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">string[] </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Set of fields included in the record or an error</p>
 </td>

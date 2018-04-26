@@ -1214,21 +1214,21 @@ function main(string[] args) {
                                         </h3>
                                          <table class="cSummary-Table c2Col-Medium">
                                              <tr>
-                                                 <th class="cSummary-table-name">Return Type</th>
-                                                 <th class="cSummary-table-desc">Function and Description</th>
+                                                 <th class="cSummary-table-name">Function</th>
+                                                 <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">crc32</td>
-                                                        <td class="cSummary-table-desc"><p>Returns the CRC32 hash for the provided element. Currently supports strings and blobs.</p>
+                                                         <td class="cSummary-table-name"><a href="#crc32">crc32</a></td>
+                                                        <td class="cSummary-table-desc"><p>Returns the CRC32 hash for the provided element. This accepts <code>string</code>, <code>blob</code>, <code>json</code> and <code>xml</code> content.</p>
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">hash</td>
+                                                         <td class="cSummary-table-name"><a href="#hash">hash</a></td>
                                                         <td class="cSummary-table-desc"><p>Returns the hash of the given string using the specified algorithm.</p>
 </td>
                                                      </tr>
@@ -1236,7 +1236,7 @@ function main(string[] args) {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">hmac</td>
+                                                         <td class="cSummary-table-name"><a href="#hmac">hmac</a></td>
                                                         <td class="cSummary-table-desc"><p>Returns the HMAC value of the provided base string.</p>
 </td>
                                                      </tr>
@@ -1269,7 +1269,7 @@ function main(string[] args) {
                                             <tr>
                                                 <td class="cSummary-table-name">Algorithm</td>
                                                 <td class="cSummary-table-type">SHA256 | SHA1 | MD5</td>
-                                                <td class="cSummary-table-desc"><p>The algorithms which can be used in crypto functions.</p>
+                                                <td class="cSummary-table-desc"><p>The hashing algorithms supported by this package.</p>
 </td>
                                             </tr>
                                               
@@ -1296,21 +1296,24 @@ function main(string[] args) {
                                             <tr>
                                                 <td class="cSummary-table-name">MD5</td>
                                                 <td class="cSummary-table-type"><a href="#Algorithm">Algorithm</a></td>
-                                                <td class="cSummary-table-desc"></td>
+                                                <td class="cSummary-table-desc"><p>The <code>MD5</code> hashing algorithm</p>
+</td>
                                             </tr>
                                               
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">SHA1</td>
                                                 <td class="cSummary-table-type"><a href="#Algorithm">Algorithm</a></td>
-                                                <td class="cSummary-table-desc"></td>
+                                                <td class="cSummary-table-desc"><p>The <code>SHA1</code> hashing algorithm&quot;</p>
+</td>
                                             </tr>
                                               
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">SHA256</td>
                                                 <td class="cSummary-table-type"><a href="#Algorithm">Algorithm</a></td>
-                                                <td class="cSummary-table-desc"></td>
+                                                <td class="cSummary-table-desc"><p>The <code>SHA256</code> hashing algorithm</p>
+</td>
                                             </tr>
                                               
                                         </table>
@@ -1331,7 +1334,7 @@ function main(string[] args) {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Returns the CRC32 hash for the provided element. Currently supports strings and blobs.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Returns the CRC32 hash for the provided element. This accepts <code>string</code>, <code>blob</code>, <code>json</code> and <code>xml</code> content.</p>
 
                                                 </p>
                                                  
@@ -1388,7 +1391,7 @@ function main(string[] args) {
                                                 <!-- Function -->
                                                 
                                                 <h2 id="hash">
-                                                    <span class="fw-function sm-icon"> </span> public function hash(string baseString, MD5|SHA1|SHA256 algorithm) returns (string) 
+                                                    <span class="fw-function sm-icon"> </span> public function hash(string baseString, SHA256|MD5|SHA1 algorithm) returns (string) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1414,7 +1417,7 @@ function main(string[] args) {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">algorithm</td>
-                                                        <td class="cAPI-table-type"><a href="#Algorithm">MD5|SHA1|SHA256</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Algorithm">SHA256</a>|<a href="#MD5">MD5</a>|<a href="#SHA1">SHA1</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The hashing algorithm to be used</p>
 </td>
@@ -1457,7 +1460,7 @@ function main(string[] args) {
                                                 <!-- Function -->
                                                 
                                                 <h2 id="hmac">
-                                                    <span class="fw-function sm-icon"> </span> public function hmac(string baseString, string keyString, MD5|SHA1|SHA256 algorithm) returns (string) 
+                                                    <span class="fw-function sm-icon"> </span> public function hmac(string baseString, string keyString, SHA256|MD5|SHA1 algorithm) returns (string) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1491,7 +1494,7 @@ function main(string[] args) {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">algorithm</td>
-                                                        <td class="cAPI-table-type"><a href="#Algorithm">MD5|SHA1|SHA256</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Algorithm">SHA256</a>|<a href="#MD5">MD5</a>|<a href="#SHA1">SHA1</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The hashing algorithm to be used</p>
 </td>
