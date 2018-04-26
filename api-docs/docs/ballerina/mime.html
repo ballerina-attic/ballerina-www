@@ -1747,21 +1747,18 @@
 Content-Disposition: attachment; filename=genome.jpeg;
 Content-Description: a complete map of the human genome
 </code></pre>
-<h3>Modify and retrieve the data in an <code>Entity</code></h3>
-<p>The package provides functions to set and get an entity body from different kinds of message types.  For example, XML, text, JSON, blob, and body parts. Headers can be modified through functions such as <code>addHeader()</code>, <code>setHeader()</code>, `removeHeader(), etc.</p>
+<h3>Modify and retrieve the data in an Entity</h3>
+<p>The package provides functions to set and get an entity body from different kinds of message types, such as XML, text, JSON, blob, and body parts. Headers can be modified through functions such as <code>addHeader()</code>, <code>setHeader()</code>, <code>removeHeader()</code>, etc.</p>
 <h2>Samples</h2>
 <h3>Handle multipart request</h3>
 <p>The sample service given below handles a multipart request. It gets the message from each part of the body, converts the messages to a <code>string</code>, and sends a response.</p>
 <pre><code class="language-ballerina">import ballerina/http;
 import ballerina/io;
+import ballerina/log;
 import ballerina/mime;
 
-endpoint http:Listener mockEP {
-   port:9090
-};
-
 @http:ServiceConfig {basePath:&quot;/test&quot;}
-service&lt;http:Service&gt; test bind mockEP {
+service&lt;http:Service&gt; test bind {port:9090} {
 
    @http:ResourceConfig {
        methods:[&quot;POST&quot;],
@@ -1774,44 +1771,41 @@ service&lt;http:Service&gt; test bind mockEP {
        // Get the body parts from the request.
        match request.getBodyParts() {
            // If there is an error while getting the body parts, set the response code as 500 and set the error message as the response message.
-           mime:EntityError err =&gt; {
+           error err =&gt; {
                response.statusCode = 500;
-               response.setStringPayload(err.message);
+               response.setPayload(err.message);
            }
            // If the body parts were returned, iterate through each body part and handle the content.
            mime:Entity[] bodyParts =&gt; {
                string content = &quot;&quot;;
-               int i = 0;
-               while (i &lt; lengthof bodyParts) {
-                   mime:Entity part = bodyParts[i];
-                   content = content + &quot; -- &quot; + handleContent(part);
-                   i = i + 1;
+               foreach part in bodyParts {
+                    content = content + &quot; -- &quot; + handleContent(part);
                }
-               response.setStringPayload(content);
+               response.setPayload(content);
            }
        }
-       _ = client -&gt; respond(response);
+       client -&gt; respond(response) but { error e =&gt; log:printError(&quot;Error in responding&quot;, err = e) };
    }
 
 }
 
 // The function that handles the content based on the body part type.
 function handleContent(mime:Entity bodyPart) returns (string) {
-   // Getting the base type of the specific body part.
-   string baseType = bodyPart.contentType.getBaseType();
+   // Get the base type of the specific body part.
+   string baseType = check mime:getMediaType(bodyPart.getContentType())!getBaseType();
 
    // If the base type is ‘application/xml’ or ‘text/xml’, get the XML content from body part.
    if (mime:APPLICATION_XML == baseType || mime:TEXT_XML == baseType) {
        var payload = bodyPart.getXml();
        match payload {
-           mime:EntityError err =&gt; return &quot;Error in getting xml payload&quot;;
+           error err =&gt; return err.message;
            xml xmlContent =&gt; return xmlContent.getTextValue();
        }
    } else if (mime:APPLICATION_JSON == baseType) {
        // If the base type is ‘application/json’, get the JSON content from body part.
        var payload = bodyPart.getJson();
        match payload {
-           mime:EntityError err =&gt; return &quot;Error in getting json payload&quot;;
+           error err =&gt; return err.message;
            json jsonContent =&gt; {
                return jsonContent.toString();
            }
@@ -1820,48 +1814,28 @@ function handleContent(mime:Entity bodyPart) returns (string) {
    return &quot;&quot;;
 }
 </code></pre>
-<p>The sample request that is sent to the above service and the response that is printed on the console are shown below.</p>
-<pre><code>curl -v -F &quot;request={\&quot;param1\&quot;: \&quot;value1\&quot;};type=application/json&quot; -F &quot;language=ballerina;type=text/plain&quot; -F &quot;upload=@/home/megala/encode.txt;type=application/octet-stream&quot;  http://localhost:9090/test/multipleparts -H &quot;Expect:&quot;
-*   Trying 127.0.0.1...
-* Connected to localhost (127.0.0.1) port 9090 (#0)
-&gt; POST /test/multipleparts HTTP/1.1
-&gt; Host: localhost:9090
-&gt; User-Agent: curl/7.47.0
-&gt; Accept: */*
-&gt; Content-Length: 521
-&gt; Content-Type: multipart/form-data; boundary=------------------------bf3f6dafe84260f2
-&gt; 
-&lt; HTTP/1.1 200 OK
-&lt; content-type: text/plain
-&lt; content-length: 77
-&lt; server: ballerina/0.970.0-beta1-SNAPSHOT
-&lt; date: Wed, 18 Apr 2018 22:20:48 +0530
-&lt; 
- -- {&quot;param1&quot;:&quot;value1&quot;} -- ballerina -- VGhpcyBpcyBhIGJhbGxlcmluYSBzYW1wbGU=
+<p>The sample request that is sent to the above service is shown below.</p>
+<pre><code>curl -v -F &quot;request={\&quot;param1\&quot;: \&quot;value1\&quot;};type=application/json&quot; -F &quot;language=ballerina;type=text/plain&quot; -F &quot;upload=@/home/path-to-file/encode.txt;type=application/octet-stream&quot;  http://localhost:9090/test/multipleparts -H &quot;Expect:&quot;
 </code></pre>
 <h3>Create a multipart response</h3>
-<p>The sample given below creates a multipart response. It includes ‘application/json’ and ‘text/xml’ type content.</p>
-<pre><code class="language-ballerina">// Create a new body part.
+<p>The sample given below creates a multipart request. It includes <code>application/json</code> and <code>text/xml</code> type content.</p>
+<pre><code class="language-ballerina">// Create a JSON body part.
 mime:Entity bodyPart1 = new;
-// Set the content type as ‘application/json’.
-bodyPart1.contentType = mime:getMediaType(mime:APPLICATION_JSON);
-// Finally, set the JSON content.
+// Set the JSON content.
 bodyPart1.setJson({&quot;bodyPart&quot;:&quot;jsonPart&quot;});
 
-// Create body part using an XML file.
+// Create another body part using an XML file.
 mime:Entity bodyPart2 = new;
-mime:MediaType textXml = mime:getMediaType(mime:TEXT_XML);
-bodyPart2.contentType = textXml;
-file:Path fileHandler = new(&quot;ballerina/mime/file.xml&quot;);
+file:Path fileHandler = new(&quot;ballerina/mime/file.xml&quot;, mime:APPLICATION_XML);
 bodyPart2.setFileAsEntityBody(fileHandler);
 
 //Create an array to hold all the body parts.
 mime:Entity[] bodyParts = [bodyPart1, bodyPart2];
 
 // Set the body parts to the outbound response.
-http:Response outResponse = new;
+http:Request outRequest = new;
 // Set the content type as ‘multipart/mixed’ and set the body parts.
-outResponse.setBodyParts(bodyParts, mime:MULTIPART_MIXED);
+outRequest.setBodyParts(bodyParts, mime:MULTIPART_MIXED);
 </code></pre>
 
                                             </div>
@@ -1904,7 +1878,7 @@ outResponse.setBodyParts(bodyParts, mime:MULTIPART_MIXED);
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ContentDisposition">ContentDisposition</a></td>
                                                      
-                                                         <td class="cSummary-table-desc"><p>Represent values in Content-Disposition header.</p>
+                                                         <td class="cSummary-table-desc"><p>Represents values in <code>Content-Disposition</code> header.</p>
 </td>
                                                      </tr>
                                                  
@@ -1913,7 +1887,7 @@ outResponse.setBodyParts(bodyParts, mime:MULTIPART_MIXED);
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Entity">Entity</a></td>
                                                      
-                                                         <td class="cSummary-table-desc"><p>Represent the headers and body of a message. This can be used to represent both the entity of a top level message
+                                                         <td class="cSummary-table-desc"><p>Represents the headers and body of a message. This can be used to represent both the entity of a top level message
 and an entity(body part) inside of a multipart entity.</p>
 </td>
                                                      </tr>
@@ -1993,70 +1967,70 @@ and an entity(body part) inside of a multipart entity.</p>
                                         </h3>
                                          <table class="cSummary-Table c2Col-Medium">
                                              <tr>
-                                                 <th class="cSummary-table-name">Return Type</th>
-                                                 <th class="cSummary-table-desc">Function and Description</th>
+                                                 <th class="cSummary-table-name">Function</th>
+                                                 <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">base64DecodeBlob</td>
-                                                        <td class="cSummary-table-desc"><p>Decode a given blob with Base64 encoding scheme.</p>
+                                                         <td class="cSummary-table-name"><a href="#base64DecodeBlob">base64DecodeBlob</a></td>
+                                                        <td class="cSummary-table-desc"><p>Decodes a given blob with Base64 encoding scheme.</p>
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">base64DecodeByteChannel</td>
-                                                        <td class="cSummary-table-desc"><p>Decode a given ByteChannel with Base64 encoding scheme.</p>
+                                                         <td class="cSummary-table-name"><a href="#base64DecodeByteChannel">base64DecodeByteChannel</a></td>
+                                                        <td class="cSummary-table-desc"><p>Decodes a given ByteChannel with Base64 encoding scheme.</p>
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">base64DecodeString</td>
-                                                        <td class="cSummary-table-desc"><p>Decode a given string with Base64 encoding scheme.</p>
+                                                         <td class="cSummary-table-name"><a href="#base64DecodeString">base64DecodeString</a></td>
+                                                        <td class="cSummary-table-desc"><p>Decodes a given string with Base64 encoding scheme.</p>
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">base64EncodeBlob</td>
-                                                        <td class="cSummary-table-desc"><p>Encode a given blob with Base64 encoding scheme.</p>
+                                                         <td class="cSummary-table-name"><a href="#base64EncodeBlob">base64EncodeBlob</a></td>
+                                                        <td class="cSummary-table-desc"><p>Encodes a given blob with Base64 encoding scheme.</p>
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">base64EncodeByteChannel</td>
-                                                        <td class="cSummary-table-desc"><p>Encode a given ByteChannel with Base64 encoding scheme.</p>
+                                                         <td class="cSummary-table-name"><a href="#base64EncodeByteChannel">base64EncodeByteChannel</a></td>
+                                                        <td class="cSummary-table-desc"><p>Encodes a given ByteChannel with Base64 encoding scheme.</p>
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">base64EncodeString</td>
-                                                        <td class="cSummary-table-desc"><p>Encode a given string with Base64 encoding scheme.</p>
+                                                         <td class="cSummary-table-name"><a href="#base64EncodeString">base64EncodeString</a></td>
+                                                        <td class="cSummary-table-desc"><p>Encodes a given string with Base64 encoding scheme.</p>
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">getContentDispositionObject</td>
-                                                        <td class="cSummary-table-desc"><p>Given the Content-Disposition as a string, get the ContentDisposition object with it.</p>
+                                                         <td class="cSummary-table-name"><a href="#getContentDispositionObject">getContentDispositionObject</a></td>
+                                                        <td class="cSummary-table-desc"><p>Given the Content-Disposition as a string, gets the ContentDisposition object with it.</p>
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name">getMediaType</td>
-                                                        <td class="cSummary-table-desc"><p>Given the Content-Type in string, get the MediaType object populated with it.</p>
+                                                         <td class="cSummary-table-name"><a href="#getMediaType">getMediaType</a></td>
+                                                        <td class="cSummary-table-desc"><p>Given the Content-Type in string, gets the MediaType object populated with it.</p>
 </td>
                                                      </tr>
                                                  
@@ -2206,7 +2180,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                             <tr>
                                                 <td class="cSummary-table-name">BOUNDARY</td>
                                                 <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"><p>Key name for 'boundary' parameter in MediaType. This is needed for composite type media types.</p>
+                                                <td class="cSummary-table-desc"><p>Key name for <code>boundary</code> parameter in MediaType. This is needed for composite type media types.</p>
 </td>
                                             </tr>
                                               
@@ -2214,7 +2188,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                             <tr>
                                                 <td class="cSummary-table-name">CHARSET</td>
                                                 <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"><p>Key name for 'charset' parameter in MediaType. Indicate the character set of the body text.</p>
+                                                <td class="cSummary-table-desc"><p>Key name for <code>charset</code> parameter in MediaType. This indicates the character set of the body text.</p>
 </td>
                                             </tr>
                                               
@@ -2222,7 +2196,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                             <tr>
                                                 <td class="cSummary-table-name">CONTENT_DISPOSITION</td>
                                                 <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"><p>Represent 'content-disposition' header name.</p>
+                                                <td class="cSummary-table-desc"><p>Represents <code>content-disposition</code> header name.</p>
 </td>
                                             </tr>
                                               
@@ -2230,7 +2204,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                             <tr>
                                                 <td class="cSummary-table-name">CONTENT_ID</td>
                                                 <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"><p>Represent 'content-id' header name.</p>
+                                                <td class="cSummary-table-desc"><p>Represents <code>content-id</code> header name.</p>
 </td>
                                             </tr>
                                               
@@ -2238,7 +2212,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                             <tr>
                                                 <td class="cSummary-table-name">CONTENT_LENGTH</td>
                                                 <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"><p>Represent 'content-length' header name.</p>
+                                                <td class="cSummary-table-desc"><p>Represents <code>content-length</code> header name.</p>
 </td>
                                             </tr>
                                               
@@ -2246,7 +2220,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                             <tr>
                                                 <td class="cSummary-table-name">CONTENT_TYPE</td>
                                                 <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"><p>Represent 'content-type' header name.</p>
+                                                <td class="cSummary-table-desc"><p>Represents <code>content-type</code> header name.</p>
 </td>
                                             </tr>
                                               
@@ -2326,7 +2300,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                             <tr>
                                                 <td class="cSummary-table-name">START</td>
                                                 <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"><p>Key name for 'start' parameter in MediaType. This determines which part in the multipart message contains the
+                                                <td class="cSummary-table-desc"><p>Key name for <code>start</code> parameter in MediaType. This determines which part in the multipart message contains the
 payload.</p>
 </td>
                                             </tr>
@@ -2359,7 +2333,7 @@ payload.</p>
                                             <tr>
                                                 <td class="cSummary-table-name">TYPE</td>
                                                 <td class="cSummary-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                <td class="cSummary-table-desc"><p>Key name for 'type' parameter in MediaType. This indicates the MIME media type of the 'root' body part.</p>
+                                                <td class="cSummary-table-desc"><p>Key name for <code>type</code> parameter in MediaType. This indicates the MIME media type of the <code>root</code> body part.</p>
 </td>
                                             </tr>
                                               
@@ -2381,7 +2355,7 @@ payload.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Decode a given blob with Base64 encoding scheme.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Decodes a given blob with Base64 encoding scheme.</p>
 
                                                 </p>
                                                  
@@ -2414,9 +2388,9 @@ payload.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">blob | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#blob">blob </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Return a decoded <code>blob</code>. An <code>error</code> will be returned, in case of errors</p>
+                                                        <td class="cAPI-table-desc"><p>A decoded <code>blob</code>. In case of errors, an <code>error</code> record is returned</p>
 </td>
                                                     </tr>
                                                     
@@ -2442,7 +2416,7 @@ payload.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Decode a given ByteChannel with Base64 encoding scheme.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Decodes a given ByteChannel with Base64 encoding scheme.</p>
 
                                                 </p>
                                                  
@@ -2475,9 +2449,9 @@ payload.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">ioByteChannel | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#ByteChannel">ioByteChannel </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Return a decoded <code>io:ByteChannel</code>. An <code>error</code> will be returned, in case of errors</p>
+                                                        <td class="cAPI-table-desc"><p>A decoded <code>io:ByteChannel</code>. In case of errors, an <code>error</code> record is returned</p>
 </td>
                                                     </tr>
                                                     
@@ -2503,7 +2477,7 @@ payload.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Decode a given string with Base64 encoding scheme.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Decodes a given string with Base64 encoding scheme.</p>
 
                                                 </p>
                                                  
@@ -2544,9 +2518,9 @@ payload.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">string | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Return a decoded <code>string</code>. An <code>error</code> will be returned, in case of errors</p>
+                                                        <td class="cAPI-table-desc"><p>A decoded <code>string</code>. In case of errors, an <code>error</code> record is returned</p>
 </td>
                                                     </tr>
                                                     
@@ -2572,7 +2546,7 @@ payload.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Encode a given blob with Base64 encoding scheme.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Encodes a given blob with Base64 encoding scheme.</p>
 
                                                 </p>
                                                  
@@ -2605,9 +2579,9 @@ payload.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">blob | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#blob">blob </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Return an encoded blob. An <code>error</code> record will be returned, in case of errors</p>
+                                                        <td class="cAPI-table-desc"><p>An encoded blob. In case of errors, an <code>error</code> record is returned</p>
 </td>
                                                     </tr>
                                                     
@@ -2633,7 +2607,7 @@ payload.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Encode a given ByteChannel with Base64 encoding scheme.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Encodes a given ByteChannel with Base64 encoding scheme.</p>
 
                                                 </p>
                                                  
@@ -2649,8 +2623,7 @@ payload.</p>
                                                         <td class="cAPI-table-name">valueToBeEncoded</td>
                                                         <td class="cAPI-table-type"><a href="io.html#ByteChannel">ballerina.io:ByteChannel</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Content that needs to be encoded
-Return an encoded <code>io:ByteChannel</code>. An <code>error</code> record will be returned in case of errors</p>
+                                                        <td class="cAPI-table-desc"><p>Content that needs to be encoded</p>
 </td>
                                                     </tr>
                                                     
@@ -2667,9 +2640,10 @@ Return an encoded <code>io:ByteChannel</code>. An <code>error</code> record will
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">ioByteChannel | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#ByteChannel">ioByteChannel </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>An encoded <code>io:ByteChannel</code>. In case of errors, an <code>error</code> record is returned</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -2694,7 +2668,7 @@ Return an encoded <code>io:ByteChannel</code>. An <code>error</code> record will
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Encode a given string with Base64 encoding scheme.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Encodes a given string with Base64 encoding scheme.</p>
 
                                                 </p>
                                                  
@@ -2735,9 +2709,9 @@ Return an encoded <code>io:ByteChannel</code>. An <code>error</code> record will
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">string | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Return an encoded <code>string</code>. An <code>error</code> record will be returned in case of errors</p>
+                                                        <td class="cAPI-table-desc"><p>An encoded <code>string</code>. In case of errors, an <code>error</code> record is returned</p>
 </td>
                                                     </tr>
                                                     
@@ -2763,7 +2737,7 @@ Return an encoded <code>io:ByteChannel</code>. An <code>error</code> record will
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Given the Content-Disposition as a string, get the ContentDisposition object with it.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Given the Content-Disposition as a string, gets the ContentDisposition object with it.</p>
 
                                                 </p>
                                                  
@@ -2779,7 +2753,7 @@ Return an encoded <code>io:ByteChannel</code>. An <code>error</code> record will
                                                         <td class="cAPI-table-name">contentDisposition</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>content disposition string</p>
+                                                        <td class="cAPI-table-desc"><p>Content disposition string</p>
 </td>
                                                     </tr>
                                                     
@@ -2798,7 +2772,7 @@ Return an encoded <code>io:ByteChannel</code>. An <code>error</code> record will
                                                         <td class="cAPI-table-name"></td>
                                                         <td class="cAPI-table-type"><a href="mime.html#ContentDisposition">ContentDisposition</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Return a <code>ContentDisposition</code> object</p>
+                                                        <td class="cAPI-table-desc"><p>A <code>ContentDisposition</code> object</p>
 </td>
                                                     </tr>
                                                     
@@ -2824,7 +2798,7 @@ Return an encoded <code>io:ByteChannel</code>. An <code>error</code> record will
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Given the Content-Type in string, get the MediaType object populated with it.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Given the Content-Type in string, gets the MediaType object populated with it.</p>
 
                                                 </p>
                                                  
@@ -2857,9 +2831,9 @@ Return an encoded <code>io:ByteChannel</code>. An <code>error</code> record will
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="">MediaType | error</a></td>
+                                                        <td class="cAPI-table-type"><a href="mime.html#MediaType">MediaType </a>|<a href="builtin.html#error"> error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Return <code>MediaType</code> object or an error in case of error</p>
+                                                        <td class="cAPI-table-desc"><p><code>MediaType</code> object or an error in case of error</p>
 </td>
                                                     </tr>
                                                     
@@ -2893,7 +2867,7 @@ Return an encoded <code>io:ByteChannel</code>. An <code>error</code> record will
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represent values in Content-Disposition header.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Represents values in <code>Content-Disposition</code> header.</p>
 
                                                 </p>
                                                  
@@ -2926,7 +2900,7 @@ file</p>
                                                         <td class="cAPI-table-name">name</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Represent the field name in case of 'multipart/form-data'</p>
+                                                        <td class="cAPI-table-desc"><p>Represents the field name in case of <code>multipart/form-data</code></p>
 </td>
                                                     </tr>
                                                     
@@ -2952,7 +2926,7 @@ file</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Convert the ContentDisposition type to a string suitable for use as the value of a corresponding MIME header.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Converts the <code>ContentDisposition</code> type to a string suitable for use as the value of a corresponding MIME header.</p>
 
                                                             </p>
                                                               
@@ -2969,7 +2943,7 @@ file</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return a <code>string</code> represnetation of <code>ContentDisposition</code> object</p>
+                                                                    <td class="cAPI-table-desc"><p>The <code>string</code> represnetation of the <code>ContentDisposition</code> object</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3000,7 +2974,7 @@ file</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represent the headers and body of a message. This can be used to represent both the entity of a top level message
+                                                    <span class="fw-right gray xs-icon"></span><p>Represents the headers and body of a message. This can be used to represent both the entity of a top level message
 and an entity(body part) inside of a multipart entity.</p>
 
                                                 </p>
@@ -3017,7 +2991,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set the content-type to entity.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the content-type to entity.</p>
 
                                                             </p>
                                                              
@@ -3033,7 +3007,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                     <td class="cAPI-table-name">mediaType</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>content-type that needs to be set to entity</p>
+                                                                    <td class="cAPI-table-desc"><p>Content type that needs to be set to the entity</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3050,7 +3024,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Get the content-type of entity.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Gets the content type of entity.</p>
 
                                                             </p>
                                                               
@@ -3067,7 +3041,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return content-type as a <code>string</code></p>
+                                                                    <td class="cAPI-table-desc"><p>Content type as a <code>string</code></p>
 </td>
                                                                 </tr>
                                                                 
@@ -3084,7 +3058,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set the content-id of the entity.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the content ID of the entity.</p>
 
                                                             </p>
                                                              
@@ -3100,7 +3074,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                     <td class="cAPI-table-name">contentId</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>content-id that needs to be set to entity</p>
+                                                                    <td class="cAPI-table-desc"><p>Content ID that needs to be set to entity</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3117,7 +3091,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Get the content-id of entity.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Gets the content ID of entity.</p>
 
                                                             </p>
                                                               
@@ -3134,7 +3108,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return content-id as a <code>string</code></p>
+                                                                    <td class="cAPI-table-desc"><p>Content ID as a <code>string</code></p>
 </td>
                                                                 </tr>
                                                                 
@@ -3151,7 +3125,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set the content-length of the entity.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the content length of the entity.</p>
 
                                                             </p>
                                                              
@@ -3167,7 +3141,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                     <td class="cAPI-table-name">contentLength</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>content-length that needs to be set to entity</p>
+                                                                    <td class="cAPI-table-desc"><p>Content length that needs to be set to entity</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3184,7 +3158,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Get the content-length of entity.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Gets the content length of entity.</p>
 
                                                             </p>
                                                               
@@ -3199,9 +3173,9 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">int | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return content-length as an <code>int</code></p>
+                                                                    <td class="cAPI-table-desc"><p>Content length as an <code>int</code></p>
 </td>
                                                                 </tr>
                                                                 
@@ -3218,7 +3192,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set the content-disposition of the entity.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the content disposition of the entity.</p>
 
                                                             </p>
                                                              
@@ -3234,7 +3208,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                     <td class="cAPI-table-name">contentDisposition</td>
                                                                     <td class="cAPI-table-type"><a href="mime.html#ContentDisposition">mime:ContentDisposition</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>content-disposition that needs to be set to entity</p>
+                                                                    <td class="cAPI-table-desc"><p>Content disposition that needs to be set to entity</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3251,7 +3225,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Get the content-disposition of entity.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Gets the content disposition of entity.</p>
 
                                                             </p>
                                                               
@@ -3268,7 +3242,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="mime.html#ContentDisposition">ContentDisposition</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return a <code>ContentDisposition</code> object</p>
+                                                                    <td class="cAPI-table-desc"><p>A <code>ContentDisposition</code> object</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3285,7 +3259,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set the entity body with a given content.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the entity body with the given content.</p>
 
                                                             </p>
                                                              
@@ -3299,7 +3273,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">entityBody</td>
-                                                                    <td class="cAPI-table-type"><a href="">string|xml|json|blob|ballerina.io:ByteChannel|mime:Entity[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="">xml</a>|<a href="">json</a>|<a href="primitive-types.html#blob">blob</a>|<a href="io.html#ByteChannel">ballerina.io:ByteChannel</a>|<a href="#mime:Entity[]">mime:Entity[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Entity body can be of type <code>string</code>,<code>xml</code>,<code>json</code>,<code>blob</code>,<code>io:ByteChannel</code> or <code>Entity[]</code></p>
 </td>
@@ -3318,9 +3292,9 @@ and an entity(body part) inside of a multipart entity.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set the entity body with a given file. This method will override any existing content-type headers
-with the default content-type 'application/octec-stream'. You can override the default value by passing
-the content-type as an optional parameter.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the entity body with a given file. This method overrides any existing <code>content-type</code> headers
+with the default content type <code>application/octet-stream</code>. The default value <code>application/octet-stream</code>
+can be overridden by passing the content type as an optional parameter.</p>
 
                                                             </p>
                                                              
@@ -3336,16 +3310,16 @@ the content-type as an optional parameter.</p>
                                                                     <td class="cAPI-table-name">filePath</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Represent the path to the file</p>
+                                                                    <td class="cAPI-table-desc"><p>Represents the path to the file</p>
 </td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">contentType</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                                    <td class="cAPI-table-default">application/octec-stream</td>
-                                                                    <td class="cAPI-table-desc"><p>Content-type to be used with the payload. This is an optional parameter.
-'application/octec-stream' will be used as the default value</p>
+                                                                    <td class="cAPI-table-default">application/octet-stream</td>
+                                                                    <td class="cAPI-table-desc"><p>Content type to be used with the payload. This is an optional parameter.
+<code>application/octet-stream</code> is used as the default value.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3362,9 +3336,9 @@ the content-type as an optional parameter.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set the entity body with the given json content. This method will override any existing content-type headers
-with the default content-type 'application/json'. You can override the default value by passing the content-type
-as an optional parameter.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the entity body with the given <code>json</code> content. This method overrides any existing <code>content-type</code> headers
+with the default content type <code>application/json</code>. The default value <code>application/json</code> can be overridden
+by passing the content type as an optional parameter.</p>
 
                                                             </p>
                                                              
@@ -3380,7 +3354,7 @@ as an optional parameter.</p>
                                                                     <td class="cAPI-table-name">jsonContent</td>
                                                                     <td class="cAPI-table-type"><a href="">json</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Json content that needs to be set to entity</p>
+                                                                    <td class="cAPI-table-desc"><p>JSON content that needs to be set to entity</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3388,8 +3362,8 @@ as an optional parameter.</p>
                                                                     <td class="cAPI-table-name">contentType</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default">application/json</td>
-                                                                    <td class="cAPI-table-desc"><p>Content-type to be used with the payload. This is an optional parameter. 'application/json'
-will be used as the default value</p>
+                                                                    <td class="cAPI-table-desc"><p>Content type to be used with the payload. This is an optional parameter. <code>application/json</code>
+is used as the default value.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3406,7 +3380,7 @@ will be used as the default value</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Extract json body from the entity. If the entity body is not json compatible an error will be returned.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Extracts JSON body from the entity. If the entity body is not a JSON, an error is returned.</p>
 
                                                             </p>
                                                               
@@ -3421,9 +3395,9 @@ will be used as the default value</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">json | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">json </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return <code>json</code> data extracted from the the entity body. An <code>error</code> record will be returned in case of
+                                                                    <td class="cAPI-table-desc"><p><code>json</code> data extracted from the the entity body. An <code>error</code> record is returned in case of
 errors.</p>
 </td>
                                                                 </tr>
@@ -3441,9 +3415,9 @@ errors.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set the entity body with the given xml content. This method will override any existing content-type headers
-with the default content-type 'application/xml'. You can override the default value by passing the content-type
-as an optional parameter.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the entity body with the given XML content. This method overrides any existing content-type headers
+with the default content-type <code>application/xml</code>. The default value <code>application/xml</code> can be overridden
+by passing the content-type as an optional parameter.</p>
 
                                                             </p>
                                                              
@@ -3459,7 +3433,7 @@ as an optional parameter.</p>
                                                                     <td class="cAPI-table-name">xmlContent</td>
                                                                     <td class="cAPI-table-type"><a href="">xml</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Xml content that needs to be set to entity</p>
+                                                                    <td class="cAPI-table-desc"><p>XML content that needs to be set to entity</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3467,8 +3441,8 @@ as an optional parameter.</p>
                                                                     <td class="cAPI-table-name">contentType</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default">application/xml</td>
-                                                                    <td class="cAPI-table-desc"><p>Content-type to be used with the payload. This is an optional parameter. 'application/xml'
-will be used as the default value</p>
+                                                                    <td class="cAPI-table-desc"><p>Content type to be used with the payload. This is an optional parameter. <code>application/xml</code>
+is used as the default value.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3485,7 +3459,7 @@ will be used as the default value</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Extract xml body from the entity. If the entity body is not xml compatible an error will be returned.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Extracts <code>xml</code> body from the entity. If the entity body is not an XML, an error is returned.</p>
 
                                                             </p>
                                                               
@@ -3500,9 +3474,9 @@ will be used as the default value</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">xml | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">xml </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return <code>xml</code> data extracted from the the entity body. An <code>error</code> record will be returned in case of
+                                                                    <td class="cAPI-table-desc"><p><code>xml</code> data extracted from the the entity body. An <code>error</code> record is returned in case of
 errors.</p>
 </td>
                                                                 </tr>
@@ -3520,9 +3494,9 @@ errors.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set the entity body with the given text content. This method will override any existing content-type headers
-with the default content-type 'text/plain'. You can override the default value by passing the content-type
-as an optional parameter.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the entity body with the given text content. This method overrides any existing content-type headers
+with the default content-type <code>text/plain</code>. The default value <code>text/plain</code> can be overridden
+by passing the content type as an optional parameter.</p>
 
                                                             </p>
                                                              
@@ -3546,8 +3520,8 @@ as an optional parameter.</p>
                                                                     <td class="cAPI-table-name">contentType</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default">text/plain</td>
-                                                                    <td class="cAPI-table-desc"><p>Content-type to be used with the payload. This is an optional parameter. 'text/plain'
-will be used as the default value</p>
+                                                                    <td class="cAPI-table-desc"><p>Content type to be used with the payload. This is an optional parameter. <code>text/plain</code>
+is used as the default value.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3564,7 +3538,7 @@ will be used as the default value</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Extract text body from the entity. If the entity body is not text compatible an error will be returned.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Extracts text body from the entity. If the entity body is not text compatible an error is returned.</p>
 
                                                             </p>
                                                               
@@ -3579,10 +3553,9 @@ will be used as the default value</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">string | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return <code>string</code> data extracted from the the entity body. An <code>error</code> record will be returned in case of
-errors.</p>
+                                                                    <td class="cAPI-table-desc"><p><code>string</code> data extracted from the the entity body or <code>error</code> in case of errors.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3599,7 +3572,7 @@ errors.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, get the entity body as a string. Content-type will not be checked during entity body construction which
+                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, gets the entity body as a string. Content type is checked during entity body construction which
 makes this different from getText() method.</p>
 
                                                             </p>
@@ -3615,9 +3588,9 @@ makes this different from getText() method.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">string | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return entity body as a <code>string</code>. An <code>error</code> record will be returned in case of errors occurred during
+                                                                    <td class="cAPI-table-desc"><p>Entity body as a <code>string</code> or <code>error</code> in case of errors occurred during
 construction of the string body.</p>
 </td>
                                                                 </tr>
@@ -3635,9 +3608,9 @@ construction of the string body.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set the entity body with the given blob content. This method will override any existing content-type headers
-with the default content-type 'application/octec-stream'. You can override the default value by passing
-the content-type as an optional parameter.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the entity body with the given blob content. This method overrides any existing <code>content-type</code> headers
+with the default content type <code>application/octet-stream</code>. The default value <code>application/octet-stream</code>
+can be overridden by passing the content type as an optional parameter.</p>
 
                                                             </p>
                                                              
@@ -3660,9 +3633,9 @@ the content-type as an optional parameter.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">contentType</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                                    <td class="cAPI-table-default">application/octec-stream</td>
-                                                                    <td class="cAPI-table-desc"><p>Content-type to be used with the payload. This is an optional parameter.
-'application/octec-stream' will be used as the default value</p>
+                                                                    <td class="cAPI-table-default">application/octet-stream</td>
+                                                                    <td class="cAPI-table-desc"><p>Content type to be used with the payload. This is an optional parameter.
+<code>application/octet-stream</code> is used as the default value.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3679,7 +3652,7 @@ the content-type as an optional parameter.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, get the entity body as a blob. If the entity size is considerably large consider
+                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, gets the entity body as a <code>blob</code>. If the entity size is considerably large consider
 using getByteChannel() method instead.</p>
 
                                                             </p>
@@ -3695,9 +3668,9 @@ using getByteChannel() method instead.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">blob | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#blob">blob </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return <code>blob</code> data extracted from the the entity body. An <code>error</code> record will be returned in case of
+                                                                    <td class="cAPI-table-desc"><p><code>blob</code> data extracted from the the entity body. An <code>error</code> record is returned in case of
 errors.</p>
 </td>
                                                                 </tr>
@@ -3715,9 +3688,9 @@ errors.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set the entity body with the given byte channel content. This method will override any existing content-type headers
-with the default content-type 'application/octec-stream'. You can override the default value by passing
-the content-type as an optional parameter.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the entity body with the given byte channel content. This method overrides any existing content-type headers
+with the default content-type <code>application/octet-stream</code>. The default value <code>application/octet-stream</code>
+can be overridden by passing the content-type as an optional parameter.</p>
 
                                                             </p>
                                                              
@@ -3740,9 +3713,9 @@ the content-type as an optional parameter.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">contentType</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                                    <td class="cAPI-table-default">application/octec-stream</td>
+                                                                    <td class="cAPI-table-default">application/octet-stream</td>
                                                                     <td class="cAPI-table-desc"><p>Content-type to be used with the payload. This is an optional parameter.
-'application/octec-stream' will be used as the default value</p>
+<code>application/octet-stream</code> is used as the default value.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3759,7 +3732,7 @@ the content-type as an optional parameter.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, get the entity body as a byte channel.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, gets the entity body as a byte channel.</p>
 
                                                             </p>
                                                               
@@ -3774,9 +3747,9 @@ the content-type as an optional parameter.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">ioByteChannel | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">ioByteChannel </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return an <code>io:ByteChannel</code>. An <code>error</code> record will be returned in case of errors</p>
+                                                                    <td class="cAPI-table-desc"><p>An <code>io:ByteChannel</code>. An <code>error</code> record will be returned in case of errors</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3793,7 +3766,7 @@ the content-type as an optional parameter.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, get its body parts. If the entity body is not a set of body parts an error will be returned.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, gets its body parts. If the entity body is not a set of body parts an error will be returned.</p>
 
                                                             </p>
                                                               
@@ -3808,10 +3781,10 @@ the content-type as an optional parameter.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">Entity[] | error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="">Entity[] </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return an array of body parts(<code>Entity[]</code>) extracted from the entity body. An <code>error</code> record will be
-returned in case of errors</p>
+                                                                    <td class="cAPI-table-desc"><p>An array of body parts(<code>Entity[]</code>) extracted from the entity body. An <code>error</code> record will be
+returned in case of errors.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3828,7 +3801,7 @@ returned in case of errors</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, get the body parts as a byte channel.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, gets the body parts as a byte channel.</p>
 
                                                             </p>
                                                               
@@ -3845,7 +3818,7 @@ returned in case of errors</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="io.html#ByteChannel">ByteChannel</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return body parts as a byte channel</p>
+                                                                    <td class="cAPI-table-desc"><p>Body parts as a byte channel</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3862,9 +3835,9 @@ returned in case of errors</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set body parts to entity. This method will override any existing content-type headers
-with the default content-type 'multipart/form-data'. You can override the default value by passing
-the content-type as an optional parameter.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets body parts to entity. This method overrides any existing <code>content-type</code> headers
+with the default content type <code>multipart/form-data</code>. The default value <code>multipart/form-data</code> can be overridden
+by passing the content type as an optional parameter.</p>
 
                                                             </p>
                                                              
@@ -3880,7 +3853,7 @@ the content-type as an optional parameter.</p>
                                                                     <td class="cAPI-table-name">bodyParts</td>
                                                                     <td class="cAPI-table-type"><a href="">mime:Entity[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Represent the body parts that needs to be set to the entity</p>
+                                                                    <td class="cAPI-table-desc"><p>Represents the body parts that needs to be set to the entity</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3889,7 +3862,7 @@ the content-type as an optional parameter.</p>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default">multipart/form-data</td>
                                                                     <td class="cAPI-table-desc"><p>Content-type to be used with the payload. This is an optional parameter.
-'multipart/form-data' will be used as the default value</p>
+<code>multipart/form-data</code> is used as the default value.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3906,7 +3879,7 @@ the content-type as an optional parameter.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Get the header value associated with the given header name.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Gets the header value associated with the given header name.</p>
 
                                                             </p>
                                                              
@@ -3922,7 +3895,7 @@ the content-type as an optional parameter.</p>
                                                                     <td class="cAPI-table-name">headerName</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Represent header name</p>
+                                                                    <td class="cAPI-table-desc"><p>Represents header name</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3941,8 +3914,8 @@ the content-type as an optional parameter.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return header value associated with the given header name as a <code>string</code>. If multiple header values are
-present, then the first value will be returned</p>
+                                                                    <td class="cAPI-table-desc"><p>Header value associated with the given header name as a <code>string</code>. If multiple header values are
+present, then the first value is returned.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3959,7 +3932,7 @@ present, then the first value will be returned</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Get all the header values associated with the given header name.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Gets all the header values associated with the given header name.</p>
 
                                                             </p>
                                                              
@@ -3975,7 +3948,7 @@ present, then the first value will be returned</p>
                                                                     <td class="cAPI-table-name">headerName</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Represent the header name</p>
+                                                                    <td class="cAPI-table-desc"><p>The header name</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3994,7 +3967,7 @@ present, then the first value will be returned</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="">string[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return all the header values associated with the given header name as a <code>string[]</code></p>
+                                                                    <td class="cAPI-table-desc"><p>All the header values associated with the given header name as a <code>string[]</code></p>
 </td>
                                                                 </tr>
                                                                 
@@ -4011,7 +3984,7 @@ present, then the first value will be returned</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Get all header names.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Gets all header names.</p>
 
                                                             </p>
                                                               
@@ -4028,7 +4001,7 @@ present, then the first value will be returned</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="">string[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return all header names as a <code>string[]</code></p>
+                                                                    <td class="cAPI-table-desc"><p>All header names as a <code>string[]</code></p>
 </td>
                                                                 </tr>
                                                                 
@@ -4045,7 +4018,7 @@ present, then the first value will be returned</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Add the given header value against the given header.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Adds the given header value against the given header.</p>
 
                                                             </p>
                                                              
@@ -4061,7 +4034,7 @@ present, then the first value will be returned</p>
                                                                     <td class="cAPI-table-name">headerName</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Represent the header name</p>
+                                                                    <td class="cAPI-table-desc"><p>The header name</p>
 </td>
                                                                 </tr>
                                                                 
@@ -4069,7 +4042,7 @@ present, then the first value will be returned</p>
                                                                     <td class="cAPI-table-name">headerValue</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Represent the header value to be added</p>
+                                                                    <td class="cAPI-table-desc"><p>Represents the header value to be added</p>
 </td>
                                                                 </tr>
                                                                 
@@ -4086,7 +4059,7 @@ present, then the first value will be returned</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Set the given header value against the given header. If a header already exist, its value will be replaced
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the given header value against the existing header. If a header already exists, its value is replaced
 with the given header value.</p>
 
                                                             </p>
@@ -4103,7 +4076,7 @@ with the given header value.</p>
                                                                     <td class="cAPI-table-name">headerName</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Represent the header name</p>
+                                                                    <td class="cAPI-table-desc"><p>The header name</p>
 </td>
                                                                 </tr>
                                                                 
@@ -4111,7 +4084,7 @@ with the given header value.</p>
                                                                     <td class="cAPI-table-name">headerValue</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Represent the header value</p>
+                                                                    <td class="cAPI-table-desc"><p>Represents the header value</p>
 </td>
                                                                 </tr>
                                                                 
@@ -4128,7 +4101,7 @@ with the given header value.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Remove the given header from the entity.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Removes the given header from the entity.</p>
 
                                                             </p>
                                                              
@@ -4144,7 +4117,7 @@ with the given header value.</p>
                                                                     <td class="cAPI-table-name">headerName</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Represent the header name</p>
+                                                                    <td class="cAPI-table-desc"><p>Represents the header name</p>
 </td>
                                                                 </tr>
                                                                 
@@ -4161,7 +4134,7 @@ with the given header value.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Remove all headers associated with the entity.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Removes all headers associated with the entity.</p>
 
                                                             </p>
                                                               
@@ -4176,7 +4149,7 @@ with the given header value.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Check the header existence.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Checks whether the requested header key exists in the header map.</p>
 
                                                             </p>
                                                              
@@ -4192,7 +4165,8 @@ with the given header value.</p>
                                                                     <td class="cAPI-table-name">headerName</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The header name</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -4210,7 +4184,8 @@ with the given header value.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>True if the specified header key exists</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -4298,7 +4273,7 @@ with the given header value.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Get “primaryType/subtype+suffix” combination in string format.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Gets “primaryType/subtype+suffix” combination in string format.</p>
 
                                                             </p>
                                                               
@@ -4315,7 +4290,7 @@ with the given header value.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return base type as a <code>string</code> from MediaType struct</p>
+                                                                    <td class="cAPI-table-desc"><p>Base type as a <code>string</code> from MediaType struct</p>
 </td>
                                                                 </tr>
                                                                 
@@ -4332,7 +4307,7 @@ with the given header value.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Convert the media type to a string, suitable to be used as the value of a corresponding HTTP header.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Converts the media type to a <code>string</code>, suitable to be used as the value of a corresponding HTTP header.</p>
 
                                                             </p>
                                                               
@@ -4349,7 +4324,7 @@ with the given header value.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Return the content-type with parameters as a <code>string</code></p>
+                                                                    <td class="cAPI-table-desc"><p>Content type with parameters as a <code>string</code></p>
 </td>
                                                                 </tr>
                                                                 
