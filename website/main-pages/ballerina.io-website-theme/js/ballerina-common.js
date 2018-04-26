@@ -74,9 +74,12 @@ function initCodeLineNumbers() {
 if (typeof hljs === 'object') {
     hljs.registerLanguage('ballerina', function() {
         return {
-            "k": "package import as public private native service resource function object annotation parameter transformer worker endpoint " +
-                "bind xmlns returns version documentation deprecated new if else match foreach while next break fork join some all timeout " +
-                "try catch finally throw return transaction abort fail onretry retries onabort oncommit lengthof with in lock untaint start await but check",
+            "k": "if else iterator try catch finally fork join all some while foreach in throw return " +
+                "returns break timeout transaction aborted abort committed failed retries next bind with " +
+                "lengthof typeof enum import version public private attach as native documentation lock " +
+                "from on select group by having order where followed insert into update delete set for " +
+                "window query annotation package type typedesc connector function resource service action " +
+                "worker struct transformer endpoint object const true false reply create parameter",
             "i": {},
             "c": [{
                 "cN": "ballerinadoc",
@@ -135,7 +138,7 @@ if (typeof hljs === 'object') {
                 "b": "@[A-Za-z]+"
             }, {
                 "cN": "type",
-                "b": "\\b(int|float|boolean|string|blob|map|jsonOptions|json|xml|table|stream|any|typedesc|type|future|var|error)\\b",
+                "b": "\\b(boolean|int|float|string|var|any|datatable|table|blob|map|exception|json|xml|xmlns|error|stream|streamlet|aggregation)\\b",
                 "r": 0
             }]
         };
