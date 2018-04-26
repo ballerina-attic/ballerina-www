@@ -322,7 +322,9 @@ The following Kubernetes configuration are supported:
 Following ballerina code section explain how you can use some of these Kubernetes capabilities by using Kubernetes annotation support in Ballerina.
 
 ```ballerina
-package data_backed_service;
+import ballerina/config;
+import ballerina/http; 
+import ballerina/mysql; 
 import ballerinax/kubernetes;
 
 // Create SQL endpoint to MySQL database
@@ -335,7 +337,7 @@ endpoint mysql:Client employeeDB {
 };
 
 @kubernetes:ConfigMap {
-    ballerinaConf:"./data-service.toml",
+    ballerinaConf:"./conf/data-service.toml",
 }
 
 @kubernetes:Ingress {
@@ -353,7 +355,7 @@ endpoint mysql:Client employeeDB {
     image:"ballerina.guides.io/employee_database_service:v1.0",
     name:"ballerina-guides-employee-database-service",
     copyFiles:[{target:"/ballerina/runtime/bre/lib",
-                source:<path_to_JDBC_jar>}]
+                source:"./conf/mysql-connector-java-8.0.11.jar"}]
 }
 
 endpoint http:Listener listener {
@@ -389,7 +391,7 @@ trust-store-passoword = "xyz123"
 ```
 
 
-Here you have use @kubernetes:Deployment to specify the docker image name which will be created as part of building this service. CopyFiles field is used to copy the MySQL jar file into the ballerina bre/lib folder. Make sure to replace the <path_to_JDBC_jar> with your JDBC jar's path.
+Here you have use @kubernetes:Deployment to specify the docker image name which will be created as part of building this service. CopyFiles field is used to copy the MySQL jar file into the ballerina bre/lib folder.
 
 @kubernetes:Service {} will create a Kubernetes service which will expose the Ballerina service that is running on a Pod.
 
@@ -398,37 +400,37 @@ In addition you can use @kubernetes:Ingress which is the external interface to a
 Now you can build a Ballerina executable archive (.balx) of the service that we developed above, using the following command. It points to the service file that we developed above and it will create an executable binary out of that. This will also create the corresponding docker image and the Kubernetes artifacts using the Kubernetes annotations that you have configured above.
 
 ```bash
-$ballerina build data_backed_service
+$ ballerina build data_backed_service.bal
+@kubernetes:Service                     - complete 1/1
+@kubernetes:Ingress                     - complete 1/1
+@kubernetes:Secret                      - complete 1/1
+@kubernetes:ConfigMap                	- complete 1/1
+@kubernetes:Docker                      - complete 3/3 
+@kubernetes:Deployment                  - complete 1/1
 
-@kubernetes:Docker 		 - complete 3/3
-@kubernetes:Deployment 		 - complete 1/1
-@kubernetes:Service 		 - complete 1/1
-@kubernetes:Ingress  		 - complete 1/1
-@kubernetes:Secret  		 - complete 2/2
-@kubernetes:ConfigMap  		 - complete 1/1
+Run following command to deploy kubernetes artifacts: 
+kubectl apply -f ./kubernetes/
 
-Run following command to deploy kubernetes artifacts:  
-kubectl apply -f ./kubernetes
 ```
 You can verify that the docker image that we specified in @kubernetes:Deployment is created, by using docker images.
 Also the Kubernetes artifacts related our service, will be generated in addition to balx.
 
 ```bash
-$> tree
-    ├── README.md
-    ├── hello_world_secret_mount_k8s.bal
-    ├── hello_world_secret_mount_k8s.balx
-    ├── kubernetes
-    │   ├── docker
-    │   │   └── Dockerfile
-    │   ├── hello_world_secret_mount_k8s_deployment.yaml
-    │   ├── hello_world_secret_mount_k8s_ingress.yaml
-    │   ├── hello_world_secret_mount_k8s_secret.yaml
-    │   └── hello_world_secret_mount_k8s_svc.yaml
-    └── secrets
-        ├── MySecret1.txt
-        ├── MySecret2.txt
-        └── MySecret3.txt
+$ tree
+├── conf
+│   ├── ballerina.conf
+│   └── mysql-connector-java-8.0.11.jar
+├── data_backed_service.bal
+├── data_backed_service.balx
+└── kubernetes
+    ├── data_backed_service_config_map.yaml
+    ├── data_backed_service_deployment.yaml
+    ├── data_backed_service_ingress.yaml
+    ├── data_backed_service_secret.yaml
+    ├── data_backed_service_svc.yaml
+    └── docker
+        ├── Dockerfile
+        └── mysql-connector-java-8.0.11.jar
 
 ```
 
@@ -437,17 +439,35 @@ Now you can create the Kubernetes deployment using:
 ```bash
 $kubectl apply -f ./kubernetes 
 
-deployment.extensions "ballerina-guides-employee-database-service" created
-ingress.extensions "ballerina-guides-employee-database-service" created
+configmap "employee-data-service-ballerina-conf-config-map" created
+deployment "ballerina-guides-employee-database-service" created
+ingress "ballerina-guides-employee-database-service" created
+secret "listener-secure-socket" created
 service "ballerina-guides-employee-database-service" created
 ```
 You can verify Kubernetes deployment, service and ingress are running properly, by using following Kubernetes commands.
 
 ```bash
-$kubectl get service
-$kubectl get deploy
-$kubectl get pods
-$kubectl get ingress
+$ kubectl get pods
+NAME                                                          READY     STATUS    RESTARTS   AGE
+ballerina-guides-employee-database-service-57479b7c67-l5v9k   0/1       Running     0          26s
+
+$ kubectl get svc
+NAME                                         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE
+ballerina-guides-employee-database-service   NodePort    10.96.24.77   <none>        9090:30281/TCP   51s
+
+$ kubectl get ingress
+NAME                                         HOSTS                 ADDRESS   PORTS     AGE
+ballerina-guides-employee-database-service   ballerina.guides.io             80, 443   1m
+
+$ kubectl get secrets
+NAME                     TYPE                                  DATA      AGE
+listener-secure-socket   Opaque                                2         1m
+
+$ kubectl get configmap
+NAME                                              DATA      AGE
+employee-data-service-ballerina-conf-config-map   1         2m
+
 ```
 If everything is successfully deployed, you can invoke the service either via Node port or ingress.
 Node Port:
