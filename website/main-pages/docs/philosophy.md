@@ -863,7 +863,7 @@
 <div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
     <div class="container">
         <div class="col-xs-12">
-            <h2 class="cMainH2Title">What are Ballerina's Open Source repos?</h2>
+            <h2 class="cMainH2Title">What are Ballerina's open source repos?</h2>
             <div class="col-xs-12 cInnerPageContentCol paddingRemove">
                 <p>Apache-licensed software and community-driven projects. </p>
             </div>
