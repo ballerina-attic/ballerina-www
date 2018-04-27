@@ -17,7 +17,7 @@ Start your project by navigating to a directory of your choice and running the f
 ballerina init
 ```
 
-You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you. Ballerina service represents a collection of network accessible entry points in Ballerina. A Resource within a service represents one such entry point. The genreated sample service will expose a network entry point on port 9090.
+You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
 You can run the service by using a run command.
 
 ```bash
