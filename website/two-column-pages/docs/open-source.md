@@ -1,4 +1,4 @@
-# Community
+# Community and Project
 
 Ballerina is an open-source project under [Apache 2.0 license](https://opensource.org/licenses/Apache-2.0) and is developed by the Ballerina community.
 
@@ -59,7 +59,7 @@ Like most open source projects, building community is a labor of love among the 
 
 We have lots of materials prepared to help with different meetup presentations. We'll be happy to sponsor your meetup with content, speakers, pizza and cross-promotion, too!
 
-1. [Ballerina overview slide deck](https://github.com/ballerina-guides/ballerina-demo/blob/master/Ballerina%20Overview%20and%20Demo.pptx)
+1. [Ballerina overview slide deck](https://docs.google.com/presentation/d/1yuixfusHrICWn6nxRobDEMjuWaHvn3qMJMzQnjNIkMk/edit?usp=sharing)
 2. [Ballerina overview demo script and example download](https://github.com/ballerina-guides/ballerina-demo)
 3. [Ballerina postcards and brochures](https://github.com/ballerina-platform/ballerina-www/collateral/printed_material) - for printing as give aways
 4. [Ballerina logos](https://github.com/ballerina-platform/ballerina-www/collateral/logos) and [Ballerina-style icons](https://github.com/ballerina-platform/ballerina-www/collateral/images) for your presentations
