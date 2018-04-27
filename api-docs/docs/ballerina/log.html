@@ -1156,61 +1156,57 @@
                                             
                                             <div class="cAPIdocsDescription">
                                                 <h2>Package Overview</h2>
-<p>This package provides a basic API to manage logs in packages and files.</p>
+<p>This package provides a basic API for logging.</p>
 <h3>Loggers</h3>
-<p>Loggers are defined over packages and there are dedicated loggers for each package. Packages that have loggers defined over it prints the logs that include the date, time, log level, package name, and more.  For example, given below is a log printed for the <code>foo</code> package.</p>
-<p><code>2018-04-09 11:33:21,300 ERROR [foo] - This is an error log.</code></p>
-<h3>Log Outputs</h3>
-<p>In Ballerina, all the logs are written to the <code>stderr</code> stream by default. Therefore, the logs are printed in the console. This makes it easy to debug the code in a container environment.</p>
-<p>Log outputs can be printed to a log file using a CLI argument or using configurations.</p>
-<p>Different output logging levels can be defined for packages. For more information, see the <strong>Log Level</strong> section.</p>
-<h3>Log Level</h3>
-<p>This package provides functions to log at the <code>DEBUG</code>, <code>ERROR</code>, <code>INFO</code>, <code>TRACE</code>, <code>WARN</code>, <code>OFF</code>, and <code>ALL</code> levels. By default, all log messages are logged to the console at the <code>INFO</code> level. The <code>OFF</code> log level turns off logging and the <code>ALL</code> log level allows all log levels.</p>
+<p>Each package in Ballerina has its own dedicated logger. A log record contains the timestamp, log level, package name, and the log message. The <code>printError()</code> function takes an optional <code>error</code> record apart from the log message. A sample log record logged from the <code>foo</code> package would look as follows:</p>
+<pre><code class="language-bash">2018-04-09 11:33:21,300 ERROR [foo] - This is an error log.
+</code></pre>
+<h3>Log Output</h3>
+<p>Logs are written to the <code>stderr</code> stream (i.e., the console) by default in order to make the logs more container friendly.</p>
+<p>To publish the logs to a file, redirect the <code>stderr</code> stream to a file.</p>
+<pre><code class="language-bash">$ ballerina run program.bal 2&gt; b7a-user.log
+</code></pre>
+<h3>Log Levels</h3>
+<p>This package provides functions to log at the <code>WARN</code>, <code>ERROR</code>, <code>INFO</code>, <code>DEBUG</code>, and <code>TRACE</code> levels. By default, all log messages are logged to the console at the <code>INFO</code> level. In addition to these, there are two other levels named <code>OFF</code> and <code>ALL</code>. The <code>OFF</code> log level turns off logging, and the <code>ALL</code> log level allows all log levels. The log level can be configured through the Config API.</p>
+<p>The <code>b7a.log.level</code> configuration key can be used to configure the log level for the log API (i.e., for all the packages). The following can be provided in a configuration file.</p>
+<pre><code class="language-toml">b7a.log.level=&quot;&lt;LOG_LEVEL&gt;&quot;
+</code></pre>
+<p>The log level can also be configured through a CLI parameter as follows:</p>
+<pre><code class="language-bash">$ ballerina run program.bal -e b7a.log.level=&lt;LOG_LEVEL&gt;
+</code></pre>
+<p>Log levels can be configured for packages either through a configuration file as <code>&lt;PACKAGE_NAME&gt;.loglevel=&quot;&lt;LOG_LEVEL&gt;&quot;</code> or through a CLI parameter as <code>&lt;PACKAGE_NAME&gt;.loglevel=&lt;LOG_LEVEL&gt;</code>.</p>
 <h2>Sample</h2>
-<p>Follow the steps given below to run the sample and get sample log outputs.</p>
-<ol>
-<li>Create a directory named <code>foo</code>, add the code given below to a  file, and name the file <code>test.bal</code>.</li>
-</ol>
-<pre><code class="language-ballerina">	package foo;
-	import ballerina/log;
+<p>The following code snippet depicts the usage of all the functions in the log API.</p>
+<pre><code class="language-ballerina">// Logs the message at ERROR level
+log:printError(&quot;error log&quot;);
 
-	function main(string[] args) {
-    	  error err = {message: &quot;error occurred&quot;};
-    	  log:printDebug(&quot;debug log&quot;);
-    	  log:printError(&quot;error log&quot;);
-    	  log:printErrorCause(&quot;error log with cause&quot;, err);
-    	  log:printInfo(&quot;info log&quot;);
-    	  log:printTrace(&quot;trace log&quot;);
-    	  log:printWarn(&quot;warn log&quot;);		
-	}
+// Logs the message at ERROR level, along with an error record
+error e = {message: &quot;error occurred&quot;};
+log:printError(&quot;error log with cause&quot;, err = e);
+
+// Logs the message at WARN level
+log:printWarn(&quot;warn log&quot;);
+
+// Logs the message at INFO level
+log:printInfo(&quot;info log&quot;);
+
+// Logs the message at DEBUG level
+log:printDebug(&quot;debug log&quot;);
+
+// Logs the message at TRACE level
+log:printTrace(&quot;trace log&quot;);
 </code></pre>
-<ol start="2">
-<li>
-<p>Navigate to the directory where the <code>test.bal</code> file is saved via the terminal and run the file using the command given below.</p>
-<p><code>ballerina run foo/</code></p>
-</li>
-<li>
-<p>By default, the logs are printed to the console. To write logs to the <code>test.log</code> file, execute the following command.
-<code>ballerina run foo/ 2&gt; test.log</code></p>
-</li>
-<li>
-<p>Controlling the log level of the <code>foo</code> package:</p>
-<ul>
-<li>
-<p>The log level for the <code>foo</code> package can be changed to ERROR using CLI arguments as shown below.
-<code>ballerina run foo/ -e foo.loglevel=ERROR</code></p>
-</li>
-<li>
-<p>To set the log level of the <code>foo</code> pacakge using a configuration file, create a file named <code>ballerina.conf</code> in the source root of <code>test.bal</code>, and copy the following entry.</p>
-<pre><code class="language-ballerina"> [foo]
- loglevel=&quot;ERROR&quot;
+<p>Suppose that the above code snippet resides in a package named <code>foo</code>. We can set the log level of <code>foo</code> to <code>DEBUG</code> in a configuration file by placing the following entry in it:</p>
+<pre><code class="language-toml">[foo]
+loglevel=&quot;DEBUG&quot;
+
+OR
+
+foo.loglevel=&quot;DEBUG&quot;
 </code></pre>
-</li>
-</ul>
-<p>Next, run the <code>test.bal</code> file to print the ERROR logs.
-<code>ballerina run foo/</code></p>
-</li>
-</ol>
+<p>The log level of <code>foo</code> can also be configured through the CLI as follows:</p>
+<pre><code class="language-bash">$ ballerina run foo -e foo.loglevel=DEBUG
+</code></pre>
 
                                             </div>
                                             

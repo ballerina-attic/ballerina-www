@@ -1542,7 +1542,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#close">close</a></td>
-                                                        <td class="cSummary-table-desc"><p>The close action implementation for SQL connector to shutdown the connection pool.</p>
+                                                        <td class="cSummary-table-desc"><p>An internal function used by clients to shutdown the connection pool.</p>
 </td>
                                                      </tr>
                                                  
@@ -1625,7 +1625,7 @@
                                          
                                          <!-- Type Definitions-->
                                          
-                                        <h3>Type Definitions</h3>
+                                        <h3 id="TypeDefinitions">Type Definitions</h3>
                                         <table class="cSummary-Table c3Col-Narrow">
                                             <tr>
                                                 <th class="cSummary-table-name">Type</th>
@@ -1652,7 +1652,8 @@ INOUT - INOUT parameters are used to send values and get values from stored proc
                                             <tr>
                                                 <td class="cSummary-table-name">Param</td>
                                                 <td class="cSummary-table-type"></td>
-                                                <td class="cSummary-table-desc"></td>
+                                                <td class="cSummary-table-desc"><p>The parameter passed into the operations.</p>
+</td>
                                             </tr>
                                               
                                             
@@ -2013,7 +2014,7 @@ REFCURSOR - Cursor value</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">sqlType</td>
-                                                        <td class="cAPI-table-type"><a href="#SQLType">SMALLINT|STRUCT|DATETIME|CHAR|BOOLEAN|REFCURSOR|BIT|TINYINT|NCLOB|DOUBLE|BIGINT|LONGVARBINARY|BLOB|TIME|NUMERIC|NVARCHAR|DECIMAL|LONGVARCHAR|FLOAT|ARRAY|NCHAR|DATE|LONGNVARCHAR|INTEGER|VARCHAR|CLOB|TIMESTAMP|VARBINARY|BINARY|REAL</a></td>
+                                                        <td class="cAPI-table-type"><a href="#SQLType">STRUCT|DOUBLE|TIMESTAMP|SMALLINT|CHAR|NCLOB|DATE|DECIMAL|LONGVARBINARY|BLOB|NVARCHAR|TINYINT|NCHAR|ARRAY|FLOAT|LONGNVARCHAR|VARBINARY|LONGVARCHAR|BOOLEAN|BIT|REFCURSOR|BIGINT|TIME|NUMERIC|BINARY|INTEGER|DATETIME|CLOB|VARCHAR|REAL</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The data type of the corresponding SQL parameter</p>
 </td>
@@ -2029,7 +2030,7 @@ REFCURSOR - Cursor value</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">direction</td>
-                                                        <td class="cAPI-table-type"><a href="#Direction">INOUT|IN|OUT</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Direction">IN|INOUT|OUT</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Direction of the SQL Parameter OUT, or INOUT - Default value is IN</p>
 </td>
@@ -2114,7 +2115,7 @@ to the pool</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">maximumPoolSize</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">-1</td>
+                                                        <td class="cAPI-table-default">10</td>
                                                         <td class="cAPI-table-desc"><p>Maximum size that the pool is allowed to reach, including both idle and in-use connections</p>
 </td>
                                                     </tr>
@@ -2122,16 +2123,16 @@ to the pool</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">connectionTimeout</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">-1</td>
-                                                        <td class="cAPI-table-desc"><p>Maximum number of milliseconds that a client will wait for a connection from the pool</p>
+                                                        <td class="cAPI-table-default">30000</td>
+                                                        <td class="cAPI-table-desc"><p>Maximum number of milliseconds that a client will wait for a connection from the pool. Default is 30 seconds</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">idleTimeout</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">-1</td>
-                                                        <td class="cAPI-table-desc"><p>Maximum amount of time that a connection is allowed to sit idle in the pool</p>
+                                                        <td class="cAPI-table-default">600000</td>
+                                                        <td class="cAPI-table-desc"><p>Maximum amount of time that a connection is allowed to sit idle in the pool. Default is 10 minutes</p>
 </td>
                                                     </tr>
                                                     
@@ -2139,23 +2140,23 @@ to the pool</p>
                                                         <td class="cAPI-table-name">minimumIdle</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default">-1</td>
-                                                        <td class="cAPI-table-desc"><p>Minimum number of idle connections that pool tries to maintain in the pool</p>
+                                                        <td class="cAPI-table-desc"><p>Minimum number of idle connections that pool tries to maintain in the pool. Default is same as maximumPoolSize</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">maxLifetime</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">-1</td>
-                                                        <td class="cAPI-table-desc"><p>Maximum lifetime of a connection in the pool</p>
+                                                        <td class="cAPI-table-default">1800000</td>
+                                                        <td class="cAPI-table-desc"><p>Maximum lifetime of a connection in the pool. Default is 30 minutes</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">validationTimeout</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">-1</td>
-                                                        <td class="cAPI-table-desc"><p>Maximum amount of time that a connection will be tested for aliveness</p>
+                                                        <td class="cAPI-table-default">5000</td>
+                                                        <td class="cAPI-table-desc"><p>Maximum amount of time that a connection will be tested for aliveness. Default 5 seconds</p>
 </td>
                                                     </tr>
                                                     
@@ -2175,7 +2176,7 @@ to the pool</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>The close action implementation for SQL connector to shutdown the connection pool.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>An internal function used by clients to shutdown the connection pool.</p>
 
                                                 </p>
                                                  
@@ -2191,7 +2192,8 @@ to the pool</p>
                                                         <td class="cAPI-table-name">callerActions</td>
                                                         <td class="cAPI-table-type"><a href="sql.html#CallerActions">sql:CallerActions</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>The CallerActions object which represents the connection pool.</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -2616,7 +2618,8 @@ table that allows performing select/update operations over the actual database t
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="">table </a>|<a href="builtin.html#error"> error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>A <code>table</code> returned by the sql query statement else <code>error</code> will be returned if there is any error</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>

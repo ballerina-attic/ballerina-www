@@ -1732,7 +1732,7 @@
                                             
                                             <div class="cAPIdocsDescription">
                                                 <h2>Package Overview</h2>
-<p>This package provides functions to transmit and receive messages that have multiple parts, such as an attachment. The communication of such messages follow the MIME (Multipurpose Internet Mail Extensions) specification as specified in the RFC 2045 standard.</p>
+<p>This package provides functions to encapsulate multiple body parts, such as attachments in a single message. The communication of such messages follow the MIME (Multipurpose Internet Mail Extensions) specification as specified in the RFC 2045 standard.</p>
 <h3>MIME Specific terms</h3>
 <p>The following terms are MIME specific and are extracted from the MIME specification.</p>
 <h4>Entity</h4>
@@ -3915,7 +3915,8 @@ by passing the content type as an optional parameter.</p>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Header value associated with the given header name as a <code>string</code>. If multiple header values are
-present, then the first value is returned.</p>
+present, then the first value is returned. An exception is thrown if no header is found. Use
+<code>hasHeader()</code> beforehand to check the existence of header.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3967,7 +3968,8 @@ present, then the first value is returned.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="">string[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>All the header values associated with the given header name as a <code>string[]</code></p>
+                                                                    <td class="cAPI-table-desc"><p>All the header values associated with the given header name as a <code>string[]</code>. An exception is thrown
+if no header is found. Use <code>hasHeader()</code> beforehand to check the existence of header.</p>
 </td>
                                                                 </tr>
                                                                 
