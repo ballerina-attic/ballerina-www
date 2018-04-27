@@ -2,7 +2,7 @@
 
 Ballerina has a built-in documentation framework named Docerina. The documentation framework allows you to write unstructured document with a bit of structure to enable generating HTML content as API documentation.
 
-Developers can write the documentation inline with the Ballerina source code using the lightweight [markdown](https://en.wikipedia.org/wiki/Markdown) markup language. They can mark special occurrences such as parameters, return parameters, fields, endpoints within the documentation code using documentation attributes. Once the code is documented, developers can generate a basic HTML version of their ballerina packages using the `ballerina doc` command. You are encouraged to have your custom themes and styles, to have a better presentation of your Ballerina documentation. 
+Developers can write the documentation inline with the Ballerina source code using the lightweight [markdown](https://en.wikipedia.org/wiki/Markdown) markup language. They can mark special occurrences such as parameters, return parameters, fields, endpoints within the documentation code using documentation attributes. Once the code is documented, developers can generate a basic HTML version of their Ballerina packages using the `ballerina doc` command. You are encouraged to have your custom themes and styles, to have a better presentation of your Ballerina documentation. 
 
 Ballerina design and usage is aligned with project and package semantics of Ballerina. You can generate documentation for the project packages using the ``ballerina doc`` command.
 
@@ -15,15 +15,16 @@ Ballerina design and usage is aligned with project and package semantics of Ball
 
 ## Writing Ballerina Documentation
 
-Documentation is a first class syntax in the Ballerina language. ```documentation``` keyword followed by a curly braces denote a documentation node.
+Documentation is a first class syntax in the Ballerina language. The `documentation` keyword followed by curly braces denotes a documentation node.
 
 ```
 documentation {
      <your markdown documentation goes here>
 }
 ```
-Within this ```documentation``` syntax, you can write your documentation in markdown markup language.
-eg:
+
+Within this `documentation` syntax, you can write your documentation in markdown markup language. For example:
+
 ```
 documentation {
    Provides the HTTP actions for interacting with an HTTP server. Apart from the standard 
@@ -32,7 +33,8 @@ documentation {
    ...
 }
 ```
-While you have the freedom to write any markdown document within the `documentation` syntax, Docerina encourages you to have some structure within the `documentation` syntax. Recommended structure is defined below;
+
+While you have the freedom to write any markdown document within the `documentation` syntax, Docerina encourages you to have some structure within the `documentation` syntax. Recommended structure is defined below:
 
 ```
 documentation {
@@ -59,7 +61,7 @@ F{{dob}} date of birth of the employee
 ```
 E{{}}
 ```
-**NOTE:** Unlike other attributes, `E` attribute does not follow a description as it is used as an indicator.
+> **NOTE:** Unlike other attributes, `E` attribute does not follow a description as it is used as an indicator.
 
 
 ### Sample Usage
@@ -91,7 +93,8 @@ documentation {
 
 A Ballerina package can have a `Package.md` file which describes the package and its usage.
 
-A typical project structure of a Ballerina project is like this;
+A typical project structure of a Ballerina project is like this:
+
 ```
 /
   .gitignore
@@ -128,13 +131,14 @@ A typical project structure of a Ballerina project is like this;
 ```
 
 `ballerina doc` command will read the `Package.md` and append it in the generated HTML file.
+
 Please check https://ballerina.io/learn/api-docs/ballerina/http.html for a sample HTML that has a `Package.md` content at the top, followed by the other package constructs.
 
 ## Generating Ballerina Documentation
 
 Ballerina provides a `doc` command which can be executed against a given Ballerina project. This command will result in generating the Ballerina documentation as HTML files, for all the packages in the project.
 
-First, let's create a new Ballerina project;
+First, let's create a new Ballerina project:
 ```bash
 $ mkdir myproject
 $ cd myproject
@@ -150,7 +154,7 @@ Ballerina source [service/s, main/m, finish/f]: (f) f
 
 Ballerina project initialized
 ```
-Now, let's generate documentation of the project;
+Now, let's generate documentation of the project:
 ```bash
 $ ballerina doc
 ```
@@ -178,14 +182,15 @@ time.html
 `package-list.html` - contains the package list which will be useful to find out the list of packages.
 `docerina-theme` - folder contains basic styles shipped by default with the pack.
 
-If you want to generate documentation for a selected Ballerina package, then you can execute the following command from the ballerina project root directory;
+If you want to generate documentation for a selected Ballerina package, then you can execute the following command from the ballerina project root directory:
 
 ```bash
 $ ballerina doc <package_name>
 ```
 
-If you have custom Handlebars templates, you can pass them via the `doc` command;
+If you have custom Handlebars templates, you can pass them via the `doc` command:
+
 ```bash
 $ ballerina doc -t <path_to_templates> <package_name>
 ```
-For other options, plase run `ballerina doc --help`
+For other options, please run `ballerina doc --help`.
