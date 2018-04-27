@@ -38,7 +38,7 @@ If you produce non-hypertext works, such as books, audio, or video, we ask that 
 ### Ballerina Website Attributions
 In the creation of this website, we used the following Creative Commons Attribution license: 
 
-* [Ballerina by Example](http://www.mkdocs.org/) by [mmcgrana](https://github.com/mmcgrana/gobyexample/) is licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
+* [Ballerina by Example](https://ballerina.io/learn/by-example/) by [mmcgrana](https://github.com/mmcgrana/gobyexample/) is licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
 
 
 ## Contact
