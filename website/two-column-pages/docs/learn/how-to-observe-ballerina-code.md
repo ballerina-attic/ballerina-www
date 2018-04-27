@@ -1,4 +1,4 @@
-# How to Observe Ballerina Programs
+# How to Observe Ballerina Services
 
 ## Introduction
 Observability is a measure of how well internal states of a system can be inferred from knowledge of its external
@@ -146,13 +146,13 @@ If you have configured log analytics view the logs in Kibana via `http://localho
 
 ## Monitoring Metrics
 Metrics help to monitor the runtime behaviour of a service. Therefore, metrics is a vital part of monitoring
-Ballerina programs. However, metrics is not the same as analytics. For example, you should not use metrics to do
-something like per-request billing. Metrics are used to measure what Ballerina program does at runtime to make
+Ballerina services. However, metrics is not the same as analytics. For example, you should not use metrics to do
+something like per-request billing. Metrics are used to measure what Ballerina service does at runtime to make
 better decisions using the numbers. The code generates business value when it continuously run in production.
 Therefore, it is imperative to continuously measure the code in production.
 
 Metrics, by default, supports Prometheus. In order to support Prometheus, an HTTP endpoint starts with the context
-of `/metrics` in default port 9797 when starting the Ballerina program.
+of `/metrics` in default port 9797 when starting the Ballerina service.
 
 ### Advanced Metrics Configuration for Ballerina
 This section focuses on the Ballerina configurations that are available for metrics monitoring with Prometheus,
@@ -180,19 +180,19 @@ Configuration Key | Description | Default Value | Possible Values
 b7a.observability.metrics. enabled | Whether metrics monitoring is enabled (true) or disabled (false) | false | true or false
 b7a.observability.metrics. provider | Provider name which implements Metrics interface. This is only required to be modified if a custom provider is implemented and needs to be used. | micrometer | micrometer or if any custom implementation, then name of the provider.
 b7a.observability.metrics. micrometer.registry.name | Name of the registry used in micrometer | prometheus | prometheus 
-b7a.observability.metrics. prometheus.port | The value of the port in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the Ballerina program. | 9797 | Any suitable value for port 0 - 0 - 65535. However, within that range, ports 0 - 1023 are generally reserved for specific purposes, therefore it is advisable to select a port without that range. 
-b7a.observability.metrics. prometheus.hostname | The hostname in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the Ballerina program. | 0.0.0.0 | IP or Hostname or 0.0.0.0 of the node in which the Ballerina program is running.
+b7a.observability.metrics. prometheus.port | The value of the port in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the Ballerina service. | 9797 | Any suitable value for port 0 - 0 - 65535. However, within that range, ports 0 - 1023 are generally reserved for specific purposes, therefore it is advisable to select a port without that range. 
+b7a.observability.metrics. prometheus.hostname | The hostname in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the Ballerina service. | 0.0.0.0 | IP or Hostname or 0.0.0.0 of the node in which the Ballerina service is running.
 b7a.observability.metrics. prometheus.descriptions | This flag indicates whether meter descriptions should be sent to Prometheus. Turn this off to minimize the amount of data sent on each scrape. | false | true or false
 b7a.observability.metrics. prometheus.step | The step size to use in computing windowed statistics like max. To get the most out of these statistics, align the step interval to be close to your scrape interval. | PT1M (1 minute) | The formats accepted are based on the ISO-8601 duration format PnDTnHnMn.nS with days considered to be exactly 24 hours.
 
 ### Setup External Systems for Metrics
 There are mainly two systems involved in collecting and visualizing the metrics. [Prometheus] is used to collect the
-metrics from the Ballerina program and [Grafana] can connect to Prometheus and visualize the metrics in the dashboard.
+metrics from the Ballerina service and [Grafana] can connect to Prometheus and visualize the metrics in the dashboard.
 
 #### Prometheus
 [Prometheus] is used as the monitoring system, which pulls out the metrics collected from the Ballerina service
 '/metrics'. This section focuses on the quick installation of Prometheus with Docker, and configure it to collect 
-metrics from Ballerina program with default configurations. Below provided steps needs to be followed to configure 
+metrics from Ballerina service with default configurations. Below provided steps needs to be followed to configure 
 Prometheus. There are many other ways to install the Prometheus and you can find possible options from
 [installation guide](https://prometheus.io/docs/prometheus/latest/installation/).
 
@@ -212,7 +212,7 @@ scrape_configs:
 ```
 
 Here the targets `'a.b.c.d:9797'` should contain the host and port of the `/metrics` service that's exposed from 
-Ballerina for metrics collection. Add the IP of the host in which the Ballerina program is running as `a.b.c.d` and its
+Ballerina for metrics collection. Add the IP of the host in which the Ballerina service is running as `a.b.c.d` and its
 port (default `9797`).
 If you need more information refer [official documentation of Prometheus](https://prometheus.io/docs/introduction/first_steps/).
 
@@ -319,7 +319,7 @@ b7a.observability.tracing. jaeger.reporter.flush.interval.ms | Jaeger client wil
 b7a.observability.tracing. jaeger.reporter.max.buffer.spans | Queue size of the Jaeger client. | 2000 | Any positive integer value.
 
 #### Zipkin Client
-The tracing of Ballerina program can be done via Zipkin as well, but the required dependencies are not included in
+The tracing of Ballerina service can be done via Zipkin as well, but the required dependencies are not included in
 default Ballerina distribution. Follow the below steps to add the required dependencies to the Ballerina distribution.
 
 **Step 1:** Go to [ballerina-observability](https://github.com/ballerina-platform/ballerina-observability) and clone
