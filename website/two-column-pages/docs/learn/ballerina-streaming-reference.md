@@ -103,15 +103,15 @@ streamingQueryStatement
 
 ###### Sample query
 
-This query filters out the teachers who are older than 30 years. It waits until three teacher records are collected by the
-stream. Ten teachers are grouped based on their marital status, an the unique marital status count of the
-teachers is counted. Once the query is executed, its result is published to the `filteredStatusCountStream` stream.
+This query filters out the teachers who are older than 30 years and for every 20 teacher records, it groups them
+based on their marital status, count number of teachers for each status and then publishes all the status have more than 
+one entry to the `filteredStatusCountStream` stream.
 
 ```ballerina
     forever {
         from teacherStream 
             where age > 18 
-            window lengthBatch (3)
+            window lengthBatch (20)
         select status, count(status) as totalCount
         group by status
         having totalCount > 1
