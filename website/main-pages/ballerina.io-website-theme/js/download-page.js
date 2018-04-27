@@ -44,6 +44,8 @@ $(document).ready(function() {
         var i = 0;
         $.each(latest_pack['other-artefacts'], function(key, value) {
 
+            if(value.indexOf(".json") === -1){
+
             release_content = "<tr>";
             release_content += '<td style="width: 96%">' + value + '</td>';
             release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '" class="cDownloadLinkIcon"><img src="../img/download-bg-green-fill.svg"></a></td>';
@@ -59,6 +61,31 @@ $(document).ready(function() {
             }
             $("#insPackages" + row_id).append(release_content);
             i++;
+
+          }else{
+
+            var data;
+            $.getJSON(product_dist_path + value, function(obj) {console.log(obj);
+              var obj = obj;
+              jsondata = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
+
+              release_content = "<tr>";
+              release_content += '<td style="width: 96%">' + value + '</td>';
+              release_content += '<td style="width: 1%; white-space: nowrap;"><a href="data:' + jsondata + '" download="'+value+'" class="cDownloadLinkIcon"><img src="../img/download-bg-green-fill.svg"></a></td>';
+              release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
+              release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
+              release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
+              release_content += "</tr>";
+
+              if (i < latest_pack['other-artefacts'].length / 2) {
+                  var row_id = 0;
+              } else {
+                  var row_id = 1;
+              }
+              $("#insPackages" + row_id).append(release_content);
+              i++;
+            });
+          }
         });
         //IDEA plugin URL
         release_content = "<tr>";
@@ -98,6 +125,7 @@ $(document).ready(function() {
 
         $.each(nightly_packs, function(key, value) {
 
+          if(value.indexOf(".json") === -1){
             release_content = "<tr>";
             release_content += '<td style="width: 96%">' + value + '</td>';
             release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '" class="cDownloadLinkIcon"><img src="../img/download-bg-green-fill.svg"></a></td>';
@@ -113,6 +141,47 @@ $(document).ready(function() {
             }
             $("#nightlyPackages" + row_id).append(release_content);
             i++;
+
+          }else{
+
+            var data;
+            $.getJSON(product_dist_path + value, function(obj) {console.log(obj);
+              var obj = obj;
+              jsondata = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
+
+              release_content = "<tr>";
+              release_content += '<td style="width: 96%">' + value + '</td>';
+              release_content += '<td style="width: 1%; white-space: nowrap;"><a href="data:' + jsondata + '" download="'+value+'" class="cDownloadLinkIcon"><img src="../img/right-bg-green-fill.svg"></a></td>';
+              release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
+              release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
+              release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
+              release_content += "</tr>";
+
+              if (i < nightly_packs.length / 2) {
+                  var row_id = 0;
+              } else {
+                  var row_id = 1;
+              }
+              $("#nightlyPackages" + row_id).append(release_content);
+              i++;
+            });
+          }
         });
+
+        //IDEA plugin URL
+        release_content = "<tr>";
+        release_content += '<td style="width: 96%">ballerina-intellij-idea-plugin</td>';
+        release_content += '<td style="width: 1%; white-space: nowrap;"><a href="https://plugins.jetbrains.com/plugin/9520-ballerina" target="_blank" class="cDownloadLinkIcon"><img src="../img/right-bg-green-fill.svg"></a></td>';
+        release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
+        release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
+        release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
+        release_content += "</tr>";
+        if (i < nightly_packs.length / 2) {
+              var row_id = 0;
+          } else {
+              var row_id = 1;
+        }
+        $("#nightlyPackages" + row_id).append(release_content);
+
     }).fail(function() {$("#nightlyPackContainer").hide();});
 });
