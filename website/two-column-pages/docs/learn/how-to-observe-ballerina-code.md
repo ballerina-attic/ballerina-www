@@ -136,7 +136,11 @@ $ curl http://localhost:9090/hello/sayHello
 View the tracing information on Jaeger via `http://localhost:16686/` and view metrics information from Grafana dashboard 
 on `http://localhost:3000/`.
 
+Sample view of Jaeger dashboard for hello_world_service.bal is shown below. 
 ![Jaeger Sample Dashboard](images/jaeger-sample-dashboard.png "Jaeger Sample Dashboard")
+
+Sample view of Grafana dashboard for hello_world_service.bal is shown below. 
+![Grafana Sample Dashboard](images/grafana-sample-hello-world-service-stats.png "Grafana HelloWorld Service Sample Dashboard")
 
 **Step 7:** Visualise the logs.
  
@@ -243,7 +247,17 @@ For more information refer [Grafana Site](https://hub.docker.com/r/grafana/grafa
 
 ![Grafana Prometheus Datasource](images/grafana-prometheus-datasource.png "Grafana Prometheus Datasource")
 
-**Step 5:** Now you can import the default Grafana dashboard which has some default graphs to visualize the request/response metrics.
+**Step 5:** Import the Grafana dashboard designed to visualize Ballerina metrics from [https://grafana.com/dashboards/5841](https://grafana.com/dashboards/5841).
+This dashboard consists of service and client invocation level metrics in near real-time view. 
+
+Ballerina HTTP Service Metrics Dashboard Panel will be as below.
+![Ballerina Service Metrics](images/grafana-ballerina-metrics-1.png "Ballerina Sample Service Metrics Dashboard")
+
+Ballerina HTTP Client Metrics Dashboard Panel will be as below.
+![Ballerina Client Metrics](images/grafana-ballerina-metrics-3.png "Ballerina Sample Client Metrics Dashboard")
+
+Ballerina SQL Client Metrics Dashboard Panel will be as below.
+![Ballerina SQL Client Metrics](images/grafana-ballerina-metrics-2.png "Ballerina Sample SQL Client Metrics Dashboard")
 
 ## Distributed Tracing
 
