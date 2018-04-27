@@ -36,7 +36,7 @@ service<http:Service> hello bind { port:9090 } {
         log:printError("This is a test Error log");
         log:printWarn("This is a test Warn log");
         http:Response res = new;
-        res.setStringPayload("Hello, World!");
+        res.setTextPayload("Hello, World!");
         _ = caller -> respond(res);
     }
 }
