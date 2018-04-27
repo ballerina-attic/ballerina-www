@@ -17,7 +17,8 @@ Start your project by navigating to a directory of your choice and running the f
 ballerina init
 ```
 
-You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you. You can run the service by using a run command.
+You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
+You can run the service by using a run command.
 
 ```bash
 ballerina run hello_service.bal
@@ -185,6 +186,7 @@ endpoint twitter:Client twitter {
    accessTokenSecret: config:getAsString("accessTokenSecret")
 };
 ```
+Here we are creating an endpoint to connect with the Twitter service. An endpoint is a Ballerina construct to configure parameters related to the network accessible service, which is connected through the endpoint. The above configuration is used to configure the connectivity to the Twitter service.
 
 Now you have the Twitter endpoint.
 
