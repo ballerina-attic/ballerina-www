@@ -247,7 +247,8 @@ For more information refer [Grafana Site](https://hub.docker.com/r/grafana/grafa
 
 ![Grafana Prometheus Datasource](images/grafana-prometheus-datasource.png "Grafana Prometheus Datasource")
 
-**Step 5:** Now you can import the default Grafana dashboard which has some default graphs to visualize the request/response metrics.
+**Step 5:** Import the Grafana dashboard designed to visualize Ballerina metrics from [https://grafana.com/dashboards/5841](https://grafana.com/dashboards/5841).
+This dashboard consist of service and client invocation level metrics in near real time view. 
 
 Grafana HTTP Service Metrics Dashboard Panel will be as below.
 ![Grafana Service Metrics](images/grafana-ballerina-metrics-1.png "Grafana Sample Service Metrics Dashboard")
