@@ -502,11 +502,11 @@ Following are some inbuilt aggregation functions shipped with Ballerina, for mor
 
 #### Group By
 
-Group By allows you to group the aggregate based on specified attributes.
+The `group by` clause allows you to group the aggregate based on specified attributes.
 
 ###### Syntax
 
-The syntax for the Group By aggregate function is as follows:
+The syntax for the 'group by` aggregate function is as follows:
 
 ```ballerina
 from <input stream> window <window name>(...)
@@ -533,7 +533,7 @@ group by roomNo, deviceID
 
 #### Having
 
-Having allows you to filter events after processing the `select` statement.
+The `having` clause allows you to filter events after processing the `select` statement.
 
 ###### Purpose
 
@@ -541,7 +541,7 @@ This allows you to filter the aggregation output.
 
 ###### Syntax
 
-The syntax for the Having clause is as follows:
+The syntax for the `having` clause is as follows:
 
 ```ballerina
 from <input stream> window <window name>( ... )
@@ -568,12 +568,12 @@ having avgTemp > 30
 
 #### Order By
 
-Order By allows you to order the aggregated result in ascending and/or descending order based on specified attributes. By default ordering will be done in
-ascending manner. User can use 'descending' keyword to order in descending manner.
+The `order by` clause allows you to order the aggregated result in ascending and/or descending order based on specified attributes. By default ordering will be done in
+ascending manner. User can use `descending` keyword to order in descending manner.
 
 ###### Syntax
 
-The syntax for the Order By clause is as follows:
+The syntax for the `order by` clause is as follows:
 
 ```ballerina
 from <input stream> window <window name>( ... )
@@ -616,7 +616,7 @@ stream's window based on the given condition, and the output events are generate
 
 ###### Syntax
 
-The syntax for a join is as follows:
+The syntax for a `join` is as follows:
 
 ```ballerina
 from <input stream> window <window name>(<parameter>, ... ) {unidirectional} {as <reference>}
@@ -688,7 +688,7 @@ Following are the supported operations of a join clause.
 
  *  **Right outer join**
 
-    This is similar to a left outer join. `Right outer join` is used as the keyword to join both
+    This is similar to a left outer join. `right outer join` is used as the keyword to join both
     the streams. It returns all the events of the right stream even if there are no matching events
     in the left stream.
 
