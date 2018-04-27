@@ -186,7 +186,7 @@ endpoint twitter:Client twitter {
    clientConfig:{}   
 };
 ```
-Here we are creating an endpoint to connect with the twitter service. An endpoint is a ballerina construct to configure parameters related to the network accessible service which is connected through the endpoint. The above configuration is used to configure the connectivity to twitter service.
+Here we are creating an endpoint to connect with the Twitter service. An endpoint is a Ballerina construct to configure parameters related to the network accessible service, which is connected through the endpoint. The above configuration is used to configure the connectivity to the Twitter service.
 
 Now you have the Twitter endpoint.
 
