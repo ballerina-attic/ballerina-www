@@ -36,10 +36,9 @@ Again, please link back to the original source page so that readers can refer to
 If you produce non-hypertext works, such as books, audio, or video, we ask that you make a best effort to include a spoken or written attribution in the spirit of the messages above.
 
 ### Ballerina Website Attributions
-
 In the creation of this website, we used the following Creative Commons Attribution license: 
 
-* "[MK Docs](http://www.mkdocs.org/)" by [BSD2](https://github.com/rtfd/sphinx_rtd_theme/blob/master/LICENSE) is licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
+* "[BBE](http://www.mkdocs.org/)" by [mmcgrana](https://github.com/mmcgrana/gobyexample/) is licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/)
 
 
 ## Contact
