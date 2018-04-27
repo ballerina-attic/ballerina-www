@@ -347,7 +347,7 @@ Default: “.” (No Package)
 ```functionName: “<function name>”``` : Name of the function to be mocked. 
 Default: none
 
-Following is example for function mocking.
+Following is an example for function mocking.
 
 ``` ballerina
 import ballerina/test;
