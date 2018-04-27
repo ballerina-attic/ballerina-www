@@ -769,6 +769,14 @@ button.navbar-toggle {
 #mkdocs-search-results>article>p {
     margin: 0 0 4px;
     font-size: 15px;
+    width: 450px;
+    word-wrap: break-word;
+}
+
+#mkdocs-search-results>p.error {
+    color: #b6b7b7;
+    padding: 6px 12px;
+    font-size: 14px;
 }
 
 #mkdocs-search-results>article:first-child {
@@ -976,38 +984,110 @@ pre code {
 /*CON BANNER*/
 
 #iBanner {
-/*    display: inline-block;
+    /*    display: inline-block;
     width: 100%;*/
-
- transition: all 1.5s ease 0s;
- margin-top: -63px;
+    transition: all 1.5s ease 0s;
+    margin-top: -63px;
 }
+
 .cBallerinaConBanner {
     background-color: #ffffff;
 }
+
 .cBallerinaConBanner .container {
     text-align: center;
     font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
     letter-spacing: 2px;
     color: #585a5e;
 }
+
 .cBallerinaConBanner a {
     display: inline-block;
     cursor: pointer;
     width: 100%;
     padding: 20px 15px;
 }
+
 .cBallerinaConBanner .container span {
     color: #20b6b0;
 }
 
 #iBanner.cShowBanner {
-
-     transition: all 1.5s ease 0s;
-     margin-top: 0;
-
+    transition: all 1.5s ease 0s;
+    margin-top: 0;
 }
 
+
+/*  
+ * Loader
+ * ---------------------------------------------
+ */
+
+.loader {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0px;
+    text-align: center;
+    z-index: 1000;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    width: 30px;
+    height: 30px;
+}
+
+.loader:before {
+    position: absolute;
+    content: '';
+    top: 0%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 500rem;
+    border: 0.2em solid rgba(0, 0, 0, 0.1);
+}
+
+.loader:after {
+    position: absolute;
+    content: '';
+    top: 0%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    -webkit-animation: loader 0.6s linear;
+    animation: loader 0.6s linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border-radius: 500rem;
+    border-color: #767676 transparent transparent;
+    border-style: solid;
+    border-width: 0.2em;
+    -webkit-box-shadow: 0px 0px 0px 1px transparent;
+    box-shadow: 0px 0px 0px 1px transparent;
+}
+
+@-webkit-keyframes loader {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
 
 
 /* -------------------------------- */
@@ -1017,13 +1097,11 @@ pre code {
         width: 200px !important;
     }
     .cBallerinaConBanner .container {
-/*        font-size: 12px;*/
+        /*        font-size: 12px;*/
     }
-
 }
 
 @media screen and (max-width: 768px) {
-
     .navbar-header {
         width: 100% !important;
     }
@@ -1103,8 +1181,7 @@ pre code {
         width: 100%;
         margin-top: 10px;
     }
-    
-    
+
 /*    BANNER*/
 .cBallerinaConBanner {
     height: 84px;
@@ -1129,6 +1206,8 @@ pre code {
     position: fixed;
     z-index: 999999;
  } 
+
+
 }
     
 
