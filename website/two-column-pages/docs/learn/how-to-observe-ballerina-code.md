@@ -466,7 +466,7 @@ Execute the following command to do that.
 $ sudo sysctl -w vm.max_map_count=262144
 ```
 
-**Step 3:** Create a logstash.conf file in the /tmp/pipeline/ directory and include the following content in the file.
+**Step 3:** Create a `logstash.conf` file in the `/tmp/pipeline/` directory and include the following content in the file.
 
 ```
 input {
@@ -498,7 +498,7 @@ A grok filter is used to structure the Ballerina logs and the output is specifie
 $ docker run -h logstash --name logstash --link elasticsearch:elasticsearch -it --rm -v /tmp/pipeline:/usr/share/logstash/pipeline/ -p 5044:5044 docker.elastic.co/logstash/logstash:6.2.4
 ```
 
-**Step 5:** Configure Filebeat to ship the Ballerina logs. Create a filebeat.yml file in the /tmp/ directory and include the following content in the file.
+**Step 5:** Configure Filebeat to ship the Ballerina logs. Create a `filebeat.yml` file in the `/tmp/` directory and include the following content in the file.
 
 ```
 filebeat.prospectors:
