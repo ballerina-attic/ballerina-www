@@ -23,8 +23,9 @@
                    </div>
                 </div>
                 <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Right-col cBallerina-io-Home-widget">
-                    <iframe class="embed-responsive-item" src="playground/index.html" style="width: 100%;height: 693px;border: none; background:transparent; margin-top: -16px;">
+                    <iframe class="embed-responsive-item" src="playground/index.html" style="width: 100%; height: 693px; border: none; background:transparent; margin-top: -16px; position: relative; z-index: 1;">
                     </iframe>
+                    <div class="loader" style="display: block; top: 35%; left: 55%; z-index: 0;"></div>
                </div>
       </div>
 </div>
