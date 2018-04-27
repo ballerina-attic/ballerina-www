@@ -363,7 +363,7 @@ b7a.observability.tracing. zipkin.reporter.port | Port of the Zipkin server | 94
 
 ### Setup External Systems for Tracing
 Ballerina by default supports Jaerger and Zipkin for distributed tracing. This section focuses on configuring the
-Jaeger and Zipkin with dockers as a quick installation.
+Jaeger and Zipkin with Dockers as a quick installation.
 
 #### Jaeger Server
 Jaeger is the default distributed tracing system that is supported. There are many possible ways to deploy Jaeger and you can find more information on this [link](https://www.jaegertracing.io/docs/deployment/). Here we focus on all in one deployment with Docker.
@@ -423,7 +423,7 @@ The elastic stack comprises of the following components.
 4. Kibana - Visualizes the data stored in Elasticsearch
 
 Elasticsearch and Kibana are provided as [Cloud Services](https://www.elastic.co/cloud)
-Alternatively, docker containers can be used to set up Elasticsearch and Kibana as well.
+Alternatively, Docker containers can be used to set up Elasticsearch and Kibana as well.
 
 **Step 1:** Download the Docker images using the following commands.
 
@@ -438,7 +438,7 @@ $ docker pull docker.elastic.co/beats/filebeat:6.2.4
 $ docker pull docker.elastic.co/logstash/logstash:6.2.4
 ```
 
-**Step 2:** Start Elasticsearch and Kibana containers by executing below commands.
+**Step 2:** Start Elasticsearch and Kibana containers by executing the following commands.
 
 ```bash
 $ docker run -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearch docker.elastic.co/elasticsearch/elasticsearch:6.2.4
@@ -452,7 +452,7 @@ Execute the following command to do that.
 $ sudo sysctl -w vm.max_map_count=262144
 ```
 
-**Step 3:** Create a `logstash.conf` file in `/tmp/pipeline/` directory and include following content in the file.
+**Step 3:** Create a logstash.conf file in the /tmp/pipeline/ directory and include the following content in the file.
 
 ```
 input {
@@ -484,7 +484,7 @@ A grok filter is used to structure the Ballerina logs and the output is specifie
 $ docker run -h logstash --name logstash --link elasticsearch:elasticsearch -it --rm -v /tmp/pipeline:/usr/share/logstash/pipeline/ -p 5044:5044 docker.elastic.co/logstash/logstash:6.2.4
 ```
 
-**Step 5:** Configure Filebeat to ship the Ballerina logs. Create a `filebeat.yml` file in `/tmp/` directory and include following content in the file.
+**Step 5:** Configure Filebeat to ship the Ballerina logs. Create a filebeat.yml file in the /tmp/ directory and include the following content in the file.
 
 ```
 filebeat.prospectors:
