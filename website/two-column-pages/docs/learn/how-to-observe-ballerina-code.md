@@ -418,13 +418,13 @@ If you are not opting for the cloud service, you can use Docker containers for a
 
 ```bash
 # Elasticsearch Image
-$ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.2.2
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.2.4
 # Kibana Image
-$ docker pull docker.elastic.co/kibana/kibana:6.2.2
+$ docker pull docker.elastic.co/kibana/kibana:6.2.4
 # Filebeat Image
-$ docker pull docker.elastic.co/beats/filebeat:6.2.2
+$ docker pull docker.elastic.co/beats/filebeat:6.2.4
 # Logstash Image
-$ docker pull docker.elastic.co/logstash/logstash:6.2.2
+$ docker pull docker.elastic.co/logstash/logstash:6.2.4
 ```
 
 **Step 2:** Start elastic search and Kibana containers with below commands.
