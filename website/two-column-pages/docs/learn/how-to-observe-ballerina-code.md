@@ -511,7 +511,7 @@ output.logstash:
   hosts: ["logstash:5044"]
 ```
 
-Here also the host is specified as `logstash:5044`. Because the Logstash container should be linked to this container.
+The host is specified as `logstash:5044`. This is because the Logstash container should be linked to this container.
 
 **Step 6:** Start the Filebeat container with the following command.
 
