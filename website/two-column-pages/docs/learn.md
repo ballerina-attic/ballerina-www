@@ -60,6 +60,10 @@ The [API Documentation](/learn/api-docs/?latest) describes the native functions 
 
 The [Language Specification](/learn/language-specification/) is a set of documents that explain more about the inner workings of the Ballerina language itself.
 
+### Ballerina Streaming Guide
+
+The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides detailed information on Ballerina Streaming concepts and its capabilities. This includes Ballerina streaming language syntax, explanations, and sample queries as well.
+
 ### FAQ
 
 [Frequently Asked Questions](/learn/faq/) about Ballerina.
