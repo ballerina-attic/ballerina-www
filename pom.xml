@@ -63,6 +63,16 @@
                 <checksumPolicy>ignore</checksumPolicy>
             </releases>
         </repository>
+        <repository>
+            <id>wso2-nexus-staging</id>
+            <name>WSO2 staging Repository</name>
+            <url>https://maven.wso2.org/nexus/content/repositories/orgballerinalang-1153/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </releases>
+        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -153,7 +163,7 @@
         <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
         <ballerina.version>0.970.0-alpha1-SNAPSHOT</ballerina.version>
         <ballerina.release.version>0.970.0-beta14</ballerina.release.version>
-        <ballerina.bbe.release.version>0.970.0-rc1</ballerina.bbe.release.version>
+        <ballerina.bbe.release.version>0.970.0</ballerina.bbe.release.version>
     </properties>
     
     <modules>
