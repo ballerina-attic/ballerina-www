@@ -14,7 +14,7 @@ security@wso2.com: F0AB 72EC D77A 6162 4C48 A245 0CF3 FD36 E100 FF07 [pgp.mit.ed
 
 Please use the following template in reporting vulnerabilities:
 
-- Vulnerable WSO2 products(s) and version(s)
+- Vulnerable Ballerina artifacts(s) and version(s)
 - Overview: High-level overview of the issue and self-assessed severity
 - Description: Include the steps to reproduce
 - Impact: Self-assessed impact

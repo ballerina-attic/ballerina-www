@@ -4,6 +4,12 @@ Ballerina is an open-source project under [Apache 2.0 license](https://opensourc
 
 We appreciate your help and participation!
 
+## Demo Materials
+
+We have put together [a slidedeck and demo script](https://github.com/ballerina-guides/ballerina-demo) that you can use if you want to talk about Ballerina at a meetup, conference, your company, or any other meeting of likeminded developers.
+
+If this is a public event we will also be happy to help you promote it, can send laptop stickers, and sponsor pizza - [please contact us](https://groups.google.com/forum/#!forum/ballerina-dev) and let us know about your plans and how we can help.
+
 ## Announcement List
 
 We have a low-traffic announcement list that we use to disseminate major news such as new releases. We encourage all Ballerina users and developers to be a part of this list. By submitting your email address here, you will receive emails with the latest news about Ballerina.
@@ -33,7 +39,7 @@ Comments in GitHub issues and pull requests are used for issue or feature-specif
 
 ## How You Can Help
 
-### Reporting Issues
+### Report Issues
 
 Submitting a bug is just as important as contributing code. If you found an issue or have an improvement idea for Ballerina code, web site, or documentation, please file an issue.
 
@@ -47,7 +53,7 @@ To file non-security issues:
 
 If you are unsure whether you have found a bug, please consider searching existing issues in GitHub and asking in [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev).
 
-**Contributing Code**
+### Contribute Code
 
 Ballerina is an open source project and any contributions from the wider community is much appreciated. We would love for you to join our team!
 
