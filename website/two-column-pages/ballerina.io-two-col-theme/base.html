@@ -107,14 +107,14 @@
                 $('#subscribeUserMessage').remove("");
                 if (email == "") {
                     $('#emailUserOS').val('');
-                    $("#emailUserOS").attr("placeholder","Please enter your email");
+                    $("#emailUserOS").attr("placeholder","Please enter your email.");
                 } else if (!isEmail(email)) {
                     $('#emailUserOS').val('');
-                    $("#emailUserOS").attr("placeholder","Please enter a valid email");
+                    $("#emailUserOS").attr("placeholder","Please enter a valid email.");
                 } else {
                     $('#emailUserOS').val('');
                     $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl979?email=" + email + "'></iframe>");
-                    $("#emailUserOS").attr("placeholder","Thank you! Stay tuned for updates on Ballerina");
+                    $("#emailUserOS").attr("placeholder","Your email address has been added.");
                 }
                 return;
             }
@@ -140,13 +140,13 @@
         function inviteSlackUser() {
             $('#subscribeMessage').html('');
             var email = $("#email").val();
-            
+
             if (email == "") {
                 $('#email').val('');
-                $("#email").attr("placeholder","Please enter your email");
+                $("#email").attr("placeholder","Please enter your email.");
             } else if (!isEmail(email)) {
                 $('#email').val('');
-                $("#email").attr("placeholder","Please enter a valid email");
+                $("#email").attr("placeholder","Please enter a valid email.");
             } else {
                 $('#email').val('');
                 $("#email").attr("placeholder","Processing...");
@@ -156,7 +156,7 @@
                     success: function(msg) {
                         if (msg == 1) {
                             $('#email').val('');
-                            $("#email").attr("placeholder","Your invitation has been sent to "+email);
+                            $("#email").attr("placeholder","Your invitation has been sent.");
                         } else {
                             $('#email').val('');
                             $("#email").attr("placeholder",msg);
