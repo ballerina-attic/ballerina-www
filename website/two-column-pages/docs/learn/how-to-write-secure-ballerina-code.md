@@ -507,7 +507,7 @@ curl -k -v -u generalUser:password https://localhost:9091/hello
 < date: Mon, 23 Apr 2018 11:00:31 +0530
 <
 request failed: Authorization failure
- ```
+```
 
 'Admin' user will be able to invoke the service:
 
