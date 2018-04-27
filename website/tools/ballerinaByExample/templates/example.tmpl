@@ -204,7 +204,7 @@
 
                         <table class="cBBE-body">
                             {{range $element}}
-                            <tr class="cTR{{if and (not .DocEmpty) (not .IsConsoleOutput)}} hover-enable{{end}}{{if .IsConsoleOutput}} cOutputTr{{end}}">
+                            <tr class="cTR{{if and (not .DocEmpty)}} hover-enable{{end}}{{if .IsConsoleOutput}} cOutputTr{{end}}">
 
                                 <td class="code{{if .CodeEmpty}} empty{{end}}{{if .CodeLeading}} leading{{end}}{{if .IsConsoleOutput}} cOutput{{end}}">
                                     {{.CodeRendered}}
