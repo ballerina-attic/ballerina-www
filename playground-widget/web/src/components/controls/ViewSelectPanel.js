@@ -28,7 +28,7 @@ class ViewSelectPanel extends React.Component {
                         }
                     }}
                 >
-                    <img src={viewSourceBtnIcon} />
+                    <img className='source-view-panel' src={viewSourceBtnIcon} />
                 </div>
                 <div 
                     className={cn('btn', 'composer-view-btn', { 'active': selectedView === VIEWS.COMPOSER })}
@@ -38,7 +38,7 @@ class ViewSelectPanel extends React.Component {
                         }
                     }}
                 >
-                    <img src={viewComposerBtnIcon} />
+                    <img className='composer-view-panel' src={viewComposerBtnIcon} />
                 </div>
                 <div  
                     className={cn('btn', 'binary-view-btn', { 'active': selectedView === VIEWS.BINARY })}
@@ -48,7 +48,7 @@ class ViewSelectPanel extends React.Component {
                         }
                     }}
                 >
-                    <img src={viewBinaryBtnIcon} />
+                    <img className='binary-view-panel' src={viewBinaryBtnIcon} />
                 </div>
             </div>
         );
