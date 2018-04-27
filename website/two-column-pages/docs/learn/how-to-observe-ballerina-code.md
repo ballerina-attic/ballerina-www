@@ -138,6 +138,8 @@ on `http://localhost:3000/`.
 
 ![Jaeger Sample Dashboard](images/jaeger-sample-dashboard.png "Jaeger Sample Dashboard")
 
+![Grafana Sample Dashboard](images/grafana-sample-hello-world-service-stats.png "Grafana HelloWorld Service Sample Dashboard")
+
 **Step 7:** Visualise the logs.
  
 If you have configured log analytics view the logs in Kibana via `http://localhost:5601`
@@ -244,6 +246,15 @@ For more information refer [Grafana Site](https://hub.docker.com/r/grafana/grafa
 ![Grafana Prometheus Datasource](images/grafana-prometheus-datasource.png "Grafana Prometheus Datasource")
 
 **Step 5:** Now you can import the default Grafana dashboard which has some default graphs to visualize the request/response metrics.
+
+Grafana HTTP Service Metrics Dashboard Panel will be as below.
+![Grafana Service Metrics](images/grafana-ballerina-metrics-1.png "Grafana Sample Service Metrics Dashboard")
+
+Grafana HTTP Client Metrics Dashboard Panel will be as below.
+![Grafana Service Metrics](images/grafana-ballerina-metrics-2.png "Grafana Sample Client Metrics Dashboard")
+
+Grafana SQL Client Metrics Dashboard Panel will be as below.
+![Grafana Service Metrics](images/grafana-ballerina-metrics-3.png "Grafana Sample SQL Client Metrics Dashboard")
 
 ## Distributed Tracing
 
