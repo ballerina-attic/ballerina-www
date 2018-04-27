@@ -1,7 +1,7 @@
 # Ballerina Streaming Reference Guide
 
 Ballerina streaming is designed to process event streams in a streaming manner, detect complex event occurrences,
-and send notifications in real-time.
+and produce notifications in real-time.
 
 Ballerina streaming supports the following:
 
@@ -15,7 +15,7 @@ Ballerina streaming supports the following:
 * Analyzing trends (rise, fall, turn, triple bottom)
 * etc.
 
-**The following topics are high level concepts about Ballerina streams**
+**The following topics explains the high level concepts about Ballerina streaming**
 
 * [Stream](#stream)
 * [Forever Statement](#forever-statement)
@@ -24,9 +24,8 @@ Ballerina streaming supports the following:
 ### Stream
 
 A stream is a logical series of events ordered in time. Its schema is defined/constrained via the **record definition**.
-A record definition contains a unique name and a set of attributes with specific types and uniquely identifiable names
-within the record. All the events that are selected to be input into a specific stream have the same schema
-(i.e., have the same attributes in the same order).
+Where a record definition contains a unique name and a set of uniquely identifiable attributes with specific types 
+within the record. All the events of a specific stream have the same schema (i.e., have the same attributes in the same order).
 
 ###### Purpose
 
@@ -52,6 +51,7 @@ The following parameters are configured in a stream definition.
 | Parameter     | Description |
 | ------------- |-------------|
 | `stream name`      | The name of the created stream. |
+| `record name`      | The name of the recode that constrains the stream. |
 | `attribute name`   | The uniquely identifiable attribute name. The schema of a record is defined by its attributes.|
 | `attribute type`   | The type of each attribute defined in the record. |
 
@@ -67,22 +67,25 @@ type Employee {
 stream<Employee> employeeStream;
 ```
 
-The streaming query sample given above creates a stream named `employeeStream` that is constrained by the `Employee` type, and contains the following attributes.
+The code given above creates a stream named `employeeStream` that is constrained by the `Employee` type having 
+the following attributes.
 
 + `name` of type `string`
 + `age` of type `int`
 + `status` of type `string`
 
 ### Forever Statement
-The `forever` statement block can include stream processing and complex event processing rules. A single `forever` block can contain multiple streaming queries put together.
+The `forever` statement block can include one or more streaming queries defining stream processing and complex event 
+processing rules.
 
 ###### Purpose
 
-Each streaming query within the `forever` block is an isolated processing unit that is independent to other queries.
+The `forever` statement block let streaming queries to run continuously till the Ballerina programme is exited. 
+Here each streaming query within the `forever` block executes as an independent isolated processing unit to one another.
 
 ###### Grammar
 
-Multiple streaming queries can sit together inside a single `forever` statement block as shown in the syntax given below.
+One or more streaming queries can be defined in a single `forever` statement block as shown in the syntax given below.
 
 ```antlrv4
 foreverStatement
@@ -106,13 +109,15 @@ teachers is counted. Once the query is executed, its result is published to the 
 
 ```ballerina
     forever {
-        from teacherStream where age > 18 window lengthBatch (3)
+        from teacherStream 
+            where age > 18 
+            window lengthBatch (3)
         select status, count(status) as totalCount
         group by status
         having totalCount > 1
-        => (StatusCount [] status) {
+        =>  (StatusCount [] status) {
                 filteredStatusCountStream.publish(status);
-        }
+            }
     }
 ```
 
