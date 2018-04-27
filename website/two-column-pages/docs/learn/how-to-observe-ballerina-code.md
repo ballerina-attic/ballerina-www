@@ -27,7 +27,7 @@ Prometheus, etc. You can follow [official documentation](https://docs.docker.com
 **Step 1:** Install and configure Prometheus, Grafana, Jeager and Elastic Stack to Observe Ballerina. 
 
 * Setup Prometheus for collecting metrics information by following section on [Setting up Prometheus](#prometheus)
-* Setup Grafana to visualise metrics by following section on [Setting up Grafana](#grafana)
+* Setup Grafana to visualize metrics by following section on [Setting up Grafana](#grafana)
 * Setup Jaeger analyze tracing as mentioned in section [Setting up Jaeger](#jaeger-server)
 * Setup Elastic Stack only if you are interested in analysing logs by flowing section on [Setting up Elastic Stack](#elastic-stack)
 
@@ -142,7 +142,7 @@ Sample view of Jaeger dashboard for hello_world_service.bal is shown below.
 Sample view of Grafana dashboard for hello_world_service.bal is shown below. 
 ![Grafana Sample Dashboard](images/grafana-sample-hello-world-service-stats.png "Grafana HelloWorld Service Sample Dashboard")
 
-**Step 7:** Visualise the logs.
+**Step 7:** Visualize the logs.
  
 If you have configured log analytics view the logs in Kibana via `http://localhost:5601`
 
