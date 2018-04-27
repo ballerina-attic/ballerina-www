@@ -248,7 +248,7 @@ For more information refer [Grafana Site](https://hub.docker.com/r/grafana/grafa
 ![Grafana Prometheus Datasource](images/grafana-prometheus-datasource.png "Grafana Prometheus Datasource")
 
 **Step 5:** Import the Grafana dashboard designed to visualize Ballerina metrics from [https://grafana.com/dashboards/5841](https://grafana.com/dashboards/5841).
-This dashboard consist of service and client invocation level metrics in near real time view. 
+This dashboard consists of service and client invocation level metrics in near real-time view. 
 
 Ballerina HTTP Service Metrics Dashboard Panel will be as below.
 ![Ballerina Service Metrics](images/grafana-ballerina-metrics-1.png "Ballerina Sample Service Metrics Dashboard")
