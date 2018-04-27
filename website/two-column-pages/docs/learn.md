@@ -25,11 +25,11 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### Editors, IDEs and the Ballerina Composer
 
-<a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md" target="_blank">Editors, IDEs and the Ballerina Composer</a> overviews the editing tools for code and diagrams. This includes language servers, editors, IDE and a graphical visualization tool called the Ballerina Composer.
+<a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md" target="_blank">Editors, IDEs and the Ballerina Composer</a> overviews the editing tools for code and diagrams. This includes language servers, editors, IDE, and a graphical visualization tool called the Ballerina Composer.
 
 ### How to Structure Ballerina Code
 
-[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, create, version, search and install Ballerina packages with repositories that are local and remote.
+[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, create, version, search, and install Ballerina packages with repositories that are local and remote.
 
 ### How to Test Ballerina Code
 
