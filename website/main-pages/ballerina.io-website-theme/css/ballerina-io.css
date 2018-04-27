@@ -962,15 +962,57 @@ pre code {
 }
 
 
+/*CON BANNER*/
+
+#iBanner {
+/*    display: inline-block;
+    width: 100%;*/
+
+ transition: all 1.5s ease 0s;
+ margin-top: -63px;
+}
+.cBallerinaConBanner {
+    background-color: #ffffff;
+}
+.cBallerinaConBanner .container {
+    text-align: center;
+    font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
+    letter-spacing: 2px;
+    color: #585a5e;
+}
+.cBallerinaConBanner a {
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+    padding: 20px 15px;
+}
+.cBallerinaConBanner .container span {
+    color: #20b6b0;
+}
+
+#iBanner.cShowBanner {
+
+     transition: all 1.5s ease 0s;
+     margin-top: 0;
+
+}
+
+
+
 /* -------------------------------- */
 
 @media screen and (max-width: 990px) {
     .navbar-header {
         width: 200px !important;
     }
+    .cBallerinaConBanner .container {
+/*        font-size: 12px;*/
+    }
+
 }
 
 @media screen and (max-width: 768px) {
+
     .navbar-header {
         width: 100% !important;
     }
@@ -1050,6 +1092,29 @@ pre code {
         width: 100%;
         margin-top: 10px;
     }
+    
+    
+/*    BANNER*/
+.cBallerinaConBanner {
+    height: 84px;
+}
+.cBallerinaConBanner .container {
+    font-size: 12px;
+}
+#iMainNavigation.cShowBanner {
+    margin-top: 84px;
+         transition: all 1.5s ease 0s;
+}
+
+.cBallerinaConBanner .container {
+    font-size: 12px;
+}
+.row.cBallerina-io-top-row {
+    display: none;
+}
+    
+    
+    
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
