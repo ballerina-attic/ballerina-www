@@ -171,39 +171,86 @@ The test suite covers tests related to a package.
 ## Assertions 
 Testerina supports the following assertions 
 
-| Signature | Description |
-|-----------|-------------|
-| ````assertTrue( boolean expression, string message) ````| Asserts that the expression is true with an optional message. |
-| ```assertFalse(boolean expression, string message)``` | Asserts that the expression is false with an optional message. |
-|```assertEquals(Any actual, Any expected, string message) ```|Asserts that the actual is equal to the expected, with an optional message.|
-|```assertNotEquals(Any actual, Any expected, string message) ```| Asserts that the actual is not equal to the expected, with an optional message. |
-|```assertFail(string message)```|Fails the test. Useful when we want to fail a test while in execution based on a check for a condition.|
+#### assertTrue( boolean expression, string message)
+Asserts that the expression is true with an optional message.
+```ballerina
+import ballerina/test;
+
+@test:Config
+function testAssertTrue() {
+
+    boolean value = false;
+    test:assertTrue(value, msg = "AssertFalse failed");
+}
+```
+
+#### assertFalse(boolean expression, string message) 
+
+Asserts that the expression is false with an optional message.
+
+```ballerina
+import ballerina/test;
+
+@test:Config
+function testAssertFalse() {
+
+    boolean value = false;
+    test:assertFalse(value, msg = "AssertFalse failed");
+}
+```
+
+#### assertEquals(Any actual, Any expected, string message) 
+
+Asserts that the actual is equal to the expected, with an optional message.
+
+```ballerina
+import ballerina/test;
+
+@test:Config
+function testAssertIntEquals() {
+
+    int answer = 0;
+    int a = 5;
+    int b = 3;
+    answer = intAdd(a, b);
+    test:assertEquals(answer, 8, msg = "IntAdd function failed");
+}
+
+function intAdd(int a, int b) returns (int) {
+    return (a + b);
+}
+```
+
+#### assertNotEquals(Any actual, Any expected, string message) 
+
+Asserts that the actual is not equal to the expected, with an optional message.
+
+```ballerina
+import ballerina/test;
+
+@test:Config
+function testAssertIntEquals() {
+
+    int answer = 0;
+    int a = 5;
+    int b = 3;
+    answer = intAdd(a, b);
+    test:assertNotEquals(answer, 8, msg = "Matches");
+}
+
+function intAdd(int a, int b) returns (int) {
+    return (a + b);
+}
+```
+
+#### assertFail(string message)
+
+Fails the test. Useful when we want to fail a test while in execution based on a check for a condition.
 
 Following are some samples which uses assertFails,
 
 ``` ballerina
-@test:config {}
-function testLarge() {
-    int l = 0;
-    int s = 0;
-
-    l = large();
-    s = small();
-    if ( l < s ) {
-        assertFail(“Large is smaller”);
-    }
-}
-
-@test:config {}
-Function trySomething() { 
-    try {
-        // do something
-    } catch (error err) {
-        assertFail("error occured: " 
-            + err.message);
-    }
-}
-
+@test:config
 function foo(){
     try {
         bar(); // expecting an exception thrown here
