@@ -489,15 +489,48 @@ select avg(temp) as avgTemp, roomNo, deviceID
 ```
 Following are some inbuilt aggregation functions shipped with Ballerina, for more aggregation functions, see execution.
 
-* avg
-* sum
-* max
-* min
-* count
-* distinctCount
-* maxForever
-* minForever
-* stdDev
+* avg : Calculates the average for a given argument for all the events.
+* sum : Returns the sum of a given argument for all the events.
+* max : Returns the maximum value of a given argument for all the events.
+* min : Returns the minimum value of a given argument for all the events.
+* count : Returns the count of all the events.
+* distinctCount : Returns the count of distinct occurrences for a given argument.
+* maxForever : This stores the maximum value for a given attribute throughout the lifetime of the query regardless of any windows in-front.
+* minForever : This stores the minimum value for a given attribute throughout the lifetime of the query regardless of any windows in-front.
+* stdDev : Returns the calculated standard deviation of a given argument for all the events.
+
+###### More samples with above aggregation functions.
+
+ *  The following query calculates the distinct count of page visits of each user.
+
+```ballerina
+from pageVisitStream#window.time(5 sec)
+select userID, pageID, distinctCount(pageID) as distinctPages
+group by userID
+=> (UserPageVisit [] visits) {
+    outputStream.publish(visits);
+}
+```
+
+ *  The following query calculates the forever max temperature of the room.
+
+```ballerina
+from tempStream
+select room, timestamp, maxForever(temperature) as maxTemp
+=> (RoomTemperature [] roomTemps) {
+	maxTempStream.publish(roomTemps);
+}
+```
+
+ *  The following query calculates standard deviation value of the stock price for the price change of each 1000 stock.
+
+```ballerina
+from stockExchangeStream window lengthBatch(1000)
+select stdDev(price) as deviation, symbol
+=> (SymbolDeviation[] deviations) {
+	priceDeviationStream.publish(deviations);
+}
+```
 
 
 #### Group By
@@ -672,7 +705,7 @@ Following are the supported operations of a join clause.
     Here, it returns all the events of left stream even if there are no matching events in the right
     stream by having null values for the attributes of the right stream.
 
-     ###### Example
+    ###### Example
 
     The following query generates output events for all events from the `stockStream` stream
     regardless of whether a matching symbol exists in the `twitterStream` stream or not.
