@@ -123,7 +123,8 @@ more than one event to the `highTemperatureSensorStream` stream.
 
 ### Query
 
-Each streaming query can consume one or more streams, process the events in a streaming manner, and then generate an output.
+Each streaming query can consume one or more streams, process the events continuously in a streaming manner, 
+and simultaneously generates output.
 
 ###### Purpose
 
@@ -132,7 +133,9 @@ one by one in the order they arrive.
 
 ###### Syntax
 
-Each query contains an input and an output section. Some also contain a projection section. The following is a simple query with all three sections.
+Each query contains an input and an output section. Some also contain a projection section. 
+The following is a simple query with all three sections.
+
 ```ballerina
 from <input stream>
 select <attribute name>, <attribute name>, ...
@@ -144,7 +147,8 @@ select <attribute name>, <attribute name>, ...
 
 ###### Example
 
-This query consumes events from the `tempStream` stream (that is already defined) and outputs the room temperature and the room number to the `roomTempStream` stream.
+This query consumes events from the `tempStream` stream (that is already defined) and outputs the room temperature and 
+the room number to the `roomTempStream` stream.
 
 ```ballerina
 type temperature {
@@ -167,7 +171,6 @@ select roomNo, value
     roomTempStream.publish(temperatures);
 }
 ```
-
 
 **For more information about streaming queries, see the following subsections:**
 
@@ -511,7 +514,7 @@ Following are some inbuilt aggregation functions shipped with Ballerina, for mor
 ```ballerina
 from pageVisitStream#window.time(5 sec)
 select userID, pageID, distinctCount(pageID) as distinctPages
-group by userID
+    group by userID
 => (UserPageVisit [] visits) {
     outputStream.publish(visits);
 }
@@ -549,7 +552,7 @@ The syntax for the 'group by` aggregate function is as follows:
 ```ballerina
 from <input stream> window <window name>(...)
 select <aggregate function>( <parameter>, <parameter>, ...) as <attribute1 name>, <attribute2 name>, ...
-group by <attribute1 name>, <attribute2 name> ...
+    group by <attribute1 name>, <attribute2 name> ...
 => ( ) {
 
 }
@@ -563,7 +566,7 @@ for a sliding time window of 10 minutes.
 ```ballerina
 from tempStream window time(600000)
 select avg(temp) as avgTemp, roomNo, deviceID
-group by roomNo, deviceID
+    group by roomNo, deviceID
 => (AvgTemperature [] values) {
     avgTempStream.publish(values);
 }
@@ -584,8 +587,8 @@ The syntax for the `having` clause is as follows:
 ```ballerina
 from <input stream> window <window name>( ... )
 select <aggregate function>( <parameter>, <parameter>, ...) as <attribute1 name>, <attribute2 name>, ...
-group by <attribute1 name>, <attribute2 name> ...
-having <condition>
+    group by <attribute1 name>, <attribute2 name> ...
+    having <condition>
 => ( ) {
 
 }
@@ -597,8 +600,8 @@ The following query calculates the average temperature per room for the last 10 
 ```ballerina
 from tempStream window time(600000)
 select avg(temp) as avgTemp, roomNo
-group by roomNo
-having avgTemp > 30
+    group by roomNo
+    having avgTemp > 30
 => (Alert [] values) {
     alertStream.publish(values);
 }
@@ -616,9 +619,9 @@ The syntax for the `order by` clause is as follows:
 ```ballerina
 from <input stream> window <window name>( ... )
 select <aggregate function>( <parameter>, <parameter>, ...) as <attribute1 name>, <attribute2 name>, ...
-group by <attribute1 name>, <attribute2 name> ...
-having <condition>
-order by <attribute1 name> (ascending | descending)?, <attribute2 name> (<ascending | descending>)?, ...
+    group by <attribute1 name>, <attribute2 name> ...
+    having <condition>
+    order by <attribute1 name> (ascending | descending)?, <attribute2 name> (<ascending | descending>)?, ...
 => ( ) {
 
 }
@@ -632,8 +635,8 @@ by ordering them in the ascending order of the room's avgTemp and then by the de
 ```ballerina
 from tempStream window timeBatch(600000)
 select avg(temp) as avgTemp, roomNo, deviceID
-group by roomNo, deviceID
-order by avgTemp, roomNo descending
+    group by roomNo, deviceID
+    order by avgTemp, roomNo descending
 => (AvgTemperature [] values) {
     avgTempStream.publish(values);
 }
@@ -789,7 +792,8 @@ as (`&&`, `||`, and `!`). These are described in detail further below in this gu
 This query sends an alert if the temperature of a room increases by 5 degrees within 10 min.
 
 ```ballerina
-from every( e1 = tempStream ) followed by e2 = tempStream where (e1.roomNo == roomNo && (e1.temp + 5) <= temp)
+from every( e1 = tempStream ) 
+    followed by e2 = tempStream where (e1.roomNo == roomNo && (e1.temp + 5) <= temp)
     within 10 minute
 select e1.roomNo, e1.temp as initialTemp, e2.temp as finalTemp
 => (Alert [] alerts) {
@@ -857,7 +861,9 @@ type Regulator {
 stream<Temperature> tempStream;
 stream<Regulator> regulatorStream;
 
-from every( e1=regulatorStream) followed by e2=tempStream where (e1.roomNo==roomNo) [1..] followed by e3=regulatorStream where (e1.roomNo==roomNo)
+from every( e1=regulatorStream) 
+    followed by e2=tempStream where (e1.roomNo==roomNo) [1..] 
+    followed by e3=regulatorStream where (e1.roomNo==roomNo)
 select e1.roomNo, e2[0].temp - e2[last].temp as tempDiff
 => (TemperatureDiff [] values) {
     tempDiffStream.publish(values);
@@ -913,10 +919,11 @@ type RoomKey {
 stream<RegulatorState> regulatorStateChangeStream;
 stream<RoomKey> roomKeyStream;
 
-from every( e1=regulatorStateChangeStream where (action == 'on')) followed by
-      e2=roomKeyStream where (e1.roomNo == roomNo && action == 'removed') || e3=regulatorStateChangeStream where (e1.roomNo == roomNo && action == 'off')
+from every( e1=regulatorStateChangeStream where (action == 'on')) 
+        followed by e2=roomKeyStream where (e1.roomNo == roomNo && action == 'removed') 
+        || e3=regulatorStateChangeStream where (e1.roomNo == roomNo && action == 'off')
 select e1.roomNo, e2 == null ? "none" : "stop" as action
-having action != 'none'
+    having action != 'none'
 => (RegulatorAction [] output) {
     regulatorActionStream.publish(output);
 }
@@ -942,7 +949,9 @@ type Temperature {
 stream<RegulatorState> regulatorStateChangeStream;
 stream<Temperature> tempStream;
 
-from e1=regulatorStateChangeStream where (action == 'start') followed by  !tempStream where (e1.roomNo == roomNo && temp < 12) && e2=regulatorStateChangeStream where (action == 'off')
+from e1=regulatorStateChangeStream where (action == 'start') 
+    followed by  !tempStream where (e1.roomNo == roomNo && temp < 12) 
+    && e2=regulatorStateChangeStream where (action == 'off')
 select e1.roomNo as roomNo
 => (Alert [] alerts) {
     alertStream.publish(alerts);
