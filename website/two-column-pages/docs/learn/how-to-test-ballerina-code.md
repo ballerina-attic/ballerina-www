@@ -93,6 +93,7 @@ Testerina defines the following test annotations.
 
 #### @test:BeforeSuite {}
 The function specified following the annotation will be run once before any of the tests in the test suite is run. This can be used for initializing test suite level aspects. 
+
 e.g :
 ```ballerina
 @test:BeforeSuite {} 
@@ -103,6 +104,7 @@ function testSuiteInitialize() {
 #### @test:BeforeEach {}
 The function specified following the annotation will be run before every test within the test suite is run. This can be used for repeatedly initializing test level aspects before every test function. 
 
+e.g:
 ```ballerina
 @test:BeforeEach {}
 function beforeEachTest() { 
@@ -134,7 +136,6 @@ ballerina test `--groups <comma separated list of test group names> <package_nam
 You can skip a list of given tests with `--disable-groups <comma separated list of test group names>` Also you can use the  `--list-groups` flag to list the groups in your tests.
 
 e.g : 
-
 ``` ballerina
 @test:Config {
     before: "beforeTestBar", 
@@ -148,9 +149,9 @@ function testBar() {
 ```
 
 #### @test:AfterSuite {}
-The function specified following the annotation will be run once after all of the tests in the test suite is run. This can be used for cleaning up test suite level aspects. 
-The test suite covers tests related to a package. 
+The function specified following the annotation will be run once after all of the tests in the test suite is run. This can be used for cleaning up test suite level aspects. The test suite covers tests related to a package. 
 
+e.g: 
 ```ballerina
 @test:AfterSuite {}
 function testSuiteCleanup() { 
@@ -205,6 +206,8 @@ Testerina supports the following assertions
 
 #### assertTrue( boolean expression, string message)
 Asserts that the expression is true with an optional message.
+
+e.g :
 ```ballerina
 import ballerina/test;
 
@@ -219,6 +222,7 @@ function testAssertTrue() {
 
 Asserts that the expression is false with an optional message.
 
+e.g:
 ```ballerina
 import ballerina/test;
 
@@ -233,6 +237,7 @@ function testAssertFalse() {
 
 Asserts that the actual is equal to the expected, with an optional message.
 
+e.g:
 ```ballerina
 import ballerina/test;
 
@@ -255,6 +260,7 @@ function intAdd(int a, int b) returns (int) {
 
 Asserts that the actual is not equal to the expected, with an optional message.
 
+e.g:
 ```ballerina
 import ballerina/test;
 
@@ -277,8 +283,7 @@ function intAdd(int a, int b) returns (int) {
 
 Fails the test. Useful when we want to fail a test while in execution based on a check for a condition.
 
-Following are some samples which uses assertFails,
-
+e.g : 
 ``` ballerina
 @test:config
 function foo(){
