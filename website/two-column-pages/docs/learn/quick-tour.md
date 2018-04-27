@@ -119,7 +119,7 @@ Make the resource available at the root as well and change methods to POST. Add 
 
 ## Use a Connector
 
-Ballerina Central stores numerous connectors that can be used with your service. Search for a Twitter connector.
+Ballerina connector is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. Ballerina Central stores numerous connectors that can be used with your service. You can search for connectors using the `ballerina search` command. The command to search a Twitter connector is mentioned below.
 
 ```
 ballerina search twitter
@@ -307,6 +307,9 @@ ballerina push quicktour/twitter
 ```
 
 ## Run the Composer
+Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
+
+To start the composer: 
 
 1. In the command line, type `composer`.
 

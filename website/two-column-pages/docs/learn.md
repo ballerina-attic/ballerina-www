@@ -30,25 +30,25 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 [How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, and install Ballerina packages and commands with repositories that are local and remote.
 
-### How to Extend Ballerina
+### How to Test Ballerina Code
 
-[How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and package these customizations for use by others.
-
-### How to Run and Deploy Ballerina Services
-
-[How to Deploy and Run Ballerina Services](/learn/how-to-deploy-and-run-ballerina-programs/) provides an overview of all the deployment and runtime options available in Ballerina.
+[How to Test Ballerina Code](/learn/how-to-test-ballerina-code/) provides information on the set of building blocks used to help write tests and a set of tools used for testing.
 
 ### How to Write Secure Ballerina Services
 
 [How to Write Secure Ballerina Services](/learn/how-to-write-secure-ballerina-code/) provides guidelines on writing secure Ballerina services, while demonstrating different security features and controls available within Ballerina.
 
-### How to Test Ballerina Code
+### How to Run and Deploy Ballerina Services
 
-[How to Test Ballerina Code]() provides information on the set of building blocks used to help write tests and a set of tools used for testing.
+[How to Deploy and Run Ballerina Services](/learn/how-to-deploy-and-run-ballerina-programs/) provides an overview of all the deployment and runtime options available in Ballerina.
 
 ### How to Observe Ballerina Services
 
 [How to Observe Ballerina Services](/learn/how-to-observe-ballerina-code/) instructs you on how to use logging, metrics, and tracing to observe Ballerina services.
+
+### How to Extend Ballerina
+
+[How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and package these customizations for use by others.
 
 ## Reference Documentation
 
