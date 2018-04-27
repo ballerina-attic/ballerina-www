@@ -220,10 +220,10 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
 When the service is invoked without authentication information, an authentication failure will occur:
 
 ```
-curl -v https://localhost:9090/hello
+curl -k -v https://localhost:9091/hello
 
 > GET /hello HTTP/1.1
-> Host: localhost:9090
+> Host: localhost:9091
 > User-Agent: curl/7.47.0
 > Accept: */*
 
@@ -462,7 +462,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
    }
    sayHello (endpoint caller, http:Request req) {
        http:Response resp = new;
-       resp.setStringPayload("Hello, World!");
+       resp.setTextPayload("Hello, World!");
        _ = caller -> respond(resp);
    }
 }
@@ -470,8 +470,8 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
 
 To enforce Basic Authentication, users and scopes should be configured through a configuration file. The following example file introduces two users. The 'generalUser' has no scopes and the 'admin' user has the 'hello' scope.
 
+**sample-users.toml**
 ```
-ballerina.conf
 ["b7a.users"]
 
 ["b7a.users.generalUser"]
@@ -482,10 +482,18 @@ password="@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}"
 scopes="hello"
 ```
 
+Restart the service using the following command.
+
+```
+ballerina run --config sample-users.toml basic_auth_sample.bal
+```
+
+Since passwords are encrypted, the Config API will request for the decryption key. Use 'ballerina' as the decryption key in this sample.
+
 Once service is restarted with the configuration file in place, 'generalUser' will not be able to invoke the service due to authorization failure:
 
 ```
-curl -v -u generalUser:password https://localhost:9091/hello
+curl -k -v -u generalUser:password https://localhost:9091/hello
 
 > GET /hello HTTP/1.1
 > Host: localhost:9091
@@ -504,7 +512,7 @@ request failed: Authorization failure
 'Admin' user will be able to invoke the service:
 
 ```
-curl -v -u admin:password https://localhost:9091/hello
+curl -k -v -u admin:password https://localhost:9091/hello
 
 > GET /hello HTTP/1.1
 > Host: localhost:9091
@@ -624,7 +632,7 @@ service<http:Service> updateService bind secureUpdateServiceEp {
    }
    updateStats (endpoint caller, http:Request req) {
        http:Response resp = new;
-       resp.setTextPayloadsetStringPayload("Status updated!");
+       resp.setTextPayload("Status updated!");
        _ = caller -> respond(resp);
    }
 }

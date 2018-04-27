@@ -72,6 +72,7 @@ function initCodeLineNumbers() {
  * Grammer: https://github.com/ballerina-platform/ballerina-lang/blob/master/compiler/ballerina-lang/src/main/resources/grammar/BallerinaLexer.g4
  */
 if (typeof hljs === 'object') {
+    hljs.configure({ languages: [] });
     hljs.registerLanguage('ballerina', function() {
         return {
             "k": "if else iterator try catch finally fork join all some while foreach in throw return " +
