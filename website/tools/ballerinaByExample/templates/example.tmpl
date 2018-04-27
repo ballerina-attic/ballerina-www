@@ -69,7 +69,6 @@
     <script>
         var base_url = "";
     </script>
-    <script src="/search/require.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -82,7 +81,7 @@
     <script src="/js/ballerina-common.js"></script>
     <link rel=stylesheet href="/css/ballerina-io.css">
     <link rel=stylesheet href="/css/ballerina-io-bbe.css">
-
+    <script src="/search/require.js"></script>
 </head>
 
 <body class="cBallerina-io">
@@ -184,12 +183,27 @@
                         </tr>
                     </table>
 
-                    {{range .Segs}}
+                    {{range  $i, $element := .Segs}}
+                        {{range .}}
+                            {{if ne $i 0}}
+                                {{if and (not .CodeLeading) (not .IsConsoleOutput)}}
+                                    <div class="bal-separator">
+                                        <!-- This table is a temporary table to add spacing between output and next bal file-->
+                                        <table class="cTopBorder-table">
+                                            <tbody><tr>
+                                                <td class="cCodeTD"></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody></table>
+                                    </div>
+                                {{end}}
+                            {{end}}
+                        {{end}}
 
                     <div>
 
                         <table class="cBBE-body">
-                            {{range .}}
+                            {{range $element}}
                             <tr class="cTR{{if and (not .DocEmpty) (not .IsConsoleOutput)}} hover-enable{{end}}{{if .IsConsoleOutput}} cOutputTr{{end}}">
 
                                 <td class="code{{if .CodeEmpty}} empty{{end}}{{if .CodeLeading}} leading{{end}}{{if .IsConsoleOutput}} cOutput{{end}}">

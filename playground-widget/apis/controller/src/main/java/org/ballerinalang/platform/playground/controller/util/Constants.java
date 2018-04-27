@@ -55,5 +55,6 @@ public class Constants {
     // API Path Parameters
     public static final String PATH_PARAM_LAUNCHER_URL = "launcher-url";
     public static final String CPU_RESOURCE = "cpu";
-    public static final String DEFAULT_CPU_VALUE = "2";
+    public static final String DEFAULT_CPU_LIMIT = "4";
+    public static final String DEFAULT_CPU_REQUEST = "0.5";
 }

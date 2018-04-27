@@ -31,7 +31,6 @@ import io.fabric8.kubernetes.api.model.PodSpecBuilder;
 import io.fabric8.kubernetes.api.model.PodTemplateSpec;
 import io.fabric8.kubernetes.api.model.PodTemplateSpecBuilder;
 import io.fabric8.kubernetes.api.model.Quantity;
-import io.fabric8.kubernetes.api.model.ResourceRequirements;
 import io.fabric8.kubernetes.api.model.ResourceRequirementsBuilder;
 import io.fabric8.kubernetes.api.model.Service;
 import io.fabric8.kubernetes.api.model.ServiceBuilder;
@@ -111,17 +110,19 @@ public class KubernetesClientImpl implements ContainerRuntimeClient {
 
         launcherContainer.setPorts(containerPorts);
 
-        String cpuAmount = EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_LAUNCHER_CPU_AMOUNT,
-                Constants.DEFAULT_CPU_VALUE);
+        String cpuLimit = EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_LAUNCHER_CPU_LIMIT,
+                Constants.DEFAULT_CPU_LIMIT);
+        String cpuRequest = EnvUtils.getEnvStringValue(EnvVariables.ENV_BPG_LAUNCHER_CPU_REQUEST,
+                Constants.DEFAULT_CPU_REQUEST);
         Map<String, Quantity> limits = new HashMap<>();
-        limits.put(Constants.CPU_RESOURCE, new Quantity(cpuAmount));
+        limits.put(Constants.CPU_RESOURCE, new Quantity(cpuLimit));
 
         Map<String, Quantity> requests = new HashMap<>();
-        limits.put(Constants.CPU_RESOURCE, new Quantity(cpuAmount));
+        requests.put(Constants.CPU_RESOURCE, new Quantity(cpuRequest));
 
         ResourceRequirementsBuilder resourceRequirementsBuilder = new ResourceRequirementsBuilder();
-        resourceRequirementsBuilder.withLimits(limits);
-        resourceRequirementsBuilder.withRequests(requests);
+        // resourceRequirementsBuilder.withLimits(limits);
+        // resourceRequirementsBuilder.withRequests(requests);
         launcherContainer.setResources(resourceRequirementsBuilder.build());
 
         // Volume mount to container

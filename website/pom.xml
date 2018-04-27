@@ -40,7 +40,7 @@
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-examples</artifactId>
             <type>zip</type>
-            <version>${ballerina.release.version}</version>
+            <version>${ballerina.bbe.release.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ballerinalang</groupId>
@@ -105,7 +105,7 @@
                             <target name="Copy BBE and Guide files">
                                  <copy todir="${bbe.source.dir}">
                                     <fileset
-                                    dir="${project.build.directory}/dependencies/ballerina-examples-${ballerina.release.version}">
+                                    dir="${project.build.directory}/dependencies/ballerina-examples-${ballerina.bbe.release.version}">
                                         <include name="**/*.*"/>
                                     </fileset>
                                 </copy>
@@ -264,7 +264,7 @@
         <guides.source.dir>${basedir}/guides</guides.source.dir>
         <webroot.dir>${project.build.directory}/webroot</webroot.dir>
         <bbe.site.dir>${webroot.dir}/learn/by-example</bbe.site.dir>
-        <guides.site.dir>${webroot.dir}/learn/guides</guides.site.dir>
+        <guides.site.dir>${webroot.dir}/learn/by-guide</guides.site.dir>
         <main.source.dir>${basedir}/main-pages</main.source.dir>
         <main.theme.dir>${main.source.dir}/ballerina.io-website-theme</main.theme.dir>
         <two.column.source.dir>${basedir}/two-column-pages</two.column.source.dir>

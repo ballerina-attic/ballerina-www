@@ -22,6 +22,15 @@ var pygmentizeBin = "tools/ballerinaByExample/vendor/pygments/pygmentize"
 var githubBallerinaByExampleBaseURL = "https://github.com/ballerina-platform/ballerina-examples/tree/master"
 var examplesDir = os.Args[1];
 var siteDir = os.Args[2];
+var dirPathWordSeparator = "-"
+var filePathWordSeparator = "_"
+var consoleOutputExtn = ".out"
+var balFileExtn = ".bal"
+var protoFilePathExtn = ".proto"
+var yamlFileExtn = ".yaml"
+var descriptionFileExtn = ".description"
+var serverOutputPrefix = ".server"
+var clientOutputPrefix = ".client"
 
 var descFileContent = ""
 var completeCode = ""
@@ -114,11 +123,15 @@ func whichLexer(path string) string {
         //    return "client"
         //} else if strings.HasSuffix(path, ".server.sh") {
         //    return "server"
-    } else if strings.HasSuffix(path, ".sh") {
+    } else if strings.HasSuffix(path, consoleOutputExtn) {
         return "console"
-    } else if strings.HasSuffix(path, ".bal") {
+    } else if strings.HasSuffix(path, balFileExtn) {
         return "bal"
-    } else if strings.HasSuffix(path, ".description") {
+    } else if strings.HasSuffix(path, protoFilePathExtn) {
+        return "bal"
+    } else if strings.HasSuffix(path, yamlFileExtn) {
+        return "yaml"
+    } else if strings.HasSuffix(path, descriptionFileExtn) {
         return "description"
     }
     panic("No lexer for " + path)
@@ -246,9 +259,9 @@ func parseSegs(sourcePath string) ([]*Seg, string) {
         seg.DocEmpty = (seg.Docs == "")
         seg.CodeLeading = (i < (len(segs) - 1))
         seg.CodeRun = strings.Contains(seg.Code, "package main")
-        seg.IsConsoleOutput = strings.HasSuffix(sourcePath, ".sh")
+        seg.IsConsoleOutput = strings.HasSuffix(sourcePath, consoleOutputExtn)
     }
-    if strings.HasSuffix(sourcePath, ".bal") {
+    if strings.HasSuffix(sourcePath, balFileExtn) || strings.HasSuffix(sourcePath, protoFilePathExtn) || strings.HasSuffix(sourcePath, yamlFileExtn) {
         //segs[0].Docs = descFileContent
         descFileContent = "";
     }
@@ -275,6 +288,10 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string, string) {
                 codeCssClass = "shell-session"
             }
 
+            if lexer == "yaml" {
+                codeCssClass = "yaml"
+            }
+
             openSpanCleanedString := matchOpenSpan.ReplaceAllString(cachedPygmentize(lexer, seg.Code), "")
             closeSpanCleanedString := matchCloseSpan.ReplaceAllString(openSpanCleanedString, "")
             openWrapString := matchOpenPre.ReplaceAllString(closeSpanCleanedString, "<pre><code class=" + codeCssClass + ">")
@@ -291,8 +308,8 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string, string) {
             }
         }
     }
-    // we are only interested in the 'go' code to pass to play.golang.org
-    if lexer != "go" || lexer != "bal" {
+
+    if lexer != "go" || lexer != "bal" || lexer != "yaml" {
         filecontent = ""
     }
     return segs, filecontent, completeCode
@@ -305,8 +322,17 @@ func  parseExamples(categories []BBECategory) []*Example {
         fmt.Println("Processing BBE Category : " + category.Title )
         for _, bbeMeta := range samples {
             exampleName := bbeMeta.Name
-            exampleId := bbeMeta.Url
-            fmt.Fprintln(os.Stdout, "processing bbe: " + exampleName )
+            exampleId := strings.ToLower(bbeMeta.Url)
+            if  len(exampleId) == 0 {
+                fmt.Fprintln(os.Stderr,"\t[WARN] Skipping bbe : " + exampleName + ". Folder path is not defined")
+                continue;
+            }
+            exampleId = strings.Replace(exampleId, " ", dirPathWordSeparator, -1)
+            exampleId = strings.Replace(exampleId, "/", dirPathWordSeparator, -1)
+            exampleId = strings.Replace(exampleId, "'", "", -1)
+            exampleId = dashPat.ReplaceAllString(exampleId, dirPathWordSeparator)
+            exampleBaseFilePattern := strings.Replace(exampleId, dirPathWordSeparator, filePathWordSeparator, -1)
+            fmt.Println("\tprocessing bbe: " + exampleName )
             example := Example{Name: exampleName}
             example.Id = exampleId
             example.Segs = make([][]*Seg, 0)
@@ -316,29 +342,55 @@ func  parseExamples(categories []BBECategory) []*Example {
             rearrangedPaths := make([]string, 0)
             fileDirPath := examplesDir + "/examples/" + exampleId + "/"
 
-            descFilePath := fileDirPath + exampleId + ".description"
+            if  !isFileExist(fileDirPath) {
+                fmt.Fprintln(os.Stderr,"\t[WARN] Skipping bbe : " + exampleName + ". "+ fileDirPath +" is not found")
+                continue;
+            }
 
-            balFilePath := fileDirPath + exampleId + ".bal"
-            if !isFileExist(balFilePath) {
-                fmt.Fprintln(os.Stderr, "[WARN] Skipping bbe : " + exampleName + ". File not found: " + balFilePath)
+            descFilePath := fileDirPath + exampleBaseFilePattern + descriptionFileExtn
+            if  !isFileExist(descFilePath) {
+                fmt.Fprintln(os.Stderr,"\t[WARN] Skipping bbe : " + exampleName + ". "+ descFilePath +" is not found");
+                continue;
+            }
+
+            balFiles := getAllBalFiles(fileDirPath);
+            if len(balFiles) == 0 {
+                fmt.Fprintln(os.Stderr, "\t[WARN] Skipping bbe : " + exampleName + ". No *.bal files are found")
                 continue;
             }
 
             rearrangedPaths = appendFilePath(rearrangedPaths, descFilePath);
+            for _, balFilePath := range balFiles {
+                var extension = filepath.Ext(balFilePath)
+                var currentSample = balFilePath[0:len(balFilePath)-len(extension)]
+                rearrangedPaths = appendFilePath(rearrangedPaths, balFilePath);
 
-            rearrangedPaths = appendFilePath(rearrangedPaths, balFilePath);
-            
-            shFilePath := fileDirPath + exampleId + ".sh"
-            if isFileExist(shFilePath) {
-                rearrangedPaths = append(rearrangedPaths, shFilePath)
-            } else {
-                rearrangedPaths = appendFilePath(rearrangedPaths, fileDirPath + exampleId + ".server.sh");
-                rearrangedPaths = appendFilePath(rearrangedPaths, fileDirPath + exampleId + ".client.sh");
+                consoleOutputFilePath :=  currentSample + consoleOutputExtn
+                serverOutputFilePath := currentSample + serverOutputPrefix + consoleOutputExtn
+                clientOutputFilePath := currentSample + clientOutputPrefix + consoleOutputExtn
+
+                if isFileExist(consoleOutputFilePath) {
+                    rearrangedPaths = append(rearrangedPaths, consoleOutputFilePath)
+                } else {
+                    var hasOutput = false
+                    if isFileExist(serverOutputFilePath) {
+                        rearrangedPaths = appendFilePath(rearrangedPaths, serverOutputFilePath)
+                        hasOutput = true
+                    }
+                    if isFileExist(clientOutputFilePath) {
+                        rearrangedPaths = appendFilePath(rearrangedPaths, clientOutputFilePath)
+                        hasOutput = true
+                    }
+
+                    if !hasOutput {
+                        fmt.Fprintln(os.Stderr,"\t[WARN] No console output file found for : " + balFilePath)
+                    }
+                }
             }
             sourcePaths = rearrangedPaths;
             updatedExamplesList, pErr := prepareExample(sourcePaths, example, examples)
             if pErr != nil {
-                fmt.Fprintln(os.Stderr, "[WARN] Skipping bbe : "+example.Name, pErr)
+                fmt.Fprintln(os.Stderr, "\t[WARN] Unexpected error occured while parsing. Skipping bbe : "+example.Name, pErr)
                 continue;
             }
             examples = updatedExamplesList
@@ -358,6 +410,23 @@ func  parseExamples(categories []BBECategory) []*Example {
     }
 
     return examples
+}
+
+func getAllBalFiles(sourceDir string) []string {
+    var files []string
+    filepath.Walk(sourceDir, func(path string, f os.FileInfo, _ error) error {
+        if !f.IsDir() {
+            if filepath.Ext(path) == balFileExtn || filepath.Ext(path) == protoFilePathExtn || filepath.Ext(path) == yamlFileExtn{
+                // avoiding sub dirs
+                if  sourceDir+ f.Name()  == path {
+                    files = append(files,sourceDir+ f.Name())
+                }
+
+            }
+        }
+        return nil
+    })
+    return files
 }
 
 func prepareExample(sourcePaths []string, example Example, currentExamplesList []*Example) (updatedExamplesList []*Example, err error) {
@@ -390,7 +459,7 @@ func prepareExample(sourcePaths []string, example Example, currentExamplesList [
 
             // We do this since the ".description" file is not read first. If it is the first file in the
             // directory, it will be read first. then we don't need this check.What we do
-            if strings.HasSuffix(sourcePath, ".description") {
+            if strings.HasSuffix(sourcePath, descriptionFileExtn) {
                 descFileContent = sourceSegs[0].Docs;
                 example.Descs = descFileContent;
             } else {

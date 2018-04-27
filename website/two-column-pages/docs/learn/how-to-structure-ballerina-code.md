@@ -13,9 +13,9 @@ The `ballerina` tool requires you to organize your code in a specific way. This 
 * A *project* atomically manages a collection of *packages* and *programs*.
 
 ## Programs
-A *program* is a runtime executable, ending with a `.balx` extension. A *program* is the transitive closure of one Ballerina package without including `ballerina/*` packages, since those are dynamically linked within Ballerina's runtime engine during execution. A *package* that is a *program* compiles into a a file with `.balx` extension, otherwise it is treated as a to-be-linked library that ends with a `.balo` extension.
+A *program* is a runtime executable, ending with a `.balx` extension. A *program* is the transitive closure of one Ballerina package without including `ballerina/*` packages, since those are dynamically linked within Ballerina's runtime engine during execution. A *package* that is a *program* compiles into a file with a `.balx` extension, otherwise it is treated as a to-be-linked library that ends with a `.balo` extension.
 
-The program's package must contain a `main()` function (a process entry point) or contain a `service<>` (a network-accessible API).
+The program's package must contain a `main()` function (a process entry point) or contain a `service` (a network-accessible API).
 
 A program can import dependent *packages* which are stored within a *repository*. 
 
@@ -26,21 +26,21 @@ Suppose you have the following structure:
   sample.bal
 ```
 
-and `sample.bal` contained both a `main()` entry point and a `service<>`:
+and `sample.bal` contained both a `main()` entry point and a `service`:
 
 ```ballerina
 import ballerina/http;
 import ballerina/io;
 
-function main (string[] args) {
+function main (string... args) {
     io:println("Hello, World!");
 }
 
 service<http:Service> hello bind { port: 9090 } {
-    resource sayHello (endpoint caller, http:Request req) {
+    sayHello (endpoint caller, http:Request req) {
         http:Response res = new;
-        res.setStringPayload("Hello, World!");
-        _ = res->response(res);
+        res.setPayload("Hello, World!");
+        _ = caller->respond(res);
     }
 }
 ```
@@ -105,9 +105,9 @@ import ballerina/http;
 service<http:Service> hello bind { port:9090 } {
 
     # The 'Request' object comes from the imported package.
-    resource sayHello (endpoint caller, http:Reqeust req) {
+    sayHello (endpoint caller, http:Reqeust req) {
         ...
-     }
+    }
 }
 ```
 
@@ -118,9 +118,9 @@ import ballerina/http as network;
 service<network:Service> hello bind { port:9090 } {
 
     # The 'Request' object comes from the imported package.
-    resource sayHello (endpoint caller, network:Reqeust req) {
+    sayHello (endpoint caller, network:Reqeust req) {
         ...
-     }
+    }
 }
 ```
 
@@ -132,7 +132,7 @@ If an import statement does not explicitly specify a version, then the compiler 
 ```ballerina
 import tyler/http version 3.0.1;
 
-function main(string[] args) {
+function main(string... args) {
   http:Person x = http:getPerson();
 }
 ```
@@ -144,7 +144,7 @@ Your program can import multiple versions of the same package.
 import tyler/http version 3.0.1 as identity3;
 import tyler/http version 4.5.0 as identity4;
 
-function main(string[] args) {
+function main(string... args) {
   identity3:Person x = identity3:getPerson();
   identity4:Person y = identity4:getPerson();
 }
@@ -242,7 +242,7 @@ ballerina build <package-name>
 Packages in a project are assigned their version from within the `Ballerina.toml` file:
 
 ```toml
-# The current version, obeying semver
+# The current version, obeying [semver](https://semver.org/)
 version = “string” 
 ```
 
