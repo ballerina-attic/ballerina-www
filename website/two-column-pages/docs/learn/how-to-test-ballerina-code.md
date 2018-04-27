@@ -259,31 +259,36 @@ functionName: “<function name>” : Name of the function to be mocked.
 Default: 
 functionName: null
 
+Following is example for function mocking.
+
 ``` ballerina
-Eg:
-
-package mypackage;
-
 import ballerina/test;
-import wso2/package1 as wso2pkg1;
+import ballerina/io;
 
+// This is the mock function which will replace the real intAdd function.
 @test:Mock {
-    packageName : "wso2.package1" ,
-    functionName : "intAdd"
+    // Since we don't have a package declaration, `.` is the current package
+    // We can include any package here e.g : `ballerina.io` etc.
+    packageName: ".",
+    functionName: "intAdd"
 }
-public function mockIntAdd (int a, int b) returns (int) {
-    return (a+b);
+// The mock function's signature should match with the actual function's signature.
+public function mockIntAdd(int a, int b) returns (int) {
+    io:println("I'm the mock function!");
+    return (a - b);
 }
 
-public function sanitize (int number) returns (float) {
-    int sum = wso2pkg1:intAdd(number, 10);
-    return ((sum * 5) / 100.0);
+// This is the test function.
+@test:Config {}
+function testAssertIntEquals() {
+    int answer = 0;
+    answer = intAdd(5, 3);
+    io:println("Function mocking test");
+    test:assertEquals(answer, 2, msg = "function mocking failed");
 }
 
-@test:Config{}
-function testAssertIntEquals () {
-    float answer = 0.0;
-    answer = sanitize(5);
-    test:assertEquals(answer, 0.75, msg = "function mocking failed");
+// The real function which is mocked above.
+public function intAdd(int a, int b) returns (int) {
+    return (a + b);
 }
 ```
