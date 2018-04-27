@@ -14,7 +14,7 @@ as well to make tracing and metrics monitoring more informative.
 ## Getting Started
 A Ballerina service is by default observable. This section focuses on enabling observability with default systems such
 as [Prometheus] and [Grafana] for metrics monitoring and [Jaeger] for distributed tracing. Ballerina logs can
-be read and fed to any external log monitoring system like Elastic Stack to perform log monitoring and analysis.
+be read and fed to any external log monitoring system like [Elastic Stack] to perform log monitoring and analysis.
 
 **Pre-requisites**
 
@@ -517,3 +517,4 @@ host where the log file is being generated.
 [Prometheus]: https://prometheus.io/
 [Grafana]: https://grafana.com/
 [Jaeger]: https://www.jaegertracing.io/
+[Elastic Stack]: https://www.elastic.co/
