@@ -1,14 +1,19 @@
 import ballerina/http;
 import ballerina/io;
 
-// Annotations decorate code
-// Change the service URL base to '/greeting'
+// Listener endpoint that a service binds to
+endpoint http:Listener listener {
+  port:9090
+};
+
+// Annotations decorate code.
+// Change the service URL base to '/greeting'.
 @http:ServiceConfig {
     basePath:"/greeting"
 }
-service<http:Service> greeting bind {} {
+service<http:Service> greeting bind listener {
 
-  // Decorate the 'greet' resource to accept POST requests
+  // Decorate the 'greet' resource to accept POST requests.
   @http:ResourceConfig{
     path: "/",
     methods: ["POST"]

@@ -666,15 +666,6 @@ code:not(.hljs) {
     border: none;
 }
 
-pre>code.ballerina {
-    overflow-y: hidden;
-}
-
-pre>code.ballerina,
-pre>code.ballerina span {
-    line-height: 18px;
-}
-
 
 /*MOBILE */
 
@@ -759,6 +750,8 @@ button.navbar-toggle {
 #mkdocs-search-results>article>p {
     margin: 0 0 4px;
     font-size: 15px;
+    max-width: 600px;
+    word-wrap: break-word;
 }
 
 #mkdocs-search-results>p.error {
@@ -789,14 +782,14 @@ pre {
 pre code {
     padding: 6px;
     width: 100%;
-    line-height: 20px;
+    line-height: 18px;
+    overflow: hidden;
 }
 
 .highlight code,
 .highlight pre {
     color: #6A6868;
     background-color: #F5F6F6;
-    line-height: 18px;
 }
 
 .ballerina .hljs {
@@ -977,15 +970,57 @@ pre code {
 }
 
 
+/*CON BANNER*/
+
+#iBanner {
+/*    display: inline-block;
+    width: 100%;*/
+
+ transition: all 1.5s ease 0s;
+ margin-top: -63px;
+}
+.cBallerinaConBanner {
+    background-color: #ffffff;
+}
+.cBallerinaConBanner .container {
+    text-align: center;
+    font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
+    letter-spacing: 2px;
+    color: #585a5e;
+}
+.cBallerinaConBanner a {
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+    padding: 20px 15px;
+}
+.cBallerinaConBanner .container span {
+    color: #20b6b0;
+}
+
+#iBanner.cShowBanner {
+
+     transition: all 1.5s ease 0s;
+     margin-top: 0;
+
+}
+
+
+
 /* -------------------------------- */
 
 @media screen and (max-width: 990px) {
     .navbar-header {
         width: 200px !important;
     }
+    .cBallerinaConBanner .container {
+/*        font-size: 12px;*/
+    }
+
 }
 
 @media screen and (max-width: 768px) {
+
     .navbar-header {
         width: 100% !important;
     }
@@ -1065,6 +1100,29 @@ pre code {
         width: 100%;
         margin-top: 10px;
     }
+    
+    
+/*    BANNER*/
+.cBallerinaConBanner {
+    height: 84px;
+}
+.cBallerinaConBanner .container {
+    font-size: 12px;
+}
+#iMainNavigation.cShowBanner {
+    margin-top: 84px;
+         transition: all 1.5s ease 0s;
+}
+
+.cBallerinaConBanner .container {
+    font-size: 12px;
+}
+.row.cBallerina-io-top-row {
+    display: none;
+}
+    
+    
+    
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
@@ -1117,19 +1175,20 @@ pre code {
         white-space: nowrap;
     }
 }
+
 @media (max-width: 768px) {
-    .navbar-nav>li:last-child a.cSerachIcon{
+    .navbar-nav>li:last-child a.cSerachIcon {
         display: none;
     }
-    .cSearchBoxTopMenu{
+    .cSearchBoxTopMenu {
         opacity: 1;
         position: static;
         padding-left: 20px;
     }
-    .nav.navbar-nav.cTopNav>li:last-child{
+    .nav.navbar-nav.cTopNav>li:last-child {
         position: absolute;
     }
-    #navbar{
+    #navbar {
         padding-bottom: 62px;
     }
 }

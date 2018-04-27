@@ -128,12 +128,6 @@
                                         <include name="**/*.*"/>
                                     </fileset>
                                 </copy>
-                                <copy todir="${webroot.dir}/blog">
-                                    <fileset
-                                        dir="${project.build.directory}/dependencies/ballerina-blog-${ballerina.version}">
-                                        <include name="**/*.*"/>
-                                    </fileset>
-                                </copy>
                             </target>
                         </configuration>
                     </execution>
@@ -169,21 +163,6 @@
                         <configuration>
                             <executable>sh</executable>
                             <workingDirectory>${two.column.source.dir}</workingDirectory>
-                            <arguments>
-                                <argument>build.sh</argument>
-                                <argument>${webroot.dir}</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>build-three-column-pages</id>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <phase>package</phase>
-                        <configuration>
-                            <executable>sh</executable>
-                            <workingDirectory>${three.column.source.dir}</workingDirectory>
                             <arguments>
                                 <argument>build.sh</argument>
                                 <argument>${webroot.dir}</argument>

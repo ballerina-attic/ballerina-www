@@ -1,15 +1,15 @@
 function subscribeUser(email) {
     $('#subscribeUserMessage').remove("");
     if (email == "") {
-        $("#emailUser").attr("placeholder", "Please enter your email");
+        $("#emailUser").attr("placeholder", "Please enter your email.");
     } else if (!isEmail(email)) {
         $("#emailUser").val("");
-        $("#emailUser").attr("placeholder", "Please enter a valid email");
+        $("#emailUser").attr("placeholder", "Please enter a valid email.");
 
     } else {
         $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl9799e?email=" + email + "'></iframe>");
         $("#emailUser").val("");
-        $("#emailUser").attr("placeholder", "Your email address has been added");
+        $("#emailUser").attr("placeholder", "Your email address has been added.");
     }
     return;
 }
@@ -360,7 +360,10 @@ $(document).ready(function() {
         });
     });
 
-    //disable enter key in searchbox
+
+});
+
+//disable enter key in searchbox
     $('.form-control').on('keypress', function(event) {
         if (event.which === 13) {
             event.preventDefault();
@@ -383,4 +386,15 @@ $(document).ready(function() {
         $(elem).replaceWith($iframe);
     });
 
+
 });
+
+$(document).ready(function() {
+     var ConBanner = '<div class="row cBallerinaConBanner"><a href="http://con.ballerina.io/"><div class="container">JOIN US FOR THE FIRST <span>BALLERINACON</span>, JULY 18TH, IN SAN FRANCISCO OR VIRTUALLY ON YOUR PC</div></a></div>' ;
+    $('#iBanner').append(ConBanner);
+    setTimeout(function(){
+        $('#iBanner').addClass('cShowBanner');
+        $('#iMainNavigation').addClass('cShowBanner');
+
+
+    }, 2000);
