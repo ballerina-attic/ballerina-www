@@ -182,8 +182,7 @@ endpoint twitter:Client twitter {
    clientId: config:getAsString("clientId"),
    clientSecret: config:getAsString("clientSecret"),
    accessToken: config:getAsString("accessToken"),
-   accessTokenSecret: config:getAsString("accessTokenSecret"),
-   clientConfig:{}   
+   accessTokenSecret: config:getAsString("accessTokenSecret")
 };
 ```
 
@@ -192,14 +191,14 @@ Now you have the Twitter endpoint.
 In the `sayHello` function, add the following to get the payload as a string.
 
 ```ballerina
-string status = check request.getStringPayload();
+string status = check request.getTextPayload();
 ```
 > **Tip**: The check keyword means that this may return an error but I do not want to handle it here - pass it further away (to the caller function, or if this is a top-level function - generate a runtime failure.
 
 Now, we can get our response from Twitter by just calling its tweet action. Add this into the `sayHello` function as well.
 
 ```ballerina
-twitter:Status st = check twitter->tweet(status,"","");
+twitter:Status st = check twitter->tweet(status, "", "");
 ```
 
 Go ahead and run it and this time pass the config file:
