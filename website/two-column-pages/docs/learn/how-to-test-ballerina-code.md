@@ -337,12 +337,10 @@ The function specified following the annotation will be a mock function which wi
 
 ###### Parameters:
 ```packageName: “<package name>”``` : Name of the package where the function to be mocked resides in. 
-Default: 
-packageName: “.”
+Default: “.” (No Package)
 
 ```functionName: “<function name>”``` : Name of the function to be mocked. 
-Default: 
-functionName: null
+Default: none
 
 Following is example for function mocking.
 
