@@ -416,7 +416,7 @@ h2.cMainH2Title {
 
 .cBallerinaFooterSignUp p {
     font-size: 10px;
-    margin-bottom: 0 !important;
+    margin-bottom: 0px;
 }
 
 .cBallerinaFooterSignUp p span {
@@ -566,15 +566,15 @@ h2.cMainH2Title {
 }
 
 .wy-nav-content .cTextfieldstyle {
-    background-color: #e6e9ea;
-    height: 29px;
-    font-size: 12px;
-    width: 200px;
-    padding-left: 10px;
-    padding: 5px;
-    line-height: 16px;
-    border: 1px solid #e6e9ea;
-    color: #a9a9a9;
+  background-color: #e6e9ea;
+  height: 29px;
+  font-size: 12px;
+  width: 200px;
+  padding-left: 10px;
+  padding: 5px;
+  line-height: 16px;
+  border: 1px solid #e6e9ea;
+  color: #a9a9a9;
 }
 
 .wy-nav-content .cBallerinaButtons {
@@ -601,15 +601,15 @@ h2.cMainH2Title {
 
 .wy-nav-content #subscribeUserMessage,
 .wy-nav-content #subscribeMessage {
-    width: auto;
-    padding: 1px 10px;
-    font-family: "pragmatica", sans-serif;
-    color: #20b6b0;
-    text-transform: uppercase;
-    font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
-    font-weight: normal;
-    letter-spacing: 2px;
-    display: inline-block;
+  width: auto;
+  padding: 1px 10px;
+  font-family: "pragmatica", sans-serif;
+  color: #20b6b0;
+  text-transform: uppercase;
+  font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
+  font-weight: normal;
+  letter-spacing: 2px;
+  display: inline-block;
 }
 
 .wy-nav-content #subscribeUserMessage.success,
@@ -675,6 +675,15 @@ code:not(.hljs) {
     padding-left: 0;
     display: flex;
     border: none;
+}
+
+pre>code.ballerina {
+    overflow-y: hidden;
+}
+
+pre>code.ballerina,
+pre>code.ballerina span {
+    line-height: 18px;
 }
 
 
@@ -755,20 +764,11 @@ button.navbar-toggle {
     color: #20b6b0;
     margin: 20px 0 10px 0;
     padding: 0px;
-    white-space: normal;
 }
 
 #mkdocs-search-results>article>p {
     margin: 0 0 4px;
     font-size: 15px;
-    max-width: 600px;
-    word-wrap: break-word;
-}
-
-#mkdocs-search-results>p.error {
-    color: #b6b7b7;
-    padding: 6px 12px;
-    font-size: 14px;
 }
 
 #mkdocs-search-results>article:first-child {
@@ -793,8 +793,7 @@ pre {
 pre code {
     padding: 6px;
     width: 100%;
-    line-height: 18px;
-    overflow: hidden;
+    line-height: 20px;
 }
 
 .highlight code,
@@ -816,8 +815,6 @@ pre code {
     font-weight: normal;
 }
 
-.yaml .hljs-string,
-.yaml .hljs-number,
 .ballerina .hljs-string,
 .ballerina .hljs-label,
 .ballerina .hljs-tag .hljs-value,
@@ -866,7 +863,6 @@ pre code {
 .cBBE-body tr.cOutputTr>td.code code {
     background-color: transparent;
     color: #3ad1ca;
-    padding: 0;
 }
 
 .cBBE-body tr.cTR.hover-enable pre {
@@ -875,10 +871,6 @@ pre code {
 
 .cBBE-body tr.cTR.hover-enable:hover td.code {
     background-color: #cceeec;
-}
-
-.cBBE-body tr.cTR.hover-enable.cOutputTr:hover td.code {
-    background-color: #517071;
 }
 
 .cBBE-body .cOutput {
@@ -1131,10 +1123,15 @@ pre code {
 .row.cBallerina-io-top-row {
     display: none;
 }
-    
-    
-    
+
+
+#iBanner.cShowBanner {
+    position: fixed;
+    z-index: 999999;
+ } 
 }
+    
+
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     .cBallerinaFooterLinks ul {
@@ -1181,25 +1178,5 @@ pre code {
     .overlay-highlight,
     .output-overlay-highlight {
         display: block !important;
-    }
-    #mkdocs-search-results>article>h3>a {
-        white-space: nowrap;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar-nav>li:last-child a.cSerachIcon {
-        display: none;
-    }
-    .cSearchBoxTopMenu {
-        opacity: 1;
-        position: static;
-        padding-left: 20px;
-    }
-    .nav.navbar-nav.cTopNav>li:last-child {
-        position: absolute;
-    }
-    #navbar {
-        padding-bottom: 62px;
     }
 }
