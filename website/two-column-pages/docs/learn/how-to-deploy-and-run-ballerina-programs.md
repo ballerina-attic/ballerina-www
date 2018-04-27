@@ -17,18 +17,18 @@ A single Ballerina source code file can be placed into any folder.
 If the source file contains at least one entrypoint, it can be executed using the `run` command.
     
 ```bash
-ballerina run foo.bal  
+$ ballerina run foo.bal  
 ```
 
 You can compile a source file with an entrypoint into a linked binary that has a `.balx` extension.
     
 ```bash
-ballerina build a/b/c/foo.bal [-o outputfilename.balx]
+$ ballerina build a/b/c/foo.bal [-o outputfilename.balx]
 ```  
 
 And you can run `.balx` files directly:
 ```bash
-ballerina run filename.balx
+$ ballerina run filename.balx
 ```
 
 ### Running a Project
@@ -36,19 +36,19 @@ A project is a folder that manages source files and packages as part of a common
 
 Build all source files and packages of a project:
 ```bash    
-ballerina build
+$ ballerina build
 ```
 
 Build a single package in a project:
 ```bash
-ballerina build <package-name>
+$ ballerina build <package-name>
 ```
 
 Options for running programs with entrypoints in a project:  
 ```bash
-ballerina run main.balx  
-ballerina run target/main.balx
-ballerina [-projectroot <path>] run <package>
+$ ballerina run main.balx  
+$ ballerina run target/main.balx
+$ ballerina [-projectroot <path>] run <package>
 ```
 
 The `<package>` is the package name, which is the same as the name of the directory that holds the source files. 
@@ -79,7 +79,7 @@ function main(string... args) {
 
 The config key is `hello.user.name`. To pass a value to this config from the CLI, we can run the following command. The `-e` argument passes the key and value to the program.
 ```bash
-ballerina run main.bal -e hello.user.name=Ballerina
+$ ballerina run main.bal -e hello.user.name=Ballerina
 Hello, Ballerina !
 ```
 
@@ -87,8 +87,8 @@ Hello, Ballerina !
 The value can be passed as an environment variable as well. Here as the value we are passing the name of the environment variable with the `@env:{}` syntax.
 
 ```bash
-export NAME=Ballerina
-ballerina run main.bal -e hello.user.name=@env:{NAME}
+$ export NAME=Ballerina
+$ ballerina run main.bal -e hello.user.name=@env:{NAME}
 Hello, Ballerina !
 ```
 
@@ -105,21 +105,21 @@ When running a program with config API lookups, Ballerina looks for a `ballerina
 
 If `ballerina.conf` resides in the same directory as `main.bal`, `balllerina run` can be used without any argument.
 ```bash
-ballerina run main.bal
+$ ballerina run main.bal
 Hello, Ballerina !
 ```
 To explicitly specify a configuration file, use either the `--config` or the `-c` flag. The path to the configuration file can be either an absolute or a relative path. 
 ```bash
-ballerina run main.bal -c ../../ballerina.conf
+$ ballerina run main.bal -c ../../ballerina.conf
 Hello, Ballerina !
 
-ballerina run main.bal --config ../../ballerina.conf
+$ ballerina run main.bal --config ../../ballerina.conf
 Hello, Ballerina !
 
-ballerina run main.bal -c /Users/anuruddha/Desktop/ballerina.conf
+$ ballerina run main.bal -c /Users/anuruddha/Desktop/ballerina.conf
 Hello, Ballerina !
 
-ballerina run main.bal --config /Users/anuruddha/Desktop/ballerina.conf
+$ ballerina run main.bal --config /Users/anuruddha/Desktop/ballerina.conf
 Hello, Ballerina !
 ```
 
@@ -131,12 +131,11 @@ Ballerina provides support for encrypting sensitive data such as passwords and a
 The `ballerina encrypt` command will encrypt parameters that can be securely sourced from your code files. For example, let's create a secure parameter named `ballerina` with the value `12345` as the secret.
 
 ```ballerina
-ballerina encrypt
+$ ballerina encrypt
 Enter value:
 Enter secret:
 Re-enter secret to verify:
 Add the following to the runtime config:
-
 @encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
 
 Or add to the runtime command line:
@@ -155,14 +154,14 @@ keystore.password="@encrypted{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}"
 or:
 
 ```bash
-ballerina run config_api.bal -e hello.http.port=8085 -e hello.keystore.password=@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
+$ ballerina run config_api.bal -e hello.http.port=8085 -e hello.keystore.password=@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
 ```
 
 ##### Decrypting the Value
 If a configuration contains an encrypted value, Ballerina looks for a `secret.txt` file in the directory where the source files are located. The `secret.txt` should contain the secret used to encrypt the value. The `secret.txt` file will be deleted after it is read. If the `secret.txt` file is not present, the CLI prompts the user for the secret.
 
 ```bash
-ballerina run --config path/to/conf/file/custom-config-file-name.conf config_api.bal
+$ ballerina run --config path/to/conf/file/custom-config-file-name.conf config_api.bal
 ballerina: enter secret for config value decryption:
 
 ballerina: initiating service(s) in 'config_api.bal'
@@ -220,14 +219,14 @@ service<http:Service> helloWorld bind {9090} {
 Now your code is ready to generate deployment artifacts. In this case it is a Docker image.
   
 ```bash
-$> ballerina build hello_world_docker.bal  
+$ ballerina build hello_world_docker.bal  
 @docker - complete 3/3  
 Run the following command to start docker container:  
 docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
 ```
   
 ```bash
-$> tree  
+$ tree  
 .
 ├── README.md
 ├── hello_world_docker.bal
@@ -236,24 +235,24 @@ $> tree
     └── Dockerfile
 ```
 ```bash
-$> docker images  
+$ docker images  
 REPOSITORY TAG IMAGE ID CREATED SIZE  
 docker.abc.com/helloworld v1 df83ae43f69b 2 minutes ago 102MB
 ```
   
 You can run a Docker container and access it with your code by copying and pasting the Docker `run` command that displays as output of the Ballerina `build` command.
  ```bash 
-$> docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0  
+$ docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0  
 130ded2ae413d0c37021f2026f3a36ed92e993c39c260815e3aa5993d947dd00
 ```
 ```bash
-$> docker ps  
+$ docker ps  
 CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES  
 130ded2ae413 docker.abc.com/helloworld:v1.0 "/bin/sh -c 'balleri…" Less than a second ago Up 3 seconds 0.0.0.0:9090->9090/tcp thirsty_hopper
 ```
 Access the hello world service with a cURL command:
 ```bash 
-$> curl http://localhost:9090/helloWorld/sayHello  
+$ curl http://localhost:9090/helloWorld/sayHello  
 Hello, World!
 ```
 
@@ -431,7 +430,7 @@ $ tree
 Now you can create the Kubernetes deployment using:
 
 ```bash
-$kubectl apply -f ./kubernetes 
+$ kubectl apply -f ./kubernetes 
 
 configmap "employee-data-service-ballerina-conf-config-map" created
 deployment "ballerina-guides-employee-database-service" created
@@ -476,14 +475,14 @@ employee-data-service-ballerina-conf-config-map   1         2m
 ```
 This is the config-map created for the `ballerina.conf` file, as the `ballerinaConf:"./conf/data-service.toml"` attribute is used. At run time, it is an equivalent of:
 ```bash
-ballerina run <source>.balx --config ./conf/data-service.toml
+$ ballerina run <source>.balx --config ./conf/data-service.toml
 ```
 The Kubernetes extension automatically passes the config file to the Ballerina program.
 
 If everything is successfully deployed, you can invoke the service either via Node port or ingress.
 Node Port:
 ```bash
-curl -v -X POST -d '{"name":"Alice", "age":20,"ssn":123456789,"employeeId":1}' \
+$ curl -v -X POST -d '{"name":"Alice", "age":20,"ssn":123456789,"employeeId":1}' \
 "http://localhost:<Node_Port>/records/employee" -H "Content-Type:application/json" 
 ```
 Ingress:
@@ -496,7 +495,7 @@ Add an `/etc/hosts` entry to match hostname.
 Access the service:
 
 ```bash
-curl -v -X POST -d '{"name":"Alice", "age":20,"ssn":123456789,"employeeId":1}' \
+$ curl -v -X POST -d '{"name":"Alice", "age":20,"ssn":123456789,"employeeId":1}' \
 "http://ballerina.guides.io/records/employee" -H "Content-Type:application/json"
 ```   
     
