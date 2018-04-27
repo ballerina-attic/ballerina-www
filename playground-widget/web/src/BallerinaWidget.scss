@@ -14,72 +14,43 @@ $control-text-size: 1em;
       url("../fonts/monaco-webfont.woff") format("woff2");
 }
 
-
-.ballerina-playground {
-    &.ui.container {
-        width: 709px!important;
-        height: 746px!important;
-        background: none;
-        padding-top: 0px;/* 0 */
-        padding-left: 43px; /* 43 */
+@media only screen and (max-width: 569px) {
+    .ballerina-playground {
+        &.ui.container {
+            width: 100%;
+        }
+        .ui.segments {
+            .segment {
+                &.sample-title {
+                    padding-left: 0;
+                }
+                &.code-editor {
+                    .view-select-panel {
+                        display: none;
+                    }
+                }
+                &.curl-editor {
+                    .curl-string {
+                        width: 100%;
+                    }
+                }
+            }
+        }
     }
 }
 
-.curl-slide-enter {
-    height: 0px;
-}
-
-.curl-slide-enter.curl-slide-enter-active {
-    height: 28px;
-    transition: height .3s ease;
-}
-
-.curl-slide-leave.curl-slide-leave-active {
-    height: 0px;
-    transition: height .01s ease;
-}
-
-.playground-widget {
-    .ui {
-        &.segments {
+@media only screen and (min-width: 570px) {
+    .ballerina-playground {
+        &.ui.container {
+            padding-left: 43px;
+        }
+        .ui.segments {
             width: 512px;
-            border: none;
-            border-top: none;
-            box-shadow: -5px 5px 30px -12px #585a5e;
-            &.header {
-                box-shadow: none;
-                margin-bottom: 0;
-            }
-            &.body {
-                margin-top: 0;
-            }
-            &.footer {
-                box-shadow: none;
-            }
             .segment {
-                padding: 0;
-                border: none;
-                &:last-child {
-                    border-radius: 0;
-                }
                 &.sample-title {
-                    color: #585556;
-                    background: none;
-                    padding-bottom: 4px;
                     padding-left: 27px;
-                    cursor: pointer;
-                    .sample-file-name {
-                        font-size: $default-text-size;
-                        font-weight: initial;
-                    }
-                    .sample-btn {
-                        margin-left: 5px;
-                        top: 1px;
-                        position: relative;
-                    }
                 }
                 &.sample-image {
-                    background: #20b6b0;
                     width: 512px;
                     height: 64px;
                     border-radius: 0;
@@ -88,58 +59,114 @@ $control-text-size: 1em;
                         height: 64px;
                     }
                 }
-                &.code-editor {
-                    position: relative;
-                    padding: 18px 18px 0 18px;
-                    height: 303px;
-                }
                 &.curl-editor {
-                    height: 28px;
-                    padding: 0 18px 0 18px;
-                    font-size: $default-text-size;
-                    font-family: "Monaco";
-                    vertical-align: middle;
-                    font-weight: initial;
+                    .curl-string {
+                        width: 462px;
+                    }
                 }
-                &.console {
-                    padding: 0 18px 18px 18px;
-                    .console-area {
-                        background-color: #585a5e;
-                        color: #3ad1ca;
+            }
+        }
+    }
+}
+
+.ballerina-playground {
+    .playground-content {
+        .ui {
+            &.segments {
+                border: none;
+                border-top: none;
+                box-shadow: -5px 5px 30px -12px #585a5e;
+                &.header {
+                    box-shadow: none;
+                    margin-bottom: 0;
+                }
+                &.body {
+                    margin-top: 0;
+                }
+                &.footer {
+                    box-shadow: none;
+                }
+                .segment {
+                    padding: 0;
+                    border: none;
+                    &:last-child {
+                        border-radius: 0;
+                    }
+                    &.sample-title {
+                        color: #585556;
+                        background: none;
+                        padding-bottom: 4px;
+                        cursor: pointer;
+                        .sample-file-name {
+                            font-size: $default-text-size;
+                            font-weight: initial;
+                        }
+                        .sample-btn {
+                            margin-left: 5px;
+                            top: 1px;
+                            position: relative;
+                        }
+                    }
+                    &.sample-image {
+                        background: #20b6b0;
+                        border-radius: 0;
+                    }
+                    &.code-editor {
+                        position: relative;
+                        padding: 18px 18px 0 18px;
+                        height: 303px;
+                    }
+                    &.curl-editor {
+                        .curl-string input {
+                            width: 100%;
+                        }
+                        height: 28px;
+                        padding: 0 18px 0 18px;
                         font-size: $default-text-size;
                         font-family: "Monaco";
-                        overflow-y: hidden;
-                        overflow-x: hidden;
-                        word-wrap: break-word;
+                        vertical-align: middle;
+                        font-weight: initial;
                     }
-                }
-                &.controls {
-                    font-family: "Calibre-Semibold";
-                    color: #585A5E;
-                    margin-top: 20px;
-                    .navigator {
-                        margin-left: 32px;
-                        font-size: $default-text-size;
-                        float: left;
-                        line-height: 11px;
+                    &.console {
+                        padding: 0 18px 18px 18px;
+                        .console-area {
+                            background-color: #585a5e;
+                            color: #3ad1ca;
+                            font-size: $default-text-size;
+                            font-family: "Monaco";
+                            overflow-y: hidden;
+                            overflow-x: hidden;
+                            word-wrap: break-word;
+                        }
                     }
-                    .other {
-                        font-size: $control-text-size;
-                        float: right;
-                        .run-button {
-                            float: right;
+                    &.controls {
+                        font-family: "Calibre-Semibold";
+                        color: #585A5E;
+                        margin-top: 20px;
+                        .navigator {
+                            margin-left: 32px;
+                            font-size: $default-text-size;
+                            float: left;
+                            line-height: 11px;
                         }
-                        .share-button {
+                        .other {
+                            font-size: $control-text-size;
                             float: right;
-                            margin-right: 14px;
-                        }
-                        button {
-                            font-family: "Calibre-Semibold";
-                            font-size: 1em;
-                            box-shadow: none;
-                            border-color: #A6A8AB;
-                            &, &:hover, &:active, &:focus {
-                                color: #585A5E!important;
+                            .run-button {
+                                float: right;
+                            }
+                            .share-button {
+                                float: right;
+                                margin-right: 14px;
+                            }
+                            button {
+                                font-family: "Calibre-Semibold";
+                                font-size: 1em;
+                                box-shadow: none;
+                                border-color: #A6A8AB;
+                                &, &:hover, &:active, &:focus {
+                                    color: #585A5E!important;
+                                }
                             }
                         }
                     }
