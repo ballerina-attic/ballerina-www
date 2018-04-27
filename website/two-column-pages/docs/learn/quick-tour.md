@@ -307,6 +307,9 @@ ballerina push quicktour/twitter
 ```
 
 ## Run the Composer
+Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
+
+To start the composer: 
 
 1. In the command line, type `composer`.
 
