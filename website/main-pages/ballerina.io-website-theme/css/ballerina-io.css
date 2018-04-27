@@ -666,15 +666,6 @@ code:not(.hljs) {
     border: none;
 }
 
-pre>code.ballerina {
-    overflow-y: hidden;
-}
-
-pre>code.ballerina,
-pre>code.ballerina span {
-    line-height: 18px;
-}
-
 
 /*MOBILE */
 
@@ -789,14 +780,14 @@ pre {
 pre code {
     padding: 6px;
     width: 100%;
-    line-height: 20px;
+    line-height: 18px;
+    overflow: hidden;
 }
 
 .highlight code,
 .highlight pre {
     color: #6A6868;
     background-color: #F5F6F6;
-    line-height: 18px;
 }
 
 .ballerina .hljs {
@@ -1117,19 +1108,20 @@ pre code {
         white-space: nowrap;
     }
 }
+
 @media (max-width: 768px) {
-    .navbar-nav>li:last-child a.cSerachIcon{
+    .navbar-nav>li:last-child a.cSerachIcon {
         display: none;
     }
-    .cSearchBoxTopMenu{
+    .cSearchBoxTopMenu {
         opacity: 1;
         position: static;
         padding-left: 20px;
     }
-    .nav.navbar-nav.cTopNav>li:last-child{
+    .nav.navbar-nav.cTopNav>li:last-child {
         position: absolute;
     }
-    #navbar{
+    #navbar {
         padding-bottom: 62px;
     }
 }
