@@ -103,20 +103,20 @@ streamingQueryStatement
 
 ###### Sample query
 
-This query filters out the teachers who are older than 30 years and for every 20 teacher records, it groups them
-based on their marital status, count number of teachers for each status and then publishes all the status have more than 
-one entry to the `filteredStatusCountStream` stream.
+This query filters out the sensors which have the temperature greater than 30 Celsius. It waits until 100 sensor records are collected by the
+stream. Then, sensor records are grouped based on the type and calculate the count for unique sensor type. Once the query is executed, its result
+is published to the `highTemperatureSensorStream` stream.
 
 ```ballerina
     forever {
-        from teacherStream 
-            where age > 18 
-            window lengthBatch (20)
-        select status, count(status) as totalCount
-        group by status
+        from sensorTemperatureStream
+            where temperature > 30
+            window lengthBatch (100)
+        select type, count(type) as totalCount
+        group by type
         having totalCount > 1
-        =>  (StatusCount [] status) {
-                filteredStatusCountStream.publish(status);
+        =>  (HighTemperature [] values) {
+                highTemperatureSensorStream.publish(values);
             }
     }
 ```
