@@ -2,7 +2,7 @@
 
 Ballerina has a built-in documentation framework named Docerina. The documentation framework allows you to write unstructured document with a bit of structure to enable generating HTML content as API documentation.
 
-Developers can write the documentation inline with the Ballerina source code using the lightweight markdown (https://en.wikipedia.org/wiki/Markdown) markup language. They can mark special occurrences such as parameters, return parameters, fields, endpoints within the documentation code using documentation attributes. Once the code is documented, developers can generate a basic HTML version of their ballerina packages using the `ballerina doc` command. You are encouraged to have your custom themes and styles, to have a better presentation of your Ballerina documentation. 
+Developers can write the documentation inline with the Ballerina source code using the lightweight [markdown](https://en.wikipedia.org/wiki/Markdown) markup language. They can mark special occurrences such as parameters, return parameters, fields, endpoints within the documentation code using documentation attributes. Once the code is documented, developers can generate a basic HTML version of their ballerina packages using the `ballerina doc` command. You are encouraged to have your custom themes and styles, to have a better presentation of your Ballerina documentation. 
 
 Ballerina design and usage is aligned with project and package semantics of Ballerina. You can generate documentation for the project packages using the ``ballerina doc`` command.
 
@@ -19,8 +19,7 @@ Documentation is a first class syntax in the Ballerina language. ```documentatio
 
 ```
 documentation {
-     …
-     …
+     <your markdown documentation goes here>
 }
 ```
 Within this ```documentation``` syntax, you can write your documentation in markdown markup language.
@@ -60,6 +59,8 @@ F{{dob}} date of birth of the employee
 ```
 E{{}}
 ```
+**NOTE:** Unlike in other attributes, `E` attribute does not follow a description as it is used as an indicator.
+
 
 ### Sample Usage
 
