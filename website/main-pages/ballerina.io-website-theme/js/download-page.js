@@ -151,7 +151,7 @@ $(document).ready(function() {
 
               release_content = "<tr>";
               release_content += '<td style="width: 96%">' + value + '</td>';
-              release_content += '<td style="width: 1%; white-space: nowrap;"><a href="data:' + jsondata + '" download="'+value+'" class="cDownloadLinkIcon"><img src="../img/right-bg-green-fill.svg"></a></td>';
+              release_content += '<td style="width: 1%; white-space: nowrap;"><a href="data:' + jsondata + '" download="'+value+'" class="cDownloadLinkIcon"><img src="../img/download-bg-green-fill.svg"></a></td>';
               release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
               release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
               release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
