@@ -37,7 +37,7 @@ using their defined attributes, in a streaming manner.
 
 The syntax for defining a new stream is as follows.
 
-```sql
+```ballerina
 type <record name>  {
     <attribute type> <attribute name>;
     <attribute type> <attribute name>;
@@ -57,7 +57,7 @@ The following parameters are configured in a stream definition.
 
 
 ###### Example
-```sql
+```ballerina
 type Employee {
     string name;
     int age;
@@ -66,7 +66,8 @@ type Employee {
 
 stream<Employee> employeeStream;
 ```
-The SQL given above creates a stream named `employeeStream` that is constrained by the `Employee` type, and contains the following attributes.
+
+The streaming query sample given above creates a stream named `employeeStream` that is constrained by the `Employee` type, and contains the following attributes.
 
 + `name` of type `string`
 + `age` of type `int`
@@ -103,7 +104,7 @@ This query filters out the teachers who are older than 30 years. It waits until 
 stream. Ten teachers are grouped based on their marital status, an the unique marital status count of the
 teachers is counted. Once the query is executed, its result is published to the `filteredStatusCountStream` stream.
 
-```sql
+```ballerina
     forever {
         from teacherStream where age > 18 window lengthBatch (3)
         select status, count(status) as totalCount
@@ -127,7 +128,7 @@ one by one in the order they arrive.
 ###### Syntax
 
 Each query contains an input and an output section. Some also contain a projection section. The following is a simple query with all three sections.
-```sql
+```ballerina
 from <input stream>
 select <attribute name>, <attribute name>, ...
 => (<array type> <parameter name>) {
@@ -140,7 +141,7 @@ select <attribute name>, <attribute name>, ...
 
 This query consumes events from the `tempStream` stream (that is already defined) and outputs the room temperature and the room number to the `roomTempStream` stream.
 
-```sql
+```ballerina
 type temperature {
   int deviceID;
   int roomNo;
@@ -350,7 +351,7 @@ A filter allows you to separate events that match a specific condition as the ou
 
 Filter conditions should be defined with the `where` keyword next to the input stream name as shown below.
 
-```sql
+```ballerina
 from <input stream> where <filter condition>
 select <attribute name>, <attribute name>, ...
 => ( ) {
@@ -363,7 +364,7 @@ select <attribute name>, <attribute name>, ...
 This query filters all the server rooms of which the room number is within the range of 100-210, and that have temperature greater than 40 degrees
 from the `tempStream` stream, and inserts the results into the `highTempStream` stream.
 
-```sql
+```ballerina
 from tempStream where (roomNo >= 100 && roomNo < 210) && temp > 40
 select roomNo, temp
 => (RoomTemperature [] value) {
@@ -386,7 +387,7 @@ A window can operate in a sliding or tumbling (batch) manner.
 
 The `window` prefix should be inserted next to the relevant stream in order to use a window.
 
-```sql
+```ballerina
 from <input stream> window <window name>(<parameter>, <parameter>, ... )
 select <attribute name>, <attribute name>, ...
 => ( ) {
@@ -409,7 +410,7 @@ If you want to identify the maximum temperature out of the last 10 events, you n
 The following query finds the maximum temperature out of **last 10 events** from the `tempStream` stream,
 and inserts the results into the `maxTempStream` stream.
 
-```sql
+```ballerina
 from tempStream window length(10)
 select max(temp) as maxTemp
 => ( ) {
@@ -429,7 +430,7 @@ This window operates as a batch/tumbling mode where the following 3 subsets are 
 The following query finds the maximum temperature out of **every 10 events** from the `tempStream` stream,
 and inserts the results into the `maxTempStream` stream.
 
-```sql
+```ballerina
 from tempStream window lengthBatch(10)
 select max(temp) as maxTemp
 => ( ) {
@@ -462,7 +463,7 @@ When a window is defined the aggregation is restricted within that window. If no
 
 ###### Syntax
 
-```sql
+```ballerina
 from <input stream> window <window name>(<parameter>, <parameter>, ... )
 select <aggregate function>(<parameter>, <parameter>, ... ) as <attribute name>, <attribute2 name>, ...
 => ( ) {
@@ -479,7 +480,7 @@ Aggregate parameters configured in a query  depends on the aggregate function be
 
 The following query calculates the average value for the `temp` attribute of the `tempStream` stream. This calculation is done for the last 10 minutes in a sliding manner, and the result is output as `avgTemp` to the `avgTempStream` output stream.
 
-```sql
+```ballerina
 from tempStream window time(600000)
 select avg(temp) as avgTemp, roomNo, deviceID
 => (AvgTemperature [] values) {
@@ -507,7 +508,7 @@ Group By allows you to group the aggregate based on specified attributes.
 
 The syntax for the Group By aggregate function is as follows:
 
-```sql
+```ballerina
 from <input stream> window <window name>(...)
 select <aggregate function>( <parameter>, <parameter>, ...) as <attribute1 name>, <attribute2 name>, ...
 group by <attribute1 name>, <attribute2 name> ...
@@ -521,7 +522,7 @@ group by <attribute1 name>, <attribute2 name> ...
 The following query calculates the average temperature per `roomNo` and `deviceID` combination, for events that arrive at the `tempStream` stream
 for a sliding time window of 10 minutes.
 
-```sql
+```ballerina
 from tempStream window time(600000)
 select avg(temp) as avgTemp, roomNo, deviceID
 group by roomNo, deviceID
@@ -542,7 +543,7 @@ This allows you to filter the aggregation output.
 
 The syntax for the Having clause is as follows:
 
-```sql
+```ballerina
 from <input stream> window <window name>( ... )
 select <aggregate function>( <parameter>, <parameter>, ...) as <attribute1 name>, <attribute2 name>, ...
 group by <attribute1 name>, <attribute2 name> ...
@@ -555,7 +556,7 @@ having <condition>
 ###### Example
 
 The following query calculates the average temperature per room for the last 10 minutes, and alerts if it exceeds 30 degrees.
-```sql
+```ballerina
 from tempStream window time(600000)
 select avg(temp) as avgTemp, roomNo
 group by roomNo
@@ -574,7 +575,7 @@ ascending manner. User can use 'descending' keyword to order in descending manne
 
 The syntax for the Order By clause is as follows:
 
-```sql
+```ballerina
 from <input stream> window <window name>( ... )
 select <aggregate function>( <parameter>, <parameter>, ...) as <attribute1 name>, <attribute2 name>, ...
 group by <attribute1 name>, <attribute2 name> ...
@@ -590,7 +591,7 @@ order by <attribute1 name> (ascending | descending)?, <attribute2 name> (<ascend
 The following query calculates the average temperature per per `roomNo` and `deviceID` combination for every 10 minutes, and generate output events
 by ordering them in the ascending order of the room's avgTemp and then by the descending order of roomNo.
 
-```sql
+```ballerina
 from tempStream window timeBatch(600000)
 select avg(temp) as avgTemp, roomNo, deviceID
 group by roomNo, deviceID
@@ -617,7 +618,7 @@ stream's window based on the given condition, and the output events are generate
 
 The syntax for a join is as follows:
 
-```sql
+```ballerina
 from <input stream> window <window name>(<parameter>, ... ) {unidirectional} {as <reference>}
          join <input stream> window <window name>(<parameter>,  ... ) {unidirectional} {as <reference>}
     on <join condition>
@@ -644,7 +645,7 @@ Assuming that the temperature of regulators are updated every minute.
 Following is a streaming query that controls the temperature regulators if they are not already `on`
 for all the rooms with a room temperature greater than 30 degrees.
 
-```sql
+```ballerina
 from tempStream where (temp > 30.0) window time(60000) as T
   join regulatorStream where (isOn == false) window length(1) as R
   on T.roomNo == R.roomNo
@@ -725,7 +726,7 @@ Patterns allow you to identify trends in events over a time period.
 
 The following is the syntax for a pattern query:
 
-```sql
+```ballerina
 from (every)? <event reference>=<input stream> where <filter condition> followed by
     (every)? <event reference>=<input stream where <filter condition> followed by
     ...
@@ -749,7 +750,7 @@ as (`&&`, `||`, and `!`). These are described in detail further below in this gu
 
 This query sends an alert if the temperature of a room increases by 5 degrees within 10 min.
 
-```sql
+```ballerina
 from every( e1 = tempStream ) followed by e2 = tempStream where (e1.roomNo == roomNo && (e1.temp + 5) <= temp)
     within 10 minute
 select e1.roomNo, e1.temp as initialTemp, e2.temp as finalTemp
@@ -771,7 +772,7 @@ The number of events matched per condition can be limited via condition postfixe
 
 Each matching condition can contain a collection of events with the minimum and maximum number of events to be matched as shown in the syntax below.
 
-```sql
+```ballerina
 from (every)? <event reference>=<input stream> where <filter condition> ([<min count> .. <max count>])? followed by
     ...
     (within <time gap>)?
@@ -801,7 +802,7 @@ Square brackets can be used to indicate the event index where `1` can be used as
 
 The following streaming query calculates the temperature difference between two regulator events.
 
-```sql
+```ballerina
 type Temperature {
     int deviceID,
     int roomNo,
@@ -832,7 +833,7 @@ Logical patterns match events that arrive in temporal order and correlate them w
 
 ###### Syntax
 
-```sql
+```ballerina
 from (every)? (!)? <event reference>=<input stream> where <filter condition>
           ((&& | ||) <event reference>=<input stream> where <filter condition>)? (within <time gap>)? followed by
     ...
@@ -856,7 +857,7 @@ Here the `!` pattern can be followed by either an `&&` clause or the effective p
 ###### Example
 
 Following streaming query, sends the `stop` control action to the regulator when the key is removed from the hotel room.
-```sql
+```ballerina
 
 type RegulatorState {
     int deviceID,
@@ -885,7 +886,7 @@ having action != 'none'
 
 This streaming query generates an alert if we have switch off the regulator before the temperature reaches 12 degrees.
 
-```sql
+```ballerina
 
 type RegulatorState {
     int deviceID,
@@ -912,7 +913,7 @@ select e1.roomNo as roomNo
 
 This streaming query generates an alert if the temperature does not reduce to 12 degrees within 5 minutes of switching on the regulator.
 
-```sql
+```ballerina
 
 type RegulatorState {
     int deviceID,
@@ -952,7 +953,7 @@ This allows you to detect a specified event sequence over a specified time perio
 
 The syntax for a sequence query is as follows:
 
-```sql
+```ballerina
 from (every)? <event reference>=<input stream> where <filter condition> ,
     <event reference>=<input stream where <filter condition> ,
     ...
@@ -975,7 +976,7 @@ select <event reference>.<attribute name>, <event reference>.<attribute name>, .
 
 This query generates an alert if the increase in the temperature between two consecutive temperature events exceeds one degree.
 
-```sql
+```ballerina
 from every e1=tempStream, e2=tempStream where (e1.temp + 1 < temp)
 select e1.temp as initialTemp, e2.temp as finalTemp
 => (Alert [] alerts) {
@@ -995,7 +996,7 @@ The matching events can also be retrieved using event indexes, similar to how it
 
 Each matching condition in a sequence can contain a collection of events as shown below.
 
-```sql
+```ballerina
 from (every)? <event reference>=<input stream> where <filter condition> ([0..]|[1..]|[0..1])?,
     <event reference>=<input stream where <filter condition>([0..]|[1..]|[0..1])?,
     ...
@@ -1017,7 +1018,7 @@ select <event reference>.<attribute name>, <event reference>.<attribute name>, .
 
 This streaming query identifies temperature peeks.
 
-```sql
+```ballerina
 
 type Temperature {
     int deviceID,
@@ -1041,7 +1042,7 @@ Logical sequences identify logical relationships using `&&`, `||` and `!` on con
 ###### Syntax
 The syntax for a logical sequence is as follows:
 
-```sql
+```ballerina
 from (every)? (!)? <event reference>=<input stream> where <filter condition>
           ((&& | ||) <event reference>=<input stream> where <filter condition>)? (within <time gap>)?,
     ...
@@ -1057,7 +1058,7 @@ Keywords such as `&&`, `||`, or `!` can be used to illustrate the logical relati
 
 This streaming query notifies the state when a regulator event is immediately followed by both temperature and humidity events.
 
-```sql
+```ballerina
 
 type Temperature {
     int deviceID,
@@ -1099,7 +1100,7 @@ information.
 
 The syntax of an output rate limiting configuration is as follows:
 
-```sql
+```ballerina
 from <input stream> ...
 select <attribute name>, <attribute name>, ...
 output <rate limiting configuration>
