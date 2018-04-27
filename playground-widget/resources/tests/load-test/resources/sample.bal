@@ -19,9 +19,8 @@ service<http:Service> greeting bind {} {
     // Check statement matches the output type of the
     // getStringPayload method to a string. If not it
     // throws an error.
-    string reqPayload = check request.getStringPayload();
-    response.setStringPayload("Hello, "
-                + reqPayload + "!\n CACHE_CONTROL_PLACEHOLDER" );
+    string reqPayload = check request.getTextPayload();
+    response.setTextPayload("Hello, " + reqPayload + "!\n CACHE_CONTROL_PLACEHOLDER" );
     _ = caller -> respond(response);
   }
 }
