@@ -89,7 +89,76 @@ ballerina help test
 
 ## Annotations 
 
-The following semantic model can be used to add annotations to your test functions.
+Testerina defines the following test annotations. 
+
+#### @test:BeforeSuite {}
+The function specified following the annotation will be run once before any of the tests in the test suite is run. This can be used for initializing test suite level aspects. 
+e.g :
+```ballerina
+@test:BeforeSuite {} 
+function testSuiteInitialize() { 
+   // package level test initialization logic here 
+}
+```
+#### @test:BeforeEach {}
+The function specified following the annotation will be run before every test within the test suite is run. This can be used for repeatedly initializing test level aspects before every test function. 
+
+```ballerina
+@test:BeforeEach {}
+function beforeEachTest() { 
+   // test initialization logic here to be 
+   // executed before each test being run
+}
+```
+
+#### @test:Config {}
+The function specified following the annotation is a test function. 
+
+##### Parameters:
+``` enable: {true | false} ``` : Enable or disables the test 
+Default: true
+
+```before: "<function name>" ``` :Name of the function to be run just before the test is run 
+Default: none
+
+```after: "<function name>"``` : Name of the function to be run after the test is run
+ 
+```dependsOn: ["<function names>", …]``` : A list of function names the test function depends on, and will be run before the test. The list of functions provided has no order of execution. The current test function will depend on the list provided and that list will run in whatever order, the order in which the comma separated list appears has no prominence. In case there needs to be an order, the way to do that is to define a sequence of test functions with with one point to another based on dependency using dependsOn parameter in each one's config.
+
+```dataProvider: “<function name>”``` : Specifies the name of the function that will be used to provide the value sets to execute the test against. The given Ballerina function should return an array of arrays (eg: string[][] for a test function which accepts string parameters). Each array of the returned array of arrays should have a length similar to the number of arguments of the function (eg: function testSuffixC(string input, string expected) could have a dataProvider function which returns a `string[][]` like `[ [“ab”, “abc”], [“de”, “dec”] ]` ). The length of the array of arrays represents the number of time the same test case would run (eg: in the above example the test function testSuffixC would run 2 times with input parameters “ab”, “abc” and “de”, “dec” respectively.
+
+```groups:[“<test group name”, …]```
+List of test group names (one or more) that this test belongs to You can group a given test to a list of named test groups using this configuration. In order to execute tests belonging to a selected test group, you can name the test groups to be executed when you run tests.  
+ballerina test `--groups <comma separated list of test group names> <package_name>`
+
+You can skip a list of given tests with `--disable-groups <comma separated list of test group names>` Also you can use the  `--list-groups` flag to list the groups in your tests.
+
+e.g : 
+
+``` ballerina
+@test:Config {
+    before: "beforeTestBar", 
+    after: "afterTestBar", 
+    dependsOn: ["testFunctionPre1", "testFuncctionPre2"],
+    groups: ["group1"]
+}
+function testBar() { 
+   // test logic for function bar()
+}
+```
+
+#### @test:AfterSuite {}
+The function specified following the annotation will be run once after all of the tests in the test suite is run. This can be used for cleaning up test suite level aspects. 
+The test suite covers tests related to a package. 
+
+```ballerina
+@test:AfterSuite {}
+function testSuiteCleanup() { 
+   // package level test cleanup logic here 
+}
+```
+
+Following example shows how above annotations can be used in a single file.
 
 ```ballerina
 @test:BeforeSuite {} 
@@ -131,39 +200,6 @@ function testSuiteCleanup() {
 }
 ```
 
-Testerina defines the following test annotations. 
-
-#### @test:BeforeSuite {}
-The function specified following the annotation will be run once before any of the tests in the test suite is run. This can be used for initializing test suite level aspects. 
-
-#### @test:BeforeEach {}
-The function specified following the annotation will be run before every test within the test suite is run. This can be used for repeatedly initializing test level aspects before every test function. 
-
-#### @test:Config {}
-The function specified following the annotation is a test function. 
-##### Parameters:
-``` enable: {true | false} ``` : Enable or disables the test 
-Default: true
-
-```before: "<function name>" ``` :Name of the function to be run just before the test is run 
-Default: none
-
-```after: "<function name>"``` : Name of the function to be run after the test is run
- 
-```dependsOn: ["<function names>", …]``` : A list of function names the test function depends on, and will be run before the test. The list of functions provided has no order of execution. The current test function will depend on the list provided and that list will run in whatever order, the order in which the comma separated list appears has no prominence. In case there needs to be an order, the way to do that is to define a sequence of test functions with with one point to another based on dependency using dependsOn parameter in each one's config.
-
-```dataProvider: “<function name>”``` : Specifies the name of the function that will be used to provide the value sets to execute the test against. The given Ballerina function should return an array of arrays (eg: string[][] for a test function which accepts string parameters). Each array of the returned array of arrays should have a length similar to the number of arguments of the function (eg: function testSuffixC(string input, string expected) could have a dataProvider function which returns a `string[][]` like `[ [“ab”, “abc”], [“de”, “dec”] ]` ). The length of the array of arrays represents the number of time the same test case would run (eg: in the above example the test function testSuffixC would run 2 times with input parameters “ab”, “abc” and “de”, “dec” respectively.
-
-```groups:[“<test group name”, …]```
-List of test group names (one or more) that this test belongs to You can group a given test to a list of named test groups using this configuration. In order to execute tests belonging to a selected test group, you can name the test groups to be executed when you run tests.  
-ballerina test `--groups <comma separated list of test group names> <package_name>`
-
-You can skip a list of given tests with `--disable-groups <comma separated list of test group names>` Also you can use the  `--list-groups` flag to list the groups in your tests.
-
-#### @test:AfterSuite {}
-The function specified following the annotation will be run once after all of the tests in the test suite is run. This can be used for cleaning up test suite level aspects. 
-The test suite covers tests related to a package. 
-
 ## Assertions 
 Testerina supports the following assertions 
 
@@ -174,7 +210,6 @@ import ballerina/test;
 
 @test:Config
 function testAssertTrue() {
-
     boolean value = false;
     test:assertTrue(value, msg = "AssertFalse failed");
 }
@@ -189,7 +224,6 @@ import ballerina/test;
 
 @test:Config
 function testAssertFalse() {
-
     boolean value = false;
     test:assertFalse(value, msg = "AssertFalse failed");
 }
@@ -259,15 +293,22 @@ function foo(){
 ```
 ## Service start/stop Utility
 
-Testerina provides the functionality to start/stop all services of a developer preferred ballerina package.
+Testerina provides the functionality to start/stop all services of a developer preferred ballerina package. To control service related functionality we can use the following inbuilt functions.
 
 #### test:startServices(string packageName) (boolean isSuccessful)
 
-Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an exception. e.g : ```boolean isSuccessful = test:startServices(“org.abc.services”);```
+Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an exception. 
+e.g : 
+```ballerina
+boolean isSuccessful = test:startServices(“org.abc.services”);
+```
 
 #### test:stopServices(string packageName) 
+Stops all the services of package identified by ‘packageName’.
 
-Stops all the services of package identified by ‘packageName’.```test:stopServices(“org.abc.services”);```|
+```ballerina
+test:stopServices(“org.abc.services”);
+```
 
 ## Service skeleton start/stop utility
 Testerina provides the functionality to start/stop service skeletons generated from Swagger definitions.
@@ -295,11 +336,11 @@ Testerina provides the functionality to mock a function in a different third-par
 The function specified following the annotation will be a mock function which will get triggered every time the original function is called. The original function that will be mocked should be defined using the annotation parameters.
 
 ###### Parameters:
-packageName: “<package name>”  : Name of the package where the function to be mocked resides in. 
+```packageName: “<package name>”``` : Name of the package where the function to be mocked resides in. 
 Default: 
 packageName: “.”
 
-functionName: “<function name>” : Name of the function to be mocked. 
+```functionName: “<function name>”``` : Name of the function to be mocked. 
 Default: 
 functionName: null
 
