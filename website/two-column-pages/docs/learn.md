@@ -1,22 +1,23 @@
 # Learn Ballerina
 
-Ballerina is a simple programming language whose syntax and runtime address the hard problems of integration and is designed to be integration simple. Based around the interactions of sequence diagrams, Ballerina has built-in support for common integration patterns and connectors, including distributed transactions, compensation, and circuit breakers.
+Ballerina is a simple programming language whose syntax and platform address the hard problems of integration. Ballerina is a general purpose, concurrent, transactional, statically and strongly typed programming language with both textual and graphical syntaxes. Its specialization is integration - it brings fundamental concepts, ideas and tools of distributed system integration into the language and offers a type safe, concurrent environment to implement such applications. These include distributed transactions, reliable messaging, stream processing, workflows and container management platforms.
+
 
 ## Installation
 
 ### Getting Started
 
-The [Getting Started](/learn/getting-started/) section includes instructions on how to download Ballerina and install the tools that come along with it. This also includes system requirements and instructions on how to uninstall Ballerina.
+[Getting Started](/learn/getting-started/) includes instructions on how to download Ballerina and install its tools. It also includes system requirements and uninstall instructions.
 
 ## Learning Ballerina
 
 ### Quick Tour
 
-The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ballerina, run a simple code, and get a response within seconds. It also introduces the means to quickly get started and take Ballerina for its first spin.
+The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take this dancer for a twirl and a spin!
 
 ### Ballerina by Example
 
-[Ballerina by Example](/learn/by-example/) teaches you the language incrementally with commented examples that cover every nuance of our syntax.
+[Ballerina by Example](/learn/by-example/) teaches you the Ballerina language incrementally with commented examples that cover every nuance of the syntax.
 
 ### Ballerina by Guide
 
@@ -24,11 +25,11 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ### Editors, IDEs and the Ballerina Composer
 
-<a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md" target="_blank">Editors, IDEs and the Ballerina Composer</a> is a topic that introduces you to several tools that can help create, document, and test your code. These tools can be various editors, IDEs, and a graphical visualization tool for your code called the Ballerina Composer.
+<a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md" target="_blank">Editors, IDEs and the Ballerina Composer</a> overviews the editing tools for code and diagrams. This includes language servers, editors, IDE and a graphical visualization tool called the Ballerina Composer.
 
 ### How to Structure Ballerina Code
 
-[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, and install Ballerina packages and commands with repositories that are local and remote.
+[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, create, version, search and install Ballerina packages with repositories that are local and remote.
 
 ### How to Test Ballerina Code
 
@@ -40,7 +41,7 @@ The [Quick Tour](/learn/quick-tour/) gives you instructions on how to start Ball
 
 ### How to Run and Deploy Ballerina Services
 
-[How to Deploy and Run Ballerina Services](/learn/how-to-deploy-and-run-ballerina-programs/) provides an overview of all the deployment and runtime options available in Ballerina.
+[How to Deploy and Run Ballerina Services](/learn/how-to-deploy-and-run-ballerina-programs/) provides an overview of how to configure your runtime services and to generate deployment artifacts for various targets including Docker and Kubernetes.
 
 ### How to Observe Ballerina Services
 
@@ -63,3 +64,15 @@ The <a href="/res/language-specification.pdf" download="language-specification.p
 ### FAQ
 
 [Frequently Asked Questions](/learn/faq/) about Ballerina.
+
+## Articles and Videos
+
+1. [Conceiving Ballerina](https://medium.com/ballerinalang/conceiving-ballerina-2dadf67c0503)
+2. [How Ballerina is Different From Other Programming Languages] (https://medium.com/ballerinalang/ballerina-why-it-is-different-from-other-programming-languages-cbdf5f248390)
+3. [Ballerina Dances Onto the Programming Stage](https://dzone.com/articles/ballerina-dances-onto-the-integration-stage)
+4. [Ballerina Making Sequence Diagrams Work](https://medium.com/ballerinalang/ballerina-making-sequence-diagrams-work-d0d7b3846a80)
+5. [Ballerina Thinking About Names](https://medium.com/ballerinalang/ballerina-thinking-about-names-why-restrict-to-english-c1f9803e827)
+6. [A Year of Ballerina](https://medium.com/@sanjiva.weerawarana/an-year-of-ballerina-ad0d9251415)
+7. [Ballerina Compiler Design](https://medium.com/@sameera.jayasoma/ballerina-compiler-design-3406acc2476c)
+8. [Ballerina Runtime Evolution](https://medium.com/@sameera.jayasoma/ballerina-runtime-evolution-f82305e4ab8e)
+
