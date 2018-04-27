@@ -58,7 +58,7 @@ The [API Documentation](/learn/api-docs/?latest) describes the native functions 
 
 ### Language Specification
 
-The [Language Specification](/learn/language-specification/) is a set of documents that explain more about the inner workings of the Ballerina language itself.
+The [Language Specification](/res/language-specification.pdf) is a set of documents that explain more about the inner workings of the Ballerina language itself.
 
 ### FAQ
 
