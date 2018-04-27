@@ -22,6 +22,7 @@ pre {
     background-color: #f5f6f6;
     white-space: pre-wrap;
     border-radius: 0;
+    font-size: 12px !important;
 }
 
 .code {
@@ -286,6 +287,7 @@ a.next {
     width: 60%;
     vertical-align: top;
 }
+
 .cTopInfoContainer.cTopControlsContainer .cLeftTD {
     padding-bottom: 30px;
 }
@@ -294,6 +296,22 @@ a.next {
     padding-left: 60px;
     padding-top: 75px;
     vertical-align: top;
+}
+
+.highlight code,
+.highlight pre {
+    overflow-y: hidden;
+    line-height: 15px;
+}
+
+.bbe-code-line-numbers {
+    margin-top: 2px;
+}
+
+.bbe-code-line-numbers .line-number {
+    height: 15px;
+    line-height: 15px;
+    font-size: 11px;
 }
 
 .cBBE-links {
@@ -343,31 +361,32 @@ a.next {
     padding-top: 0;
 }
 
-.bal-separator td.cCodeTD  {
-    box-shadow: -22px 13px 17px rgba(0, 0, 0, 0.2);
+.bal-separator td.cCodeTD {
+    box-shadow: -22px 13px 17px rgba(0, 0, 0, 0.2) !important;
 }
-
 
 @media (max-width: 1200px) {
     .cButtonInfoContainer {
         width: 45%;
     }
-    table.cTopBorder-table .cCodeTD , table.cBottomBorder-table .cCodeTD {
+    table.cTopBorder-table .cCodeTD,
+    table.cBottomBorder-table .cCodeTD {
         width: 73%;
     }
 }
-
 
 @media (max-width: 990px) {
     a.next p {
         text-align: right;
     }
-    td , th {
+    td,
+    th {
         display: list-item !important;
         list-style: none;
         width: 100%;
     }
-    .code , .cLeftTD{
+    .code,
+    .cLeftTD {
         width: 100%;
     }
     .cRightTD {
@@ -377,19 +396,21 @@ a.next {
         margin-left: 0;
         width: 50%;
     }
-    
     .bbe-code-line-numbers {
         display: none;
     }
-    .cBBE-body tr:not(.cOutputTr) > td.code > .highlight {
+    .cBBE-body tr:not(.cOutputTr)>td.code>.highlight {
         padding-left: 0;
     }
-    .cBBE-body tr:not(.cOutputTr) > td.code , .code.leading.cOutput , .cTR:last-child td.code {
+    .cBBE-body tr:not(.cOutputTr)>td.code,
+    .code.leading.cOutput,
+    .cTR:last-child td.code {
         background-image: none;
         border: none;
     }
-    .cTopBorder-table , .cBottomBorder-table {
-        display: none;  
+    .cTopBorder-table,
+    .cBottomBorder-table {
+        display: none;
     }
     .docs {
         padding-left: 0;
@@ -399,6 +420,4 @@ a.next {
         width: 100%;
         min-width: 100%;
     }
-    
-    
 }

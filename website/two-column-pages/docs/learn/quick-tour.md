@@ -23,7 +23,7 @@ You see a response confirming that your project is initialized. This automatical
 ballerina run hello_service.bal
 ```
 
-You will see the following response.
+You will see the following output.
 
 ```bash
 ballerina: initiating service(s) in 'hello_service.bal'
@@ -80,17 +80,18 @@ service<http:Service> hello bind listener {
         http:Response response = new;
 
         // Objects and structs can have function calls
-        response.setStringPayload("Hello Ballerina!\n");
+        response.setPayload("Hello Ballerina!\n");
 
         // Send a response back to caller
         // Errors are ignored with '_'
         // -> indicates a synchronous network-bound call
-        _ = caller -> respond(response);
+        _ = caller->respond(response);
     }
 }
 ```
 
 You can find a plugin for Ballerina in the VS Code marketplace. This helps read the `.bal` file using an ideal theme. 
+> **Tip:** You can use your [favourite editor to work on Ballerina code](https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md).
 
 ### Annotations
 
@@ -114,8 +115,6 @@ Make the resource available at the root as well and change methods to POST. Add 
        path: "/"
    }
 ```
-
-> **Tip:** You can use your [favourite editor to work on Ballerina code](https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md).
 
 ## Use a Connector
 
@@ -170,7 +169,7 @@ Now you can program Ballerina to send in a tweet.
 
 ### Program Ballerina to Send a Tweet
 
-In your `hello_service.bal` file, import the Twitter package.
+In your `hello_service.bal` file, import the ballerina/config package.
 
 ```ballerina
 import ballerina/config;
@@ -197,7 +196,7 @@ string status = check request.getStringPayload();
 ```
 > **Tip**: The check keyword means that this may return an error but I do not want to handle it here - pass it further away (to the caller function, or if this is a top-level function - generate a runtime failure.
 
-Now, we can get our response from Twitter by just calling its tweet method. Add this into the `sayHello` function as well.
+Now, we can get our response from Twitter by just calling its tweet action. Add this into the `sayHello` function as well.
 
 ```ballerina
 twitter:Status st = check twitter->tweet(status,"","");

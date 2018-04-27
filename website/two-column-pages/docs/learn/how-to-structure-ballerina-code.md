@@ -32,15 +32,15 @@ and `sample.bal` contained both a `main()` entry point and a `service`:
 import ballerina/http;
 import ballerina/io;
 
-function main (string[] args) {
+function main (string... args) {
     io:println("Hello, World!");
 }
 
 service<http:Service> hello bind { port: 9090 } {
-    resource sayHello (endpoint caller, http:Request req) {
+    sayHello (endpoint caller, http:Request req) {
         http:Response res = new;
-        res.setStringPayload("Hello, World!");
-        _ = res->response(res);
+        res.setPayload("Hello, World!");
+        _ = caller->respond(res);
     }
 }
 ```
@@ -105,9 +105,9 @@ import ballerina/http;
 service<http:Service> hello bind { port:9090 } {
 
     # The 'Request' object comes from the imported package.
-    resource sayHello (endpoint caller, http:Reqeust req) {
+    sayHello (endpoint caller, http:Reqeust req) {
         ...
-     }
+    }
 }
 ```
 
@@ -118,9 +118,9 @@ import ballerina/http as network;
 service<network:Service> hello bind { port:9090 } {
 
     # The 'Request' object comes from the imported package.
-    resource sayHello (endpoint caller, network:Reqeust req) {
+    sayHello (endpoint caller, network:Reqeust req) {
         ...
-     }
+    }
 }
 ```
 
@@ -132,7 +132,7 @@ If an import statement does not explicitly specify a version, then the compiler 
 ```ballerina
 import tyler/http version 3.0.1;
 
-function main(string[] args) {
+function main(string... args) {
   http:Person x = http:getPerson();
 }
 ```
@@ -144,7 +144,7 @@ Your program can import multiple versions of the same package.
 import tyler/http version 3.0.1 as identity3;
 import tyler/http version 4.5.0 as identity4;
 
-function main(string[] args) {
+function main(string... args) {
   identity3:Person x = identity3:getPerson();
   identity4:Person y = identity4:getPerson();
 }
