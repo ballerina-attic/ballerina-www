@@ -136,8 +136,10 @@ $ curl http://localhost:9090/hello/sayHello
 View the tracing information on Jaeger via `http://localhost:16686/` and view metrics information from Grafana dashboard 
 on `http://localhost:3000/`.
 
+Jeager sample view of dashboard for hello_world_service.bal is shown below. 
 ![Jaeger Sample Dashboard](images/jaeger-sample-dashboard.png "Jaeger Sample Dashboard")
 
+Grafana sample view of dashboard for hello_world_service.bal is shown below. 
 ![Grafana Sample Dashboard](images/grafana-sample-hello-world-service-stats.png "Grafana HelloWorld Service Sample Dashboard")
 
 **Step 7:** Visualise the logs.
@@ -251,10 +253,10 @@ Grafana HTTP Service Metrics Dashboard Panel will be as below.
 ![Grafana Service Metrics](images/grafana-ballerina-metrics-1.png "Grafana Sample Service Metrics Dashboard")
 
 Grafana HTTP Client Metrics Dashboard Panel will be as below.
-![Grafana Service Metrics](images/grafana-ballerina-metrics-2.png "Grafana Sample Client Metrics Dashboard")
+![Grafana Service Metrics](images/grafana-ballerina-metrics-3.png "Grafana Sample Client Metrics Dashboard")
 
 Grafana SQL Client Metrics Dashboard Panel will be as below.
-![Grafana Service Metrics](images/grafana-ballerina-metrics-3.png "Grafana Sample SQL Client Metrics Dashboard")
+![Grafana Service Metrics](images/grafana-ballerina-metrics-2.png "Grafana Sample SQL Client Metrics Dashboard")
 
 ## Distributed Tracing
 
