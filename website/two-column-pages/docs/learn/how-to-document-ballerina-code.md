@@ -59,7 +59,7 @@ F{{dob}} date of birth of the employee
 ```
 E{{}}
 ```
-**NOTE:** Unlike in other attributes, `E` attribute does not follow a description as it is used as an indicator.
+**NOTE:** Unlike other attributes, `E` attribute does not follow a description as it is used as an indicator.
 
 
 ### Sample Usage
