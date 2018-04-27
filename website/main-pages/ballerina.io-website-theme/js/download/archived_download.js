@@ -1,10 +1,38 @@
 $(document).ready(function() {
-    Handlebars.registerHelper('basedownloadurl', function(version, artifact) {
-        return new Handlebars.SafeString(Handlebars.Utils.escapeExpression(base_download_url + "/" + version + "/" + artifact))
+    Handlebars.registerHelper('basedownloadurl', function(version, artifact , extension) {
+        if(artifact.indexOf("intellij-idea-plugin") > -1 ){
+            return new Handlebars.SafeString(Handlebars.Utils.escapeExpression("https://plugins.jetbrains.com/plugin/9520-ballerina"))
+        } else {
+            return new Handlebars.SafeString(Handlebars.Utils.escapeExpression(base_download_url + "/" + version + "/" + artifact +(extension ? extension:"")))
+        }
     });
     Handlebars.registerHelper('releasenotesdiv', function(version) {
         return getReleaseNotesDivId(version);
     });
+    Handlebars.registerHelper('checksome', function(artifact , checksomeName) {
+        var displayVal = checksomeName;
+        if(artifact.indexOf(".json") > -1 || artifact.indexOf("intellij-idea-plugin") > -1 ){
+            displayVal = "";
+        }
+        return displayVal;
+    });
+
+    Handlebars.registerHelper('isjson', function(artifact) {
+        var isJsonClass = "";
+        if(artifact.indexOf(".json") > -1 ){
+            isJsonClass = "json_download";
+        }
+        return isJsonClass;
+    });
+
+    Handlebars.registerHelper('settarget', function(artifact) {
+        var target = "";
+        if(artifact.indexOf("intellij-idea-plugin") > -1 ){
+            target = "_blank";
+        }
+        return target;
+    });
+
     Handlebars.registerHelper('formatdate', function(date) {
         return formatDate(date);
     });
@@ -48,12 +76,33 @@ function updateReleaseTable(allData) {
                 allArtifact = allArtifact.concat(item["other-artefacts"]);
             }
 
+            // temporary adding idea plugin. THis needs to be retrieve from archived_versions_json
+            allArtifact.push("ballerina-intellij-idea-plugin");
+
             var halfWayThough = Math.ceil(allArtifact.length / 2);
             item["lefttable"] = allArtifact.slice(0, halfWayThough);
             item["righttable"] = allArtifact.slice(halfWayThough, allArtifact.length);
             elements.append(template(item));
         });
         $("#archived-versions").after(elements);
+
+        $('.json_download').click(function(){
+            var currentElement = $(this);
+            var href = currentElement.attr('href');
+            var name = currentElement.attr('name');
+            $.ajax({
+                url: href,
+                dataType: 'json',
+                async: false,
+                success: function(obj) {
+                    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
+                    currentElement.attr("href", "data:"+data);
+                    currentElement.attr("download", name);
+                    currentElement.removeClass("json_download")
+                }
+            });
+        });
+        
         allData.forEach(function(item) {
             var version = item["version"];
             var releaseNoteUrl = getReleaseNoteURL(version);
