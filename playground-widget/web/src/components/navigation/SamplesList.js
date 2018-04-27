@@ -4,6 +4,7 @@ import { Dropdown } from 'semantic-ui-react'
 import { Menu } from 'semantic-ui-react'
 import './SamplesList.css';
 
+const LINK_CLS_NAME = 'bpg-sample-link';
 class SamplesList extends React.Component {
 
     constructor(...args) {
@@ -40,14 +41,26 @@ class SamplesList extends React.Component {
             <div style={{ float: "left" }} >
                 <Menu text vertical>
                     { leftItems.map(e => {
-                        return <Menu.Item name={e.text} index={e.value} active={activeItem === e.value} onClick={this.onChange} />
+                        return <Menu.Item 
+                            className={LINK_CLS_NAME}
+                            name={e.text} 
+                            index={e.value}
+                            active={activeItem === e.value}
+                            onClick={this.onChange}
+                        />
                     })}
                 </Menu>
             </div>
             <div style={{ float: "left" }} >
                 <Menu text vertical>
                     { rightItems.map(e => {
-                        return <Menu.Item name={e.text} index={e.value} active={activeItem === e.value} onClick={this.onChange} />
+                        return <Menu.Item 
+                            className={LINK_CLS_NAME}
+                            name={e.text} 
+                            index={e.value}
+                            active={activeItem === e.value}
+                            onClick={this.onChange} 
+                        />
                     })}
                 </Menu>
             </div>
