@@ -160,7 +160,7 @@ ballerina test `--groups <comma separated list of test group names> <package_nam
 
 You can skip a list of given tests with `--disable-groups <comma separated list of test group names>` Also you can use the  `--list-groups` flag to list the groups in your tests.
 
-``` @test:AfterSuite {}```
+#### @test:AfterSuite {}
 The function specified following the annotation will be run once after all of the tests in the test suite is run. This can be used for cleaning up test suite level aspects. 
 The test suite covers tests related to a package. 
 
@@ -279,6 +279,7 @@ Start a service skeleton from a given Swagger definition in the given ballerina 
 boolean isSuccessful =  test:startServiceSkeleton("petstore.service.skeleton", "/tmp/petstore.yaml");
 ```
 When the tests are executing service skeleton related ballerina definition will be generated and started.Host names, ports you have defined in the Swagger definition will be used when starting the service. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service.
+
 #### test:stopServiceSkeleton (string packageName) 
 
 Stop a service skeleton and cleanup created directories of a given ballerina package. This function would first try to stop the service that was created using test:startServiceSkeleton function and then would try to clean up the directories created. e.g : 
