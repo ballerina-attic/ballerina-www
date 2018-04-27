@@ -29,7 +29,7 @@ Prometheus, etc. You can follow [official documentation](https://docs.docker.com
 * Setup Prometheus for collecting metrics information by following section on [Setting up Prometheus](#prometheus)
 * Setup Grafana to visualize metrics by following section on [Setting up Grafana](#grafana)
 * Setup Jaeger analyze tracing as mentioned in section [Setting up Jaeger](#jaeger-server)
-* Setup Elastic Stack only if you are interested in analysing logs by flowing section on [Setting up Elastic Stack](#elastic-stack)
+* Setup Elastic Stack only if you are interested in analysing logs by following section on [Setting up Elastic Stack](#elastic-stack)
 
 **Step 2:** Create Hello World Ballerina service.
  
@@ -52,16 +52,21 @@ service<http:Service> hello bind { port:9090 } {
 }
 ```
 
-**Step 3:** Enable monitoring and tracing.
+**Step 3:** Observe Hello World Ballerina service
 
-Observability is disabled by default and can be enabled by using the `--observe` flag or updating the configurations
-This option enables metrics monitoring and distributed tracing. 
+Observability is disabled by default and can be enabled by using the `--observe` flag or updating the configurations.
 
-Using `--observe` flag:
+When Ballerina observability is enabled, Ballerina runtime exposes internal metrics via an HTTP endpoint for metrics
+monitoring and tracers will be published to Jaeger. Prometheus should be configured to scrape metrics from
+the metrics HTTP endpoint in Ballerina.
 
-The Ballerina service is observable with default settings and is enabled when the `--observe` flag is used when you 
-start the service. This letting you collect the distributed tracing information with [Jaeger] and metrics information 
-with [Prometheus].
+Ballerina logs are logged on to the console. Therefore, the logs need to be redirected to a file, which can then be
+pushed to [Elastic Stack](#Distributed-Logging) to perform the log analysis.
+
+**Start the service using `--observe` flag:**
+
+The Ballerina service is observable with default settings when the `--observe` flag is used when starting the service.
+This lets you to collect the distributed tracing information with Jaeger and metrics information with Prometheus.
 
 ```bash
 $ ballerina run --observe hello_world_service.bal
@@ -72,7 +77,15 @@ ballerina: initiating service(s) in 'hello_world_service.bal'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
-Configuration file:
+Redirect the standard output to a file if you want to monitor logs.
+
+For example:
+
+```bash
+$ nohup ballerina run --observe hello_world_service.bal > ballerina.log &
+```
+
+**Start the service using a configuration file:**
 
 Observability of Ballerina service can also be enabled from the configuration. Create a configuration file such as 
 `ballerina.conf` and add the below configuration that starts metrics monitoring and distributed tracing with default 
@@ -100,28 +113,14 @@ ballerina: initiating service(s) in 'hello_world_service.bal'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
-**Step 4:** Monitor Ballerina logs. 
+Redirect the standard output to a file if you want to monitor logs.
 
-Ballerina logs are logged on to the console. Therefore the logs need to be redirected to a file which can then be 
-pushed to [Elastic Stack](#Distributed-Logging) to perform the log analysis. Skip this section if you don't want 
-to monitor logs.
-
-Start the service as below along with the option that you have opted to start service in step 3 (`--observe` flag or
-using configuration file).
-   
-Start Ballerina service with `--observe` flag:
-
-```bash
-$ nohup ballerina run --observe hello_world_service.bal > ballerina.log &
-```
-
-Start Ballerina service with configuration file:
-
+For example:
 ```bash
 $ nohup ballerina run --config <path-to-conf>/ballerina.conf hello_world_service.bal > ballerina.log &
 ```
 
-**Step 5:** Send few requests.
+**Step 4:** Send few requests.
  
 Send few requests to `http://localhost:9090/hello/sayHello`
 
@@ -131,10 +130,10 @@ Example cURL command:
 $ curl http://localhost:9090/hello/sayHello
 ```
 
-**Step 6:** View tracing and metrics in dashboard. 
+**Step 5:** View tracing and metrics in dashboard.
 
-View the tracing information on Jaeger via `http://localhost:16686/` and view metrics information from Grafana dashboard 
-on `http://localhost:3000/`.
+View the tracing information on Jaeger via `http://localhost:16686/` and view metrics information from Grafana
+dashboard on `http://localhost:3000/`.
 
 Sample view of Jaeger dashboard for hello_world_service.bal is shown below. 
 ![Jaeger Sample Dashboard](images/jaeger-sample-dashboard.png "Jaeger Sample Dashboard")
@@ -142,9 +141,9 @@ Sample view of Jaeger dashboard for hello_world_service.bal is shown below.
 Sample view of Grafana dashboard for hello_world_service.bal is shown below. 
 ![Grafana Sample Dashboard](images/grafana-sample-hello-world-service-stats.png "Grafana HelloWorld Service Sample Dashboard")
 
-**Step 7:** Visualize the logs.
+**Step 6:** Visualize the logs.
  
-If you have configured log analytics view the logs in Kibana via `http://localhost:5601`
+If you have configured log analytics, view the logs in Kibana via `http://localhost:5601`
 
 ![Kibana Sample Dashboard](images/kibana-sample-dashboard.png "Kibana Sample Dashboard")
 
