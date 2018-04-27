@@ -1557,8 +1557,6 @@ Since an <code>onIntentVerification</code> resource is not included, intent veri
 requests would happen automatically, if the topic specified in the request matches that specified as an annotation or
 that discovered for the annotated resource URL.</p>
 <pre><code class="language-ballerina">import ballerina/log;
-import ballerina/mime;
-import ballerina/http;
 import ballerina/websub;
 
 endpoint websub:Listener websubEP {
@@ -1568,10 +1566,10 @@ endpoint websub:Listener websubEP {
 @websub:SubscriberServiceConfig {
     path: &quot;/websub&quot;,
     subscribeOnStartUp: true,
-    topic: &quot;http://www.websubpubtopic.com&quot;,
-    hub: &quot;https://localhost:9191/websub/hub&quot;,
-    leaseSeconds: 3600000,
-    secret: &quot;Kslk30SNF2AChs2&quot;
+    topic: &quot;&lt;TOPIC_URL&gt;&quot;,
+    hub: &quot;&lt;HUB_URL&gt;&quot;,
+    leaseSeconds: 3600,
+    secret: &quot;&lt;SECRET&gt;&quot;
 }
 service websubSubscriber bind websubEP {
 
@@ -1583,7 +1581,6 @@ service websubSubscriber bind websubEP {
 </code></pre>
 <p>Explicit intent verification can be done by introducing an <code>onIntentVerification</code> resource.</p>
 <pre><code class="language-ballerina">import ballerina/log;
-import ballerina/mime;
 import ballerina/http;
 import ballerina/websub;
 
@@ -1594,10 +1591,10 @@ endpoint websub:Listener websubEP {
 @websub:SubscriberServiceConfig {
     path: &quot;/websub&quot;,
     subscribeOnStartUp: true,
-    topic: &quot;http://www.websubpubtopic.com&quot;,
-    hub: &quot;https://localhost:9191/websub/hub&quot;,
-    leaseSeconds: 3600000,
-    secret: &quot;Kslk30SNF2AChs2&quot;
+    topic: &quot;&lt;TOPIC_URL&gt;&quot;,
+    hub: &quot;&lt;HUB_URL&gt;&quot;,
+    leaseSeconds: 3600,
+    secret: &quot;&lt;SECRET&gt;&quot;
 }
 service websubSubscriber bind websubEP {
 
@@ -1617,9 +1614,9 @@ service websubSubscriber bind websubEP {
 </code></pre>
 <p>Functions are made available on the <code>websub:IntentVerificationRequest</code> to build a subscription or unsubscription
 verification response, specifying the topic to verify intent against:</p>
-<pre><code class="language-ballerina">http:Response response = request.buildSubscriptionVerificationResponse(topic = &lt;TOPIC_TO_VERIFY_FOR&gt;);
+<pre><code class="language-ballerina">http:Response response = request.buildSubscriptionVerificationResponse(topic = &quot;&lt;TOPIC_TO_VERIFY_FOR&gt;&quot;);
 </code></pre>
-<pre><code class="language-ballerina">http:Response response = request.buildUnsubscriptionVerificationResponse(topic = &lt;TOPIC_TO_VERIFY_FOR&gt;);
+<pre><code class="language-ballerina">http:Response response = request.buildUnsubscriptionVerificationResponse(topic = &quot;&lt;TOPIC_TO_VERIFY_FOR&gt;&quot;);
 </code></pre>
 <p>Ballerina publishers can start up and publish directly to the Ballerina WebSub hub.</p>
 <pre><code class="language-ballerina">import ballerina/log;
@@ -1631,7 +1628,7 @@ function main(string... args) {
     log:printInfo(&quot;Starting up the Ballerina Hub Service&quot;);
     websub:WebSubHub webSubHub = websub:startUpBallerinaHub(port = 9191);
 
-    var registrationResponse = webSubHub.registerTopic(&quot;http://www.websubpubtopic.com&quot;);
+    var registrationResponse = webSubHub.registerTopic(&quot;&lt;TOPIC_URL&gt;&quot;);
     match (registrationResponse) {
         error webSubError =&gt; log:printError(&quot;Error occurred registering topic: &quot; + webSubError.message);
         () =&gt; log:printInfo(&quot;Topic registration successful!&quot;);
@@ -1641,8 +1638,7 @@ function main(string... args) {
     runtime:sleep(20000);
 
     log:printInfo(&quot;Publishing update to internal Hub&quot;);
-    var publishResponse = webSubHub.publishUpdate(&quot;http://www.websubpubtopic.com&quot;,
-                                                   {&quot;action&quot;: &quot;publish&quot;, &quot;mode&quot;: &quot;internal-hub&quot;});
+    var publishResponse = webSubHub.publishUpdate(&quot;&lt;TOPIC_URL&gt;&quot;, {&quot;action&quot;: &quot;publish&quot;, &quot;mode&quot;: &quot;internal-hub&quot;});
     match (publishResponse) {
         error webSubError =&gt; log:printError(&quot;Error notifying hub: &quot; + webSubError.message);
         () =&gt; log:printInfo(&quot;Update notification successful!&quot;);
@@ -1664,7 +1660,7 @@ endpoint websub:Client websubHubClientEP {
 
 function main(string... args) {
 
-    var registrationResponse = websubHubClientEP-&gt;registerTopic(&quot;http://www.websubpubtopic.com&quot;);
+    var registrationResponse = websubHubClientEP-&gt;registerTopic(&quot;&lt;TOPIC_URL&gt;&quot;);
     match (registrationResponse) {
         error webSubError =&gt; log:printError(&quot;Error occurred registering topic: &quot; + webSubError.message);
         () =&gt; log:printInfo(&quot;Topic registration successful!&quot;);
@@ -1674,8 +1670,7 @@ function main(string... args) {
     runtime:sleep(10000);
 
     log:printInfo(&quot;Publishing update to remote Hub&quot;);
-    var publishResponse = websubHubClientEP-&gt;publishUpdate(&quot;http://www.websubpubtopic.com&quot;,
-                                                            {&quot;action&quot;: &quot;publish&quot;, &quot;mode&quot;: &quot;remote-hub&quot;});
+    var publishResponse = websubHubClientEP-&gt;publishUpdate(&quot;&lt;TOPIC_URL&gt;&quot;, {&quot;action&quot;: &quot;publish&quot;, &quot;mode&quot;: &quot;remote-hub&quot;});
     match (publishResponse) {
         error webSubError =&gt; log:printError(&quot;Error notifying hub: &quot; + webSubError.message);
         () =&gt; log:printInfo(&quot;Update notification successful!&quot;);
@@ -1685,19 +1680,18 @@ function main(string... args) {
 </code></pre>
 <p>The hub client endpoint can also be used by subscribers to send subscription and unsubscription requests explicitly.</p>
 <pre><code class="language-ballerina">import ballerina/log;
-import ballerina/runtime;
 import ballerina/websub;
 
 endpoint websub:Client websubHubClientEP {
-    url: &quot;https://localhost:9191/websub/hub&quot;
+    url: &quot;&lt;HUB_URL&gt;&quot;
 };
 
 function main(string... args) {
 
     // Send subscription request for a subscriber service.
-    websub:SubscriptionChangeRequest subscriptionRequest = { topic: &quot;http://www.websubpubtopic.com&quot;, 
-                                                             callback: &quot;http://localhost:8181/websub&quot;,
-                                                             secret: &quot;Kslk30SNF2AChs2&quot; };
+    websub:SubscriptionChangeRequest subscriptionRequest = { topic: &quot;&lt;TOPIC_URL&gt;&quot;, 
+                                                             callback: &quot;&lt;CALLBACK_URL&gt;&quot;,
+                                                             secret: &quot;&lt;SECRET&gt;&quot; };
 
     var response = websubHubClientEP-&gt;subscribe(subscriptionRequest);
     match (response) {
@@ -1711,8 +1705,8 @@ function main(string... args) {
     }
 
     // Send unsubscription request for the subscriber service.
-    websub:SubscriptionChangeRequest unsubscriptionRequest = { topic: &quot;http://www.websubpubtopic.com&quot;,
-                                                               callback: &quot;http://localhost:8181/websub&quot; };
+    websub:SubscriptionChangeRequest unsubscriptionRequest = { topic: &quot;&lt;TOPIC_URL&gt;&quot;,
+                                                               callback: &quot;&lt;CALLBACK_URL&gt;&quot; };
 
     response = websubHubClientEP-&gt;unsubscribe(unsubscriptionRequest);
     match (response) {
@@ -1727,6 +1721,21 @@ function main(string... args) {
 
 }
 </code></pre>
+<h2>Configuration Parameters</h2>
+<p>The Ballerina WebSub implementation allows specifying the following properties/parameters via the Ballerina Config API.</p>
+<table>
+<thead>
+<tr><th>Configuration Key</th><th>Default Value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>b7a.websub.hub.port</td><td>9292</td><td>The port to start the WebSub Hub Service on</td></tr>
+<tr><td>b7a.websub.hub.leasetime</td><td>86400</td><td>The default lease period, if not specified in a request</td></tr>
+<tr><td>b7a.websub.hub.signaturemethod</td><td>&quot;SHA256&quot;</td><td>The signature method to use for authenticated content distribution</td></tr>
+<tr><td>b7a.websub.hub.remotepublish</td><td>false</td><td>Whether publishing updates against the topics in the hub could be done by remote publishers via HTTP requests with <code>hub.mode</code> set to <code>publish</code></td></tr>
+<tr><td>b7a.websub.hub.topicregistration</td><td>true</td><td>Whether a topic needs to be registered at the hub for publishers to publish updates against the topic and for subscribers to send subscription requests for the topic</td></tr>
+<tr><td>b7a.websub.hub.enablessl</td><td>true</td><td>Whether the Hub service should be exposed over HTTPS</td></tr>
+</tbody>
+</table>
 
                                             </div>
                                             
@@ -1860,7 +1869,8 @@ function main(string... args) {
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Service">Service</a></td>
                                                      
-                                                         <td class="cSummary-table-desc"></td>
+                                                         <td class="cSummary-table-desc"><p>The object representing the WebSub Subscriber Service.</p>
+</td>
                                                      </tr>
                                                  
                                              
@@ -2743,7 +2753,8 @@ sent</p>
                                                         <td class="cAPI-table-name">hubUrl</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>The URL of the target Hub to which requests need to be sent</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -3350,6 +3361,11 @@ used</p>
                                                 <h2 id="Service">
                                                     <span class="fw-struct sm-icon"></span> public type Service object
                                                 </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>The object representing the WebSub Subscriber Service.</p>
+
+                                                </p>
                                                   
                                                 <div class="function-wrapper">
                                                     <ul>
@@ -3361,6 +3377,11 @@ used</p>
                                                    &lt;Service&gt;
                                                    </span> getEndpoint() returns (Listener) 
                                                             </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Returns the WebSub Listener endpoint to which this service binds.</p>
+
+                                                            </p>
                                                               
                                                             <div class="cReturnTableHeader"></div>
                                                             <table>
@@ -3375,7 +3396,8 @@ used</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="websub.html#Listener">Listener</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>WebSub <code>Listener</code> endpoint</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -3419,6 +3441,11 @@ used</p>
                                                    &lt;SignatureValidationFilter&gt;
                                                    </span> filterRequest(ballerina.http:Request request, ballerina.http:FilterContext context) returns (FilterResult) 
                                                             </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Represents the filtering function that will be invoked on WebSub notification requests.</p>
+
+                                                            </p>
                                                              
                                                             <table>
                                                                 <tr>
@@ -3432,14 +3459,16 @@ used</p>
                                                                     <td class="cAPI-table-name">request</td>
                                                                     <td class="cAPI-table-type"><a href="http.html#Request">ballerina.http:Request</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The request being intercepted</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">context</td>
                                                                     <td class="cAPI-table-type"><a href="http.html#FilterContext">ballerina.http:FilterContext</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The filter context</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -3457,7 +3486,8 @@ used</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="http.html#FilterResult">FilterResult</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p><code>http:FilterResult</code> The result of the filter indicating whether or not proceeding can be allowed</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -3503,7 +3533,8 @@ used</p>
                                                         <td class="cAPI-table-name">hubUrl</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>The URL of the started up Ballerina WebSub Hub</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>

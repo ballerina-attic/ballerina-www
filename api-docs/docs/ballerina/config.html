@@ -1180,7 +1180,7 @@
                                             
                                             <div class="cAPIdocsDescription">
                                                 <h2>Package overview</h2>
-<p>The <code>ballerina/config</code> package provides the Config API to read configurations from environment variables, files in the TOML format, and command-line parameters and build a consolidated set of configurations.</p>
+<p>The <code>ballerina/config</code> package provides the Config API to read configurations from environment variables, files in the TOML format, and command-line parameters, and build a consolidated set of configurations.</p>
 <p>The precedence order for configuration lookup is as follows:</p>
 <ol>
 <li>CLI parameters (used with the -e flag)</li>
@@ -1188,15 +1188,15 @@
 <li>Configuration files in the TOML format</li>
 </ol>
 <p>If a configuration is defined in both a configuration file and as an environment variable, the environment variable takes precedence. Similarly, if the same is set as a CLI parameter, it replaces the value of the environment variable. This configuration resolution happens at the start of the program execution. Configurations can be set programmatically as well.</p>
-<p>The Config API provides the capability to feed sensitive data (e.g., passwords) to Ballerina programs securely, by encrypting them.</p>
+<p>The Config API provides the capability to feed sensitive data (e.g., passwords) to Ballerina programs securely by encrypting them.</p>
 <h2>Samples</h2>
 <h3>Setting configurations</h3>
-<p>To explicitly specify a configuration file, the <code>--config</code> or <code>-c</code> flag can be used. If this flag is not set, when running a project, Ballerina looks for a <code>ballerina.conf</code> file in project root. When running a single file or a balx, it's picked from the same dir as balx or the source. The path to the configuration file can either be an absolute or a relative path.</p>
+<p>To explicitly specify a configuration file, the <code>--config</code> or <code>-c</code> flag can be used. If this flag is not set when running a project, Ballerina looks for a <code>ballerina.conf</code> file in project root. When running a single file or a <code>.balx</code>, it's picked from the same directory as the <code>.balx</code> or source. The path to the configuration file can either be an absolute or a relative path.</p>
 <pre><code class="language-sh">ballerina run my-program.bal --config /path/to/conf/file/custom-config-file-name.conf
 </code></pre>
-<p>A configuration file should conform to the TOML format. Ballerina only supports the following features of TOML: value types (string, int, float and boolean), tables and nested tables.
+<p>A configuration file should conform to the TOML format. Ballerina only supports the following features of TOML: value types (string, int, float and boolean), tables, and nested tables.
 Given below is a sample:</p>
-<pre><code>[b7a.http.tracelog]
+<pre><code class="language-toml">[b7a.http.tracelog]
 console=true
 path=&quot;./trace.log&quot;
 
@@ -1207,11 +1207,11 @@ path=&quot;./access.log&quot;
 <p>A key given inside a bracket forms a namespace. Any configuration that is specified between two such keys belongs to the namespace of the first of these keys. To access a configuration in a namespace, the fully qualified key should be given (e.g., <code>b7a.http.tracelog.path</code>).</p>
 <p>The following types can be given through a configuration file: <code>string</code>, <code>int</code>, <code>float</code>, and <code>boolean</code>. If the configuration value is not an <code>int</code>, <code>float</code>, or a <code>boolean</code>, it is considered a <code>string</code> and should always be quoted.</p>
 <p>The same configs can be set using CLI parameters as follows.</p>
-<pre><code>ballerina run my-program.bal -e b7a.http.tracelog.console=true -e b7a.http.tracelog.path=./trace.log 
+<pre><code class="language-bash">ballerina run my-program.bal -e b7a.http.tracelog.console=true -e b7a.http.tracelog.path=./trace.log 
   -e b7a.http.accesslog.console=true -e b7a.http.accesslog.path=./access.log
 </code></pre>
 <p>Configurations in a file can be overridden by environment variables. To override a particular configuration, an environment variable that matches the configuration key must be set. As periods are not allowed in environment variables, periods in a configuration key should be replaced by underscores.</p>
-<pre><code>// In Linux and Mac.
+<pre><code class="language-bash">// In Linux and Mac.
 $ export b7a_http_tracelog_path=”./trace.log”
 $ export b7a_http_accesslog_path=”./access.log”
 
@@ -1219,7 +1219,7 @@ $ export b7a_http_accesslog_path=”./access.log”
 $ set(x) b7a_http_tracelog_path=”./trace.log”
 $ set(x) b7a_http_accesslog_path=”./access.log”
 </code></pre>
-<p>If the configurations need to be shared during runtime, they can be set using the <code>setConfig()</code> function. Such configs, too, are accessible to the entire BVM (Ballerina Virtual Machine).</p>
+<p>If the configurations need to be shared during runtime, they can be set using the <code>setConfig()</code> function. Such configs are also available to the entire Ballerina Virtual Machine (BVM).</p>
 <pre><code class="language-ballerina">config:setConfig(&quot;john.country&quot;, &quot;USA&quot;);
 </code></pre>
 <h3>Reading configurations</h3>
@@ -1263,7 +1263,7 @@ path=&quot;./access.log&quot;
 map serverAlphaMap  = config:getAsMap(&quot;b7a.http.tracelog&quot;); // here, the map’s key-value pairs 
 // represent config key-value pairs
 </code></pre>
-<p>In the above configuration file, the <code>host</code> is specified as <code>@env:{TRACE_LOG_READER_HOST}</code>. When resolving the configurations, Ballerina looks for a variable named <code>TRACE_LOG_READER_HOST</code> in environment variables and maps <code>b7a.http.tracelog.host</code> to its value.</p>
+<p>In the above configuration file, the <code>host</code> is specified as <code>@env:{TRACE_LOG_READER_HOST}</code>. When resolving the configurations, Ballerina looks for a variable named <code>TRACE_LOG_READER_HOST</code> in the environment variables and maps <code>b7a.http.tracelog.host</code> to its value.</p>
 <h3>Securing configuration values</h3>
 <p>Sensitives values can be encrypted using the <code>encrypt</code> command as follows:</p>
 <pre><code class="language-sh">$ ballerina encrypt
@@ -1280,12 +1280,13 @@ Or add the following to the runtime command-line:
 -e&lt;param&gt;=@encrypted:{JqlfWNWKM6gYiaGnS0Hse1J9F/v48gUR0Kxfa5gwjcM=}
 </code></pre>
 <p>This encrypted value can then be placed in a configuration file or provided as a CLI parameter.</p>
-<pre><code>[admin]
+<pre><code class="language-bash">[admin]
 password=”@encrypted:{JqlfWNWKM6gYiaGnS0Hse1J9F/v48gUR0Kxfa5gwjcM=}”
 </code></pre>
 <h3>Reading config files with encrypted values</h3>
-<p>When trying to run a Ballerina program with a configuration file that contains encrypted values, the user is prompted to enter the secret, which was used to encrypt the values. Values are decrypted only on demand, when an encrypted value is looked up using the <code>getAsString()</code> function.</p>
-<pre><code>$ ballerina run program.bal 
+<p>When trying to run a Ballerina program with a configuration file or CLI parameters that contain encrypted values, Ballerina will first check to see if the <code>b7a.config.secret</code> configuration is set. This configuration is used to set the path to a file containing the secret required to decrypt the configurations. If it is set, the secret is read, and the secret file is deleted.</p>
+<p>If a secret file is not provided, the user is prompted to enter the secret. Values are decrypted only on demand when an encrypted value is looked up using the <code>getAsString()</code> function.</p>
+<pre><code class="language-bash">$ ballerina run program.bal 
 ballerina: enter secret for config value decryption:
 </code></pre>
 <p><strong>Note</strong>: <em>The same config file cannot contain values that are encrypted using different secrets.</em></p>

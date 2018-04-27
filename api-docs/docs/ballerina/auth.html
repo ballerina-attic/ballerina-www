@@ -1344,7 +1344,15 @@
 <li><code>authenticate</code> : authenticate the user based on a credential, which can be username/password or a token such as JWT.</li>
 <li><code>getScopes</code> : provide the scopes associated with the user. Scopes are primarily permissions that are required to access a protected resource.</li>
 </ul>
-<h2>Package Contents</h2>
+<h3>Config Auth Provider</h3>
+<p><code>ConfigAuthProvider</code> is an implementation of the <code>AuthProvider</code> interface, which uses the Ballerina configuration file
+to store usernames, passwords, scopes and the relevant associations.</p>
+<p>A user is denoted by a section in the configuration file. The password and the scopes assigned to the user are denoted
+as keys under the relevant user section, as follows:</p>
+<pre><code>[b7a.users.&lt;username&gt;]
+password=&quot;&lt;password&gt;&quot;
+scopes=&quot;&lt;comma_separated_scopes&gt;&quot;
+</code></pre>
 
                                             </div>
                                             
