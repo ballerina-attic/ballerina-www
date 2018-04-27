@@ -218,27 +218,39 @@ function foo(){
 
 Testerina provides the functionality to start/stop all services of a developer preferred ballerina package.
 
-| Signature | Description |
-|-----------|-------------|
-|```test:startServices(string packageName) (boolean isSuccessful)```|Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an exception. e.g : ```boolean isSuccessful = test:startServices(“org.abc.services”);```|
-|```test:stopServices(string packageName)```| Stops all the services of package identified by ‘packageName’.```test:stopServices(“org.abc.services”);```|
+#### test:startServices(string packageName) (boolean isSuccessful)
+
+Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an exception. e.g : ```boolean isSuccessful = test:startServices(“org.abc.services”);```
+
+#### test:stopServices(string packageName) 
+
+Stops all the services of package identified by ‘packageName’.```test:stopServices(“org.abc.services”);```|
 
 ## Service skeleton start/stop utility
 Testerina provides the functionality to start/stop service skeletons generated from Swagger definitions.
 
-| Signature | Description |
-|-----------|-------------|
-|```test:startServiceSkeleton(string packageName, string swaggerFilePath) (boolean isSuccessful)```|Start a service skeleton from a given Swagger definition in the given ballerina package. If it is successful returns true else returns false or throws an exception. e.g : ```boolean isSuccessful =  test:startServiceSkeleton("petstore.service.skeleton",                                                "/tmp/petstore.yaml");```When the tests are executing service skeleton related ballerina definition will be generated and started.Host names, ports you have defined in the Swagger definition will be used when starting the service. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service. |
-|```test:stopServiceSkeleton (string packageName) ```| Stop a service skeleton and cleanup created directories of a given ballerina package. This function would first try to stop the service that was created using test:startServiceSkeleton function and then would try to clean up the directories created. e.g : ```test:stopServiceSkeleton(“petstore.service.skeleton”);```|
+#### test:startServiceSkeleton(string packageName, string swaggerFilePath) (boolean isSuccessful)
 
+Start a service skeleton from a given Swagger definition in the given ballerina package. If it is successful returns true else returns false or throws an exception. e.g : 
+```ballerina
+boolean isSuccessful =  test:startServiceSkeleton("petstore.service.skeleton", "/tmp/petstore.yaml");
+```
+When the tests are executing service skeleton related ballerina definition will be generated and started.Host names, ports you have defined in the Swagger definition will be used when starting the service. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service.
+#### test:stopServiceSkeleton (string packageName) 
+
+Stop a service skeleton and cleanup created directories of a given ballerina package. This function would first try to stop the service that was created using test:startServiceSkeleton function and then would try to clean up the directories created. e.g : 
+```ballerina
+test:stopServiceSkeleton(“petstore.service.skeleton”);
+```
 ## Function mocks
+
 Testerina provides the functionality to mock a function in a different third-party package with your own Ballerina function which will help you to test your package independently. 
 
 #### @test:Mock {}
 
 The function specified following the annotation will be a mock function which will get triggered every time the original function is called. The original function that will be mocked should be defined using the annotation parameters.
 
-*Parameters:*
+###### Parameters:
 packageName: “<package name>”  : Name of the package where the function to be mocked resides in. 
 Default: 
 packageName: “.”
