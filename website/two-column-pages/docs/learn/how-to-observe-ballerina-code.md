@@ -65,7 +65,8 @@ pushed to [Elastic Stack](#Distributed-Logging) to perform the log analysis.
 
 **Start the service using `--observe` flag:**
 
-The Ballerina service is observable with default settings when the `--observe` flag is used when starting the service.
+The Ballerina service is observable with default settings when the `--observe` flag is used along with the Ballerina
+`run` command to start the service.
 This lets you to collect the distributed tracing information with Jaeger and metrics information with Prometheus.
 
 ```bash
