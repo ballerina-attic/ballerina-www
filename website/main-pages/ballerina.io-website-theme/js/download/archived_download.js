@@ -1,6 +1,6 @@
 $(document).ready(function() {
     Handlebars.registerHelper('basedownloadurl', function(version, artifact , extension) {
-        if(artifact.indexOf("intellij-idea-plugin") > -1 ){
+        if( isIdeaPlugin(artifact) ){
             return new Handlebars.SafeString(Handlebars.Utils.escapeExpression("https://plugins.jetbrains.com/plugin/9520-ballerina"))
         } else {
             return new Handlebars.SafeString(Handlebars.Utils.escapeExpression(base_download_url + "/" + version + "/" + artifact +(extension ? extension:"")))
@@ -11,7 +11,7 @@ $(document).ready(function() {
     });
     Handlebars.registerHelper('checksome', function(artifact , checksomeName) {
         var displayVal = checksomeName;
-        if(artifact.indexOf(".json") > -1 || artifact.indexOf("intellij-idea-plugin") > -1 ){
+        if(artifact.indexOf(".json") > -1 || isIdeaPlugin(artifact) ){
             displayVal = "";
         }
         return displayVal;
@@ -27,10 +27,19 @@ $(document).ready(function() {
 
     Handlebars.registerHelper('settarget', function(artifact) {
         var target = "";
-        if(artifact.indexOf("intellij-idea-plugin") > -1 ){
+        if(isIdeaPlugin(artifact) ){
             target = "_blank";
         }
         return target;
+    });
+
+    Handlebars.registerHelper('downloadimgurl', function(artifact, downArrowImg, rightArrowImg) {
+        if(isIdeaPlugin(artifact) ){
+            return rightArrowImg;
+        } else {
+            return downArrowImg;
+        }
+
     });
 
     Handlebars.registerHelper('formatdate', function(date) {
@@ -102,7 +111,7 @@ function updateReleaseTable(allData) {
                 }
             });
         });
-        
+
         allData.forEach(function(item) {
             var version = item["version"];
             var releaseNoteUrl = getReleaseNoteURL(version);
@@ -127,4 +136,8 @@ function getReleaseNotesDivId(version) {
 
 function getReleaseNoteURL(version) {
     return base_download_url + "/" + version + "/" + releaseNoteFilename;
+}
+
+function isIdeaPlugin(artifact){
+    return artifact && artifact === "ballerina-intellij-idea-plugin";
 }
