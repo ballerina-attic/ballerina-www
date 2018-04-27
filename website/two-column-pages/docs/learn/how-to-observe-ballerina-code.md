@@ -406,13 +406,12 @@ $ tail -f ~/wso2-ballerina/workspace/ballerina.log
 The elastic stack comprises of the following components.
 
 1. Beats - Multiple agents that ship data to Logstash or Elasticsearch. In our context, Filebeat will ship the Ballerina logs to Logstash. Filebeat should be a container running on the same host as the Ballerina service. This is so that the log file (ballerina.log) can be mounted to the Filebeat container.
-2. Logstash - Used to process and structure the log files received from Filebeat and send Elasticsearch.
+2. Logstash - Used to process and structure the log files received from Filebeat and send to Elasticsearch.
 3. Elasticsearch - Storage and indexing of the logs received by Logstash.
 4. Kibana - Visualizes the data stored in Elasticsearch
 
-Elasticsearch and Kibana are provided as cloud services from https://www.elastic.co/cloud with a trial period.
-We only have to set up Logstash and Filebeat containers on-premise if you are going ahead with cloud services.
-If you are not opting for the cloud service, you can use Docker containers for all the tools.
+Elasticsearch and Kibana are provided as [Cloud Services](https://www.elastic.co/cloud)
+Alternatively, docker containers can be used to set up Elasticsearch and Kibana as well.
 
 **Step 1:** Download the docker images using the following commands.
 
@@ -427,11 +426,11 @@ $ docker pull docker.elastic.co/beats/filebeat:6.2.4
 $ docker pull docker.elastic.co/logstash/logstash:6.2.4
 ```
 
-**Step 2:** Start elastic search and Kibana containers with below commands.
+**Step 2:** Start Elasticsearch and Kibana containers by executing below commands.
 
 ```bash
-$ docker run -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearch docker.elastic.co/elasticsearch/elasticsearch:6.2.2
-$ docker run -p 5601:5601 -h kibana --name kibana --link elasticsearch:elasticsearch docker.elastic.co/kibana/kibana:6.2.2
+$ docker run -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearch docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+$ docker run -p 5601:5601 -h kibana --name kibana --link elasticsearch:elasticsearch docker.elastic.co/kibana/kibana:6.2.4
 ```
 
 **Note:** Linux users may have to increase the `vm.max_map_count` for the Elasticsearch container to start. Execute the following command to do that.
@@ -440,17 +439,7 @@ $ docker run -p 5601:5601 -h kibana --name kibana --link elasticsearch:elasticse
 $ sudo sysctl -w vm.max_map_count=262144
 ```
 
-In `above docker` run commands,
-* `-h` flag sets the containers hostname.
-* `--link` flag is used to connect Docker container to another container. The container can consume services using the
-hostname specified.
-
-The Kibana container links to the Elasticsearch container and can use the `elasticsearch` hostname to talk to that
-container.
-
-**Step 3:** Next step is, configuring Logstash to format the Ballerina logs. In order to do this, you need to create a file named `logstash.conf` with the following content.
-
-For this example, let's save this file at `/tmp/pipeline/logstash.conf`. This should be taken note of because, when starting the Logstash container, this file should be bind-mounted onto the container. Logstash container is configured to read a configuration file named `logstash.conf` at startup.
+**Step 3:** Create a `logstash.conf` file in `/tmp/pipeline/` directory and include following content in the file.
 
 ```
 input {
@@ -466,16 +455,16 @@ filter {
 output {
     elasticsearch {
         hosts => "elasticsearch:9200"
-        index => "store"
-      document_type => "store_logs"
+        index => "ballerina"
+      document_type => "ballerina_logs"
     }
 }
 ```
 
 **Note:**
-* 3 stages are specified in the pipeline .
+* Three stages are specified in the pipeline.
 * Input is specified as beats and listens to port 5044.
-* A grok filter is used to structure the Ballerina logs.
+* A grok filter is used to structure the Ballerina logs. Any custom grok can be used to structure the logs.
 * An output is specified to push to Elasticsearch. Note here that the host is specified as `elasticsearch:9200`.
 Hence the Elasticsearch container should be linked to the Logstash container.
 
@@ -484,10 +473,10 @@ Hence the Elasticsearch container should be linked to the Logstash container.
 **Step 4:** Start the Logstash container by the following command.
 
 ```bash
-$ docker run -h logstash --name logstash --link elasticsearch:elasticsearch -it --rm -v /tmp/pipeline:/usr/share/logstash/pipeline/ -p 5044:5044 docker.elastic.co/logstash/logstash:6.2.2
+$ docker run -h logstash --name logstash --link elasticsearch:elasticsearch -it --rm -v /tmp/pipeline:/usr/share/logstash/pipeline/ -p 5044:5044 docker.elastic.co/logstash/logstash:6.2.4
 ```
 
-**Step 5:** Configure Filebeat to ship the Ballerina logs. For this, you need to create a file named filebeat.yml with the following content. As an example, let's save this file at `/tmp/filebeat.yml`.
+**Step 5:** Configure Filebeat to ship the Ballerina logs. Create a `filebeat.yml` file in `/tmp/` directory and include following content in the file.
 
 ```
 filebeat.prospectors:
@@ -503,16 +492,14 @@ output.logstash:
 
 **Step 6:** Start the Filebeat container with the following command.
 
+**Note:**
+* `-v` flag is used for bind mounting, where the container will read the file from the host machine. Provide the path to the ballerina.log file, to be bind mounted to the filebeat container.
+
 ```bash
-$ docker run -v /tmp/filebeat.yml:/usr/share/filebeat/filebeat.yml -v ballerina.log:/usr/share/filebeat/ballerina.log --link logstash:logstash docker.elastic.co/beats/filebeat:6.2.2 
+$ docker run -v /tmp/filebeat.yml:/usr/share/filebeat/filebeat.yml -v /<path-to-ballerina.log>/ballerina.log:/usr/share/filebeat/ballerina.log --link logstash:logstash docker.elastic.co/beats/filebeat:6.2.4
 ```
 
-**Note:**
-* `-v` flag is used for bind mounting, where the container will read the file from the host machine.
-Hence bind mounting the configuration file and log file means that Filebeat container should be set up in the same
-host where the log file is being generated.
-
-**Step 7:** Access Kibana to visualize the logs at `http://localhost:5601` and click on discover and perform more log analysis.
+**Step 7:** Access Kibana to visualize the logs at `http://localhost:5601`. Add an index named `ballerina` and click on `Discover` to visualize the logs.
 
 [Prometheus]: https://prometheus.io/
 [Grafana]: https://grafana.com/
