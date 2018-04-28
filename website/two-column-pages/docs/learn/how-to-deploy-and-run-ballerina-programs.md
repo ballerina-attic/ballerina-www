@@ -2,7 +2,9 @@
 
 ## Running Ballerina Programs and Services
 A Ballerina application can either be:
+
 1. A `main()` function that runs as a terminating process.
+
 2. A `service<>`, which is a hosted non-terminating process.
 
 Both of these are considered "entrypoints" for program execution. 
