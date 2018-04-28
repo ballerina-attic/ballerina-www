@@ -80,7 +80,7 @@ The <a href="/res/language-specification.pdf" download="language-specification.p
 11. [Plug Custom Native Functions Into Ballerina](https://medium.com/@lanka.vitharana/plug-custom-native-functions-to-ballerina-5bbc2e15b6ac)
 12. [Identifier Literal Support in Ballerina](https://medium.com/@lanka.vitharana/identifier-literals-in-ballerina-makes-it-possible-to-have-spaces-in-identifiers-83336ecb693e)
 13. [Any Type Support in Ballerina](https://medium.com/@lanka.vitharana/any-type-support-in-ballerina-d9651ac53695)
-14. [Data Integraiton with Ballerina]()
+14. [Data Integraiton with Ballerina](https://medium.com/@anupama.pathirage/data-integration-with-ballerina-c5bcf6de49b3)
 15. [Ballerina SQL Connector - Connecting to a Database](https://medium.com/@anupama.pathirage/ballerina-sql-connector-connecting-to-db-ee31a81c8df6)
 16. [Ballerina SQL Connector - Performing Database Operations](https://medium.com/@anupama.pathirage/ballerina-sql-connector-performing-db-operations-8e555e3688be)
 17. [Introduction to Data Integration with Ballerina](https://dzone.com/articles/introduction-to-data-integration-with-ballerina)
