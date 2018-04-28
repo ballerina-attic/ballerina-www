@@ -35,6 +35,10 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 [How to Test Ballerina Code](/learn/how-to-test-ballerina-code/) provides information on the set of building blocks used to help write tests and a set of tools used for testing.
 
+### How to Document Ballerina Code
+
+[How to Document Ballerina Code](/learn/how-to-document-ballerina-code/) gives you instructions on how to convert an unstructured document to one with a bit of structure to enable generating HTML content as API documentation.
+
 ### How to Write Secure Ballerina Services
 
 [How to Write Secure Ballerina Services](/learn/how-to-write-secure-ballerina-code/) provides guidelines on writing secure Ballerina services, while demonstrating different security features and controls available within Ballerina.
