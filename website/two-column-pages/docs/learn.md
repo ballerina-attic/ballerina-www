@@ -68,11 +68,19 @@ The <a href="/res/language-specification.pdf" download="language-specification.p
 ## Articles and Videos
 
 1. [Conceiving Ballerina](https://medium.com/ballerinalang/conceiving-ballerina-2dadf67c0503)
-2. [How Ballerina is Different From Other Programming Languages] (https://medium.com/ballerinalang/ballerina-why-it-is-different-from-other-programming-languages-cbdf5f248390)
+2. [How Ballerina is Different From Other Programming Languages](https://medium.com/ballerinalang/ballerina-why-it-is-different-from-other-programming-languages-cbdf5f248390)
 3. [Ballerina Dances Onto the Programming Stage](https://dzone.com/articles/ballerina-dances-onto-the-integration-stage)
 4. [Ballerina Making Sequence Diagrams Work](https://medium.com/ballerinalang/ballerina-making-sequence-diagrams-work-d0d7b3846a80)
 5. [Ballerina Thinking About Names](https://medium.com/ballerinalang/ballerina-thinking-about-names-why-restrict-to-english-c1f9803e827)
 6. [A Year of Ballerina](https://medium.com/@sanjiva.weerawarana/an-year-of-ballerina-ad0d9251415)
-7. [Ballerina Compiler Design](https://medium.com/@sameera.jayasoma/ballerina-compiler-design-3406acc2476c)
-8. [Ballerina Runtime Evolution](https://medium.com/@sameera.jayasoma/ballerina-runtime-evolution-f82305e4ab8e)
-
+7. [Integration Versus Integration Programming](https://medium.com/@chathura.ekanayake/9e9097983fb)
+8. [Ballerina Compiler Design](https://medium.com/@sameera.jayasoma/ballerina-compiler-design-3406acc2476c)
+9. [Ballerina Runtime Evolution](https://medium.com/@sameera.jayasoma/ballerina-runtime-evolution-f82305e4ab8e)
+10. [All You Need to Know About Native Client Connectors](https://medium.com/@lanka.vitharana/ballerina-native-client-connectors-and-all-you-need-to-know-e76957ca05dd)
+11. [Plug Custom Native Functions Into Ballerina](https://medium.com/@lanka.vitharana/plug-custom-native-functions-to-ballerina-5bbc2e15b6ac)
+12. [Identifier Literal Support in Ballerina](https://medium.com/@lanka.vitharana/identifier-literals-in-ballerina-makes-it-possible-to-have-spaces-in-identifiers-83336ecb693e)
+13. [Any Type Support in Ballerina](https://medium.com/@lanka.vitharana/any-type-support-in-ballerina-d9651ac53695)
+14. [Data Integraiton with Ballerina]()
+15. [Ballerina SQL Connector - Connecting to a Database](https://medium.com/@anupama.pathirage/ballerina-sql-connector-connecting-to-db-ee31a81c8df6)
+16. [Ballerina SQL Connector - Performing Database Operations](https://medium.com/@anupama.pathirage/ballerina-sql-connector-performing-db-operations-8e555e3688be)
+17. [Introduction to Data Integration with Ballerina](https://dzone.com/articles/introduction-to-data-integration-with-ballerina)
