@@ -20,9 +20,9 @@
         <div class="clearfix"></div>
         <div class="row cDownloads">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadLeft">
-                <a id="packWindows" id="packWindows" href="#" class="cDownload">
+                <a id="packWindows" href="#" class="cDownload" data-download="downloads" data-pack="">
                     <div>Windows</div>
-                    <div class="cSize">Installer msi <span id="packWindowsName" data-download="downloads" data-pack=""><span></div>
+                    <div class="cSize">Installer msi <span id="packWindowsName"><span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
                     <li><a id="packWindowsMd5" href="#">md5</a></li>
