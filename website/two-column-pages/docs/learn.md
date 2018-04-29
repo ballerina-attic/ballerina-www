@@ -84,3 +84,6 @@ The <a href="/res/language-specification.pdf" download="language-specification.p
 15. [Ballerina SQL Connector - Connecting to a Database](https://medium.com/@anupama.pathirage/ballerina-sql-connector-connecting-to-db-ee31a81c8df6)
 16. [Ballerina SQL Connector - Performing Database Operations](https://medium.com/@anupama.pathirage/ballerina-sql-connector-performing-db-operations-8e555e3688be)
 17. [Introduction to Data Integration with Ballerina](https://dzone.com/articles/introduction-to-data-integration-with-ballerina)
+18. [Write Integration Tests for Ballerina Using TestContainers](https://medium.com/@kevinratnasekera/write-integration-tests-for-ballerina-service-running-inside-docker-container-39fbbc20641c)
+19. [Connect with Kafka Brokers Using Ballerina](https://medium.com/@kevinratnasekera/connect-with-kafka-brokers-using-ballerina-6f5f2880b7e8)
+20. [Ballerina: Concurrency Done Right!](https://medium.com/@lafernando/ballerina-concurrency-done-right-fa0afa350cb0)
