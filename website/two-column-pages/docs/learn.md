@@ -37,7 +37,7 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### How to Document Ballerina Code
 
-[How to Document Ballerina Code](/learn/how-to-document-ballerina-code/) gives you instructions on how to convert an unstructured document to one with a bit of structure to enable generating HTML content as API documentation.
+[How to Document Ballerina Code](/learn/how-to-document-ballerina-code/) provides guidelines on documenting your Ballerina programs and packages in order to generate API documentation.
 
 ### How to Write Secure Ballerina Services
 
