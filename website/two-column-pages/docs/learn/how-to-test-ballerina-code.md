@@ -7,6 +7,7 @@ Developers and testers can cover multiple levels of the test pyramid including u
 Testerina design and usage is aligned with project and package semantics of Ballerina. You can test the project packages while you are building the project in a seamless manner using the test constructs. 
 
  ## Overview
+ 
 * Ballerina programmers can either place their test code into a single source code file or in a *tests* folder inside a *project* directory structure
 * Ballerina tests are defined using a set of  *annotations*
 * Test *assertions* can be used to verify the set of program behaviour expectations 
@@ -104,7 +105,6 @@ function testSuiteInitialize() {
 #### @test:BeforeEach {}
 The function specified following the annotation will be run before every test within the test suite is run. This can be used for repeatedly initializing test level aspects before every test function. 
 
-e.g:
 ```ballerina
 @test:BeforeEach {}
 function beforeEachTest() { 
@@ -135,7 +135,6 @@ ballerina test `--groups <comma separated list of test group names> <package_nam
 
 You can skip a list of given tests with `--disable-groups <comma separated list of test group names>` Also you can use the  `--list-groups` flag to list the groups in your tests.
 
-e.g : 
 ``` ballerina
 @test:Config {
     before: "beforeTestBar", 
@@ -151,7 +150,6 @@ function testBar() {
 #### @test:AfterSuite {}
 The function specified following the annotation will be run once after all of the tests in the test suite is run. This can be used for cleaning up test suite level aspects. The test suite covers tests related to a package. 
 
-e.g: 
 ```ballerina
 @test:AfterSuite {}
 function testSuiteCleanup() { 
@@ -207,7 +205,6 @@ Testerina supports the following assertions
 #### assertTrue( boolean expression, string message)
 Asserts that the expression is true with an optional message.
 
-e.g :
 ```ballerina
 import ballerina/test;
 
@@ -222,7 +219,6 @@ function testAssertTrue() {
 
 Asserts that the expression is false with an optional message.
 
-e.g:
 ```ballerina
 import ballerina/test;
 
@@ -237,7 +233,6 @@ function testAssertFalse() {
 
 Asserts that the actual is equal to the expected, with an optional message.
 
-e.g:
 ```ballerina
 import ballerina/test;
 
@@ -260,7 +255,6 @@ function intAdd(int a, int b) returns (int) {
 
 Asserts that the actual is not equal to the expected, with an optional message.
 
-e.g:
 ```ballerina
 import ballerina/test;
 
@@ -283,7 +277,6 @@ function intAdd(int a, int b) returns (int) {
 
 Fails the test. Useful when we want to fail a test while in execution based on a check for a condition.
 
-e.g : 
 ``` ballerina
 @test:config
 function foo(){
@@ -303,7 +296,7 @@ Testerina provides the functionality to start/stop all services of a developer p
 #### test:startServices(string packageName) (boolean isSuccessful)
 
 Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an exception. 
-e.g : 
+
 ```ballerina
 boolean isSuccessful = test:startServices(“org.abc.services”);
 ```
@@ -328,7 +321,7 @@ When the tests are executing service skeleton related ballerina definition will 
 
 #### test:stopServiceSkeleton (string packageName) 
 
-Stop a service skeleton and cleanup created directories of a given ballerina package. This function would first try to stop the service that was created using test:startServiceSkeleton function and then would try to clean up the directories created. e.g : 
+Stop a service skeleton and cleanup created directories of a given ballerina package. This function would first try to stop the service that was created using test:startServiceSkeleton function and then would try to clean up the directories created.  
 ```ballerina
 test:stopServiceSkeleton(“petstore.service.skeleton”);
 ```
