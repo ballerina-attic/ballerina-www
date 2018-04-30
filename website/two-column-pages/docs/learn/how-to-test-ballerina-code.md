@@ -308,6 +308,73 @@ Stops all the services of package identified by ‘packageName’.
 test:stopServices(“org.abc.services”);
 ```
 
+Following sample code illustrates how service start/stopping can be used in a complete progra.
+
+```ballerina
+import ballerina/http;
+import ballerina/io;
+
+boolean isHelloServiceStarted;
+
+// Before function to start the service
+function startMock () {
+    isHelloServiceStarted = test:startServices("mock");
+}
+
+// After function to stop the service
+function stopMock () {
+    test:stopServices("mock");
+}
+
+@test:Config{
+    before: "startMock",
+    after:"stopMock"
+}
+// This is the test function to test the service
+function testService () {
+    endpoint http:Client httpEndpoint {
+        url:"http://0.0.0.0:9092"
+    };
+
+    // Check whether the service is started
+    test:assertTrue(isHelloServiceStarted, msg = "Hello service failed to start");
+
+    // Send a GET request to the specified endpoint
+    var response = httpEndpoint -> get("/hello");
+    match response {
+        http:Response resp => {
+            var jsonRes = resp.getJsonPayload();
+            json expected = {"Hello":"World"};
+            test:assertEquals(jsonRes, expected);
+        }
+        http:HttpConnectorError err => test:assertFail(msg = "Failed to call the endpoint: " + uri);
+    }
+}
+
+
+// The service we are going to start and test
+endpoint http:Listener helloEP {
+    port: 9092
+};
+
+@http:ServiceConfig {
+    basePath: "/hello"
+}
+service<http:Service> HelloServiceMock bind helloEP {
+
+    @http:ResourceConfig {
+        methods:["GET"],
+        path:"/"
+    }
+    getEvents (endpoint caller, http:Request req) {
+        http:Response res = new;
+        json j = {"Hello":"World"};
+        res.setJsonPayload(j);
+        _ = caller -> respond(res);
+    }
+}
+```
+
 ## Service skeleton start/stop utility
 Testerina provides the functionality to start/stop service skeletons generated from Swagger definitions.
 
@@ -325,6 +392,51 @@ Stop a service skeleton and cleanup created directories of a given ballerina pac
 ```ballerina
 test:stopServiceSkeleton(“petstore.service.skeleton”);
 ```
+
+Following sample explains how you can start and stop a skeleton service based on a swagger definition.
+
+```ballerina
+import ballerina/http;
+import ballerina/test;
+import ballerina/config;
+
+string uri = "http://0.0.0.0:9095/v1";
+boolean isServiceSkeletonStarted;
+
+function init() {
+    // Starting the swagger based service
+    isServiceSkeletonStarted = test:startServiceSkeleton("mypackage",
+        "<PATH_TO_SWAGGER_DEFINITION>/petstore.yaml");
+}
+
+function clean() {
+    // Stopping the swager based service
+    test:stopServiceSkeleton("mypackage");
+}
+
+@test:Config{
+    before: "init", 
+    after: "clean"
+}
+function testService () {
+    endpoint http:Client httpEndpoint {
+        url:uri
+    };
+    test:assertTrue(isServiceSkeletonStarted, msg = "Service skeleton failed to start");
+
+    // Send a GET request to the specified endpoint
+    var response = httpEndpoint -> get("/pets");
+    match response {
+               http:Response resp => {
+                    var strRes = resp.getTextPayload();
+                    string expected = "Sample listPets Response";
+                    test:assertEquals(strRes, expected);
+               }
+               error err => test:assertFail(msg = "Failed to call the endpoint: "+uri);
+    }
+}
+```
+
 ## Function mocks
 
 Testerina provides the functionality to mock a function in a different third-party package with your own Ballerina function which will help you to test your package independently. 
