@@ -3,7 +3,7 @@
 Ballerina streaming is designed to process event streams in a streaming manner, detect complex event occurrences,
 and produce notifications in real-time.
 
-Ballerina streaming supports the following:
+For example, following scenarios are supported by Ballerina stream processing:
 
 * Data preprocessing
 * Generating alerts based on thresholds
@@ -13,9 +13,8 @@ Ballerina streaming supports the following:
 * Detecting temporal event patterns
 * Tracking (something over space or time)
 * Analyzing trends (rise, fall, turn, triple bottom)
-* etc.
 
-**The following topics explains the high level concepts about Ballerina streaming**
+The following topics explains the high level concepts about Ballerina streaming
 
 * [Stream](#stream)
 * [Forever Statement](#forever-statement)
@@ -24,7 +23,7 @@ Ballerina streaming supports the following:
 ### Stream
 
 A stream is a logical series of events ordered in time. Its schema is defined/constrained via the **record definition**.
-Where a record definition contains a unique name and a set of uniquely identifiable attributes with specific types 
+A record definition contains a unique name and a set of uniquely identifiable attributes with specific types
 within the record. All the events of a specific stream have the same schema (i.e., have the same attributes in the same order).
 
 ###### Purpose
@@ -80,7 +79,7 @@ processing rules.
 
 ###### Purpose
 
-The `forever` statement block let streaming queries to run continuously till the Ballerina programme is exited. 
+The `forever` statement block let streaming queries to run continuously till the Ballerina program is exited. 
 Here each streaming query within the `forever` block executes as an independent isolated processing unit to one another.
 
 ###### Grammar
@@ -103,7 +102,7 @@ streamingQueryStatement
 
 ###### Sample query
 
-This query filters out the sensor events which have the temperature greater than 30 celsius and for every 100 sensor 
+This query filters out the sensor events, which have the temperature greater than 30 celsius, and for every 100 sensor
 events, it groups them based on their type, count number of sensor events for each type and publishes all the types have
 more than one event to the `highTemperatureSensorStream` stream.
 
@@ -124,7 +123,7 @@ more than one event to the `highTemperatureSensorStream` stream.
 ### Query
 
 Each streaming query can consume one or more streams, process the events continuously in a streaming manner, 
-and simultaneously generates output.
+and simultaneously generate output.
 
 ###### Purpose
 
@@ -736,7 +735,7 @@ Following are the supported operations of a join clause.
  *  **Full outer join**
 
     The full outer join combines the results of left outer join and right outer join. `full outer join` is used as the keyword to join both the streams.
-    Here, output event are generated for each incoming event even if there are no matching events in
+    Here, output events are generated for each incoming event even if there are no matching events in
     the other stream.
 
     ###### Example
@@ -785,7 +784,7 @@ select <event reference>.<attribute name>, <event reference>.<attribute name>, .
 | `every` | `every` is an optional keyword. This defines whether the event matching should be triggered for every event arrival in the specified stream with the matching condition. <br/> When this keyword is not used, the matching is carried out only once. |
 
 Ballerina Streams also supports pattern matching with counting events and matching events in a logical order such
-as (`&&`, `||`, and `!`). These are described in detail further below in this guide.
+as (`&&`, `||`, and `!`). These are described in detail further below in this documentation.
 
 ###### Example
 
@@ -896,7 +895,7 @@ Key Word|Description
 `! <condition1> && <condition2>`| When `!` is included with `&&`, it identifies the events that match <condition2> arriving before any event that match <condition1>.|
 `! <condition> for <time period>`| When `!` is included with `for`, it allows you to identify a situation where no event that matches `<condition1>` arrives during the specified `<time period>`.  e.g.,`from ! temperatureStream where (temp > 60) for 5 second`.|
 
-Here the `!` pattern can be followed by either an `&&` clause or the effective period of `!` can be concluded after a given `<time period>`. Further in Ballerina Streams more than two streams cannot be matched with logical conditions using `&&`, `||`, or `!` clauses at this point.
+Here the `!` pattern can be followed by either an `&&` clause or the effective period of `!` can be concluded after a given `<time period>`. Further in Ballerina Streams, more than two streams cannot be matched with logical conditions using `&&`, `||`, or `!` clauses at this point.
 
 ###### Example
 
@@ -1013,7 +1012,7 @@ select <event reference>.<attribute name>, <event reference>.<attribute name>, .
 
 | Items | Description |
 |-------------------|-------------|
-| `,` | This represents the immediate next event i.e., when an event that matches the first condition arrives, the event that arrives immediately after it should match the second condition. |
+| `,` | This represents the immediate next event, i.e., when an event that matches the first condition arrives, the event that arrives immediately after it should match the second condition. |
 | `<event reference>` | This allows you to add a reference to the the matching event so that it can be accessed later for further processing. |
 | `(within <time gap>)?` | The `within` clause is optional. It defines the time duration within which all the matching events should occur. |
 | `every` | `every` is an optional keyword. This defines whether the matching event should be triggered for every event that arrives at the specified stream with the matching condition. <br/> When this keyword is not used, the matching is carried out only once. |
@@ -1155,7 +1154,7 @@ output <rate limiting configuration>
 
 }
 ```
-Ballerina Streams supports three types of output rate limiting configurations as explained in the following table:
+Ballerina stream processing supports three types of output rate limiting configurations as explained in the following table:
 
 Rate limiting configuration|Syntax| Description
 ---------|---------|--------
