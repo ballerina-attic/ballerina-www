@@ -95,7 +95,6 @@ Testerina defines the following test annotations.
 #### @test:BeforeSuite {}
 The function specified following the annotation will be run once before any of the tests in the test suite is run. This can be used for initializing test suite level aspects. 
 
-e.g :
 ```ballerina
 @test:BeforeSuite {} 
 function testSuiteInitialize() { 
