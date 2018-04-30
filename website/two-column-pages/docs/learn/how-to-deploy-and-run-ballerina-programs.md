@@ -330,7 +330,7 @@ endpoint mysql:Client employeeDB {
     port:3306,
     name:config:getAsString("db"),
     username:config:getAsString("db-username"),
-    password:config:getAsString("db-passowrd")
+    password:config:getAsString("db-password")
 };
 
 @kubernetes:ConfigMap {
@@ -360,11 +360,11 @@ endpoint http:Listener listener {
     secureSocket:{
         keyStore:{
             path:"${ballerina.home}/bre/security/ballerinaKeystore.p12",
-            password:getAsString("key-store-passowrd")
+            password:getAsString("key-store-password")
         },
         trustStore:{
             path:"${ballerina.home}/bre/security/ballerinaTruststore.p12",
-            password:getAsString("trust-store-passowrd")
+            password:getAsString("trust-store-password")
         }
     }
 };
@@ -382,9 +382,9 @@ Sample content of `data-service.toml`:
 db-host = "mysql-server"
 db = "EMPLOYEE_RECORDS"
 db-username = "root"
-db-passoword = "root"
-key-store-passoword = "abc123"
-trust-store-passoword = "xyz123"
+db-password = "root"
+key-store-password = "abc123"
+trust-store-password = "xyz123"
 ```
 
 Here we have used `@kubernetes:Deployment` to specify the Docker image name that will be created as part of building this service. The `CopyFiles` field is used to copy the MySQL JAR file into the Ballerina `bre/lib` folder.
