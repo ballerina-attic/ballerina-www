@@ -214,7 +214,7 @@ In Ballerina, functions can be defined with required parameters, defaultable par
 
 Ballerina also supports the use of function name as a function pointer. This makes it easy to understand code because there is a single function corresponding to a given function name and is more powerful than the use of function overloading.
 
-For more information on the function pointer syntax, see the [Funtion Pointer example](/learn/by-example/function-pointers/).
+For more information on the function pointer syntax, see the [Funtion Pointer example](/learn/by-example/function-pointers.html).
 
 ### What compiler technology is used to build the compiler?
 
