@@ -7,6 +7,7 @@ Developers and testers can cover multiple levels of the test pyramid including u
 Testerina design and usage is aligned with project and package semantics of Ballerina. You can test the project packages while you are building the project in a seamless manner using the test constructs. 
 
  ## Overview
+ 
 * Ballerina programmers can either place their test code into a single source code file or in a *tests* folder inside a *project* directory structure
 * Ballerina tests are defined using a set of  *annotations*
 * Test *assertions* can be used to verify the set of program behaviour expectations 
@@ -94,17 +95,42 @@ Testerina defines the following test annotations.
 #### @test:BeforeSuite {}
 The function specified following the annotation will be run once before any of the tests in the test suite is run. This can be used for initializing test suite level aspects. 
 
-e.g :
 ```ballerina
 @test:BeforeSuite {} 
 function testSuiteInitialize() { 
    // package level test initialization logic here 
 }
 ```
+
+Sample : 
+
+```ballerina
+import ballerina/test;
+import ballerina/io;
+
+// The `BeforeSuite` function is executed before all test functions in this package. 
+@test:BeforeSuite
+function beforeFunc() {
+    io:println("I'm the before suite function!");
+}
+
+// Test function.
+@test:Config
+function testFunction1() {
+    io:println("I'm in test function 1!");
+    test:assertTrue(true, msg = "Failed");
+}
+
+// Test function.
+@test:Config
+function testFunction2() {
+    io:println("I'm in test function 2!");
+    test:assertTrue(true, msg = "Failed");
+}
+```
 #### @test:BeforeEach {}
 The function specified following the annotation will be run before every test within the test suite is run. This can be used for repeatedly initializing test level aspects before every test function. 
 
-e.g:
 ```ballerina
 @test:BeforeEach {}
 function beforeEachTest() { 
@@ -113,8 +139,42 @@ function beforeEachTest() {
 }
 ```
 
+Sample :
+
+```ballerina
+import ballerina/test;
+import ballerina/io;
+
+// Before each function, which is executed before each test function
+@test:BeforeEach
+function beforeFunc() {
+    io:println("I'm the before function!");
+}
+
+// Test function
+@test:Config
+function testFunction1() {
+    io:println("I'm in test function 1!");
+    test:assertTrue(true, msg = "Failed!");
+}
+
+// Test function
+@test:Config
+function testFunction2() {
+    io:println("I'm in test function 2!");
+    test:assertTrue(true, msg = "Failed!");
+}
+
+// Test function
+@test:Config
+function testFunction3() {
+    io:println("I'm in test function 3!");
+    test:assertTrue(true, msg = "Failed!");
+}
+```
+
 #### @test:Config {}
-The function specified following the annotation is a test function. 
+The function specified following the annotation is a test function.
 
 ##### Parameters:
 ``` enable: {true | false} ``` : Enable or disables the test 
@@ -135,7 +195,6 @@ ballerina test `--groups <comma separated list of test group names> <package_nam
 
 You can skip a list of given tests with `--disable-groups <comma separated list of test group names>` Also you can use the  `--list-groups` flag to list the groups in your tests.
 
-e.g : 
 ``` ballerina
 @test:Config {
     before: "beforeTestBar", 
@@ -148,10 +207,46 @@ function testBar() {
 }
 ```
 
+Sample : 
+
+```ballerina
+import ballerina/test;
+import ballerina/io;
+
+
+function beforeFunc() {
+    // This is the before Test Function
+}
+
+function afterFunc() {
+    // This is the before Test Function
+}
+
+// This test function depends on `testFunction3`.
+@test:Config {
+    before: "beforeFunc",
+    // You can provide a list of depends on functions here.
+    dependsOn: ["testFunction3"],
+    groups:["group1"],
+    after:"afterFunc"
+}
+function testFunction1() {
+    io:println("I'm in test function 1!");
+    test:assertTrue(true, msg = "Failed!");
+}
+
+// This is a rondom test function, this will randomly execute without depending on other functions.
+// But note that other function do depend on this.
+@test:Config
+function testFunction3() {
+    io:println("I'm in test function 3!");
+    test:assertTrue(true, msg = "Failed!");
+}
+```
+
 #### @test:AfterSuite {}
 The function specified following the annotation will be run once after all of the tests in the test suite is run. This can be used for cleaning up test suite level aspects. The test suite covers tests related to a package. 
 
-e.g: 
 ```ballerina
 @test:AfterSuite {}
 function testSuiteCleanup() { 
@@ -159,45 +254,23 @@ function testSuiteCleanup() {
 }
 ```
 
-Following example shows how above annotations can be used in a single file.
+Sample :
 
 ```ballerina
-@test:BeforeSuite {} 
-function testSuiteInitialize() { 
-   // package level test initialization logic here 
+import ballerina/test;
+import ballerina/io;
+
+// Test function.
+@test:Config
+function testFunction1() {
+    io:println("I'm in test function 1!");
+    test:assertTrue(true, msg = "Failed");
 }
 
-@test:BeforeEach {}
-function beforeEachTest() { 
-   // test initialization logic here to be 
-   // executed before each test being run
-}
-
-@test:Config {}
-function testFoo() { 
-   // test logic for function foo()
-}
-
-@test:Config {
-    before: "beforeTestBar", 
-    after: "afterTestBar", 
-    dependsOn: ["testFunctionPre1", "testFuncctionPre2"]
-}
-function testBar() { 
-   // test logic for function bar()
-}
-
-function beforeTestBar() { 
-   // bar() function test initialization logic here 
-}
-
-function afterTestBar() { 
-   // bar() function test cleanup logic here 
-}
-
-@test:AfterSuite {}
-function testSuiteCleanup() { 
-   // package level test cleanup logic here 
+// The `AfterSuite` function is executed after all the test functions in this package. 
+@test:AfterSuite
+function afterFunc() {
+    io:println("I'm the after suite function!");
 }
 ```
 
@@ -207,7 +280,6 @@ Testerina supports the following assertions
 #### assertTrue( boolean expression, string message)
 Asserts that the expression is true with an optional message.
 
-e.g :
 ```ballerina
 import ballerina/test;
 
@@ -222,7 +294,6 @@ function testAssertTrue() {
 
 Asserts that the expression is false with an optional message.
 
-e.g:
 ```ballerina
 import ballerina/test;
 
@@ -237,7 +308,6 @@ function testAssertFalse() {
 
 Asserts that the actual is equal to the expected, with an optional message.
 
-e.g:
 ```ballerina
 import ballerina/test;
 
@@ -260,7 +330,6 @@ function intAdd(int a, int b) returns (int) {
 
 Asserts that the actual is not equal to the expected, with an optional message.
 
-e.g:
 ```ballerina
 import ballerina/test;
 
@@ -283,7 +352,6 @@ function intAdd(int a, int b) returns (int) {
 
 Fails the test. Useful when we want to fail a test while in execution based on a check for a condition.
 
-e.g : 
 ``` ballerina
 @test:config
 function foo(){
@@ -302,17 +370,84 @@ Testerina provides the functionality to start/stop all services of a developer p
 
 #### test:startServices(string packageName) (boolean isSuccessful)
 
-Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an exception. 
-e.g : 
+Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an error. 
+
 ```ballerina
-boolean isSuccessful = test:startServices(“org.abc.services”);
+boolean isSuccessful = test:startServices(“abc.services”);
 ```
 
 #### test:stopServices(string packageName) 
 Stops all the services of package identified by ‘packageName’.
 
 ```ballerina
-test:stopServices(“org.abc.services”);
+test:stopServices(“abc.services”);
+```
+
+Following sample code illustrates how service start/stop can be used in a complete program.
+
+```ballerina
+import ballerina/http;
+import ballerina/io;
+
+boolean isHelloServiceStarted;
+
+// Before function to start the service
+function startMock () {
+    isHelloServiceStarted = test:startServices("mock");
+}
+
+// After function to stop the service
+function stopMock () {
+    test:stopServices("mock");
+}
+
+@test:Config{
+    before: "startMock",
+    after:"stopMock"
+}
+// This is the test function to test the service
+function testService () {
+    endpoint http:Client httpEndpoint {
+        url:"http://0.0.0.0:9092"
+    };
+
+    // Check whether the service is started
+    test:assertTrue(isHelloServiceStarted, msg = "Hello service failed to start");
+
+    // Send a GET request to the specified endpoint
+    var response = httpEndpoint -> get("/hello");
+    match response {
+        http:Response resp => {
+            var jsonRes = resp.getJsonPayload();
+            json expected = {"Hello":"World"};
+            test:assertEquals(jsonRes, expected);
+        }
+        http:HttpConnectorError err => test:assertFail(msg = "Failed to call the endpoint: " + uri);
+    }
+}
+
+
+// The service we are going to start and test
+endpoint http:Listener helloEP {
+    port: 9092
+};
+
+@http:ServiceConfig {
+    basePath: "/hello"
+}
+service<http:Service> HelloServiceMock bind helloEP {
+
+    @http:ResourceConfig {
+        methods:["GET"],
+        path:"/"
+    }
+    getEvents (endpoint caller, http:Request req) {
+        http:Response res = new;
+        json j = {"Hello":"World"};
+        res.setJsonPayload(j);
+        _ = caller -> respond(res);
+    }
+}
 ```
 
 ## Service skeleton start/stop utility
@@ -328,10 +463,55 @@ When the tests are executing service skeleton related ballerina definition will 
 
 #### test:stopServiceSkeleton (string packageName) 
 
-Stop a service skeleton and cleanup created directories of a given ballerina package. This function would first try to stop the service that was created using test:startServiceSkeleton function and then would try to clean up the directories created. e.g : 
+Stop a service skeleton and cleanup created directories of a given ballerina package. This function would first try to stop the service that was created using test:startServiceSkeleton function and then would try to clean up the directories created.  
 ```ballerina
 test:stopServiceSkeleton(“petstore.service.skeleton”);
 ```
+
+Following sample explains how you can start and stop a skeleton service based on a swagger definition.
+
+```ballerina
+import ballerina/http;
+import ballerina/test;
+import ballerina/config;
+
+string uri = "http://0.0.0.0:9095/v1";
+boolean isServiceSkeletonStarted;
+
+function init() {
+    // Starting the swagger based service
+    isServiceSkeletonStarted = test:startServiceSkeleton("mypackage",
+        "<PATH_TO_SWAGGER_DEFINITION>/petstore.yaml");
+}
+
+function clean() {
+    // Stopping the swager based service
+    test:stopServiceSkeleton("mypackage");
+}
+
+@test:Config{
+    before: "init", 
+    after: "clean"
+}
+function testService () {
+    endpoint http:Client httpEndpoint {
+        url:uri
+    };
+    test:assertTrue(isServiceSkeletonStarted, msg = "Service skeleton failed to start");
+
+    // Send a GET request to the specified endpoint
+    var response = httpEndpoint -> get("/pets");
+    match response {
+               http:Response resp => {
+                    var strRes = resp.getTextPayload();
+                    string expected = "Sample listPets Response";
+                    test:assertEquals(strRes, expected);
+               }
+               error err => test:assertFail(msg = "Failed to call the endpoint: "+uri);
+    }
+}
+```
+
 ## Function mocks
 
 Testerina provides the functionality to mock a function in a different third-party package with your own Ballerina function which will help you to test your package independently. 
