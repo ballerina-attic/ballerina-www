@@ -20,7 +20,7 @@
         <div class="clearfix"></div>
         <div class="row cDownloads">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadLeft">
-                <a id="packWindows" id="packWindows" href="#" class="cDownload">
+                <a id="packWindows" href="#" class="cDownload" data-download="downloads" data-pack="">
                     <div>Windows</div>
                     <div class="cSize">Installer msi <span id="packWindowsName"><span></div>
                 </a>
@@ -31,7 +31,7 @@
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
-                <a id="packLinux" href="#" class="cDownload">
+                <a id="packLinux" href="#" class="cDownload" data-download="downloads" data-pack="">
                     <div>Linux</div>
                     <div class="cSize">deb Package <span id="packLinuxName"></span></div>
                 </a>
@@ -42,7 +42,7 @@
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
-                <a id="packMac" href="#" class="cDownload">
+                <a id="packMac" href="#" class="cDownload" data-download="downloads" data-pack="">
                     <div>MacOS</div>
                     <div class="cSize">Installer pkg <span id="packMacName"></span></div>
                 </a>

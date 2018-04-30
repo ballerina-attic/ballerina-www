@@ -25,18 +25,21 @@ $(document).ready(function() {
 
         $("#packWindowsName").html("(" + windows_pack_size + ")");
         $("#packWindows").attr("href", product_dist_path + windows_pack);
+        $("#packWindows").attr("data-pack", windows_pack);
         $("#packWindowsMd5").attr("href", product_dist_path + windows_pack + ".md5");
         $("#packWindowsSha1").attr("href", product_dist_path + windows_pack + ".sha1");
         $("#packWindowsAsc").attr("href", product_dist_path + windows_pack + ".asc");
 
         $("#packLinuxName").html("(" + linux_pack_size + ")");
         $("#packLinux").attr("href", product_dist_path + linux_pack);
+        $("#packLinux").attr("data-pack", linux_pack);
         $("#packLinuxMd5").attr("href", product_dist_path + linux_pack + ".md5");
         $("#packLinuxSha1").attr("href", product_dist_path + linux_pack + ".sha1");
         $("#packLinuxAsc").attr("href", product_dist_path + linux_pack + ".asc");
 
         $("#packMacName").html("(" + macos_pack_size + ")");
         $("#packMac").attr("href", product_dist_path + macos_pack);
+        $("#packMac").attr("data-pack", macos_pack);
         $("#packMacMd5").attr("href", product_dist_path + macos_pack + ".md5");
         $("#packMacSha1").attr("href", product_dist_path + macos_pack + ".sha1");
         $("#packMacAsc").attr("href", product_dist_path + macos_pack + ".asc");
@@ -48,7 +51,7 @@ $(document).ready(function() {
 
             release_content = "<tr>";
             release_content += '<td style="width: 96%">' + value + '</td>';
-            release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '" class="cDownloadLinkIcon"><img src="../img/download-bg-green-fill.svg"></a></td>';
+            release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '" class="cDownloadLinkIcon" data-download="downloads" data-pack="'+value+'"><img src="../img/download-bg-green-fill.svg"></a></td>';
             release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
             release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
             release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
@@ -65,13 +68,13 @@ $(document).ready(function() {
           }else{
 
             var data;
-            $.getJSON(product_dist_path + value, function(obj) {console.log(obj);
+            $.getJSON(product_dist_path + value, function(obj) {
               var obj = obj;
               jsondata = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
 
               release_content = "<tr>";
               release_content += '<td style="width: 96%">' + value + '</td>';
-              release_content += '<td style="width: 1%; white-space: nowrap;"><a href="data:' + jsondata + '" download="'+value+'" class="cDownloadLinkIcon"><img src="../img/download-bg-green-fill.svg"></a></td>';
+              release_content += '<td style="width: 1%; white-space: nowrap;"><a href="data:' + jsondata + '" download="'+value+'" class="cDownloadLinkIcon" data-download="downloads" data-pack="'+value+'-'+version+'"><img src="../img/download-bg-green-fill.svg"></a></td>';
               release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
               release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
               release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
@@ -90,7 +93,7 @@ $(document).ready(function() {
         //IDEA plugin URL
         release_content = "<tr>";
         release_content += '<td style="width: 96%">ballerina-intellij-idea-plugin</td>';
-        release_content += '<td style="width: 1%; white-space: nowrap;"><a href="https://plugins.jetbrains.com/plugin/9520-ballerina" target="_blank" class="cDownloadLinkIcon"><img src="../img/right-bg-green-fill.svg"></a></td>';
+        release_content += '<td style="width: 1%; white-space: nowrap;"><a href="https://plugins.jetbrains.com/plugin/9520-ballerina" target="_blank" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-intellij-idea-plugin-'+version+'"><img src="../img/right-bg-green-fill.svg"></a></td>';
         release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
         release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
         release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
@@ -128,7 +131,7 @@ $(document).ready(function() {
           if(value.indexOf(".json") === -1){
             release_content = "<tr>";
             release_content += '<td style="width: 96%">' + value + '</td>';
-            release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '" class="cDownloadLinkIcon"><img src="../img/download-bg-green-fill.svg"></a></td>';
+            release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '" class="cDownloadLinkIcon" data-download="downloads" data-pack="'+value+'"><img src="../img/download-bg-green-fill.svg"></a></td>';
             release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '.md5">md5</a></td>';
             release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '.sha1">SHA-1</a></td>';
             release_content += '<td style="width: 1%; white-space: nowrap;"><a href="' + product_dist_path + value + '.asc">asc</a></td>';
@@ -145,13 +148,13 @@ $(document).ready(function() {
           }else{
 
             var data;
-            $.getJSON(product_dist_path + value, function(obj) {console.log(obj);
+            $.getJSON(product_dist_path + value, function(obj) {
               var obj = obj;
               jsondata = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
 
               release_content = "<tr>";
               release_content += '<td style="width: 96%">' + value + '</td>';
-              release_content += '<td style="width: 1%; white-space: nowrap;"><a href="data:' + jsondata + '" download="'+value+'" class="cDownloadLinkIcon"><img src="../img/download-bg-green-fill.svg"></a></td>';
+              release_content += '<td style="width: 1%; white-space: nowrap;"><a href="data:' + jsondata + '" download="'+value+'" class="cDownloadLinkIcon" data-download="downloads" data-pack="'+value+"-"+version+'"><img src="../img/download-bg-green-fill.svg"></a></td>';
               release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
               release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
               release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
@@ -171,7 +174,7 @@ $(document).ready(function() {
         //IDEA plugin URL
         release_content = "<tr>";
         release_content += '<td style="width: 96%">ballerina-intellij-idea-plugin</td>';
-        release_content += '<td style="width: 1%; white-space: nowrap;"><a href="https://plugins.jetbrains.com/plugin/9520-ballerina" target="_blank" class="cDownloadLinkIcon"><img src="../img/right-bg-green-fill.svg"></a></td>';
+        release_content += '<td style="width: 1%; white-space: nowrap;"><a href="https://plugins.jetbrains.com/plugin/9520-ballerina" target="_blank" class="cDownloadLinkIcon" data-pack="ballerina-intellij-idea-plugin-'+version+'"><img src="../img/right-bg-green-fill.svg"></a></td>';
         release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
         release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
         release_content += '<td style="width: 1%; white-space: nowrap;"></td>';
