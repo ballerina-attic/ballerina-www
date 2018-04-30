@@ -2,12 +2,13 @@
 
 Ballerina has a built-in documentation framework named Docerina. The documentation framework allows you to write unstructured document with a bit of structure to enable generating HTML content as API documentation.
 
-Developers can write the documentation inline with the Ballerina source code using the lightweight [markdown](https://en.wikipedia.org/wiki/Markdown) markup language. They can mark special occurrences such as parameters, return parameters, fields, endpoints within the documentation code using documentation attributes. Once the code is documented, developers can generate a basic HTML version of their ballerina packages using the `ballerina doc` command. You are encouraged to have your custom themes and styles, to have a better presentation of your Ballerina documentation. 
+Developers can write the documentation inline with the Ballerina source code using the lightweight [markdown](https://daringfireball.net/projects/markdown/syntax) markup language. They can mark special occurrences such as parameters, return parameters, fields, endpoints within the documentation code using documentation attributes. Once the code is documented, developers can generate a basic HTML version of their ballerina packages using the `ballerina doc` command. You are encouraged to have your custom themes and styles, to have a better presentation of your Ballerina documentation. 
 
 Ballerina design and usage is aligned with project and package semantics of Ballerina. You can generate documentation for the project packages using the ``ballerina doc`` command.
 
 
- ## Overview
+## Overview
+
 * Ballerina programmers can place the documentation inline with the source code using documentation syntax.
 * Ballerina records, type definitions, objects, global variables, annotations, endpoints can be documented using the documentation syntax.
 * Fields, parameters, return parameters, endpoints can be marked using documentation attributes.
@@ -27,8 +28,9 @@ eg:
 ```
 documentation {
    Provides the HTTP actions for interacting with an HTTP server. Apart from the standard 
-   HTTP methods, `forward()` and `execute()` functions are provided. More complex and specific 
-   endpoint types can be created by wrapping this generic ```HTTP``` actions implementation.
+   HTTP methods, `forward()` and `execute()` functions are provided. More complex and 
+   specific endpoint types can be created by wrapping this generic ```HTTP``` actions 
+   implementation.
    ...
 }
 ```
@@ -101,14 +103,18 @@ A typical project structure of a Ballerina project is like this;
                        # Project repository is built or downloaded package dependencies
 
   main.bal             # Part of the “unnamed” package, compiled into a main.balx
-                       # You can have many files in the "unnamed" package, though unadvisable
+                       # You can have many files in the "unnamed" package, 
+                       # though unadvisable
 
   package1/            # The source in this directory will be named “<org-name>/package1” 
-    Package.md         # Optional, contains descriptive metadata for display at Ballerina Central
-    *.bal              # In this dir and recursively in subdirs except tests/ and resources/
+    Package.md         # Optional, contains descriptive metadata for display at 
+                       # Ballerina Central
+    *.bal              # In this dir and recursively in subdirs except tests/ and 
+                       # resources/
     [tests/]           # Package-specific unit and integration tests
     [resources/]       # Package-specific resources
-      *.jar            # Optional, if package includes native Java libraries to link + embed 
+      *.jar            # Optional, if package includes native Java libraries to 
+                       # link + embed 
     
   packages.can.include.dots.in.dir.name/
     Package.md
@@ -116,7 +122,8 @@ A typical project structure of a Ballerina project is like this;
     *.jar
     [tests/]         
     [resources/]     
-      *.jar            # Optional, if package includes native Java libraries to link + embed 
+      *.jar            # Optional, if package includes native Java libraries to 
+                       # link + embed 
 
   [tests/]             # Tests executed for every package in the project
   [resources/]         # Resources included with every package in the project
@@ -128,7 +135,7 @@ A typical project structure of a Ballerina project is like this;
 ```
 
 `ballerina doc` command will read the `Package.md` and append it in the generated HTML file.
-Please check https://ballerina.io/learn/api-docs/ballerina/http.html for a sample HTML that has a `Package.md` content at the top, followed by the other package constructs.
+Please check [HTTP package documentation](https://ballerina.io/learn/api-docs/ballerina/http.html) for a sample HTML that has a `Package.md` content at the top, followed by the other package constructs.
 
 ## Generating Ballerina Documentation
 
@@ -167,16 +174,16 @@ HTML file written: /private/tmp/myproject/api-docs/html/package-list.html
 ```
 
 `api-docs/html` folder would contain following files;
- ```bash
- ls api-docs/html/
+```bash
+$ ls api-docs/html/
 docerina-theme    index.html    math.html   package-list.html 
 time.html
 ```
 
-`index.html`  - contains an index to the ballerina project documentation
-`math.html` - contains the content of the package named `docker`
-`package-list.html` - contains the package list which will be useful to find out the list of packages.
-`docerina-theme` - folder contains basic styles shipped by default with the pack.
+* `index.html`  - contains an index to the ballerina project documentation
+* `math.html` - contains the content of the package named `docker`
+* `package-list.html` - contains the package list which will be useful to find out the list of packages.
+* `docerina-theme` - folder contains basic styles shipped by default with the pack.
 
 If you want to generate documentation for a selected Ballerina package, then you can execute the following command from the ballerina project root directory;
 
