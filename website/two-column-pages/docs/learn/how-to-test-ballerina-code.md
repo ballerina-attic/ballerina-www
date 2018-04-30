@@ -101,6 +101,33 @@ function testSuiteInitialize() {
    // package level test initialization logic here 
 }
 ```
+
+Sample : 
+
+```ballerina
+import ballerina/test;
+import ballerina/io;
+
+// The `BeforeSuite` function is executed before all test functions in this package. 
+@test:BeforeSuite
+function beforeFunc() {
+    io:println("I'm the before suite function!");
+}
+
+// Test function.
+@test:Config
+function testFunction1() {
+    io:println("I'm in test function 1!");
+    test:assertTrue(true, msg = "Failed");
+}
+
+// Test function.
+@test:Config
+function testFunction2() {
+    io:println("I'm in test function 2!");
+    test:assertTrue(true, msg = "Failed");
+}
+```
 #### @test:BeforeEach {}
 The function specified following the annotation will be run before every test within the test suite is run. This can be used for repeatedly initializing test level aspects before every test function. 
 
@@ -112,8 +139,42 @@ function beforeEachTest() {
 }
 ```
 
+Sample :
+
+```ballerina
+import ballerina/test;
+import ballerina/io;
+
+// Before each function, which is executed before each test function
+@test:BeforeEach
+function beforeFunc() {
+    io:println("I'm the before function!");
+}
+
+// Test function
+@test:Config
+function testFunction1() {
+    io:println("I'm in test function 1!");
+    test:assertTrue(true, msg = "Failed!");
+}
+
+// Test function
+@test:Config
+function testFunction2() {
+    io:println("I'm in test function 2!");
+    test:assertTrue(true, msg = "Failed!");
+}
+
+// Test function
+@test:Config
+function testFunction3() {
+    io:println("I'm in test function 3!");
+    test:assertTrue(true, msg = "Failed!");
+}
+```
+
 #### @test:Config {}
-The function specified following the annotation is a test function. 
+The function specified following the annotation is a test function.
 
 ##### Parameters:
 ``` enable: {true | false} ``` : Enable or disables the test 
@@ -146,6 +207,43 @@ function testBar() {
 }
 ```
 
+Sample : 
+
+```ballerina
+import ballerina/test;
+import ballerina/io;
+
+
+function beforeFunc() {
+    // This is the before Test Function
+}
+
+function afterFunc() {
+    // This is the before Test Function
+}
+
+// This test function depends on `testFunction3`.
+@test:Config {
+    before: "beforeFunc",
+    // You can provide a list of depends on functions here.
+    dependsOn: ["testFunction3"],
+    groups:["group1"],
+    after:"afterFunc"
+}
+function testFunction1() {
+    io:println("I'm in test function 1!");
+    test:assertTrue(true, msg = "Failed!");
+}
+
+// This is a rondom test function, this will randomly execute without depending on other functions.
+// But note that other function do depend on this.
+@test:Config
+function testFunction3() {
+    io:println("I'm in test function 3!");
+    test:assertTrue(true, msg = "Failed!");
+}
+```
+
 #### @test:AfterSuite {}
 The function specified following the annotation will be run once after all of the tests in the test suite is run. This can be used for cleaning up test suite level aspects. The test suite covers tests related to a package. 
 
@@ -156,45 +254,23 @@ function testSuiteCleanup() {
 }
 ```
 
-Following example shows how above annotations can be used in a single file.
+Sample :
 
 ```ballerina
-@test:BeforeSuite {} 
-function testSuiteInitialize() { 
-   // package level test initialization logic here 
+import ballerina/test;
+import ballerina/io;
+
+// Test function.
+@test:Config
+function testFunction1() {
+    io:println("I'm in test function 1!");
+    test:assertTrue(true, msg = "Failed");
 }
 
-@test:BeforeEach {}
-function beforeEachTest() { 
-   // test initialization logic here to be 
-   // executed before each test being run
-}
-
-@test:Config {}
-function testFoo() { 
-   // test logic for function foo()
-}
-
-@test:Config {
-    before: "beforeTestBar", 
-    after: "afterTestBar", 
-    dependsOn: ["testFunctionPre1", "testFuncctionPre2"]
-}
-function testBar() { 
-   // test logic for function bar()
-}
-
-function beforeTestBar() { 
-   // bar() function test initialization logic here 
-}
-
-function afterTestBar() { 
-   // bar() function test cleanup logic here 
-}
-
-@test:AfterSuite {}
-function testSuiteCleanup() { 
-   // package level test cleanup logic here 
+// The `AfterSuite` function is executed after all the test functions in this package. 
+@test:AfterSuite
+function afterFunc() {
+    io:println("I'm the after suite function!");
 }
 ```
 
@@ -294,20 +370,20 @@ Testerina provides the functionality to start/stop all services of a developer p
 
 #### test:startServices(string packageName) (boolean isSuccessful)
 
-Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an exception. 
+Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an error. 
 
 ```ballerina
-boolean isSuccessful = test:startServices(“org.abc.services”);
+boolean isSuccessful = test:startServices(“abc.services”);
 ```
 
 #### test:stopServices(string packageName) 
 Stops all the services of package identified by ‘packageName’.
 
 ```ballerina
-test:stopServices(“org.abc.services”);
+test:stopServices(“abc.services”);
 ```
 
-Following sample code illustrates how service start/stopping can be used in a complete progra.
+Following sample code illustrates how service start/stop can be used in a complete program.
 
 ```ballerina
 import ballerina/http;
