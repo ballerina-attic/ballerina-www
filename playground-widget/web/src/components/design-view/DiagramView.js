@@ -83,14 +83,17 @@ class DiagramView extends React.Component {
     render() {
         const { model } = this.state;
         return (
-        <div className="interaction-diagram" style={{ ...this.props.size }} >
+        <div className="interaction-diagram ballerina-editor" style={{ ...this.props.size }} >
             {!model &&
                     <Dimmer active inverted>
                         <Loader inverted />
                     </Dimmer>
                 }
             {model &&
-                <Diagram mode='action' fitToWidth={true} model={model} { ...this.props.size } />
+                <Diagram mode='action' 
+                    fitToWidth={true} 
+                    model={model} 
+                    { ...this.props.size } />
             }
         </div>
         );

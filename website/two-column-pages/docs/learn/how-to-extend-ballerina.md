@@ -1,4 +1,4 @@
-# How to Extend Ballerina 
+# How to Extend Ballerina
 
 Developers and third parties can extend the behavior of Ballerina and package these customizations for use by others. There are three ways to customize the behavior of Ballerina:
 1. Package and distribute new client connectors to third party endpoints, such as databases, infrastructure and APIs.
@@ -46,7 +46,7 @@ function main(string[] args) {
 }
 ```
 
-In this example, the endpoint is going to instantiate a `TwilioClient` object. This object takes an input parameter defined as a `clientConfig` object. The `clientConfig` object includes an `auth` object which is part of the `http:Client` connector, which is distributed as part of the standard library. 
+In this example, the endpoint is going to instantiate a `TwilioClient` object. This object takes an input parameter defined as a `clientConfig` object. The `clientConfig` object includes an `auth` object which is part of the `http:Client` connector, which is distributed as part of the standard library.
 
 The Twilio connector then defines a custom function, `getAccountDetails()` which is called by the end user to interact with the endpoint. The package developer will also implement a `TwilioClient::init()` method which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
 
@@ -120,11 +120,11 @@ public function TwilioClient::init (TwilioConfiguration twilioConfig) {
     }
 
     http:AuthConfig authConfig = {scheme:"basic", username:username , password:password};
-    
+
     // We can reference the fields of the TwilioClient object
     self.twilioConnector.accountSid = username;
     twilioConfig.clientConfig.auth = authConfig;
-    
+
     // Calling initialize of the embedded http client object
     self.twilioConnector.basicClient.init(twilioConfig.clientConfig);
 }
@@ -190,7 +190,7 @@ Once you have built the package, you can `ballerina push <org-name>/<package-nam
 
 You will need to have an account at Ballerina Central and your CLI token from central placed into your Ballerina settings. The `ballerina deploy` command will initiate an OAuth flow that automates this for you, even if you do not already have an existing account on Ballerina Central.
 
-For more information on how to structure the code you write, see [How to Structure Ballerina Code](/how-to-structure-ballerina-code/.)
+For more information on how to structure the code you write, see [How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/).
 
 ### Learn More
 You can create connectors for a range of protocols and interfaces, including those endpoints which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
@@ -213,11 +213,11 @@ You can create connectors for a range of protocols and interfaces, including tho
 ## Create Custom Annotations & Builder Extensions
 Annotations decorate objects in Ballerina code. The Ballerina compiler parses annotations into an AST that can be read and acted upon. You can introduce custom annotations for use by others with Ballerina and package builder extensions that can act on those annotations. The builder can generate additional artifacts as part of the build process.
 
-Custom annotations are how the `ballerinax/docker` and `ballerinax/kubernetes` packages work. They introduce new annotations such as `@docker` and `@kubernetes` that can be attached to different parts of Ballerina code. The builder detects these annotations and then runs a post-compile process that generates deployment artifacts for direct deployment to those environments. 
+Custom annotations are how the `ballerinax/docker` and `ballerinax/kubernetes` packages work. They introduce new annotations such as `@docker` and `@kubernetes` that can be attached to different parts of Ballerina code. The builder detects these annotations and then runs a post-compile process that generates deployment artifacts for direct deployment to those environments.
 
 ### Special Notes
 There are two caveats to building custom annotations:
-1. Currently, the Ballerina Compiler is implemented in Java and you will need JDK 1.8 and maven. 
+1. Currently, the Ballerina Compiler is implemented in Java and you will need JDK 1.8 and maven.
 2. End users will need to manually install the extension into Ballerina. We will have a release mid-year that enables packaging these extensions as part of a Ballerina project, so that it's included in any package's pushed to central.
 
 ### Custom Annotation HelloWorld
@@ -254,7 +254,7 @@ Guten Tag!
 ### Custom Annotation Getting Started
 The source code and results for this example are on [GitHub](https://github.com/ballerinax/hello).
 
-An annotation is a Ballerina code snippet that can be attached to some Ballerina code, and will hold some metadata related to that attached code. Annotations are not executable, but can be used to alter the behavior of some executable code. 
+An annotation is a Ballerina code snippet that can be attached to some Ballerina code, and will hold some metadata related to that attached code. Annotations are not executable, but can be used to alter the behavior of some executable code.
 
 Annotations can be attached to:
 * Services
@@ -272,21 +272,21 @@ Annotations can be attached to:
 * Transformer
 * Endpoint
 
-Ballerina has built-in a set of annotations such as @http:ServiceConfig, @http:ResourceConfig. These annotations are part of the standard library and shipped with each distribution of Ballerina. You can view the definitions of these annotations by browsing the package API reference. 
+Ballerina has built-in a set of annotations such as @http:ServiceConfig, @http:ResourceConfig. These annotations are part of the standard library and shipped with each distribution of Ballerina. You can view the definitions of these annotations by browsing the package API reference.
 
 A Ballerina "builder extension" is Java code that the build process will load and execute after the compilation phase. Builder extensions can act on any annotation information, whether those in the system library or custom annotations provided by you. Builder extensions that you write can register callbacks that act on annotations attached to different objects:
 * `public abstract void init(DiagnosticLog var1)`
-* `public void process(PackageNode packageNode)` 
-* `public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations)` 
+* `public void process(PackageNode packageNode)`
+* `public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations)`
 * `public void process(ResourceNode resourceNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(ConnectorNode connectorNode, List<AnnotationAttachmentNode> annotations)` 
-* `public void process(ActionNode actionNode, List<AnnotationAttachmentNode> annotations)` 
-* `public void process(StructNode serviceNode, List<AnnotationAttachmentNode> annotations)` 
+* `public void process(ConnectorNode connectorNode, List<AnnotationAttachmentNode> annotations)`
+* `public void process(ActionNode actionNode, List<AnnotationAttachmentNode> annotations)`
+* `public void process(StructNode serviceNode, List<AnnotationAttachmentNode> annotations)`
 * `public void process(ObjectNode objectNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(RecordNode recordNode, List<AnnotationAttachmentNode> annotations)` 
-* `public void process(EnumNode enumNode, List<AnnotationAttachmentNode> annotations)` 
-* `public void process(FunctionNode functionNode, List<AnnotationAttachmentNode> annotations)` 
-* `public void process(VariableNode variableNode, List<AnnotationAttachmentNode> annotations)` 
+* `public void process(RecordNode recordNode, List<AnnotationAttachmentNode> annotations)`
+* `public void process(EnumNode enumNode, List<AnnotationAttachmentNode> annotations)`
+* `public void process(FunctionNode functionNode, List<AnnotationAttachmentNode> annotations)`
+* `public void process(VariableNode variableNode, List<AnnotationAttachmentNode> annotations)`
 * `public void process(AnnotationNode annotationNode, List<AnnotationAttachmentNode> annotations)`
 * `public void process(TransformerNode transformerNode, List<AnnotationAttachmentNode> annotations)`
 * `public void process(EndpointNode endpointNode, List<AnnotationAttachmentNode> annotations)`
@@ -296,13 +296,13 @@ A Ballerina "builder extension" is Java code that the build process will load an
 We have a Maven arctetype that will create a sample template that can be used for writing the Ballerina builder extension.
 
 ```
-mvn archetype:generate -DgroupId=ballerinax.hello 
-                       -DartifactId=hello-extension 
-		       -DarchetypeArtifactId=maven-archetype-quickstart 
+mvn archetype:generate -DgroupId=ballerinax.hello
+                       -DartifactId=hello-extension
+		       -DarchetypeArtifactId=maven-archetype-quickstart
 		       -DinteractiveMode=false
 ```
 
-This will create a maven project in following structure. 
+This will create a maven project in following structure.
 ```bash	.
 ├── pom.xml
 ├── src
@@ -416,7 +416,7 @@ public annotation <service> Greeting HelloConfiguration;
 Remove the archetype generated `App.java` and `AppTest.java` files. They are not needed.
 
 ##### Define an Extension Provider
-Create `HelloExtensionProvider.java` class in `hello/src/main/java/org/ballerinax/hello` package. This class will implement `SystemPackageRepositoryProvider`. 
+Create `HelloExtensionProvider.java` class in `hello/src/main/java/org/ballerinax/hello` package. This class will implement `SystemPackageRepositoryProvider`.
 
 ```java
 package org.ballerinax.hello;
@@ -555,7 +555,7 @@ Build the project and verify that the JAR file is built. The JAR file will conta
 mvn clean install
 ```
 
-The resulting `target/hello-extension-1.0-SNAPSHOT.jar` will have the annotation definitions. 
+The resulting `target/hello-extension-1.0-SNAPSHOT.jar` will have the annotation definitions.
 
 Place the jar file at `<ballerina_tools_home>/bre/lib` of your Ballerina distribution.
 
@@ -575,7 +575,7 @@ service<http:Service> helloWorld bind {port:9091} {
 ```
 
 ### Write the Build Extension Processor
-Create `HelloPlugin.java` in `hello/src/main/java/org/ballerinax/hello` package. We will then implement the annotation methods that we want to act upon. 
+Create `HelloPlugin.java` in `hello/src/main/java/org/ballerinax/hello` package. We will then implement the annotation methods that we want to act upon.
 
 ```java
 package org.ballerinax.hello;
@@ -712,7 +712,7 @@ public class HelloModel {
 }
 ```
 
-Create an file named `org.ballerinalang.compiler.plugins.CompilerPlugin` in `hello/src/main/resources/META-INF/services` directory. This file is read by the compiler and registers our `HelloPlugin.java` class as an extension. The events will be received by the registered classes. The file should contain the fully qualified Java class name of the builder extension. 
+Create an file named `org.ballerinalang.compiler.plugins.CompilerPlugin` in `hello/src/main/resources/META-INF/services` directory. This file is read by the compiler and registers our `HelloPlugin.java` class as an extension. The events will be received by the registered classes. The file should contain the fully qualified Java class name of the builder extension.
 ```
 org.ballerinax.hello.HelloPlugin
 ```

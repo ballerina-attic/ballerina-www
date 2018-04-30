@@ -23,15 +23,20 @@ pre {
     white-space: pre-wrap;
     border-radius: 0;
     font-size: 12px !important;
+    overflow-y: hidden;
+    padding: 0;
+    display: flex;
+    border: none;
 }
 
 .code {
     background-color: #f5f6f6;
     width: 60%;
+    padding: 0;
 }
 
 td.code {
-    vertical-align: middle;
+    vertical-align: text-top;
     background-color: #f5f6f6;
     box-shadow: -22px 16px 17px rgba(0, 0, 0, 0.2);
     border-left: 30px solid #ffffff;
@@ -298,14 +303,8 @@ a.next {
     vertical-align: top;
 }
 
-.highlight code,
-.highlight pre {
-    overflow-y: hidden;
-    line-height: 15px;
-}
-
 .bbe-code-line-numbers {
-    margin-top: 6px;
+    margin-top: 7px;
 }
 
 .bbe-code-line-numbers .line-number {
@@ -363,6 +362,10 @@ a.next {
 
 .bal-separator td.cCodeTD {
     box-shadow: -22px 13px 17px rgba(0, 0, 0, 0.2) !important;
+}
+
+td.cDescTD {
+    width: 40%;
 }
 
 @media (max-width: 1200px) {

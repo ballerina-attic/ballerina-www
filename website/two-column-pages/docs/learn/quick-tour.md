@@ -17,7 +17,8 @@ Start your project by navigating to a directory of your choice and running the f
 ballerina init
 ```
 
-You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you. You can run the service by using a run command.
+You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
+You can run the service by using a run command.
 
 ```bash
 ballerina run hello_service.bal
@@ -118,7 +119,7 @@ Make the resource available at the root as well and change methods to POST. Add 
 
 ## Use a Connector
 
-Ballerina Central stores numerous connectors that can be used with your service. Search for a Twitter connector.
+Ballerina connector is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. Ballerina Central stores numerous connectors that can be used with your service. You can search for connectors using the `ballerina search` command. The command to search a Twitter connector is mentioned below.
 
 ```
 ballerina search twitter
@@ -182,24 +183,24 @@ endpoint twitter:Client twitter {
    clientId: config:getAsString("clientId"),
    clientSecret: config:getAsString("clientSecret"),
    accessToken: config:getAsString("accessToken"),
-   accessTokenSecret: config:getAsString("accessTokenSecret"),
-   clientConfig:{}   
+   accessTokenSecret: config:getAsString("accessTokenSecret")
 };
 ```
+Here we are creating an endpoint to connect with the Twitter service. An endpoint is a Ballerina construct to configure parameters related to the network accessible service, which is connected through the endpoint. The above configuration is used to configure the connectivity to the Twitter service.
 
 Now you have the Twitter endpoint.
 
 In the `sayHello` function, add the following to get the payload as a string.
 
 ```ballerina
-string status = check request.getStringPayload();
+string status = check request.getTextPayload();
 ```
 > **Tip**: The check keyword means that this may return an error but I do not want to handle it here - pass it further away (to the caller function, or if this is a top-level function - generate a runtime failure.
 
 Now, we can get our response from Twitter by just calling its tweet action. Add this into the `sayHello` function as well.
 
 ```ballerina
-twitter:Status st = check twitter->tweet(status,"","");
+twitter:Status st = check twitter->tweet(status, "", "");
 ```
 
 Go ahead and run it and this time pass the config file:
@@ -306,6 +307,9 @@ ballerina push quicktour/twitter
 ```
 
 ## Run the Composer
+Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
+
+To start the composer: 
 
 1. In the command line, type `composer`.
 
