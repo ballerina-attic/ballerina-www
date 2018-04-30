@@ -6,7 +6,7 @@ Developers and testers can cover multiple levels of the test pyramid including u
 
 Testerina design and usage is aligned with project and package semantics of Ballerina. You can test the project packages while you are building the project in a seamless manner using the test constructs. 
 
- ## Overview
+## Overview
  
 * Ballerina programmers can either place their test code into a single source code file or in a *tests* folder inside a *project* directory structure
 * Ballerina tests are defined using a set of  *annotations*
