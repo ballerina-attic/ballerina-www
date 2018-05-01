@@ -4,13 +4,13 @@
 
 ### prerequisites
 
-* [Maven] (https://maven.apache.org/download.cgi)
-* [Node (v8.9.x or latest LTS release) + npm (v5.6.0 or later)] (https://nodejs.org/en/download/)
-* [Go] (https://golang.org/)
-* [Python] (https://www.python.org/)
-* [MKDocs] (http://www.mkdocs.org/)
-* [BeautifulSoup4] (https://www.crummy.com/software/BeautifulSoup/)
-* [lxml] (http://lxml.de/)
+* [Maven](https://maven.apache.org/download.cgi)
+* [Node (v8.9.x or latest LTS release) + npm (v5.6.0 or later)](https://nodejs.org/en/download/)
+* [Go](https://golang.org/)
+* [Python](https://www.python.org/)
+* [MKDocs](http://www.mkdocs.org/)
+* [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/)
+* [lxml](http://lxml.de/)
 
 ### building
 
