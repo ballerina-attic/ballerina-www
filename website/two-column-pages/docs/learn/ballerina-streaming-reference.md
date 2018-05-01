@@ -190,8 +190,7 @@ select roomNo, value
 
 Streaming queries support the following for query projections.
 
-<div style="overflow-x:auto;">
-<table>
+<table style="width:100%">
     <tr>
         <th>Action</th>
         <th>Description</th>
@@ -345,7 +344,6 @@ Streaming queries support the following for query projections.
             <pre>from tempStream<br>select roomNo, temp * 9/5 + 32 as temp, 'F' as scale, roomNo > 10 && roomNo < 15 as isServerRoom<br>=> (RoomFahrenheit [] events ) { <br/><br/>}</pre>
     </tr>
 </table>
-</div>
 
 #### Filter
 
