@@ -119,53 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cBlallerina-io-docs-right-nav-container">
-                    <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
-
-                        <div class="cCollaps-Menu" id="iBallerinaPACKAGEStoc">
-                            {{#each links}}
-                             <ul class="{{#if active}}active-package{{/if}}">
-                                <li>
-                                   <!--Package Name-->
-                                   {{#if active}} {{#if caption.isPackageName}}
-                                   <a>{{caption.prefix}}<span class="bold">{{caption.suffix}}</a>
-                                   {{/if}}
-                                   {{#if caption.isStaticCaption}}<a><span class="bold">{{caption.value}}</span></a>
-                                   {{/if}}
-                                   {{else}}
-                                   <a href="{{href}}.html">{{#if caption.isPackageName}}{{caption.prefix}}<span class="bold">{{caption.suffix}}</span>{{/if}}
-                                   {{#if caption.isStaticCaption}}<span class="bold">{{caption.value}}</span>{{/if}}</a>
-                                   {{/if}}
-                                </li>
-                             </ul>
-                             {{/each}}
-                        </div>
-                    </div>
-                </div>
-                <div class="cBlallerina-io-docs-right-nav-container">
-                    <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x">BALLERINAX PACKAGES</div>
-                        <div class="cCollaps-Menu-second" id="iBallerinaXtoc">
-                            {{#each links}}
-                             <ul class="{{#if active}}active-package{{/if}}">
-                                <li>
-                                   <!--Package Name-->
-                                   {{#if active}} {{#if caption.isPackageName}}
-                                   <a>{{caption.prefix}}<span class="bold">{{caption.suffix}}</a>
-                                   {{/if}}
-                                   {{#if caption.isStaticCaption}}<a><span class="bold">{{caption.value}}</span></a>
-                                   {{/if}}
-                                   {{else}}
-                                   <a href="{{href}}.html">{{#if caption.isPackageName}}{{caption.prefix}}<span class="bold">{{caption.suffix}}</span>{{/if}}
-                                   {{#if caption.isStaticCaption}}<span class="bold">{{caption.value}}</span>{{/if}}</a>
-                                   {{/if}}
-                                </li>
-                             </ul>
-                             {{/each}}
-                        </div>
-                    </div>
-                </div>
+                
                 <!-- TODO check existence of links and remove-->
                 <div class="cBlallerina-io-docs-left-nav-container">
                     <div class="cSideBar-Button">
@@ -325,7 +279,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10 cBallerina-io-Home-Middle-col">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8 cBallerina-io-Home-Middle-col">
                 <div class="cBallerina-io-breadcrumbs">
                     <div role="navigation" aria-label="breadcrumbs navigation">
                         <ul class="wy-breadcrumbs">
@@ -916,6 +870,56 @@
                         </div>
                     </div>
                 </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 cBallerina-io-Home-Right-col">
+                <div class="cBlallerina-io-docs-right-nav-container">
+                    <div class="cBlallerina-io-docs-right-nav-container">
+                    <div class="cLectColStyle cLeftColTop">
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages">BALLERINA PACKAGES</div>
+
+                        <div class="cCollaps-Menu" id="iBallerinaPACKAGEStoc">
+                            {{#each links}}
+                             <ul class="{{#if active}}active-package{{/if}}">
+                                <li>
+                                   <!--Package Name-->
+                                   {{#if active}} {{#if caption.isPackageName}}
+                                   <a>{{caption.prefix}}<span class="bold">{{caption.suffix}}</a>
+                                   {{/if}}
+                                   {{#if caption.isStaticCaption}}<a><span class="bold">{{caption.value}}</span></a>
+                                   {{/if}}
+                                   {{else}}
+                                   <a href="{{href}}.html">{{#if caption.isPackageName}}{{caption.prefix}}<span class="bold">{{caption.suffix}}</span>{{/if}}
+                                   {{#if caption.isStaticCaption}}<span class="bold">{{caption.value}}</span>{{/if}}</a>
+                                   {{/if}}
+                                </li>
+                             </ul>
+                             {{/each}}
+                        </div>
+                    </div>
+                </div>
+                <div class="cBlallerina-io-docs-right-nav-container">
+                    <div class="cLectColStyle cLeftColTop">
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x">BALLERINAX PACKAGES</div>
+                        <div class="cCollaps-Menu-second" id="iBallerinaXtoc">
+                            {{#each links}}
+                             <ul class="{{#if active}}active-package{{/if}}">
+                                <li>
+                                   <!--Package Name-->
+                                   {{#if active}} {{#if caption.isPackageName}}
+                                   <a>{{caption.prefix}}<span class="bold">{{caption.suffix}}</a>
+                                   {{/if}}
+                                   {{#if caption.isStaticCaption}}<a><span class="bold">{{caption.value}}</span></a>
+                                   {{/if}}
+                                   {{else}}
+                                   <a href="{{href}}.html">{{#if caption.isPackageName}}{{caption.prefix}}<span class="bold">{{caption.suffix}}</span>{{/if}}
+                                   {{#if caption.isStaticCaption}}<span class="bold">{{caption.value}}</span>{{/if}}</a>
+                                   {{/if}}
+                                </li>
+                             </ul>
+                             {{/each}}
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
         </div>
     </div>
@@ -931,5 +935,4 @@
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
 </body>
-
 </html>
