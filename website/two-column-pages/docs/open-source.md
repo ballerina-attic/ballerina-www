@@ -65,6 +65,6 @@ We have lots of materials prepared to help with different meetup presentations. 
 4. [Ballerina logos](https://github.com/ballerina-platform/ballerina-www/collateral/logos) and [Ballerina-style icons](https://github.com/ballerina-platform/ballerina-www/collateral/images) for your presentations
 5. To have us sponsor, promote, provide speakers, or get BallerinaCon discount codes for your meetup, please [contact us](mailto:contact@ballerina.io)! 
 
-### Get Schwag
+### Get Stuff
 
-We have supplies of Ballerina sticker, shirts, and committer sweaters. We send these with our speakers and to committers. Our schwag is en pointe, and we can send your team a package, too. Please [contact us](mailto:contact@ballerina.io) with your details.
+We have supplies of Ballerina sticker, shirts, and committer sweaters. We send these with our speakers and to committers. Our supplies are en pointe, and we can send your team a package, too. Please [contact us](mailto:contact@ballerina.io) with your details.
