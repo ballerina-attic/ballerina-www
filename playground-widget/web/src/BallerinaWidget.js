@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-import {
-  Container, Segment, Grid, Header, Icon
-} from 'semantic-ui-react'
+import Container from 'semantic-ui-react/dist/es/elements/Container';
+import Segment from 'semantic-ui-react/dist/es/elements/Segment';
+import Icon from 'semantic-ui-react/dist/es/elements/Icon';
 import 'semantic-ui-css/semantic.min.css';
 import CodeEditor from './components/editor/CodeEditor';
-import SamplesList from './components/navigation/SamplesList'
+import SamplesList from './components/navigation/SamplesList';
 import './BallerinaWidget.scss';
-import { fetchSamples, fetchSample } from './samples/provider'
+import { fetchSamples, fetchSample } from './samples/provider';
 import CURLEditor from './components/curl/CURLEditor';
-import Console from './components/console/Console'
+import Console from './components/console/Console';
 import ViewSelectPanel, { VIEWS } from './components/controls/ViewSelectPanel';
 import RunButton from './components/controls/RunButton';
-import ShareButton from './components/controls/ShareButton';
-import PopOutButton from './components/controls/PopOutButton';
 import DesignView from './components/design-view/DesignView';
 import DownloadsView from './components/downloads-view/DownloadsView';
 import { getMonospaceFontFamily } from './client-utils';
+
 class BallerinaWidget extends Component {
 
   constructor(...args) {
