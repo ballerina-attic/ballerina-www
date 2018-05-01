@@ -8,7 +8,7 @@ This is a private mailing list where only members of the WSO2 internal security 
 
 If you wish to send secure messages to security@wso2.com, you may use the following key:
 
-security@wso2.com: F0AB 72EC D77A 6162 4C48 A245 0CF3 FD36 E100 FF07 [pgp.mit.edu](https://pgp.mit.edu/pks/lookup?op=get&search=0x0CF3FD36E100FF07)
+security@wso2.com: 0168 DA26 2989 0DB9 4ACD  8367 E683 061E 2F85 C381 [pgp.mit.edu](https://pgp.surfnet.nl/pks/lookup?op=vindex&fingerprint=on&search=0xE683061E2F85C381)
 
 ## Vulnerability Information
 
