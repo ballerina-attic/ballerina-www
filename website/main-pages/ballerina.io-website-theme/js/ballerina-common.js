@@ -277,10 +277,25 @@ $(document).ready(function() {
         $(".cTYPEContent").addClass('cShow');
     });
 
+    /*
+     * Search window toggle function
+     */
+    var $menuDropWindow = $(".cSearchBoxTopMenu"),
+        $searchInput = $('#mkdocs-search-query');
+
     $(".cSerachIcon").click(function() {
-        $(".cSearchBoxTopMenu").toggleClass('cShowcSearchTopMenu');
-        if ($(".cSearchBoxTopMenu").hasClass('cShowcSearchTopMenu')) {
-            $("#mkdocs-search-query").focus()
+        $menuDropWindow.toggleClass('cShowcSearchTopMenu');
+        if ($menuDropWindow.hasClass('cShowcSearchTopMenu')) {
+            $searchInput.focus();
+        }
+    });
+
+    $(document).mouseup(function(e) {
+        if ((!$menuDropWindow.is(e.target)) &&
+            ($menuDropWindow.has(e.target).length === 0)) {
+            $menuDropWindow.removeClass('cShowcSearchTopMenu');
+            $searchInput.val('');
+            $('#mkdocs-search-results').html('');
         }
     });
 

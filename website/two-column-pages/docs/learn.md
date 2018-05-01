@@ -61,9 +61,9 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 The [API Documentation](/learn/api-docs/?latest) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
 
-### Language Specification
+### Ballerina Streaming Guide
 
-The <a href="/res/language-specification.pdf" download="language-specification.pdf">Language Specification</a> is a set of documents that explain more about the inner workings of the Ballerina language itself.
+The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides detailed information on Ballerina Streaming concepts and its capabilities. This includes Ballerina streaming language syntax, explanations, and sample queries as well.
 
 ### FAQ
 
@@ -88,3 +88,6 @@ The <a href="/res/language-specification.pdf" download="language-specification.p
 15. [Ballerina SQL Connector - Connecting to a Database](https://medium.com/@anupama.pathirage/ballerina-sql-connector-connecting-to-db-ee31a81c8df6)
 16. [Ballerina SQL Connector - Performing Database Operations](https://medium.com/@anupama.pathirage/ballerina-sql-connector-performing-db-operations-8e555e3688be)
 17. [Introduction to Data Integration with Ballerina](https://dzone.com/articles/introduction-to-data-integration-with-ballerina)
+18. [Write Integration Tests for Ballerina Using TestContainers](https://medium.com/@kevinratnasekera/write-integration-tests-for-ballerina-service-running-inside-docker-container-39fbbc20641c)
+19. [Connect with Kafka Brokers Using Ballerina](https://medium.com/@kevinratnasekera/connect-with-kafka-brokers-using-ballerina-6f5f2880b7e8)
+20. [Ballerina: Concurrency Done Right!](https://medium.com/@lafernando/ballerina-concurrency-done-right-fa0afa350cb0)

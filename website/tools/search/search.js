@@ -70,68 +70,69 @@ require([
         documents[doc.index] = doc;
     }
 
+    var search_results = document.getElementById("mkdocs-search-results");
+    var search_input = document.getElementById('mkdocs-search-query');
+
     var search = function() {
-
         var query = document.getElementById('mkdocs-search-query').value;
-        if(query.length > 1){
-          var search_results = document.getElementById("mkdocs-search-results");
-          while (search_results.firstChild) {
-              search_results.removeChild(search_results.firstChild);
-          }
+        if (query.length > 1) {
+            while (search_results.firstChild) {
+                search_results.removeChild(search_results.firstChild);
+            }
 
-          if (query === '') {
-              return;
-          }
+            if (query === '') {
+                return;
+            }
 
-          var results = index.search(query);
-          var title_results = title_index.search(query);
+            var results = index.search(query);
+            var title_results = title_index.search(query);
 
-          var maxTitles = getMaxTitles(title_results, documents);
-          var modified_results = [];
-          if (results.length > 0) {
-              for (var i = 0; i < results.length; i++) {
-                  var result = results[i];
-                  var doc = documents[result.ref];
-                  if (maxTitles[doc.title]) {
-                      delete maxTitles[doc.title];
-                  }
-                  doc.base_url = base_url;
-                  doc.summary = doc.text.substring(0, 200);
-                  modified_results.push(doc);
-              }
-          }
+            var maxTitles = getMaxTitles(title_results, documents);
+            var modified_results = [];
+            if (results.length > 0) {
+                for (var i = 0; i < results.length; i++) {
+                    var result = results[i];
+                    var doc = documents[result.ref];
+                    if (maxTitles[doc.title]) {
+                        delete maxTitles[doc.title];
+                    }
+                    doc.base_url = base_url;
+                    doc.summary = doc.text.substring(0, 200);
+                    modified_results.push(doc);
+                }
+            }
 
-          for (var title in maxTitles) {
-              var doc = maxTitles[title];
-              doc.base_url = base_url;
-              doc.summary = doc.text.substring(0, 200);
-              modified_results.push(doc);
-          }
+            for (var title in maxTitles) {
+                var doc = maxTitles[title];
+                doc.base_url = base_url;
+                doc.summary = doc.text.substring(0, 200);
+                modified_results.push(doc);
+            }
 
-          if (modified_results.length > 0) {
-              for (var i = 0; i < modified_results.length; i++) {
-                  var html = Mustache.to_html(results_template, modified_results[i]);
-                  search_results.insertAdjacentHTML('beforeend', html);
-              }
+            if (modified_results.length > 0) {
+                for (var i = 0; i < modified_results.length; i++) {
+                    var html = Mustache.to_html(results_template, modified_results[i]);
+                    search_results.insertAdjacentHTML('beforeend', html);
+                }
 
-          } else {
-              search_results.insertAdjacentHTML('beforeend', '<p class="error">No results found</p>');
-          }
+            } else {
+                search_results.insertAdjacentHTML('beforeend', '<p class="error">No results found</p>');
+            }
 
-          if (jQuery) {
-              /*
-               * We currently only automatically hide bootstrap models. This
-               * requires jQuery to work.
-               */
-              jQuery('#mkdocs_search_modal a').click(function() {
-                  jQuery('#mkdocs_search_modal').modal('hide');
-              });
-          }
+            if (jQuery) {
+                /*
+                 * We currently only automatically hide bootstrap models. This
+                 * requires jQuery to work.
+                 */
+                jQuery('#mkdocs_search_modal a').click(function() {
+                    jQuery('#mkdocs_search_modal').modal('hide');
+                });
+            }
+        } else {
+            search_results.innerHTML = '';
         }
 
     };
-
-    var search_input = document.getElementById('mkdocs-search-query');
 
     var term = getSearchTerm();
     if (term) {
@@ -139,12 +140,17 @@ require([
         search();
     }
 
+    var typingTimer;
+
     if (search_input) {
-      search_input.addEventListener("keyup",  function(){
-        setTimeout(function(){
-            search();
-        }, 1000);
-      });
+        search_input.addEventListener("keyup", function() {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(search(), 1000);
+        });
+
+        search_input.addEventListener("keydown", function() {
+            clearTimeout(typingTimer);
+        });
     }
 
 });
