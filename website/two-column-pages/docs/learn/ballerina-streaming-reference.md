@@ -325,8 +325,7 @@ Streaming queries support the following for query projections.
                         Logical AND
                     </td>
                     <td>
-                        <pre>temp < 40 &&
-                                (humidity < 40 or humidity >= 60)</pre>
+                        <pre>temp < 40 &&<br>     (humidity < 40 or humidity >= 60)</pre>
                     </td>
                 </tr>
                 <tr>
@@ -337,8 +336,7 @@ Streaming queries support the following for query projections.
                         Logical OR
                     </td>
                     <td>
-                        <pre>temp < 40 ||
-                                (humidity < 40 && humidity >= 60)</pre>
+                        <pre>temp < 40 ||<br>     (humidity < 40 && humidity >= 60)</pre>
                     </td>
                 </tr>
             </table>
