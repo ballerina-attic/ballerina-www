@@ -471,7 +471,8 @@ When a window is defined the aggregation is restricted within that window. If no
 
 ```ballerina
 from <input stream> window <window name>(<parameter>, <parameter>, ... )
-select <aggregate function>(<parameter>, <parameter>, ... ) as <attribute name>, <attribute2 name>, ...
+select <aggregate function>(<parameter>, <parameter>, ... ) as <attribute name>,
+            <attribute2 name>, ...
 => ( ) {
 
 }
@@ -512,7 +513,7 @@ Following are some inbuilt aggregation functions shipped with Ballerina, for mor
 ```ballerina
 from pageVisitStream#window.time(5 sec)
 select userID, pageID, distinctCount(pageID) as distinctPages
-    group by userID
+group by userID
 => (UserPageVisit [] visits) {
     outputStream.publish(visits);
 }
@@ -549,8 +550,9 @@ The syntax for the 'group by` aggregate function is as follows:
 
 ```ballerina
 from <input stream> window <window name>(...)
-select <aggregate function>( <parameter>, <parameter>, ...) as <attribute1 name>, <attribute2 name>, ...
-    group by <attribute1 name>, <attribute2 name> ...
+select <aggregate function>( <parameter>, <parameter>, ...) as <attribute1 name>,
+            <attribute2 name>, ...
+group by <attribute1 name>, <attribute2 name> ...
 => ( ) {
 
 }
@@ -564,7 +566,7 @@ for a sliding time window of 10 minutes.
 ```ballerina
 from tempStream window time(600000)
 select avg(temp) as avgTemp, roomNo, deviceID
-    group by roomNo, deviceID
+group by roomNo, deviceID
 => (AvgTemperature [] values) {
     avgTempStream.publish(values);
 }
@@ -584,9 +586,10 @@ The syntax for the `having` clause is as follows:
 
 ```ballerina
 from <input stream> window <window name>( ... )
-select <aggregate function>( <parameter>, <parameter>, ...) as <attribute1 name>, <attribute2 name>, ...
-    group by <attribute1 name>, <attribute2 name> ...
-    having <condition>
+select <aggregate function>( <parameter>, <parameter>, ...) as <attribute1 name>,
+            <attribute2 name>, ...
+group by <attribute1 name>, <attribute2 name> ...
+having <condition>
 => ( ) {
 
 }
@@ -598,8 +601,8 @@ The following query calculates the average temperature per room for the last 10 
 ```ballerina
 from tempStream window time(600000)
 select avg(temp) as avgTemp, roomNo
-    group by roomNo
-    having avgTemp > 30
+group by roomNo
+having avgTemp > 30
 => (Alert [] values) {
     alertStream.publish(values);
 }
@@ -616,10 +619,12 @@ The syntax for the `order by` clause is as follows:
 
 ```ballerina
 from <input stream> window <window name>( ... )
-select <aggregate function>( <parameter>, <parameter>, ...) as <attribute1 name>, <attribute2 name>, ...
-    group by <attribute1 name>, <attribute2 name> ...
-    having <condition>
-    order by <attribute1 name> (ascending | descending)?, <attribute2 name> (<ascending | descending>)?, ...
+select <aggregate function>( <parameter>, <parameter>, ...) as <attribute1 name>,
+            <attribute2 name>, ...
+group by <attribute1 name>, <attribute2 name> ...
+having <condition>
+order by <attribute1 name> (ascending | descending)?,
+            <attribute2 name> (<ascending | descending>)?, ...
 => ( ) {
 
 }
@@ -633,8 +638,8 @@ by ordering them in the ascending order of the room's avgTemp and then by the de
 ```ballerina
 from tempStream window timeBatch(600000)
 select avg(temp) as avgTemp, roomNo, deviceID
-    group by roomNo, deviceID
-    order by avgTemp, roomNo descending
+group by roomNo, deviceID
+order by avgTemp, roomNo descending
 => (AvgTemperature [] values) {
     avgTempStream.publish(values);
 }
@@ -658,8 +663,10 @@ stream's window based on the given condition, and the output events are generate
 The syntax for a `join` is as follows:
 
 ```ballerina
-from <input stream> window <window name>(<parameter>, ... ) {unidirectional} {as <reference>}
-         join <input stream> window <window name>(<parameter>,  ... ) {unidirectional} {as <reference>}
+from <input stream> window <window name>(<parameter>, ... )
+        {unidirectional} {as <reference>}
+        join <input stream> window <window name>(<parameter>,  ... )
+        {unidirectional} {as <reference>}
     on <join condition>
 select <attribute name>, <attribute name>, ...
 => ( ) {
@@ -716,14 +723,15 @@ Following are the supported operations of a join clause.
     The following query generates output events for all events from the `stockStream` stream
     regardless of whether a matching symbol exists in the `twitterStream` stream or not.
 
-    <pre>
+    ```ballerina
     from stockStream window time(60000) as S
-      left outer join twitterStream window length(1) as T
-      on S.symbol== T.symbol
+        left outer join twitterStream window length(1) as T
+        on S.symbol== T.symbol
     select S.symbol as symbol, T.tweet, S.price
     => ( ) {
 
-    }   </pre>
+    }
+    ```
 
  *  **Right outer join**
 
@@ -742,14 +750,15 @@ Following are the supported operations of a join clause.
     The following query generates output events for all the incoming events of each stream regardless of whether there is a
     match for the `symbol` attribute in the other stream or not.
 
-    <pre>
+    ```ballerina
     from stockStream window time(60000) as S
-      full outer join twitterStream window length(1) as T
-      on S.symbol== T.symbol
+        full outer join twitterStream window length(1) as T
+        on S.symbol== T.symbol
     select S.symbol as symbol, T.tweet, S.price
     => ( ) {
 
-    }    </pre>
+    }
+    ```
 
 
 #### Pattern
@@ -813,7 +822,8 @@ The number of events matched per condition can be limited via condition postfixe
 Each matching condition can contain a collection of events with the minimum and maximum number of events to be matched as shown in the syntax below.
 
 ```ballerina
-from (every)? <event reference>=<input stream> where <filter condition> ([<min count> .. <max count>])? followed by
+from (every)? <event reference>=<input stream>
+        where <filter condition> ([<min count> .. <max count>])? followed by
     ...
     (within <time gap>)?
 select <event reference>([event index])?.<attribute name>, ...
@@ -877,7 +887,8 @@ Logical patterns match events that arrive in temporal order and correlate them w
 
 ```ballerina
 from (every)? (!)? <event reference>=<input stream> where <filter condition>
-          ((&& | ||) <event reference>=<input stream> where <filter condition>)? (within <time gap>)? followed by
+          ((&& | ||) <event reference>=<input stream> where <filter condition>)?
+          (within <time gap>)? followed by
     ...
 select <event reference>([event index])?.<attribute name>, ...
 => ( ) {
@@ -918,8 +929,8 @@ stream<RegulatorState> regulatorStateChangeStream;
 stream<RoomKey> roomKeyStream;
 
 from every( e1=regulatorStateChangeStream where (action == 'on')) 
-        followed by e2=roomKeyStream where (e1.roomNo == roomNo && action == 'removed') 
-        || e3=regulatorStateChangeStream where (e1.roomNo == roomNo && action == 'off')
+      followed by e2=roomKeyStream where (e1.roomNo == roomNo && action == 'removed')
+      || e3=regulatorStateChangeStream where (e1.roomNo == roomNo && action == 'off')
 select e1.roomNo, e2 == null ? "none" : "stop" as action
     having action != 'none'
 => (RegulatorAction [] output) {
@@ -976,7 +987,10 @@ type Temperature {
 stream<RegulatorState> regulatorStateChangeStream;
 stream<Temperature> tempStream;
 
-from e1=regulatorStateChangeStream where (action == 'start') followed by !tempStream where (e1.roomNo == roomNo && temp < 12) for '5 minute'
+from e1=regulatorStateChangeStream where (action == 'start')
+        followed by !tempStream
+        where (e1.roomNo == roomNo && temp < 12)
+        for '5 minute'
 select e1.roomNo as roomNo
 => (Alert [] alerts) {
     alertStream.publish(alerts);
@@ -1042,8 +1056,9 @@ The matching events can also be retrieved using event indexes, similar to how it
 Each matching condition in a sequence can contain a collection of events as shown below.
 
 ```ballerina
-from (every)? <event reference>=<input stream> where <filter condition> ([0..]|[1..]|[0..1])?,
-    <event reference>=<input stream where <filter condition>([0..]|[1..]|[0..1])?,
+from (every)? <event reference>=<input stream>
+        where <filter condition> ([0..]|[1..]|[0..1])?,
+        <event reference>=<input stream where <filter condition>([0..]|[1..]|[0..1])?,
     ...
     (within <time gap>)?
 select <event reference>.<attribute name>, <event reference>.<attribute name>, ...
@@ -1073,7 +1088,8 @@ type Temperature {
 
 stream<Temperature> tempStream;
 
-from every e1=tempStream, e2=tempStream where (e1.temp <= temp)[1..], e3=tempStream where (e2[e2.length-1].temp > temp)
+from every e1=tempStream, e2=tempStream where (e1.temp <= temp)[1..],
+           e3=tempStream where (e2[e2.length-1].temp > temp)
 select e1.temp as initialTemp, e2[e2.length-1].temp as peakTemp
 =>(PeekTemperature [] values) {
     peekTempStream.publish(values);
@@ -1089,7 +1105,8 @@ The syntax for a logical sequence is as follows:
 
 ```ballerina
 from (every)? (!)? <event reference>=<input stream> where <filter condition>
-          ((&& | ||) <event reference>=<input stream> where <filter condition>)? (within <time gap>)?,
+          ((&& | ||) <event reference>=<input stream> where <filter condition>)?
+          (within <time gap>)?,
     ...
 select <event reference>([event index])?.<attribute name>, ...
 => ( ) {
@@ -1175,14 +1192,15 @@ The possible values are as follows:
 
     In this example, the last temperature per sensor is emitted for every 10 events.
 
-    <pre>
-    from tempStream
-    select temp, deviceID
-    group by deviceID
-    output last every 10 events
-    => (LowRateTemperature [] values) {
+```ballerina
+from tempStream
+select temp, deviceID
+group by deviceID
+output last every 10 events
+=> (LowRateTemperature [] values) {
 
-    }    </pre>
+}
+```
 
 + Returning events based on time
 
@@ -1190,12 +1208,13 @@ The possible values are as follows:
 
     In this example, emits all temperature events every 10 seconds
 
-    <pre>
-    from tempStream
-    output every 10 second
-    => (LowRateTemperature [] values) {
+```ballerina
+from tempStream
+output every 10 second
+=> (LowRateTemperature [] values) {
 
-    }    </pre>
+}
+```
 
 + Returning a periodic snapshot of events
 
@@ -1203,9 +1222,10 @@ The possible values are as follows:
 
     This query emits a snapshot of the events in a time window of 5 seconds every 1 second.
 
-    <pre>
-    from tempStream window time(5000)
-    output snapshot every 1 second
-    => (SnapshotTemperature [] values) {
+```ballerina
+from tempStream window time(5000)
+output snapshot every 1 second
+=> (SnapshotTemperature [] values) {
 
-    }    </pre>
+}
+```
