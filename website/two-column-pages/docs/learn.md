@@ -59,7 +59,11 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### Package and API Documentation
 
-The [API Documentation](/learn/api-docs/?latest) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
+The [API Documentation](/learn/api-docs/) describes the native functions in Ballerina that you can use in your programs.
+
+### Language Specification
+
+The <a href="/res/Ballerina-Language-Specification-WD-2015-05-01.pdf" download="Ballerina-Language-Specification-WD-2015-05-01.pdf">Language Specification</a> is the document that defines Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.
 
 ### Ballerina Streaming Guide
 
@@ -71,23 +75,23 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 
 ## Articles and Videos
 
-1. [Conceiving Ballerina](https://medium.com/ballerinalang/conceiving-ballerina-2dadf67c0503)
-2. [How Ballerina is Different From Other Programming Languages](https://medium.com/ballerinalang/ballerina-why-it-is-different-from-other-programming-languages-cbdf5f248390)
-3. [Ballerina Dances Onto the Programming Stage](https://dzone.com/articles/ballerina-dances-onto-the-integration-stage)
-4. [Ballerina Making Sequence Diagrams Work](https://medium.com/ballerinalang/ballerina-making-sequence-diagrams-work-d0d7b3846a80)
-5. [Ballerina Thinking About Names](https://medium.com/ballerinalang/ballerina-thinking-about-names-why-restrict-to-english-c1f9803e827)
-6. [A Year of Ballerina](https://medium.com/@sanjiva.weerawarana/an-year-of-ballerina-ad0d9251415)
-7. [Integration Versus Integration Programming](https://medium.com/@chathura.ekanayake/9e9097983fb)
-8. [Ballerina Compiler Design](https://medium.com/@sameera.jayasoma/ballerina-compiler-design-3406acc2476c)
-9. [Ballerina Runtime Evolution](https://medium.com/@sameera.jayasoma/ballerina-runtime-evolution-f82305e4ab8e)
-10. [All You Need to Know About Native Client Connectors](https://medium.com/@lanka.vitharana/ballerina-native-client-connectors-and-all-you-need-to-know-e76957ca05dd)
-11. [Plug Custom Native Functions Into Ballerina](https://medium.com/@lanka.vitharana/plug-custom-native-functions-to-ballerina-5bbc2e15b6ac)
-12. [Identifier Literal Support in Ballerina](https://medium.com/@lanka.vitharana/identifier-literals-in-ballerina-makes-it-possible-to-have-spaces-in-identifiers-83336ecb693e)
-13. [Any Type Support in Ballerina](https://medium.com/@lanka.vitharana/any-type-support-in-ballerina-d9651ac53695)
-14. [Data Integraiton with Ballerina](https://medium.com/@anupama.pathirage/data-integration-with-ballerina-c5bcf6de49b3)
-15. [Ballerina SQL Connector - Connecting to a Database](https://medium.com/@anupama.pathirage/ballerina-sql-connector-connecting-to-db-ee31a81c8df6)
-16. [Ballerina SQL Connector - Performing Database Operations](https://medium.com/@anupama.pathirage/ballerina-sql-connector-performing-db-operations-8e555e3688be)
-17. [Introduction to Data Integration with Ballerina](https://dzone.com/articles/introduction-to-data-integration-with-ballerina)
-18. [Write Integration Tests for Ballerina Using TestContainers](https://medium.com/@kevinratnasekera/write-integration-tests-for-ballerina-service-running-inside-docker-container-39fbbc20641c)
-19. [Connect with Kafka Brokers Using Ballerina](https://medium.com/@kevinratnasekera/connect-with-kafka-brokers-using-ballerina-6f5f2880b7e8)
-20. [Ballerina: Concurrency Done Right!](https://medium.com/@lafernando/ballerina-concurrency-done-right-fa0afa350cb0)
+1. <a href="https://medium.com/ballerinalang/conceiving-ballerina-2dadf67c0503" target="_blank">Conceiving Ballerina</a>
+2. <a href="https://medium.com/ballerinalang/ballerina-why-it-is-different-from-other-programming-languages-cbdf5f248390" target="_blank">How Ballerina is Different From Other Programming Languages</a>
+3. <a href="https://dzone.com/articles/ballerina-dances-onto-the-integration-stage" target="_blank">Ballerina Dances Onto the Programming Stage</a>
+4. <a href="https://medium.com/ballerinalang/ballerina-making-sequence-diagrams-work-d0d7b3846a80" target="_blank">Ballerina Making Sequence Diagrams Work</a>
+5. <a href="https://medium.com/ballerinalang/ballerina-thinking-about-names-why-restrict-to-english-c1f9803e827" target="_blank">Ballerina Thinking About Names</a>
+6. <a href="https://medium.com/@sanjiva.weerawarana/an-year-of-ballerina-ad0d9251415" target="_blank">A Year of Ballerina</a>
+7. <a href="https://medium.com/@chathura.ekanayake/9e9097983fb" target="_blank">Integration Versus Integration Programming</a>
+8. <a href="https://medium.com/@sameera.jayasoma/ballerina-compiler-design-3406acc2476c" target="_blank">Ballerina Compiler Design</a>
+9. <a href="https://medium.com/@sameera.jayasoma/ballerina-runtime-evolution-f82305e4ab8e" target="_blank">Ballerina Runtime Evolution</a>
+10. <a href="https://medium.com/@lanka.vitharana/ballerina-native-client-connectors-and-all-you-need-to-know-e76957ca05dd" target="_blank">All You Need to Know About Native Client Connectors</a>
+11. <a href="https://medium.com/@lanka.vitharana/plug-custom-native-functions-to-ballerina-5bbc2e15b6ac" target="_blank">Plug Custom Native Functions Into Ballerina</a>
+12. <a href="https://medium.com/@lanka.vitharana/identifier-literals-in-ballerina-makes-it-possible-to-have-spaces-in-identifiers-83336ecb693e" target="_blank">Identifier Literal Support in Ballerina</a>
+13. <a href="https://medium.com/@lanka.vitharana/any-type-support-in-ballerina-d9651ac53695" target="_blank">Any Type Support in Ballerina</a>
+14. <a href="https://medium.com/@anupama.pathirage/data-integration-with-ballerina-c5bcf6de49b3" target="_blank">Data Integration with Ballerina</a>
+15. <a href="https://medium.com/@anupama.pathirage/ballerina-sql-connector-connecting-to-db-ee31a81c8df6" target="_blank">Ballerina SQL Connector - Connecting to a Database</a>
+16. <a href="https://medium.com/@anupama.pathirage/ballerina-sql-connector-performing-db-operations-8e555e3688be" target="_blank">Ballerina SQL Connector - Performing Database Operations</a>
+17. <a href="https://dzone.com/articles/introduction-to-data-integration-with-ballerina" target="_blank">Introduction to Data Integration with Ballerina</a>
+18. <a href="https://medium.com/@kevinratnasekera/write-integration-tests-for-ballerina-service-running-inside-docker-container-39fbbc20641c" target="_blank">Write Integration Tests for Ballerina Using TestContainers</a>
+19. <a href="https://medium.com/@kevinratnasekera/connect-with-kafka-brokers-using-ballerina-6f5f2880b7e8" target="_blank">Connect with Kafka Brokers Using Ballerina</a>
+20. <a href="https://medium.com/@lafernando/ballerina-concurrency-done-right-fa0afa350cb0" target="_blank">Ballerina: Concurrency Done Right!</a>
