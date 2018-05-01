@@ -18,6 +18,15 @@
 2. `git submodule update --init --recursive`
 3. `mvn clean install`
 
+Once build is completed, you can find the generated www folder at `<repo-root>/website/target/webroot/`. If you already have a webserver, copy this folder to webroot and point the browser to your webserver.
+
+Otherwise, since you already have NodeJs installed, install [serve](https://github.com/zeit/serve)
+
+1. `npm i -g serve`
+2. `serve <repo-root>/website/target/webroot/`
+
+This will start a webserver with `<repo-root>/website/target/webroot/` path set as the webroot and by default can be consumed via `http://localhost:5000`.
+
 ### starting widget in development server
 
 After following below steps, webpack will host playground widget at http://localhost:3000 and changes done to source files will be hot deployed.
