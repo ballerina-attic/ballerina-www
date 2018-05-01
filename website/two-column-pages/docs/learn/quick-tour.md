@@ -206,7 +206,7 @@ twitter:Status st = check twitter->tweet(status, "", "");
 Go ahead and run it and this time pass the config file:
 
 ```bash
-$ ballerina run demo.bal --config twitter.toml
+ballerina run hello_service.bal --config twitter.toml
 ```
 
 Now go to the terminal window and pass a tweet:
@@ -234,7 +234,7 @@ Now, let’s add the code you need to run the service in Docker.
 ```ballerina
 // Docker configurations
 @docker:Config {
-    registry:"docker.abc.com",
+    registry:"registry.hub.docker.com",
     name:"helloworld",
     tag:"v1.0"
 }
@@ -242,14 +242,14 @@ Now, let’s add the code you need to run the service in Docker.
 
 Now your code is ready to generate deployment artifacts. In this case it is a docker image.
 ```bash
-$> ballerina build hello_world_docker.bal
+$> ballerina build hello_service.bal
 @docker 		 - complete 3/3
 ```
 
 Run following command to start docker container: 
 
 ```bash
-docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
+docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
 ```
 
 Run the following command to check if docker is running.
@@ -262,13 +262,13 @@ If docker is running, you see output similar to the following.
 
 ```
 REPOSITORY                 TAG                 IMAGE ID            CREATED              SIZE
-docker.abc.com/helloworld   v1              df83ae43f69b        2 minutes ago        102MB
+registry.hub.docker.com/helloworld   v1              df83ae43f69b        2 minutes ago        102MB
 ```
 
 You can run a docker container and access it with your code by just copying and pasting the docker run command that displays as output of the Ballerina build command.
 
 ```bash
-docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
+docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
 ```
 
 Run the following to get details of the docker container.
@@ -279,8 +279,8 @@ docker ps
 You see output similar to the following.
 
 ```
-CONTAINER ID        IMAGE                            COMMAND                  CREATED                  STATUS              PORTS                    NAMES
-130ded2ae413        docker.abc.com/helloworld:v1.0   "/bin/sh -c 'balleri…"   Less than a second ago   Up 3 seconds        0.0.0.0:9090->9090/tcp   thirsty_hopper
+CONTAINER ID     IMAGE    COMMAND    CREATED      STATUS      PORTS     NAMES
+130ded2ae413        registry.hub.docker.com/helloworld:v1.0   "/bin/sh -c 'balleri…"   Less than a second ago   Up 3 seconds        0.0.0.0:9090->9090/tcp   thirsty_hopper
 ```
 
 Access the hello world service hosted on docker with a cURL command.
@@ -318,3 +318,10 @@ To start the composer:
 3. In the Composer, click **File** and choose **Open File**.
 
 4. Navigate to your service and open it to view this in the Composer.
+
+## What's Next
+
+Now that you have taken Ballerina around for a quick twirl, you can explore Ballerina more.
+
+* Go through [Ballerina by Example](/learn/by-example/) to learn Ballerina incrementally with commented examples that cover every nuance of the syntax.
+* See [Ballerina by Guide](/learn/by-guide/) for long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
