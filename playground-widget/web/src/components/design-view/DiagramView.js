@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { Dimmer, Loader } from 'semantic-ui-react'
-import TreeBuilder from 'TreeBuilder'
+import Loader from 'semantic-ui-react/dist/es/elements/Loader/Loader';
+import Dimmer from 'semantic-ui-react/dist/es/modules/Dimmer/Dimmer';
+import TreeBuilder from 'TreeBuilder';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import Diagram from 'Diagram';

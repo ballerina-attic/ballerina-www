@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dimmer, Loader } from 'semantic-ui-react'
+import Loader from 'semantic-ui-react/dist/es/elements/Loader/Loader';
+import Dimmer from 'semantic-ui-react/dist/es/modules/Dimmer/Dimmer';
 import { Scrollbars } from 'react-custom-scrollbars';
 import './DesignView.scss';
 

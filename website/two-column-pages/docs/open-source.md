@@ -59,11 +59,11 @@ Like most open source projects, building community is a labor of love among the 
 
 We have lots of materials prepared to help with different meetup presentations. We'll be happy to sponsor your meetup with content, speakers, pizza and cross-promotion, too!
 
-1. [Ballerina overview slide deck](https://docs.google.com/presentation/d/1yuixfusHrICWn6nxRobDEMjuWaHvn3qMJMzQnjNIkMk/edit?usp=sharing)
-2. [Ballerina overview demo script and example download](https://github.com/ballerina-guides/ballerina-demo)
-3. [Ballerina postcards and brochures](https://github.com/ballerina-platform/ballerina-www/collateral/printed_material) - for printing as give aways
-4. [Ballerina logos](https://github.com/ballerina-platform/ballerina-www/collateral/logos) and [Ballerina-style icons](https://github.com/ballerina-platform/ballerina-www/collateral/images) for your presentations
-5. To have us sponsor, promote, provide speakers, or get BallerinaCon discount codes for your meetup, please [contact us](mailto:contact@ballerina.io)! 
+1. <a href="https://docs.google.com/presentation/d/1yuixfusHrICWn6nxRobDEMjuWaHvn3qMJMzQnjNIkMk/edit?usp=sharing" target="_blank">Ballerina overview slide deck</a>
+2. <a href="https://github.com/ballerina-guides/ballerina-demo" target="_blank">Ballerina overview demo script and example download</a>
+3. <a href="https://github.com/ballerina-platform/ballerina-www/tree/master/collateral/printed_material" target="_blank">Ballerina postcards and brochures</a> - for printing as give aways
+4. <a href="https://github.com/ballerina-platform/ballerina-www/tree/master/collateral/logos" target="_blank">Ballerina logos</a> and <a href="https://github.com/ballerina-platform/ballerina-www/tree/master/collateral/images" target="_blank">Ballerina-style icons</a> for your presentations
+5. To have us sponsor, promote, provide speakers, or get BallerinaCon discount codes for your meetup, please [contact us](mailto:contact@ballerina.io)!
 
 ### Get Stuff
 

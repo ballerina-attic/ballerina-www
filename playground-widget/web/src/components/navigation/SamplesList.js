@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown } from 'semantic-ui-react'
-import { Menu } from 'semantic-ui-react'
+import Menu from 'semantic-ui-react/dist/es/collections/Menu/Menu';
 import './SamplesList.css';
 
 const LINK_CLS_NAME = 'bpg-sample-link';

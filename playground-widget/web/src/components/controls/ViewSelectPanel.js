@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'semantic-ui-react'
 import cn from 'classnames';
 import './ViewSelectPanel.scss';
 import viewSourceBtnIcon from './btn-source.svg';
@@ -10,8 +9,8 @@ import viewBinaryBtnIcon from './btn-binary.svg';
 export const VIEWS = {
     SOURCE: 'SOURCE',
     COMPOSER: 'COMPOSER',
-    BINARY: 'BINARY'
-}
+    BINARY: 'BINARY',
+};
 
 class ViewSelectPanel extends React.Component {
     render() {
