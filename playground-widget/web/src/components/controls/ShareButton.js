@@ -1,12 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Button } from 'semantic-ui-react'
+import Button from 'semantic-ui-react/dist/es/elements/Button/Button';
 import './ShareButton.scss';
 
 class ShareButton extends React.Component {
-    constructor(...args) {
-        super(...args);
-    }
 
     render() {
         return (
