@@ -95,8 +95,11 @@ Even if your proposal is compatible with Ballerina 1 specification, it might not
 ### What is the roadmap for Ballerina?
 
 Current implementation of Ballerina is based on Java. We want to make it the most efficient implementation. We have two possible paths to do that. One is to optimize the current design and implementation of runtime. The other is to re-write the language in native compiled language such as C++. The objective is to make the implementation of the runtime the most optimize and hence the most performing. For this we are considering and LLVM based implementation.
+
 Once you have two or more implementations against the same language specification it is a must to have a language test suite to ensure compliance to specification. Hence a language test suite is on the roadmap plans.
+
 We envision that we would build strong AI and ML capabilities into Ballerina. Similar to all design elements of the language that are designed ground up and embedded into the language by design, we want to make AI and ML part of the language.
+
 Ballerina in its current form solves the integration problem end to end. However, it is not solving the application development aspect end to end. Once you have endpoints connected and integrated, you need to be able to build powerful applications utilizing those connected service architectures. As part of the Ballerina roadmap, we could take up the application development concerns into account and get the solution implementation models simplified.
 
 ### Does WSO2 use Ballerina internally?
@@ -118,7 +121,7 @@ Yes, it generates mocks when Swagger is present.
 
 The best place to see the latest set of connectors is browsing Ballerina Central at central.ballerina.io, or by using `ballerina search` on the command line.
 
-The Ballerina team and WSO2 are publishing a series of additional packages around Twitter, Gmail, Github, Salesforce.com, and others. You can browse the packages that WSO2 is publishing by viewing the http://github.com/wso2-ballerina organization. Each repository is an additional package we are shipping.
+The Ballerina team and WSO2 are publishing a series of additional packages around Twitter, Gmail, Github, Salesforce.com, and others. You can browse the packages that WSO2 is publishing by viewing the [http://github.com/wso2-ballerina](http://github.com/wso2-ballerina) organization. Each repository is an additional package we are shipping.
 
 ### What analytics and monitoring does Ballerina support?
 
@@ -154,7 +157,7 @@ Ballerina ships with Testerina, a built-in mechanism for running unit tests agai
 
 ### How do you write testable and maintainable code with Ballerina?
 
-For details, see the [How to Write Effective Ballerina Code]().
+For details, see [How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) and [How to Test Ballerina Code](/learn/how-to-test-ballerina-code/).
 
 ### Can we embed our legacy libraries with Ballerina?
 
@@ -186,7 +189,7 @@ We will update Ballerina once / month with a community release. These releases w
 
 ### How do I report security vulnerabilities?
 
-See http://ballerina.io/security.
+See [http://ballerina.io/security](http://ballerina.io/security).
 
 ### Can I write my MVC app with Ballerina?
 
