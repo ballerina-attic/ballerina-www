@@ -61,6 +61,10 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 The [API Documentation](/learn/api-docs/?latest) describes the native functions in Ballerina that you can use in your programs. This includes parameters and return parameters for each of these functions.
 
+### Language Specification
+
+The <a href="/res/Ballerina-Language-Specification-WD-2015-05-01.pdf" download="Ballerina-Language-Specification-WD-2015-05-01.pdf">Language Specification</a> is a set of documents that explain more about the inner workings of the Ballerina language itself.
+
 ### Ballerina Streaming Guide
 
 The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides detailed information on Ballerina Streaming concepts and its capabilities. This includes Ballerina streaming language syntax, explanations, and sample queries as well.

@@ -1,3 +1,12 @@
+(function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:865786,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+
 function subscribeUser(email) {
     $('#subscribeUserMessage').remove("");
     if (email == "") {
@@ -382,15 +391,7 @@ $(document).ready(function() {
         }
     });
 
-    var ConBanner = '<div class="row cBallerinaConBanner"><a href="http://con.ballerina.io/">' +
-        '<div class="container">JOIN US FOR THE FIRST <span>BALLERINACON</span>, JULY 18TH, IN SAN FRANCISCO OR VIRTUALLY ON YOUR PC</div></a></div>';
-    $('#iBanner').append(ConBanner);
-    setTimeout(function() {
-        $('#iBanner').addClass('cShowBanner');
-        $('#iMainNavigation').addClass('cShowBanner');
 
-
-    }, 2000);
 
     $('a[href^="http://www.youtube.com/watch?"]').each(function(i, elem) {
         /*
@@ -408,4 +409,20 @@ $(document).ready(function() {
         $(elem).replaceWith($iframe);
     });
 
+});
+
+$(function() {
+    var pathname = window.location.pathname;
+
+    if (pathname.indexOf("learn") != -1) {
+        $("#learnli").addClass("cActive");
+    } else if (pathname.indexOf("blog") != -1) {
+        $("#blogli").addClass("cActive");
+    } else if (pathname.indexOf("philosophy") != -1) {
+        $("#philosophyli").addClass("cActive");
+    } else if (pathname.indexOf("open-source") != -1) {
+        $("#openli").addClass("cActive");
+    } else if (pathname.indexOf("help") != -1) {
+        $("#helpli").addClass("cActive");
+    }
 });
