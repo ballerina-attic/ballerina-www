@@ -34,7 +34,7 @@ $ ballerina run filename.balx
 ```
 
 ### Running a Project
-A project is a folder that manages source files and packages as part of a common versioning, dependency management, build, and execution. You can build and run items collectively or individually as packages. See [How To Structure Ballerina Code](https://stage.ballerina.io/learn/how-to-structure-ballerina-code/) for in-depth structuring of projects.
+A project is a folder that manages source files and packages as part of a common versioning, dependency management, build, and execution. You can build and run items collectively or individually as packages. See [How To Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) for in-depth structuring of projects.
 
 Build all source files and packages of a project:
 ```bash    
@@ -59,7 +59,7 @@ The `<package>` is the package name, which is the same as the name of the direct
 
 ### Ballerina Runtime Configuration Files
 
-A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure. The `ballerina/config` package provides an API for sourcing configuration parameters and using them within your source code. See [Config API Documentation](https://stage.ballerina.io/learn/api-docs/ballerina/config.html) for details.
+A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure. The `ballerina/config` package provides an API for sourcing configuration parameters and using them within your source code. See [Config API Documentation](/learn/api-docs/ballerina/config/) for details.
 
 The configuration APIs accept a key and an optional default value. If a mapping does not exist for the specified key, the default value is returned as the configuration value. The default values of these optional configurations are the default values of the return types of the functions.
 
@@ -118,10 +118,10 @@ Hello, Ballerina !
 $ ballerina run main.bal --config ../../ballerina.conf
 Hello, Ballerina !
 
-$ ballerina run main.bal -c /Users/anuruddha/Desktop/ballerina.conf
+$ ballerina run main.bal -c /Users/Test/Desktop/ballerina.conf
 Hello, Ballerina !
 
-$ ballerina run main.bal --config /Users/anuruddha/Desktop/ballerina.conf
+$ ballerina run main.bal --config /Users/Test/Desktop/ballerina.conf
 Hello, Ballerina !
 ```
 
@@ -184,7 +184,7 @@ These deployment artifacts can be a form of simple files or complex types, like 
 -   [Docker images](https://docs.docker.com/engine/reference/commandline/images/)
 -   [Kubernetes](http://kubernetes.io) artifacts
 
-It is possible for third parties and the ecosystem to create their own annotations and builder extensions that generate different kinds of deployment artifacts. You can publish these extensions within Ballerina Central for others to use. For more information, see [How to Extend Ballerina](https://stage.ballerina.io/learn/how-to-extend-ballerina/).
+It is possible for third parties and the ecosystem to create their own annotations and builder extensions that generate different kinds of deployment artifacts. You can publish these extensions within Ballerina Central for others to use. For more information, see [How to Extend Ballerina](/learn/how-to-extend-ballerina/).
 
 ### How to Enable Deployment
 A developer enables deployment artifact generation by adding annotations to their Ballerina code: 
@@ -607,7 +607,7 @@ $ curl -v -X POST -d '{"name":"Alice", "age":20,"ssn":123456789,"employeeId":1}'
 |imagePullPolicy|Docker image pull policy|IfNotPresent|
 |image|Docker image with tag|\<output file name\>:latest|
 |env|List of environment variables|null|
-|buildImage|Building docker image|true|
+|buildImage|Building Docker image|true|
 |dockerHost|Docker host IP and Docker PORT (e.g., "tcp://192.168.99.100:2376")|null|
 |dockerCertPath|Docker cert path|null|
 |push|Push Docker image to registry. This can only be true if image build is true.|false|
