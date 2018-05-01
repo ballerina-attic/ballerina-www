@@ -6,4 +6,6 @@
 
 ## Special notes
 > Any special testing needed to verify integrity.
-> Related media files, styling concerns if any.
+- Any checklist items to be verified before production deployment?
+- Special styling concerns? 
+- Related media files? 
