@@ -367,15 +367,7 @@ $(document).ready(function() {
         }
     });
 
-    var ConBanner = '<div class="row cBallerinaConBanner"><a href="http://con.ballerina.io/">' +
-        '<div class="container">JOIN US FOR THE FIRST <span>BALLERINACON</span>, JULY 18TH, IN SAN FRANCISCO OR VIRTUALLY ON YOUR PC</div></a></div>';
-    $('#iBanner').append(ConBanner);
-    setTimeout(function() {
-        $('#iBanner').addClass('cShowBanner');
-        $('#iMainNavigation').addClass('cShowBanner');
 
-
-    }, 2000);
 
     $('a[href^="http://www.youtube.com/watch?"]').each(function(i, elem) {
         /*
