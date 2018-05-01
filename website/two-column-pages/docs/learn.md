@@ -63,7 +63,7 @@ The [API Documentation](/learn/api-docs/?latest) describes the native functions 
 
 ### Language Specification
 
-The <a href="/res/Ballerina-Language-Specification-WD-2015-05-01.pdf" download="Ballerina-Language-Specification-WD-2015-05-01.pdf">Language Specification</a> is a set of documents that explain more about the inner workings of the Ballerina language itself.
+The <a href="/res/Ballerina-Language-Specification-WD-2015-05-01.pdf" download="Ballerina-Language-Specification-WD-2015-05-01.pdf">Language Specification</a> is a document that explains more about the inner workings of the Ballerina language itself.
 
 ### Ballerina Streaming Guide
 
