@@ -20,36 +20,28 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
     
-        <!--FB-->
+    <!--FB-->
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Cloud Native Programming Language" />
+    <meta property="og:description"        content="Ballerina makes it easy to create resilient services that integrate and orchestrate transactions across distributed endpoints." />
+    <meta property="og:image"              content="/img/ballerina-sm.jpg" />
 
-        <meta property="og:type"               content="article" />
-        <meta property="og:title"              content="Cloud Native Programming Language" />
-        <meta property="og:description"        content="Ballerina makes it easy to create resilient services that integrate and orchestrate transactions across distributed endpoints." />
-        <meta property="og:image"              content="/img/ballerina-sm.jpg" />
+    <!--TWITTER-->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@ballerinaplat">
+    <meta name="twitter:creator" content="@ballerinaplat">
+    <meta name="twitter:title" content="Cloud Native Programming Language">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://ballerina.io/img/ballerina-sm.jpg"> 
+    <meta name="twitter:text:description" content="Ballerina makes it easy to create resilient services that integrate and orchestrate transactions across distributed endpoints."> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:width" content="610">
 
-        <!--TWITTER-->
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@ballerinaplat">
-        <meta name="twitter:creator" content="@ballerinaplat">
-        <meta name="twitter:title" content="Cloud Native Programming Language">
-        <meta name="twitter:description" content="">
-        <meta name="twitter:image" content="https://ballerina.io/img/ballerina-sm.jpg"> 
-        <meta name="twitter:text:description" content="Ballerina makes it easy to create resilient services that integrate and orchestrate transactions across distributed endpoints."> 
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:image:width" content="610">
+    <!--LINKED IN  -->
+    <meta property='og:title' content="Cloud Native Programming Language"/>
+    <meta property='og:image' content="/img/ballerina-sm.jpg"/>
+    <meta property='og:description' content="Ballerina makes it easy to create resilient services that integrate and orchestrate transactions across distributed endpoints."/>
 
-
-
-        <!--LINKED IN  -->
-
-        <meta property='og:title' content="Cloud Native Programming Language"/>
-        <meta property='og:image' content="/img/ballerina-sm.jpg"/>
-        <meta property='og:description' content="Ballerina makes it easy to create resilient services that integrate and orchestrate transactions across distributed endpoints."/>
-    
-    
-    
-    
-    
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -88,10 +80,6 @@
     <script>
         var base_url = "";
     </script>
-    <script src="/search/require.js"></script>
-    <script src="{{ base_url }}/js/vs/grammer.js"></script>
-    <script src="{{ base_url }}/js/vs/loader.js"></script>
-
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -125,68 +113,17 @@
 
 <body class="cBallerina-io" role="document">
 
-
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSL2TX4"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     {% include "navigation.html" %} {{ page.content }} {% include "footer.html" %}
 
-    <script>
-        require.config({
-            paths: {
-                'vs': '../js/vs/'
-            }
-        });
-        require(['vs/editor/editor.main'], function() {
-            monaco.languages.register({
-                id: 'ballerina'
-            });
-            monaco.languages.setMonarchTokensProvider('ballerina', ballerina_grammar);
-
-            monaco.editor.defineTheme('myTheme', ballerina_theme);
-            monaco.editor.setTheme('myTheme');
-
-            var editor1 = monaco.editor.create(document.getElementById("ballerina_grammar"), Object.assign({
-                value: "function hello() {\n\talert('Hello world 2 !');\n}",
-                language: "ballerina"
-
-
-            }, codeEditor));
-
-            var editor2 = monaco.editor.create(document.getElementById("ballerina_grammar_2"), Object.assign({
-                value: "function hello() {\n\talert('Hello world 2 !');\n}",
-                language: "ballerina"
-
-
-            }, codeEditor));
-
-        });
-
-
-
-
-        $(function() {
-
-            var pathname = window.location.pathname;
-
-            if (pathname.indexOf("learn") != -1) {
-                $("#learnli").addClass("cActive");
-            } else if (pathname.indexOf("blog") != -1) {
-                $("#blogli").addClass("cActive");
-            } else if (pathname.indexOf("philosophy") != -1) {
-                $("#philosophyli").addClass("cActive");
-            } else if (pathname.indexOf("open") != -1) {
-                $("#openli").addClass("cActive");
-            } else if (pathname.indexOf("help") != -1) {
-                $("#helpli").addClass("cActive");
-            }
-
-        });
-    </script>
+    <script src="/search/require.js"></script>
     <script src="/search/search.js"></script>
-
 
 </body>
 

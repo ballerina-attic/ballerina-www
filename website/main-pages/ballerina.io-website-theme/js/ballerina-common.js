@@ -410,3 +410,19 @@ $(document).ready(function() {
     });
 
 });
+
+$(function() {
+    var pathname = window.location.pathname;
+
+    if (pathname.indexOf("learn") != -1) {
+        $("#learnli").addClass("cActive");
+    } else if (pathname.indexOf("blog") != -1) {
+        $("#blogli").addClass("cActive");
+    } else if (pathname.indexOf("philosophy") != -1) {
+        $("#philosophyli").addClass("cActive");
+    } else if (pathname.indexOf("open-source") != -1) {
+        $("#openli").addClass("cActive");
+    } else if (pathname.indexOf("help") != -1) {
+        $("#helpli").addClass("cActive");
+    }
+});
