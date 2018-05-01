@@ -244,7 +244,7 @@
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>IAAS</h3>
                     <p>Using code annotations and the build system, Ballerina services and other runtime components like the API gateway can be packaged for deployment into any cloud native environment. On IaaS environments, Ballerina services can run as
-                        a VM or a container, with images optionall pushed to a registry during build.</p>
+                        a VM or a container, with images optionally pushed to a registry during build.</p>
                 </div>
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
