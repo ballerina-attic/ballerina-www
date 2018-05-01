@@ -230,55 +230,55 @@ Now that your service is created, you can deploy this on Docker.
 
 > **Tip**: This was tested on the community edition version of Docker Edge.
 
-Import the docker package.
+Import the Docker package.
 
 ```
 import ballerinax/docker;
 ```
 
-Now, let’s add the code you need to run the service in Docker.
+Now, let’s add the code you need to run the service in Docker. This needs to be added under the `endpoint http:Listener` since Docker and Kubernetes annotations are only supported by Listener endpoints.
 
 ```ballerina
 // Docker configurations
 @docker:Config {
-    registry:"docker.abc.com",
+    registry:"registry.hub.docker.com",
     name:"helloworld",
     tag:"v1.0"
 }
 ```
 
-Now your code is ready to generate deployment artifacts. In this case it is a docker image.
+Now your code is ready to generate deployment artifacts. In this case it is a Docker image.
 ```bash
-$> ballerina build hello_world.bal
+ $> ballerina build hello_service.bal
 @docker 		 - complete 3/3
 ```
 
 Run the following command to start docker container: 
 
 ```bash
-docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
+docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
 ```
 
-Run the following command to check if docker is running.
+Run the following command to check if Docker is running.
 
 ```bash
 > docker images
 ```
 
-If docker is running, you see output similar to the following.
+If Docker is running, you see output similar to the following.
 
 ```
 REPOSITORY                 TAG                 IMAGE ID            CREATED              SIZE
-docker.abc.com/helloworld   v1              df83ae43f69b        2 minutes ago        102MB
+registry.hub.docker.com/helloworld   v1              df83ae43f69b        2 minutes ago        102MB
 ```
 
-You can run a docker container and access it with your code by just copying and pasting the docker run command that displays as output of the Ballerina build command.
+You can run a Docker container and access it with your code by just copying and pasting the `docker run` command that displays as output of the Ballerina build command.
 
 ```bash
-docker run -d docker.abc.com/helloworld:v1.0
+docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
 ```
 
-Run the following to get details of the docker container.
+Run the following to get details of the Docker container.
 
 ```bash
 docker ps
@@ -286,11 +286,11 @@ docker ps
 You see an output similar to the following.
 
 ```
-CONTAINER ID        IMAGE                            COMMAND                  CREATED                  STATUS              PORTS                    NAMES
-130ded2ae413        docker.abc.com/helloworld:v1.0   "/bin/sh -c 'balleri…"   Less than a second ago   Up 3 seconds        0.0.0.0:9090->9090/tcp   thirsty_hopper
+CONTAINER ID     IMAGE    COMMAND    CREATED      STATUS      PORTS     NAMES
+130ded2ae413        registry.hub.docker.com/helloworld:v1.0   "/bin/sh -c 'balleri…"   Less than a second ago   Up 3 seconds        0.0.0.0:9090->9090/tcp   thirsty_hopper
 ```
 
-Access the hello world service hosted on docker with a cURL command.
+Access the hello world service hosted on Docker with a cURL command.
 
 ```bash
 curl -d "Hello Ballerina" -X POST localhost:9090
@@ -325,3 +325,10 @@ To start the composer:
 3. In the Composer, click **File** and choose **Open File**.
 
 4. Navigate to your service and open it to view this in the Composer.
+
+## What's Next
+
+Now that you have taken Ballerina around for a quick twirl, you can explore Ballerina more.
+
+* Go through [Ballerina by Example](/learn/by-example/) to learn Ballerina incrementally with commented examples that cover every nuance of the syntax.
+* See [Ballerina by Guide](/learn/by-guide/) for long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
