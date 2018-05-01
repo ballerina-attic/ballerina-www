@@ -65,7 +65,7 @@ import ballerina/io;
 
 // A service endpoint represents a listener
 endpoint http:Listener listener {
-    port:9090
+    port: 9090
 };
 
 // A service is a network-accessible API
@@ -75,13 +75,13 @@ service<http:Service> hello bind listener {
     // A resource is an invokable API method
     // Accessible at '/hello/sayHello
     // 'caller' is the client invoking this resource 
-    sayHello (endpoint caller, http:Request request) {
+    sayHello(endpoint caller, http:Request request) {
 
         // Create object to carry data back to caller
         http:Response response = new;
 
         // Objects and structs can have function calls
-        response.setPayload("Hello Ballerina!\n");
+        response.setTextPayload("Hello Ballerina!\n");
 
         // Send a response back to caller
         // Errors are ignored with '_'
@@ -108,30 +108,36 @@ Add the following annotation before the service to ensure that it is at the root
 }
 ```
 
-Make the resource available at the root as well and change methods to POST. Add the following code snippet inside the service
+Make the resource available at the root as well and change methods to POST. Add the following code snippet inside the service, before the `sayHello` resource. 
 
 ```ballerina
-   @http:ResourceConfig {
-       methods: ["POST"],
-       path: "/"
-   }
+@http:ResourceConfig {
+   methods: ["POST"],
+   path: "/"
+}
 ```
 
-## Use a Connector
+Now you can start the service again and call it by opening a new command line window and using the following cURL command.
 
-Ballerina connector is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. Ballerina Central stores numerous connectors that can be used with your service. You can search for connectors using the `ballerina search` command. The command to search a Twitter connector is mentioned below.
+```bash
+curl http://localhost:9090/hello/sayHello -X POST
+```
+
+## Use an Endpoint
+
+Ballerina client endpoint is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. Ballerina Central stores numerous endpoints that can be used with your service. You can search for them using the `ballerina search` command. The command to search a Twitter endpoint is mentioned below.
 
 ```
 ballerina search twitter
 ```
 
-This results in a list of available connectors. You can pull the one you want from Ballerina Central.
+This results in a list of available endpoints. You can pull the one you want from Ballerina Central.
 
 ```
 ballerina pull wso2/twitter
 ```
 
-You now have access to a Twitter connector.
+You now have access to a Twitter client endpoint.
 
 In your `hello_service.bal` file, import the Twitter package.
 
@@ -151,7 +157,7 @@ Prior to sending a Tweet, you need to create a Twitter app and get some informat
 
 > **Note**: You need to have a Twitter account to try this.
 
-1. Go to https://apps.twitter.com/ and click **Create New App**. 
+1. Go to [https://apps.twitter.com/](/)  and click **Create New App**. 
 
 2. Fill the form that appears and click **Create your Twitter application**.
 
@@ -160,8 +166,8 @@ Prior to sending a Tweet, you need to create a Twitter app and get some informat
 4. In the directory where you have your service, create a **twitter.toml** file and add the details you obtained above within the quotes.
     ```
     # Ballerina demo config file
-    clientId = ""
-    clientSecret = ""
+    consumerKey = ""
+    consumerSecret = ""
     accessToken = ""
     accessTokenSecret = ""
     ```
@@ -180,8 +186,8 @@ Add this code after the import.
 
 ```ballerina
 endpoint twitter:Client twitter {
-   clientId: config:getAsString("clientId"),
-   clientSecret: config:getAsString("clientSecret"),
+   clientId: config:getAsString("consumerKey"),
+   clientSecret: config:getAsString("consumerSecret"),
    accessToken: config:getAsString("accessToken"),
    accessTokenSecret: config:getAsString("accessTokenSecret")
 };
@@ -201,12 +207,13 @@ Now, we can get our response from Twitter by just calling its tweet action. Add 
 
 ```ballerina
 twitter:Status st = check twitter->tweet(status, "", "");
+response.setTextPayload("ID:" + <string>st.id + "\n");
 ```
 
 Go ahead and run it and this time pass the config file:
 
 ```bash
-$ ballerina run demo.bal --config twitter.toml
+$ ballerina run hello_service.bal --config twitter.toml
 ```
 
 Now go to the terminal window and pass a tweet:
@@ -242,11 +249,11 @@ Now, let’s add the code you need to run the service in Docker.
 
 Now your code is ready to generate deployment artifacts. In this case it is a docker image.
 ```bash
-$> ballerina build hello_world_docker.bal
+$> ballerina build hello_world.bal
 @docker 		 - complete 3/3
 ```
 
-Run following command to start docker container: 
+Run the following command to start docker container: 
 
 ```bash
 docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
@@ -268,7 +275,7 @@ docker.abc.com/helloworld   v1              df83ae43f69b        2 minutes ago   
 You can run a docker container and access it with your code by just copying and pasting the docker run command that displays as output of the Ballerina build command.
 
 ```bash
-docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
+docker run -d docker.abc.com/helloworld:v1.0
 ```
 
 Run the following to get details of the docker container.
@@ -276,7 +283,7 @@ Run the following to get details of the docker container.
 ```bash
 docker ps
 ```
-You see output similar to the following.
+You see an output similar to the following.
 
 ```
 CONTAINER ID        IMAGE                            COMMAND                  CREATED                  STATUS              PORTS                    NAMES
@@ -286,19 +293,19 @@ CONTAINER ID        IMAGE                            COMMAND                  CR
 Access the hello world service hosted on docker with a cURL command.
 
 ```bash
-curl http://localhost:9090/helloWorld/sayHello
+curl -d "Hello Ballerina" -X POST localhost:9090
 ```
 You get the following response.
 
 ```
-Hello, World!
+ID:991212870376534016
 ```
 
 ## Push your Package to Ballerina Central
 
 For the `ballerina push` command to work, you need to copy and paste your Ballerina Central access token in Settings.toml in your home repository (<USER_HOME>/.ballerina/). 
 
-Register on Ballerina Central and visit user dashboard at https://central.ballerina.io/dashboard to gain access to your user token.  
+Register on Ballerina Central and visit user dashboard at [https://central.ballerina.io/dashboard](/) to gain access to your user token.  
 
 Once that is done, push your package to Ballerina Central.
 
