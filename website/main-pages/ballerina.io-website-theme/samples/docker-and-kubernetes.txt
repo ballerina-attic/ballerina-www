@@ -6,7 +6,7 @@ import ballerinax/kubernetes;
     serviceType: "NodePort",
     name: "ballerina-demo"
 }
-endpoint http:ServiceEndpoint listener {
+endpoint http:Listener listener {
     port: 9090
 };
 
@@ -22,12 +22,12 @@ endpoint http:ServiceEndpoint listener {
 @kubernetes:HPA {
     minReplicas: 1,
     maxReplicas: 5,
-    cpuPrecentage: 50
+    cpuPercentage: 50
 }
 
 service<http:Service> hello bind listener {
     hi (endpoint caller, http:Request request) {
-        http:Response res = {};
+        http:Response res;
         res.setTextPayload("Hello World!\n");
         _ = caller->respond(res);
     }

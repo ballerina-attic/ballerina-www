@@ -1,4 +1,6 @@
 import wso2/twitter;
+import ballerina/http;
+import ballerina/config;
 
 endpoint twitter:Client twitterEP {
     clientId: config:getAsString("clientId"),
@@ -14,12 +16,12 @@ service<http:Service> tweeter bind {port:9090} {
         path: "/tweet"
     }
     tweet (endpoint caller, http:Request req) {
-        string status = check req.getStringPayload();
+        string status = check req.getTextPayload();
         if ( status == "" ) { status = "Hello World"; }
 
-        Status twitterStatus = check twitterClient -> tweet(status);
-        tweetId = <string> twitterStatus.id;
-        string text = twitterStatus.text;   
+        twitter:Status twitterStatus = check twitterEP -> tweet(status);
+        string tweetId = <string> twitterStatus.id;
+        string text = twitterStatus.text;
         json jr = { "id": tweetId, "text": text};
         http:Response response = new;
         response.setJsonPayload(jr);
