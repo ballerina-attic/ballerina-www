@@ -191,7 +191,7 @@ select roomNo, value
 Streaming queries support the following for query projections.
 
 <div style="overflow-x:auto;">
-<table style="width:100%">
+<table>
     <tr>
         <th>Action</th>
         <th>Description</th>
