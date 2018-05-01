@@ -20,10 +20,10 @@
 
 Once build is completed, you can find the generated www folder at `<repo-root>/website/target/webroot/`. If you already have a webserver, copy this folder to webroot and point the browser to your webserver.
 
-Otherwise, since you already have NodeJs installed, install [serve](https://github.com/zeit/serve)
+Otherwise, since you already have NodeJs installed, install [serve](https://github.com/zeit/serve) - a simple webserver on NodeJs.
 
-1. `npm i -g serve`
-2. `serve <repo-root>/website/target/webroot/`
+1. To install, execute `npm i -g serve`.
+2. To start the server, execute `serve <repo-root>/website/target/webroot/`.
 
 This will start a webserver with `<repo-root>/website/target/webroot/` path set as the webroot and by default can be consumed via `http://localhost:5000`.
 
