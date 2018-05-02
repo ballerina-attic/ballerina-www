@@ -242,8 +242,6 @@ You can create connectors for a range of protocols and interfaces, including tho
 
 12. Source code for a [MySQL client connector](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/database/ballerina-mysql/src/main/ballerina/mysql/mysql_endpoint.bal).
 
-## Create Server Listeners
-
 ## Create Custom Annotations & Builder Extensions
 
 Annotations decorate objects in Ballerina code. The Ballerina compiler parses annotations into an AST that can be read and acted upon. You can introduce custom annotations for use by others with Ballerina and package builder extensions that can act on those annotations. The builder can generate additional artifacts as part of the build process.
