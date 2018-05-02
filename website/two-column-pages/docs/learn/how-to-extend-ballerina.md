@@ -31,11 +31,13 @@ You can see the source code for this example at:
 2. [Multiple files](https://github.com/muthulee/package-client-endpoint-guide/tree/master/clientendpointsample) version (split across files following good project structure).
 
 WSO2 has created a connector for Twilio and pushed it into Ballerina Central as `wso2/twilio`. You can find this connector on the command line:
+
 ```bash
 ballerina search twilio
 ```
 
 The Twilio connector reuses the HTTP client connector and adds some additional properties in order to create a programmable connection with a Twilio endpoint. A simple Ballerina program that would use this connector might be the following:
+
 ```ballerina
 import ballerina/http;
 import wso2/twilio;
@@ -153,6 +155,7 @@ public function TwilioClient::getClient () returns TwilioConnector {
 While the `TwilioClient` object implements `init()` and `getClient()`, if you want to explose custom actions for your end users to use against the connector, these are defined in the `TwilioConnector` object which was initialized and stored as a reference to the `TwilioClient` object. You can add as many or as few custom functions to this object.
 
 In our example, we added a `getAccountDetails()` function that can be invoked as part of the endpoint by the end user:
+
 ```ballerina
 // Account is a custom object that represents Twilio data return values.
 // The -> represents making a non-blocking worker call over the network
@@ -162,6 +165,7 @@ Account account = check twilioClient->getAccountDetails();
 ```
 
 And within the package that includes your custom connector, we have these additional items that define the custom function:
+
 ```ballerina
 // Constants
 @final string ACCOUNTS_API = "/Accounts/";
@@ -182,6 +186,7 @@ public function TwilioConnector::getAccountDetails() returns (Account|error) {
 ```
 
 And the `Account` record is also defined in the same file:
+
 ```ballerina
 public type Account {
     string sid;
@@ -265,6 +270,7 @@ service<http:Service> helloWorld bind {port:9091} {
 ```
 
 If the end user saved this file as `hello_world.bal` then after building the file (with our custom build extension) will produce:
+
 ``` bash
 $> tree
 ├── hello_world.bal
@@ -471,6 +477,7 @@ public class HelloExtensionProvider implements SystemPackageRepositoryProvider {
 ##### Update the pom.xml
 
 Configure bsc plugin in the `pom.xml`:
+
 ```xml
 <!-- For ballerina annotation processing -->
 <resources>
@@ -580,6 +587,7 @@ Configure Maven compiler plugin. Ballerina requires Java8 for the builder extens
 
 ##### Verify the Annotation
 Build the project and verify that the JAR file is built. The JAR file will contain your annotation definitions.
+
 ```bash
 mvn clean install
 ```
@@ -589,6 +597,7 @@ The resulting `target/hello-extension-1.0-SNAPSHOT.jar` will have the annotation
 Place the jar file at `<ballerina_tools_home>/bre/lib` of your Ballerina distribution.
 
 You can now verify that the annotation is present even though we cannot react to it yet. Create a sample Ballerina file with your  annotation and make sure that Ballerina can compile the file without errors.
+
 ```ballerina
 import ballerina/http;
 import ballerinax/hello;
@@ -708,6 +717,7 @@ public class HelloPlugin extends AbstractCompilerPlugin {
 The annotation value is read and cached in a singleton model class. Upon receiving the code generated event, we are extracting the output file name and write the value from the model class to a file.
 
 Create `HelloModel.java` in `hello/src/main/java/org/ballerinax/hello` package.
+
 ```java
 package org.ballerinax.hello;
 
@@ -743,6 +753,7 @@ public class HelloModel {
 ```
 
 Create an file named `org.ballerinalang.compiler.plugins.CompilerPlugin` in `hello/src/main/resources/META-INF/services` directory. This file is read by the compiler and registers our `HelloPlugin.java` class as an extension. The events will be received by the registered classes. The file should contain the fully qualified Java class name of the builder extension.
+
 ```
 org.ballerinax.hello.HelloPlugin
 ```
