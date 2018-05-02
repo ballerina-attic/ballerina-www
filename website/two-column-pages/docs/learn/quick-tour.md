@@ -233,7 +233,7 @@ You send a tweet that says 'Ballerina'.
 
 Now that your service is created, you can deploy this on Docker. 
 
-> **Tip**: This was tested on the community edition version of Docker Edge.
+> **Tip**: This was tested on the community edition version of Docker Edge. You need to have Docker installed to use this. Also start/restart Docker prior to running your code.
 
 Import the Docker package.
 
