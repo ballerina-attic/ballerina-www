@@ -14,7 +14,7 @@ The apps we will write increasingly depend on these endpoints. Integration is th
 There have been two ways to handle integration.
 
 * One approach has used integration products based on configuration, not code. We’ve created EAI, ESBs, and DSLs as integration-first stacks. These approaches aren’t agile. They disrupt the edit, build, run, test cycle interrupting a developer’s flow. And that isn’t the experience we desire as developers.
-* The other way to do integration is with general purpose programming languages, like Java and JavaScript. These languages provide agility to offer developer flow. However, developers have to take responsibility for solving the hard problems of integration. They do this by writing their own integration logic or by using complex bolt-on frameworks like Spring or Node. This approach is agile, but not integration simple.
+* The other way to do integration is with general purpose programming languages, like Java and JavaScript. These languages provide agility to offer developer flow. However, developers have to take responsibility for solving the hard problems of integration. They do this by writing their own integration logic or with frameworks like Spring or Node. This approach is agile, but not integration simple.
 
 This is a fundamental problem - you can have integration simple or agile, but not both. We call this the integration gap.
 
@@ -30,13 +30,13 @@ Ballerina has been inspired by Java, Go, C, C++, Rust, Haskell, Kotlin, Dart, Ty
 
 ### What is the status of the project?
 
-Ballerina became a public open source project on February 21s, 2017, hosted at http://ballerinalang.org and http://github.com/ballerinalang/ballerina.
+Ballerina became a public open source project on February 21s, 2017, hosted at [http://ballerinalang.org](http://ballerinalang.org) and [http://github.com/ballerinalang/ballerina](http://github.com/ballerinalang/ballerina).
 
-Through 2017 and the first part of 2018, the language was redesigned based upon feedback from the community. In Q2 2018, Ballerina was moved to http://ballerina.io and http://github.com/ballerina-platform/.
+Through 2017 and the first part of 2018, the language was redesigned based upon feedback from the community. In Q2 2018, Ballerina was moved to [http://ballerina.io](http://ballerina.io) and [http://github.com/ballerina-platform/](http://github.com/ballerina-platform).
 
 The current revision of Ballerina is pre-1.0. However, stability is happening quickly, and 1.0 language-lock was established with the .970 version in April 2018.
 
-The Ballerina project is currently working towards Ballerina 1, which includes a language specification, a virtual machine, standard libraries, build management, centralized package management at central.ballerina.io, unit test framework, and observability extension.
+The Ballerina project is currently working towards Ballerina 1, which includes a language specification, a virtual machine, standard libraries, build management, centralized package management at [central.ballerina.io](central.ballerina.io), unit test framework, and observability extension.
 
 Ballerina is currently community supported on Stack Overflow, and WSO2 is working towards offering commercial support in 2018.
 
@@ -44,13 +44,13 @@ There may be a Ballerina 2 one day, but not for many years, as we will work to u
 
 ### What is the origin of the logo?
 
-The Ballerina logo and the shoes, which are “en pointe”, were designed by Eric and Christine Strohl, of StrohlSF.com.
+The Ballerina logo and the shoes, which are “en pointe”, were designed by Eric and Christine Strohl, of [StrohlSF.com](http://strohlsf.com).
 
 ### Why are you creating a new language?
 
 Ballerina was born out of frustration with programming frameworks and integration products that embed programming logic within YAML, XML, or other configuration-based files. These approaches disrupted the developer flow, requiring special purpose tools and debuggers that took developers away from focusing on iterative development.
 
-One had to either choose robust, complex, and heavy server products for managing integrations, or use a general purpose language with a bolt-on framework that varied by programming language and objectives. There has not existed a way to get agility with rapid code development that runs micro-integration servers for message brokering, service hosting, and transaction coordination.
+One had to either choose robust, complex, and heavy server products for managing integrations, or use a general purpose language with a bolt-on framework that varied by programming language and objectives. There has not existed a way to get agility with rapid code development that runs microintegration servers for message brokering, service hosting, and transaction coordination.
 
 Ballerina is an attempt to combine the agility of a type safe programming language with the syntax of integration sequence diagrams. Once compiled, the resulting binaries embed micro engines that perform inline integration semantics such as mediation, orchestration, transformations, asynchrony, event generation and transactions.
 
@@ -62,23 +62,30 @@ In the creation of Ballerina, we were inspired by so many technologies. Thank yo
 
 ### What are the guiding principles in the design?
 
-There are a few principles that drove the design of the language and runtime:
-* Sequence Diagrammatic - Ballerina’s underlying language semantics were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow with endpoints, including synchronous and asynchronous calls. The Ballerina Composer is an included tool for creating Ballerina services with sequence diagrams. Sequence diagrams are a reflection of how designers and architects think and document interconnected systems. Ballerina’s syntax is structured to let any tool or system derive a sequence diagram, and subsequently the way a developer thinks when writing Ballerina code encourages strong interaction best practices. This theory is elaborated upon in Sanjiva Weerawarana’s blog.
-* Concurrency Workers - Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use a full non-blocking policy where no function locks an executing thread, such as an HTTP I/O call awaiting response. These semantics manifest sequence concurrency where workers are independent concurrent actors that do not share state but can interact using messages. Workers and fork/join language semantics abstract the underlying non-blocking approach to enable a simpler concurrency programming model.
-* Network Aware Type Safety - Ballerina has a structural type system with primitive, object, union, and tuple types. Network systems return messages with different payload types and errors. Ballerina’s type system embraces this variability with an approach based on union types. This typesafe model incorporates type inference at assignment provide numerous compile time integrity checks for network-bound payloads.  Ballerina has a structural type system with primitive, object, union, and tuple types. Network systems return messages with different payload types and errors. Ballerina’s type system embraces this variability with an approach based on union types. The model then incorporates type inference at assignment to provide compile time integrity checks for network-bound payloads.  
-* DevOps Ready - Over the past 15 years, best practices and expectations on the associated toolset that a language provides have evolved. Now, a language is not ready for adoption unless it includes unit test framework, build system, dependency management and versioning, and a way to share modules of reusable code. Ballerina includes all of these subsystems as part of its core distribution so that there is no risk of community drift, which is what happens when the ecosystem needs to build tools on top of a language instead of designing it within the language.
-* Environment Aware - Ballerina the language and its components are intended to be used within distributed, event-driven architectures. Subsequently, each service written within Ballerina is residing in an environment that may also include other services, legacy services, service meshes, orchestrators, API gateways, identity gateways, message brokers and databases. Ballerina’s language and annotations extension are intentionally environment-aware, treating these other components as syntactical objects and also relationships as decorated annotations. By having the language and build system be environmentally aware of other components surrounding our service, we can generate essential artifact code ahead of CI/CD, perform data and integrity checks around network-bound payloads, and pre-package dependent but not yet deployed components as part of the Ballerina binary.
+##### Sequence Diagrammatic
+Ballerina’s underlying language semantics were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow with endpoints, including synchronous and asynchronous calls. The Ballerina Composer is an included tool for creating Ballerina services with sequence diagrams. Sequence diagrams are a reflection of how designers and architects think and document interconnected systems. Ballerina’s syntax is structured to let any tool or system derive a sequence diagram, and subsequently the way a developer thinks when writing Ballerina code encourages strong interaction best practices. This theory is elaborated upon in Sanjiva Weerawarana’s blog.
+
+##### Concurrency Workers
+Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use a full non-blocking policy where no function locks an executing thread, such as an HTTP I/O call awaiting response. These semantics manifest sequence concurrency where workers are independent concurrent actors that do not share state but can interact using messages. Workers and fork/join language semantics abstract the underlying non-blocking approach to enable a simpler concurrency programming model.
+
+##### Network Aware Type Safety
+Ballerina has a structural type system with primitive, object, union, and tuple types. Network systems return messages with different payload types and errors. Ballerina’s type system embraces this variability with an approach based on union types. This typesafe model incorporates type inference at assignment provide numerous compile time integrity checks for network-bound payloads.  Ballerina has a structural type system with primitive, object, union, and tuple types. Network systems return messages with different payload types and errors. Ballerina’s type system embraces this variability with an approach based on union types. The model then incorporates type inference at assignment to provide compile time integrity checks for network-bound payloads.  
+
+##### DevOps Ready
+Over the past 15 years, best practices and expectations on the associated toolset that a language provides have evolved. Now, a language is not ready for adoption unless it includes unit test framework, build system, dependency management and versioning, and a way to share modules of reusable code. Ballerina includes all of these subsystems as part of its core distribution so that there is no risk of community drift, which is what happens when the ecosystem needs to build tools on top of a language instead of designing it within the language.
+
+##### Environment Aware 
+Ballerina the language and its components are intended to be used within distributed, event-driven architectures. Subsequently, each service written within Ballerina is residing in an environment that may also include other services, legacy services, service meshes, orchestrators, API gateways, identity gateways, message brokers and databases. Ballerina’s language and annotations extension are intentionally environment-aware, treating these other components as syntactical objects and also relationships as decorated annotations. By having the language and build system be environmentally aware of other components surrounding our service, we can generate essential artifact code ahead of CI/CD, perform data and integrity checks around network-bound payloads, and pre-package dependent but not yet deployed components as part of the Ballerina binary.
 
 ### How does Ballerina compare to Spring?
 Ballerina is a modern programming language that has a concise way of programming interaction scenarios. Its syntax represents the powerful elements of what Java, Spring, and Spring Cloud offer separately. Additionally, Spring requires developers to choose and configure a separate build system (maven or gradle), unit test framework, registry for sharing modules, and deployment artifact generation. The nature of agile programming has evolved where these lifecycle concepts for microservices are well understood and their best practices are baked into Ballerina in the form of Ballerina’s build system, Ballerina Central, Testerina and Docker / Kubernetes artifact generation during build.
 
 ### Given Ballerina is a programming language what about frameworks like Spring? Why should our Java developers learn another language?
-
-Unlike Spring, Ballerina is both agile and integration simple. While general purpose programming languages make software development agile, developers must still take responsibility for the hard problems of integration by writing their own integration logic or using complex bolt-on frameworks like Spring. This approach is not integration simple.
+Unlike Spring, Ballerina is both agile and integration simple. While general purpose programming languages make software development agile, developers must still take responsibility for the hard problems of integration by writing their own integration logic or  frameworks like Spring. This approach is not integration simple.
 
 In this sense, Ballerina is the language, the framework, the runtimes, the gateway, the circuit breaker, the message broker, and transaction coordinator all rolled into a single design and implementation.
 
-Additionally, Pivotal imposes tough requirements for developers to get Spring support. They must purchase Pivotal Cloud Foundry to get Spring support. Additionally, Pivotal does not provide JVM support which must be sought from different vendors. And, the API Gateway, circuit breaker and other components are sourced from Netflix OSS projects and not supported as part of Spring.
+Developers will always have their favorite language of choice. However, in a polyglot world where services are disaggregating, there is potential for a new language that makes it easier to be the glue between endpoints written in any language, including Java and Spring, with a shorter learning curve. We think Ballerina can play a role as part of the glue.
 
 ### How does Ballerina compare to a Service Mesh like Istio?
 
@@ -88,7 +95,7 @@ Service meshes exist to make it easier to write resilient distributed systems. T
 
 People often suggest improvements to the language - the developer mailing list contains a rich history of such discussions, but very few of these changes have been accepted.
 
-Although Ballerina is an open source projects, the language and libraries are protected by a compatibility standard that prevents changes that break existing programs. If your proposal violates the Ballerina 1 specification we cannot entertain the idea, regardless of its merit. A future major release of Ballerina may be incompatible with Ballerina 1, but we’re not ready to start talking about that idea as we are still working towards long term stability of Ballerina 1!
+Although Ballerina is an open source project, the language and libraries are protected by a compatibility standard that prevents changes that break existing programs. If your proposal violates the Ballerina 1 specification we cannot entertain the idea, regardless of its merit. A future major release of Ballerina may be incompatible with Ballerina 1, but we’re not ready to start talking about that idea as we are still working towards long term stability of Ballerina 1!
 
 Even if your proposal is compatible with Ballerina 1 specification, it might not be in the spirit of Ballerina’s design goals. The language designers are generous with their time in elaborating on the various design intentions to help provide deeper background on its history and direction.
 
@@ -119,7 +126,7 @@ Yes, it generates mocks when Swagger is present.
 
 ### Which Ballerina connectors will be available on May 1?
 
-The best place to see the latest set of connectors is browsing Ballerina Central at central.ballerina.io, or by using `ballerina search` on the command line.
+The best place to see the latest set of connectors is browsing Ballerina Central at [central.ballerina.io](http://central.ballerina.io), or by using `ballerina search` on the command line.
 
 The Ballerina team and WSO2 are publishing a series of additional packages around Twitter, Gmail, Github, Salesforce.com, and others. You can browse the packages that WSO2 is publishing by viewing the [http://github.com/wso2-ballerina](http://github.com/wso2-ballerina) organization. Each repository is an additional package we are shipping.
 
@@ -129,11 +136,11 @@ For details, see the [How to Observe Ballerina Programs](/learn/how-to-observe-b
 
 ### What are the secure coding guidelines?
 
-For details, see the [How to Secure Ballerina Programs](/learn/how-to-write-secure-ballerina-code/) document on ballerina.io.
+For details, see the [How to Secure Ballerina Programs](/learn/how-to-write-secure-ballerina-code/) document on [ballerina.io](http://ballerina.io).
 
 ### How can we integrate legacy code (written on Java or other languages) with Ballerina?
 
-Ballerina Bridge is a project within the Ballerina organization that provides a containerized sidecar that is able to bridge legacy services to work with Ballerina transactions. The sidecar connects to the legacy service over localhost and bridges the transaction initiated by a Ballerina service with the internal transaction semantics of the legacy service managed by the sidecar.
+[Ballerina Bridge](https://github.com/ballerina-platform/ballerina-bridge) is a project within the Ballerina organization that provides a containerized sidecar that is able to bridge legacy services to work with Ballerina transactions. The sidecar connects to the legacy service over localhost and bridges the transaction initiated by a Ballerina service with the internal transaction semantics of the legacy service managed by the sidecar.
 
 ### What build tools should be used for large projects with Ballerina?
 
@@ -145,7 +152,7 @@ Development teams should continue to use their favorite or existing lifecycle so
 
 ### What are the best practices for versioning Ballerina based applications?
 
-We require Ballerina packages to follow semver semantics. If you are creating a shared package that is pushed into a Ballerina registry, like Ballerina Central, every push requires a versioning increment. We do not allow updates to an existing version as this creates confusion and difficulties with downstream adopters.
+We require Ballerina packages to follow semver semantics. If you are creating a shared package that is pushed into a Ballerina registry, like [Ballerina Central](http://central.ballerina.io), every push requires a versioning increment. We do not allow updates to an existing version as this creates confusion and difficulties with downstream adopters.
 
 ### What are the guidelines for application governance with Ballerina?
 
@@ -163,7 +170,7 @@ For details, see [How to Structure Ballerina Code](/learn/how-to-structure-balle
 
 Legacy libraries cannot be linked to a Ballerina program.
 
-However, you can make your legacy libraries into microservices and then invoke them over the network The Ballerina Bridge enables legacy services to participate in transactions with other Ballerina services for this purpose.
+However, you can make your legacy libraries into microservices and then invoke them over the network The [Ballerina Bridge](https://github.com/ballerina-platform/ballerina-bridge) enables legacy services to participate in transactions with other Ballerina services for this purpose.
 
 ### Will business designers be able to do graphical GUI development still? How can we keep the design to code alignment with Ballerina?
 
@@ -181,7 +188,7 @@ We do not have any yet.
 
 ### What is the footprint?
 
-The memory footprint depends on the use case and the load. A simple Ballerina service which simultaneously serves 500 concurrent users will have a low memory footprint of  50 MB. A ballerina main() program with simple logic (such as a loop counter) consumes 15  MB.
+The memory footprint depends on the use case and the load. A simple Ballerina service which simultaneously serves 500 concurrent users will have a low memory footprint of  50 MB. A ballerina `main()` program with simple logic (such as a loop counter) consumes 15  MB.
 
 ### What is the update process for Ballerina? What is the update frequency?
 
@@ -221,7 +228,7 @@ For more information on the function pointer syntax, see the [Funtion Pointer ex
 
 ### What compiler technology is used to build the compiler?
 
-The Ballerina compiler is written in Java with a generated LL(*) parser using ANTLR4. It generates binary files containing a Ballerina bytecode format that is platform neutral and different than Java’s bytecode..
+The Ballerina compiler is written in Java with a generated LL parser using ANTLR4. It generates binary files containing a Ballerina bytecode format that is platform neutral and different than Java’s bytecode.
 
 Ballerina compiler is a multi-pass compiler with stages for lexical and syntax analysis, semantic analysis, Code analysis, desugar (remove syntactic sugar), and code generation.
 
@@ -241,7 +248,7 @@ A simple Ballerina 'hello, world' program compiled and linked statically is arou
 
 Ballerina's runtime implements a virtual machine that executes the Ballerina bytecode, which is called the BVM.
 
-The BVM's execution model is made up of lightweight parallel execution units known as "workers". A worker is a lightweight parallel execution unit. Every function or network action defines one or more workers to execute its logic, and each has its own lifecycle consisting of worker states such as READY, RUNNING, and WAITING_FOR_RESPONSE.
+The BVM's execution model is made up of lightweight parallel execution units known as "workers". A worker is a lightweight parallel execution unit. Every function or network action defines one or more workers to execute its logic, and each has its own lifecycle consisting of worker states such as `READY`, `RUNNING`, and `WAITING_FOR_RESPONSE`.
 
 A worker is not bound exclusively to a single operating system thread, but rather, it uses full non-blocking policy, where it will never block an executing thread if the worker is not actively using it. This is controlled by the scheduler in the BVM, which coordinates the worker executions with the physical threads. For example, I/O operations such as HTTP calls will release the physical threads and only after the I/O response is available will the worker resume.
 
