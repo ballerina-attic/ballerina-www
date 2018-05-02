@@ -157,7 +157,7 @@ Prior to sending a Tweet, you need to create a Twitter app and get some informat
 
 > **Note**: You need to have a Twitter account to try this.
 
-1. Go to [https://apps.twitter.com/](/)  and click **Create New App**. 
+1. Go to [https://apps.twitter.com/](https://apps.twitter.com/)  and click **Create New App**. 
 
 2. Fill the form that appears and click **Create your Twitter application**.
 
