@@ -303,13 +303,13 @@ ID:991212870376534016
 
 ## Push your Package to Ballerina Central
 
-For the `ballerina push` command to work, you need to copy and paste your Ballerina Central access token in Settings.toml in your home repository (<USER_HOME>/.ballerina/). 
+For the `ballerina push` command to work, you need to copy and paste your Ballerina Central access token in `settings.toml` in your home repository (<USER_HOME>/.ballerina/). 
 
 Register on Ballerina Central and visit user dashboard at [https://central.ballerina.io/dashboard](/) to gain access to your user token.  
 
-When you push a package to Ballerina Central, the runtime will validate organizations for the user against the org-name defined in your package’s Ballerina.toml file. 
+When you push a package to Ballerina Central, the runtime will validate organizations for the user against the `org-name` defined in your package’s Ballerina.toml file. 
 
-Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the package into and set that as the org-name in Ballerina.toml inside the project directory.
+Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the package into and set that as the `org-name` in `ballerina.toml` inside the project directory.
 
 Once that is done, push your package to Ballerina Central.
 
@@ -317,12 +317,12 @@ Once that is done, push your package to Ballerina Central.
 ballerina push <package-name>
 ```
 
-Here is a sample that pushes your math package to central
+Here is a sample that pushes your `math` package to Ballerina Central.
 ```bash
 ballerina push math
  ```
 
-For more information on Ballerina push command run
+For more information on Ballerina push command run,
 ```bash
 ballerina help push
  ```
