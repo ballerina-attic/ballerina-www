@@ -307,10 +307,14 @@ For the `ballerina push` command to work, you need to copy and paste your Baller
 
 Register on Ballerina Central and visit user dashboard at [https://central.ballerina.io/dashboard](/) to gain access to your user token.  
 
+When you push a package to Ballerina Central, the runtime will validate organizations for the user against the org-name defined in your package’s Ballerina.toml file. 
+
+Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the package into and set that as the org-name in Ballerina.toml inside the project directory.
+
 Once that is done, push your package to Ballerina Central.
 
 ```bash
-ballerina push quicktour/twitter
+ballerina push <package-name>
 ```
 
 ## Run the Composer
