@@ -233,7 +233,7 @@ You send a tweet that says 'Ballerina'.
 
 Now that your service is created, you can deploy this on Docker. 
 
-> **Tip**: This was tested on the community edition version of Docker Edge.
+> **Tip**: This was tested on the community edition version of Docker Edge. You need to have Docker installed to use this. Also start/restart Docker prior to running your code.
 
 Import the Docker package.
 
@@ -264,6 +264,12 @@ Run the following command to start docker container:
 docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
 ```
 
+> **Tip**: You can run a Docker container and access it with your code by just copying and pasting the `docker run` command that displays as output of the Ballerina build command.
+>
+>  ```bash
+>   docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
+>   ```
+
 Run the following command to check if Docker is running.
 
 ```bash
@@ -275,12 +281,6 @@ If Docker is running, you see output similar to the following.
 ```
 REPOSITORY                 TAG                 IMAGE ID            CREATED              SIZE
 registry.hub.docker.com/helloworld   v1              df83ae43f69b        2 minutes ago        102MB
-```
-
-You can run a Docker container and access it with your code by just copying and pasting the `docker run` command that displays as output of the Ballerina build command.
-
-```bash
-docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
 ```
 
 Run the following to get details of the Docker container.
@@ -323,11 +323,13 @@ ballerina push <package-name>
 ```
 
 Here is a sample that pushes your `math` package to Ballerina Central.
+
 ```bash
 ballerina push math
  ```
 
 For more information on Ballerina push command run,
+
 ```bash
 ballerina help push
  ```
