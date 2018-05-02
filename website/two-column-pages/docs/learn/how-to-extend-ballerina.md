@@ -298,6 +298,7 @@ Annotations can be attached to:
 Ballerina has built-in a set of annotations such as @http:ServiceConfig, @http:ResourceConfig. These annotations are part of the standard library and shipped with each distribution of Ballerina. You can view the definitions of these annotations by browsing the package API reference.
 
 A Ballerina "builder extension" is Java code that the build process will load and execute after the compilation phase. Builder extensions can act on any annotation information, whether those in the system library or custom annotations provided by you. Builder extensions that you write can register callbacks that act on annotations attached to different objects:
+
 * `public abstract void init(DiagnosticLog var1)`
 * `public void process(PackageNode packageNode)`
 * `public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations)`
