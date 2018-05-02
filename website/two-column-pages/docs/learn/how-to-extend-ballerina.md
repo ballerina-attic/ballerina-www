@@ -327,7 +327,8 @@ mvn archetype:generate -DgroupId=ballerinax.hello
 ```
 
 This will create a maven project in following structure.
-```bash	.
+
+```bash	
 ├── pom.xml
 ├── src
 │   ├── main
@@ -344,6 +345,7 @@ This will create a maven project in following structure.
 ```
 
 In the `pom.xml`, add Ballerina IO as the parent:
+
 ```xml
     <parent>
         <groupId>io.ballerina</groupId>
@@ -353,6 +355,7 @@ In the `pom.xml`, add Ballerina IO as the parent:
 ```
 
 In the `pom.xml` add Ballerina's maven dependencies:
+
 ```xml
     <dependencies>
         <dependency>
@@ -393,6 +396,7 @@ In the `pom.xml`, add Ballerina's repository information
 ```
 
 Make sure you are able to build the project:
+
 ```bash
 mvn clean install
 ```
@@ -421,6 +425,7 @@ In the maven project, create a hello-extension/src/main/ballerina/ballerinax/doc
 ```
 
 The annotation is defined using Ballerina syntax in the `annotation.bal`:
+
 ```ballerina
 package ballerinax.hello;
 
