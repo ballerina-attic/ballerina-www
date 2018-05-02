@@ -1,16 +1,16 @@
 // protection against injection attacks
 service<http:Service> tweeter bind {port:9090} {
    postMethod (endpoint caller, http:Request req) {
-        // data coming over the wire is 
+        // data coming over the wire is
         // automatically assumed to be tainted
-        string taintedData = check req.getStringPayload();
+        string taintedData = check req.getTextPayload();
 
-        // this line will cause a compiler error 
-        // as the data is tainted and the secureOperation 
+        // this line will cause a compiler error
+        // as the data is tainted and the secureOperation
         // annotation declares that it requires untainted data
-        secureOperation(taintedData); 
+        secureOperation(taintedData);
 
-        string untaintedData = 
+        string untaintedData =
             sanitizeAndReturnUntainted(taintedData);
 
         // this line will compile
@@ -18,15 +18,15 @@ service<http:Service> tweeter bind {port:9090} {
     }
 }
 
-// @sensitive indicates that this method 
-// requires untainted data 
+// @sensitive indicates that this method
+// requires untainted data
 function secureOperation (@sensitive string data) {
     io:println(data);
 }
 
-// the @untainted annotation indicates that the return 
+// the @untainted annotation indicates that the return
 // from this method is no longer tainted
 function sanitizeAndReturnUntainted (string input) returns @untainted string {
-    Regex reg = {pattern:"[^a-zA-Z]"};
-    return check input.replaceAllWithRegex(reg, "");
+    string regEx = "[^a-zA-Z]";
+    return input.replace(regEx, "");
 }
