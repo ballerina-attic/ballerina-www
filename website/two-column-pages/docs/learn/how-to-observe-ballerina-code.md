@@ -4,7 +4,7 @@
 Observability is a measure of how well internal states of a system can be inferred from knowledge of its external
 outputs. Monitoring, logging, and distributed tracing are key methods that reveal the internal state of the system to
 provide the observability. Ballerina becomes fully observable by exposing itself via these three methods to various 
-external systems allowing to monitor metrics such as request count and response time statistics, analysis log, and 
+external systems allowing to monitor metrics such as request count and response time statistics, analyze logs, and
 perform distributed tracing. 
 
 HTTP/HTTPS based Ballerina services and any client connectors are observable by default. HTTP/HTTPS and SQL client
