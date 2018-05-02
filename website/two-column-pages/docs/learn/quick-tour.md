@@ -323,11 +323,13 @@ ballerina push <package-name>
 ```
 
 Here is a sample that pushes your `math` package to Ballerina Central.
+
 ```bash
 ballerina push math
  ```
 
 For more information on Ballerina push command run,
+
 ```bash
 ballerina help push
  ```
