@@ -9,6 +9,7 @@ Developers and third parties can extend the behavior of Ballerina and package th
 3. Add new annotations to Ballerina source files that the compiler can act on to alter binaries and generate artifacts.
 
 ## Create Client Connectors
+
 A client connector is instantiated by developers when they create an `endpoint` object within their code. You can create your own connectors that are part of Ballerina packages that you push into a Ballerina registry, such as what is available at Ballerina Central.
 
 To create a client connector, you:
@@ -24,6 +25,7 @@ To create a client connector, you:
 5. Build the package and push it into a registry for usage by others.
 
 ### The Twilio Connector
+
 You can see the source code for this example at:
 
 1. [Single file](https://github.com/muthulee/package-twilio-super-simple/blob/master/twilio/twilio_endpoint.bal) version (easier for reading).
@@ -63,6 +65,7 @@ In this example, the endpoint is going to instantiate a `TwilioClient` object. T
 The Twilio connector then defines a custom function, `getAccountDetails()` which is called by the end user to interact with the endpoint. The package developer will also implement a `TwilioClient::init()` method which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
 
 ### The TwilioClient Object
+
 The connector is a data structure that is represented by an `object`.
 
 ```ballerina
@@ -99,6 +102,7 @@ public type TwilioConnector object {
 ```
 
 ### Implement the `init()` Function for the Connector
+
 We now implement the method that will be called when an endpoint is instantiated. The function name is the object we created with `::init()` provided to reference that init method. The initialization method can accept a single parameter. When the end user calles the `endpoint` object, the record literals after the endpoint object will be mapped and passed in as the parameter to this method.
 
 ```ballerina
@@ -143,6 +147,7 @@ public function TwilioClient::init (TwilioConfiguration twilioConfig) {
 ```
 
 ### Implement the `getClient()` Function for the Connector
+
 The `getClient()` function is called whenever the system needs to return an active connection to the end user developer for use in their code. We've already initialized the conneciton and its saved within the TwilioClient object.
 
 ```ballerina
@@ -152,6 +157,7 @@ public function TwilioClient::getClient () returns TwilioConnector {
 ```
 
 ### Implement Custom Functions For Endpoint Interaction
+
 While the `TwilioClient` object implements `init()` and `getClient()`, if you want to explose custom actions for your end users to use against the connector, these are defined in the `TwilioConnector` object which was initialized and stored as a reference to the `TwilioClient` object. You can add as many or as few custom functions to this object.
 
 In our example, we added a `getAccountDetails()` function that can be invoked as part of the endpoint by the end user:
@@ -199,6 +205,7 @@ public type Account {
 ```
 
 ### Publish Your Connector
+
 You can publish your custom connector for others to use into a Ballerina registry, such as Ballerina Central. You will need to have your connector as part of a package, and built using Ballerina's project and build management tooling.
 
 Once you have built the package, you can `ballerina push <org-name>/<package-name>` and your package will be available at Ballerina Central for others to use. The `<org-name>` is defined in the `Ballerina.toml` that resides with the project and must match the organization name that is attached to your account at Ballerina Central. The `<package-name>` is defined by the folder that you placed the source code within the Ballerina project.
@@ -208,6 +215,7 @@ You will need to have an account at Ballerina Central and your CLI token from ce
 For more information on how to structure the code you write, see [How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/).
 
 ### Learn More
+
 You can create connectors for a range of protocols and interfaces, including those endpoints which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
 
 1. A [Hello Gatsby client](https://github.com/muthulee/package-twilio-super-simple/blob/master/hello/hello_world_endpoint.bal), which is a minimal custom client.
@@ -237,11 +245,13 @@ You can create connectors for a range of protocols and interfaces, including tho
 ## Create Server Listeners
 
 ## Create Custom Annotations & Builder Extensions
+
 Annotations decorate objects in Ballerina code. The Ballerina compiler parses annotations into an AST that can be read and acted upon. You can introduce custom annotations for use by others with Ballerina and package builder extensions that can act on those annotations. The builder can generate additional artifacts as part of the build process.
 
 Custom annotations are how the `ballerinax/docker` and `ballerinax/kubernetes` packages work. They introduce new annotations such as `@docker` and `@kubernetes` that can be attached to different parts of Ballerina code. The builder detects these annotations and then runs a post-compile process that generates deployment artifacts for direct deployment to those environments.
 
 ### Special Notes
+
 There are two caveats to building custom annotations:
 
 1. Currently, the Ballerina Compiler is implemented in Java and you will need JDK 1.8 and maven.
@@ -249,6 +259,7 @@ There are two caveats to building custom annotations:
 2. End users will need to manually install the extension into Ballerina. We will have a release mid-year that enables packaging these extensions as part of a Ballerina project, so that it's included in any package's pushed to central.
 
 ### Custom Annotation HelloWorld
+
 We will create a custom annotation `@hello:Greeting{}` with an attribute `salutation` that can be attached to a Ballerina service. The builder extension will read the annotation that is attached to a source file containing the text value and save it in another file. We'll ship this customization as a package that is pushed to Ballerina Central and available to end users by adding `import ballerinax/hello` to their source files.
 
 The end user might write some code that would look like:
@@ -281,6 +292,7 @@ Guten Tag!
 ```
 
 ### Custom Annotation Getting Started
+
 The source code and results for this example are on [GitHub](https://github.com/ballerinax/hello).
 
 An annotation is a Ballerina code snippet that can be attached to some Ballerina code, and will hold some metadata related to that attached code. Annotations are not executable, but can be used to alter the behavior of some executable code.
@@ -323,6 +335,7 @@ A Ballerina "builder extension" is Java code that the build process will load an
 * `public void codeGenerated(Path binaryPath)`
 
 ### Create a Maven Project
+
 We have a Maven arctetype that will create a sample template that can be used for writing the Ballerina builder extension.
 
 ```
@@ -408,6 +421,7 @@ mvn clean install
 ```
 
 ### Create Custom Annotation Definition
+
 In the maven project, create a hello-extension/src/main/ballerina/ballerinax/docker/annotation.bal file.
 
 ```bash
@@ -448,9 +462,11 @@ public annotation <service> Greeting HelloConfiguration;
 ```
 
 ##### Remove Some Unnecessary Files
+
 Remove the archetype generated `App.java` and `AppTest.java` files. They are not needed.
 
 ##### Define an Extension Provider
+
 Create `HelloExtensionProvider.java` class in `hello/src/main/java/org/ballerinax/hello` package. This class will implement `SystemPackageRepositoryProvider`.
 
 ```java
@@ -586,6 +602,7 @@ Configure Maven compiler plugin. Ballerina requires Java8 for the builder extens
 ```
 
 ##### Verify the Annotation
+
 Build the project and verify that the JAR file is built. The JAR file will contain your annotation definitions.
 
 ```bash
@@ -613,6 +630,7 @@ service<http:Service> helloWorld bind {port:9091} {
 ```
 
 ### Write the Build Extension Processor
+
 Create `HelloPlugin.java` in `hello/src/main/java/org/ballerinax/hello` package. We will then implement the annotation methods that we want to act upon.
 
 ```java
@@ -761,9 +779,11 @@ org.ballerinax.hello.HelloPlugin
 Rebuild the maven project and replace the jar file in `<ballerina_tools_home>/bre/lib` with the latest. You should now be able to compile the sample Ballerina file we created earlier. There should be a text file created with annotation value.
 
 ### Learn More About Java Libraries for Builder Extensions
+
 First, the Ballerina developers will be eager and excited to help you if you run into any issues with writing Java extensions that parse the AST. AST parsing is a bit of a different world and it does take some work to learn all of the libraries. You can post questions on the ballerina-dev Google group, chat in our Slack channel, or post onto StackOverflow with the #ballerina label.
 
 Second, the fastest way to learn about advanced annotation processing is to review the processors for Docker and Kubernetes.
+
 Docker:
 
 1. The [Ballerina file defining the annotation](https://github.com/ballerinax/docker/blob/master/src/main/ballerina/ballerinax/docker/annotation.bal).
