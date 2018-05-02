@@ -51,9 +51,13 @@ You just started Ballerina, created a project, started a service, and received a
 
 Let's try this on VS Code.
 
+> **Note**: You need to have VS Code installed for this to work.
+
 ```bash
 code /<folder path>/hello_service.bal
 ```
+
+> **Tip**: If you want to create new .bal files in addition to the Hello World service, you can open the initial project folder into editor using `code /<folder path>`.
 
 You can view your service in VS Code.
 
@@ -92,6 +96,7 @@ service<http:Service> hello bind listener {
 ```
 
 You can find a plugin for Ballerina in the VS Code marketplace. This helps read the `.bal` file using an ideal theme. 
+
 > **Tip:** You can use your [favourite editor to work on Ballerina code](https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md).
 
 ### Annotations
@@ -120,7 +125,7 @@ Make the resource available at the root as well and change methods to POST. Add 
 Now you can start the service again and call it by opening a new command line window and using the following cURL command.
 
 ```bash
-curl http://localhost:9090/hello/sayHello -X POST
+curl http://localhost:9090 -X POST
 ```
 
 ## Use an Endpoint
@@ -157,7 +162,7 @@ Prior to sending a Tweet, you need to create a Twitter app and get some informat
 
 > **Note**: You need to have a Twitter account to try this.
 
-1. Go to [https://apps.twitter.com/](/)  and click **Create New App**. 
+1. Go to [https://apps.twitter.com/](https://apps.twitter.com/)  and click **Create New App**. 
 
 2. Fill the form that appears and click **Create your Twitter application**.
 
