@@ -1,23 +1,33 @@
 # How to Extend Ballerina
 
 Developers and third parties can extend the behavior of Ballerina and package these customizations for use by others. There are three ways to customize the behavior of Ballerina:
+
 1. Package and distribute new client connectors to third party endpoints, such as databases, infrastructure and APIs.
+
 2. Package and distribute new server listeners that services can bind to to embrace different protocols.
+
 3. Add new annotations to Ballerina source files that the compiler can act on to alter binaries and generate artifacts.
 
 ## Create Client Connectors
 A client connector is instantiated by developers when they create an `endpoint` object within their code. You can create your own connectors that are part of Ballerina packages that you push into a Ballerina registry, such as what is available at Ballerina Central.
 
 To create a client connector, you:
+
 1. Create a Ballerina package in a Ballerina project.
+
 2. Create an object with an `init()` and `getClient()` function.
+
 3. Implement the `init()` function, which is called when the user instantiates an endpoint.
+
 4. Implement the `getClient()` function, which is called when the connection must be returned.
+
 5. Build the package and push it into a registry for usage by others.
 
 ### The Twilio Connector
 You can see the source code for this example at:
+
 1. [Single file](https://github.com/muthulee/package-twilio-super-simple/blob/master/twilio/twilio_endpoint.bal) version (easier for reading).
+
 2. [Multiple files](https://github.com/muthulee/package-client-endpoint-guide/tree/master/clientendpointsample) version (split across files following good project structure).
 
 WSO2 has created a connector for Twilio and pushed it into Ballerina Central as `wso2/twilio`. You can find this connector on the command line:
@@ -196,16 +206,27 @@ For more information on how to structure the code you write, see [How to Structu
 You can create connectors for a range of protocols and interfaces, including those endpoints which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
 
 1. A [Hello Gatsby client](https://github.com/muthulee/package-twilio-super-simple/blob/master/hello/hello_world_endpoint.bal), which is a minimal custom client.
+
 2. ballerina/http Client [source code](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/ballerina-http/src/main/ballerina/http/client_endpoint.bal).
+
 3. Source code for a [Salesforce client connector](https://github.com/wso2-ballerina/package-salesforce).
+
 4. Source code for a [GitHub client connector](https://github.com/wso2-ballerina/package-github).
+
 5. Source code for a [Jira client connector](https://github.com/wso2-ballerina/package-jira).
+
 6. Source code for a [Sonaqube client connector](https://github.com/wso2-ballerina/package-sonarqube).
+
 7. Source code for a [SCIM2 client connector](https://github.com/wso2-ballerina/package-scim2).
+
 8. Source code for a [Gmail client connector](https://github.com/wso2-ballerina/package-gmail).
+
 9. Source code for a [Google Spreadsheet client connector](https://github.com/wso2-ballerina/package-googlespreadsheet).
+
 10. Source code for a [Twitter client connector](https://github.com/wso2-ballerina/package-twitter).
+
 11. Source code for a [gRPC client connector](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/ballerina-grpc/src/main/ballerina/grpc/client_endpoint.bal).
+
 12. Source code for a [MySQL client connector](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/database/ballerina-mysql/src/main/ballerina/mysql/mysql_endpoint.bal).
 
 ## Create Server Listeners
@@ -217,7 +238,9 @@ Custom annotations are how the `ballerinax/docker` and `ballerinax/kubernetes` p
 
 ### Special Notes
 There are two caveats to building custom annotations:
+
 1. Currently, the Ballerina Compiler is implemented in Java and you will need JDK 1.8 and maven.
+
 2. End users will need to manually install the extension into Ballerina. We will have a release mid-year that enables packaging these extensions as part of a Ballerina project, so that it's included in any package's pushed to central.
 
 ### Custom Annotation HelloWorld
@@ -677,6 +700,7 @@ public class HelloPlugin extends AbstractCompilerPlugin {
 ```
 
 The annotation value is read and cached in a singleton model class. Upon receiving the code generated event, we are extracting the output file name and write the value from the model class to a file.
+
 Create `HelloModel.java` in `hello/src/main/java/org/ballerinax/hello` package.
 ```java
 package org.ballerinax.hello;
@@ -724,9 +748,13 @@ First, the Ballerina developers will be eager and excited to help you if you run
 
 Second, the fastest way to learn about advanced annotation processing is to review the processors for Docker and Kubernetes.
 Docker:
+
 1. The [Ballerina file defining the annotation](https://github.com/ballerinax/docker/blob/master/src/main/ballerina/ballerinax/docker/annotation.bal).
+
 2. The [Java code with the builder extension](https://github.com/ballerinax/docker/tree/master/src/main/java/org/ballerinax/docker).
 
 Kubernetes
+
 1. The [Ballerina file defining the annotation](https://github.com/ballerinax/kubernetes/blob/master/src/main/ballerina/ballerinax/kubernetes/annotation.bal).
+
 2. The [Java code with the builder extension](https://github.com/ballerinax/kubernetes/tree/master/src/main/java/org/ballerinax/kubernetes).
