@@ -8,8 +8,7 @@ external systems allowing to monitor metrics such as request count and response 
 perform distributed tracing. 
 
 HTTP/HTTPS based Ballerina services and any client connectors are observable by default. HTTP/HTTPS and SQL client
-connectors use [semantic tags](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) to 
-make tracing and metrics monitoring more informative. 
+connectors use semantic tags to make tracing and metrics monitoring more informative.
 
 ## Getting Started
 This section focuses on enabling Ballerina service observability with some its default supported systems.
@@ -283,6 +282,9 @@ span as metadata.
 Ballerina supports [OpenTracing](http://opentracing.io/) standards by default. This means that Ballerina services
 can be traced using OpenTracing implementations like [Jaeger](http://www.jaegertracing.io/), and
 [Zipkin](https://zipkin.io/). Jaeger is the default tracer of Ballerina.
+
+Semantic tags used by Ballerina also follow the [semantic conventions defined in OpenTracing
+specification.](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)
 
 ### Advanced Tracing Configuration for Ballerina
 
