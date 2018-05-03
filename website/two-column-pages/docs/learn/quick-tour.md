@@ -51,9 +51,13 @@ You just started Ballerina, created a project, started a service, and received a
 
 Let's try this on VS Code.
 
+> **Note**: You need to have VS Code installed for this to work.
+
 ```bash
 code /<folder path>/hello_service.bal
 ```
+
+> **Tip**: If you want to create new .bal files in addition to the Hello World service, you can open the initial project folder into editor using `code /<folder path>`.
 
 You can view your service in VS Code.
 
@@ -92,6 +96,7 @@ service<http:Service> hello bind listener {
 ```
 
 You can find a plugin for Ballerina in the VS Code marketplace. This helps read the `.bal` file using an ideal theme. 
+
 > **Tip:** You can use your [favourite editor to work on Ballerina code](https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md).
 
 ### Annotations
@@ -120,7 +125,7 @@ Make the resource available at the root as well and change methods to POST. Add 
 Now you can start the service again and call it by opening a new command line window and using the following cURL command.
 
 ```bash
-curl http://localhost:9090/hello/sayHello -X POST
+curl http://localhost:9090 -X POST
 ```
 
 ## Use an Endpoint
@@ -157,7 +162,7 @@ Prior to sending a Tweet, you need to create a Twitter app and get some informat
 
 > **Note**: You need to have a Twitter account to try this.
 
-1. Go to [https://apps.twitter.com/](/)  and click **Create New App**. 
+1. Go to [https://apps.twitter.com/](https://apps.twitter.com/)  and click **Create New App**. 
 
 2. Fill the form that appears and click **Create your Twitter application**.
 
@@ -228,7 +233,7 @@ You send a tweet that says 'Ballerina'.
 
 Now that your service is created, you can deploy this on Docker. 
 
-> **Tip**: This was tested on the community edition version of Docker Edge.
+> **Tip**: This was tested on the community edition version of Docker Edge. You need to have Docker installed to use this. Also start/restart Docker prior to running your code.
 
 Import the Docker package.
 
@@ -259,6 +264,12 @@ Run the following command to start docker container:
 docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
 ```
 
+> **Tip**: You can run a Docker container and access it with your code by just copying and pasting the `docker run` command that displays as output of the Ballerina build command.
+>
+>  ```bash
+>   docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
+>   ```
+
 Run the following command to check if Docker is running.
 
 ```bash
@@ -270,12 +281,6 @@ If Docker is running, you see output similar to the following.
 ```
 REPOSITORY                 TAG                 IMAGE ID            CREATED              SIZE
 registry.hub.docker.com/helloworld   v1              df83ae43f69b        2 minutes ago        102MB
-```
-
-You can run a Docker container and access it with your code by just copying and pasting the `docker run` command that displays as output of the Ballerina build command.
-
-```bash
-docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
 ```
 
 Run the following to get details of the Docker container.
@@ -303,16 +308,32 @@ ID:991212870376534016
 
 ## Push your Package to Ballerina Central
 
-For the `ballerina push` command to work, you need to copy and paste your Ballerina Central access token in Settings.toml in your home repository (<USER_HOME>/.ballerina/). 
+For the `ballerina push` command to work, you need to copy and paste your Ballerina Central access token in `settings.toml` in your home repository (<USER_HOME>/.ballerina/). 
 
-Register on Ballerina Central and visit user dashboard at [https://central.ballerina.io/dashboard](/) to gain access to your user token.  
+Register on Ballerina Central and visit user dashboard at [https://central.ballerina.io/dashboard](https://central.ballerina.io/dashboard) to gain access to your user token.  
+
+When you push a package to Ballerina Central, the runtime will validate organizations for the user against the `org-name` defined in your package’s Ballerina.toml file. 
+
+Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the package into and set that as the `org-name` in `ballerina.toml` inside the project directory.
 
 Once that is done, push your package to Ballerina Central.
 
 ```bash
-ballerina push quicktour/twitter
+ballerina push <package-name>
 ```
 
+Here is a sample that pushes your `math` package to Ballerina Central.
+
+```bash
+ballerina push math
+ ```
+
+For more information on Ballerina push command run,
+
+```bash
+ballerina help push
+ ```
+ 
 ## Run the Composer
 Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
 

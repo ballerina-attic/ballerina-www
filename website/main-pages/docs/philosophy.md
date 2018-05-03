@@ -681,7 +681,7 @@
                     <p>Ballerina has constructs for managing connectors to endpoints. Connectors can be pulled by version from network repositories as needed.</p>
                 </div>
             </div>
-            <div data-startLine="20" data-endLine="20" class="hTrigger cCodeDesription gray">
+            <div data-startLine="22" data-endLine="22" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The connector has strongly typed parameters and returns, meaning that compile-time checking validates the types.</p>
                 </div>
@@ -720,17 +720,17 @@
                     <p>Any remote systems, including XA-enabled databases, other Ballerina services or legacy services that use the Ballerina Bridge will be enrolled into the transaction.</p>
                 </div>
             </div>
-            <div data-startLine="15" data-endLine="16" class="hTrigger cCodeDesription gray">
+            <div data-startLine="14" data-endLine="15" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina supports SQL access to databases and in-memory tables, as well pure programmatic access to databases based on language integrated query constructs.</p>
                 </div>
             </div>
-            <div data-startLine="27" data-endLine="27" class="hTrigger cCodeDesription gray">
+            <div data-startLine="26" data-endLine="26" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Everything within the {} of the transaction block is part of the transaction. The transaction will be committed if possible when the final curly brace is reached.</p>
                 </div>
             </div>
-            <div data-startLine="28" data-endLine="29" class="hTrigger cCodeDesription gray">
+            <div data-startLine="27" data-endLine="28" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>If the transaction fails, then all the work will be rolled back.</p>
                 </div>

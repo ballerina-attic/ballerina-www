@@ -63,7 +63,7 @@ The [API Documentation](/learn/api-docs/) describes the native functions in Ball
 
 ### Language Specification
 
-The <a href="/res/Ballerina-Language-Specification-WD-2015-05-01.pdf" download="Ballerina-Language-Specification-WD-2015-05-01.pdf">Language Specification</a> is the document that defines Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.
+The <a href="/res/Ballerina-Language-Specification-WD-2018-05-01.pdf" download="Ballerina-Language-Specification-WD-2018-05-01.pdf">Language Specification</a> is the document that defines Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.
 
 ### Ballerina Streaming Guide
 
