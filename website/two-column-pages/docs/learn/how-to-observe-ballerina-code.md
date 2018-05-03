@@ -237,7 +237,7 @@ Prometheus as a datasource. Follow the below provided steps and configure Grafan
 ```bash
 $ docker run -d --name=grafana -p 3000:3000 grafana/grafana
 ```
-For more information refer [Grafana Site](https://hub.docker.com/r/grafana/grafana/).
+For more information refer [Grafana in Docker Hub](https://hub.docker.com/r/grafana/grafana/).
 
 **Step 2:** Go to <http://localhost:3000/> to access the Grafana dashboard running on Docker.
 
