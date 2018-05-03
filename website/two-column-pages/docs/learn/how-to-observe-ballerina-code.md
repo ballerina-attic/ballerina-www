@@ -122,7 +122,7 @@ $ nohup ballerina run --config <path-to-conf>/ballerina.conf hello_world_service
 
 **Step 4:** Send few requests.
  
-Send few requests to `http://localhost:9090/hello/sayHello`
+Send few requests to <http://localhost:9090/hello/sayHello>
 
 Example cURL command:
 
@@ -132,8 +132,8 @@ $ curl http://localhost:9090/hello/sayHello
 
 **Step 5:** View tracing and metrics in dashboard.
 
-View the tracing information on Jaeger via `http://localhost:16686/` and view metrics information from Grafana
-dashboard on `http://localhost:3000/`.
+View the tracing information on Jaeger via <http://localhost:16686/> and view metrics information from Grafana
+dashboard on <http://localhost:3000/>.
 
 Sample view of Jaeger dashboard for hello_world_service.bal is shown below. 
 ![Jaeger Sample Dashboard](images/jaeger-sample-dashboard.png "Jaeger Sample Dashboard")
@@ -143,7 +143,7 @@ Sample view of Grafana dashboard for hello_world_service.bal is shown below.
 
 **Step 6:** Visualize the logs.
  
-If you have configured log analytics, view the logs in Kibana via `http://localhost:5601`
+If you have configured log analytics, view the logs in Kibana via <http://localhost:5601>
 
 ![Kibana Sample Dashboard](images/kibana-sample-dashboard.png "Kibana Sample Dashboard")
 
@@ -225,7 +225,7 @@ If you need more information refer [official documentation of Prometheus](https:
 $ docker run -p 19090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
 ```
     
-**Step 4:** Go to http://localhost:19090/ and check Prometheus graph to see whether Ballerina metrics are available.
+**Step 4:** Go to <http://localhost:19090/> and check Prometheus graph to see whether Ballerina metrics are available.
 
 #### Grafana
 Let’s use [Grafana] to visualize metrics in a dashboard. For this, we need to install Grafana, and configure
@@ -238,7 +238,7 @@ $ docker run -d --name=grafana -p 3000:3000 grafana/grafana
 ```
 For more information refer [Grafana Site](https://hub.docker.com/r/grafana/grafana/).
 
-**Step 2:** Go to http://localhost:3000/ to access the Grafana dashboard running on Docker.
+**Step 2:** Go to <http://localhost:3000/> to access the Grafana dashboard running on Docker.
 
 **Step 3:** Login to the dashboard with default user, username: `admin` and password: `admin`
 
@@ -390,7 +390,7 @@ Jaeger is the default distributed tracing system that is supported. There are ma
 $ docker run -d -p5775:5775/udp -p6831:6831/udp -p6832:6832/udp -p5778:5778 -p16686:16686 -p14268:14268 jaegertracing/all-in-one:latest
 ```
 
-**Step 2:** Go to `http://localhost:16686` and load the web UI of the Jaeger to make sure it is functioning properly.
+**Step 2:** Go to <http://localhost:16686> and load the web UI of the Jaeger to make sure it is functioning properly.
 
 The below image is the sample tracing information you can see from Jaeger.
 
@@ -407,7 +407,7 @@ for more information. Here we focus on all in one deployment with Docker.
 $ docker run -d -p 9411:9411 openzipkin/zipkin
 ```
 
-**Step 2:** Go to `http://localhost:9411/zipkin/` and load the web UI of the Zipkin to make sure it is functioning
+**Step 2:** Go to <http://localhost:9411/zipkin/> and load the web UI of the Zipkin to make sure it is functioning
 properly. The below shown is the sample Zipkin dashboard for the hello world sample in the [Quick Start](#Quick-start)
 
 ![Zipkin Sample](images/zipkin-sample.png "Zipkin Sample")
@@ -519,7 +519,7 @@ The `-v` flag is used for bind mounting, where the container will read the file 
 $ docker run -v /tmp/filebeat.yml:/usr/share/filebeat/filebeat.yml -v /<path-to-ballerina.log>/ballerina.log:/usr/share/filebeat/ballerina.log --link logstash:logstash docker.elastic.co/beats/filebeat:6.2.4
 ```
 
-**Step 7:** Access Kibana to visualize the logs at `http://localhost:5601`. Add an index named `ballerina` and click on `Discover` to visualize the logs.
+**Step 7:** Access Kibana to visualize the logs at <http://localhost:5601>. Add an index named `ballerina` and click on `Discover` to visualize the logs.
 
 [Prometheus]: https://prometheus.io/
 [Grafana]: https://grafana.com/
