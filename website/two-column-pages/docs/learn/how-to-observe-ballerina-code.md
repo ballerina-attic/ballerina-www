@@ -225,7 +225,8 @@ If you need more information refer [official documentation of Prometheus](https:
 $ docker run -p 19090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
 ```
     
-**Step 4:** Go to <http://localhost:19090/> and check Prometheus graph to see whether Ballerina metrics are available.
+**Step 4:** Go to <http://localhost:19090/> and check whether you can see the Prometheus graph.
+Ballerina metrics should appear in Prometheus graph's metrics list when Ballerina service is started.
 
 #### Grafana
 Let’s use [Grafana] to visualize metrics in a dashboard. For this, we need to install Grafana, and configure
