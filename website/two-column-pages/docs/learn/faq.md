@@ -3,21 +3,6 @@
 ### What is the purpose of the project?
 Ballerina is an approach to addressing the integration gap between integration products and general purpose programming languages. Integration products, like ESBs and BPMN, are integration simple but not agile and general purpose programming languages are agile but not integration simple.
 
-Customer demand has led to the rise of companies like Google, Uber, and Amazon. They have had to build complex systems to meet that demand. If you look at how those companies have evolved, they have increasingly disaggregated their architectures in order to scale.
-
-This is a continuation of a trend that we have seen over five decades. Massively disaggregated approaches like microservices, serverless, and APIs are becoming the norm.
-
-We have seen these disaggregated components become network accessible. We call them endpoints. Whether it is data, apps, APIs, microservices, or serverless functions, everything is becoming a programmable endpoint. The number of endpoints is exploding.
-
-The apps we will write increasingly depend on these endpoints. Integration is the discipline of resilient communication between endpoints. It isn’t easy. The challenges include compensation, transactions, events, circuit breakers, discovery, and protocol handling, and mediation. These are all hard problems.
-
-There have been two ways to handle integration.
-
-* One approach has used integration products based on configuration, not code. We’ve created EAI, ESBs, and DSLs as integration-first stacks. These approaches aren’t agile. They disrupt the edit, build, run, test cycle interrupting a developer’s flow. And that isn’t the experience we desire as developers.
-* The other way to do integration is with general purpose programming languages, like Java and JavaScript. These languages provide agility to offer developer flow. However, developers have to take responsibility for solving the hard problems of integration. They do this by writing their own integration logic or with frameworks like Spring or Node. This approach is agile, but not integration simple.
-
-This is a fundamental problem - you can have integration simple or agile, but not both. We call this the integration gap.
-
 We believe that a new programming language and platform is required - a general purpose, concurrent, transactional and statically & strongly typed programming language with both textual and graphical syntaxes. Its specialization is integration - it brings fundamental concepts, ideas and tools of distributed system integration into the language and offers a type safe, concurrent environment to implement such applications. These include distributed transactions, reliable messaging, stream processing, workflows and container management platforms.
 
 Ballerina’s concurrency model is built on the sequence diagram metaphor and offers simple constructs for writing concurrent programs. Its type system is a modern type system designed with sufficient power to describe data that occurs in distributed applications. It also includes a distributed security architecture to make it easier to write applications that are secure by design.
@@ -34,13 +19,13 @@ Ballerina became a public open source project on February 21s, 2017, hosted at [
 
 Through 2017 and the first part of 2018, the language was redesigned based upon feedback from the community. In Q2 2018, Ballerina was moved to [http://ballerina.io](http://ballerina.io) and [http://github.com/ballerina-platform/](http://github.com/ballerina-platform).
 
-The current revision of Ballerina is pre-1.0. However, stability is happening quickly, and 1.0 language-lock was established with the .970 version in April 2018.
+The current revision of Ballerina is pre-1.0. However, stability is happening quickly, and the .970.0 version is a candidate for 1.0 language-lock. We anticipate that the language changes leading up to the 1.0 release will be increasingly minor moving forward.
 
 The Ballerina project is currently working towards Ballerina 1, which includes a language specification, a virtual machine, standard libraries, build management, centralized package management at [central.ballerina.io](central.ballerina.io), unit test framework, and observability extension.
 
 Ballerina is currently community supported on Stack Overflow, and WSO2 is working towards offering commercial support in 2018.
 
-There may be a Ballerina 2 one day, but not for many years, as we will work to use Ballerina to develop programs, products, and tools rather than actively change the language and libraries. The purpose of Ballerina 1 is to provide long-term stability. Backwards-incompatible changes will not be made to any Ballerina 1 point release. Of course, development will continue on Ballerina itself, but the focus will be on performance, reliability, portability and the addition of new functionality, such as streams and stateful orchestrations.
+There may be a Ballerina 2 specification in many years, thought we will instead focus on iterative improvement around the language with long term 1.0 language backwards compatibility. Our focus will be on using Ballerina to develop programs, products, and tools rather than actively change the language and libraries. The purpose of Ballerina 1 is to provide long-term stability. Backwards-incompatible changes will not be made to any Ballerina 1 point release. Of course, development will continue on Ballerina itself, but the focus will be on performance, reliability, portability and the addition of new functionality, such as streams and stateful orchestrations.
 
 ### What is the origin of the logo?
 
@@ -58,12 +43,12 @@ Finally, working with Ballerina is intended to be cloud native - the language ha
 
 ### What are Ballerina’s ancestors?
 
-In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Java, Go, C, C++, Rust, Haskell, Kotlin, Dart, TypeScript, JavaScript, Flow, Swift, RelaxNG, NPM, Crates, Maven, Gradle, Kubernetes, Docker, Envoy, Markdown, GitHub, and WSO2. We used many technologies to build the tools and the website: Bootstrap, JQuery, React JS, MkDocs, Microsoft VS Code, Jetbrains IntelliJ, Eclipse Che and Jenkins. The package management system is inspired by Docker and Elm. However, it is a new language. In every respect the language was designed by thinking about what integration programmers do and how to make integration programming agile, more effective, and more fun.
+In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Java, Go, C, C++, Rust, Haskell, Kotlin, Dart, TypeScript, JavaScript, Flow, Swift, RelaxNG, NPM, Crates, Maven, Gradle, Kubernetes, Docker, Envoy, Markdown, GitHub, and WSO2. However, it is a new language. In every respect the language was designed by thinking about what integration programmers do and how to make integration programming agile, more effective, and more fun.
 
 ### What are the guiding principles in the design?
 
 ##### Sequence Diagrammatic
-Ballerina’s underlying language semantics were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow with endpoints, including synchronous and asynchronous calls. The Ballerina Composer is an included tool for creating Ballerina services with sequence diagrams. Sequence diagrams are a reflection of how designers and architects think and document interconnected systems. Ballerina’s syntax is structured to let any tool or system derive a sequence diagram, and subsequently the way a developer thinks when writing Ballerina code encourages strong interaction best practices. This theory is elaborated upon in Sanjiva Weerawarana’s blog.
+Ballerina’s underlying language semantics were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow with endpoints, including synchronous and asynchronous calls. The Ballerina Composer is an included tool for creating Ballerina services with sequence diagrams. Sequence diagrams are a reflection of how designers and architects think and document interconnected systems. Ballerina’s syntax is structured to let any tool or system derive a sequence diagram, and subsequently the way a developer thinks when writing Ballerina code encourages strong interaction best practices. This theory is elaborated upon in [Sanjiva Weerawarana’s blog](https://medium.com/ballerinalang/conceiving-ballerina-2dadf67c0503).
 
 ##### Concurrency Workers
 Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use a full non-blocking policy where no function locks an executing thread, such as an HTTP I/O call awaiting response. These semantics manifest sequence concurrency where workers are independent concurrent actors that do not share state but can interact using messages. Workers and fork/join language semantics abstract the underlying non-blocking approach to enable a simpler concurrency programming model.
@@ -101,13 +86,42 @@ Even if your proposal is compatible with Ballerina 1 specification, it might not
 
 ### What is the roadmap for Ballerina?
 
-Current implementation of Ballerina is based on Java. We want to make it the most efficient implementation. We have two possible paths to do that. One is to optimize the current design and implementation of runtime. The other is to re-write the language in native compiled language such as C++. The objective is to make the implementation of the runtime the most optimize and hence the most performing. For this we are considering and LLVM based implementation.
+The roadmap is driven by separate teams working on aspects of the language and platform. The key themes that are driving development teams are 1.0 language lock, commercial supportability, runtime and platform enhancements, and developer / integration tooling that includes Central, ballerinax/* packages, Ballerina API gateway, Ballerina message broker, Ballerina transaction coordinator, and workflow. 
 
-Once you have two or more implementations against the same language specification it is a must to have a language test suite to ensure compliance to specification. Hence a language test suite is on the roadmap plans.
+1. The language
+* Language lock, stability
+* Community review of language specification
+* Language test suite 
+* Merging / collapsing sequence diagrams
 
-We envision that we would build strong AI and ML capabilities into Ballerina. Similar to all design elements of the language that are designed ground up and embedded into the language by design, we want to make AI and ML part of the language.
+2. the BVM runtime, performance, etc.
+* LLVM prototype, Native compilation via LLVM
+* Longevity, stability, performance optimizations
+* Build system rationalization - common output
+* Build system - environment-specific builds
+* Internationalizing the grammar
 
-Ballerina in its current form solves the integration problem end to end. However, it is not solving the application development aspect end to end. Once you have endpoints connected and integrated, you need to be able to build powerful applications utilizing those connected service architectures. As part of the Ballerina roadmap, we could take up the application development concerns into account and get the solution implementation models simplified.
+3. Standard library
+* Enhance the seamless operation of cross platform behavior 
+* Expand the list of supported database management systems 
+
+4. Extension / ecosystem improvements, such as central, registry, packages, customization
+* Private version of Ballerina registry, powering Ballerina Central
+* Ability to write compiler extensions packaged with Ballerina packages
+* Ability to push compiled Ballerina programs into a registry (not just packages)
+
+5. Integration related things around API gateway, message broker, transaction coordinator
+* Persistent and stateful services, ie "workflow"
+* Streaming SQL
+* API throttling support and API observability around API gateway 
+* Optimize transaction model to support distributed transactions with MB
+* Transaction coordination - more coordination patterns will be introduced 
+* In relation to workflow we plan checkpoint/restart, forward recoverability and compensation
+* Docker / Kubernetes compositions
+
+6. Tooling
+* Observability integration into composer to facilitate tracing
+* Heterogeneous data transformations
 
 ### Does WSO2 use Ballerina internally?
 
@@ -121,17 +135,25 @@ Other examples include the WSO2 Update Manager, which WSO2 customers use to acce
 Absolutely. We encourage developers to make Ballerina language sites in their own languages. You can issue pull requests and we’ll host the translated versions at ballerina.io.
 
 ### Will Testerina automatically generate service mocks?
-
 Yes, it generates mocks when Swagger is present.
 
 ### Which Ballerina connectors will be available on May 1?
-
 The best place to see the latest set of connectors is browsing Ballerina Central at [central.ballerina.io](http://central.ballerina.io), or by using `ballerina search` on the command line.
+
+You can also write your own Ballerina connectors, maintain them locally, or push them into Ballerina Central.
 
 The Ballerina team and WSO2 are publishing a series of additional packages around Twitter, Gmail, Github, Salesforce.com, and others. You can browse the packages that WSO2 is publishing by viewing the [http://github.com/wso2-ballerina](http://github.com/wso2-ballerina) organization. Each repository is an additional package we are shipping.
 
-### What analytics and monitoring does Ballerina support?
+### Are there any restrictions for third parties in publishing packages to Ballerina Central?
+Ballerina Central is open for anyone to push packages that contain annotations, builder extensions, functions, and connectors. We have a terms of service similar to what NPM or DockerHub has on their site. You should review the TOS to understand which type of content is accessible. Package authors retain a number of rights related to their packages and can choose any license for their software.
 
+### Is there a way to run a private registry for Ballerina packages?
+Ballerina Central is implemented as a hosted registry service. WSO2 is offering an option to host private registries that are optionally mirrored to Ballerina Central.
+
+### How can I decouple and manage deployment environment details outside the implementation?
+You can override the values in annotations on the command line, enabling the build system to generate different artifacts for different environments. In a future version of Ballerina, we'll also extend the `Ballerina.toml` with environmental overrides so that you can generate artifacts for multiple environments simultaneously.
+
+### What analytics and monitoring does Ballerina support?
 For details, see the [How to Observe Ballerina Programs](/learn/how-to-observe-ballerina-code/) document.
 
 ### What are the secure coding guidelines?
@@ -152,7 +174,7 @@ Development teams should continue to use their favorite or existing lifecycle so
 
 ### What are the best practices for versioning Ballerina based applications?
 
-We require Ballerina packages to follow semver semantics. If you are creating a shared package that is pushed into a Ballerina registry, like [Ballerina Central](http://central.ballerina.io), every push requires a versioning increment. We do not allow updates to an existing version as this creates confusion and difficulties with downstream adopters.
+We require Ballerina packages to follow [semver](http://semver.org) semantics. If you are creating a shared package that is pushed into a Ballerina registry, like [Ballerina Central](http://central.ballerina.io), every push requires a versioning increment. We do not allow updates to an existing version as this creates confusion and difficulties with downstream adopters.
 
 ### What are the guidelines for application governance with Ballerina?
 
@@ -255,9 +277,10 @@ A worker is not bound exclusively to a single operating system thread, but rathe
 This behavior gives a more natural programming environment for the developer, so she does not have to explicitly consider non-blocking I/O handling semantics. Also, this style of physical thread allocation is efficient and lowers the number of context switches optimizing CPU allocations.
 
 ### Would you provide NLP, ML toolkits around Ballerina?
-
 We do not have any plans. The community can add their own packages through Ballerina Central, and we will work hard to delegate frameworks and projects to the community.
 
 ### Which enterprise patterns and microservices patterns does Ballerina support?
+Ballerina is a language that can be used to implement any pattern. We provide examples of patterns with [Ballerina By Guide](/learn/by-guide/) related to doing lifecycle integration development. Many enterprise patterns are demonstrated with [Ballerina by Example](/learn/by-example/).
 
-See the [Ballerina By Guide](/learn/by-guide/) to find out how to use Ballerina to do full lifecycle integration development. Many enterprise patterns are demonstrated with [Ballerina by Example](/learn/by-example/).
+### What is your support for Docker and Kubernetes? What is the plan for supporting other infrastructure environments like CloudFoundry and Mesosphere?
+We provide annotations that activate builder extensions which can generate Dockerfiles, Docker images, and Kubernetes manifests. This makes it simple to target a service for deployment in a cloud-native environment. These annotations and extensions are provided within packages. Packages are a shareable unit and we will work with the ecosystem creates and pushes packages to support other enviornments with custom annotations.
