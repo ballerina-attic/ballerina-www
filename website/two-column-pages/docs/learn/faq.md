@@ -1,9 +1,13 @@
 # FAQs
 
 ### What is the purpose of the project?
-Ballerina is an approach to addressing the integration gap between integration products and general purpose programming languages. Integration products, like ESBs and BPMN, are integration simple but not agile and general purpose programming languages are agile but not integration simple.
+Ballerina is an approach to addressing the integration gap between integration products and general purpose programming languages.
 
-We believe that a new programming language and platform is required - a general purpose, concurrent, transactional and statically & strongly typed programming language with both textual and graphical syntaxes. Its specialization is integration - it brings fundamental concepts, ideas and tools of distributed system integration into the language and offers a type safe, concurrent environment to implement such applications. These include distributed transactions, reliable messaging, stream processing, workflows and container management platforms.
+Integration with ESBs is still waterfall development. The server must be deployed, connectors configured, service logic programmed with XML, and data querying and transformation with XPath. This is not developer friendly.
+
+Programming languages with frameworks like Spring and Node.JS offer agility, but do not make it simple to program distributed system constructs with concurrency models not suited for sequence parallelization.
+
+Ballerina is a compiled, transactional, statically and strongly typed programming language with textual and graphical syntaxes. Ballerina incorporates fundamental concepts of distributed system integration into the language and offers a type safe, concurrent environment to implement microservices with distributed transactions, reliable messaging, stream processing, and workflows.
 
 Ballerina’s concurrency model is built on the sequence diagram metaphor and offers simple constructs for writing concurrent programs. Its type system is a modern type system designed with sufficient power to describe data that occurs in distributed applications. It also includes a distributed security architecture to make it easier to write applications that are secure by design.
 
@@ -54,7 +58,7 @@ Ballerina’s underlying language semantics were designed by modeling how indepe
 Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use a full non-blocking policy where no function locks an executing thread, such as an HTTP I/O call awaiting response. These semantics manifest sequence concurrency where workers are independent concurrent actors that do not share state but can interact using messages. Workers and fork/join language semantics abstract the underlying non-blocking approach to enable a simpler concurrency programming model.
 
 ##### Network Aware Type Safety
-Ballerina has a structural type system with primitive, object, union, and tuple types. Network systems return messages with different payload types and errors. Ballerina’s type system embraces this variability with an approach based on union types. This typesafe model incorporates type inference at assignment provide numerous compile time integrity checks for network-bound payloads.  Ballerina has a structural type system with primitive, object, union, and tuple types. Network systems return messages with different payload types and errors. Ballerina’s type system embraces this variability with an approach based on union types. The model then incorporates type inference at assignment to provide compile time integrity checks for network-bound payloads.  
+Ballerina has a structural type system with primitive, object, union, and tuple types. Network systems return messages with different payload types and errors. Ballerina’s type system embraces this variability with an approach based on union types. This typesafe model incorporates type inference at assignment provide numerous compile time integrity checks for network-bound payloads.
 
 ##### DevOps Ready
 Over the past 15 years, best practices and expectations on the associated toolset that a language provides have evolved. Now, a language is not ready for adoption unless it includes unit test framework, build system, dependency management and versioning, and a way to share modules of reusable code. Ballerina includes all of these subsystems as part of its core distribution so that there is no risk of community drift, which is what happens when the ecosystem needs to build tools on top of a language instead of designing it within the language.
