@@ -109,6 +109,12 @@
                                         <include name="**/*.*"/>
                                     </fileset>
                                 </copy>
+                                <copy todir="${philosophy.samples.source.dir}">
+                                    <fileset
+                                            dir="${basedir}/main-pages/ballerina.io-website-theme/samples">
+                                        <include name="*.bal"/>
+                                    </fileset>
+                                </copy>
                                 <copy todir="${guides.source.dir}">
                                     <fileset
                                     dir="${basedir}/tools/guides">
@@ -138,6 +144,20 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.5.0</version>
                 <executions>
+                    <execution>
+                        <id>build-philosophy-samples</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <executable>sh</executable>
+                            <arguments>
+                                <argument>tools/build-philosophy-samples.sh</argument>
+                                <argument>${philosophy.samples.source.dir}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
                     <execution>
                         <id>build-bbe</id>
                         <goals>
@@ -241,6 +261,7 @@
     <properties>
         <bbe.source.dir>${project.build.directory}/sources/examples</bbe.source.dir>
         <guides.source.dir>${basedir}/guides</guides.source.dir>
+        <philosophy.samples.source.dir>${project.build.directory}/sources/samples</philosophy.samples.source.dir>
         <webroot.dir>${project.build.directory}/webroot</webroot.dir>
         <bbe.site.dir>${webroot.dir}/learn/by-example</bbe.site.dir>
         <guides.site.dir>${webroot.dir}/learn/by-guide</guides.site.dir>
