@@ -3,13 +3,13 @@
     <div class="container">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-Left-col ">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-main-content-wraper">
-                <div style="max-width:600px;"><p class="cMainParagraph">A programming language and runtime <nobr>co-designed</nobr> to be agile and integration simple.</p></div>
+                <div style="max-width:600px;"><p class="cMainParagraph">A programming language for integration.</p></div>
                 <p class="cGreenTitle "><a href="/downloads">Download &gt;</a></p>
                 <hr class="cHr">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol">
-                    <p>The future apps we write increasingly depend upon programmable endpoints. The discipline of resilient communication between endpoints is integration. It is a domain of hard problems.
+                    <p>The future apps we write increasingly depend upon APIs. Integration is the discipline of resilient communication between endpoints.
                     </p>
-                    <p>Ballerina is a simple programming language whose syntax and runtime address the hard problems of integration. Ballerina is a general purpose, concurrent, transactional, statically and strongly typed programming language with both textual and graphical syntaxes. Its specialization is integration - it brings fundamental concepts, ideas and tools of distributed system integration into the language and offers a type safe, concurrent environment to implement such applications. These include distributed transactions, reliable messaging, stream processing, workflows and container management platforms.
+                    <p>Ballerina is a compiled, transactional, statically and strongly typed programming language with textual and graphical syntaxes. Ballerina incorporates fundamental concepts of distributed system integration into the language and offers a type safe, concurrent environment to implement microservices with distributed transactions, reliable messaging, stream processing, and workflows.
                     </p>
                 </div>
             </div>
@@ -26,9 +26,9 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-content-wraper">
                 <h2 class="cMainH2Title">Why did we build Ballerina? </h2>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol ">
-                    <p> Our team has worked on thousands of integration projects over two decades. We’ve seen and used almost every integration technique out there. They always end up on one side or the other of the integration gap.
+                    <p> Integration with ESBs is still waterfall development. The server must be deployed, connectors configured, service logic programmed with XML, and data querying and transformation with XPath. This is not developer friendly.
                     </p>
-                    <p>Integration can either be done with integration products that simplify integration but are not agile, or with general purpose programming languages that are agile, but not integration simple.</p>
+                    <p>Programming languages with frameworks like Spring and Node.js offer agility, but do not make it simple to program distributed system constructs with concurrency models that are not suited for sequence parallelization.</p>
                 </div>
             </div>
         </div>
@@ -37,8 +37,7 @@
                 <div class="cPhil-Gray">
                     <h4>Integration<br/> Products
                     </h4>
-                    <p>Integration products scale integration using configuration, not code. These products include ESBs, EAI, BPM, and DSLs. These approaches are integration simple, but not agile. They disrupt developer flow: the edit, build, run, test
-                        cycle.
+                    <p>ESBs, EAI, BPM, and DSLs require XML and configuration disrupting the iterative developer flow: edit, build, run, and test.
                     </p>
                     <div class="ch4Container">
                         <h4>Not Agile </h4>
@@ -61,8 +60,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget">
                 <div class="cPhil-Gray">
                     <h4>General Purpose <br/>Programming Languages</h4>
-                    <p>With languages like Java/Spring or JavaScript/Node, developers have flow, but take responsibility for solving the hard problems of integration. Developers write their own integration logic or use bolt-on frameworks. This approach is
-                        agile, but not integration simple. </p>
+                    <p>Developers take responsibility for the hard problems of integration with runtimes not suited to sequence parallelization. </p>
                     <div class="ch4Container">
                         <h4>Not Integration Simple </h4>
                     </div>
@@ -112,13 +110,13 @@
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                      <h3>LANGUAGE INSPIRATION</h3>
-                    <p>Sequence diagrams are a reflection of how designers and architects think and document interconnected and integrated systems. Ballerina’s syntax is designed around  sequence diagrams, and subsequently the way a developer thinks when writing Ballerina code encourages strong interaction best practices. </p>
+                    <p>Sequence diagrams are a reflection of how designers developers document interconnected systems. Ballerina’s syntax and effective coding model requires developers to code using strong interaction best practices. </p>
                 </div>
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>VISUALIZATION AS SEQUENCE DIAGRAMS</h3>
-                    <p>Ballerina’s underlying language semantics were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow with endpoints, including synchronous and asynchronous calls. The Ballerina Composer is an included tool for creating Ballerina services with sequence diagrams. </p>
+                    <p>Ballerina’s language semantics model how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow. These visualizations are available in plugins for IntelliJ and VS Code. The Ballerina Composer is a tool for authoring Ballerina services with sequence diagrams. </p>
                 </div>
             </div>
              <div class="cPhil-title-boxes cPhil-title-boxes-white">
@@ -133,15 +131,15 @@
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>SEQUENCE DIAGRAMS AND CONCURRENCY</h3>
-                    <p>The sequence diagrammitic approach of Ballerina has an innate approach to parallelism and concurrency. The associated design principle is to think parallel first, not sequential first, since interactions with remote parties are always involving multiple workers. Local concurrency is also captured with each worker represented as an actor in the sequence diagram. Interactions between workers are handled as message passing, with no shared state.</p>
+                    <p>Ballerina’s concurrency model is parallel-first since interactions with remote parties always involve multiple workers. Interactions between workers are handled as message passing, with no shared state.</p>
                 </div>
                  <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                      <h3>WORKER SEMANTICS</h3>
-                    <p>Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use a full non-blocking policy where no function locks an executing thread, such as an HTTP I/O call awaiting response. Workers and fork/join language semantics abstract the underlying non-blocking approach to enable a simpler concurrency programming model.</p>
+                    <p>Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use non-blocking policies to ensure no function locks an executing thread, such as an HTTP I/O call awaiting response.</p>
                 </div>
                  <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                     <h3>ROBUSTNESS</h3>
-                    <p>As applications become distributed, integrating across increasingly diverse endpoints, building robust concurrent systems is becoming a greater challenge. Ballerina’s concurrency model is designed to provide a simple, robust approach with non-blocking semantics and execution.</p>
+                     <h3>PROGRAMMING MODEL</h3>
+                    <p>Workers and fork/join language semantics abstract the underlying non-blocking approach to enable a simpler concurrency programming model.</p>
                 </div>
             </div>
         </div>
@@ -590,7 +588,7 @@
     <div class="container">
         <div class="col-xs-12 cPhilosophyWhite cCloudNative">
             <div class="col-xs-12">
-                <h2 class="cMainH2Title">What is in Ballerina's integration framework?</h2>
+                <h2 class="cMainH2Title">What’s in Ballerina for integration?</h2>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol ">
                     <p>Ballerina is a language designed to be <em>integration simple</em>. Based around the interactions of sequence diagrams, Ballerina has built-in support for common integration patterns and connectors, including distributed transactions,
                         compensation and circuit breakers. With first-class support for JSON and XML, Ballerina makes it simple and effective to build robust integration across network endpoints.</p>
