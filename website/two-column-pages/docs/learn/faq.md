@@ -39,7 +39,7 @@ The Ballerina logo and the shoes, which are “en pointe”, were designed by Er
 
 Ballerina was born out of frustration with programming frameworks and integration products that embed programming logic within YAML, XML, or other configuration-based files. These approaches disrupted the developer flow, requiring special purpose tools and debuggers that took developers away from focusing on iterative development.
 
-One had to either choose robust, complex, and heavy server products for managing integrations, or use a general purpose language with a bolt-on framework that varied by programming language and objectives. There has not existed a way to get agility with rapid code development that runs microintegration servers for message brokering, service hosting, and transaction coordination.
+One had to either choose robust, complex, and heavy server products for managing integrations, or use a general purpose language with a framework that varied by programming language and objectives. There has not existed a way to get agility with rapid code development that runs microintegration servers for message brokering, service hosting, and transaction coordination.
 
 Ballerina is an attempt to combine the agility of a type safe programming language with the syntax of integration sequence diagrams. Once compiled, the resulting binaries embed micro engines that perform inline integration semantics such as mediation, orchestration, transformations, asynchrony, event generation and transactions.
 
