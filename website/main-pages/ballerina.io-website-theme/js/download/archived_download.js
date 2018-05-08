@@ -1,17 +1,17 @@
 $(document).ready(function() {
-    Handlebars.registerHelper('basedownloadurl', function(version, artifact , extension) {
-        if( isIdeaPlugin(artifact) ){
+    Handlebars.registerHelper('basedownloadurl', function(version, artifact, extension) {
+        if (isIdeaPlugin(artifact)) {
             return new Handlebars.SafeString(Handlebars.Utils.escapeExpression("https://plugins.jetbrains.com/plugin/9520-ballerina"))
         } else {
-            return new Handlebars.SafeString(Handlebars.Utils.escapeExpression(base_download_url + "/" + version + "/" + artifact +(extension ? extension:"")))
+            return new Handlebars.SafeString(Handlebars.Utils.escapeExpression(base_download_url + "/" + version + "/" + artifact + (extension ? extension : "")))
         }
     });
     Handlebars.registerHelper('releasenotesdiv', function(version) {
         return getReleaseNotesDivId(version);
     });
-    Handlebars.registerHelper('checksome', function(artifact , checksomeName) {
+    Handlebars.registerHelper('checksome', function(artifact, checksomeName) {
         var displayVal = checksomeName;
-        if(artifact.indexOf(".json") > -1 || isIdeaPlugin(artifact) ){
+        if (artifact.indexOf(".json") > -1 || isIdeaPlugin(artifact)) {
             displayVal = "";
         }
         return displayVal;
@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     Handlebars.registerHelper('isjson', function(artifact) {
         var isJsonClass = "";
-        if(artifact.indexOf(".json") > -1 ){
+        if (artifact.indexOf(".json") > -1) {
             isJsonClass = "json_download";
         }
         return isJsonClass;
@@ -27,14 +27,14 @@ $(document).ready(function() {
 
     Handlebars.registerHelper('settarget', function(artifact) {
         var target = "";
-        if(isIdeaPlugin(artifact) ){
+        if (isIdeaPlugin(artifact)) {
             target = "_blank";
         }
         return target;
     });
 
     Handlebars.registerHelper('downloadimgurl', function(artifact, downArrowImg, rightArrowImg) {
-        if(isIdeaPlugin(artifact) ){
+        if (isIdeaPlugin(artifact)) {
             return rightArrowImg;
         } else {
             return downArrowImg;
@@ -69,8 +69,8 @@ $(document).ready(function() {
 function updateReleaseTable(allData) {
     $.get('/hbs/archived_list.hbs', function(data) {
         var template = Handlebars.compile(data);
-        var elements = $('<div class="cInstallers"></div>');
         allData.forEach(function(item) {
+            var elements = $('<div class="cInstallers"></div>');
             var allArtifact = [];
             if (item["linux-installer"]) {
                 allArtifact.push(item["linux-installer"]);
@@ -92,10 +92,10 @@ function updateReleaseTable(allData) {
             item["lefttable"] = allArtifact.slice(0, halfWayThough);
             item["righttable"] = allArtifact.slice(halfWayThough, allArtifact.length);
             elements.append(template(item));
+            $("#archived-versions").append(elements);
         });
-        $("#archived-versions").after(elements);
 
-        $('.json_download').click(function(){
+        $('.json_download').click(function() {
             var currentElement = $(this);
             var href = currentElement.attr('href');
             var name = currentElement.attr('name');
@@ -105,7 +105,7 @@ function updateReleaseTable(allData) {
                 async: false,
                 success: function(obj) {
                     var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
-                    currentElement.attr("href", "data:"+data);
+                    currentElement.attr("href", "data:" + data);
                     currentElement.attr("download", name);
                     currentElement.removeClass("json_download")
                 }
@@ -138,6 +138,6 @@ function getReleaseNoteURL(version) {
     return base_download_url + "/" + version + "/" + releaseNoteFilename;
 }
 
-function isIdeaPlugin(artifact){
+function isIdeaPlugin(artifact) {
     return artifact && artifact === "ballerina-intellij-idea-plugin";
 }
