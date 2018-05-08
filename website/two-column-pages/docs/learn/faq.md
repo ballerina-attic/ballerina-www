@@ -5,7 +5,7 @@ Ballerina is an approach to addressing the integration gap between integration p
 
 Integration with ESBs is still waterfall development. The server must be deployed, connectors configured, service logic programmed with XML, and data querying and transformation with XPath. This is not developer friendly.
 
-Programming languages with frameworks like Spring and Node.JS offer agility, but do not make it simple to program distributed system constructs with concurrency models not suited for sequence parallelization.
+Programming languages with frameworks like Spring and Node.js offer agility, but do not make it simple to program distributed system constructs with concurrency models not suited for sequence parallelization.
 
 Ballerina is a compiled, transactional, statically and strongly typed programming language with textual and graphical syntaxes. Ballerina incorporates fundamental concepts of distributed system integration into the language and offers a type safe, concurrent environment to implement microservices with distributed transactions, reliable messaging, stream processing, and workflows.
 
