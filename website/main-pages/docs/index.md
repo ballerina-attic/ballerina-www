@@ -2,7 +2,7 @@
          <div class="container">
                <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Left-col">
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-main-content-wraper">
-                   <div style="max-width:500px;"><p class="cMainParagraph">Ballerina makes it easy to create resilient services that integrate and orchestrate transactions across distributed endpoints.</p></div>
+                   <div style="max-width:500px;"><p class="cMainParagraph">Ballerina makes it easy to write microservices that integrate APIs.</p></div>
                    <p><a class="cGreenLink" href="/philosophy">SEE WHY ></a></p>
                    <div class="cHomeButtonContainer">
                    <a class="cBallerina-io-Home-main-download-button" href="downloads">Download Ballerina
@@ -13,13 +13,13 @@
                    <hr class="cHr">
                    </div>
                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-instructions cLeft-pading-none">
-                       <p><span>CODE</span> with a statically-typed, interaction-centric programming language where microservices, APIs, and streams are first-class constructs. Use your preferred IDE and CI/CD tools. Discover, consume, and share packages that integrate endpoints with Ballerina Central.</p>
+                       <p><span>INTEGRATION SYNTAX:</span> A compiled, transactional, statically and strongly typed programming language with textual and graphical syntaxes. Ballerina incorporates fundamental concepts of distributed system integration and offers a type safe, concurrent environment to implement microservices.</p>
                    </div>
                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-instructions">
-                       <p><span>BUILD</span> binaries, containers, and Kubernetes artifacts. Deploy as chaos-ready services on cloud and serverless infrastructure.</p>
+                       <p><span>NETWORKED TYPE SYSTEM:</span> A type system that embraces network payload variability with primitive, object, union, and tuple types.</p>
                    </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-instructions">
-                        <p><span>INTEGRATE</span> distributed endpoints with simple syntax for resiliency, circuit breakers, transactions, and events. </p>
+                        <p><span>CONCURRENCY:</span> An execution model composed of lightweight parallel worker units that are non-blocking where no function can lock an executing thread manifesting sequence concurrency. </p>
                    </div>
                 </div>
                 <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Right-col cBallerina-io-Home-widget">
