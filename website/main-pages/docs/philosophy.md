@@ -377,7 +377,8 @@
                 <div>
                     <p>
                         Services, resources, endpoints, request and response objects are all native language constructs.
-                        <br><br>
+                    </p>
+                    <p>
                         Ballerina’s built-in support for HTTP includes session-handling, Swagger generation, chunking, CORS, redirects, failover, load-balancing, circuit breaker pattern, return code, data format enforcement, error handling, and much more.
                     </p>
                 </div>
