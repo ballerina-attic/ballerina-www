@@ -859,7 +859,7 @@
         </div>
     </div>
 </div>
-<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
+<!--<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2">
     <div class="container">
         <div class="col-xs-12">
             <h2 class="cMainH2Title">What are Ballerina's open source repos?</h2>
@@ -924,7 +924,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <script src="/js/philosophy.js"></script>
 <script src="/js/philosophy-syntax.js"></script>
 <script>printExamples();</script>
