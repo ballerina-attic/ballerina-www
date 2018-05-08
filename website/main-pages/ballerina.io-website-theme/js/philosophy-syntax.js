@@ -22,7 +22,7 @@ var loadData = function(linkText, sectionId, init) {
     $('#' + sectionId + ' .code-block').hide();
 
     $.ajax({
-        url: "../samples/" + fileName + "-shell.txt",
+        url: "../samples/" + fileName + ".out",
         method: "GET",
         success: function(data) {
             $('#' + fileName + "-shell").text(data).show();
@@ -40,7 +40,7 @@ var loadData = function(linkText, sectionId, init) {
     $('#' + fileName + "-code > code").show().attr('style', 'white-space:pre; width: 100%;');
 
     $.ajax({
-        url: "../samples/" + fileName + ".txt",
+        url: "../samples/" + fileName + ".bal",
         method: "GET",
         success: function(data) {
             //Set the code to the container
