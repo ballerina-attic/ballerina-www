@@ -19,7 +19,7 @@ var loadData = function(linkText, sectionId, init) {
 
     $('#' + sectionId + ' .text-display').hide();
     $('#' + sectionId + ' .shell-display').hide();
-    $('#' + sectionId + ' .code-block').hide();
+    $('#' + sectionId + ' .code-block').hide().removeClass('active');
 
     $.ajax({
         url: "../samples/" + fileName + ".out",
@@ -36,7 +36,7 @@ var loadData = function(linkText, sectionId, init) {
     $('#' + fileName + "-code").show().attr('style', 'display: flex;' +
         'background: ' + codeBlockBgColor + '; ' +
         'border-radius: 0; ' +
-        'margin-bottom: 0');
+        'margin-bottom: 0').addClass('active');
     $('#' + fileName + "-code > code").show().attr('style', 'white-space:pre; width: 100%;');
 
     $.ajax({
@@ -121,6 +121,17 @@ var loadData = function(linkText, sectionId, init) {
 
 };
 
+function setTooltip(btn, message) {
+    $(btn).attr('data-original-title', message)
+        .tooltip('show');
+}
+
+function hideTooltip(btn) {
+    setTimeout(function() {
+        $(btn).tooltip('hide').removeAttr('data-original-title');
+    }, 1000);
+}
+
 $(document).ready(function() {
     //Load data on click callback
     $('#nativeLanguage li.links').click(function() {
@@ -144,9 +155,7 @@ $(document).ready(function() {
             loadData('type-system', 'dummyXoXo', false);
         }
     });
-});
 
-$(document).ready(function() {
     $('.codeSampleBoxes .hTrigger').hover(function(e) {
             $('#' + $(this).data('toggle-highlight')).css('opacity', 0.2);
         },
@@ -166,4 +175,28 @@ $(document).ready(function() {
         $('[data-toggle-highlight="' + $(this).attr('id') + '"]')
             .removeClass('active');
     });
+
+    // register "copy to clipboard" event to elements with "copy" class
+    var clipboard = new ClipboardJS('.copy', {
+        text: function(trigger) {
+            return $(trigger).closest('.cPhilosophyWidget').find('.code-wrapper pre.code-block.active code').text();
+        }
+    });
+
+    // Register events show hide tooltip on click event
+    clipboard.on('success', function(e) {
+        setTooltip(e.trigger, 'Copied!');
+        hideTooltip(e.trigger);
+    });
+
+    clipboard.on('error', function(e) {
+        setTooltip(e.trigger, 'Failed!');
+        hideTooltip(e.trigger);
+    });
+
+    $('.copy').tooltip({
+        trigger: 'click',
+        placement: 'bottom'
+    });
+    $("a.copy").unbind("click");
 });
