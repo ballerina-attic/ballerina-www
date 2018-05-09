@@ -11,5 +11,10 @@ for d in site/*/ ; do
     fi
 done
 cp index.html site/
-rsync -ir site/ $1/
+if [ $OSTYPE == "msys" ];
+    then
+        cp -r site/ $1/
+    else
+        rsync -ir site/ $1/
+fi
 echo ".....Completed building guide pages....."
