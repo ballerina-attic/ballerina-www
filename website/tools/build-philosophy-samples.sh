@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+BALLERINA_HOME=$2
 
 CURRENT_DIR=$(pwd)
 echo "....Building philosophy samples..."
