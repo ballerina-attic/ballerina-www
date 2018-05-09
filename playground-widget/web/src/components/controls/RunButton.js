@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'semantic-ui-react/dist/es/elements/Button/Button';
-import 'semantic-ui-css/components/button.min.css';
 import Console from '../console/Console';
 import { fetchLauncherURL } from '../../utils';
 import RunSession from '../../run-session';

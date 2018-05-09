@@ -6,9 +6,7 @@ import './CodeEditor.css';
 import Grammar from 'ballerina-grammar';
 import BAL_LANG_CONFIG from 'ballerina-config';
 import Loader from 'semantic-ui-react/dist/es/elements/Loader/Loader';
-import 'semantic-ui-css/components/loader.min.css';
 import Dimmer from 'semantic-ui-react/dist/es/modules/Dimmer/Dimmer';
-import 'semantic-ui-css/components/dimmer.min.css';
 import { getMonospaceFontFamily } from '../../client-utils';
 
 const BAL_LANGUAGE = 'ballerina-lang';
