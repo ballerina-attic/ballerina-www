@@ -241,7 +241,7 @@ Import the Docker package.
 import ballerinax/docker;
 ```
 
-Now, let’s add the code you need to run the service in Docker. This needs to be added under the `endpoint http:Listener` since Docker and Kubernetes annotations are only supported by Listener endpoints.
+Now, let’s add the code you need to run the service in Docker. This needs to be added under the `endpoint http:Listener` since Docker Config annotation is only supported by Listener endpoints. `@docker:CopyFiles` annotation will copy configuration file into the Docker image and `@docker:Expose` annotation allow to map external port to container port.
 
 ```ballerina
 // Docker configurations
@@ -250,6 +250,12 @@ Now, let’s add the code you need to run the service in Docker. This needs to b
     name:"helloworld",
     tag:"v1.0"
 }
+@docker:CopyFiles {
+    files:[
+        {source:"./twitter.toml", target:"/home/ballerina/conf/twitter.toml", isBallerinaConf:true}
+    ]
+}
+@docker:Expose {}
 ```
 
 Now your code is ready to generate deployment artifacts. In this case it is a Docker image.
