@@ -17,8 +17,8 @@ import (
     "encoding/json"
 )
 
-var cacheDir = "/tmp/gobyexample-cache"
-var pygmentizeBin = "tools/ballerinaByExample/vendor/pygments/pygmentize"
+var cacheDir = filepath.FromSlash("/tmp/gobyexample-cache")
+var pygmentizeBin = filepath.FromSlash("tools/ballerinaByExample/vendor/pygments/pygmentize")
 var githubBallerinaByExampleBaseURL = "https://github.com/ballerina-platform/ballerina-examples/tree/master"
 var examplesDir = os.Args[1];
 var siteDir = os.Args[2];
@@ -418,7 +418,7 @@ func getAllBalFiles(sourceDir string) []string {
         if !f.IsDir() {
             if filepath.Ext(path) == balFileExtn || filepath.Ext(path) == protoFilePathExtn || filepath.Ext(path) == yamlFileExtn{
                 // avoiding sub dirs
-                if  sourceDir+ f.Name()  == path {
+                if  filepath.FromSlash(sourceDir+ f.Name())  == filepath.FromSlash(path) {
                     files = append(files,sourceDir+ f.Name())
                 }
 
