@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Container from 'semantic-ui-react/dist/es/elements/Container';
+import 'semantic-ui-css/components/container.min.css';
 import Segment from 'semantic-ui-react/dist/es/elements/Segment';
+import 'semantic-ui-css/components/segment.min.css';
 import Icon from 'semantic-ui-react/dist/es/elements/Icon';
-import 'semantic-ui-css/semantic.min.css';
+import 'semantic-ui-css/components/icon.min.css';
 import CodeEditor from './components/editor/CodeEditor';
 import SamplesList from './components/navigation/SamplesList';
 import './BallerinaWidget.scss';
@@ -14,6 +16,7 @@ import RunButton from './components/controls/RunButton';
 import DesignView from './components/design-view/DesignView';
 import DownloadsView from './components/downloads-view/DownloadsView';
 import { getMonospaceFontFamily } from './client-utils';
+
 
 class BallerinaWidget extends Component {
 
