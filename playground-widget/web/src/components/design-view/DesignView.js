@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loader from 'semantic-ui-react/dist/es/elements/Loader/Loader';
+import 'semantic-ui-css/components/loader.min.css';
 import Dimmer from 'semantic-ui-react/dist/es/modules/Dimmer/Dimmer';
+import 'semantic-ui-css/components/dimmer.min.css';
 import { Scrollbars } from 'react-custom-scrollbars';
 import './DesignView.scss';
 

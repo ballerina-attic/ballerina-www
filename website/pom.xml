@@ -155,6 +155,7 @@
                             <arguments>
                                 <argument>tools/build-philosophy-samples.sh</argument>
                                 <argument>${philosophy.samples.source.dir}</argument>
+                                <argument>${ballerina.home}</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -260,6 +261,7 @@
     </build>
     <properties>
         <bbe.source.dir>${project.build.directory}/sources/examples</bbe.source.dir>
+        <ballerina.home>${project.build.directory}/dependencies/ballerina-tools-${ballerina.release.version}/</ballerina.home>
         <guides.source.dir>${basedir}/guides</guides.source.dir>
         <philosophy.samples.source.dir>${project.build.directory}/sources/samples</philosophy.samples.source.dir>
         <webroot.dir>${project.build.directory}/webroot</webroot.dir>
