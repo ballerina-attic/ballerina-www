@@ -323,6 +323,13 @@
     <div class="container">
         <!-- code section -->
         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 cPhilosophyWidget">
+            <div class="cBBE-links">
+                <ul>
+                    <li>
+                        <a class="copy" data-original-title="" title=""><img src="/img/copy-icon.svg"></a>
+                    </li>
+                </ul>
+            </div>
             <div class="cPhilosophyWidgetContainer">
                 <div class="tab-content clearfix">
                     <div class="cIntegrationCode">
@@ -614,7 +621,14 @@
         </div>
     </div>
     <div class="container">
-        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 cPhilosophyWidget">
+            <div class="cBBE-links">
+                <ul>
+                    <li>
+                        <a class="copy" data-original-title="" title=""><img src="/img/copy-icon.svg"></a>
+                    </li>
+                </ul>
+            </div>
             <div class="codeNativeBox">
                 <div id="ballerina_grammar_2" class="code-wrapper">
                     <pre id="type-safe-endpoint-integration-code" class="code-block">

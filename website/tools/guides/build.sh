@@ -1,6 +1,6 @@
 #Generate guides
 echo ".....Building guide pages....."
-echo "node version is " node -v;
+echo "node version is "; node -v;
 mkdocs build;
 for d in site/*/ ; do
     if [ -e "$d"README/index.html ]

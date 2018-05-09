@@ -122,29 +122,23 @@
 
     {% include "navigation.html" %} {{ page.content }} {% include "footer.html" %}
 
-
     <script>
-        
-        
-    $(document).ready(function() {    
-        
+        $(document).ready(function() {    
+            
             var ConBanner = '<div class="row cBallerinaConBanner"><a target="_blank" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner">' +
-        '<div class="container">JOIN US FOR THE FIRST <span>BALLERINACON</span>, JULY 18TH, IN SAN FRANCISCO OR VIRTUALLY ON YOUR PC</div></a></div>';
-    $('#iBanner').append(ConBanner);
-    setTimeout(function() {
-        $('#iBanner').addClass('cShowBanner');
-        $('#iMainNavigation').addClass('cShowBanner');
-        $('.cMainParagraph').addClass('cShowBanner');
-      
+            '<div class="container">JOIN US FOR THE FIRST <span>BALLERINACON</span>, JULY 18TH, IN SAN FRANCISCO OR VIRTUALLY ON YOUR PC</div></a></div>';
 
-
-    }, 2000);
-         });
-        
+            $('#iBanner').append(ConBanner);
+            setTimeout(function() {
+                $('#iBanner').addClass('cShowBanner');
+                $('#iMainNavigation').addClass('cShowBanner');
+                $('.cMainParagraph').addClass('cShowBanner');
+            }, 2000);
+        });
     </script>
 
+    <script src="/js/clipboard.js-2.0.0/clipboard.min.js"></script>
     <script src="/search/require.js"></script>
-
     <script src="/search/search.js"></script>
 
 </body>
