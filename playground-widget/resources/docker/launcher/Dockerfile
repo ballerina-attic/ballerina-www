@@ -15,36 +15,40 @@
 # -----------------------------------------------------------------------
 FROM openjdk:jre-alpine
 
+RUN apk update && apk add --no-cache bash curl unzip \
+    && addgroup ballerina && adduser -g '' -s /bin/bash -D -G ballerina ballerinauser
+
 ENV ENABLE_DEBUG false
 ENV DEBUG_PORT 5005
 
-RUN apk update && apk add bash && apk add curl
-
 COPY ballerinaKeystore.p12 /security/
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-
 COPY ballerina-tools.zip /root/
+
 RUN mkdir /ballerina \
     && unzip /root/ballerina-tools.zip -d /ballerina/ \
     && mv /ballerina/ballerina* /ballerina/runtime \
     && mkdir -p /ballerina/runtime/logs \
-    && rm /root/ballerina-tools.zip
+    && rm /root/ballerina-tools.zip \
+    && chmod +x /usr/local/bin/docker-entrypoint.sh
 
 ENV BALLERINA_HOME /ballerina/runtime
 ENV PATH $BALLERINA_HOME/bin:$PATH
 
 COPY resources /resources/
 COPY services /services/
-RUN chmod +x /services/src/build.sh
-
-RUN cd /services/src/ && sh build.sh\
-    && cp *.balx ../
+RUN chmod +x /services/src/build.sh \
+    && cd /services/src/ && sh build.sh \
+    && cp *.balx ../ \
+    && chown -R ballerinauser:ballerina /services/ /ballerina/
 
 COPY netty-transports.yml /api/
 COPY playground-launcher.jar /api/
 
-EXPOSE 80 8443
+EXPOSE 8080 8443
+USER ballerinauser
+WORKDIR /ballerina/
 
 # TODO: may need to use a signal aware init system because launchers spawn new processes
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+
