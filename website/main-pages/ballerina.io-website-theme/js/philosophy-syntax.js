@@ -164,19 +164,36 @@ $(document).ready(function() {
         }
     );
 
-    $('.code-wrapper').on('mouseenter', '.overlay-highlight', function(e) {
+
+    /*
+     * Code hints hightlighting method
+     */
+    var $codeWrapper = $('.code-wrapper');
+
+    $codeWrapper.on('mouseenter', '.overlay-highlight', function(e) {
         $('#' + $(e.currentTarget).data('toggle-highlight')).css('opacity', 0.2);
         $('[data-toggle-highlight="' + $(this).attr('id') + '"]')
             .addClass('active');
     });
 
-    $('.code-wrapper').on('mouseout', '.overlay-highlight', function(e) {
+    $codeWrapper.on('mouseout', '.overlay-highlight', function(e) {
         $('#' + $(e.currentTarget).data('toggle-highlight')).css('opacity', 0);
         $('[data-toggle-highlight="' + $(this).attr('id') + '"]')
             .removeClass('active');
     });
 
-    // register "copy to clipboard" event to elements with "copy" class
+    $codeWrapper.on('mousedown contextmenu', function(e) {
+        $('.overlay-highlight', e.currentTarget).css('z-index', -1);
+    });
+
+    $codeWrapper.on('mouseup mouseleave', function(e) {
+        $('.overlay-highlight', e.currentTarget).css('z-index', 3);
+    });
+
+
+    /*
+     * Register "copy to clipboard" event to elements with "copy" class
+     */
     var clipboard = new ClipboardJS('.copy', {
         text: function(trigger) {
             return $(trigger).closest('.cPhilosophyWidget').find('.code-wrapper pre.code-block.active code').text();
@@ -198,5 +215,6 @@ $(document).ready(function() {
         trigger: 'click',
         placement: 'bottom'
     });
+
     $("a.copy").unbind("click");
 });
