@@ -45,7 +45,7 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### How to Publish Ballerina Packages
 
-[How to Publish Ballerina Packages](/learn/publish-package/) provides settings and commands you need to share your local packages with the Ballerina community.
+[How to Publish Ballerina Packages](/learn/how-to-publish-package/) provides settings and commands you need to share your local packages with the Ballerina community.
 
 ### How to Run and Deploy Ballerina Services
 
