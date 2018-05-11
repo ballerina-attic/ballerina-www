@@ -1,11 +1,15 @@
 # Publish a Package
 
+## CLI Command
+
 Pushing a package uploads the package to
 Ballerina Central (https://central.ballerina.io/) repository.
 
 ```
 ballerina push <package-name>
 ```
+
+## Setting up
 
 Before you push, you must enter your Ballerina Central access token in
 `Settings.toml` in your home repository (`<USER_HOME>/.ballerina/`).
@@ -23,6 +27,8 @@ port = "3128"
 username = ""
 password = ""
 ```
+
+## Organizations
 
 When you push a package to Ballerina Central, the runtime will validate
 organizations for the user against the org-name defined in your package’s
