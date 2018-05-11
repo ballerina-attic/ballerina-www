@@ -43,6 +43,10 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 [How to Write Secure Ballerina Services](/learn/how-to-write-secure-ballerina-code/) provides guidelines on writing secure Ballerina services, while demonstrating different security features and controls available within Ballerina.
 
+### How to Publish Ballerina Packages
+
+[How to Publish Ballerina Packages](/learn/publish-package/) provides settings and commands you need to share your local packages with the Ballerina community.
+
 ### How to Run and Deploy Ballerina Services
 
 [How to Deploy and Run Ballerina Services](/learn/how-to-deploy-and-run-ballerina-programs/) provides an overview of how to configure your runtime services and to generate deployment artifacts for various targets including Docker and Kubernetes.
