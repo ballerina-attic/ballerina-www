@@ -65,7 +65,7 @@
             <div class="cStandaloneInstallers">
                 <h2>Installation Packages</h2>
                 <div class="cInstallers">
-                    <h3>Stable <span id="stableInfo"></span></h3>
+                    <h3 class="release-version">Stable <span id="stableInfo"></span></h3>
                     <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
                         <div class="insPackages0container">
                             <table id="insPackages0"></table>
@@ -78,7 +78,8 @@
                     </div>
                     <div class="clearfix"></div>
                     <br>
-                    <div id="nightlyPackContainer"><h3>Nightly <span id="nightlyInfo"></span></h3>
+                    <div id="nightlyPackContainer">
+                    <h3 class="release-version">Nightly <span id="nightlyInfo"></span></h3>
                     <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
                         <div class="nightlyPackages0container">
                             <table id="nightlyPackages0"></table>
