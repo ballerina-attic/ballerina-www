@@ -32,7 +32,7 @@ ballerina: initiating service(s) in 'hello_service.bal'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
-This means your service is up and running. You can invoke the service by opening a new command line window and using an HTTP client. In this case we use a cURL command.
+This means your service is up and running. You can invoke the service using an HTTP client. In this case, we use cURL.
 
 ```bash
 $ curl http://localhost:9090/hello/sayHello
