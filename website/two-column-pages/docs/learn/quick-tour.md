@@ -307,7 +307,7 @@ CONTAINER ID     IMAGE    COMMAND    CREATED      STATUS      PORTS     NAMES
 130ded2ae413        registry.hub.docker.com/helloworld:v1.0   "/bin/sh -c 'balleri…"   Less than a second ago   Up 3 seconds        0.0.0.0:9090->9090/tcp   thirsty_hopper
 ```
 
-Access your service hosted on Docker with a cURL command.
+Use the following cURL command to invoke your Docker-hosted service.
 
 ```bash
 $ curl -d "Hello Ballerina" -X POST localhost:9090
