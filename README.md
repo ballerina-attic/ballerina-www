@@ -20,7 +20,7 @@
 
 ### Running
 
-Once build is completed, you can find the generated www folder at `<repo-root>/website/target/webroot/`. If you already have a webserver, copy this folder to webroot and point the browser to your webserver.
+Once build is completed, you can find the generated www folder at `<repo-root>/website/target/webroot/`. If you already have a running http server, copy the `webroot` folder there and point the browser to it.
 
 Else, since you already have NodeJs installed, install [serve](https://github.com/zeit/serve) - a simple webserver on NodeJs. 
 
@@ -30,8 +30,6 @@ Else, since you already have NodeJs installed, install [serve](https://github.co
 > _Note:- This is just a simple http server and will not hot deploy changes. In order to apply the changes you do, you need to run `mvn install` to build._
 
 This will start a webserver with `<repo-root>/website/target/webroot/` path set as the webroot and by default can be consumed via `http://localhost:5000`.
-
-Or you can use any http server you prefered to run the website locally.
 
 #### To start the playground widget in development server separately
 
