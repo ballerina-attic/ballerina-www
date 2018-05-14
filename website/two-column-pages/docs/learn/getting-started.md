@@ -26,7 +26,7 @@ If you are upgrading from an older version of Ballerina, you can simply download
 
 ### Installing on OS X
 
-[Download the package file](/downloads), open it, and follow the prompts to install Ballerina. The package installs the Ballerina distribution to `/Library/ballerina`.
+[Download the package file](/downloads), open it, and follow the prompts to install Ballerina. The package installs the Ballerina distribution to `/Library/Ballerina`.
 
 The package automatically sets your PATH environment variable for you. You may need to restart any open Terminal sessions for the change to take effect.
 
