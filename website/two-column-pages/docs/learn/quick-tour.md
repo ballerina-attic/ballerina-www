@@ -9,7 +9,7 @@ Now that you know a little bit [about Ballerina](/philosophy), let's take it for
 
 > **Note**: Throughout this documentation, `<ballerina_home>` refers to the Ballerina directory you just installed. 
 
-## Start a Project, Run a Service, and Call It
+## Start a Project, Run a Service, and Invoke It
 
 Start your project by navigating to a directory of your choice and running the following command.
 
@@ -18,20 +18,21 @@ ballerina init
 ```
 
 You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
-You can run the service by using the run command.
+
+You can run the service using the `ballerina run` command.
 
 ```bash
 $ ballerina run hello_service.bal
 ```
 
-You will see the following output.
+You get the following output.
 
 ```bash
 ballerina: initiating service(s) in 'hello_service.bal'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
-This means your service is up and running. You can call the service by opening a new command line window and using the following cURL command.
+This means your service is up and running. You can invoke the service using an HTTP client. In this case, we use cURL.
 
 ```bash
 $ curl http://localhost:9090/hello/sayHello
@@ -52,6 +53,8 @@ You just started Ballerina, created a project, started a service, and received a
 Let's try this on VS Code.
 
 > **Note**: You need to have VS Code installed for this to work.
+
+Open your service in VS Code. You can use the following command to do this on Linux or OSX.
 
 ```bash
 $ code /<folder_path>/hello_service.bal
@@ -130,19 +133,21 @@ $ curl http://localhost:9090 -X POST
 
 ## Use an Endpoint
 
-Ballerina client endpoint is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. Ballerina Central stores numerous endpoints that can be used with your service. You can search for them using the `ballerina search` command. The command to search a Twitter endpoint is mentioned below.
+Ballerina client endpoint is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. An endpoint can be used to configure parameters related to the network accessible service. 
+
+Ballerina Central stores numerous packages that that can be used with your service. You can search for them using the `ballerina search` command. Use the following command to search for packages where the package name, description, or org name contain the word "twitter".
 
 ```
 $ ballerina search twitter
 ```
 
-This results in a list of available endpoints. You can pull the one you want from Ballerina Central.
+This results in a list of available packages. You can pull the one you want from Ballerina Central.
 
 ```
 $ ballerina pull wso2/twitter
 ```
 
-You now have access to a Twitter client endpoint.
+You can use the `wso2/twitter` package to integrate with a Twitter endpoint.
 
 In your `hello_service.bal` file, import the Twitter package.
 
@@ -188,7 +193,7 @@ In your `hello_service.bal` file, import the ballerina/config package.
 import ballerina/config;
 ```
 
-Add this code after the import.
+Add this code after the import statement.
 
 ```ballerina
 endpoint twitter:Client twitter {
@@ -198,7 +203,7 @@ endpoint twitter:Client twitter {
    accessTokenSecret: config:getAsString("accessTokenSecret")
 };
 ```
-Here we are creating an endpoint to connect with the Twitter service. An endpoint is a Ballerina construct to configure parameters related to the network accessible service, which is connected through the endpoint. The above configuration is used to configure the connectivity to the Twitter service.
+Here we are creating an endpoint to connect with the Twitter service. The above configuration is used to configure the connectivity to the Twitter service.
 
 Now you have the Twitter endpoint.
 
@@ -242,7 +247,7 @@ Import the Docker package.
 import ballerinax/docker;
 ```
 
-Now, let’s add the code you need to run the service in Docker. This needs to be added under the `endpoint http:Listener` since Docker Config annotation is only supported by Listener endpoints. `@docker:CopyFiles` annotation will copy configuration file into the Docker image and `@docker:Expose` annotation allow to map external port to container port.
+Now, let’s add the code you need to run the service in Docker. This needs to be added under the `endpoint http:Listener` since Docker Config annotation is only supported by Listener endpoints. `@docker:CopyFiles` annotation copies the configuration file into the Docker image and `@docker:Expose` annotation allows you to map an external port to the container port.
 
 ```ballerina
 // Docker configurations
@@ -265,7 +270,7 @@ Now your code is ready to generate the deployment artifacts. In this case it is 
 @docker 		 - complete 3/3
 ```
 
-Run the following command to start docker container: 
+Run the following command to start the Docker container: 
 
 ```bash
 $ docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
@@ -302,7 +307,7 @@ CONTAINER ID     IMAGE    COMMAND    CREATED      STATUS      PORTS     NAMES
 130ded2ae413        registry.hub.docker.com/helloworld:v1.0   "/bin/sh -c 'balleri…"   Less than a second ago   Up 3 seconds        0.0.0.0:9090->9090/tcp   thirsty_hopper
 ```
 
-Access the hello world service hosted on Docker with a cURL command.
+Use the following cURL command to invoke your Docker-hosted service.
 
 ```bash
 $ curl -d "Hello Ballerina" -X POST localhost:9090
@@ -315,11 +320,11 @@ ID:991212870376534016
 
 ## Push your Package to Ballerina Central
 
-For the `ballerina push` command to work, you need to copy and paste your Ballerina Central access token in `Settings.toml` in your home repository (<USER_HOME>/.ballerina/).
+For the `ballerina push` command to work, you need to copy and paste your Ballerina Central access token in `Settings.toml` in your home repository `<USER_HOME>/.ballerina/`.
 
-Register on Ballerina Central and visit user dashboard at [https://central.ballerina.io/dashboard](https://central.ballerina.io/dashboard) to gain access to your user token.  
+Register on Ballerina Central and visit the user dashboard at [https://central.ballerina.io/dashboard](https://central.ballerina.io/dashboard) to gain access to your user token.  
 
-When you push a package to Ballerina Central, the runtime will validate organizations for the user against the `org-name` defined in your package’s `Ballerina.toml` file.
+When you push a package to Ballerina Central, the runtime validates organizations for the user against the `org-name` defined in your package’s `Ballerina.toml` file.
 
 Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the package into and set that as the `org-name` in `Ballerina.toml` inside the project directory.
 
@@ -335,7 +340,7 @@ For example, if you have a Ballerina package named `math`, the following command
 ballerina push math
 ```
 
-For more information on Ballerina push command run,
+For more information on the Ballerina push command run,
 
 ```bash
 ballerina help push
