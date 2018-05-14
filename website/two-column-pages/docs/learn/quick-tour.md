@@ -135,7 +135,7 @@ $ curl http://localhost:9090 -X POST
 
 Ballerina client endpoint is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. An endpoint can be used to configure parameters related to the network accessible service. 
 
-Ballerina Central stores numerous packages that that can be used with your service. You can search for them using the `ballerina search` command. The command to search a Twitter package is mentioned below.
+Ballerina Central stores numerous packages that that can be used with your service. You can search for them using the `ballerina search` command. Use the following command to search for packages where the package name, description, or org name contain the word "twitter".
 
 ```
 $ ballerina search twitter
