@@ -147,7 +147,7 @@ This results in a list of available packages. You can pull the one you want from
 $ ballerina pull wso2/twitter
 ```
 
-You now have access to a Twitter client package that can be used to integrate with a Twitter endpoint.
+You can use the `wso2/twitter` package to integrate with a Twitter endpoint.
 
 In your `hello_service.bal` file, import the Twitter package.
 
