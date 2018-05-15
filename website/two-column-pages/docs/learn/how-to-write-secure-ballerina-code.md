@@ -427,14 +427,14 @@ sayHello (endpoint caller, http:Request req) {
 
 ### Basic Authentication and Authorization
 
-Ballerina supports Basic Authentication for services. The `scheme` field of `http:AuthProvider` should be set to basic in order to enforce Basic Authentication. Since user information is provided using a configuration file `authProvider` should be set to `config`.
+Ballerina supports Basic Authentication for services. The `scheme` field of `http:AuthProvider` should be set to basic in order to enforce Basic Authentication. Since user information is provided using a configuration file `authStoreProvider` should be set to `config`.
 
 ```ballerina
 import ballerina/http;
 
 http:AuthProvider basicAuthProvider = {
    scheme:"basic",
-   authProvider:"config"
+   authStoreProvider:"config"
 };
 
 endpoint http:SecureListener secureHelloWorldEp {
@@ -645,7 +645,7 @@ import ballerina/http;
 
 http:AuthProvider basicAuthProvider = {
    scheme:"basic",
-   authProvider:"config",
+   authStoreProvider:"config",
    propagateToken: true,
    issuer:"ballerina",
    audience:"ballerina.io",
