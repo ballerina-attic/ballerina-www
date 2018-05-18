@@ -175,14 +175,13 @@ Prior to sending a Tweet, you need to create a Twitter app and get some informat
 
 4. In the directory where you have your service, create a **twitter.toml** file and add the details you obtained above within the quotes.
 
-    ```
-    # Ballerina twitter config file
+```
+    # Ballerina demo config file
     consumerKey = ""
     consumerSecret = ""
     accessToken = ""
     accessTokenSecret = ""
-    
-    ```
+```
 
 Now you can program Ballerina to send a tweet.
 
