@@ -336,6 +336,7 @@ ul.cPhilosophyWidgetControls {
 
 #type-system-code {
     min-height: 510px;
+    display: flex !important;
 }
 
 #type-system-code code {
@@ -465,8 +466,14 @@ div.text-display div.cCodeDesription p {
     z-index: 2;
 }
 
-.code-wrapper {
+.code-block {
     position: relative;
+}
+
+.code-block,
+.shell-display,
+.code-block-text {
+    display: none;
 }
 
 .overlay-highlight,
@@ -491,6 +498,10 @@ div.text-display div.cCodeDesription p {
 .codeNativeBox .overlay-highlight:hover,
 .codeNativeBox .output-overlay-highlight:hover {
     opacity: 0.2 !important;
+}
+
+.codeNativeBox pre {
+    background-color: #fff;
 }
 
 .cLanguageFeaturesContainer {
@@ -740,6 +751,10 @@ div.text-display div.cCodeDesription p {
 
 .code.cOutput {
     position: relative;
+}
+
+.code-wrapper pre {
+    margin-bottom: 0;
 }
 
 .cOutput .highlight pre {
