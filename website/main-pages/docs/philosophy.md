@@ -372,7 +372,7 @@
             </div>
         </div>
         <!-- first part end -->
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="api-constructs-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="api-constructs-text">
             <div data-startLine="1" data-endLine="3" class="hTrigger cCodeDesription">
                 <div>
                     <p>Ballerina makes it easy to build APIs, provide and consume HTTP, WebSocket, gRPC, Protobuf, and other services. This example demonstrates a simple REST API built with Ballerina.</p>
@@ -396,7 +396,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="logic-language-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="logic-language-text">
             <div data-startLine="1" data-endLine="3" class="hTrigger cCodeDesription">
                 <div>
                     <p>
@@ -426,7 +426,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="asynchronous-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="asynchronous-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
                 <div>
                     <p>
@@ -449,7 +449,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="json-and-xml-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="json-and-xml-text">
             <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription">
                 <div>
                     <p>JSON and XML are first class citizens in Ballerina.</p>
@@ -466,7 +466,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="annotations-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="annotations-text">
             <div data-startLine="1" data-endLine="3" class="hTrigger cCodeDesription">
                 <div>
                     <p>
@@ -496,7 +496,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="statically-and-strongly-typed-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="statically-and-strongly-typed-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
                 <div>
                     <p>
@@ -547,7 +547,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="streams-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="streams-text">
             <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription">
                 <div>
                     <p>
@@ -661,7 +661,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="type-safe-endpoint-integration-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="type-safe-endpoint-integration-text">
             <div data-startLine="5" data-endLine="11" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina types can be simple records or more complex objects with public/private fields and associated logic.</p>
@@ -688,7 +688,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="type-safe-connectors-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="type-safe-connectors-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina has constructs for managing connectors to endpoints. Connectors can be pulled by version from network repositories as needed.</p>
@@ -700,7 +700,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="reliable-messaging-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="reliable-messaging-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina has a lightweight microservice message broker that provides support for the AMQP protocol and offers asynchronous reliable messaging using queues and topics. Integrating Ballerina services with AMQP is simple.</p>
@@ -722,7 +722,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="distributed-transactions-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="distributed-transactions-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The transaction keyword indicates that the Ballerina runtime should engage the transaction co-ordinator.</p>
@@ -749,7 +749,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="circuit-breaker-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="circuit-breaker-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Circuit Breakers are a common way of protecting against distributed failure. Circuit breakers are built into Ballerina.</p>
@@ -771,7 +771,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="protection-against-injection-attacks-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="protection-against-injection-attacks-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>A common issue in building distributed systems is that data coming over the wire cannot be trusted not to include injection attacks.</p>
@@ -798,7 +798,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm" id="docker-and-kubernetes-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="docker-and-kubernetes-text">
             <div data-startLine="5" data-endLine="8" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>
