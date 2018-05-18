@@ -187,7 +187,7 @@ Now you can program Ballerina to send a tweet.
 
 ### Program Ballerina to Send a Tweet
 
-In your `hello_service.bal` file, import the ballerina/config package.
+In your `hello_service.bal` file, import the `ballerina/config` package.
 
 ```ballerina
 import ballerina/config;
@@ -203,6 +203,7 @@ endpoint twitter:Client twitter {
    accessTokenSecret: config:getAsString("accessTokenSecret")
 };
 ```
+
 Here we are creating an endpoint to connect with the Twitter service. The above configuration is used to configure the connectivity to the Twitter service.
 
 Now you have the Twitter endpoint.
@@ -212,6 +213,7 @@ In the `sayHello` resource, add the following to get the payload as a string.
 ```ballerina
 string status = check request.getTextPayload();
 ```
+
 > **Tip**: The check keyword means that this may return an error but I do not want to handle it here - pass it further away (to the caller function, or if this is a top-level function - generate a runtime failure).
 
 Now, we can get our response from Twitter by just calling its tweet action. Add this into the `sayHello` resource as well.
@@ -243,7 +245,7 @@ Now that you have verified your service, let's go ahead and deploy this on Docke
 
 Import the Docker package.
 
-```
+```ballerina
 import ballerinax/docker;
 ```
 
@@ -265,6 +267,7 @@ Now, let’s add the code you need to run the service in Docker. This needs to b
 ```
 
 Now your code is ready to generate the deployment artifacts. In this case it is a Docker image.
+
 ```bash
  $ ballerina build hello_service.bal
 @docker 		 - complete 3/3
@@ -300,6 +303,7 @@ Run the following to get details of the Docker container.
 ```bash
 $ docker ps
 ```
+
 You see an output similar to the following.
 
 ```
