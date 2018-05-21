@@ -7,4 +7,4 @@
 | User Chat | Get live support from other users and Ballerina core team in the [Ballerina Slack channel](https://ballerina-platform.slack.com/). |
 | Developer Mailing List | Core team and contributors discuss improvements on [Github](https://github.com/ballerina-platform/ballerina-lang) and the [Ballerina Google Group](https://groups.google.com/forum/#!forum/ballerina-dev). |
 | [@ballerinaplat](https://twitter.com/ballerinaplat) | The Ballerina project's official Twitter account. |
-| Code of Conduct | The [Code of Conduct](https://github.com/ballerina-platform/ballerina-lang/blob/master/CODE_OF_CONDUCT.md) provides guidelines on participating in the Ballerina community and reporting issues. |
+| Code of Conduct | [Code of Conduct](https://github.com/ballerina-platform/ballerina-lang/blob/master/CODE_OF_CONDUCT.md) provides guidelines on participating in the Ballerina community and reporting issues. |
