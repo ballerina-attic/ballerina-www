@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -173,19 +173,19 @@
                                             
                                           
                                         <li>
-                                            <a href="#AuthProvider">
+                                            <a href="#AuthStoreProvider">
                                                 <div class="construct-icon">
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    AuthProvider
+                                                    AuthStoreProvider
                                                 </div>
                                             </a>
                                         </li>
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#AuthProvider-authenticate">
+                                                <a href="#AuthStoreProvider-authenticate">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
@@ -198,7 +198,7 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#AuthProvider-getScopes">
+                                                <a href="#AuthStoreProvider-getScopes">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
@@ -211,19 +211,19 @@
                                             
                                           
                                         <li>
-                                            <a href="#ConfigAuthProvider">
+                                            <a href="#ConfigAuthStoreProvider">
                                                 <div class="construct-icon">
                                                     <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    ConfigAuthProvider
+                                                    ConfigAuthStoreProvider
                                                 </div>
                                             </a>
                                         </li>
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#ConfigAuthProvider-authenticate">
+                                                <a href="#ConfigAuthStoreProvider-authenticate">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
@@ -236,7 +236,7 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#ConfigAuthProvider-getScopes">
+                                                <a href="#ConfigAuthStoreProvider-getScopes">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
@@ -249,7 +249,7 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#ConfigAuthProvider-readPassword">
+                                                <a href="#ConfigAuthStoreProvider-readPassword">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
@@ -262,7 +262,7 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#ConfigAuthProvider-getConfigAuthValue">
+                                                <a href="#ConfigAuthStoreProvider-getConfigAuthValue">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
@@ -275,7 +275,7 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#ConfigAuthProvider-getArray">
+                                                <a href="#ConfigAuthStoreProvider-getArray">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
@@ -606,20 +606,20 @@
                                             
                                             <div class="cAPIdocsDescription">
                                                 <h2>Package Overview</h2>
-<p>This package provides a set of default authentication providers that can be extended to create new authentication providers.</p>
-<h3>Authentication Provider</h3>
-<p>An authentication provider defines an authentication scheme that could be used to protect endpoints. The <code>auth:AuthProvider</code> type acts as the interface for all the authentication providers. Any type of implementation, such as LDAP, JDBC, and file based, should be object-wise similar.</p>
-<p>By default there are two implementations of that. They are, <code>auth:ConfigAuthProvider</code> which authenticates based on usernames and passwords stored in ‘ballerina.conf’, and <code>auth:JWTAuthProvider</code> which authenticates by validating a JWT. It is possible to implement more such authentication mechanisms.</p>
+<p>This package provides a set of default authentication store providers that can be extended to create new authentication store providers.</p>
+<h3>Authentication Store Provider</h3>
+<p>An authentication Store provider defines an authentication scheme that could be used to protect endpoints. The <code>auth:AuthStoreProvider</code> type acts as the interface for all the authentication providers. Any type of implementation, such as LDAP, JDBC, and file based, should be object-wise similar.</p>
+<p>By default, there are two implementations of the <code>auth:AuthProvider</code>. They are, the <code>auth:ConfigAuthProvider</code>, which authenticates based on usernames and passwords stored in a configuration file, and the <code>auth:JWTAuthProvider</code>, which authenticates by validating a JWT. It is possible to implement more such authentication mechanisms.</p>
 <p>When creating a new authentication provider, there are two functions that need to be implemented.</p>
 <ul>
-<li><code>authenticate</code> : authenticate the user based on a credential, which can be username/password or a token such as JWT.</li>
-<li><code>getScopes</code> : provide the scopes associated with the user. Scopes are primarily permissions that are required to access a protected resource.</li>
+<li><code>authenticate</code> : Authenticates the user based on a credential, which can be username/password, or a token such as JWT.</li>
+<li><code>getScopes</code> : Provides the scopes associated with the user. Scopes are primarily permissions that are required to access a protected resource.</li>
 </ul>
-<h3>Config Auth Provider</h3>
-<p><code>ConfigAuthProvider</code> is an implementation of the <code>AuthProvider</code> interface, which uses the Ballerina configuration file
+<h3>Config Auth Store Provider</h3>
+<p><code>ConfigAuthStoreProvider</code> is an implementation of the <code>AuthStoreProvider</code> interface, which uses the Ballerina configuration file
 to store usernames, passwords, scopes and the relevant associations.</p>
 <p>A user is denoted by a section in the configuration file. The password and the scopes assigned to the user are denoted
-as keys under the relevant user section, as follows:</p>
+as keys under the relevant user section as seen below.</p>
 <pre><code>[b7a.users.&lt;username&gt;]
 password=&quot;&lt;password&gt;&quot;
 scopes=&quot;&lt;comma_separated_scopes&gt;&quot;
@@ -683,19 +683,19 @@ scopes=&quot;&lt;comma_separated_scopes&gt;&quot;
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#AuthProvider">AuthProvider</a></td>
+                                                         <td class="cSummary-table-name"><a href="#AuthStoreProvider">AuthStoreProvider</a></td>
                                                      
-                                                         <td class="cSummary-table-desc"><p>Represents the auth provider. Any type of implementation, such as ldap, jdbc, file based, etc. should be
-object-wise similar</p>
+                                                         <td class="cSummary-table-desc"><p>Represents the auth store provider. Any type of implementation, such as
+LDAP, JDBC, file based, etc. should be object-wise similar</p>
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#ConfigAuthProvider">ConfigAuthProvider</a></td>
+                                                         <td class="cSummary-table-name"><a href="#ConfigAuthStoreProvider">ConfigAuthStoreProvider</a></td>
                                                      
-                                                         <td class="cSummary-table-desc"><p>Represents the ballerina.conf based auth provider</p>
+                                                         <td class="cSummary-table-desc"><p>Represents Ballerina configuration file based auth store provider</p>
 </td>
                                                      </tr>
                                                  
@@ -907,13 +907,13 @@ object-wise similar</p>
                                                 
                                                 <!-- Objects and its functions -->
                                                 
-                                                <h2 id="AuthProvider">
-                                                    <span class="fw-struct sm-icon"></span> public type AuthProvider object
+                                                <h2 id="AuthStoreProvider">
+                                                    <span class="fw-struct sm-icon"></span> public type AuthStoreProvider object
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represents the auth provider. Any type of implementation, such as ldap, jdbc, file based, etc. should be
-object-wise similar</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Represents the auth store provider. Any type of implementation, such as
+LDAP, JDBC, file based, etc. should be object-wise similar</p>
 
                                                 </p>
                                                   
@@ -921,10 +921,10 @@ object-wise similar</p>
                                                     <ul>
                                                         
                                                         <li>
-                                                            <h2 id="AuthProvider-authenticate">
+                                                            <h2 id="AuthStoreProvider-authenticate">
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;AuthProvider&gt;
+                                                   &lt;AuthStoreProvider&gt;
                                                    </span> authenticate(string username, string password) returns (boolean) 
                                                             </h2>
                                                              
@@ -976,10 +976,10 @@ object-wise similar</p>
                                                         </li>
                                                         
                                                         <li>
-                                                            <h2 id="AuthProvider-getScopes">
+                                                            <h2 id="AuthStoreProvider-getScopes">
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;AuthProvider&gt;
+                                                   &lt;AuthStoreProvider&gt;
                                                    </span> getScopes(string username) returns (string[]) 
                                                             </h2>
                                                             
@@ -1045,12 +1045,12 @@ object-wise similar</p>
                                                 
                                                 <!-- Objects and its functions -->
                                                 
-                                                <h2 id="ConfigAuthProvider">
-                                                    <span class="fw-struct sm-icon"></span> public type ConfigAuthProvider object
+                                                <h2 id="ConfigAuthStoreProvider">
+                                                    <span class="fw-struct sm-icon"></span> public type ConfigAuthStoreProvider object
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represents the ballerina.conf based auth provider</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Represents Ballerina configuration file based auth store provider</p>
 
                                                 </p>
                                                   
@@ -1058,10 +1058,10 @@ object-wise similar</p>
                                                     <ul>
                                                         
                                                         <li>
-                                                            <h2 id="ConfigAuthProvider-authenticate">
+                                                            <h2 id="ConfigAuthStoreProvider-authenticate">
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;ConfigAuthProvider&gt;
+                                                   &lt;ConfigAuthStoreProvider&gt;
                                                    </span> authenticate(string user, string password) returns (boolean) 
                                                             </h2>
                                                             
@@ -1118,10 +1118,10 @@ object-wise similar</p>
                                                         </li>
                                                         
                                                         <li>
-                                                            <h2 id="ConfigAuthProvider-getScopes">
+                                                            <h2 id="ConfigAuthStoreProvider-getScopes">
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;ConfigAuthProvider&gt;
+                                                   &lt;ConfigAuthStoreProvider&gt;
                                                    </span> getScopes(string username) returns (string[]) 
                                                             </h2>
                                                             
@@ -1170,10 +1170,10 @@ object-wise similar</p>
                                                         </li>
                                                         
                                                         <li>
-                                                            <h2 id="ConfigAuthProvider-readPassword">
+                                                            <h2 id="ConfigAuthStoreProvider-readPassword">
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;ConfigAuthProvider&gt;
+                                                   &lt;ConfigAuthStoreProvider&gt;
                                                    </span> readPassword(string username) returns (string) 
                                                             </h2>
                                                             
@@ -1222,10 +1222,10 @@ object-wise similar</p>
                                                         </li>
                                                         
                                                         <li>
-                                                            <h2 id="ConfigAuthProvider-getConfigAuthValue">
+                                                            <h2 id="ConfigAuthStoreProvider-getConfigAuthValue">
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;ConfigAuthProvider&gt;
+                                                   &lt;ConfigAuthStoreProvider&gt;
                                                    </span> getConfigAuthValue(string instanceId, string property) returns (string) 
                                                             </h2>
                                                              
@@ -1274,10 +1274,10 @@ object-wise similar</p>
                                                         </li>
                                                         
                                                         <li>
-                                                            <h2 id="ConfigAuthProvider-getArray">
+                                                            <h2 id="ConfigAuthStoreProvider-getArray">
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
-                                                   &lt;ConfigAuthProvider&gt;
+                                                   &lt;ConfigAuthStoreProvider&gt;
                                                    </span> getArray(string groupString) returns (string[]) 
                                                             </h2>
                                                             
@@ -1364,7 +1364,7 @@ object-wise similar</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">configAuthProvider</td>
-                                                        <td class="cAPI-table-type"><a href="auth.html#ConfigAuthProvider">auth:ConfigAuthProvider</a></td>
+                                                        <td class="cAPI-table-type"><a href="auth.html#ConfigAuthStoreProvider">auth:ConfigAuthStoreProvider</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>

@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -2972,7 +2972,7 @@ all. Does not search within a matched result.</p>
                                                                     <td class="cAPI-table-name">data</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#any">any</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>A struct with data</p>
+                                                                    <td class="cAPI-table-desc"><p>A record with data</p>
 </td>
                                                                 </tr>
                                                                 
@@ -2991,7 +2991,8 @@ all. Does not search within a matched result.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#error">error</a> | <a href="primitive-types.html#null">null</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>An <code>error</code> will be returned if there is any error occured during adding data or else nil is returned</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -3005,7 +3006,8 @@ all. Does not search within a matched result.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Releases the database connection.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Releases the database connection. If the table data is fully iterated, it will be automatically closed. This explicit
+close is required only if it is not fully iterated.</p>
 
                                                             </p>
                                                               
@@ -3117,7 +3119,8 @@ all. Does not search within a matched result.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>An <code>int</code> the number of deleted record count or <code>error</code> if any error occured during removing data</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>

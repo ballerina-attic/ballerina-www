@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -258,6 +258,18 @@
                                                 </div>
                                                 <div class="construct-name">
                                                     SocketProperties
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#createMemoryChannel">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    createMemoryChannel
                                                 </div>
                                             </a>
                                         </li>
@@ -769,6 +781,83 @@
                                             </li>
                                         </ul>
                                             
+                                          
+                                        <li>
+                                            <a href="#StringReader">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    StringReader
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#StringReader-new">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-constructor"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        new
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#StringReader-readJson">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        readJson
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#StringReader-readXml">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        readXml
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#StringReader-readChar">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        readChar
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#StringReader-close">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        close
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                            
                                            
                                            
                                            
@@ -1138,6 +1227,10 @@ match csvChannel.getTable(Employee) {
                                              
                                                  
                                              
+                                                 
+                                             
+                                                 
+                                             
                                          </table>
                                          
                                         <!-- objects -->
@@ -1149,6 +1242,8 @@ match csvChannel.getTable(Employee) {
                                               
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
+                                             
+                                                 
                                              
                                                  
                                              
@@ -1214,6 +1309,15 @@ match csvChannel.getTable(Employee) {
                                                  
                                              
                                                  
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#StringReader">StringReader</a></td>
+                                                     
+                                                         <td class="cSummary-table-desc"><p>Represents a reader which will wrap string content as a channel.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
                                              
                                                  
                                              
@@ -1254,6 +1358,14 @@ match csvChannel.getTable(Employee) {
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#createMemoryChannel">createMemoryChannel</a></td>
+                                                        <td class="cSummary-table-desc"><p>Creates an in-memory channel which will reference stream of bytes.</p>
+</td>
+                                                     </tr>
                                                  
                                              
                                                  
@@ -1356,6 +1468,8 @@ match csvChannel.getTable(Employee) {
                                              
                                                  
                                              
+                                                 
+                                             
                                          </table>
                                          
                                          <!-- Type Definitions-->
@@ -1368,6 +1482,8 @@ match csvChannel.getTable(Employee) {
                                                 <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             
+                                              
+                                              
                                               
                                               
                                               
@@ -1436,6 +1552,8 @@ APPEND - append to existing file instead of replacing</p>
                                                 <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             
+                                              
+                                              
                                               
                                               
                                               
@@ -1642,8 +1760,69 @@ APPEND - append to existing file instead of replacing</p>
                                                 
                                                 <!-- Function -->
                                                 
+                                                <h2 id="createMemoryChannel">
+                                                    <span class="fw-function sm-icon"> </span> public function createMemoryChannel(blob content) returns (ByteChannel) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Creates an in-memory channel which will reference stream of bytes.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">content</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#blob">blob</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Content which should be exposed as channel</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#ByteChannel">ByteChannel</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>ByteChannel represenation to read the memory content</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
                                                 <h2 id="openCsvFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, a|rw|r|w mode, 	|:|, fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, a|rw|r|w mode, :|,|	 fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1677,7 +1856,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">fieldSeparator</td>
-                                                        <td class="cAPI-table-type">	|<a href="#Separator">:</a>|,</td>
+                                                        <td class="cAPI-table-type"><a href="#Separator">:</a>|,|	</td>
                                                         <td class="cAPI-table-default">,</td>
                                                         <td class="cAPI-table-desc"><p>CSV record seperator (i.e comma or tab)</p>
 </td>
@@ -2441,7 +2620,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CSVChannel&gt;
-                                                   </span> new(io:CharacterChannel channel, 	|:|, fs, int nHeaders) 
+                                                   </span> new(io:CharacterChannel channel, :|,|	 fs, int nHeaders) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2467,7 +2646,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">fs</td>
-                                                                    <td class="cAPI-table-type">	|<a href="#Separator">:</a>|,</td>
+                                                                    <td class="cAPI-table-type"><a href="#Separator">:</a>|,|	</td>
                                                                     <td class="cAPI-table-default">,</td>
                                                                     <td class="cAPI-table-desc"><p>Field separator which will separate between the records in the CSV</p>
 </td>
@@ -3494,6 +3673,229 @@ time.</p>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>An error if the connection could not be shutdown properly</p>
 </td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                                 
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <h2 id="StringReader">
+                                                    <span class="fw-struct sm-icon"></span> public type StringReader object
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Represents a reader which will wrap string content as a channel.</p>
+
+                                                </p>
+                                                  
+                                                <div class="function-wrapper">
+                                                    <ul>
+                                                        
+                                                        <li>
+                                                            <h2 id="StringReader-new">
+                                                                <span class="fw-constructor"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;StringReader&gt;
+                                                   </span> new(string content, string encoding) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Constructs a channel to read string.</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">content</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>content which should be written</p>
+</td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">encoding</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default">UTF-8</td>
+                                                                    <td class="cAPI-table-desc"><p>encoding of the characters of the content</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="StringReader-readJson">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;StringReader&gt;
+                                                   </span> readJson() returns (json | error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Reads string as json from reader.</p>
+
+                                                            </p>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#json">json</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>json or an error</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="StringReader-readXml">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;StringReader&gt;
+                                                   </span> readXml() returns (xml | error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Reads string as XML from reader</p>
+
+                                                            </p>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#xml">xml</a> | <a href="#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="StringReader-readChar">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;StringReader&gt;
+                                                   </span> readChar(int nCharacters) returns (string | error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Reads characters from the given string.</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">nCharacters</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>read specifc number of characters</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>string or an error</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="StringReader-close">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;StringReader&gt;
+                                                   </span> close() returns (error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Closes reader.</p>
+
+                                                            </p>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
                                                                 </tr>
                                                                 
                                                             </table>
