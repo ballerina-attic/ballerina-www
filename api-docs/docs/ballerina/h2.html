@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -406,7 +406,7 @@
 <h3>Endpoint</h3>
 <p>To access a database, you must first create an <code>endpoint</code>, which is a virtual representation of the physical endpoint of the H2 database that you are trying to connect to. Create an endpoint of the H2 client type (i.e., <code>h2:Client</code>) and provide the necessary connection parameters. This will create a pool of connections to the given H2 database. A sample for creating an endpoint with an H2 client can be found below.</p>
 <h3>Database operations</h3>
-<p>Once the endpoint is created, database operations can be executed through that endpoint. This package provides support for creating tables and executing stored procedures. It also supports selecting, inserting, deleting, updating, and batch updating data. For more details on the supported actions, refer to the <code>jdbc</code> package. Details of the SQL data types and query parameters relevant to these database operations can be found in the documentation for the <code>sql</code> package.</p>
+<p>Once the endpoint is created, database operations can be executed through that endpoint. This package provides support for creating tables and executing stored procedures. It also supports selecting, inserting, deleting, updating, and batch updating data. For more details on the supported actions, refer to the <code>sql</code> package. Also the details of the SQL data types and query parameters relevant to these database operations can be found in the documentation for the <code>sql</code> package.</p>
 <h2>Samples</h2>
 <h3>Creating an endpoint</h3>
 <pre><code class="language-ballerina">endpoint h2:Client testDB {
@@ -532,7 +532,7 @@
                                                     <tr>
                                                         <td class="cAPI-table-name">port</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">0</td>
+                                                        <td class="cAPI-table-default">9092</td>
                                                         <td class="cAPI-table-desc"><p>The port of the database to connect (in case of server baased DB)</p>
 </td>
                                                     </tr>
@@ -565,7 +565,7 @@
                                                         <td class="cAPI-table-name">poolOptions</td>
                                                         <td class="cAPI-table-type"><a href="sql.html#PoolOptions">ballerina.sql:PoolOptions</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Properties for the connection pool configuration</p>
+                                                        <td class="cAPI-table-desc"><p>Properties for the connection pool configuration. Refer <code>sql:PoolOptions</code> for more details</p>
 </td>
                                                     </tr>
                                                     
@@ -573,7 +573,7 @@
                                                         <td class="cAPI-table-name">dbOptions</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>DB specific properties</p>
+                                                        <td class="cAPI-table-desc"><p>A map of DB specific properties</p>
 </td>
                                                     </tr>
                                                     

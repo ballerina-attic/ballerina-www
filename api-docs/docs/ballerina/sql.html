@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -448,7 +448,6 @@
                                             
                                            
                                            
-                                           
                                          
                                          
                                          
@@ -575,13 +574,13 @@
                                                 <h2>Package overview</h2>
 <p>This package provides the common record types and constants required for other data management packages such as <code>jdbc</code>, <code>mysql</code>, and <code>h2</code>.</p>
 <h3>PoolOptions</h3>
-<p>The PoolOptions type the properties that are used to configure DB connection pool. This is used with <code>jdbc</code>, <code>mysql</code>, and <code>h2</code> endpoints to configure the connection pool associated with the endpoint.</p>
+<p>The PoolOptions type is the properties that are used to configure DB connection pool. This is used with <code>jdbc</code>, <code>mysql</code>, and <code>h2</code> endpoints to configure the connection pool associated with the endpoint.</p>
 <h3>SQLType</h3>
 <p>The SQLType represents the SQL data type of a given parameter. When using a parameter, use the same SQL type as the actual database table column type. Otherwise data loss can occur.</p>
 <h3>Direction</h3>
-<p>The Direction type represents the direction of the parameter. IN parameters are used to send values to stored procedures or pass parameters to other functions like select, update, etc. This is the default direction of a parameter. The OUT parameters are used to get values from stored procedures. The INOUT parameters are used to send values and retrieve values from stored procedures.</p>
+<p>The Direction type represents the direction of the parameter used in call operation. IN parameters are used to send values to stored procedures or pass parameters to other operations like select, update, etc. This is the default direction of a parameter. The OUT parameters are used to get values from stored procedures. The INOUT parameters are used to send values to stored procedures and retrieve values from stored procedures.</p>
 <h3>Parameter</h3>
-<p>The Parameter type represents a parameter for the SQL actions when a variable needs to be passed into the action.</p>
+<p>The Parameter type represents a parameter for the SQL operations when a variable needs to be passed into the sql statement given in the operation.</p>
 
                                             </div>
                                             
@@ -614,8 +613,6 @@
                                                          <td class="cSummary-table-desc"><p>Represents the properties which are used to configure DB connection pool.</p>
 </td>
                                                      </tr>
-                                                 
-                                             
                                                  
                                              
                                                  
@@ -789,8 +786,6 @@
                                              
                                                  
                                              
-                                                 
-                                             
                                          </table>
                                          
                                          <!-- endpoints -->
@@ -816,8 +811,6 @@
                                                         <td class="cSummary-table-desc"><p>An internal function used by clients to shutdown the connection pool.</p>
 </td>
                                                      </tr>
-                                                 
-                                             
                                                  
                                              
                                                  
@@ -921,14 +914,6 @@ INOUT - INOUT parameters are used to send values and get values from stored proc
                                               
                                             
                                             <tr>
-                                                <td class="cSummary-table-name">Param</td>
-                                                <td class="cSummary-table-type"></td>
-                                                <td class="cSummary-table-desc"><p>The parameter passed into the operations.</p>
-</td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
                                                 <td class="cSummary-table-name">SQLType</td>
                                                 <td class="cSummary-table-type">VARCHAR | VARBINARY | TINYINT | TIMESTAMP | TIME | STRUCT | SMALLINT | REFCURSOR | REAL | NVARCHAR | NUMERIC | NCLOB | NCHAR | LONGVARCHAR | LONGVARBINARY | LONGNVARCHAR | INTEGER | FLOAT | DOUBLE | DECIMAL | DATETIME | DATE | CLOB | CHAR | BOOLEAN | BLOB | BIT | BINARY | BIGINT | ARRAY</td>
                                                 <td class="cSummary-table-desc"><p>The SQL Datatype of the parameter.</p>
@@ -1009,7 +994,6 @@ REFCURSOR - Cursor value</p>
                                                 <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             
-                                              
                                               
                                               
                                               
@@ -1285,7 +1269,7 @@ REFCURSOR - Cursor value</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">sqlType</td>
-                                                        <td class="cAPI-table-type"><a href="#SQLType">TINYINT|NVARCHAR|TIMESTAMP|TIME|BINARY|NCHAR|LONGNVARCHAR|BIGINT|BOOLEAN|REAL|REFCURSOR|FLOAT|ARRAY|STRUCT|CLOB|DECIMAL|VARCHAR|NUMERIC|CHAR|NCLOB|BIT|INTEGER|DOUBLE|LONGVARBINARY|DATE|DATETIME|BLOB|LONGVARCHAR|VARBINARY|SMALLINT</a></td>
+                                                        <td class="cAPI-table-type"><a href="#SQLType">INTEGER|BOOLEAN|VARBINARY|TINYINT|SMALLINT|ARRAY|BLOB|DECIMAL|BIT|NCLOB|NUMERIC|TIME|DOUBLE|BIGINT|FLOAT|LONGVARBINARY|CHAR|NCHAR|NVARCHAR|LONGNVARCHAR|VARCHAR|BINARY|REFCURSOR|DATE|DATETIME|STRUCT|TIMESTAMP|REAL|LONGVARCHAR|CLOB</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The data type of the corresponding SQL parameter</p>
 </td>
@@ -1295,15 +1279,15 @@ REFCURSOR - Cursor value</p>
                                                         <td class="cAPI-table-name">value</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#any">any</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Value of paramter pass into the SQL query</p>
+                                                        <td class="cAPI-table-desc"><p>Value of paramter pass into the SQL statement</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">direction</td>
-                                                        <td class="cAPI-table-type"><a href="#Direction">IN|OUT|INOUT</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Direction">IN|INOUT|OUT</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Direction of the SQL Parameter OUT, or INOUT - Default value is IN</p>
+                                                        <td class="cAPI-table-desc"><p>Direction of the SQL Parameter IN, OUT, or INOUT - Default value is IN</p>
 </td>
                                                     </tr>
                                                     
@@ -1363,7 +1347,9 @@ to the pool</p>
                                                         <td class="cAPI-table-name">dataSourceClassName</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Name of the DataSource class provided by the JDBC driver</p>
+                                                        <td class="cAPI-table-desc"><p>Name of the DataSource class provided by the JDBC driver. This is used on following scenarios.
+1. In JDBC client when DB specific properties are required (which are given with dbOptions)
+2. In any data client in which XA transactions enabled by isXA property and need to provide a custom XA implementation.</p>
 </td>
                                                     </tr>
                                                     
@@ -1513,7 +1499,7 @@ to the pool</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The call action implementation for SQL connector to invoke stored procedures/functions.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>The call operation implementation for SQL connector to invoke stored procedures/functions.</p>
 
                                                             </p>
                                                              
@@ -1529,7 +1515,7 @@ to the pool</p>
                                                                     <td class="cAPI-table-name">sqlQuery</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>SQL statement to execute</p>
+                                                                    <td class="cAPI-table-desc"><p>The SQL stored procedure to execute</p>
 </td>
                                                                 </tr>
                                                                 
@@ -1581,7 +1567,7 @@ to the pool</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The select action implementation for SQL connector to select data from tables.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>The select operation implementation for SQL connector to select data from tables.</p>
 
                                                             </p>
                                                              
@@ -1656,7 +1642,7 @@ to the pool</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The update action implementation for SQL connector to update data and schema of the database.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>The update operation implementation for SQL connector to update data and schema of the database.</p>
 
                                                             </p>
                                                              
@@ -1715,7 +1701,7 @@ to the pool</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The batchUpdate action implementation for SQL connector to batch data insert.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>The batchUpdate operation implementation for SQL connector to batch data insert.</p>
 
                                                             </p>
                                                              
@@ -1775,7 +1761,7 @@ else <code>error</code> will be returned if there is any error</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The updateWithGeneratedKeys action implementation for SQL connector which returns the auto
+                                                                <span class="fw-right gray xs-icon"></span><p>The updateWithGeneratedKeys operation implementation for SQL connector which returns the auto
 generated keys during the update action.</p>
 
                                                             </p>
@@ -1845,7 +1831,7 @@ Else <code>error</code> will be returned if there is any error.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The getProxyTable action implementation for SQL connector which acts as a proxy for a database
+                                                                <span class="fw-right gray xs-icon"></span><p>The getProxyTable operation implementation for SQL connector which acts as a proxy for a database
 table that allows performing select/update operations over the actual database table.</p>
 
                                                             </p>
@@ -1889,7 +1875,7 @@ table that allows performing select/update operations over the actual database t
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#table">table</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>A <code>table</code> returned by the sql query statement else <code>error</code> will be returned if there is any error</p>
+                                                                    <td class="cAPI-table-desc"><p>A <code>table</code> returned by the operation or else <code>error</code> will be returned if there is any error</p>
 </td>
                                                                 </tr>
                                                                 
@@ -1900,21 +1886,6 @@ table that allows performing select/update operations over the actual database t
                                                     </ul>
                                                 </div>
                                                  
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
                                             </div>
                                                 
                                             <div class="construct-wrapper">

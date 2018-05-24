@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -625,6 +625,19 @@
                                                 </a>
                                             </li>
                                         </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#SimpleTopicPublisher-createMapMessage">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        createMapMessage
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
                                             
                                           
                                         <li>
@@ -672,6 +685,19 @@
                                                     </div>
                                                     <div class="construct-name">
                                                         createTextMessage
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#SimpleTopicSubscriber-createMapMessage">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        createMapMessage
                                                     </div>
                                                 </a>
                                             </li>
@@ -747,6 +773,19 @@
                                                     </div>
                                                     <div class="construct-name">
                                                         getTextMessageContent
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Message-getMapMessageContent">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        getMapMessageContent
                                                     </div>
                                                 </a>
                                             </li>
@@ -1084,6 +1123,19 @@
                                                     </div>
                                                     <div class="construct-name">
                                                         createTextMessage
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Session-createMapMessage">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        createMapMessage
                                                     </div>
                                                 </a>
                                             </li>
@@ -3419,6 +3471,57 @@ Simplified endpoint to consume from a topic without the explicit creation for JM
                                                             
                                                         </li>
                                                         
+                                                        <li>
+                                                            <h2 id="SimpleTopicPublisher-createMapMessage">
+                                                                <span class="fw-function sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;SimpleTopicPublisher&gt;
+                                                   </span> createMapMessage(map message) returns (Message | error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Create JMS map message</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">message</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>A message body to create a map message</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
                                                     </ul>
                                                 </div>
                                                  
@@ -3578,6 +3681,57 @@ Simplified endpoint to consume from a topic without the explicit creation for JM
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>A message body to create a text message</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="SimpleTopicSubscriber-createMapMessage">
+                                                                <span class="fw-function sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;SimpleTopicSubscriber&gt;
+                                                   </span> createMapMessage(map message) returns (Message | error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Create JMS map message</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">message</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>A message body to create a map message</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3810,6 +3964,40 @@ application data being sent.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>the string containing this message's data or an JMS error</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Message-getMapMessageContent">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Message&gt;
+                                                   </span> getMapMessageContent() returns (map | error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Gets map content of the JMS message</p>
+
+                                                            </p>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>the string containing this message's data or an JMS error</p>
 </td>
@@ -4980,6 +5168,57 @@ application data being sent.</p>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>the text content used to initialize this message</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Session-createMapMessage">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Session&gt;
+                                                   </span> createMapMessage(map content) returns (Message | error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Creates a JMS message which holds Map content</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">content</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>the Map content used to initialize this message</p>
 </td>
                                                                 </tr>
                                                                 

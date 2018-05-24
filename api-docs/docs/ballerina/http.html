@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             // $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -836,18 +836,6 @@
                                             
                                           
                                         <li>
-                                            <a href="#getcurrentFailureRatio">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    getcurrentFailureRatio
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
                                             <a href="#invokeEndpoint">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
@@ -872,36 +860,12 @@
                                             
                                           
                                         <li>
-                                            <a href="#resetBucketStats">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    resetBucketStats
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
                                             <a href="#roundRobin">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
                                                     roundRobin
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
-                                            <a href="#updateCircuitState">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    updateCircuitState
                                                 </div>
                                             </a>
                                         </li>
@@ -2075,6 +2039,32 @@
                                                     </div>
                                                     <div class="construct-name">
                                                         rejectPromise
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#CircuitBreakerClient-forceClose">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        forceClose
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#CircuitBreakerClient-forceOpen">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        forceOpen
                                                     </div>
                                                 </a>
                                             </li>
@@ -4501,14 +4491,14 @@
 <p>When a failure occurs in the remote service, the client connections might wait for some time before a timeout occurs. Awaiting requests consume resources in the system. Circuit Breakers are used to trip after a certain number of failed requests to the remote service. Once a circuit breaker trips, it does not allow the client to send requests to the remote service for a period of time.</p>
 <p>The Ballerina circuit breaker supports tripping on HTTP error status codes and I/O errors. Failure thresholds can be configured based on a sliding window (e.g., 5 failures within 10 seconds). <code>Client</code> endpoints also support a retry mechanism that allows a client to resend failed requests periodically for a given number of times.</p>
 <p><code>Client</code> endpoints support Certificate Revocation List (CRL) and Online Certificate Status Protocol (OCSP). They also support HTTP2, keep-alive, chunking, HTTP caching, and data compression/decompression.</p>
-<p>See <a href="https://ballerinalang.org/docs/by-example/http-client-connector">Client Endpoint Example</a>, <a href="https://ballerinalang.org/docs/by-example/http-circuit-breaker">Circuit Breaker Example</a>, <a href="https://ballerinalang.org/docs/by-example/http-redirects">HTTP Redirects Example</a></p>
+<p>See <a href="https://ballerina.io/learn/by-example/http-client-endpoint.html">Client Endpoint Example</a>, <a href="https://ballerina.io/learn/by-example/http-circuit-breaker.html">Circuit Breaker Example</a>, <a href="https://ballerina.io/learn/by-example/http-redirects.html">HTTP Redirects Example</a></p>
 <h3>Listener endpoints</h3>
 <p>A <code>Service</code> represents a collection of network-accessible entry points and can be exposed via a <code>Listener</code> endpoint. A resource represents one such entry point and can have its own path, HTTP methods, body format, 'consumes' and 'produces' content types, CORS headers, etc. In resources, <code>endpoint</code> and <code>http:Request</code> are mandatory parameters while <code>path</code> and <code>body</code> are optional.</p>
 <p>When a <code>Service</code> receives a request, it is dispatched to the best-matched resource.</p>
-<p>See <a href="https://ballerinalang.org/docs/by-example/http-data-binding">Listener Endpoint Example</a>, <a href="https://ballerinalang.org/docs/by-example/http-cors">HTTP CORS Example</a>, <a href="https://ballerinalang.org/docs/by-example/http-failover">HTTP Failover Example</a>, <a href="https://ballerinalang.org/docs/by-example/http-load-balancer">HTTP Load Balancer Example</a></p>
+<p>See <a href="https://ballerina.io/learn/by-example/http-data-binding.html">Listener Endpoint Example</a>, <a href="https://ballerina.io/learn/by-example/http-cors.html">HTTP CORS Example</a>, <a href="https://ballerina.io/learn/by-example/http-failover.html">HTTP Failover Example</a>, <a href="https://ballerina.io/learn/by-example/http-load-balancer.html">HTTP Load Balancer Example</a></p>
 <p><code>Listener</code> endpoints can be exposed via SSL. They support Mutual SSL, Hostname Verification, and Server Name Indication (SNI), and Application Layer Protocol Negotiation (ALPN). <code>Listener</code> endpoints also support OCSP Stapling, HTTP2, keep-alive, chunking, HTTP caching, and data compression/decompression.</p>
-<p>See <a href="https://ballerinalang.org/docs/by-example/mutual-ssl">Mutual SSL Example</a>.</p>
-<p>See <a href="https://ballerinalang.org/docs/by-example/caching">Caching Example</a>, <a href="https://ballerinalang.org/docs/by-example/http-disable-chunking">HTTP Disable Chunking Example</a>.</p>
+<p>See <a href="https://ballerina.io/learn/by-example/mutual-ssl.html">Mutual SSL Example</a>.</p>
+<p>See <a href="https://ballerina.io/learn/by-example/caching.html">Caching Example</a>, <a href="https://ballerina.io/learn/by-example/http-disable-chunking.html">HTTP Disable Chunking Example</a>.</p>
 <h3>WebSockets</h3>
 <p>The package also provides support for WebSockets. There are two types of WebSocket endpoints: <code>WebSocketClient</code> and <code>WebSocketListener</code>. Both endpoints support all WebSocket frames. The <code>WebSocketClient</code> has a callback service.</p>
 <p>There are also two types of services for WebSocket: <code>WebSocketService</code> and <code>WebSocketClientService</code>. The callback service for <code>WebSocketClient</code> is always a <code>WebSocketClientService</code>. The WebSocket services have a fixed set of resources that do not have a resource config. The incoming messages are passed to these resources.</p>
@@ -4530,9 +4520,9 @@
 <p><strong>onPing and onPong resources</strong>: Received ping and pong messages are dispatched to these resources respectively as a <code>blob</code></p>
 <p><strong>onIdleTimeout</strong>: This resource is dispatched when idle timeout is reached. idleTimeout has to be configured by the user.</p>
 <p><strong>onClose</strong>: This resource is dispatched when a close message is recieved.</p>
-<p>See <a href="https://ballerinalang.org/docs/by-example/websocket-basic-sample">WebSocket Basic Example</a>,
-<a href="https://ballerinalang.org/docs/by-example/http-to-websocket-upgrade">HTTP to WebSocket Upgrade Example</a>,
-<a href="https://ballerinalang.org/docs/by-example/websocket-chat-application">WebSocket Chat Application</a></p>
+<p>See <a href="https://ballerina.io/learn/by-example/websocket-basic-sample.html">WebSocket Basic Example</a>,
+<a href="https://ballerina.io/learn/by-example/http-to-websocket-upgrade.html">HTTP to WebSocket Upgrade Example</a>,
+<a href="https://ballerina.io/learn/by-example/websocket-chat-application.html">WebSocket Chat Application</a></p>
 <h3>Logging</h3>
 <p>This package supports two types of logs:</p>
 <ul>
@@ -4552,7 +4542,7 @@
 </li>
 </ul>
 <p>To publish logs to a socket, both the host and port configurations must be provided.</p>
-<p>See <a href="https://ballerinalang.org/docs/by-example/http-trace-logs">HTTP Trace Logs Example</a></p>
+<p>See <a href="https://ballerina.io/learn/by-example/http-access-logs.html">HTTP Access Logs Example</a>, <a href="https://ballerina.io/learn/by-example/http-trace-logs.html">HTTP Trace Logs Example</a></p>
 <h2>Samples</h2>
 <p>A <code>Client</code> endpoint can be defined using the URL of the remote service that the client needs to connect with, as shown below:</p>
 <pre><code class="language-ballerina">endpoint http:Client clientEndpoint {
@@ -5268,12 +5258,6 @@ service helloWorld bind helloWorldEP {
                                              
                                                  
                                              
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                             
                                          </table>
                                          
                                         <!-- objects -->
@@ -5285,12 +5269,6 @@ service helloWorld bind helloWorldEP {
                                               
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
                                              
                                                  
                                              
@@ -6014,12 +5992,6 @@ to provide retrying over HTTP requests.</p>
                                                  
                                              
                                                  
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#APIListener">APIListener</a></td>
                                                         <td class="cSummary-table-desc"><p>Representation of an API Listener.</p>
@@ -6486,14 +6458,6 @@ using custom HTTP verbs.</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#getcurrentFailureRatio">getcurrentFailureRatio</a></td>
-                                                        <td class="cSummary-table-desc"><p>Calculate Failure at a given point.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#invokeEndpoint">invokeEndpoint</a></td>
                                                         <td class="cSummary-table-desc"><p>The HEAD action implementation of the Circuit Breaker. This wraps the <code>head()</code> function of the underlying
 HTTP actions provider.</p>
@@ -6511,24 +6475,8 @@ HTTP actions provider.</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#resetBucketStats">resetBucketStats</a></td>
-                                                        <td class="cSummary-table-desc"><p>Reset the bucket values to default ones.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#roundRobin">roundRobin</a></td>
                                                         <td class="cSummary-table-desc"><p>Round Robin Algorithm implementation with respect to load balancing endpoints.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#updateCircuitState">updateCircuitState</a></td>
-                                                        <td class="cSummary-table-desc"><p>Update circuit state.</p>
 </td>
                                                      </tr>
                                                  
@@ -6929,9 +6877,6 @@ HTTP actions provider.</p>
                                               
                                               
                                               
-                                              
-                                              
-                                              
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">CachingPolicy</td>
@@ -7131,9 +7076,6 @@ outbound request/response accept-encoding option
                                                 <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             
-                                              
-                                              
-                                              
                                               
                                               
                                               
@@ -8205,9 +8147,6 @@ other constraints posed by the request.</p>
                                               
                                               
                                               
-                                              
-                                              
-                                              
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">ResourceConfig</td>
@@ -8515,10 +8454,10 @@ other constraints posed by the request.</p>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">authProvider</td>
+                                                        <td class="cAPI-table-name">authStoreProvider</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Authentication scheme implementation</p>
+                                                        <td class="cAPI-table-desc"><p>Authentication store provider (file, LDAP, etc.) implementation</p>
 </td>
                                                     </tr>
                                                     
@@ -8779,7 +8718,7 @@ between 0 (exclusive) and 1 (inclusive).</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">policy</td>
-                                                        <td class="cAPI-table-type"><a href="#CachingPolicy">CACHE_CONTROL_AND_VALIDATORS|RFC_7234</a></td>
+                                                        <td class="cAPI-table-type"><a href="#CachingPolicy">RFC_7234|CACHE_CONTROL_AND_VALIDATORS</a></td>
                                                         <td class="cAPI-table-default">CACHE_CONTROL_AND_VALIDATORS</td>
                                                         <td class="cAPI-table-desc"><p>Gives the user some control over the caching behaviour. By default, this is set to
 <code>CACHE_CONTROL_AND_VALIDATORS</code>. The default behaviour is to allow caching only when the <code>cache-control</code>
@@ -8998,6 +8937,14 @@ the upstream service</p>
                                                     </tr>
                                                     
                                                     <tr>
+                                                        <td class="cAPI-table-name">lastForcedOpenTime</td>
+                                                        <td class="cAPI-table-type"><a href="time.html#Time">ballerina.time:Time</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The time that circuit forcefully opened at last</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
                                                         <td class="cAPI-table-name">totalBuckets</td>
                                                         <td class="cAPI-table-type"><a href="http.html#Bucket">http:Bucket[]</a></td>
                                                         <td class="cAPI-table-default"></td>
@@ -9073,7 +9020,7 @@ the upstream service</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keepAlive</td>
-                                                        <td class="cAPI-table-type"><a href="#KeepAlive">NEVER|AUTO|ALWAYS</a></td>
+                                                        <td class="cAPI-table-type"><a href="#KeepAlive">AUTO|NEVER|ALWAYS</a></td>
                                                         <td class="cAPI-table-default">KEEPALIVE_AUTO</td>
                                                         <td class="cAPI-table-desc"><p>Specifies whether to reuse a connection for multiple requests</p>
 </td>
@@ -9081,7 +9028,7 @@ the upstream service</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">chunking</td>
-                                                        <td class="cAPI-table-type"><a href="#Chunking">NEVER|ALWAYS|AUTO</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Chunking">AUTO|NEVER|ALWAYS</a></td>
                                                         <td class="cAPI-table-default">AUTO</td>
                                                         <td class="cAPI-table-desc"><p>The chunking behaviour of the request</p>
 </td>
@@ -9442,7 +9389,7 @@ indicates that the number of connections are not restricted.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keepAlive</td>
-                                                        <td class="cAPI-table-type"><a href="#KeepAlive">NEVER|AUTO|ALWAYS</a></td>
+                                                        <td class="cAPI-table-type"><a href="#KeepAlive">AUTO|NEVER|ALWAYS</a></td>
                                                         <td class="cAPI-table-default">KEEPALIVE_AUTO</td>
                                                         <td class="cAPI-table-desc"><p>Specifies whether to reuse a connection for multiple requests</p>
 </td>
@@ -9450,7 +9397,7 @@ indicates that the number of connections are not restricted.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">chunking</td>
-                                                        <td class="cAPI-table-type"><a href="#Chunking">NEVER|ALWAYS|AUTO</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Chunking">AUTO|NEVER|ALWAYS</a></td>
                                                         <td class="cAPI-table-default">AUTO</td>
                                                         <td class="cAPI-table-desc"><p>The chunking behaviour of the request</p>
 </td>
@@ -9918,7 +9865,7 @@ indicates that the number of connections are not restricted.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">chunking</td>
-                                                        <td class="cAPI-table-type"><a href="#Chunking">NEVER|ALWAYS|AUTO</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Chunking">AUTO|NEVER|ALWAYS</a></td>
                                                         <td class="cAPI-table-default">CHUNKING_AUTO</td>
                                                         <td class="cAPI-table-desc"><p>Configures the chunking behaviour for the service</p>
 </td>
@@ -10248,7 +10195,7 @@ indicates that the number of connections are not restricted.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keepAlive</td>
-                                                        <td class="cAPI-table-type"><a href="#KeepAlive">NEVER|AUTO|ALWAYS</a></td>
+                                                        <td class="cAPI-table-type"><a href="#KeepAlive">AUTO|NEVER|ALWAYS</a></td>
                                                         <td class="cAPI-table-default">KEEPALIVE_AUTO</td>
                                                         <td class="cAPI-table-desc"><p>Specifies whether to keep the connection alive (or not) for multiple request/response pairs</p>
 </td>
@@ -10256,7 +10203,7 @@ indicates that the number of connections are not restricted.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">chunking</td>
-                                                        <td class="cAPI-table-type"><a href="#Chunking">NEVER|ALWAYS|AUTO</a></td>
+                                                        <td class="cAPI-table-type"><a href="#Chunking">AUTO|NEVER|ALWAYS</a></td>
                                                         <td class="cAPI-table-default">AUTO</td>
                                                         <td class="cAPI-table-desc"><p>The chunking behaviour of the request</p>
 </td>
@@ -10787,7 +10734,7 @@ indicates that the number of connections are not restricted.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keepAlive</td>
-                                                        <td class="cAPI-table-type"><a href="#KeepAlive">NEVER|AUTO|ALWAYS</a></td>
+                                                        <td class="cAPI-table-type"><a href="#KeepAlive">AUTO|NEVER|ALWAYS</a></td>
                                                         <td class="cAPI-table-default">KEEPALIVE_AUTO</td>
                                                         <td class="cAPI-table-desc"><p>The keepAlive behaviour of the endpoint</p>
 </td>
@@ -10984,7 +10931,7 @@ eg: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA</p
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keepAlive</td>
-                                                        <td class="cAPI-table-type"><a href="#KeepAlive">NEVER|AUTO|ALWAYS</a></td>
+                                                        <td class="cAPI-table-type"><a href="#KeepAlive">AUTO|NEVER|ALWAYS</a></td>
                                                         <td class="cAPI-table-default">KEEPALIVE_AUTO</td>
                                                         <td class="cAPI-table-desc"><p>Can be set to either <code>KEEPALIVE_AUTO</code>, which respects the <code>connection</code> header, or <code>KEEPALIVE_ALWAYS</code>,
 which always keeps the connection alive, or <code>KEEPALIVE_NEVER</code>, which always closes the connection</p>
@@ -11970,69 +11917,8 @@ an <code>onIdleTimeout</code> resource in the WebSocket service.</p>
                                                 
                                                 <!-- Function -->
                                                 
-                                                <h2 id="getcurrentFailureRatio">
-                                                    <span class="fw-function sm-icon"> </span> public function getcurrentFailureRatio(http:CircuitHealth circuitHealth) returns (float) 
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Calculate Failure at a given point.</p>
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Parameter Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">circuitHealth</td>
-                                                        <td class="cAPI-table-type"><a href="http.html#CircuitHealth">http:CircuitHealth</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Circuit Breaker health status</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="cReturnTableHeader"></div>
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name"></th>
-                                                        <th class="cAPI-table-type">Return Type</th>
-                                                        <th class="cAPI-table-default"></th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#float">float</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Current failure ratio</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
                                                 <h2 id="invokeEndpoint">
-                                                    <span class="fw-function sm-icon"> </span> public function invokeEndpoint(string path, http:Request outRequest, PATCH|POST|GET|DELETE|FORWARD|PUT|OPTIONS|HEAD|NONE requestAction, http:CallerActions httpClient) returns (Response | error) 
+                                                    <span class="fw-function sm-icon"> </span> public function invokeEndpoint(string path, http:Request outRequest, FORWARD|PATCH|POST|HEAD|PUT|OPTIONS|GET|NONE|DELETE requestAction, http:CallerActions httpClient) returns (Response | error) 
                                                 </h2>
                                                 
                                                 <p>
@@ -12067,7 +11953,7 @@ HTTP actions provider.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">requestAction</td>
-                                                        <td class="cAPI-table-type"><a href="#HttpOperation">PATCH</a>|POST|GET|DELETE|FORWARD|PUT|OPTIONS|HEAD|NONE</td>
+                                                        <td class="cAPI-table-type"><a href="#HttpOperation">FORWARD</a>|PATCH|POST|HEAD|PUT|OPTIONS|GET|NONE|DELETE</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p><code>HttpOperation</code> related to the request</p>
 </td>
@@ -12178,60 +12064,6 @@ HTTP actions provider.</p>
                                                 
                                                 <!-- Function -->
                                                 
-                                                <h2 id="resetBucketStats">
-                                                    <span class="fw-function sm-icon"> </span> public function resetBucketStats(http:CircuitHealth circuitHealth, int bucketId) 
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Reset the bucket values to default ones.</p>
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Parameter Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">circuitHealth</td>
-                                                        <td class="cAPI-table-type"><a href="http.html#CircuitHealth">http:CircuitHealth</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Circuit Breaker health status.</li>
-</ul>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">bucketId</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Id of the bucket should reset.</li>
-</ul>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                  
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
                                                 <h2 id="roundRobin">
                                                     <span class="fw-function sm-icon"> </span> public function roundRobin(http:LoadBalancerActions lb, http:CallerActions[] loadBalanceConfigArray) returns (CallerActions) 
                                                 </h2>
@@ -12281,83 +12113,6 @@ HTTP actions provider.</p>
                                                         <td class="cAPI-table-type"><a href="http.html#CallerActions">CallerActions</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>HttpClient elected from the algorithm</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <h2 id="updateCircuitState">
-                                                    <span class="fw-function sm-icon"> </span> public function updateCircuitState(http:CircuitHealth circuitHealth, OPEN|CLOSED|HALF_OPEN currentStateValue, http:CircuitBreakerInferredConfig circuitBreakerInferredConfig) returns (CircuitState) 
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Update circuit state.</p>
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Parameter Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">circuitHealth</td>
-                                                        <td class="cAPI-table-type"><a href="http.html#CircuitHealth">http:CircuitHealth</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Circuit Breaker health status</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">currentStateValue</td>
-                                                        <td class="cAPI-table-type"><a href="#CircuitState">OPEN</a>|CLOSED|HALF_<a href="#CircuitState">OPEN</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Circuit Breaker current state value</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">circuitBreakerInferredConfig</td>
-                                                        <td class="cAPI-table-type"><a href="http.html#CircuitBreakerInferredConfig">http:CircuitBreakerInferredConfig</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Configurations derived from <code>CircuitBreakerConfig</code></p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="cReturnTableHeader"></div>
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name"></th>
-                                                        <th class="cAPI-table-type">Return Type</th>
-                                                        <th class="cAPI-table-default"></th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="#CircuitState">CircuitState</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>State of the circuit</p>
 </td>
                                                     </tr>
                                                     
@@ -12614,7 +12369,7 @@ HTTP actions provider.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;APIListener&gt;
-                                                   </span> cancelWebSocketUpgrade(int status, string reason) 
+                                                   </span> cancelWebSocketUpgrade(int status, string reason) returns (error | null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -12634,7 +12389,8 @@ HTTP actions provider.</p>
                                                                     <td class="cAPI-table-name">status</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Status code for closing the connection</p>
+                                                                    <td class="cAPI-table-desc"><p>Error Status code for cancelling the upgrade and closing the connection.
+This error status code need to be 4xx or 5xx else the default status code would be 400.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -12642,12 +12398,31 @@ HTTP actions provider.</p>
                                                                     <td class="cAPI-table-name">reason</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Reason for closing the connection</p>
+                                                                    <td class="cAPI-table-desc"><p>Reason for cancelling the upgrade</p>
 </td>
                                                                 </tr>
                                                                 
                                                             </table>
                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a> | <a href="primitive-types.html#null">null</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>An <code>error</code> if an error occurs during cancelling the upgrade or nil</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
                                                         </li>
                                                         
                                                         <li>
@@ -12689,7 +12464,7 @@ HTTP actions provider.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;APIListener&gt;
-                                                   </span> redirect(http:Response response, 301|307|304|308|302|305|303|300 code, string[] locations) returns (error) 
+                                                   </span> redirect(http:Response response, 304|302|301|307|305|308|300|303 code, string[] locations) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -12715,7 +12490,7 @@ HTTP actions provider.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">code</td>
-                                                                    <td class="cAPI-table-type"><a href="#RedirectCode">301</a>|307|304|308|302|305|303|300</td>
+                                                                    <td class="cAPI-table-type"><a href="#RedirectCode">304</a>|302|301|307|305|308|300|303</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The redirect status code to be sent</p>
 </td>
@@ -17333,6 +17108,38 @@ actions provider.</p>
                                                              
                                                         </li>
                                                         
+                                                        <li>
+                                                            <h2 id="CircuitBreakerClient-forceClose">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;CircuitBreakerClient&gt;
+                                                   </span> forceClose() 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Force the circuit into a closed state in which it will allow requests regardless of the error percentage
+until the failure threshold exceeds.</p>
+
+                                                            </p>
+                                                              
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="CircuitBreakerClient-forceOpen">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;CircuitBreakerClient&gt;
+                                                   </span> forceOpen() 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Force the circuit into a open state in which it will suspend all requests
+until <code>resetTimeMillis</code> interval exceeds.</p>
+
+                                                            </p>
+                                                              
+                                                        </li>
+                                                        
                                                     </ul>
                                                 </div>
                                                  
@@ -17677,10 +17484,10 @@ actions provider.</p>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">authProvider</td>
-                                                        <td class="cAPI-table-type"><a href="auth.html#AuthProvider">ballerina.auth:AuthProvider</a></td>
+                                                        <td class="cAPI-table-name">authStoreProvider</td>
+                                                        <td class="cAPI-table-type"><a href="auth.html#AuthStoreProvider">ballerina.auth:AuthStoreProvider</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p><code>AuthProvider</code> instance</p>
+                                                        <td class="cAPI-table-desc"><p><code>AuthStoreProvider</code> instance</p>
 </td>
                                                     </tr>
                                                     
@@ -17702,7 +17509,7 @@ actions provider.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;HttpAuthzHandler&gt;
-                                                   </span> new(ballerina.auth:AuthProvider authProvider, ballerina.cache:Cache? authzCache) 
+                                                   </span> new(ballerina.auth:AuthStoreProvider authStoreProvider, ballerina.cache:Cache? authzCache) 
                                                             </h2>
                                                              
                                                             <table>
@@ -17714,8 +17521,8 @@ actions provider.</p>
                                                                 </tr>
                                                                 
                                                                 <tr>
-                                                                    <td class="cAPI-table-name">authProvider</td>
-                                                                    <td class="cAPI-table-type"><a href="auth.html#AuthProvider">ballerina.auth:AuthProvider</a></td>
+                                                                    <td class="cAPI-table-name">authStoreProvider</td>
+                                                                    <td class="cAPI-table-type"><a href="auth.html#AuthStoreProvider">ballerina.auth:AuthStoreProvider</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -17775,10 +17582,10 @@ actions provider.</p>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">authProvider</td>
-                                                        <td class="cAPI-table-type"><a href="auth.html#AuthProvider">ballerina.auth:AuthProvider</a></td>
+                                                        <td class="cAPI-table-name">authStoreProvider</td>
+                                                        <td class="cAPI-table-type"><a href="auth.html#AuthStoreProvider">ballerina.auth:AuthStoreProvider</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>AuthProvider instance</p>
+                                                        <td class="cAPI-table-desc"><p>AuthStoreProvider instance</p>
 </td>
                                                     </tr>
                                                     
@@ -17792,7 +17599,7 @@ actions provider.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;HttpBasicAuthnHandler&gt;
-                                                   </span> new(ballerina.auth:AuthProvider authProvider) 
+                                                   </span> new(ballerina.auth:AuthStoreProvider authStoreProvider) 
                                                             </h2>
                                                              
                                                             <table>
@@ -17804,8 +17611,8 @@ actions provider.</p>
                                                                 </tr>
                                                                 
                                                                 <tr>
-                                                                    <td class="cAPI-table-name">authProvider</td>
-                                                                    <td class="cAPI-table-type"><a href="auth.html#AuthProvider">ballerina.auth:AuthProvider</a></td>
+                                                                    <td class="cAPI-table-name">authStoreProvider</td>
+                                                                    <td class="cAPI-table-type"><a href="auth.html#AuthStoreProvider">ballerina.auth:AuthStoreProvider</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -24873,7 +24680,7 @@ When a <code>PushPromise</code> is rejected, there is no chance of fetching a pr
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;WebSocketConnector&gt;
-                                                   </span> close(int statusCode, string reason) returns (error | null) 
+                                                   </span> close(int statusCode, string reason, int timeoutInSecs) returns (error | null) 
                                                             </h2>
                                                             
                                                             <p>
@@ -24902,6 +24709,19 @@ When a <code>PushPromise</code> is rejected, there is no chance of fetching a pr
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Reason for closing the connection</p>
+</td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">timeoutInSecs</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                                    <td class="cAPI-table-default">0</td>
+                                                                    <td class="cAPI-table-desc"><p>timeout which waits for the close frame from remote endpoint to close the connection.
+If the timeout exceeds then the connection will be terminated even though a close frame
+is not received from the remote backend. If the value is -1 the connection will wait until
+a close frame is received.
+Default value 0: After sending the close frame connection will be closed automatically
+(Timeout is 0).</p>
 </td>
                                                                 </tr>
                                                                 
