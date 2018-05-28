@@ -274,7 +274,35 @@
             </div>
         </div>
     </div>
+ 
+    
+    <script>
+        
+        $(document).ready(function() {
+            var gitstar = '<iframe id="iGitStarIframe" src="https://ghbtns.com/github-btn.html?user=ballerina-platform&repo=ballerina-lang&type=star&count=true&size=small" frameborder="0" scrolling="0"></iframe>';
+            $('#iGitStarText').replaceWith(gitstar);
+    
+        });
+   </script>
+    
+   <style>
+
+        #iGitStarText {
+            height: 20px;
+            float: left;
+            padding: 0;
+            margin: 0;
+        }
+       #iGitStarIframe {
+            height: 20px;
+            width: 100px;
+            float: left;
+        }
+    </style>
+    
 </body>
+
+
 
 </html>
 {% if page and page.is_homepage %}
