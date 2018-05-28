@@ -165,7 +165,7 @@ You can now use Ballerina to integrate with Twitter.
 
 Prior to sending a Tweet, you need to create a Twitter app and get some information from Twitter.
 
-> **Note**: You need to have a Twitter account with a valid phone number to try this.
+> **Note**: You need to have a Twitter account to try this.
 
 1. Go to [https://apps.twitter.com/](https://apps.twitter.com/)  and click **Create New App**. 
 
