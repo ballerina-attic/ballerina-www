@@ -165,7 +165,7 @@ You can now use Ballerina to integrate with Twitter.
 
 Prior to sending a Tweet, you need to create a Twitter app and get some information from Twitter.
 
-> **Note**: You need to have a Twitter account to try this.
+> **Note**: You need to have a Twitter account with a valid phone number to try this.
 
 1. Go to [https://apps.twitter.com/](https://apps.twitter.com/)  and click **Create New App**. 
 
@@ -362,6 +362,12 @@ To start the composer:
 3. In the Composer, click **File** and choose **Open File**.
 
 4. Navigate to your service and open it to view this in the Composer.
+
+## Tell Us What You Think
+<iframe src="https://ghbtns.com/github-btn.html?user=ballerina-platform&repo=ballerina-lang&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+"Star" the repo to show appreciation to the Ballerina maintainers for their work. This will also help you to keep track of Ballerina project if you find it interesting. 
+
+You can also use some of the [help channels]( https://ballerina.io/help/) such as [@ballerinaplat](https://twitter.com/ballerinaplat) on Twitter, [Ballerina Google group](https://groups.google.com/forum/#!forum/ballerina-dev) that developers use as their mailing list and [Ballerina Slack channel](https://ballerina-platform.slack.com/) user chat to express your appreciation and share your thoughts on Ballerina. 
 
 ## What's Next
 
