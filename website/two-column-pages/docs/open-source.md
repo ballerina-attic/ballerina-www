@@ -24,7 +24,7 @@ Please see [Ballerina Downloads page](/downloads/) for Ballerina version history
 See our [GitHub repo](https://github.com/ballerina-platform/ballerina-lang).
 
 <p id="iGitStarText">"Star"</p> <p id="iGitWatchText">"Watch"</p>
-Star GitHub repo and show your appreciation to Ballerina maintainers for their work. Watching the repo will also help you keep track of Ballerina project.
+Star GitHub repo and show your appreciation to Ballerina maintainers for their work. Watch the repo to keep track of Ballerina issues.
 
 ### Developer Mailing List
 
