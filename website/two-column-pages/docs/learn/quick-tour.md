@@ -363,6 +363,10 @@ To start the composer:
 
 4. Navigate to your service and open it to view this in the Composer.
 
+## Follow the Repo
+<p id="iGitStarText">"Star"</p> <p id="iGitWatchText">"Watch"</p>
+Star the [GitHub repo](https://github.com/ballerina-platform/ballerina-lang) and show appreciation to  Ballerina maintainers for their work. Watching the repo will also help you to keep track of Ballerina project.
+
 ## What's Next
 
 Now that you have taken Ballerina around for a quick twirl, you can explore Ballerina more.
