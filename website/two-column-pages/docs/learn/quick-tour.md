@@ -307,7 +307,7 @@ $ docker ps
 You see an output similar to the following.
 
 ```
-CONTAINER ID        IMAGE                                     COMMAND                  CREATED                  STATUS                   PORTS                    NAMES
+CONTAINER ID        IMAGE                                     COMMAND                  CREATED                  STATUS              PORTS                    NAMES
 130ded2ae413        registry.hub.docker.com/helloworld:v1.0   "/bin/sh -c 'balleri…"   Less than a second ago   Up 3 seconds        0.0.0.0:9090->9090/tcp   thirsty_hopper
 ```
 
