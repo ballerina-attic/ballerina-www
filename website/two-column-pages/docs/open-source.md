@@ -21,7 +21,9 @@ Please see [Ballerina Downloads page](/downloads/) for Ballerina version history
 
 ### Source Code
 
-See our [GitHub repo](https://github.com/ballerina-platform/ballerina-lang).
+<p id="iGitStarText">"Star"</p> <p id="iGitWatchText">"Watch"</p>
+
+See our [GitHub repo](https://github.com/ballerina-platform/ballerina-lang) and star the repo to show your appreciation to Ballerina maintainers. Watch the repo to keep track of Ballerina issues.
 
 ### Developer Mailing List
 

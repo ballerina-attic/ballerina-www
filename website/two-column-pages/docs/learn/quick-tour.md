@@ -294,7 +294,7 @@ $ docker images
 If Docker is running, you will see an output similar to the following.
 
 ```
-REPOSITORY                 TAG                 IMAGE ID            CREATED              SIZE
+REPOSITORY                           TAG             IMAGE ID            CREATED              SIZE
 registry.hub.docker.com/helloworld   v1              df83ae43f69b        2 minutes ago        102MB
 ```
 
@@ -307,7 +307,7 @@ $ docker ps
 You see an output similar to the following.
 
 ```
-CONTAINER ID     IMAGE    COMMAND    CREATED      STATUS      PORTS     NAMES
+CONTAINER ID        IMAGE                                     COMMAND                  CREATED                  STATUS              PORTS                    NAMES
 130ded2ae413        registry.hub.docker.com/helloworld:v1.0   "/bin/sh -c 'balleri…"   Less than a second ago   Up 3 seconds        0.0.0.0:9090->9090/tcp   thirsty_hopper
 ```
 
@@ -362,6 +362,12 @@ To start the composer:
 3. In the Composer, click **File** and choose **Open File**.
 
 4. Navigate to your service and open it to view this in the Composer.
+
+## Follow the Repo
+
+<p id="iGitStarText">"Star"</p> <p id="iGitWatchText">"Watch"</p>
+
+Star [GitHub repo](https://github.com/ballerina-platform/ballerina-lang)  and show appreciation to Ballerina maintainers for their work. Watch the repo to keep track of Ballerina issues.
 
 ## What's Next
 
