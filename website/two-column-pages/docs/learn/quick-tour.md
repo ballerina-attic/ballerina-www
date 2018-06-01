@@ -363,9 +363,17 @@ To start the composer:
 
 4. Navigate to your service and open it to view this in the Composer.
 
+
+## Follow the Repo
+<div class="cGitButtonContainer"><p id="iGitStarText">"Star"</p> <p id="iGitWatchText">"Watch"</p></div>
+
+Star [GitHub repo](https://github.com/ballerina-platform/ballerina-lang) and show appreciation to Ballerina maintainers for their work. Watching the repo will also help you keep track of Ballerina project.
+
+
+
 ## Tell Us What You Think
-<iframe src="https://ghbtns.com/github-btn.html?user=ballerina-platform&repo=ballerina-lang&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
-"Star" the repo to show appreciation to the Ballerina maintainers for their work. This will also help you to keep track of Ballerina project if you find it interesting. 
+
+<p id="iGitStarText">"Star"</p> the repo to show appreciation to the Ballerina maintainers for their work. This will also help you to keep track of Ballerina project if you find it interesting. 
 
 You can also use some of the [help channels]( https://ballerina.io/help/) such as [@ballerinaplat](https://twitter.com/ballerinaplat) on Twitter, [Ballerina Google group](https://groups.google.com/forum/#!forum/ballerina-dev) that developers use as their mailing list and [Ballerina Slack channel](https://ballerina-platform.slack.com/) user chat to express your appreciation and share your thoughts on Ballerina. 
 

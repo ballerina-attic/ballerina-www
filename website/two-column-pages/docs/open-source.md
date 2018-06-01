@@ -25,6 +25,10 @@ See our [GitHub repo](https://github.com/ballerina-platform/ballerina-lang).
 
 ### Developer Mailing List
 
+<div class="cGitButtonContainer"><p id="iGitStarText">"Star"</p> <p id="iGitWatchText">"Watch"</p></div>
+
+Star GitHub repo and show your appreciation to Ballerina maintainers for their work. Watching the repo will also help you keep track of Ballerina project.
+
 [Ballerina-Dev Google Group](https://groups.google.com/forum/#!forum/ballerina-dev) is the main discussion forum of the Ballerina dev team.
 
 We also use [Slack](https://ballerina-platform.slack.com/) for chat. Click [here](/open-source/slack) to get a Slack invite</p>
