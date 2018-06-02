@@ -376,7 +376,7 @@ function foo(){
 }
 ```
 
-## Service start/stop Utility
+## Service Start/Stop Utility
 
 Testerina provides the functionality to start/stop all services of a developer preferred ballerina package. To control service related functionality we can use the following inbuilt functions.
 
@@ -463,7 +463,7 @@ service<http:Service> HelloServiceMock bind helloEP {
 }
 ```
 
-## Service skeleton start/stop utility
+## Service Skeleton Start/Stop Utility
 
 Testerina provides the functionality to start/stop service skeletons generated from Swagger definitions.
 
@@ -529,7 +529,7 @@ function testService () {
 }
 ```
 
-## Function mocks
+## Function Mocks
 
 Testerina provides the functionality to mock a function in a different third-party package with your own Ballerina function which will help you to test your package independently. 
 
@@ -545,7 +545,7 @@ Default: “.” (No Package)
 `functionName: “<function name>”`: Name of the function to be mocked. 
 Default: none
 
-Following is an example for function mocking.
+The following is an example for function mocking.
 
 ``` ballerina
 import ballerina/test;
