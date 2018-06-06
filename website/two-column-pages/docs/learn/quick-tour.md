@@ -165,9 +165,9 @@ You can now use Ballerina to integrate with Twitter.
 
 Prior to sending a Tweet, you need to create a Twitter app and get some information from Twitter.
 
-> **Note**: You need to have a Twitter account to try this.
+> **Note**: You need to have a Twitter account set up with a valid mobile number to try this.
 
-1. Go to [https://apps.twitter.com/](https://apps.twitter.com/)  and click **Create New App**. 
+1. Go to [https://apps.twitter.com/](https://apps.twitter.com/) and click **Create New App**. 
 
 2. Fill the form that appears and click **Create your Twitter application**.
 
@@ -222,6 +222,8 @@ Now, we can get our response from Twitter by just calling its tweet action. Add 
 twitter:Status st = check twitter->tweet(status, "", "");
 response.setTextPayload("ID:" + <string>st.id + "\n");
 ```
+
+> **Note**: `response.setTextPayload("ID:" + <string>st.id + "\n");` must be added after `http:Response response = new;`.
 
 Go ahead and run it and this time pass the config file:
 
