@@ -23,11 +23,9 @@ You need to import the `test` package in all tests.
 import ballerina/test;
 ```
 
-The simple form of tests assumes the tests to be available in the same source file alongside the program code. This is useful for simple cases. 
-
 For structured projects, it is recommended to use a structured test model that is aligned with standard package semantics. 
 
-A package is mapped to a test suite. Package specific units and integration tests need to be placed in a subfolder called `tests/` within the package. All tests within a package’s `tests/` subfolder are considered to be part of the same test suite.
+A package is mapped to a test suite. Unit and integration tests bound to a package need to be placed in a subfolder called `tests/` within the package. All tests within a package’s `tests/` subfolder are considered to be part of the same test suite.
 
 Integration tests that are used to test the sources of combination of packages of a project needs to be placed at the project root level folder called `tests/`.
 
