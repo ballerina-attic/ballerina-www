@@ -32,9 +32,9 @@ The package automatically sets your PATH environment variable for you. You may n
 
 ### Installing on Windows
 
-[Download the MSI file](/downloads), open it, and follow the prompts to install Ballerina. By default, the installer puts the Ballerina distribution in `C:\ballerina`.
+[Download the MSI file](/downloads), open it, and follow the prompts to install Ballerina. By default, the installer puts the Ballerina distribution in `C:\Program Files\Ballerina\`.
 
-The installer should put the `C:\ballerina\<ballerina-directory>\bin` directory in your PATH environment variable. You may need to restart any open command prompts for the change to take effect.
+The installer should put the `C:\Program Files\Ballerina\<ballerina-directory>\bin` directory in your PATH environment variable. You may need to restart any open command prompts for the change to take effect.
 
 ### Installing on Linux
 
