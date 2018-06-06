@@ -386,6 +386,8 @@ To start the composer:
 
 4. Navigate to your service and open it to view this in the Composer.
 
+![Ballerina Composer](/img/docs-images/quick-tour-composer.png)
+
 ## Follow the Repo
 
 <div class="cGitButtonContainer"><p id="iGitStarText">"Star"</p> <p id="iGitWatchText">"Watch"</p></div>
