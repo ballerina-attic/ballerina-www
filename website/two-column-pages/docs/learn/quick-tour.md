@@ -266,12 +266,20 @@ Now, let’s add the code you need to run the service in Docker. This needs to b
     ]
 }
 @docker:Expose {}
+
 ```
+
+> **Note**: The `@docker:Expose {}` annotation needs to be added above the endpoint definition.
 
 Now your code is ready to generate the deployment artifacts. In this case it is a Docker image.
 
 ```bash
  $ ballerina build hello_service.bal
+```
+
+You see something similar to the following output if this is successful.
+
+```
 @docker 		 - complete 3/3
 ```
 
@@ -282,10 +290,6 @@ $ docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
 ```
 
 > **Tip**: You can run a Docker container and access it with your code by just copying and pasting the `docker run` command that displays as output of the Ballerina build command.
->
->  ```
->   $ docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
->  ```
 
 Run the following command to check if Docker is running.
 
@@ -318,11 +322,10 @@ Use the following cURL command to invoke your Docker-hosted service.
 ```bash
 $ curl -d "Hello Ballerina" -X POST localhost:9090
 ```
-You will see an output similar to the following.
 
-```
-ID:991212870376534016
-```
+You see a 'Hello Ballerina!' response.
+
+You have now posted on Twitter using the Docker hosted service.
 
 ## Push your Package to Ballerina Central
 
