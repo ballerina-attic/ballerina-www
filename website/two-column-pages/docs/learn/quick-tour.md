@@ -334,22 +334,17 @@ Therefore, when you have more than one organization in Ballerina Central, be sur
 
 You need to build the package prior to pushing the package to Ballerina Central. The `ballerina build` command compiles Ballerina sources and writes the output to a file. 
 
- Build hello source program 
-     $ ballerina build hello.bal
-     This will generate a hello.balx output binary file 
+For more information on the `ballerina build` command run the following.
 
-     Build hello package
-     $ ballerina build hello
-     This will generate a hello.balx output binary file and place 
-     within target folder
+```bash
+$ ballerina help build
+```
 
-     Build math package with the output named calculate
-     $ ballerina build -o calculate math
-     This will generate a calculate.balx output binary file and place 
-     within target folder
+> **Tip**: You can use `ballerina help <command-name>` for more information on any of the commands.
 
+By default, the output filename for a package is the package name suffixed with `.balx`. The default output replaces the `.bal` suffix with `.balx`. 
 
-By default, the output filename for a package is the package name suffixed with ‘.balx’. The default output replaces the `.bal` suffix with `.balx`. If the output file is specified with the -o flag, the output is written to the given output file name.
+Build your package.
 
 ```bash
 $ ballerina build <package-name>
@@ -373,8 +368,6 @@ For more information on the `ballerina push` command run the following.
 $ ballerina help push
 ```
 
-> **Tip**: You can use `ballerina help <command-name>` for more information on any of the commands.
- 
 ## Run the Composer
 Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
 
