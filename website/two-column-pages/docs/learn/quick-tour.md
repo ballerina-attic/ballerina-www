@@ -4,8 +4,8 @@ Now that you know a little bit [about Ballerina](/philosophy), let's take it for
 
 ## Install Ballerina
 
-1. Go to [https://ballerina.io/](/) and click **Download Ballerina**. 
-1. Download Ballerina for your OS and follow the instructions given to set it up. 
+1. Go to the [Download page](https://ballerina.io/downloads) and click **Download Ballerina**. 
+1. Download Ballerina for your OS and follow the instructions given to set it up. For more information, see [Getting Started](/learn/getting-started).
 
 > **Note**: Throughout this documentation, `<ballerina_home>` refers to the Ballerina directory you just installed. 
 
@@ -17,7 +17,7 @@ Start your project by navigating to a directory of your choice and running the f
 ballerina init
 ```
 
-You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
+You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you in your directory. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
 
 You can run the service using the `ballerina run` command.
 
@@ -46,15 +46,15 @@ You get the following response.
 Hello Ballerina!
 ```
 
-You just started Ballerina, created a project, started a service, and received a response.
+You just started Ballerina, created a project, started a service, invoked it, and received a response.
 
 ## Set up the Editor
 
 Let's try this on VS Code.
 
-> **Note**: You need to have VS Code installed for this to work.
+> **Note**: You need to have VS Code installed to try this.
 
-Open your service in VS Code. You can use the following command to do this on Linux or OSX.
+Open your service in VS Code. You can navigate to your directory through VS Code or use the following command to do this on Linux or OSX.
 
 ```bash
 $ code /<folder_path>/hello_service.bal
@@ -332,23 +332,48 @@ When you push a package to Ballerina Central, the runtime validates organization
 
 Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the package into and set that as the `org-name` in `Ballerina.toml` inside the project directory.
 
+You need to build the package prior to pushing the package to Ballerina Central. The `ballerina build` command compiles Ballerina sources and writes the output to a file. 
+
+ Build hello source program 
+     $ ballerina build hello.bal
+     This will generate a hello.balx output binary file 
+
+     Build hello package
+     $ ballerina build hello
+     This will generate a hello.balx output binary file and place 
+     within target folder
+
+     Build math package with the output named calculate
+     $ ballerina build -o calculate math
+     This will generate a calculate.balx output binary file and place 
+     within target folder
+
+
+By default, the output filename for a package is the package name suffixed with ‘.balx’. The default output replaces the `.bal` suffix with `.balx`. If the output file is specified with the -o flag, the output is written to the given output file name.
+
+```bash
+$ ballerina build <package-name>
+```
+
 Once that is done, push your package to Ballerina Central.
 
 ```bash
-ballerina push <package-name>
+$ ballerina push <package-name>
 ```
 
 For example, if you have a Ballerina package named `math`, the following command will push it to Ballerina Central.
 
 ```bash
-ballerina push math
+$ ballerina push math
 ```
 
-For more information on the Ballerina push command run,
+For more information on the `ballerina push` command run the following.
 
 ```bash
-ballerina help push
+$ ballerina help push
 ```
+
+> **Tip**: You can use `ballerina help <command-name>` for more information on any of the commands.
  
 ## Run the Composer
 Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
