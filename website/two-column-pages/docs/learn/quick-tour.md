@@ -46,7 +46,7 @@ You get the following response.
 Hello Ballerina!
 ```
 
-You just started Ballerina, created a project, started a service, invoked it, and received a response.
+You just started Ballerina, created a project, started a service, invoked the service you created, and received a response.
 
 ## Set up the Editor
 
