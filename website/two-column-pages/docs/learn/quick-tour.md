@@ -54,13 +54,13 @@ Let's try this on VS Code.
 
 > **Note**: You need to have VS Code installed to try this.
 
-Open your service in VS Code. You can navigate to your directory through VS Code or use the following command to do this on Linux or OSX.
+Open your service in VS Code. You can use the following command to do this on Linux or OSX.
 
 ```bash
 $ code /<folder_path>/hello_service.bal
 ```
 
-> **Tip**: If you want to create new .bal files in addition to the Hello World service, you can open the initial project folder into editor using `code /<folder path>`.
+> **Tip**: If you want to create new .bal files in addition to the Hello World service, you can open the initial project folder into editor using `code /<folder path>`. You can also open VS Code and directly navigate to the directory or file.
 
 You can view your service in VS Code.
 
