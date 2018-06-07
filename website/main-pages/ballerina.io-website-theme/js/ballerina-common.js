@@ -179,6 +179,7 @@ $(document).ready(function() {
         '<li class="toctree-l1"><a class="cBioTopLink" href="https://central.ballerina.io/" target="_blank">Central</a></li>' +
         '<li class="toctree-l1" id="openli"><a class="cBioTopLink" href="/open-source">Open Source</a></li>' +
         '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="/help">Help </a></li>' +
+        '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="https://blog.ballerina.io">Blog</a></li>' +
         '<li class="toctree-l1"><a class="cSerachIcon" href="#"><img src="/img/search.svg"/></a>' +
         '<div class="cSearchBoxTopMenu">' +
         '<div role="search">' +
