@@ -337,7 +337,7 @@ When you push a package to Ballerina Central, the runtime validates organization
 
 Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the package into and set that as the `org-name` in `Ballerina.toml` inside the project directory.
 
-You need to build the package prior to pushing the package to Ballerina Central. The `ballerina build` command compiles Ballerina sources and writes the output to a file. 
+You need to build the package prior to pushing the package to Ballerina Central. The `ballerina` build command compiles and creates an executable binary file (i.e., a .balx file).
 
 For more information on the `ballerina build` command run the following.
 
