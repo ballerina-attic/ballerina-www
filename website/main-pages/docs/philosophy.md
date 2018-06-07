@@ -45,16 +45,18 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget cPhilosophy-widget-middle">
-                <div class="cPhil-green">
+                <div class="cPhil-green row">
                     <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 cPhil-green-left hidden-xs hidden-sm"></div>
                     <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 cPhil-green-middle">
-                        <span>
-                            The<br/>
-                            Integration<br/>
-                            Gap<br/>
-                        </span>
+                        <div class="embed-responsive embed-responsive-1by1">
+                            <span class="embed-responsive-item">
+                                The<br/>
+                                Integration<br/>
+                                Gap<br/>
+                            </span>
+                        </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 cPhil-green-right hidden-xs hidden-sm"></div>
+                    <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 pull-right cPhil-green-right hidden-xs hidden-sm"></div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget">

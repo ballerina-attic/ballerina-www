@@ -663,27 +663,18 @@ div.text-display div.cCodeDesription p {
     margin-bottom: 0;
 }
 
-.cPhil-green span {
-    /*    padding: 140px 0 40px 0;
-    display: inline-block;
-    */
+.cPhil-green .cPhil-green-middle>div {
     margin: 75px 0 40px 0;
     display: inline-block;
-    /*    width: 100%;
-    padding-left: 30px;
-    background-image: url("../img/arrow-left-gray.svg");
-    background-repeat: no-repeat;*/
-    /*    background-position: 15px center;*/
     border: 1px solid #ffffff;
     border-radius: 50%;
+    max-width: 230px;
+    width: 100%;
+    padding-bottom: 230px;
+}
+
+.cPhil-green .cPhil-green-middle>div>span {
     padding: 53px;
-    height: 230px;
-    width: 230px;
-    /*        width: 100%;
-     padding-left: 30px;
-   background-image: url("../img/arrow-left-gray.svg");
-    background-repeat: no-repeat;
-    background-position: 15px center;*/
 }
 
 .cPhilosophy-widget {
@@ -714,8 +705,8 @@ div.text-display div.cCodeDesription p {
 }
 
 .cPhilosophy-widget p {
-    margin-bottom: 42px;
-    margin-top: 42px;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .cPhilosophy-widget-right h4 {
@@ -846,6 +837,25 @@ div.cPhilosophyWidgetContainer.codeNativeBox {
     .cPhil-Gray,
     .cPhil-green {
         min-height: 360px;
+        padding: 0;
+    }
+    .cPhil-green-left,
+    .cPhil-green-right,
+    .cPhil-green-middle {
+        padding: 0;
+    }
+    .cPhil-green-right {
+        background-position: 11px center;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cPhil-green-right {
+        background-position: 16px center;
+    }
+    .cPhilosophy-widget p {
+        margin-bottom: 42px;
+        margin-top: 42px;
     }
 }
 
