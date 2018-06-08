@@ -376,15 +376,11 @@ $ ballerina help push
 This is what your code would look like once you complete this flow.
 
 ```ballerina
-// A system package containing protocol access constructs
-// Package objects referenced with 'http:' in code
 import ballerina/http;
 import ballerina/io;
 import wso2/twitter;
 import ballerina/config;
 import ballerinax/docker;
-
-
 
 
 endpoint twitter:Client twitter {
@@ -396,11 +392,9 @@ endpoint twitter:Client twitter {
 
 @docker:Expose {}
 
-// A service endpoint represents a listener
 endpoint http:Listener listener {
     port:9090
 };
-
 
 // Docker configurations
 @docker:Config {
@@ -419,8 +413,6 @@ endpoint http:Listener listener {
    basePath: "/"
 }
 
-// A service is a network-accessible API
-// Advertised on '/hello', port comes from listener endpoint
 service<http:Service> hello bind listener {
 
     @http:ResourceConfig {
@@ -428,27 +420,13 @@ service<http:Service> hello bind listener {
     path: "/"
     }
 
-    // A resource is an invokable API method
-    // Accessible at '/hello/sayHello
-    // 'caller' is the client invoking this resource 
     sayHello (endpoint caller, http:Request request) {
 
         string status = check request.getTextPayload();
-
         twitter:Status st = check twitter->tweet(status, "", "");
-
-
-        // Create object to carry data back to caller
         http:Response response = new;
-
         response.setTextPayload("ID:" + <string>st.id + "\n");
-
-        // Objects and structs can have function calls
         response.setTextPayload("Hello Ballerina!\n");
-
-        // Send a response back to caller
-        // Errors are ignored with '_'
-        // -> indicates a synchronous network-bound call
         _ = caller -> respond(response);
     }
 }
