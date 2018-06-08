@@ -60,7 +60,13 @@ Open your service in VS Code. You can use the following command to do this on Li
 $ code /<folder_path>/hello_service.bal
 ```
 
-> **Tip**: If you want to create new .bal files in addition to the Hello World service, you can open the initial project folder into editor using `code /<folder path>`. You can also open VS Code and directly navigate to the directory or file.
+On Windows, use the following.
+
+```bash
+$ code <folder_path>\hello_service.bal
+```
+
+> **Tip**: If you want to create new .bal files in addition to the Hello World service, you can open the initial project folder into editor using `code /<folder_path>` (on Windows it is `code <folder_path>`. You can also open VS Code and directly navigate to the directory or file.
 
 You can view your service in VS Code.
 
