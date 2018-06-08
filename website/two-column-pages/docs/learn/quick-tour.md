@@ -52,7 +52,7 @@ You just started Ballerina, created a project, started a service, invoked the se
 
 Let's try this on VS Code.
 
-> **Note**: You need to have VS Code installed to try this.
+> **Note**: You need to have VS Code installed to try this. You can download it from [https://code.visualstudio.com/Download](https://code.visualstudio.com/Download).
 
 Open your service in VS Code. You can use the following command to do this on Linux or OSX.
 
