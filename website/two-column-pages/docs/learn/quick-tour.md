@@ -257,7 +257,7 @@ Import the Docker package.
 import ballerinax/docker;
 ```
 
-Now, let’s add the code you need to run the service in Docker. This needs to be added under the `endpoint http:Listener` since Docker Config annotation is only supported by Listener endpoints. `@docker:CopyFiles` annotation copies the configuration file into the Docker image and `@docker:Expose` annotation allows you to map an external port to the container port. The `@docker:Expose {}` annotation needs to be added above the endpoint definition.
+Now, let’s add the code you need to run the service in Docker. This needs to be added after the `endpoint http:Listener` since Docker Config annotation is only supported by Listener endpoints. `@docker:CopyFiles` annotation copies the configuration file into the Docker image and `@docker:Expose` annotation allows you to map an external port to the container port. The `@docker:Expose {}` annotation needs to be added above the endpoint definition.
 
 ```ballerina
 // Docker configurations
