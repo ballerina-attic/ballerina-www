@@ -257,7 +257,7 @@ Import the Docker package.
 import ballerinax/docker;
 ```
 
-Now, let’s add the code you need to run the service in Docker. This needs to be added under the `endpoint http:Listener` since Docker Config annotation is only supported by Listener endpoints. `@docker:CopyFiles` annotation copies the configuration file into the Docker image and `@docker:Expose` annotation allows you to map an external port to the container port.
+Now, let’s add the code you need to run the service in Docker. This needs to be added under the `endpoint http:Listener` since Docker Config annotation is only supported by Listener endpoints. `@docker:CopyFiles` annotation copies the configuration file into the Docker image and `@docker:Expose` annotation allows you to map an external port to the container port. The `@docker:Expose {}` annotation needs to be added above the endpoint definition.
 
 ```ballerina
 // Docker configurations
@@ -275,7 +275,7 @@ Now, let’s add the code you need to run the service in Docker. This needs to b
 
 ```
 
-> **Note**: The `@docker:Expose {}` annotation needs to be added above the endpoint definition.
+> **Note**: On Windows, make sure Docker runs with Linux containers and in the general settings, enable `Expose daemon on tcp://localhost:2375 without TLS`. For more details, see the [Docker README](https://github.com/ballerinax/docker/blob/master/samples/README.md).
 
 Now your code is ready to generate the deployment artifacts. In this case it is a Docker image.
 
