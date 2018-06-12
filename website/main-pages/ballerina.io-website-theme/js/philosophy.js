@@ -23,7 +23,8 @@ $(document).ready(function () {
 		{"name": "Messaging with Kafka", "desc": "Pub-sub based asynchronous communication with Kafka", "url": "messaging-with-kafka", "git": ""},
 		{"name": "Salesforce-Twilio Integration", "desc": "", "url": "salesforce-twilio-integration", "git": ""},
 		{"name": "Gmail-Google Sheets Integration", "desc": "", "url": "gmail-spreadsheet-integration", "git": ""},
-		{"name": "SonaQube-GitHub Integration ", "desc": "", "url": "sonarqube-github-integration", "git": ""}
+		{"name": "SonarQube-GitHub Integration ", "desc": "", "url": "sonarqube-github-integration", "git": ""},
+		{"name": "Running with Istio ", "desc": "", "url": "ballerina-with-istio", "git": ""}
 	]};
 
 	var i = 0;
