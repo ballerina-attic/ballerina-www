@@ -263,7 +263,7 @@ There are four kinds of repositories:
 
 3. System Repository. A special repository that is embedded within the Ballerina distribution which contains `ballerina/*` core packages. 
 
-4. Ballerina Central. Located at [http://central.ballerina.io](http://central.ballerina.iohttp://central.ballerina.io), this centrally managed repository is a community hub to discover, download, and publish Ballerina packages. 
+4. Ballerina Central. Located at [http://central.ballerina.io](http://central.ballerina.io), this centrally managed repository is a community hub to discover, download, and publish Ballerina packages. 
 
 ### Repository Precedence
 When building a Ballerina program with a project, the build system will search repositories for any imported dependencies. Dependencies are searched in the system, then project, then home, then Ballerina Central repositories for the dependency. Once found, it will be installed into the project repository if not already present.
