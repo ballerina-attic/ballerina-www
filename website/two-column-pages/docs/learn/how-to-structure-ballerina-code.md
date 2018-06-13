@@ -116,8 +116,6 @@ service<network:Service> hello bind { port:9090 } {
 ```
 
 ### Package Version Dependency
-In the future we will be extending the `import` statement to explicitly manage version dependencies of imported packages within the source file if it is not a part of a project.
-
 If your source file or package is a part of a project, then you can explicitly manage version dependencies of imported packages within the project by defining it in `Ballerina.toml`:
 
 ```toml
@@ -132,19 +130,6 @@ import tyler/http;
 
 function main(string... args) {
   http:Person x = http:getPerson();
-}
-```
-
-### Importing Different Versions of the Same Package
-We will extend the functionality to import multiple versions of the same package in the future.
-
-```ballerina
-import tyler/http version 3.0.1 as identity3;
-import tyler/http version 4.5.0 as identity4;
-
-function main(string... args) {
-  identity3:Person x = identity3:getPerson();
-  identity4:Person y = identity4:getPerson();
 }
 ```
 
@@ -275,8 +260,6 @@ When building a package in a project, that package is automatically installed in
 
 The org-name and the version of the package will be read from the manifest file `Ballerina.toml` inside the project.
 
-We will extend the `push` command in the future to allow users to push packages into any remote registry hosted at a domain referenced by a URL, such as a private registry used by corporations.
-
 To install a single package in a project:
 ```bash
 ballerina install <package-name>
@@ -308,7 +291,7 @@ ballerina pull <org-name>/<package-name>[:<version>]
 Projects that perform dependency analysis will automatically pull packages into the home repository.
 
 ### Pushing Packages Into Remote Repositories
-"Pushing" a package uploads the associated package files and installs the package into a remote repository which is Ballerina Central. 
+"Pushing" a package uploads the associated package files and installs the package into a remote repository, which is Ballerina Central. 
 
 The org-name and the version of the package will be read from the manifest file `Ballerina.toml` inside the project.
 ```
