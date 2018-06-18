@@ -30,6 +30,12 @@ If you are upgrading from an older version of Ballerina, you can simply download
 
 The package automatically sets your PATH environment variable for you. You may need to restart any open Terminal sessions for the change to take effect.
 
+Alternatively, if you have [Homebrew](https://brew.sh/) installed on your Mac, you can install the ballerina package with:
+
+```
+brew install ballerina
+```
+
 ### Installing on Windows
 
 [Download the MSI file](/downloads), open it, and follow the prompts to install Ballerina. By default, the installer puts the Ballerina distribution in `C:\Program Files\Ballerina\`.
