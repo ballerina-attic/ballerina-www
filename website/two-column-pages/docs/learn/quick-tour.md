@@ -225,7 +225,7 @@ string status = check request.getTextPayload();
 Now, we can get our response from Twitter by just calling its tweet action. Add this into the `sayHello` resource as well.
 
 ```ballerina
-twitter:Status st = check twitter->tweet(status, "", "");
+twitter:Status st = check twitter->tweet(status);
 response.setTextPayload("ID:" + <string>st.id + "\n");
 ```
 
