@@ -4,8 +4,8 @@ Now that you know a little bit [about Ballerina](/philosophy), let's take it for
 
 ## Install Ballerina
 
-1. Go to [https://ballerina.io/](/) and click **Download Ballerina**. 
-1. Download Ballerina for your OS and follow the instructions given to set it up. 
+1. Go to the [Download page](https://ballerina.io/downloads) and click **Download Ballerina**. 
+1. Download Ballerina for your OS and follow the instructions given to set it up. For more information, see [Getting Started](/learn/getting-started).
 
 > **Note**: Throughout this documentation, `<ballerina_home>` refers to the Ballerina directory you just installed. 
 
@@ -17,7 +17,7 @@ Start your project by navigating to a directory of your choice and running the f
 ballerina init
 ```
 
-You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
+You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you in your directory. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
 
 You can run the service using the `ballerina run` command.
 
@@ -46,13 +46,13 @@ You get the following response.
 Hello Ballerina!
 ```
 
-You just started Ballerina, created a project, started a service, and received a response.
+You just started Ballerina, created a project, started a service, invoked the service you created, and received a response.
 
 ## Set up the Editor
 
 Let's try this on VS Code.
 
-> **Note**: You need to have VS Code installed for this to work.
+> **Note**: You need to have VS Code installed to try this. You can download it from [https://code.visualstudio.com/Download](https://code.visualstudio.com/Download).
 
 Open your service in VS Code. You can use the following command to do this on Linux or OSX.
 
@@ -60,7 +60,13 @@ Open your service in VS Code. You can use the following command to do this on Li
 $ code /<folder_path>/hello_service.bal
 ```
 
-> **Tip**: If you want to create new .bal files in addition to the Hello World service, you can open the initial project folder into editor using `code /<folder path>`.
+On Windows, use the following.
+
+```bash
+$ code <folder_path>\hello_service.bal
+```
+
+> **Tip**: If you want to create new .bal files in addition to the Hello World service, you can open the initial project folder into editor using `code /<folder_path>` (on Windows it is `code <folder_path>`. You can also open VS Code and directly navigate to the directory or file.
 
 You can view your service in VS Code.
 
@@ -165,9 +171,9 @@ You can now use Ballerina to integrate with Twitter.
 
 Prior to sending a Tweet, you need to create a Twitter app and get some information from Twitter.
 
-> **Note**: You need to have a Twitter account to try this.
+> **Note**: You need to have a Twitter account set up with a valid mobile number to try this.
 
-1. Go to [https://apps.twitter.com/](https://apps.twitter.com/)  and click **Create New App**. 
+1. Go to [https://apps.twitter.com/](https://apps.twitter.com/) and click **Create New App**. 
 
 2. Fill the form that appears and click **Create your Twitter application**.
 
@@ -223,6 +229,8 @@ twitter:Status st = check twitter->tweet(status, "", "");
 response.setTextPayload("ID:" + <string>st.id + "\n");
 ```
 
+> **Note**: `response.setTextPayload("ID:" + <string>st.id + "\n");` must be added after `http:Response response = new;`.
+
 Go ahead and run it and this time pass the config file:
 
 ```bash
@@ -249,7 +257,7 @@ Import the Docker package.
 import ballerinax/docker;
 ```
 
-Now, let’s add the code you need to run the service in Docker. This needs to be added under the `endpoint http:Listener` since Docker Config annotation is only supported by Listener endpoints. `@docker:CopyFiles` annotation copies the configuration file into the Docker image and `@docker:Expose` annotation allows you to map an external port to the container port.
+Now, let’s add the code you need to run the service in Docker. This needs to be added after the `endpoint http:Listener` since Docker Config annotation is only supported by Listener endpoints. `@docker:CopyFiles` annotation copies the configuration file into the Docker image and `@docker:Expose` annotation allows you to map an external port to the container port. The `@docker:Expose {}` annotation needs to be added above the endpoint definition.
 
 ```ballerina
 // Docker configurations
@@ -264,12 +272,20 @@ Now, let’s add the code you need to run the service in Docker. This needs to b
     ]
 }
 @docker:Expose {}
+
 ```
+
+> **Note**: On Windows, make sure Docker runs with Linux containers and in the general settings, enable `Expose daemon on tcp://localhost:2375 without TLS`. For more details, see the [Docker README](https://github.com/ballerinax/docker/blob/master/samples/README.md).
 
 Now your code is ready to generate the deployment artifacts. In this case it is a Docker image.
 
 ```bash
  $ ballerina build hello_service.bal
+```
+
+You see something similar to the following output if this is successful.
+
+```
 @docker 		 - complete 3/3
 ```
 
@@ -280,10 +296,6 @@ $ docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
 ```
 
 > **Tip**: You can run a Docker container and access it with your code by just copying and pasting the `docker run` command that displays as output of the Ballerina build command.
->
->  ```
->   $ docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
->  ```
 
 Run the following command to check if Docker is running.
 
@@ -316,11 +328,10 @@ Use the following cURL command to invoke your Docker-hosted service.
 ```bash
 $ curl -d "Hello Ballerina" -X POST localhost:9090
 ```
-You will see an output similar to the following.
 
-```
-ID:991212870376534016
-```
+You see a 'Hello Ballerina!' response.
+
+You have now posted on Twitter using the Docker hosted service.
 
 ## Push your Package to Ballerina Central
 
@@ -332,24 +343,102 @@ When you push a package to Ballerina Central, the runtime validates organization
 
 Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the package into and set that as the `org-name` in `Ballerina.toml` inside the project directory.
 
+You need to build the package prior to pushing the package to Ballerina Central. The `ballerina` build command compiles and creates an executable binary file (i.e., a .balx file).
+
+For more information on the `ballerina build` command run the following.
+
+```bash
+$ ballerina help build
+```
+
+> **Tip**: You can use `ballerina help <command-name>` for more information on any of the commands.
+
+By default, the output filename for a package is the package name suffixed with `.balx`. The default output replaces the `.bal` suffix with `.balx`. 
+
+Build your package.
+
+```bash
+$ ballerina build <package-name>
+```
+
 Once that is done, push your package to Ballerina Central.
 
 ```bash
-ballerina push <package-name>
+$ ballerina push <package-name>
 ```
 
 For example, if you have a Ballerina package named `math`, the following command will push it to Ballerina Central.
 
 ```bash
-ballerina push math
+$ ballerina push math
 ```
 
-For more information on the Ballerina push command run,
+For more information on the `ballerina push` command run the following.
 
 ```bash
-ballerina help push
+$ ballerina help push
 ```
- 
+
+This is what your code would look like once you complete this flow.
+
+```ballerina
+import ballerina/http;
+import ballerina/io;
+import wso2/twitter;
+import ballerina/config;
+import ballerinax/docker;
+
+
+endpoint twitter:Client twitter {
+   clientId: config:getAsString("consumerKey"),
+   clientSecret: config:getAsString("consumerSecret"),
+   accessToken: config:getAsString("accessToken"),
+   accessTokenSecret: config:getAsString("accessTokenSecret")
+};
+
+@docker:Expose {}
+
+endpoint http:Listener listener {
+    port:9090
+};
+
+// Docker configurations
+@docker:Config {
+    registry:"registry.hub.docker.com",
+    name:"helloworld",
+    tag:"v1.0"
+}
+@docker:CopyFiles {
+    files:[
+        {source:"./twitter.toml", target:"/home/ballerina/conf/twitter.toml", isBallerinaConf:true}
+    ]
+}
+
+
+@http:ServiceConfig {
+   basePath: "/"
+}
+
+service<http:Service> hello bind listener {
+
+    @http:ResourceConfig {
+    methods: ["POST"],
+    path: "/"
+    }
+
+    sayHello (endpoint caller, http:Request request) {
+
+        string status = check request.getTextPayload();
+        twitter:Status st = check twitter->tweet(status, "", "");
+        http:Response response = new;
+        response.setTextPayload("ID:" + <string>st.id + "\n");
+        response.setTextPayload("Hello Ballerina!\n");
+        _ = caller -> respond(response);
+    }
+}
+
+```
+
 ## Run the Composer
 Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
 
@@ -362,6 +451,8 @@ To start the composer:
 3. In the Composer, click **File** and choose **Open File**.
 
 4. Navigate to your service and open it to view this in the Composer.
+
+![Ballerina Composer](/img/docs-images/quick-tour-composer.png)
 
 ## Follow the Repo
 
