@@ -83,7 +83,7 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 
 <table class="cEventTable">
     <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">June 22, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+        <td class="cEventDateContainer"><span class="cEventDate">June 20, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
         <td class="cEventDetail"><h4>A Cloud Native Programming Language</h4>
         <p>By
         Paul Fremantle
