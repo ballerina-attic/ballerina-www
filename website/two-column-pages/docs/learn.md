@@ -77,6 +77,47 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 
 [Frequently Asked Questions](/learn/faq/) about Ballerina.
 
+## Events
+
+### Webinars
+
+<table class="cEventTable">
+    <tr>
+        <td class="cEventDateContainer"><span class="cEventDate">June 22, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+        <td class="cEventDetail"><h4>A Cloud Native Programming Language</h4>
+        <p>By
+        Paul Fremantle
+        CTO and Co-Founder</p>
+        </td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://wso2.com/library/webinars/2018/06/ballerina-a-cloud-native-programming-language/">Register Now</a></td>
+    </tr>
+</table>
+
+### Meetups
+
+<table class="cEventTable">
+    <tr>
+        <td class="cEventDateContainer"><span class="cEventDate">June 19, 2018</span>6:00 PM to 8:15 PM</td>
+        <td class="cEventDetail"><h4>"Kafka and Microservices" : Insights from Uber and Confluent.</h4>
+        <p>WSO2 Inc., 787, Castro Street · Mountain View, CA</p>
+        </td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/microservices-apis-integration-meetup/events/251660189/">Register Now</a></td>
+    </tr>
+</table>
+
+### Conferences
+
+<table class="cEventTable">
+    <tr>
+      <td class="cEventDetail c2col">
+        <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
+    </td>
+        <td class="cEventURL c2col"><a class="cEventRegistration" href="https://www.meetup.com/microservices-apis-integration-meetup/events/251660189/">Register Now</a></td>
+    </tr>
+</table>
+
+
+
 ## Articles and Videos
 
 1. <a href="https://medium.com/ballerinalang/conceiving-ballerina-2dadf67c0503" target="_blank">Conceiving Ballerina</a>
