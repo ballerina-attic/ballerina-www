@@ -112,7 +112,7 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
       <td class="cEventDetail c2col">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
     </td>
-        <td class="cEventURL c2col"><a class="cEventRegistration" href="https://www.meetup.com/microservices-apis-integration-meetup/events/251660189/">Register Now</a></td>
+        <td class="cEventURL c2col"><a class="cEventRegistration" href="https://con.ballerina.io/register/">Register Now</a></td>
     </tr>
 </table>
 
