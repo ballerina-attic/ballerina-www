@@ -89,7 +89,7 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
         Paul Fremantle
         CTO and Co-Founder</p>
         </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://wso2.com/library/webinars/2018/06/ballerina-a-cloud-native-programming-language/">Register Now</a></td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://wso2.com/library/webinars/2018/06/ballerina-a-cloud-native-programming-language/" target="_blank">Register Now</a></td>
     </tr>
 </table>
 
@@ -101,7 +101,7 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
         <td class="cEventDetail"><h4>"Kafka and Microservices" : Insights from Uber and Confluent.</h4>
         <p>WSO2 Inc., 787, Castro Street · Mountain View, CA</p>
         </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/microservices-apis-integration-meetup/events/251660189/">Register Now</a></td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/microservices-apis-integration-meetup/events/251660189/" target="_blank">Register Now</a></td>
     </tr>
 </table>
 
@@ -112,7 +112,7 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
       <td class="cEventDetail c2col">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
     </td>
-        <td class="cEventURL c2col"><a class="cEventRegistration" href="https://con.ballerina.io/register/">Register Now</a></td>
+        <td class="cEventURL c2col"><a class="cEventRegistration" href="https://con.ballerina.io/register/" target="_blank">Register Now</a></td>
     </tr>
 </table>
 
