@@ -23,13 +23,13 @@ ENV DEBUG_PORT 5005
 
 COPY ballerinaKeystore.p12 /security/
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-COPY ballerina-tools.zip /root/
+COPY ballerina-platform.zip /root/
 
 RUN mkdir /ballerina \
-    && unzip /root/ballerina-tools.zip -d /ballerina/ \
+    && unzip /root/ballerina-platform.zip -d /ballerina/ \
     && mv /ballerina/ballerina* /ballerina/runtime \
     && mkdir -p /ballerina/runtime/logs \
-    && rm /root/ballerina-tools.zip \
+    && rm /root/ballerina-platform.zip \
     && chmod +x /usr/local/bin/docker-entrypoint.sh
 
 ENV BALLERINA_HOME /ballerina/runtime
