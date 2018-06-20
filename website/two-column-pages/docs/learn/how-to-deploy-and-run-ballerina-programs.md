@@ -130,7 +130,7 @@ Hello, Ballerina !
 Ballerina provides support for encrypting sensitive data such as passwords and allows access to them securely through the configuration API in the code.
 
 ##### Creating a Secured Value
-The `ballerina encrypt` command will encrypt parameters that can be securely sourced from your code files. For example, let's create a secure parameter named `ballerina` with the value `12345` as the secret.
+The `ballerina encrypt` command will encrypt parameters that can be securely sourced from your code files. For example, let's create a secure parameter named `Ballerina` with the value `12345` as the secret.
 
 ```ballerina
 $ ballerina encrypt
@@ -138,36 +138,44 @@ Enter value:
 Enter secret:
 Re-enter secret to verify:
 Add the following to the runtime config:
-@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
+@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}
 
 Or add to the runtime command line:
--e<param>=@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
+-e<param>=@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}
 ```
 
 ##### Using the Secured Value at Runtime
 The secured value can be placed in a config file as a value or passed on the command line. 
 
 ```
-[hello]
-http.port=8085
-keystore.password="@encrypted{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}"
+[hello.user]
+name="@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}"
 ```
 
-or:
+or (Enter secret `12345` when prompted.):
 
 ```bash
-$ ballerina run config_api.bal -e hello.http.port=8085 -e hello.keystore.password=@encrypted:{jFMAXsuMSiOCaxuDLuQjVXzMzZxQrten0652/j93Amw=}
+$ ballerina run main.bal -e  hello.user.name="@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}"
+ballerina: enter secret for config value decryption:
+
+Hello, Ballerina !
 ```
 
 ##### Decrypting the Value
-If a configuration contains an encrypted value, Ballerina looks for a `secret.txt` file in the directory where the source files are located. The `secret.txt` should contain the secret used to encrypt the value. The `secret.txt` file will be deleted after it is read. If the `secret.txt` file is not present, the CLI prompts the user for the secret.
-
+If a configuration contains an encrypted value, Ballerina looks for a `secret.txt` file in the directory where the source files are located. The `secret.txt` should contain the secret used to encrypt the value. The `secret.txt` file will be deleted after it is read.
 ```bash
-$ ballerina run --config path/to/conf/file/custom-config-file-name.conf config_api.bal
+$ echo 12345 > secret.txt
+$ ballerina run --config ../ballerina.conf main.bal
+Hello, Ballerina !
+```
+
+
+If the `secret.txt` file is not present, then CLI prompts the user for the secret. Enter secret `12345` when prompted.
+```bash
+$ ballerina run --config ../ballerina.conf main.bal
 ballerina: enter secret for config value decryption:
 
-ballerina: initiating service(s) in 'config_api.bal'
-ballerina: started HTTPS/WSS endpoint 0.0.0.0:8085
+Hello, Ballerina !
 ```
 
 ## Deploying Ballerina Programs and Services
@@ -197,6 +205,8 @@ A developer enables deployment artifact generation by adding annotations to thei
 
 See the following example on how a developer can add Docker support in the code.
 
+Add following code to hello_world_docker.bal file.
+
 ```ballerina
 import ballerina/http;  
 import ballerinax/docker;  
@@ -205,17 +215,18 @@ import ballerinax/docker;
     basePath:"/helloWorld"  
 }  
 @docker:Config {
-    registry:"docker.abc.com",  
-    name:"helloworld",  
+    registry:"docker.abc.com",
+    name:"helloworld",
     tag:"v1.0"
-}  
-service<http:Service> helloWorld bind {9090} {  
-    sayHello(endpoint outboundEP, http:Request request) {  
-	http:Response response = new;  
-	response.setStringPayload("Hello, World from service helloWorld ! \n");  
-	_ = outboundEP->respond(response);  
-    }  
 }
+service<http:Service> helloWorld bind {port:9090} {
+    sayHello (endpoint outboundEP, http:Request request) {
+        http:Response response = new;
+        response.setTextPayload("Hello, World! \n");
+        _ = outboundEP -> respond(response);
+    }
+}
+
 ```
 
 Now your code is ready to generate deployment artifacts. In this case it is a Docker image.
@@ -223,6 +234,7 @@ Now your code is ready to generate deployment artifacts. In this case it is a Do
 ```bash
 $ ballerina build hello_world_docker.bal  
 @docker - complete 3/3  
+
 Run the following command to start docker container:  
 docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
 ```
@@ -230,7 +242,6 @@ docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
 ```bash
 $ tree  
 .
-├── README.md
 ├── hello_world_docker.bal
 ├── hello_world_docker.balx
 └── docker
@@ -238,8 +249,8 @@ $ tree
 ```
 ```bash
 $ docker images  
-REPOSITORY TAG IMAGE ID CREATED SIZE  
-docker.abc.com/helloworld v1 df83ae43f69b 2 minutes ago 102MB
+REPOSITORY                TAG IMAGE ID       CREATED             SIZE  
+docker.abc.com/helloworld  v1 df83ae43f69b   2 minutes ago       102MB
 ```
   
 You can run a Docker container and access it with your code by copying and pasting the Docker `run` command that displays as output of the Ballerina `build` command.
@@ -247,10 +258,11 @@ You can run a Docker container and access it with your code by copying and pasti
 $ docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0  
 130ded2ae413d0c37021f2026f3a36ed92e993c39c260815e3aa5993d947dd00
 ```
+
 ```bash
 $ docker ps  
-CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES  
-130ded2ae413 docker.abc.com/helloworld:v1.0 "/bin/sh -c 'balleri…" Less than a second ago Up 3 seconds 0.0.0.0:9090->9090/tcp thirsty_hopper
+CONTAINER ID  IMAGE                          COMMAND                CREATED                STATUS       PORTS                  NAMES  
+130ded2ae413  docker.abc.com/helloworld:v1.0 "/bin/sh -c 'balleri…" Less than a second ago Up 3 seconds 0.0.0.0:9090->9090/tcp thirsty_hopper
 ```
 Access the hello world service with a cURL command:
 ```bash 
@@ -316,7 +328,8 @@ The following Kubernetes configurations are supported:
 -   Kubernetes config map support
 -   Kubernetes persistent volume claim support
 
-The following Ballerina code section explains how you can use some of these Kubernetes capabilities by using Kubernetes annotation support in Ballerina.
+The following Ballerina code section explains how you can use some of these Kubernetes capabilities by using Kubernetes annotation support in Ballerina. 
+Full example can be found at [Database Interaction Guide](https://ballerina.io/learn/by-guide/data-backed-service/)
 
 ```ballerina
 import ballerina/config;
@@ -526,6 +539,7 @@ $ curl -v -X POST -d '{"name":"Alice", "age":20,"ssn":123456789,"employeeId":1}'
 |username|Username for the Docker registry|null|
 |password|Password for the Docker registry|null|
 |baseImage|Base image to create the Docker image|ballerina/ballerina:latest|
+|singleYAML|Generate a single yaml file for all k8s resources|false|
 
 **@kubernetes:Service{}**
 - Supported with Ballerina endpoints.
