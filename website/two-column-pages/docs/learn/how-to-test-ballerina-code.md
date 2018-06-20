@@ -399,6 +399,7 @@ The following sample code illustrates how service start/stop can be used in a co
 ```ballerina
 import ballerina/http;
 import ballerina/io;
+import ballerina/test;
 
 boolean isHelloServiceStarted;
 
@@ -433,10 +434,9 @@ function testService () {
             json expected = {"Hello":"World"};
             test:assertEquals(jsonRes, expected);
         }
-        http:HttpConnectorError err => test:assertFail(msg = "Failed to call the endpoint: " + uri);
+        error err => test:assertFail(msg = "Failed to call the endpoint.");
     }
 }
-
 
 // The service we are going to start and test
 endpoint http:Listener helloEP {
