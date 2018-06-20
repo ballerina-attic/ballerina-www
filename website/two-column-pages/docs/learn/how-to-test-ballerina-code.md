@@ -17,15 +17,15 @@ Testerina design and usage is aligned with project and package semantics of Ball
 
 ## Writing and Running Tests 
 
-To write tests, you need to import the `test` package in all ballerina test source files. 
+To write tests, you need to import the `test` package in all Ballerina test source files. 
 
 ```
 import ballerina/test;
 ```
 
-For structured projects, it is recommended to use a structured test model that is aligned with standard package semantics. Structured test model consists of a seperate tests directory in a ballerina package which allows you to isolate the source from the tests.
+For structured projects, it is recommended to use a structured test model that is aligned with standard package semantics. Structured test model consists of a seperate tests directory in a Ballerina package which allows you to isolate the source from the tests.
 
-In a standard ballerina project, a package is mapped to a test suite. Unit and integration tests bound to a package need to be placed in a subfolder called `tests/` within the package. All tests within a package’s `tests/` subfolder are considered to be part of the same test suite.
+In a standard Ballerina project, a package is mapped to a test suite. Unit and integration tests bound to a package need to be placed in a subfolder called `tests/` within the package. All tests within a package’s `tests/` subfolder are considered to be part of the same test suite.
 
 Integration tests that are used to test the sources of combination of packages of a project needs to be placed at the project root level folder called `tests/`.
 
@@ -65,7 +65,7 @@ Integration tests that are used to test the sources of combination of packages o
       packages.can.include.dots.in.dir.name.bal
 ```
 
-The test source files could have any file names. The test functions are just ballerina functions which uses a special annotation to mark the function as a test, test functions must be specified with the `@test:Config` annotation and there are no restrictions on the test function name.
+The test source files could have any file names. The test functions are just Ballerina functions which uses a special annotation to mark the function as a test, test functions must be specified with the `@test:Config` annotation and there are no restrictions on the test function name.
 
 The `ballerina test` command can be used to execute tests. 
 
@@ -376,7 +376,7 @@ function foo(){
 
 ## Service Start/Stop Utility
 
-Testerina provides the functionality to start/stop all services of a developer preferred ballerina package. To control service related functionality we can use the following inbuilt functions.
+Testerina provides the functionality to start/stop all services of a developer preferred Ballerina package. To control service related functionality we can use the following inbuilt functions.
 
 #### test:startServices(string packageName) (boolean isSuccessful)
 
@@ -467,13 +467,13 @@ Testerina provides the functionality to start/stop service skeletons generated f
 
 #### test:startServiceSkeleton(string packageName, string swaggerFilePath) (boolean isSuccessful)
 
-Start a service skeleton from a given Swagger definition in the given ballerina package. If it is successful returns true else returns false or throws an exception. For example: 
+Start a service skeleton from a given Swagger definition in the given Ballerina package. If it is successful returns true else returns false or throws an exception. For example: 
 
 ```ballerina
 boolean isSuccessful =  test:startServiceSkeleton("petstore.service.skeleton", "/tmp/petstore.yaml");
 ```
 
-When the tests are executing service skeleton related ballerina definition will be generated and started. Host names, ports you have defined in the Swagger definition will be used when starting the service. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service.
+When the tests are executing service skeleton related Ballerina definition will be generated and started. Host names, ports you have defined in the Swagger definition will be used when starting the service. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service.
 
 #### test:stopServiceSkeleton (string packageName) 
 
