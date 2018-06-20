@@ -23,7 +23,7 @@ To write tests, you need to import the `test` package in all Ballerina test sour
 import ballerina/test;
 ```
 
-For structured projects, it is recommended to use a structured test model that is aligned with standard package semantics. Structured test model consists of a seperate tests directory in a Ballerina package which allows you to isolate the source from the tests.
+For structured projects, it is recommended to use a structured test model that is aligned with standard package semantics. Structured test model consists of a seperate tests directory in a Ballerina package, which allows you to isolate the source from the tests.
 
 In a standard Ballerina project, a package is mapped to a test suite. Unit and integration tests bound to a package need to be placed in a subfolder called `tests/` within the package. All tests within a package’s `tests/` subfolder are considered to be part of the same test suite.
 
