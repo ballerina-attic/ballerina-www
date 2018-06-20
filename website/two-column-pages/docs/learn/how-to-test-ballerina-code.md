@@ -17,15 +17,15 @@ Testerina design and usage is aligned with project and package semantics of Ball
 
 ## Writing and Running Tests 
 
-You need to import the `test` package in all tests. 
+To write tests, you need to import the `test` package in all ballerina test source files. 
 
 ```
 import ballerina/test;
 ```
 
-For structured projects, it is recommended to use a structured test model that is aligned with standard package semantics. 
+For structured projects, it is recommended to use a structured test model that is aligned with standard package semantics. Structured test model consists of a seperate tests directory in a ballerina package which allows you to isolate the source from the tests.
 
-A package is mapped to a test suite. Unit and integration tests bound to a package need to be placed in a subfolder called `tests/` within the package. All tests within a package’s `tests/` subfolder are considered to be part of the same test suite.
+In a standard ballerina project, a package is mapped to a test suite. Unit and integration tests bound to a package need to be placed in a subfolder called `tests/` within the package. All tests within a package’s `tests/` subfolder are considered to be part of the same test suite.
 
 Integration tests that are used to test the sources of combination of packages of a project needs to be placed at the project root level folder called `tests/`.
 
@@ -65,7 +65,7 @@ Integration tests that are used to test the sources of combination of packages o
       packages.can.include.dots.in.dir.name.bal
 ```
 
-The test source files could have any file names. The test functions must be specified with the `@test:Config` annotation. There are no restrictions on the test function name. 
+The test source files could have any file names. The test functions are just ballerina functions which uses a special annotation to mark the function as a test, test functions must be specified with the `@test:Config` annotation and there are no restrictions on the test function name.
 
 The `ballerina test` command can be used to execute tests. 
 
