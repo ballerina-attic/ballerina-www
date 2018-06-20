@@ -182,20 +182,20 @@ function testFunction3() {
 The function specified following the annotation is a test function.
 
 ##### Parameters:
-`enable: {true | false}`: Enable or disables the test 
+`enable: {true | false}`: Enable/disable the test. 
 Default: true
 
-`before: "<function name>"`: Name of the function to be run just before the test is run 
+`before: "<function name>"`: Name of the function to be run just before the test is run.
 Default: none
 
-`after: "<function name>"`: Name of the function to be run after the test is run
+`after: "<function name>"`: Name of the function to be run after the test is run.
  
 `dependsOn: ["<function names>", …]`: A list of function names the test function depends on, and will be run before the test. The list of functions provided has no order of execution. The current test function will depend on the list provided and that list will run in whatever order, the order in which the comma separated list appears has no prominence. In case there needs to be an order, the way to do that is to define a sequence of test functions with with one point to another based on dependency using dependsOn parameter in each one's config.
 
 `dataProvider: “<function name>”`: Specifies the name of the function that will be used to provide the value sets to execute the test against. The given Ballerina function should return an array of arrays (eg: string[][] for a test function which accepts string parameters). Each array of the returned array of arrays should have a length similar to the number of arguments of the function (eg: function testSuffixC(string input, string expected) could have a dataProvider function which returns a `string[][]` like `[ [“ab”, “abc”], [“de”, “dec”] ]` ). The length of the array of arrays represents the number of time the same test case would run (eg: in the above example the test function testSuffixC would run 2 times with input parameters “ab”, “abc” and “de”, “dec” respectively.
 
-`groups:[“<test group name”, …]`
-List of test group names (one or more) that this test belongs to You can group a given test to a list of named test groups using this configuration. In order to execute tests belonging to a selected test group, you can name the test groups to be executed when you run tests.  
+`groups:[“<test group name”, …]`:
+List of test group names (one or more) that this test belongs to. You can group a given test to a list of named test groups using this configuration. In order to execute tests belonging to a selected test group, you can name the test groups to be executed when you run tests.  
 
 ```
 ballerina test `--groups <comma separated list of test group names> <package_name>`
@@ -380,7 +380,7 @@ Testerina provides the functionality to start/stop all services of a developer p
 
 #### test:startServices(string packageName) (boolean isSuccessful)
 
-Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an error. 
+Starts all the services of package identified by ‘packageName’. If it is successful returns 'true', else returns 'false' or throws an error. 
 
 ```ballerina
 boolean isSuccessful = test:startServices(“abc.services”);
@@ -399,8 +399,10 @@ The following sample code illustrates how service start/stop can be used in a co
 ```ballerina
 import ballerina/http;
 import ballerina/io;
+import ballerina/test;
 
 boolean isHelloServiceStarted;
+string endpointUrl = "http://0.0.0.0:9092";
 
 // Before function to start the service
 function startMock () {
@@ -419,7 +421,7 @@ function stopMock () {
 // This is the test function to test the service
 function testService () {
     endpoint http:Client httpEndpoint {
-        url:"http://0.0.0.0:9092"
+        url:endpointUrl
     };
 
     // Check whether the service is started
@@ -433,7 +435,7 @@ function testService () {
             json expected = {"Hello":"World"};
             test:assertEquals(jsonRes, expected);
         }
-        http:HttpConnectorError err => test:assertFail(msg = "Failed to call the endpoint: " + uri);
+        error err => test:assertFail(msg = "Failed to call the endpoint: " + endpointUrl);
     }
 }
 
