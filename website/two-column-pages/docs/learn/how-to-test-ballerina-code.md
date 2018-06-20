@@ -65,7 +65,7 @@ Integration tests that are used to test the sources of combination of packages o
       packages.can.include.dots.in.dir.name.bal
 ```
 
-The test source files could have any file names. The test functions are just Ballerina functions which uses a special annotation to mark the function as a test, test functions must be specified with the `@test:Config` annotation and there are no restrictions on the test function name.
+The test source files could have any file names. The test functions are just Ballerina functions that use a special annotation to mark the function as a test. Test functions must be specified with the @test:Config annotation and there are no restrictions on the test function name.
 
 The `ballerina test` command can be used to execute tests. 
 
@@ -179,7 +179,7 @@ function testFunction3() {
 ```
 
 #### @test:Config {}
-The function specified following the annotation is a test function. This annotation supports following parameters.
+The function specified following the annotation is a test function. This annotation supports the following parameters.
 
 ##### Parameters:
 `enable: {true | false}`: Enable or disables the test 
@@ -467,13 +467,13 @@ Testerina provides the functionality to start/stop service skeletons generated f
 
 #### test:startServiceSkeleton(string packageName, string swaggerFilePath) (boolean isSuccessful)
 
-Start a service skeleton from a given Swagger definition in the given Ballerina package. If it is successful returns true else returns false or throws an exception. For example: 
+Start a service skeleton from a given Swagger definition in the given Ballerina package. If it is successful it returns true. Alternatively, it returns false or throws an exception. For example: 
 
 ```ballerina
 boolean isSuccessful =  test:startServiceSkeleton("petstore.service.skeleton", "/tmp/petstore.yaml");
 ```
 
-When the tests are executing service skeleton related Ballerina definition will be generated and started. Host names, ports you have defined in the Swagger definition will be used when starting the service. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service.
+When the tests are executing service skeleton related Ballerina service definition will be generated and started. The host names and ports you have defined in the Swagger definition will be used when starting the services. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service.
 
 #### test:stopServiceSkeleton (string packageName) 
 
