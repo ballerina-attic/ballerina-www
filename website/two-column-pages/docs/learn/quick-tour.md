@@ -38,7 +38,7 @@ This means your service is up and running. You can invoke the service using an H
 $ curl http://localhost:9090/hello/sayHello
 ```
 
-> **Tip**: If you do not have cURL installed, you can download it from https://curl.haxx.se/download.html.
+> **Tip**: If you do not have cURL installed, you can download it from [https://curl.haxx.se/download.html](https://curl.haxx.se/download.html).
 
 You get the following response.
 
