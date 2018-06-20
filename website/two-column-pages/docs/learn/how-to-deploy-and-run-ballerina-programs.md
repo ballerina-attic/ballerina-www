@@ -495,12 +495,14 @@ $ ballerina run <source>.balx --config ./conf/data-service.toml
 The Kubernetes extension automatically passes the config file to the Ballerina program.
 
 If everything is successfully deployed, you can invoke the service either via Node port or ingress.
-Node Port:
+
+**Access via Node Port:**
 ```bash
 $ curl -v -X POST -d '{"name":"Alice", "age":20,"ssn":123456789,"employeeId":1}' \
 "http://localhost:<Node_Port>/records/employee" -H "Content-Type:application/json" 
 ```
-Ingress:
+
+**Access via Ingress:**
 
 Add an `/etc/hosts` entry to match hostname.
 
