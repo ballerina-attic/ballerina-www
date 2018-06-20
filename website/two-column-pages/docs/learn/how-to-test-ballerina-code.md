@@ -110,8 +110,8 @@ function testSuiteInitialize() {
 Sample : 
 
 ```ballerina
-import ballerina/test;
 import ballerina/io;
+import ballerina/test;
 
 // The `BeforeSuite` function is executed before all test functions in this package. 
 @test:BeforeSuite
@@ -147,8 +147,8 @@ function beforeEachTest() {
 Sample :
 
 ```ballerina
-import ballerina/test;
 import ballerina/io;
+import ballerina/test;
 
 // Before each function, which is executed before each test function
 @test:BeforeEach
@@ -182,19 +182,19 @@ function testFunction3() {
 The function specified following the annotation is a test function. This annotation supports the following parameters.
 
 ##### Parameters:
-`enable: {true | false}`: Enable or disables the test 
+`enable: {true | false}`: Enable/disable the test. 
 Default: true
 
-`before: "<function name>"`: Name of the function to be run just before the test is run 
+`before: "<function name>"`: Name of the function to be run just before the test is run. 
 Default: none
 
-`after: "<function name>"`: Name of the function to be run just after the test is run
+`after: "<function name>"`: Name of the function to be run just after the test is run.
  
 `dependsOn: ["<function names>", …]`: A list of function names the test function depends on, and will be run before the test. The list of functions provided has no order of execution. The current test function will depend on the list provided and that list will run in whatever order, the order in which the comma separated list appears has no prominence. In case there needs to be an order, the way to do that is to define a sequence of test functions with with one point to another based on dependency using dependsOn parameter in each one's config.
 
 `dataProvider: “<function name>”`: Specifies the name of the function that will be used to provide the value sets to execute the test against. The given Ballerina function should return an array of arrays (eg: string[][] for a test function which accepts string parameters). Each array of the returned array of arrays should have a length similar to the number of arguments of the function (eg: function testSuffixC(string input, string expected) could have a dataProvider function which returns a `string[][]` like `[ [“ab”, “abc”], [“de”, “dec”] ]` ). The length of the array of arrays represents the number of time the same test case would run (eg: in the above example the test function testSuffixC would run 2 times with input parameters “ab”, “abc” and “de”, “dec” respectively.
 
-`groups:[“<test group name”, …]`
+`groups:[“<test group name”, …]`:
 List of test group names (one or more) that this test belongs to. You can group a given test to a list of named test groups using this configuration. In order to execute tests belonging to a selected test group, you can name the test groups to be executed when you run tests.  
 
 ```
@@ -218,9 +218,8 @@ function testBar() {
 Sample : 
 
 ```ballerina
-import ballerina/test;
 import ballerina/io;
-
+import ballerina/test;
 
 function beforeFunc() {
     // This is the before Test Function
@@ -266,8 +265,8 @@ function testSuiteCleanup() {
 Sample :
 
 ```ballerina
-import ballerina/test;
 import ballerina/io;
+import ballerina/test;
 
 // Test function.
 @test:Config
@@ -427,7 +426,7 @@ function testService () {
     test:assertTrue(isHelloServiceStarted, msg = "Hello service failed to start");
 
     // Send a GET request to the specified endpoint
-    var response = httpEndpoint -> get("/hello");
+    var response = httpEndpoint->get("/hello");
     match response {
         http:Response resp => {
             var jsonRes = resp.getJsonPayload();
@@ -456,7 +455,7 @@ service<http:Service> HelloServiceMock bind helloEP {
         http:Response res = new;
         json j = {"Hello":"World"};
         res.setJsonPayload(j);
-        _ = caller -> respond(res);
+        _ = caller->respond(res);
     }
 }
 ```
@@ -486,9 +485,9 @@ test:stopServiceSkeleton(“petstore.service.skeleton”);
 The following sample explains how you can start and stop a skeleton service based on a swagger definition.
 
 ```ballerina
+import ballerina/config;
 import ballerina/http;
 import ballerina/test;
-import ballerina/config;
 
 string uri = "http://0.0.0.0:9095/v1";
 boolean isServiceSkeletonStarted;
@@ -515,14 +514,14 @@ function testService () {
     test:assertTrue(isServiceSkeletonStarted, msg = "Service skeleton failed to start");
 
     // Send a GET request to the specified endpoint
-    var response = httpEndpoint -> get("/pets");
+    var response = httpEndpoint->get("/pets");
     match response {
                http:Response resp => {
                     var strRes = resp.getTextPayload();
                     string expected = "Sample listPets Response";
                     test:assertEquals(strRes, expected);
                }
-               error err => test:assertFail(msg = "Failed to call the endpoint: "+uri);
+               error err => test:assertFail(msg = "Failed to call the endpoint: " + uri);
     }
 }
 ```
