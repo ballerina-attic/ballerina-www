@@ -206,17 +206,17 @@
                                         </li>
                                         
                                         
+                                        
                                         <li>
-                                            <a href="#ObjectsSummary">
+                                            <a href="#EndpointsSummary">
                                                 <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
+                                                    <span class="fw-endpoint"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Objects
+                                                    Endpoints
                                                 </div>
                                             </a>
                                         </li>
-                                        
                                         
                                         
                                         
@@ -240,13 +240,91 @@
                                         <li>
                                             <a href="#Client">
                                                 <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
+                                                    <span class="fw-endpoint"> </span>
                                                 </div>
                                                 <div class="construct-name">
                                                     Client
                                                 </div>
                                             </a>
                                         </li>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Client-call">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        call
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Client-select">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        select
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Client-update">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        update
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Client-batchUpdate">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        batchUpdate
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Client-updateWithGeneratedKeys">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        updateWithGeneratedKeys
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Client-getProxyTable">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        getProxyTable
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
                                             
                                     </ul>
                                 </div>
@@ -405,7 +483,7 @@
 <p>This package provides the functionality required to access and manipulate data stored in any type of relational database that is accessible via Java Database Connectivity (JDBC).</p>
 <h3>Endpoint</h3>
 <p>To access a database, you must first create an <code>endpoint</code>, which is a virtual representation of the physical endpoint that you are trying to connect to. Create an endpoint of the JDBC client type (i.e., <code>jdbc:Client</code>) and provide the necessary connection parameters. This will create a pool of connections to the specified database. A sample for creating an endpoint with a JDBC client can be found below.</p>
-<p><strong>NOTE</strong>: Althought the JDBC client type supports connecting to any type of relational database that is accessible via JDBC, if you are using a MySQL or H2 database, it is recommended to use endpoints that are created using the client types specific to them via the relevant Ballerina packages.</p>
+<p><strong>NOTE</strong>: Although the JDBC client type supports connecting to any type of relational database that is accessible via JDBC, if you are using a MySQL or H2 database, it is recommended to use endpoints that are created using the client types specific to them via the relevant Ballerina packages.</p>
 <h3>Database operations</h3>
 <p>Once the endpoint is created, database operations can be executed through that endpoint. This package provides support for creating tables and executing stored procedures. It also supports selecting, inserting, deleting, updating, and batch updating data. Samples for these operations can be found below. Details of the SQL data types and query parameters relevant for these database operations can be found in the documentation for the SQL package.</p>
 <h2>Samples</h2>
@@ -634,8 +712,10 @@ match rmRet {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ClientEndpointConfiguration">ClientEndpointConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"><p>The Client endpoint configuration for SQL databases.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    The Client endpoint configuration for SQL databases.
+
+    </td>
                                                      </tr>
                                                  
                                              
@@ -645,11 +725,12 @@ match rmRet {
                                          
                                         <!-- objects -->
                                         
-                                        <h3 id="ObjectsSummary"> Objects</h3>
+                                         <!-- endpoints -->
+                                         
+                                        <h3 id="EndpointsSummary"><span class="fw-endpoint sm-icon"></span> Endpoints</h3>
                                          <table class="cSummary-Table c2Col-Medium">
                                              <tr>
-                                                 <th class="cSummary-table-name">Object</th>
-                                              
+                                                 <th class="cSummary-table-name">Endpoint</th>
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              
@@ -658,15 +739,12 @@ match rmRet {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Client">Client</a></td>
-                                                     
-                                                         <td class="cSummary-table-desc"><p>Represents an JDBC SQL client endpoint.</p>
+                                                        <td class="cSummary-table-desc"><p>Represents a JDBC SQL client endpoint.</p>
 </td>
                                                      </tr>
                                                  
                                              
                                          </table>
-                                         
-                                         <!-- endpoints -->
                                          
                                          <!-- functions -->
                                          
@@ -696,8 +774,10 @@ match rmRet {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>The Client endpoint configuration for SQL databases.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    The Client endpoint configuration for SQL databases.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -734,7 +814,7 @@ match rmRet {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">poolOptions</td>
-                                                        <td class="cAPI-table-type"><a href="sql.html#PoolOptions">ballerina.sql:PoolOptions</a></td>
+                                                        <td class="cAPI-table-type"><a href="sql.html#PoolOptions">sql:PoolOptions</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Properties for the connection pool configuration. Refer <code>sql:PoolOptions</code> for more details</p>
 </td>
@@ -742,9 +822,9 @@ match rmRet {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">dbOptions</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>A map of DB specific properties. These properties will be effect only if the dataSourceClassName is provided in poolOptions</p>
+                                                        <td class="cAPI-table-desc"><p>A map of DB specific properties. These properties will have an effect only if the dataSourceClassName is provided in poolOptions</p>
 </td>
                                                     </tr>
                                                     
@@ -763,19 +843,374 @@ match rmRet {
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <h2 id="Client">
+                                                    <span class="fw-endpoint sm-icon"></span>Endpoint Client
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Represents a JDBC SQL client endpoint.</p>
+
+                                                </p>
+                                                  
+                                                <div class="function-wrapper">
+                                                    <ul>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-call">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> call(string sqlQuery, typedesc[]? recordType) returns (table[]|error?) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        The call operation implementation for SQL connector to invoke stored procedures/functions.
+
+        
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">sqlQuery</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">recordType</td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#typedesc">typedesc[]?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table[]</a>|<a href="builtin.html#error">error?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-select">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> select(string sqlQuery, typedesc? recordType, boolean loadToMemory) returns (table|error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        The select operation implementation for SQL connector to select data from tables.
+
+        
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">sqlQuery</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">recordType</td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#typedesc">typedesc?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">loadToMemory</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table</a>|<a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-update">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> update(string sqlQuery) returns (int|error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        The update operation implementation for SQL connector to update data and schema of the database.
+
+        
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">sqlQuery</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-batchUpdate">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> batchUpdate(string sqlQuery) returns (int[]|error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        The batchUpdate operation implementation for SQL connector to batch data insert.
+
+        
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">sqlQuery</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int[]</a>|<a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-updateWithGeneratedKeys">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> updateWithGeneratedKeys(string sqlQuery, string[]? keyColumns) returns ((int,string[])|error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        The updateWithGeneratedKeys operation implementation for SQL connector which returns the auto
+        generated keys during the update action.
+
+        
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">sqlQuery</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">keyColumns</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type">(<a href="primitive-types.html#int">int</a>,<a href="primitive-types.html#string">string[]</a>)|<a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-getProxyTable">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> getProxyTable(string tableName, typedesc recordType) returns (table|error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        The getProxyTable operation implementation for SQL connector which acts as a proxy for a database
+        table that allows performing select/update operations over the actual database table.
+
+        
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">tableName</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">recordType</td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#typedesc">typedesc</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table</a>|<a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                                 
                                                 <!-- Records -->
                                                 
                                                 <!-- Objects and its functions -->
                                                 
-                                                <h2 id="Client">
-                                                    <span class="fw-struct sm-icon"></span> public type Client object
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represents an JDBC SQL client endpoint.</p>
-
-                                                </p>
-                                                   
                                             </div>
                                                 
                                             </div>

@@ -717,15 +717,15 @@ string weekday = time.weekday(); // Day of the week. E.g., “TUESDAY”.
 <h3>Creating a time/date object</h3>
 <pre><code class="language-ballerina">// Create an object of type ‘Time’ with time zone.
 time:Timezone zoneIdValue = {zoneId:&quot;America/Panama&quot;};
-time:Time time1 = new (1498488382000, zoneValue);
+time:Time time1 = new (1498488382000, zoneIdValue);
 
 // Create an object of type ‘Time’ with the time zone offset.
 time:Timezone zoneOffsetValue = {zoneId:&quot;-05:00&quot;};
-time:Time time2 =new (1498488382000, zoneValue);
+time:Time time2 =new (1498488382000, zoneOffsetValue);
 
 // Create an object of type ‘Time’ without the time zone.
 time:Timezone noZoneValue = {zoneId:&quot;&quot;};
-time:Time time3 = new (1498488382000, zoneValue);
+time:Time time3 = new (1498488382000, noZoneValue);
 
 // Create an object of type ‘Time’ with time and date. E.g., 2018-03-28T23:42:45.554-05:00  
 time:Time dateTime = time:createTime(2018, 3, 28, 23, 42, 45, 554, &quot;America/Panama&quot;);
@@ -783,8 +783,9 @@ int diffInMillis = time1.time - time2.time;
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Timezone">Timezone</a></td>
-                                                         <td class="cSummary-table-desc"><p>Ballerina Timezone represents the timezone information associated with a particular time.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    Ballerina Timezone represents the timezone information associated with a particular time.
+    </td>
                                                      </tr>
                                                  
                                              
@@ -940,7 +941,7 @@ int diffInMillis = time1.time - time2.time;
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">TIME_FORMAT_RFC_1123</td>
-                                                <td class="cSummary-table-type"><a href="#TimeFormat">TimeFormat</a></td>
+                                                <td class="cSummary-table-type"><a href="time.html#TimeFormat">TimeFormat</a></td>
                                                 <td class="cSummary-table-desc"></td>
                                             </tr>
                                               
@@ -968,8 +969,9 @@ int diffInMillis = time1.time - time2.time;
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Ballerina Timezone represents the timezone information associated with a particular time.</p>
-
+                                                    <span class="fw-right gray xs-icon"></span>
+    Ballerina Timezone represents the timezone information associated with a particular time.
+    
                                                 </p>
                                                  
                                                 <table>
@@ -1237,7 +1239,7 @@ int diffInMillis = time1.time - time2.time;
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">format</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="#TimeFormat">RFC_1123</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="time.html#TimeFormat">RFC_1123</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The format which is used to parse the given text</p>
 </td>
@@ -1314,7 +1316,7 @@ int diffInMillis = time1.time - time2.time;
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">zone</td>
-                                                        <td class="cAPI-table-type"><a href="time.html#Timezone">time:Timezone</a></td>
+                                                        <td class="cAPI-table-type"><a href="time.html#Timezone">time:0.0.0:Timezone</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The time zone of the time</p>
 </td>
@@ -1330,7 +1332,7 @@ int diffInMillis = time1.time - time2.time;
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Time&gt;
-                                                   </span> new(int time, time:Timezone zone) 
+                                                   </span> new(int time, time:0.0.0:Timezone zone) 
                                                             </h2>
                                                              
                                                             <table>
@@ -1343,14 +1345,14 @@ int diffInMillis = time1.time - time2.time;
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">time</td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#int">int</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">zone</td>
-                                                                    <td class="cAPI-table-type"><a href="time.html#Timezone">time:Timezone</a></td>
+                                                                    <td class="cAPI-table-type"><a href="time.html#Timezone">time:0.0.0:Timezone</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -1416,7 +1418,7 @@ int diffInMillis = time1.time - time2.time;
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">format</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="#TimeFormat">RFC_1123</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="time.html#TimeFormat">RFC_1123</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The format which is used to format the time represented by this object</p>
 </td>

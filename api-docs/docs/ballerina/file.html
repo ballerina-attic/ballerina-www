@@ -164,17 +164,17 @@
                                         </li>
                                         
                                         
+                                        
                                         <li>
-                                            <a href="#ObjectsSummary">
+                                            <a href="#EndpointsSummary">
                                                 <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
+                                                    <span class="fw-endpoint"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Objects
+                                                    Endpoints
                                                 </div>
                                             </a>
                                         </li>
-                                        
                                         
                                         
                                         
@@ -210,7 +210,7 @@
                                         <li>
                                             <a href="#Listener">
                                                 <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
+                                                    <span class="fw-endpoint"> </span>
                                                 </div>
                                                 <div class="construct-name">
                                                     Listener
@@ -417,7 +417,9 @@
 <p>This package contains services that register listeners against a local folder and identify events that create, modify, and delete files.</p>
 <h2>Samples</h2>
 <p>The sample given below shows how an endpoint is used to listen to the local folder. The <code>onCreate()</code> resource method gets invoked when a file is created inside the <code>target/fs</code> folder. Use the <code>onDelete()</code> and <code>onModify()</code> methods to listen to the delete and modify events.</p>
-<pre><code class="language-ballerina">endpoint file:Listener localFolder {
+<pre><code class="language-ballerina">import ballerina/file;
+
+endpoint file:Listener localFolder {
     path:&quot;target/fs&quot;
 };
 service fileSystem bind localFolder {
@@ -446,16 +448,20 @@ service fileSystem bind localFolder {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#FileEvent">FileEvent</a></td>
-                                                         <td class="cSummary-table-desc"><p>Represents an event which will trigger when there is a changes to listining direcotry.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    Represents an event which will trigger when there is a changes to listining direcotry.
+
+    </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ListenerEndpointConfiguration">ListenerEndpointConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"><p>Represents configurations that required for directory listener.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    Represents configurations that required for directory listener.
+
+    </td>
                                                      </tr>
                                                  
                                              
@@ -465,11 +471,12 @@ service fileSystem bind localFolder {
                                          
                                         <!-- objects -->
                                         
-                                        <h3 id="ObjectsSummary"> Objects</h3>
+                                         <!-- endpoints -->
+                                         
+                                        <h3 id="EndpointsSummary"><span class="fw-endpoint sm-icon"></span> Endpoints</h3>
                                          <table class="cSummary-Table c2Col-Medium">
                                              <tr>
-                                                 <th class="cSummary-table-name">Object</th>
-                                              
+                                                 <th class="cSummary-table-name">Endpoint</th>
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              
@@ -480,15 +487,12 @@ service fileSystem bind localFolder {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Listener">Listener</a></td>
-                                                     
-                                                         <td class="cSummary-table-desc"><p>Represents directory listener endpoint where used to listen to a directory in the local file system.</p>
+                                                        <td class="cSummary-table-desc"><p>Represents directory listener endpoint where used to listen to a directory in the local file system.</p>
 </td>
                                                      </tr>
                                                  
                                              
                                          </table>
-                                         
-                                         <!-- endpoints -->
                                          
                                          <!-- functions -->
                                          
@@ -518,8 +522,10 @@ service fileSystem bind localFolder {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represents an event which will trigger when there is a changes to listining direcotry.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    Represents an event which will trigger when there is a changes to listining direcotry.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -568,8 +574,10 @@ service fileSystem bind localFolder {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represents configurations that required for directory listener.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    Represents configurations that required for directory listener.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -611,12 +619,8 @@ service fileSystem bind localFolder {
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
                                                 <h2 id="Listener">
-                                                    <span class="fw-struct sm-icon"></span> public type Listener object
+                                                    <span class="fw-endpoint sm-icon"></span>Endpoint Listener
                                                 </h2>
                                                 
                                                 <p>
@@ -624,6 +628,10 @@ service fileSystem bind localFolder {
 
                                                 </p>
                                                    
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
                                             </div>
                                                 
                                             </div>
