@@ -183,6 +183,17 @@
                                         </li>
                                         
                                         
+                                        <li>
+                                            <a href="#EndpointsSummary">
+                                                <div class="construct-icon">
+                                                    <span class="fw-endpoint"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Endpoints
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
                                         
                                         
                                         
@@ -421,18 +432,6 @@
                                             
                                           
                                         <li>
-                                            <a href="#Client">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Client
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
                                             <a href="#GrpcClient">
                                                 <div class="construct-icon">
                                                     <span class="fw-struct"> </span>
@@ -587,18 +586,6 @@
                                             
                                           
                                         <li>
-                                            <a href="#Listener">
-                                                <div class="construct-icon">
-                                                    <span class="fw-struct"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Listener
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
                                             <a href="#Service">
                                                 <div class="construct-icon">
                                                     <span class="fw-struct"> </span>
@@ -668,6 +655,121 @@
                                                     </div>
                                                     <div class="construct-name">
                                                         streamingExecute
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                            
+                                          
+                                        <li>
+                                            <a href="#Client">
+                                                <div class="construct-icon">
+                                                    <span class="fw-endpoint"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Client
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Client-send">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        send
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Client-complete">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        complete
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Client-sendError">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        sendError
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                            
+                                          
+                                        <li>
+                                            <a href="#Listener">
+                                                <div class="construct-icon">
+                                                    <span class="fw-endpoint"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Listener
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Listener-send">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        send
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Listener-complete">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        complete
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Listener-isCancelled">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        isCancelled
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Listener-sendError">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        sendError
                                                     </div>
                                                 </a>
                                             </li>
@@ -1099,96 +1201,120 @@ _ = ep -&gt; complete();
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ClientEndpointConfig">ClientEndpointConfig</a></td>
-                                                         <td class="cSummary-table-desc"><p>Represents client endpoint configuration.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    Represents client endpoint configuration.
+
+    </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#GrpcResourceConfig">GrpcResourceConfig</a></td>
-                                                         <td class="cSummary-table-desc"><p>Service resource configuration. Sets only for server streaming service.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    Service resource configuration. Sets only for server streaming service.
+
+    </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#GrpcServiceConfig">GrpcServiceConfig</a></td>
-                                                         <td class="cSummary-table-desc"><p>Service configuration. Sets only for client and bidirectional streaming service.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    Service configuration. Sets only for client and bidirectional streaming service.
+
+    </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#KeyStore">KeyStore</a></td>
-                                                         <td class="cSummary-table-desc"><p>KeyStore record represents key store related options to be used for HTTP client/service invocation.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    KeyStore record represents key store related options to be used for HTTP client/service invocation.
+
+    </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Protocols">Protocols</a></td>
-                                                         <td class="cSummary-table-desc"><p>Protocols record represents SSL/TLS protocol related options to be used for HTTP client/service invocation.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    Protocols record represents SSL/TLS protocol related options to be used for HTTP client/service invocation.
+
+    </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#SecureSocket">SecureSocket</a></td>
-                                                         <td class="cSummary-table-desc"><p>SecureSocket struct represents SSL/TLS options to be used for gRPC client invocation.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    SecureSocket struct represents SSL/TLS options to be used for gRPC client invocation.
+
+    </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ServiceDescriptorData">ServiceDescriptorData</a></td>
-                                                         <td class="cSummary-table-desc"><p>Service descriptor data. This is for internal use.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    Service descriptor data. This is for internal use.
+
+    </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ServiceEndpointConfiguration">ServiceEndpointConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"><p>Represents the gRPC server endpoint configuration.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    Represents the gRPC server endpoint configuration.
+
+    </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ServiceOcspStapling">ServiceOcspStapling</a></td>
-                                                         <td class="cSummary-table-desc"><p>OcspStapling record represents options related to check whether a certificate is revoked or not.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    OcspStapling record represents options related to check whether a certificate is revoked or not.
+
+    </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ServiceSecureSocket">ServiceSecureSocket</a></td>
-                                                         <td class="cSummary-table-desc"><p>SecureSocket struct represents SSL/TLS options to be used for gRPC service.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    SecureSocket struct represents SSL/TLS options to be used for gRPC service.
+
+    </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#TrustStore">TrustStore</a></td>
-                                                         <td class="cSummary-table-desc"><p>TrustStore record represents trust store related options to be used for HTTP client/service invocation.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    TrustStore record represents trust store related options to be used for HTTP client/service invocation.
+
+    </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ValidateCert">ValidateCert</a></td>
-                                                         <td class="cSummary-table-desc"><p>ValidateCert record represents options related to check whether a certificate is revoked or not.</p>
-</td>
+                                                         <td class="cSummary-table-desc">
+    ValidateCert record represents options related to check whether a certificate is revoked or not.
+
+    </td>
                                                      </tr>
                                                  
                                              
@@ -1293,16 +1419,6 @@ _ = ep -&gt; complete();
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#Client">Client</a></td>
-                                                     
-                                                         <td class="cSummary-table-desc"><p>The gRPC client endpoint provides the capability for initiating contact with a remote gRPC service. The API it
-provides includes functions to send request/error messages.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#GrpcClient">GrpcClient</a></td>
                                                      
                                                          <td class="cSummary-table-desc"><p>Provides the gRPC actions for interacting with gRPC server.</p>
@@ -1315,16 +1431,6 @@ provides includes functions to send request/error messages.</p>
                                                          <td class="cSummary-table-name"><a href="#Headers">Headers</a></td>
                                                      
                                                          <td class="cSummary-table-desc"><p>Provides actions to read/write header values in gRPC request/response message.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#Listener">Listener</a></td>
-                                                     
-                                                         <td class="cSummary-table-desc"><p>Represents service endpoint where one or more services can be registered. so that ballerina program can offer
-service through this endpoint.</p>
 </td>
                                                      </tr>
                                                  
@@ -1387,9 +1493,114 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                              
                                                  
                                              
+                                                 
+                                             
+                                                 
+                                             
                                          </table>
                                          
                                          <!-- endpoints -->
+                                         
+                                        <h3 id="EndpointsSummary"><span class="fw-endpoint sm-icon"></span> Endpoints</h3>
+                                         <table class="cSummary-Table c2Col-Medium">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Endpoint</th>
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#Client">Client</a></td>
+                                                        <td class="cSummary-table-desc"><p>The gRPC client endpoint provides the capability for initiating contact with a remote gRPC service. The API it
+provides includes functions to send request/error messages.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#Listener">Listener</a></td>
+                                                        <td class="cSummary-table-desc"><p>Represents service endpoint where one or more services can be registered. so that ballerina program can offer
+service through this endpoint.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                         </table>
                                          
                                          <!-- functions -->
                                          
@@ -1662,8 +1873,10 @@ execution.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represents client endpoint configuration.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    Represents client endpoint configuration.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -1686,7 +1899,7 @@ execution.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">secureSocket</td>
-                                                        <td class="cAPI-table-type"><a href="#SecureSocket">grpc:SecureSocket?</a></td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#SecureSocket">grpc:0.0.0:SecureSocket?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
 <li>The SSL configurations for the client endpoint.</li>
@@ -1716,8 +1929,10 @@ execution.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Service resource configuration. Sets only for server streaming service.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    Service resource configuration. Sets only for server streaming service.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -1761,8 +1976,10 @@ multiple responses per request.</li>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Service configuration. Sets only for client and bidirectional streaming service.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    Service configuration. Sets only for client and bidirectional streaming service.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -1829,8 +2046,10 @@ sets to true, if the service defines as bidirectional streaming.</li>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>KeyStore record represents key store related options to be used for HTTP client/service invocation.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    KeyStore record represents key store related options to be used for HTTP client/service invocation.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -1879,8 +2098,10 @@ sets to true, if the service defines as bidirectional streaming.</li>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Protocols record represents SSL/TLS protocol related options to be used for HTTP client/service invocation.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    Protocols record represents SSL/TLS protocol related options to be used for HTTP client/service invocation.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -1929,8 +2150,10 @@ sets to true, if the service defines as bidirectional streaming.</li>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>SecureSocket struct represents SSL/TLS options to be used for gRPC client invocation.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    SecureSocket struct represents SSL/TLS options to be used for gRPC client invocation.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -1943,7 +2166,7 @@ sets to true, if the service defines as bidirectional streaming.</li>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">trustStore</td>
-                                                        <td class="cAPI-table-type"><a href="#TrustStore">grpc:TrustStore?</a></td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#TrustStore">grpc:0.0.0:TrustStore?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
 <li>TrustStore related options.</li>
@@ -1953,7 +2176,7 @@ sets to true, if the service defines as bidirectional streaming.</li>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keyStore</td>
-                                                        <td class="cAPI-table-type"><a href="#KeyStore">grpc:KeyStore?</a></td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#KeyStore">grpc:0.0.0:KeyStore?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
 <li>KeyStore related options.</li>
@@ -1963,7 +2186,7 @@ sets to true, if the service defines as bidirectional streaming.</li>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">protocol</td>
-                                                        <td class="cAPI-table-type"><a href="#Protocols">grpc:Protocols?</a></td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#Protocols">grpc:0.0.0:Protocols?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
 <li>SSL/TLS protocol related options.</li>
@@ -1973,7 +2196,7 @@ sets to true, if the service defines as bidirectional streaming.</li>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">certValidation</td>
-                                                        <td class="cAPI-table-type"><a href="#ValidateCert">grpc:ValidateCert?</a></td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#ValidateCert">grpc:0.0.0:ValidateCert?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
 <li>Certificate validation against CRL or OCSP related options.</li>
@@ -2044,8 +2267,10 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Service descriptor data. This is for internal use.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    Service descriptor data. This is for internal use.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -2088,8 +2313,10 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represents the gRPC server endpoint configuration.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    Represents the gRPC server endpoint configuration.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -2122,7 +2349,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">secureSocket</td>
-                                                        <td class="cAPI-table-type"><a href="#ServiceSecureSocket">grpc:ServiceSecureSocket?</a></td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#ServiceSecureSocket">grpc:0.0.0:ServiceSecureSocket?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
 <li>The SSL configurations for the client endpoint.</li>
@@ -2152,8 +2379,10 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>OcspStapling record represents options related to check whether a certificate is revoked or not.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    OcspStapling record represents options related to check whether a certificate is revoked or not.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -2210,8 +2439,10 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>SecureSocket struct represents SSL/TLS options to be used for gRPC service.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    SecureSocket struct represents SSL/TLS options to be used for gRPC service.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -2224,7 +2455,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">trustStore</td>
-                                                        <td class="cAPI-table-type"><a href="#TrustStore">grpc:TrustStore?</a></td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#TrustStore">grpc:0.0.0:TrustStore?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
 <li>TrustStore related options.</li>
@@ -2234,7 +2465,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keyStore</td>
-                                                        <td class="cAPI-table-type"><a href="#KeyStore">grpc:KeyStore?</a></td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#KeyStore">grpc:0.0.0:KeyStore?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
 <li>KeyStore related options.</li>
@@ -2244,7 +2475,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">protocol</td>
-                                                        <td class="cAPI-table-type"><a href="#Protocols">grpc:Protocols?</a></td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#Protocols">grpc:0.0.0:Protocols?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
 <li>SSL/TLS protocol related options.</li>
@@ -2254,7 +2485,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">certValidation</td>
-                                                        <td class="cAPI-table-type"><a href="#ValidateCert">grpc:ValidateCert?</a></td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#ValidateCert">grpc:0.0.0:ValidateCert?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
 <li>Certificate validation against CRL or OCSP related options.</li>
@@ -2295,7 +2526,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">ocspStapling</td>
-                                                        <td class="cAPI-table-type"><a href="#ServiceOcspStapling">grpc:ServiceOcspStapling?</a></td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#ServiceOcspStapling">grpc:0.0.0:ServiceOcspStapling?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
 <li>Enable/disable ocsp stapling.</li>
@@ -2325,8 +2556,10 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>TrustStore record represents trust store related options to be used for HTTP client/service invocation.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    TrustStore record represents trust store related options to be used for HTTP client/service invocation.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -2375,8 +2608,10 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>ValidateCert record represents options related to check whether a certificate is revoked or not.</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    ValidateCert record represents options related to check whether a certificate is revoked or not.
 
+    
                                                 </p>
                                                  
                                                 <table>
@@ -2447,7 +2682,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerAction&gt;
-                                                   </span> send(any res, grpc:Headers? headers) returns (error) 
+                                                   </span> send(any res, grpc:0.0.0:Headers? headers) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2465,7 +2700,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">res</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#any">any</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#any">any</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>The outbound response message.</li>
@@ -2475,7 +2710,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
-                                                                    <td class="cAPI-table-type"><a href="#Headers">grpc:Headers?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:0.0.0:Headers?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Optional headers parameter. Passes header value if needed. Default sets to nil.</li>
@@ -2496,7 +2731,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Returns an error if encounters an error while sending the response, returns nil otherwise.</li>
@@ -2513,7 +2748,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerAction&gt;
-                                                   </span> complete(grpc:Headers? headers) returns (error) 
+                                                   </span> complete(grpc:0.0.0:Headers? headers) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2531,7 +2766,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
-                                                                    <td class="cAPI-table-type"><a href="#Headers">grpc:Headers?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:0.0.0:Headers?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Optional headers parameter. Passes header value if needed. Default sets to nil.</li>
@@ -2552,7 +2787,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Returns an error if encounters an error while sending the response, returns nil otherwise.</li>
@@ -2605,7 +2840,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerAction&gt;
-                                                   </span> sendError(int statusCode, string message, grpc:Headers? headers) returns (error) 
+                                                   </span> sendError(int statusCode, string message, grpc:0.0.0:Headers? headers) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2643,7 +2878,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
-                                                                    <td class="cAPI-table-type"><a href="#Headers">grpc:Headers?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:0.0.0:Headers?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Optional headers parameter. Passes header value if needed. Default sets to nil.</li>
@@ -2664,7 +2899,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Returns an error if encounters an error while sending the response, returns nil otherwise.</li>
@@ -2679,31 +2914,6 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.</li>
                                                     </ul>
                                                 </div>
                                                  
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                                <h2 id="Client">
-                                                    <span class="fw-struct sm-icon"></span> public type Client object
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>The gRPC client endpoint provides the capability for initiating contact with a remote gRPC service. The API it
-provides includes functions to send request/error messages.</p>
-
-                                                </p>
-                                                   
                                             </div>
                                                 
                                             <div class="construct-wrapper">
@@ -2754,7 +2964,7 @@ provides includes functions to send request/error messages.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">res</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#any">any</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#any">any</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>The inbound request message.</li>
@@ -2775,7 +2985,7 @@ provides includes functions to send request/error messages.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Returns an error if encounters an error while sending the response, returns nil otherwise.</li>
@@ -2811,7 +3021,7 @@ provides includes functions to send request/error messages.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Returns an error if encounters an error while sending the response, returns nil otherwise.</li>
@@ -2877,7 +3087,7 @@ provides includes functions to send request/error messages.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Returns an error if encounters an error while sending the response, returns nil otherwise.</li>
@@ -3020,7 +3230,7 @@ specified header name, the first value is returned.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="">string</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Returns first header value if exists, nil otherwise.</li>
@@ -3246,51 +3456,6 @@ specified header name, the first value is returned.</p>
                                                 
                                                 <!-- Objects and its functions -->
                                                 
-                                                <h2 id="Listener">
-                                                    <span class="fw-struct sm-icon"></span> public type Listener object
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represents service endpoint where one or more services can be registered. so that ballerina program can offer
-service through this endpoint.</p>
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Field Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">id</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Caller endpoint id.</li>
-</ul>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                  
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
                                                 <h2 id="Service">
                                                     <span class="fw-struct sm-icon"></span> public type Service object
                                                 </h2>
@@ -3330,7 +3495,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">client</td>
-                                                        <td class="cAPI-table-type"><a href="grpc.html#Client">grpc:Client</a></td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#Client">grpc:0.0.0:Client</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
@@ -3363,7 +3528,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">clientEndpoint</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#any">any</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#any">any</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>client endpoint struct.</li>
@@ -3393,7 +3558,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">descriptorMap</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Proto descriptor map. descriptor map with all dependent descriptors.</li>
@@ -3410,7 +3575,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Stub&gt;
-                                                   </span> blockingExecute(string methodID, any payload, grpc:Headers? headers) returns ((any,Headers) | error) 
+                                                   </span> blockingExecute(string methodID, any payload, grpc:0.0.0:Headers? headers) returns ((any,Headers) | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3438,7 +3603,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">payload</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#any">any</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#any">any</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Request message. Message type varies with remote service method parameter.</li>
@@ -3448,7 +3613,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
-                                                                    <td class="cAPI-table-type"><a href="#Headers">grpc:Headers?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:0.0.0:Headers?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Optional headers parameter. Passes header value if needed. Default sets to nil.</li>
@@ -3469,7 +3634,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type">(<a href="primitive-types.html#any">any</a>,<a href="grpc.html#Headers">Headers</a>) | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type">(<a href="builtin.html#any">any</a>,<a href="grpc.html#Headers">Headers</a>) | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Returns response message and headers if executes successfully, error otherwise.</li>
@@ -3486,7 +3651,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Stub&gt;
-                                                   </span> nonBlockingExecute(string methodID, any payload, typedesc listenerService, grpc:Headers? headers) returns (error) 
+                                                   </span> nonBlockingExecute(string methodID, any payload, typedesc listenerService, grpc:0.0.0:Headers? headers) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3514,7 +3679,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">payload</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#any">any</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#any">any</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Request message. Message type varies with remote service method parameter..</li>
@@ -3524,7 +3689,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">listenerService</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#typedesc">typedesc</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#typedesc">typedesc</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Call back listener service. This service listens the response message from service.</li>
@@ -3534,7 +3699,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
-                                                                    <td class="cAPI-table-type"><a href="#Headers">grpc:Headers?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:0.0.0:Headers?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Optional headers parameter. Passes header value if needed. Default sets to nil.</li>
@@ -3555,7 +3720,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Returns an error if encounters an error while sending the request, returns nil otherwise.</li>
@@ -3572,7 +3737,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Stub&gt;
-                                                   </span> streamingExecute(string methodID, typedesc listenerService, grpc:Headers? headers) returns (Client | error) 
+                                                   </span> streamingExecute(string methodID, typedesc listenerService, grpc:0.0.0:Headers? headers) returns (Client | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3600,7 +3765,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">listenerService</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#typedesc">typedesc</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#typedesc">typedesc</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Call back listener service. This service listens the response message from service.</li>
@@ -3610,7 +3775,7 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
-                                                                    <td class="cAPI-table-type"><a href="#Headers">grpc:Headers?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:0.0.0:Headers?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Optional headers parameter. Passes header value if needed. Default sets to nil.</li>
@@ -3646,6 +3811,446 @@ Generated client endpoint actions uses these functions to interact with gRPC ser
                                                     </ul>
                                                 </div>
                                                  
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <h2 id="Client">
+                                                    <span class="fw-endpoint sm-icon"></span>Endpoint Client
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>The gRPC client endpoint provides the capability for initiating contact with a remote gRPC service. The API it
+provides includes functions to send request/error messages.</p>
+
+                                                </p>
+                                                  
+                                                <div class="function-wrapper">
+                                                    <ul>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-send">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> send(any res) returns (error?) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        Sends request message to the server.
+
+        
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">res</td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#any">any</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-complete">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> complete() returns (error?) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        Informs the server, caller finished sending messages.
+
+        
+                                                            </p>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-sendError">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> sendError(int statusCode, string message) returns (error?) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        Sends error message to the server.
+
+        
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">statusCode</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">message</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                                 
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <h2 id="Listener">
+                                                    <span class="fw-endpoint sm-icon"></span>Endpoint Listener
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Represents service endpoint where one or more services can be registered. so that ballerina program can offer
+service through this endpoint.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">id</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Caller endpoint id.</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="function-wrapper">
+                                                    <ul>
+                                                        
+                                                        <li>
+                                                            <h2 id="Listener-send">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Listener&gt;
+                                                   </span> send(any res, grpc:0.0.0:Headers? headers) returns (error?) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        Sends outbound response to the caller.
+
+        
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">res</td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#any">any</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">headers</td>
+                                                                    <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:0.0.0:Headers?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Listener-complete">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Listener&gt;
+                                                   </span> complete(grpc:0.0.0:Headers? headers) returns (error?) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        Informs the caller, server finished sending messages.
+
+        
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">headers</td>
+                                                                    <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:0.0.0:Headers?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Listener-isCancelled">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Listener&gt;
+                                                   </span> isCancelled() returns (boolean) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        Checks whether the connection is closed by the caller.
+
+        
+                                                            </p>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Listener-sendError">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Listener&gt;
+                                                   </span> sendError(int statusCode, string message, grpc:0.0.0:Headers? headers) returns (error?) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>
+        Sends server error to the caller.
+
+        
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">statusCode</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">message</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">headers</td>
+                                                                    <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:0.0.0:Headers?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                                 
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
                                             </div>
                                                 
                                             <div class="construct-wrapper">

@@ -437,11 +437,10 @@
 <h3>Calculating CRC</h3>
 <p>The <code>crc32</code> function can be used to calculate CRC on input types such as string, xml , json, and blobs.</p>
 <h2>Samples</h2>
-<h3>Sample hash function</h3>
 <pre><code class="language-ballerina">import ballerina/io;
 import ballerina/crypto;
 
-function main(string[] args) {
+function main(string... args) {
      // The string content to be hashed.
      string input = &quot;Hello Ballerina&quot;;
      // The key used for hashing when required.
@@ -565,7 +564,7 @@ function main(string[] args) {
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">MD5</td>
-                                                <td class="cSummary-table-type"><a href="#Algorithm">Algorithm</a></td>
+                                                <td class="cSummary-table-type"><a href="crypto.html#Algorithm">Algorithm</a></td>
                                                 <td class="cSummary-table-desc"><p>The <code>MD5</code> hashing algorithm</p>
 </td>
                                             </tr>
@@ -573,7 +572,7 @@ function main(string[] args) {
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">SHA1</td>
-                                                <td class="cSummary-table-type"><a href="#Algorithm">Algorithm</a></td>
+                                                <td class="cSummary-table-type"><a href="crypto.html#Algorithm">Algorithm</a></td>
                                                 <td class="cSummary-table-desc"><p>The <code>SHA1</code> hashing algorithm&quot;</p>
 </td>
                                             </tr>
@@ -581,7 +580,7 @@ function main(string[] args) {
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">SHA256</td>
-                                                <td class="cSummary-table-type"><a href="#Algorithm">Algorithm</a></td>
+                                                <td class="cSummary-table-type"><a href="crypto.html#Algorithm">Algorithm</a></td>
                                                 <td class="cSummary-table-desc"><p>The <code>SHA256</code> hashing algorithm</p>
 </td>
                                             </tr>
@@ -618,7 +617,7 @@ function main(string[] args) {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">content</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#any">any</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#any">any</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The content to be hashed</p>
 </td>
@@ -687,7 +686,7 @@ function main(string[] args) {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">algorithm</td>
-                                                        <td class="cAPI-table-type"><a href="#Algorithm">MD5</a>|SHA1|SHA256</td>
+                                                        <td class="cAPI-table-type"><a href="crypto.html#Algorithm">MD5</a>|SHA1|SHA256</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The hashing algorithm to be used</p>
 </td>
@@ -764,7 +763,7 @@ function main(string[] args) {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">algorithm</td>
-                                                        <td class="cAPI-table-type"><a href="#Algorithm">MD5</a>|SHA1|SHA256</td>
+                                                        <td class="cAPI-table-type"><a href="crypto.html#Algorithm">MD5</a>|SHA1|SHA256</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The hashing algorithm to be used</p>
 </td>

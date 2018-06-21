@@ -608,7 +608,7 @@
                                                 <h2>Package Overview</h2>
 <p>This package provides a set of default authentication store providers that can be extended to create new authentication store providers.</p>
 <h3>Authentication Store Provider</h3>
-<p>An authentication Store provider defines an authentication scheme that could be used to protect endpoints. The <code>auth:AuthStoreProvider</code> type acts as the interface for all the authentication providers. Any type of implementation, such as LDAP, JDBC, and file based, should be object-wise similar.</p>
+<p>An authentication store provider defines an authentication scheme that could be used to protect endpoints. The <code>auth:AuthStoreProvider</code> type acts as the interface for all the authentication providers. Any type of implementation, such as LDAP, JDBC, and file based, should be object-wise similar.</p>
 <p>By default, there are two implementations of the <code>auth:AuthProvider</code>. They are, the <code>auth:ConfigAuthProvider</code>, which authenticates based on usernames and passwords stored in a configuration file, and the <code>auth:JWTAuthProvider</code>, which authenticates by validating a JWT. It is possible to implement more such authentication mechanisms.</p>
 <p>When creating a new authentication provider, there are two functions that need to be implemented.</p>
 <ul>
@@ -652,7 +652,8 @@ scopes=&quot;&lt;comma_separated_scopes&gt;&quot;
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#JWTAuthProviderConfig">JWTAuthProviderConfig</a></td>
-                                                         <td class="cSummary-table-desc"><p>Represents JWT validator configurations</p>
+                                                         <td class="cSummary-table-desc">
+    Represents JWT validator configurations
 </td>
                                                      </tr>
                                                  
@@ -834,7 +835,8 @@ LDAP, JDBC, file based, etc. should be object-wise similar</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represents JWT validator configurations</p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    Represents JWT validator configurations
 
                                                 </p>
                                                  
@@ -1357,14 +1359,14 @@ LDAP, JDBC, file based, etc. should be object-wise similar</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">configJwtAuthProviderConfig</td>
-                                                        <td class="cAPI-table-type"><a href="auth.html#ConfigJwtAuthProviderConfig">auth:ConfigJwtAuthProviderConfig</a></td>
+                                                        <td class="cAPI-table-type"><a href="auth.html#ConfigJwtAuthProviderConfig">auth:0.0.0:ConfigJwtAuthProviderConfig</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">configAuthProvider</td>
-                                                        <td class="cAPI-table-type"><a href="auth.html#ConfigAuthStoreProvider">auth:ConfigAuthStoreProvider</a></td>
+                                                        <td class="cAPI-table-type"><a href="auth.html#ConfigAuthStoreProvider">auth:0.0.0:ConfigAuthStoreProvider</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
@@ -1379,7 +1381,7 @@ LDAP, JDBC, file based, etc. should be object-wise similar</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ConfigJwtAuthProvider&gt;
-                                                   </span> new(auth:ConfigJwtAuthProviderConfig configJwtAuthProviderConfig) 
+                                                   </span> new(auth:0.0.0:ConfigJwtAuthProviderConfig configJwtAuthProviderConfig) 
                                                             </h2>
                                                              
                                                             <table>
@@ -1392,7 +1394,7 @@ LDAP, JDBC, file based, etc. should be object-wise similar</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">configJwtAuthProviderConfig</td>
-                                                                    <td class="cAPI-table-type"><a href="auth.html#ConfigJwtAuthProviderConfig">auth:ConfigJwtAuthProviderConfig</a></td>
+                                                                    <td class="cAPI-table-type"><a href="auth.html#ConfigJwtAuthProviderConfig">auth:0.0.0:ConfigJwtAuthProviderConfig</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -1535,7 +1537,7 @@ LDAP, JDBC, file based, etc. should be object-wise similar</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">jwtAuthProviderConfig</td>
-                                                        <td class="cAPI-table-type"><a href="auth.html#JWTAuthProviderConfig">auth:JWTAuthProviderConfig</a></td>
+                                                        <td class="cAPI-table-type"><a href="auth.html#JWTAuthProviderConfig">auth:0.0.0:JWTAuthProviderConfig</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
@@ -1550,7 +1552,7 @@ LDAP, JDBC, file based, etc. should be object-wise similar</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;JWTAuthProvider&gt;
-                                                   </span> new(auth:JWTAuthProviderConfig jwtAuthProviderConfig) 
+                                                   </span> new(auth:0.0.0:JWTAuthProviderConfig jwtAuthProviderConfig) 
                                                             </h2>
                                                              
                                                             <table>
@@ -1563,7 +1565,7 @@ LDAP, JDBC, file based, etc. should be object-wise similar</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">jwtAuthProviderConfig</td>
-                                                                    <td class="cAPI-table-type"><a href="auth.html#JWTAuthProviderConfig">auth:JWTAuthProviderConfig</a></td>
+                                                                    <td class="cAPI-table-type"><a href="auth.html#JWTAuthProviderConfig">auth:0.0.0:JWTAuthProviderConfig</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
