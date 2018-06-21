@@ -178,7 +178,7 @@ docerina: HTML file written: /private/tmp/myproject/target/api-docs/package-list
 `target/api-docs/html` folder would contain following files;
 ```bash
 $ ls target/api-docs/html/
-docerina-theme    index.html    math.html   package-list.html time.html
+docerina-theme    index.html    math.html   package-list.html   time.html
 ```
 
 * `index.html`  - contains an index to the ballerina project documentation
