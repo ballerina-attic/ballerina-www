@@ -169,20 +169,16 @@ $ ballerina doc
 Output:
 ```bash
 docerina: API documentation generation for sources - [math, time]
-HTML file written: /private/tmp/myproject/api-docs/html/math.html
-HTML file written: /private/tmp/myproject/api-docs/html/index.html
-HTML file written: /private/tmp/myproject/api-docs/html/package-list.html
-HTML file written: /private/tmp/myproject/api-docs/html/math.html
-HTML file written: /private/tmp/myproject/api-docs/html/time.html
-HTML file written: /private/tmp/myproject/api-docs/html/index.html
-HTML file written: /private/tmp/myproject/api-docs/html/package-list.html
+docerina: HTML file written: /private/tmp/myproject/target/api-docs/math.html
+docerina: HTML file written: /private/tmp/myproject/target/api-docs/time.html
+docerina: HTML file written: /private/tmp/myproject/target/api-docs/index.html
+docerina: HTML file written: /private/tmp/myproject/target/api-docs/package-list.html
 ```
 
-`api-docs/html` folder would contain following files;
+`target/api-docs/html` folder would contain following files;
 ```bash
-$ ls api-docs/html/
-docerina-theme    index.html    math.html   package-list.html 
-time.html
+$ ls target/api-docs/html/
+docerina-theme    index.html    math.html   package-list.html time.html
 ```
 
 * `index.html`  - contains an index to the ballerina project documentation
