@@ -20,12 +20,12 @@ ENV DEBUG_PORT 5005
 
 RUN apk update && apk add bash
 
-COPY ballerina-tools.zip /root/
+COPY ballerina-platform.zip /root/
 RUN mkdir /ballerina \
-    && unzip /root/ballerina-tools.zip -d /ballerina/ \
+    && unzip /root/ballerina-platform.zip -d /ballerina/ \
     && mv /ballerina/ballerina* /ballerina/runtime \
     && mkdir -p /ballerina/runtime/logs \
-    && rm /root/ballerina-tools.zip
+    && rm /root/ballerina-platform.zip
 ENV BALLERINA_HOME /ballerina/runtime
 
 RUN mkdir /api/
