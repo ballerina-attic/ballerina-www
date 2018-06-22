@@ -60,9 +60,9 @@ function main(string... args) {
 }
 ```
 
-In this example, the endpoint is going to instantiate a `TwilioClient` object. This object takes an input parameter defined as a `clientConfig` object. The `clientConfig` object includes an `auth` object which is part of the `http:Client` connector, which is distributed as part of the standard library.
+In this example, the endpoint is going to instantiate a `TwilioClient` object. This object takes an input parameter defined as a `clientConfig` object. The `clientConfig` object includes an `auth` object, which is part of the `http:Client` connector, which is distributed as part of the standard library.
 
-The Twilio connector then defines a custom function, `getAccountDetails()` which is called by the end user to interact with the endpoint. The package developer will also implement a `TwilioClient::init()` method which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
+The Twilio connector then defines a custom function, `getAccountDetails()` which is called by the end user to interact with the endpoint. The package developer will also implement a `TwilioClient::init()` method, which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
 
 ### The TwilioClient Object
 
@@ -147,7 +147,7 @@ public function TwilioClient::init(TwilioConfiguration config) {
 
 ### Implement the `getCallerActions()` Function for the Connector
 
-The `getClient()` function is called whenever the system needs to return an active connection to the end user developer for use in their code. We've already initialized the connection and its saved within the TwilioClient object.
+The `getCallerActions()` function is called whenever the system needs to return an active connection to the end user developer for use in their code. We have already initialized the connection and it is saved within the TwilioClient object.
 
 ```ballerina
 public function TwilioClient::getCallerActions() returns TwilioConnector {
@@ -157,7 +157,7 @@ public function TwilioClient::getCallerActions() returns TwilioConnector {
 
 ### Implement Custom Functions For Endpoint Interaction
 
-While the `TwilioClient` object implements `init()` and `getCallerActions()`, if you want to explose custom actions for your end users to use against the connector, these are defined in the `TwilioConnector` object which was initialized and stored as a reference to the `TwilioClient` object. You can add as many or as few custom functions to this object.
+While the `TwilioClient` object implements `init()` and `getCallerActions()`, if you want to expose custom actions for your end users to use against the connector, these are defined in the `TwilioConnector` object, which was initialized and stored as a reference to the `TwilioClient` object. You can add as many or as few custom functions to this object.
 
 In our example, we added a `getAccountDetails()` function that can be invoked as part of the endpoint by the end user:
 
@@ -210,7 +210,7 @@ For more information on how to structure the code you write, see [How to Structu
 
 ### Learn More
 
-You can create connectors for a range of protocols and interfaces, including those endpoints which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
+You can create connectors for a range of protocols and interfaces, including those endpoints, which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
 
 1. A [Hello Gatsby client](https://github.com/muthulee/package-twilio-super-simple/blob/master/hello/hello_world_endpoint.bal), which is a minimal custom client.
 
