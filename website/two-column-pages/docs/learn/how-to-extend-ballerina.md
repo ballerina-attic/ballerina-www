@@ -16,11 +16,11 @@ To create a client connector, you:
 
 1. Create a Ballerina package in a Ballerina project.
 
-2. Create an object with an `init()` and `getClient()` function.
+2. Create an object with an `init()` and `getCallerActions()` function.
 
 3. Implement the `init()` function, which is called when the user instantiates an endpoint.
 
-4. Implement the `getClient()` function, which is called when the connection must be returned.
+4. Implement the `getCallerActions()` function, which is called when the connection must be returned.
 
 5. Build the package and push it into a registry for usage by others.
 
@@ -28,9 +28,9 @@ To create a client connector, you:
 
 You can see the source code for this example at:
 
-1. [Single file](https://github.com/muthulee/package-twilio-super-simple/blob/master/twilio/twilio_endpoint.bal) version (easier for reading).
+1. [Single file](https://github.com/wso2-ballerina/package-twilio/blob/master/guide/twilio_sample.bal) version (easier for reading).
 
-2. [Multiple files](https://github.com/muthulee/package-client-endpoint-guide/tree/master/clientendpointsample) version (split across files following good project structure).
+2. [Multiple files](https://github.com/wso2-ballerina/package-twilio/tree/master/twilio) version (split across files following good project structure).
 
 WSO2 has created a connector for Twilio and pushed it into Ballerina Central as `wso2/twilio`. You can find this connector on the command line:
 
@@ -44,11 +44,11 @@ The Twilio connector reuses the HTTP client connector and adds some additional p
 import ballerina/http;
 import wso2/twilio;
 
-function main(string[] args) {
+function main(string... args) {
     endpoint TwilioClient twilioClient {
-        clientConfig:{
-            auth:{
-                scheme:"basic",
+        clientConfig: {
+            auth: {
+                scheme: http:BASIC_AUTH,
                 username: "",
                 password: ""
             }
@@ -69,7 +69,7 @@ The Twilio connector then defines a custom function, `getAccountDetails()` which
 The connector is a data structure that is represented by an `object`.
 
 ```ballerina
-public type Client object {
+public type TwilioClient object {
 
     // Data structure that will hold config info and a connector
     public {
@@ -77,8 +77,8 @@ public type Client object {
         TwilioConnector twilioConnector = new;
     }
 
-    public function init (TwilioConfiguration twilioConfig);
-    public function getClient () returns TwilioConnector;
+    public function init(TwilioConfiguration config);
+    public function getCallerActions() returns TwilioConnector;
 };
 
 // Part of the TwilioClient object and passed as an input parameter to
@@ -93,8 +93,8 @@ public type TwilioConfiguration {
 // standard connector that is in the http system library
 public type TwilioConnector object {
     public {
-        string accountSid;
-        http:Client basicClient;
+        string accountSId;
+        http:Client client;
     }
 
     public function getAccountDetails() returns (Account|error);
@@ -110,22 +110,24 @@ We now implement the method that will be called when an endpoint is instantiated
 // Constant
 @final string BASE_URL = "https://api.twilio.com/2010-04-01";
 
-public function TwilioClient::init (TwilioConfiguration twilioConfig) {
+public function TwilioClient::init(TwilioConfiguration config) {
 
     // Navigate our client object into the targets file of the http::Client object
-    twilioConfig.clientConfig.targets = [{url:BASE_URL}];
-    var usernameOrEmpty = twilioConfig.clientConfig.auth.username;
+    config.clientConfig.url = BASE_URL;
     string username;
     string password;
+
+    var usernameOrEmpty = config.clientConfig.auth.username;
     match usernameOrEmpty {
         string usernameString => username = usernameString;
         () => {
             error err;
             err.message = "Username cannot be empty";
             throw err;
-              }
+        }
     }
-    var passwordOrEmpty = twilioConfig.clientConfig.auth.password;
+
+    var passwordOrEmpty = config.clientConfig.auth.password;
     match passwordOrEmpty {
         string passwordString => password = passwordString;
         () => {
@@ -135,30 +137,27 @@ public function TwilioClient::init (TwilioConfiguration twilioConfig) {
         }
     }
 
-    http:AuthConfig authConfig = {scheme:"basic", username:username , password:password};
-
     // We can reference the fields of the TwilioClient object
-    self.twilioConnector.accountSid = username;
-    twilioConfig.clientConfig.auth = authConfig;
+    self.twilioConnector.accountSId = username;
 
     // Calling initialize of the embedded http client object
-    self.twilioConnector.basicClient.init(twilioConfig.clientConfig);
+    self.twilioConnector.client.init(config.clientConfig);
 }
 ```
 
-### Implement the `getClient()` Function for the Connector
+### Implement the `getCallerActions()` Function for the Connector
 
-The `getClient()` function is called whenever the system needs to return an active connection to the end user developer for use in their code. We've already initialized the conneciton and its saved within the TwilioClient object.
+The `getClient()` function is called whenever the system needs to return an active connection to the end user developer for use in their code. We've already initialized the connection and its saved within the TwilioClient object.
 
 ```ballerina
-public function TwilioClient::getClient () returns TwilioConnector {
+public function TwilioClient::getCallerActions() returns TwilioConnector {
     return self.twilioConnector;
 }
 ```
 
 ### Implement Custom Functions For Endpoint Interaction
 
-While the `TwilioClient` object implements `init()` and `getClient()`, if you want to explose custom actions for your end users to use against the connector, these are defined in the `TwilioConnector` object which was initialized and stored as a reference to the `TwilioClient` object. You can add as many or as few custom functions to this object.
+While the `TwilioClient` object implements `init()` and `getCallerActions()`, if you want to explose custom actions for your end users to use against the connector, these are defined in the `TwilioConnector` object which was initialized and stored as a reference to the `TwilioClient` object. You can add as many or as few custom functions to this object.
 
 In our example, we added a `getAccountDetails()` function that can be invoked as part of the endpoint by the end user:
 
@@ -178,16 +177,11 @@ And within the package that includes your custom connector, we have these additi
 @final string RESPONSE_TYPE_JSON = ".json";
 
 public function TwilioConnector::getAccountDetails() returns (Account|error) {
-    endpoint http:Client httpClient = self.basicClient;
-    http:Request request = new();
-
-    string requestPath = ACCOUNTS_API + self.accountSid + RESPONSE_TYPE_JSON;
-    var response = httpClient -> get(requestPath, request);
-    var jsonResponse = parseResponseToJson(response);
-    match jsonResponse {
-        json jsonPayload => { return mapJsonToAccount(jsonPayload); }
-        error err => return err;
-    }
+    endpoint http:Client httpClient = self.client;
+    string requestPath = ACCOUNTS_API + self.accountSId + RESPONSE_TYPE_JSON;
+    var response = httpClient->get(requestPath);
+    json jsonResponse = check parseResponseToJson(response);
+    return mapJsonToAccount(jsonResponse);
 }
 ```
 
@@ -272,8 +266,8 @@ import ballerinax/hello;
 service<http:Service> helloWorld bind {port:9091} {
    sayHello(endpoint outboundEP, http:Request request) {
        http:Response response = new;
-       response.setStringPayload("Hello, World from service helloWorld ! \n");
-       _ = outboundEP -> respond(response);
+       response.setTextPayload("Hello, World from service helloWorld ! \n");
+       _ = outboundEP->respond(response);
    }
 }
 ```
@@ -621,8 +615,8 @@ import ballerinax/hello;
 service<http:Service> helloWorld bind {port:9091} {
    sayHello(endpoint outboundEP, http:Request request) {
        http:Response response = new;
-       response.setStringPayload("Hello, World from service helloWorld ! \n");
-       _ = outboundEP -> respond(response);
+       response.setTextPayload("Hello, World from service helloWorld ! \n");
+       _ = outboundEP->respond(response);
    }
 }
 ```
