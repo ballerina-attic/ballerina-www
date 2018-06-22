@@ -25,7 +25,7 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### Tools, IDEs, and the Ballerina Composer
 
-[Tools, IDEs, and the Ballerina Composer](/learn/tools-ides-ballerina-composer.md/) overviews the editing tools for code and diagrams. This includes language servers, editors, IDE, and a graphical visualization tool called the Ballerina Composer.
+[Tools, IDEs, and the Ballerina Composer](/learn/tools-ides-ballerina-composer/) overviews the editing tools for code and diagrams. This includes language servers, editors, IDE, and a graphical visualization tool called the Ballerina Composer.
 
 ### How to Structure Ballerina Code
 
