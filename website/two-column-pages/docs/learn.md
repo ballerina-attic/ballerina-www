@@ -79,32 +79,6 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 
 ## Events
 
-### Webinars
-
-<table class="cEventTable">
-    <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">June 20, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
-        <td class="cEventDetail"><h4>A Cloud Native Programming Language</h4>
-        <p>By
-        Paul Fremantle
-        CTO and Co-Founder</p>
-        </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://wso2.com/library/webinars/2018/06/ballerina-a-cloud-native-programming-language/" target="_blank">Register Now</a></td>
-    </tr>
-</table>
-
-### Meetups
-
-<table class="cEventTable">
-    <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">June 19, 2018</span>6:00 PM to 8:15 PM</td>
-        <td class="cEventDetail"><h4>"Kafka and Microservices" : Insights from Uber and Confluent.</h4>
-        <p>WSO2 Inc., 787, Castro Street · Mountain View, CA</p>
-        </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/microservices-apis-integration-meetup/events/251660189/" target="_blank">Register Now</a></td>
-    </tr>
-</table>
-
 ### Conferences
 
 <table class="cEventTable">
