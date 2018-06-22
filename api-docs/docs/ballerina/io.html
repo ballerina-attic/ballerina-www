@@ -1278,8 +1278,7 @@ var readResult = byteChannel.read(100);
 }
 
 // Write some content to the beginning of the file.
-string someContent = &quot;some content&quot;;
-blob content = someContent.toBlob(&quot;UTF-8&quot;);
+blob content = &quot;some content&quot;.toBlob(&quot;UTF-8&quot;);
 var writeResult = byteChannel.write(content, 0);
 match writeResult {
     int numberOfBytesWritten =&gt; {
@@ -1341,11 +1340,15 @@ while (recordsChannel.hasNext()) {
         error err =&gt; {
             return err; // An IO error occurred when reading the records.
         }
+        () =&gt; {
+            error e = {message: &quot;Record channel not initialized properly.&quot;};
+            return e;
+        }
     }
 }
 </code></pre>
 <p>A <code>.CSV</code> file can be read and written directly into a <code>CSVChannel</code>, as shown in this code snippet.</p>
-<pre><code class="language-ballerina">var csvChannel = io:openCsvFile(&quot;records.csv&quot;);
+<pre><code class="language-ballerina">var csvChannel = check io:openCsvFile(&quot;records.csv&quot;);
 </code></pre>
 <p>Records of the <code>.CSV</code> file can read directly into a table of a matching type.</p>
 <pre><code class="language-ballerina">// First let’s define a type that matches a record in the CSV file.
@@ -1362,7 +1365,7 @@ match csvChannel.getTable(Employee) {
        foreach employee in employees {
            totalSalary += employee.salary;
        }
-       return totalSalary; // Return total of salaries of all employees.
+       return total; // Return total of salaries of all employees.
    }
    error err =&gt; {
        return err; // An IO error occurred when reading the records.
@@ -2106,7 +2109,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openCsvFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, r|a|rw|w mode, :|	|, fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, w|r|rw|a mode, :|,|	 fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2132,7 +2135,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">mode</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Mode">r</a>|a|<a href="io.html#Mode">r</a>w|w</td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Mode">w</a>|r|r<a href="io.html#Mode">w</a>|a</td>
                                                         <td class="cAPI-table-default">r</td>
                                                         <td class="cAPI-table-desc"><p>Permission which should be used to open CSV file</p>
 </td>
@@ -2140,7 +2143,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">fieldSeparator</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Separator">:</a>|	|,</td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Separator">:</a>|,|	</td>
                                                         <td class="cAPI-table-default">,</td>
                                                         <td class="cAPI-table-desc"><p>CSV record seperator (i.e comma or tab)</p>
 </td>
@@ -2199,7 +2202,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, r|a|rw|w accessMode) returns (ByteChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, w|r|rw|a accessMode) returns (ByteChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2225,7 +2228,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">accessMode</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Mode">r</a>|a|<a href="io.html#Mode">r</a>w|w</td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Mode">w</a>|r|r<a href="io.html#Mode">w</a>|a</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Permission to open the file</p>
 </td>
@@ -2904,7 +2907,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CSVChannel&gt;
-                                                   </span> new(io:0.0.0:CharacterChannel channel, :|	|, fs, int nHeaders) 
+                                                   </span> new(io:0.0.0:CharacterChannel channel, :|,|	 fs, int nHeaders) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2930,7 +2933,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">fs</td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#Separator">:</a>|	|,</td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#Separator">:</a>|,|	</td>
                                                                     <td class="cAPI-table-default">,</td>
                                                                     <td class="cAPI-table-desc"><p>Field separator which will separate between the records in the CSV</p>
 </td>
@@ -3577,7 +3580,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;DataChannel&gt;
-                                                   </span> new(io:0.0.0:ByteChannel byteChannel, BI|LI bOrder) 
+                                                   </span> new(io:0.0.0:ByteChannel byteChannel, LI|BI bOrder) 
                                                             </h2>
                                                              
                                                             <table>
@@ -3597,7 +3600,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">bOrder</td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ByteOrder">BI</a>|LI</td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ByteOrder">LI</a>|BI</td>
                                                                     <td class="cAPI-table-default">BI</td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>

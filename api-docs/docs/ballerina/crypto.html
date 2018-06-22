@@ -437,10 +437,11 @@
 <h3>Calculating CRC</h3>
 <p>The <code>crc32</code> function can be used to calculate CRC on input types such as string, xml , json, and blobs.</p>
 <h2>Samples</h2>
+<h3>Sample hash function</h3>
 <pre><code class="language-ballerina">import ballerina/io;
 import ballerina/crypto;
 
-function main(string... args) {
+function main(string[] args) {
      // The string content to be hashed.
      string input = &quot;Hello Ballerina&quot;;
      // The key used for hashing when required.
@@ -660,7 +661,7 @@ function main(string... args) {
                                                 <!-- Function -->
                                                 
                                                 <h2 id="hash">
-                                                    <span class="fw-function sm-icon"> </span> public function hash(string baseString, MD5|SHA1|SHA256 algorithm) returns (string) 
+                                                    <span class="fw-function sm-icon"> </span> public function hash(string baseString, SHA256|MD5|SHA1 algorithm) returns (string) 
                                                 </h2>
                                                 
                                                 <p>
@@ -686,7 +687,7 @@ function main(string... args) {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">algorithm</td>
-                                                        <td class="cAPI-table-type"><a href="crypto.html#Algorithm">MD5</a>|SHA1|SHA256</td>
+                                                        <td class="cAPI-table-type"><a href="crypto.html#Algorithm">SHA256</a>|MD5|SHA1</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The hashing algorithm to be used</p>
 </td>
@@ -729,7 +730,7 @@ function main(string... args) {
                                                 <!-- Function -->
                                                 
                                                 <h2 id="hmac">
-                                                    <span class="fw-function sm-icon"> </span> public function hmac(string baseString, string keyString, MD5|SHA1|SHA256 algorithm) returns (string) 
+                                                    <span class="fw-function sm-icon"> </span> public function hmac(string baseString, string keyString, SHA256|MD5|SHA1 algorithm) returns (string) 
                                                 </h2>
                                                 
                                                 <p>
@@ -763,7 +764,7 @@ function main(string... args) {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">algorithm</td>
-                                                        <td class="cAPI-table-type"><a href="crypto.html#Algorithm">MD5</a>|SHA1|SHA256</td>
+                                                        <td class="cAPI-table-type"><a href="crypto.html#Algorithm">SHA256</a>|MD5|SHA1</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The hashing algorithm to be used</p>
 </td>

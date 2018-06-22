@@ -483,7 +483,7 @@
 <p>This package provides the functionality required to access and manipulate data stored in any type of relational database that is accessible via Java Database Connectivity (JDBC).</p>
 <h3>Endpoint</h3>
 <p>To access a database, you must first create an <code>endpoint</code>, which is a virtual representation of the physical endpoint that you are trying to connect to. Create an endpoint of the JDBC client type (i.e., <code>jdbc:Client</code>) and provide the necessary connection parameters. This will create a pool of connections to the specified database. A sample for creating an endpoint with a JDBC client can be found below.</p>
-<p><strong>NOTE</strong>: Although the JDBC client type supports connecting to any type of relational database that is accessible via JDBC, if you are using a MySQL or H2 database, it is recommended to use endpoints that are created using the client types specific to them via the relevant Ballerina packages.</p>
+<p><strong>NOTE</strong>: Althought the JDBC client type supports connecting to any type of relational database that is accessible via JDBC, if you are using a MySQL or H2 database, it is recommended to use endpoints that are created using the client types specific to them via the relevant Ballerina packages.</p>
 <h3>Database operations</h3>
 <p>Once the endpoint is created, database operations can be executed through that endpoint. This package provides support for creating tables and executing stored procedures. It also supports selecting, inserting, deleting, updating, and batch updating data. Samples for these operations can be found below. Details of the SQL data types and query parameters relevant for these database operations can be found in the documentation for the SQL package.</p>
 <h2>Samples</h2>
@@ -739,7 +739,7 @@ match rmRet {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Client">Client</a></td>
-                                                        <td class="cSummary-table-desc"><p>Represents a JDBC SQL client endpoint.</p>
+                                                        <td class="cSummary-table-desc"><p>Represents an JDBC SQL client endpoint.</p>
 </td>
                                                      </tr>
                                                  
@@ -824,7 +824,7 @@ match rmRet {
                                                         <td class="cAPI-table-name">dbOptions</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>A map of DB specific properties. These properties will have an effect only if the dataSourceClassName is provided in poolOptions</p>
+                                                        <td class="cAPI-table-desc"><p>A map of DB specific properties. These properties will be effect only if the dataSourceClassName is provided in poolOptions</p>
 </td>
                                                     </tr>
                                                     
@@ -848,7 +848,7 @@ match rmRet {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represents a JDBC SQL client endpoint.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Represents an JDBC SQL client endpoint.</p>
 
                                                 </p>
                                                   

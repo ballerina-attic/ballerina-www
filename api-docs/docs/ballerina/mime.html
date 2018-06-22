@@ -1005,7 +1005,7 @@
                                             <div class="cAPIdocsDescription">
                                                 <h2>Package Overview</h2>
 <p>This package provides functions to encapsulate multiple body parts, such as attachments in a single message. The communication of such messages follow the MIME (Multipurpose Internet Mail Extensions) specification as specified in the RFC 2045 standard.</p>
-<h3>MIME specific terms</h3>
+<h3>MIME Specific terms</h3>
 <p>The following terms are MIME specific and are extracted from the MIME specification.</p>
 <h4>Entity</h4>
 <p>This refers to the header fields and the content of a message, or a part of the body in a multipart entity.</p>
@@ -1014,16 +1014,16 @@
 <h4>Body</h4>
 <p>This is the body of an entity, which can be a body of a message or the body of a multipart entity.</p>
 <h4>Header Fields</h4>
-<p>Content-Type, Content-Transfer-Encoding, Content-ID, Content-Description, and Content-Disposition are some of the MIME header fields. These headers exist along with the other headers in the <code>Entity</code>.</p>
+<p>Content-Type, Content-Transfer-Encoding, Content-ID, Content-Description, and Content-Disposition are some MIME header fields. These headers exist along with the other headers in the <code>Entity</code>.</p>
 <pre><code>Content-Type: image/jpeg
 Content-Disposition: attachment; filename=genome.jpeg;
 Content-Description: a complete map of the human genome
 </code></pre>
-<h3>Modify and retrieve the data in an entity</h3>
+<h3>Modify and retrieve the data in an Entity</h3>
 <p>The package provides functions to set and get an entity body from different kinds of message types, such as XML, text, JSON, blob, and body parts. Headers can be modified through functions such as <code>addHeader()</code>, <code>setHeader()</code>, <code>removeHeader()</code>, etc.</p>
 <h2>Samples</h2>
 <h3>Handle multipart request</h3>
-<p>The sample service given below handles a multipart request. It extracts the body content from each part, converts it to to a <code>string</code>, and sends a response.</p>
+<p>The sample service given below handles a multipart request. It gets the message from each part of the body, converts the messages to a <code>string</code>, and sends a response.</p>
 <pre><code class="language-ballerina">import ballerina/http;
 import ballerina/io;
 import ballerina/log;
@@ -1042,6 +1042,11 @@ service&lt;http:Service&gt; test bind {port:9090} {
 
        // Get the body parts from the request.
        match request.getBodyParts() {
+           // If there is an error while getting the body parts, set the response code as 500 and set the error message as the response message.
+           error err =&gt; {
+               response.statusCode = 500;
+               response.setPayload(err.message);
+           }
            // If the body parts were returned, iterate through each body part and handle the content.
            mime:Entity[] bodyParts =&gt; {
                string content = &quot;&quot;;
@@ -1050,15 +1055,10 @@ service&lt;http:Service&gt; test bind {port:9090} {
                }
                response.setPayload(content);
            }
-           // If there is an error while getting the body parts, set the response code as 500 and 
-           //set the error message as the response message.
-          error err =&gt; {
-              response.statusCode = 500;
-              response.setPayload(err.message);
-          }
        }
        client -&gt; respond(response) but { error e =&gt; log:printError(&quot;Error in responding&quot;, err = e) };
    }
+
 }
 
 // The function that handles the content based on the body part type.
@@ -1089,8 +1089,8 @@ function handleContent(mime:Entity bodyPart) returns (string) {
 <p>The sample request that is sent to the above service is shown below.</p>
 <pre><code>curl -v -F &quot;request={\&quot;param1\&quot;: \&quot;value1\&quot;};type=application/json&quot; -F &quot;language=ballerina;type=text/plain&quot; -F &quot;upload=@/home/path-to-file/encode.txt;type=application/octet-stream&quot;  http://localhost:9090/test/multipleparts -H &quot;Expect:&quot;
 </code></pre>
-<h3>Create a multipart request</h3>
-<p>The sample given below creates a multipart request. It includes two body parts with <code>application/json</code> and <code>application/xml</code> content type.</p>
+<h3>Create a multipart response</h3>
+<p>The sample given below creates a multipart request. It includes <code>application/json</code> and <code>text/xml</code> type content.</p>
 <pre><code class="language-ballerina">// Create a JSON body part.
 mime:Entity bodyPart1 = new;
 // Set the JSON content.
@@ -1106,7 +1106,7 @@ mime:Entity[] bodyParts = [bodyPart1, bodyPart2];
 // Set the body parts to the outbound response.
 http:Request outRequest = new;
 // Set the content type as ‘multipart/mixed’ and set the body parts.
-outRequest.setBodyParts(bodyParts, contentType = mime:MULTIPART_MIXED);
+outRequest.setBodyParts(bodyParts, mime:MULTIPART_MIXED);
 </code></pre>
 
                                             </div>
