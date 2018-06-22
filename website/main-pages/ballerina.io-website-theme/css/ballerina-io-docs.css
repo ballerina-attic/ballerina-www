@@ -318,6 +318,76 @@ h4.modal-title {
     margin-top: 3px;
 }
 
+/*EVENTS SECTION*/
+.rst-content .section table.cEventTable.docutils {
+    width: 95% !important;
+    float: right;
+}
+table.cEventTable.docutils , table.cEventTable.docutils td {
+    background-color: #ffffff !important;
+    border: none !important;
+}
+
+table.cEventTable.docutils td.cEventDateContainer , table.cEventTable.docutils td.cEventDetail {
+    border-right: 1px solid #e1e4e5 !important;
+}
+
+table.cEventTable.docutils {
+    border-bottom: 1px solid #e1e4e5 !important;
+    border-top: 1px solid #e1e4e5 !important;
+    
+}
+
+td.cEventDateContainer , td.cEventURL {
+    width: 25%;
+}
+td.cEventDetail {
+    width: 50%;
+    vertical-align: top !important;
+   
+}
+.cEventDetail h4 {
+    margin-top: 0;
+    color: #57595d;
+}
+
+td.cEventDateContainer {
+     font-size: 16px;
+
+color: #57595d;
+
+line-height: 24px;
+
+font-weight: 300;
+padding-left: 0 !important;
+vertical-align: top !important;
+}
+
+td.cEventDateContainer span.cEventDate {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-block;
+    color: #57595d;
+    margin-bottom: 10px;
+}
+
+td.cEventURL {
+   text-align: center;
+}
+
+td.cEventDetail.c2col {
+    width: 75%;
+    padding: 50px;
+    
+}
+td.cEventDetail.c2col img {
+    width: 50%;
+    padding: 20px 0 !important;
+}
+
+
+
 @media (min-width: 990px) {
     .cBallerina-io-Home-Left-col,
     .cBallerina-io-Home-Right-col {
@@ -328,6 +398,7 @@ h4.modal-title {
         /*        width: 77%;*/
 /*        padding-right: 0;*/
     }
+    
 }
 
 @media screen and (max-width: 768px) {
@@ -382,4 +453,19 @@ h4.modal-title {
         transform: rotate(180deg);
         transition: all 0.2s ease 0s;
     }
+    
+    .rst-content .section table.cEventTable.docutils {
+    width: 100% !important;
+    float: right;
+}
+table.cEventTable.docutils td.cEventDateContainer , table.cEventTable.docutils td.cEventDetail , table.cEventTable.docutils td.cEventURL {
+    display: list-item;
+    width: 100%;
+    padding-left: 0;
+    list-style: none;
+    text-align: left;
+    border-right: none !important;
+    
+}
+    
 }
