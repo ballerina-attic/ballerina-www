@@ -275,11 +275,11 @@ service<http:Service> helloWorld bind {port:9091} {
 If the end user saved this file as `hello_world.bal` then after building the file (with our custom build extension) will produce:
 
 ``` bash
-$> tree
+$ tree
 ├── hello_world.bal
 ├── hello_world.balx
 └── hello_world.txt
-$> cat hello_world.txt
+$ cat hello_world.txt
 Guten Tag!
 ```
 
@@ -361,7 +361,7 @@ In the `pom.xml`, add Ballerina IO as the parent:
     <parent>
         <groupId>io.ballerina</groupId>
         <artifactId>ballerina</artifactId>
-        <version>0.970.0-beta4</version>
+        <version>0.975.0</version>
     </parent>
 ```
 
@@ -372,7 +372,7 @@ In the `pom.xml` add Ballerina's maven dependencies:
         <dependency>
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-lang</artifactId>
-            <version>0.970.0-beta4</version>
+            <version>0.975.0</version>
         </dependency>
     </dependencies>
 ```
