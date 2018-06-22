@@ -727,7 +727,7 @@ Create a folder named `assembly` in  `hello-extension/` folder and add following
 ```
 
 Create a file named `Ballerina.toml` in  `hello-extension/src/main/ballerina/ballerinax` folder and add following content.
-```ballerina
+```toml
 [project]
 org-name = "ballerinax"
 version = "0.0.0"
@@ -774,7 +774,7 @@ The resulting `target/hello-extension-1.0-SNAPSHOT.jar` will have the annotation
 
 Place the jar file at `<ballerina_tools_home>/bre/lib` of your Ballerina distribution.
 
-Extract `target/hello-extension-0.970.5-ballerina-binary-repo.zip` file and copy the `repo/ballerinax` folder to `<ballerina_tools_home>/repo/` folder. 
+Extract `target/hello-extension-0.975.0-ballerina-binary-repo.zip` file and copy the `repo/ballerinax` folder to `<ballerina_tools_home>/repo/` folder. 
 The final `<ballerina_tools_home>/repo/` folder will  have two folders `ballerina` and `ballerinax`.
 
 You can now verify that the annotation is present even though we cannot react to it yet. Create a sample Ballerina file with your  annotation and make sure that Ballerina can compile the file without errors.
@@ -787,7 +787,7 @@ import ballerinax/hello;
 service<http:Service> helloWorld bind {port:9091} {
    sayHello(endpoint outboundEP, http:Request request) {
        http:Response response = new;
-       response.setStringPayload("Hello, World from service helloWorld ! \n");
+       response.setTextPayload("Hello, World from service helloWorld ! \n");
        _ = outboundEP -> respond(response);
    }
 }
