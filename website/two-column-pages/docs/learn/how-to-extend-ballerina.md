@@ -374,6 +374,18 @@ In the `pom.xml` add Ballerina's maven dependencies:
             <artifactId>ballerina-lang</artifactId>
             <version>0.975.0</version>
         </dependency>
+         <dependency>
+                <groupId>org.ballerinalang</groupId>
+                <version>0.975.0</version>
+                <artifactId>lib-creator</artifactId>
+         </dependency>
+         <dependency>
+            <groupId>org.ballerinalang</groupId>
+            <artifactId>ballerina-builtin</artifactId>
+            <version>0.975.0</version>
+            <type>zip</type>
+            <classifier>ballerina-binary-repo</classifier>
+        </dependency>
     </dependencies>
 ```
 
@@ -439,15 +451,14 @@ In the maven project, create a hello-extension/src/main/ballerina/ballerinax/doc
 The annotation is defined using Ballerina syntax in the `annotation.bal`:
 
 ```ballerina
-package ballerinax.hello;
-
-@Description {value:"THIS TEXT APPEARS IN API DOCS"}
-@Field {value:"salutation: THIS TEXT APPEARS IN API DOCS"}
+documentation {Hello annotation configuration
+    F{{salutation}} - Greeting
+}
 public type HelloConfiguration {
-   string salutation;
+    string salutation;
 };
 
-@Description {value:"THIS TEXT APPEARS IN API DOCS"}
+documentation {@hello:Greeting annotation configuration}
 public annotation <service> Greeting HelloConfiguration;
 
 // You can replace the <> value with different objects this annotation may attach to
@@ -593,6 +604,164 @@ Configure Maven compiler plugin. Ballerina requires Java8 for the builder extens
 </plugin>
 ```
 
+Configure Maven plugins to generate balo files.
+```xml
+         <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>gen-balo</id>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                            <systemProperties>
+                                <systemProperty>
+                                    <key>BALLERINA_DEV_MODE_COMPILE</key>
+                                    <value>true</value>
+                                </systemProperty>
+                            </systemProperties>
+                            <arguments>
+                                <!--is built in pkg loaded from source-->
+                                <argument>false</argument>
+                                <!--source project dir-->
+                                <argument>${basedir}/src/main/ballerina/ballerinax</argument>
+                                <!--balo destination-->
+                                <argument>${project.build.directory}/generated-balo/repo/ballerinax</argument>
+                                <!--ballerina home-->
+                                <argument>${project.build.directory}</argument>
+                                <!--not used-->
+                                <argument>${project.version}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>org.ballerinalang.stdlib.utils.GenerateBalo</mainClass>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-dependencies</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeClassifiers>ballerina-binary-repo</includeClassifiers>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <execution>
+                        <id>distribution</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attached</goal>
+                        </goals>
+                        <configuration>
+                            <descriptorSourceDirectory>assembly</descriptorSourceDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+```
+
+Create a folder named `assembly` in  `hello-extension/` folder and add following files.
+1. balo.xml
+```xml
+<assembly>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <baseDirectory>/</baseDirectory>
+    <id>ballerina-binary-repo</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.directory}/generated-balo</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>**</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>
+```
+2. source.xml
+```xml
+<assembly>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <baseDirectory>ballerina</baseDirectory>
+    <id>ballerina-sources</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <fileSets>
+        <fileSet>
+            <directory>src/main/ballerina</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>**</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>
+```
+
+Create a file named `Ballerina.toml` in  `hello-extension/src/main/ballerina/ballerinax` folder and add following content.
+```ballerina
+[project]
+org-name = "ballerinax"
+version = "0.0.0"
+```
+
+Final folder structure looks like below.
+```bash
+.
+├── assembly
+│   ├── balo.xml
+│   └── source.xml
+├── pom.xml
+├── spotbugs-exclude.xml
+└── src
+    └── main
+        ├── ballerina
+        │   └── ballerinax
+        │       ├── Ballerina.toml
+        │       └── hello
+        │           └── annotation.bal
+        ├── java
+        │   └── org
+        │       └── ballerinax
+        │           └── hello
+        │               ├── HelloExtensionProvider.java
+        │               ├── HelloModel.java
+        │               └── HelloPlugin.java
+        └── resources
+            └── META-INF
+                └── services
+                    └── org.ballerinalang.compiler.plugins.CompilerPlugin
+
+```
+
 ##### Verify the Annotation
 
 Build the project and verify that the JAR file is built. The JAR file will contain your annotation definitions.
@@ -605,6 +774,9 @@ The resulting `target/hello-extension-1.0-SNAPSHOT.jar` will have the annotation
 
 Place the jar file at `<ballerina_tools_home>/bre/lib` of your Ballerina distribution.
 
+Extract `target/hello-extension-0.970.5-ballerina-binary-repo.zip` file and copy the `repo/ballerinax` folder to `<ballerina_tools_home>/repo/` folder. 
+The final `<ballerina_tools_home>/repo/` folder will  have two folders `ballerina` and `ballerinax`.
+
 You can now verify that the annotation is present even though we cannot react to it yet. Create a sample Ballerina file with your  annotation and make sure that Ballerina can compile the file without errors.
 
 ```ballerina
@@ -615,8 +787,8 @@ import ballerinax/hello;
 service<http:Service> helloWorld bind {port:9091} {
    sayHello(endpoint outboundEP, http:Request request) {
        http:Response response = new;
-       response.setTextPayload("Hello, World from service helloWorld ! \n");
-       _ = outboundEP->respond(response);
+       response.setStringPayload("Hello, World from service helloWorld ! \n");
+       _ = outboundEP -> respond(response);
    }
 }
 ```
