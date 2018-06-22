@@ -90,8 +90,6 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
     </tr>
 </table>
 
-
-
 ## Articles and Videos
 
 1. <a href="https://medium.com/ballerinalang/conceiving-ballerina-2dadf67c0503" target="_blank">Conceiving Ballerina</a>
