@@ -608,7 +608,7 @@
                                                 <h2>Package Overview</h2>
 <p>This package provides a set of default authentication store providers that can be extended to create new authentication store providers.</p>
 <h3>Authentication Store Provider</h3>
-<p>An authentication store provider defines an authentication scheme that could be used to protect endpoints. The <code>auth:AuthStoreProvider</code> type acts as the interface for all the authentication providers. Any type of implementation, such as LDAP, JDBC, and file based, should be object-wise similar.</p>
+<p>An authentication Store provider defines an authentication scheme that could be used to protect endpoints. The <code>auth:AuthStoreProvider</code> type acts as the interface for all the authentication providers. Any type of implementation, such as LDAP, JDBC, and file based, should be object-wise similar.</p>
 <p>By default, there are two implementations of the <code>auth:AuthProvider</code>. They are, the <code>auth:ConfigAuthProvider</code>, which authenticates based on usernames and passwords stored in a configuration file, and the <code>auth:JWTAuthProvider</code>, which authenticates by validating a JWT. It is possible to implement more such authentication mechanisms.</p>
 <p>When creating a new authentication provider, there are two functions that need to be implemented.</p>
 <ul>

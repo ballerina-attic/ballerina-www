@@ -417,9 +417,7 @@
 <p>This package contains services that register listeners against a local folder and identify events that create, modify, and delete files.</p>
 <h2>Samples</h2>
 <p>The sample given below shows how an endpoint is used to listen to the local folder. The <code>onCreate()</code> resource method gets invoked when a file is created inside the <code>target/fs</code> folder. Use the <code>onDelete()</code> and <code>onModify()</code> methods to listen to the delete and modify events.</p>
-<pre><code class="language-ballerina">import ballerina/file;
-
-endpoint file:Listener localFolder {
+<pre><code class="language-ballerina">endpoint file:Listener localFolder {
     path:&quot;target/fs&quot;
 };
 service fileSystem bind localFolder {

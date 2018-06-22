@@ -2016,7 +2016,7 @@ to redirected hubs/topics</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">topicIdentifier</td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#TopicIdentifier">TOPIC_ID_HEADER_AND_PAYLOAD|TOPIC_ID_PAYLOAD_KEY|TOPIC_ID_HEADER?</a></td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#TopicIdentifier">TOPIC_ID_PAYLOAD_KEY|TOPIC_ID_HEADER_AND_PAYLOAD|TOPIC_ID_HEADER?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The identifier based on which dispatching should happen for custom subscriber services</p>
 </td>
@@ -4648,7 +4648,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Listener&gt;
-                                                   </span> redirect(http:Response response, 307|301|305|303|300|308|304|302 code, string[] locations) returns (error?) 
+                                                   </span> redirect(http:Response response, 302|304|308|307|303|301|305|300 code, string[] locations) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4675,7 +4675,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">code</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#RedirectCode">307</a>|301|305|303|300|308|304|302</td>
+                                                                    <td class="cAPI-table-type"><a href="http.html#RedirectCode">302</a>|304|308|307|303|301|305|300</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
