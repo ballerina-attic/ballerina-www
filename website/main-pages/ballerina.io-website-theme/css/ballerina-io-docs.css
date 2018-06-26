@@ -330,6 +330,8 @@ table.cEventTable.docutils , table.cEventTable.docutils td {
 
 table.cEventTable.docutils td.cEventDateContainer , table.cEventTable.docutils td.cEventDetail {
     border-right: 1px solid #e1e4e5 !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 table.cEventTable.docutils {
@@ -337,7 +339,9 @@ table.cEventTable.docutils {
     border-top: 1px solid #e1e4e5 !important;
     
 }
-
+table.cEventTable.docutils tbody {
+    display: table;
+}
 td.cEventDateContainer , td.cEventURL {
     width: 25%;
 }
@@ -369,7 +373,7 @@ td.cEventDateContainer span.cEventDate {
     font-weight: 600;
     display: inline-block;
     color: #57595d;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 td.cEventURL {
@@ -386,7 +390,21 @@ td.cEventDetail.c2col img {
     padding: 20px 0 !important;
 }
 
+.cSocial-sidebar {
+    position: fixed;
+    padding: 10px;
+    right: 0;
+    top: 272px;
+    background: #ffffff;
+    display: none;
+}
 
+td.cEventDateContainer span.cEventDate {
+    font-family: "CalibreWeb-Semibold", "pragmatica", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
 
 @media (min-width: 990px) {
     .cBallerina-io-Home-Left-col,
@@ -398,7 +416,6 @@ td.cEventDetail.c2col img {
         /*        width: 77%;*/
 /*        padding-right: 0;*/
     }
-    
 }
 
 @media screen and (max-width: 768px) {
@@ -453,19 +470,4 @@ td.cEventDetail.c2col img {
         transform: rotate(180deg);
         transition: all 0.2s ease 0s;
     }
-    
-    .rst-content .section table.cEventTable.docutils {
-    width: 100% !important;
-    float: right;
-}
-table.cEventTable.docutils td.cEventDateContainer , table.cEventTable.docutils td.cEventDetail , table.cEventTable.docutils td.cEventURL {
-    display: list-item;
-    width: 100%;
-    padding-left: 0;
-    list-style: none;
-    text-align: left;
-    border-right: none !important;
-    
-}
-    
 }
