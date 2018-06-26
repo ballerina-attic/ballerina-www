@@ -4,18 +4,19 @@
 
 ## Webinars
 
-[Webinars](/learn/events/webinars) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmdipiscing elitod tempom dolor sit amet, consectr [On-demand webinars](/learn/events/webinars##on-demand-webinars)incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+<!-- [Webinars](/learn/events/webinars) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmdipiscing elitod tempom dolor sit amet, consectr [On-demand webinars](/learn/events/webinars##on-demand-webinars)incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut -->
 
 <table class="cEventTable cWebinarList">
-    <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">June 22, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
-        <td class="cEventDetail"><h4>A Cloud Native Programming Language</h4>
-        <p>By
-        Paul Fremantle
-        CTO and Co-Founder</p>
-        </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://wso2.com/library/webinars/2018/06/ballerina-a-cloud-native-programming-language/">Register Now</a></td>
-    </tr>
+<tr>
+    <td class="cEventDateContainer"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+    <td class="cEventDetail"><h4>Ballerina Serverless with Kubeless</h4>
+    <p>
+    <b>Adnan Abdulhussein</b> Software Engineer, Bitnami</p>
+    <p>
+    <b>Dmitry Sotnikov</b> Vice President - Cloud, WSO2</p>
+    </td>
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-serverless-with-kubeless/">Register Now</a></td>
+</tr>
 
 </table>
 
@@ -76,9 +77,9 @@
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">June 26, 2018</span>2:00 PM</td>
         <td class="cEventDetail"><h4>Ballerina, a modern programming language focused on integration</h4>
+          <p>Foundation for Research and Technology - Hellas (FORTH) Institute of Computer Science, Crete, Greece </p>
         <p>Speaker: Sanjiva Weerawarana</p>
-        <p>Foundation for Research and Technology - Hellas (FORTH) Institute of Computer Science, N. Plastira 100, Vassilika Vouton, GR-700 13 Heraklion, Crete, Greece</p>
-        </td>
+       </td>
         <td class="cEventURL"><a class="cEventRegistration" href="http://www.ics.forth.gr/index_main.php?l=e&n=4&id=524" target="_blank">More Info</a></td>
     </tr>
 
