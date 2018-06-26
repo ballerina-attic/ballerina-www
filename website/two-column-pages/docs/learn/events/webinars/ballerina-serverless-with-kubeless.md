@@ -1,21 +1,23 @@
 ---
-title: What is Lorem Ipsum?
-author: Lorem Ipsum
-date: 5 June 2018
+title: Ballerina Serverless with Kubeless
+author:
+date: 11 July 2018
 status: Published
 abstract:  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-socialmediaimage: drone-innovation-technology-57544.jpg
+socialmediaimage: ballerina-serverless-with-kubeless.jpg
 ---
 <link rel="stylesheet" href="/css/webinar-page.css"></link>
 
-# What is Lorem Ipsum?
+# Ballerina Serverless with Kubeless
 
 <table class="cEventTable">
     <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">June 20, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+        <td class="cEventDateContainer"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
         <td class="cEventURL"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank">Register Now</a></td>
     </tr>
 </table>
+
+<a href="https://kubeless.io/" target="_blank"><img class="cInlineLogo" src="/img/kubeless.png"/></a>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -25,12 +27,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 <table class="cWebinarPresenter">
     <tr>
-        <td class="cWebinarPresenterPic"><img src="https://wso2.cachefly.net/wso2/sites/all/images/wso2conus18/new/srinath-perera-wso2conus18.png"/></td>
+        <td class="cWebinarPresenterPic"><img src="/img/Adnan-Abdulhussein.jpg"/></td>
         <td class="cWebinarPresenterBio">
-      <span class="cPresenterName">Srinath Perera</span>
-      <span class="cPresenterTitle">Vice President - Research, WSO2</span>
+      <span class="cPresenterName">Adnan Abdulhussein</span>
+      <span class="cPresenterTitle">Software Engineer, Bitnami</span>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></td>
+        <p>Adnan Abdulhussein is a Software Engineer at Bitnami, where he works on building tools to make apps easier to run on Kubernetes. He contributes to the Kubernetes community as a co-chair of SIG-Apps and a core maintainer of the Helm project. Adnan is passionate about cloud-native infrastructure, developer tools & experience, open source and the possibility of time travel. He holds a BSc in Computer Science from the University of Bristol.</p></td>
+    </tr>
+    <tr>
+        <td class="cWebinarPresenterPic"><img src="https://wso2.cachefly.net/wso2/newsletter/images/wso2coneu2017/Dmitry.jpg"/></td>
+        <td class="cWebinarPresenterBio">
+      <span class="cPresenterName">Dmitry Sotnikov</span>
+      <span class="cPresenterTitle">Vice President - Cloud, WSO2</span>
+
+        <p>Adnan Abdulhussein is a Software Engineer at Bitnami, where he works on building tools to make apps easier to run on Kubernetes. He contributes to the Kubernetes community as a co-chair of SIG-Apps and a core maintainer of the Helm project. Adnan is passionate about cloud-native infrastructure, developer tools & experience, open source and the possibility of time travel. He holds a BSc in Computer Science from the University of Bristol.</p></td>
     </tr>
 </table>
 
