@@ -249,7 +249,7 @@ You just tweeted using Ballerina!
 
 Now that you have verified your service, let's go ahead and deploy this on Docker.
 
-> **Tip**: This was tested on the community edition version of Docker Edge. You need to have Docker installed to use this. Also start/restart Docker prior to running your code.
+> **Tip**: This was tested on the community edition version of Docker Edge. You need to have Docker installed to use this. Also start/restart Docker prior to running your code. Windows users should enable **[Expose Daemon without TLS](https://github.com/ballerinax/docker/tree/master/samples#prerequisites)** option. 
 
 Import the Docker package.
 
