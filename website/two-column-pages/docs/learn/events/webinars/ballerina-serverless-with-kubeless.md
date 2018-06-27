@@ -20,9 +20,16 @@ socialmediaimage: ballerina-serverless-with-kubeless.jpg
 
 <a href="https://kubeless.io/" target="_blank"><img class="cInlineLogo" src="/img/kubeless.png"/></a>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Ballerina is a cloud-native programming language that makes it easy to work with remote endpoints, supports modern protocols and data formats, has built-in constructs for event and stream processing, resiliency, and parallel execution.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Kubeless is one of the leading serverless frameworks for running functions-as-a-service on top of Kubernetes.
+
+In this webinar, we will:
+<ul>
+<li><p>Demonstrate the latest releases of Kubeless and Ballerina,</p></li>
+<li><p>Show how to develop and run Ballerina functions on Kubernetes with Kubeless</p> </li>
+</ul>
+
 
 ## Presenter
 
@@ -41,7 +48,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       <span class="cPresenterName">Dmitry Sotnikov</span>
       <span class="cPresenterTitle">Vice President - Cloud, WSO2</span>
 
-        <p>Adnan Abdulhussein is a Software Engineer at Bitnami, where he works on building tools to make apps easier to run on Kubernetes. He contributes to the Kubernetes community as a co-chair of SIG-Apps and a core maintainer of the Helm project. Adnan is passionate about cloud-native infrastructure, developer tools & experience, open source and the possibility of time travel. He holds a BSc in Computer Science from the University of Bristol.</p></td>
+        <p>In his role, Dmitry oversees WSO2’s Cloud solutions and drives efforts to develop and enhance capabilities. Prior to WSO2, Dmitry worked at Quest Software (now part of Dell) as a Director of Cloud Solutions, and later co-founded Jelastic PaaS and led Jelastic’s sales, marketing, customer and partner relationships. He has been a featured speaker at multiple industry events including Microsoft TechEd, VMware VMWorld, Parallels Summit, Quest Innovate, and Technology Experts Conference (TEC).</p></td>
     </tr>
 </table>
 
