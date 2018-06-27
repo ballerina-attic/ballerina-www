@@ -27,11 +27,11 @@ function registerWebinarUser() {
             function (response, status) {
                 if (response == 1) {
                     $(".cWebinarForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/>');
-                    $(".cWebinarForm").append('You have successfully signed up for the webinar.');
-                    $(".cWebinarForm").append('Please check your inbox for registration details and credentials to access the webinar.');
+                    $(".cWebinarForm").append('<span>You have successfully signed up for the webinar.</span>');
+                    $(".cWebinarForm").append('<span>Please check your inbox for registration details and credentials to access the webinar.</span>');
                 }else{
                     $(".cWebinarForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/>');
-                    $(".cWebinarForm").append('There was an issue with your registration. Please try again or contact us at webinars@ballerina.io.');
+                    $(".cWebinarForm").append('<span>There was an issue with your registration. Please try again or contact us at webinars@ballerina.io.</span>');
                 }
             }
     );
@@ -74,7 +74,7 @@ $(document).ready(function () {
         }, submitHandler: function (form) {
             $(".cSubmitButton").attr("disabled", true);
             registerWebinarUser();
-            $(".cWebinarForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>Processing your registration ...</span>');
+            $(".cWebinarForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>Your registration is being processed ...</span>');
             return false;
 
         }
