@@ -7,7 +7,6 @@ abstract:  Lorem Ipsum is simply dummy text of the printing and typesetting indu
 socialmediaimage: ballerina-serverless-with-kubeless.jpg
 ---
 <link rel="stylesheet" href="/css/webinar-page.css"></link>
-<script src="https://wso2.com/sites/all/themes/wso2-v6/js/jquery.validate.js" type="text/javascript"></script>
 <script src="/js/ballerina-form.js"></script>
 
 # Ballerina Serverless with Kubeless
