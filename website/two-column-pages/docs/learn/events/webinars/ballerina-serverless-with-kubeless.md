@@ -6,8 +6,7 @@ status: Published
 abstract:  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
 socialmediaimage: ballerina-serverless-with-kubeless.jpg
 ---
-<link rel="stylesheet" href="/css/webinar-page.css"></link>
-<script src="/js/ballerina-form.js"></script>
+<script src="/js/ballerina-form.js"></script><link rel="stylesheet" href="/css/webinar-page.css"></link>
 
 # Ballerina Serverless with Kubeless
 
@@ -398,7 +397,7 @@ In this webinar, we will:
             </li>
             <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from WSO2 to stay up to date on new releases and updates.</li>
             <li><input type="hidden" class="tokenid" value="" name="tokenid">
-              <input type="hidden" class="pdep" value="/142131/2018-06-26/5672jb" name="pdep"><input type="hidden" class="w_id" value="125207427" name="w_id">
+              <input type="hidden" class="pdep" value="/142131/2018-06-26/5672jb" name="pdep"><input type="hidden" class="w_id" value="794720699" name="w_id">
               <input class="cSubmitButton" type="submit" value="Register" name="webinar_submit" id="webinar_submit"></li>
             </ul>
          </form>
