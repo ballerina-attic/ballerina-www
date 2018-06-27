@@ -7,6 +7,8 @@ abstract:  Lorem Ipsum is simply dummy text of the printing and typesetting indu
 socialmediaimage: ballerina-serverless-with-kubeless.jpg
 ---
 <link rel="stylesheet" href="/css/webinar-page.css"></link>
+<script src="https://wso2.com/sites/all/themes/wso2-v6/js/jquery.validate.js" type="text/javascript"></script>
+<script src="/js/ballerina-form.js"></script>
 
 # Ballerina Serverless with Kubeless
 
@@ -50,7 +52,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       <div class="col-xs-12 col-sm-12 com-md-12 col-lg-12 cWebinarForm">
             <img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/>
          <h2>Register </h2>
-         <form name="wsForm" method="post" action="" id="wsForm" novalidate="novalidate">
+         <form name="webinarForm" method="post" action="" id="webinarForm">
              <ul>
             <li><input type="text" maxlength="50" value="" name="first_name" placeholder="First Name" title="First Name" class="cTextfieldstyle contact_first_name"></li>
             <li><input type="text" maxlength="50" value="" name="last_name" placeholder="Last Name" title="Last Name" class="cTextfieldstyle contact_last_name"></li>
@@ -389,7 +391,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                </select>
             </li>
             <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from WSO2 to stay up to date on new releases and updates.</li>
-            <li><input type="hidden" class="tokenid" value="" name="tokenid"><input type="hidden" class="pdep" value="142131/2018-06-15/55dl7h" name="pdep"><input type="hidden" class="w_id" value="608225955" name="w_id"><input type="hidden" class="series_pds" value="" name="series_pds"><input type="hidden" class="series_ids" value="" name="series_ids"><input type="hidden" class="w_name" value="The Rise of Streaming SQL and Evolution of Streaming Applications" name="w_name"><input type="hidden" class="series_name" value="" name="series_name"><input class="cSubmitButton" type="submit" value="Register" name="contact_submit"></li>
+            <li><input type="hidden" class="tokenid" value="" name="tokenid">
+              <input type="hidden" class="pdep" value="/142131/2018-06-26/5672jb" name="pdep"><input type="hidden" class="w_id" value="125207427" name="w_id">
+              <input class="cSubmitButton" type="submit" value="Register" name="webinar_submit" id="webinar_submit"></li>
             </ul>
          </form>
       </div>
