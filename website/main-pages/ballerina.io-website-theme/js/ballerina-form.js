@@ -27,11 +27,11 @@ function registerWebinarUser() {
             function (response, status) {
                 if (response == 1) {
                     $(".cWebinarForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/>');
-                    $(".cWebinarForm").append('You have successfully signed up for the webinar.');
-                    $(".cWebinarForm").append('Please check your inbox for registration details and credentials to access the webinar.');
+                    $(".cWebinarForm").append('<p class="cFormMSG">You have successfully signed up for the webinar.</p>');
+                    $(".cWebinarForm").append('<p class="cFormMSG">Please check your inbox for registration details and credentials to access the webinar.</p>');
                 }else{
                     $(".cWebinarForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/>');
-                    $(".cWebinarForm").append('There was an issue with your registration. Please try again or contact us at webinars@ballerina.io.');
+                    $(".cWebinarForm").append('<p class="cFormMSG">There was an issue with your registration. Please try again or contact us at <a href="mailto:webinars@ballerina.io" target="_top">webinars@ballerina.io</a>.</p>');
                 }
             }
     );
