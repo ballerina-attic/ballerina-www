@@ -74,7 +74,7 @@ $(document).ready(function () {
         }, submitHandler: function (form) {
             $(".cSubmitButton").attr("disabled", true);
             registerWebinarUser();
-            $(".cWebinarForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>Processing your registration ...</span>');
+            $(".cWebinarForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>Your registration is being processed ...</span>');
             return false;
 
         }
