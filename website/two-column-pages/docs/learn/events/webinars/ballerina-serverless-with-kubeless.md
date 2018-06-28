@@ -3,7 +3,7 @@ title: Ballerina Serverless with Kubeless
 author:
 date: 11 July 2018
 status: Published
-abstract:  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+abstract: Ballerina is a cloud-native programming language that makes it easy to work with remote endpoints, supports modern protocols and data formats, has built-in constructs for event and stream processing, resiliency, and parallel execution.
 socialmediaimage: ballerina-serverless-with-kubeless.jpg
 ---
 <script src="/js/ballerina-form.js"></script><link rel="stylesheet" href="/css/webinar-page.css"></link>
