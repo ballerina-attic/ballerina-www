@@ -23,7 +23,7 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
 ##  Register
 
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInlineForm">
-<form name="" method="post" action="" id="webinarForm">
+<form name="" method="post" action="" id="cInlineForm">
     <ul>
    <li><input type="text" maxlength="50" value="" name="first_name" placeholder="First Name" title="First Name" class="cTextfieldstyle contact_first_name"></li>
    <li><input type="text" maxlength="50" value="" name="last_name" placeholder="Last Name" title="Last Name" class="cTextfieldstyle contact_last_name"></li>
@@ -364,7 +364,7 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
    <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from WSO2 to stay up to date on new releases and updates.</li>
    <li><input type="hidden" class="tokenid" value="" name="tokenid">
      <input type="hidden" class="pdep" value="/142131/2018-06-26/5672jb" name="pdep"><input type="hidden" class="w_id" value="794720699" name="w_id">
-     <input class="cSubmitButton" type="submit" value="Register" name="webinar_submit" id="webinar_submit"></li>
+     <input class="cSubmitButton" type="submit" value="Register" name="cInline_submit" id="cInline_submit"></li>
    </ul>
 </form>
 </div>
