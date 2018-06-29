@@ -75,6 +75,7 @@ Once you complete the quick tour, please fill in the following information so th
 
 
 
+
 ## Install Ballerina
 
 1. Go to [https://ballerina.io/downloads](https://ballerina.io/downloads)
@@ -121,27 +122,27 @@ Instead of using a HTTP client program such as cURL, we can implement a client p
 2. Create a new file named main.bal
 3. Edit the main.bal file using a text editor of your choice
 4. Copy and paste the following code into the file and save the file
-     ``` ballerina
-     import ballerina/http;
-     import ballerina/log;
-     import ballerina/io;
-     
-     endpoint http:Client clientEndpoint {
-         url: "http://localhost:9090"
-     };
-     
-     function main(string... args) {
-         // Send a GET request to the Hello World service endpoint.
-         var response = clientEndpoint->get("/hello/sayHello");
-     
-         match response {
-             http:Response resp => {
-                 io:println(resp.getTextPayload());
-             }
-             error err => { log:printError(err.message, err = err); }
-         }
-     }
-     ```
+``` ballerina
+import ballerina/http;
+import ballerina/log;
+import ballerina/io;
+
+endpoint http:Client clientEndpoint {
+    url: "http://localhost:9090"
+};
+
+function main(string... args) {
+    // Send a GET request to the Hello World service endpoint.
+    var response = clientEndpoint->get("/hello/sayHello");
+
+    match response {
+        http:Response resp => {
+            io:println(resp.getTextPayload());
+        }
+        error err => { log:printError(err.message, err = err); }
+    }
+}
+```
 5. Go back to the command line where you created the main.bal file
 6. Make sure your hello_service.bal is running in another command line (note that we started this service before did not stop it). If it is not running, you can run it again in a new command line with
 ``` ballerina run hello_service.bal ```
