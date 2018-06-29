@@ -79,4 +79,57 @@ $(document).ready(function () {
 
         }
     });
+
+    $('.communityForm').validate({
+        rules: {
+            first_name: "required",
+            last_name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            phone: "required",
+            shirtsize: "required",
+            issues: "required",
+            github_id: "required",
+            feedback: "required"
+        },
+        messages: {
+            first_name: "Please enter your first name",
+            last_name: "Please enter your last name",
+            email: {
+                required: "Please enter your email",
+                email: "Please enter a valid email"
+            },
+            phone: "Please enter your contact number",
+            shirtsize: "Please select your T-shirt size",
+            issues: "Please provide the GitHub issues you filed",
+            github_id: "Please enter your Github ID",
+            feedback: "Please provide your feedback"
+
+        }, highlight: function (element) {
+            $(element).addClass('form-error');
+
+        }, unhighlight: function (element) {
+            $(element).removeClass('form-error');
+
+        }, submitHandler: function (form) {
+            $(".cSubmitButton").attr("disabled", true);
+
+            var first_name = $(".contact_first_name").val();
+            var last_name = $(".contact_last_name").val();
+            var email = $(".contact_email").val();
+            var phone = $(".contact_phone").val();
+            var shirtsize = $(".shirtsize").val();
+            var issues = $(".contact_issues").val();
+            var github_id = $(".contact_id").val();
+            var feedback = $(".contact_feedback").val();
+
+            var params = "first_name="+first_name+"&last_name="+last_name+"&email="+email+"&phone="+phone+"&tshirt_size="+shirtsize+"&git_issues="+issues+"&git_id ="+github_id+"&feedback="+feedback;
+            $(".pdframe").html("<iframe src='https://go.pardot.com/l/142131/2018-03-26/4yl979?"+params+"'></iframe>");
+            
+            $(".cInlineForm").html('<span>Your information has been submitted successfully.</spam>');
+            return false;
+        }
+    });
 });
