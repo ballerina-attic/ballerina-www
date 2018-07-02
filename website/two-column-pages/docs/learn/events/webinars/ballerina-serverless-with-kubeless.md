@@ -13,7 +13,7 @@ socialmediaimage: ballerina-serverless-with-kubeless.jpg
 <table class="cEventTable">
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
-        <td class="cEventURL"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank">Register Now</a></td>
+        <td class="cEventURL"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank" id="iRegisterNow">Register Now</a></td>
     </tr>
 </table>
 
@@ -30,7 +30,7 @@ In this webinar, we will:
 </ul>
 
 
-## Presenter
+## Presenters
 
 <table class="cWebinarPresenter">
     <tr>
