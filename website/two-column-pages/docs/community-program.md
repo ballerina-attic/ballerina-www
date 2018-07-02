@@ -64,10 +64,10 @@ Once you complete the quick tour, please fill in the following information so th
 
    <li><textarea type="text" maxlength="550" value="" name="feedback" placeholder="Your feedback and thoughts on Ballerina " title="Your feedback and thoughts on Ballerina " class="cTextfieldstyle contact_feedback"></textarea></li>
 
-   <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from WSO2 to stay up to date on new releases and updates.</li>
+   <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from Ballerina.io to stay up to date on new releases and updates.</li>
    <li><input type="hidden" class="tokenid" value="" name="tokenid">
      <input type="hidden" class="pdep" value="/142131/2018-06-26/5672jb" name="pdep">
-     <input class="cSubmitButton" type="submit" value="Register" name="cInline_submit" id="cInline_submit"></li>
+     <input class="cSubmitButton" type="submit" value="Submit" name="cInline_submit" id="cInline_submit"></li>
    </ul>
 </form>
 </div>
