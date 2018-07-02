@@ -1,6 +1,7 @@
 <?php
 
 $url = isset($_POST['url']) ? strip_tags($_POST['url']) : "";
+$url = str_replace("#","%23",$url);
 
 // open connection
 $ch = curl_init();
