@@ -42,6 +42,8 @@ Star and watch the GitHub repo https://github.com/ballerina-platform/ballerina-l
 
 Once you complete the quick tour, please fill in the following information so that we can ship you a T-Shirt.
 
+## Request T-Shirt
+
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInlineForm">
 <form name="communityForm" class="communityForm" method="post" action="" id="cInlineForm">
     <ul>
@@ -73,7 +75,7 @@ Once you complete the quick tour, please fill in the following information so th
 </div>
 <div class="clearfix"></div>
 
-
+Following is the quick for you to follow and experience Ballerina.
 
 
 ## Install Ballerina
@@ -94,23 +96,28 @@ This should print the version of Ballerina you have installed
 
 While you can implement a simple program with Ballerina in isolation, the best practice is to start a project with ``` ballerina init ``` command.
 
-1. Start your project by creating a new folder of your choice
-2. Navigate to that folder on command line and run the following command.
-``` ballerina init ```
+<ol>
+<li>Start your project by creating a new folder of your choice
+</li>
+<li>Navigate to that folder on command line and run the following command.
+<code>ballerina init </code>
 You see a response confirming that your project is initialized.
-``` Ballerina project initialized ```
+<code> Ballerina project initialized </code>
 This automatically creates a typical Hello World service for you.
-3. Start the service using the `ballerina run` command.
+</li>
+<li>Start the service using the `ballerina run` command.
 ballerina run hello_service.bal
 You get the following output.
-``` ballerina: initiating service(s) in 'hello_service.bal'
-ballerina: started HTTP/WS endpoint 0.0.0.0:9090 ```
-4. Open a new command line to invoke the service using a HTTP client program such as cURL.
-5.  Invoke the service using an HTTP client.
-curl ``` http://localhost:9090/hello/sayHello ```
-Tip: If you do not have cURL installed, you can download it from [https://curl.haxx.se/download.html](https://curl.haxx.se/download.html).
+<code> ballerina: initiating service(s) in 'hello_service.bal'
+ballerina: started HTTP/WS endpoint 0.0.0.0:9090 </code>
+</li>
+<li>Open a new command line to invoke the service using a HTTP client program such as cURL.</li>
+<li>Invoke the service using an HTTP client.
+curl <code> http://localhost:9090/hello/sayHello </code>
+Tip: If you do not have cURL installed, you can download it from <a href="https://curl.haxx.se/download.html">https://curl.haxx.se/download.html</a>.
 You get the following response.
-``` Hello Ballerina! ```
+<code>Hello Ballerina! </code></li>
+</ol>
 
 You just created a Ballerina project, started a service, invoked that service and received a response.
 
@@ -118,10 +125,29 @@ You just created a Ballerina project, started a service, invoked that service an
 
 Instead of using a HTTP client program such as cURL, we can implement a client program to invoke the service using Ballerina itself.
 
-1. Open a new command line and go to the same folder you created the service
-2. Create a new file named main.bal
-3. Edit the main.bal file using a text editor of your choice
-4. Copy and paste the following code into the file and save the file
+
+
+
+
+<ol>
+<li>
+Open a new command line and go to the same folder you created the service
+</li>
+
+<li>
+Create a new file named main.bal
+</li>
+
+<li>
+Edit the main.bal file using a text editor of your choice
+</li>
+
+<li>
+Copy and paste the following code into the file and save the file
+</li>
+
+</ol>
+
 ``` ballerina
 import ballerina/http;
 import ballerina/log;
@@ -143,15 +169,22 @@ function main(string... args) {
     }
 }
 ```
-5. Go back to the command line where you created the main.bal file
-6. Make sure your hello_service.bal is running in another command line (note that we started this service before did not stop it). If it is not running, you can run it again in a new command line with
-``` ballerina run hello_service.bal ```
-7. Run the main.bal file
+<ol start="5">
+<li>Go back to the command line where you created the main.bal file</li>
+<li>Make sure your hello_service.bal is running in another command line (note that we started this service before did not stop it). If it is not running, you can run it again in a new command line with
+<code> ballerina run hello_service.bal </code></li>
+<li>
+Run the main.bal file
 ballerina run main.bal
 This will invoke the print the response
-``` Hello Ballerina! ```
+<code> Hello Ballerina! </code>
 You just invoked Hello World service written in Ballerina programming language using a client program written in Ballerina.
-8. Shut down the service. To do this, go to the command line you ran the service and press ctrl-c keys together.
+</li>
+<li>Shut down the service. To do this, go to the command line you ran the service and press ctrl-c keys together.
+</li>
+</ol>
+
+
 
 ## Run the Composer
 
@@ -195,13 +228,17 @@ function divide(float a, float b) returns (float) {
     return a / b;
 }
 ```
-7. Right click on ‘calculator’ folder and click on “New File”
-8. Name the new file ‘main.bal’
-9. Double click on the main.bal file to open the file
+
+<ol start="7">
+<li>Right click on ‘calculator’ folder and click on “New File”</li>
+<li>Name the new file ‘main.bal’</li>
+<li>Double click on the main.bal file to open the file
 We will have the implementation main function that implements the calculator in this file.
 The main program goes in a loop and execute calculator operations until user selects to exit.
-Only add and subtract functions are used in the sample implementation. You can implement multiply and divide operations in this sample on your own and test.
-10. Copy the following code and past into main.bal file and save it
+Only add and subtract functions are used in the sample implementation. You can implement multiply and divide operations in this sample on your own and test.</li>
+<li>Copy the following code and past into main.bal file and save it</li>
+</ol>
+
 ``` ballerina
 import ballerina/io;
 
@@ -245,12 +282,14 @@ function main(string... args) {
 }
 
 ```
-11. Go back to the command line where you created the project, the parent folder of the calculator folder.   
-12. Run the program on the command line using the command
-``` ballerina run calculator ```
-This will run the calculator package’s main program interactively until you choose to quit with 5 as input.
-13. Enter 1 as input, then enter two numbers to add and see the result. You may also test subtract option.
-14. Quit the main program entering 5 as input
+<ol start="11">
+<li>Go back to the command line where you created the project, the parent folder of the calculator folder.</li>
+<li>Run the program on the command line using the command
+<code> ballerina run calculator </code>
+This will run the calculator package’s main program interactively until you choose to quit with 5 as input.</li>
+<li>Enter 1 as input, then enter two numbers to add and see the result. You may also test subtract option.</li>
+<li>Quit the main program entering 5 as input</li>
+</ol>
 
 ## Create a calculator service
 
@@ -324,14 +363,19 @@ service<http:Service> Calculator bind listener {
 
 ```
 
-5. Go back to the command line where you created the project, the parent folder of the calculator folder.   
-6. Run the service on the command line using the command
-``` ballerina run calculator ```
+
+
+<ol start="5">
+<li>Go back to the command line where you created the project, the parent folder of the calculator folder.   </li>
+<li>Run the service on the command line using the command
+<code> ballerina run calculator </code>
 Inside calculator package, we now have both a main program that we previously wrote and the service that we just wrote.
-When ballerina is run for the calculator package, the main program is run, and the service is started.
-7. Open a new command line to invoke the service using a HTTP client program such as cURL.
-8.  Invoke the service using an HTTP client.
-``` curl -v -X POST -d '{"a": 10, "b":  200, "operation": "add"}' "http://localhost:9090/calculator/operation" -H "Content-Type:application/json" ```
+When ballerina is run for the calculator package, the main program is run, and the service is started.</li>
+<li>Open a new command line to invoke the service using a HTTP client program such as cURL.</li>
+<li>Invoke the service using an HTTP client.
+<code> curl -v -X POST -d '{"a": 10, "b":  200, "operation": "add"}' "http://localhost:9090/calculator/operation" -H "Content-Type:application/json" </code>
+</li>
+</ol>
 
 ## Create a client for calculator service
 
@@ -382,11 +426,14 @@ function main(string... args) {
 
 ```
 
-5. Open a new command line to invoke the client program. Go to the project root folder, the parent folder of calculator folder.
-6. Run the client program to invoke calculator service
-``` ballerina run client.bal ```
+<ol start="5">
+<li>Open a new command line to invoke the client program. Go to the project root folder, the parent folder of calculator folder.</li>
+<li>Run the client program to invoke calculator service
+<code> ballerina run client.bal </code>
 This will invoke the service, and print the result
-``` Addition result 15.6 + 18.9 : 34.5 ```
+<code> Addition result 15.6 + 18.9 : 34.5 </code>
+</li>
+</ol>
 
 ## Push your Package to Ballerina Central
 
@@ -444,6 +491,8 @@ You may also go to the package landing page directly to view details on the pack
 [https://central.ballerina.io/<org-name>/calculator](https://central.ballerina.io/<org-name>/calculator)
 
 ## Follow the Repo
+
+<div class="cGitButtonContainer"><p id="iGitStarText">"Star"</p> <p id="iGitWatchText">"Watch"</p></div>
 
 Ballerina source repository lives on GitHub.
 
