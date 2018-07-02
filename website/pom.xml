@@ -169,7 +169,7 @@
                             <executable>sh</executable>
                             <arguments>
                                 <argument>tools/build-bbe.sh</argument>
-                                <argument>${bbe.source.dir}</argument>
+                                <argument>${bbe.source.repo}</argument>
                                 <argument>${bbe.site.dir}</argument>
                                 <argument>${go.working.dir}</argument>
                             </arguments>
@@ -261,6 +261,7 @@
     </build>
     <properties>
         <bbe.source.dir>${project.build.directory}/sources/examples</bbe.source.dir>
+        <bbe.source.repo>https://github.com/ballerina-platform/ballerina-examples</bbe.source.repo>
         <ballerina.home>${project.build.directory}/dependencies/ballerina-tools-${ballerina.release.version}/</ballerina.home>
         <guides.source.dir>${basedir}/guides</guides.source.dir>
         <philosophy.samples.source.dir>${project.build.directory}/sources/samples</philosophy.samples.source.dir>
