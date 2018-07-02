@@ -127,7 +127,7 @@ $(document).ready(function () {
 
             var params = "https://go.pardot.com/l/142131/2018-06-29/56bvmj?first_name="+encodeURI(first_name)+"&last_name="+encodeURI(last_name)+"&email="+encodeURI(email)+"&phone="+encodeURI(phone)+"&tshirt_size="+shirtsize+"&git_issues="+encodeURI(issues)+"&git_id="+encodeURI(github_id)+"&feedback="+encodeURI(feedback);
 
-            $.post("/formSubmit.php", {
+            $.post("/scripts/formSubmit.php", {
             	url:params
             },
             function (response, status) {
