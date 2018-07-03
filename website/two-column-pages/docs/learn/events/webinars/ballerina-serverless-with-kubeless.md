@@ -6,7 +6,7 @@ status: Published
 abstract: Ballerina is a cloud-native programming language that makes it easy to work with remote endpoints, supports modern protocols and data formats, has built-in constructs for event and stream processing, resiliency, and parallel execution.
 socialmediaimage: ballerina-serverless-with-kubeless.jpg
 ---
-<script src="/js/ballerina-form.js"></script><link rel="stylesheet" href="/css/webinar-page.css"></link>
+<script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link>
 
 # Ballerina Serverless with Kubeless
 
@@ -62,7 +62,7 @@ In this webinar, we will:
             <li><input type="text" maxlength="50" value="" name="first_name" placeholder="First Name" title="First Name" class="cTextfieldstyle contact_first_name"></li>
             <li><input type="text" maxlength="50" value="" name="last_name" placeholder="Last Name" title="Last Name" class="cTextfieldstyle contact_last_name"></li>
             <li><input type="text" maxlength="50" value="" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email"></li>
-                        
+
             <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from Ballerina.io to stay up to date on new releases and updates.</li>
             <li><input type="hidden" class="tokenid" value="" name="tokenid">
               <input type="hidden" class="pdep" value="/142131/2018-06-26/5672jb" name="pdep"><input type="hidden" class="w_id" value="794720699" name="w_id">
