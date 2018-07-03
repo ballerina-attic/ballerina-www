@@ -40,6 +40,11 @@ function registerWebinarUser() {
 }
 
 $(document).ready(function () {
+
+    if(window.location.hash == "#register"){
+       $('.cEventRegistration')[0].click();
+    }
+
     $('#webinarForm').validate({
         rules: {
             first_name: "required",
@@ -47,11 +52,7 @@ $(document).ready(function () {
             email: {
                 required: true,
                 email: true
-            },
-            phone: "required",
-            company: "required",
-            country: "required",
-            job_title: "required"
+            }
         },
         messages: {
             first_name: "Please enter your first name",
@@ -60,10 +61,6 @@ $(document).ready(function () {
                 required: "Please enter your email",
                 email: "Please enter a valid email"
             },
-            phone: "Please enter your contact number",
-            company: "Please enter your company",
-            country: "Please enter your country",
-            job_title: "Please enter your job title",
 
         }, highlight: function (element) {
             $(element).addClass('form-error');
