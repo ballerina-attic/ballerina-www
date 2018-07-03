@@ -11,10 +11,10 @@ Now that you know a little bit [about Ballerina](/philosophy), let's take it for
 
 ## Start a Project, Run a Service, and Invoke It
 
-Start your project by navigating to a directory of your choice and running the following command.
+Start your project by navigating to a directory of your choice and running the following command. (With Ballerina.toml)
 
 ```bash
-ballerina init
+ballerina init -i
 ```
 
 You see a response confirming that your project is initialized. This automatically creates a typical Hello World service for you in your directory. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
