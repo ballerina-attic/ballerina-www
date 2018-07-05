@@ -410,7 +410,7 @@ function main(string... args) {
     json jsonMsg = { a: 15.6, b: 18.9, operation: "add" };
     req.setJsonPayload(jsonMsg);
 
-    var response = clientEndpoint->post("/calculator/operation", request = req);
+    var response = clientEndpoint->post("/calculator/operation", req);
     match response {
         http:Response resp => {
             var msg = resp.getJsonPayload();
