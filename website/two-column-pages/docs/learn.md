@@ -128,3 +128,4 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 18. <a href="https://medium.com/@kevinratnasekera/write-integration-tests-for-ballerina-service-running-inside-docker-container-39fbbc20641c" target="_blank">Write Integration Tests for Ballerina Using TestContainers</a>
 19. <a href="https://medium.com/@kevinratnasekera/connect-with-kafka-brokers-using-ballerina-6f5f2880b7e8" target="_blank">Connect with Kafka Brokers Using Ballerina</a>
 20. <a href="https://medium.com/@lafernando/ballerina-concurrency-done-right-fa0afa350cb0" target="_blank">Ballerina: Concurrency Done Right!</a>
+21. <a href="https://www.infoq.com/articles/ballerina-microservices-language-part-1" target="_blank">Ballerina Microservices Programming Language: Introducing the Latest Release and "Ballerina Central"</a>
