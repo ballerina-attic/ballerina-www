@@ -87,18 +87,3 @@
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.javasig.com/" target="_blank">More Info</a></td>
     </tr>
 </table>
-
-## Guest lectures
-
-<table class="cEventTable cGLList">
-    <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">June 26, 2018</span>2:00 PM
-<p class="cEventLocation">Foundation for Research and Technology - Hellas (FORTH) Institute of Computer Science, Crete, Greece </p>
-        </td>
-        <td class="cEventDetail"><a target="_blank" href="http://www.ics.forth.gr/index_main.php?l=e&n=4&id=524"><h4>Ballerina, a modern programming language focused on integration</h4></a>
-          <p>Speaker: Sanjiva Weerawarana</p>
-       </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="http://www.ics.forth.gr/index_main.php?l=e&n=4&id=524" target="_blank">More Info</a></td>
-    </tr>
-
-</table>
