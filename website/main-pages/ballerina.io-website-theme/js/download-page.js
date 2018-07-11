@@ -194,7 +194,7 @@ $(document).ready(function() {
     var dev_pack = "";
     $("#devPackContainer").hide();
 
-    $.getJSON("https://preprod-product-dist.ballerina.io/dev/dev_release.json", function(dev_pack) {
+    $.getJSON(dev_versions_json, function(dev_pack) {
 
         $("#devPackContainer").show();
         var version = dev_pack['version'];
