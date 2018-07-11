@@ -88,7 +88,7 @@ To check if the installation is done right, run the following command.
 
 This should print the version of Ballerina you have installed.
 
-``` Ballerina 0.970.1 ```
+``` Ballerina 0.980.0 ```
 
 ## Hello World with Ballerina
 
@@ -259,7 +259,7 @@ function main(string... args) {
 
         // read user's choice
         string choice = io:readln("Enter choice 1 - 5: ");
-        int c = check <int>choice;
+        c = check <int>choice;
 
         if (c == 5) {
             break;
@@ -359,7 +359,7 @@ service<http:Service> Calculator bind listener {
         json payload = { status: "Result of " + operation, result: 0.0 };
         payload["result"] = check <float>result;
         http:Response response;
-        response.setJsonPayload(payload);
+        response.setJsonPayload(untaint payload);
 
         // Send response to the client.
         _ = client->respond(response);
@@ -391,6 +391,7 @@ When Ballerina is run for the calculator package, the main program is run, and t
 We will have the implementation a REST client to invoke calculator service in this file.
 The client sends a JSON request that provides the input to calculate on and the operation (in this case, we execute the add operation) to execute to calculator service, receives the result and prints that.
 4. Copy the following code and paste it into the **client.bal** file and save it.
+5. Before going ahead, delete **main.bal** from the package folder if it still exists.
 
 ``` ballerina
 
@@ -432,7 +433,7 @@ function main(string... args) {
 
 ```
 
-<ol start="5">
+<ol start="6">
 <li>Open a new command line to invoke the client program. Go to the project root folder, which is the parent folder of the calculator folder.</li>
 <li>Run the client program to invoke the calculator service.
   
