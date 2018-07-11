@@ -6,7 +6,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cDownloadsHeader">
                 <h1>Downloads</h1>
                 <p>
-                    After downloading a release for your system, please follow the <a href="https://ballerina.io/learn/getting-started/#installing-ballerina">installation instructions</a>. If you are building from source, follow the <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source">build instructions</a>.
+                    After downloading a release for your system, please follow the installation instructions. For more information, see <a href="https://ballerina.io/learn/getting-started/#installing-ballerina">Getting Started</a>. If you are building from source, follow the <a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source">build instructions</a>.
                 </p>
             </div>
         </div>
@@ -76,6 +76,20 @@
                             <table id="insPackages1"></table>
                         </div>
                     </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <div id="devPackContainer">
+                    <h3 class="release-version">RC <span id="devInfo"></span></h3>
+                    <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
+                        <div class="devPackages0container">
+                            <table id="devPackages0"></table>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cRightTable">
+                        <div class="devPackages0container">
+                            <table id="devPackages1"></table>
+                        </div>
+                    </div></div>
                     <div class="clearfix"></div>
                     <br>
                     <div id="nightlyPackContainer">

@@ -990,7 +990,7 @@ stream<Temperature> tempStream;
 from e1=regulatorStateChangeStream where (action == 'start')
         followed by !tempStream
         where (e1.roomNo == roomNo && temp < 12)
-        for '5 minute'
+        for 5 minutes
 select e1.roomNo as roomNo
 => (Alert [] alerts) {
     alertStream.publish(alerts);
@@ -1210,7 +1210,7 @@ output last every 10 events
 
 ```ballerina
 from tempStream
-output every 10 second
+output every 10 seconds
 => (LowRateTemperature [] values) {
 
 }

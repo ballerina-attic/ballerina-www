@@ -16,11 +16,11 @@ To create a client connector, you:
 
 1. Create a Ballerina package in a Ballerina project.
 
-2. Create an object with an `init()` and `getClient()` function.
+2. Create an object with an `init()` and `getCallerActions()` function.
 
 3. Implement the `init()` function, which is called when the user instantiates an endpoint.
 
-4. Implement the `getClient()` function, which is called when the connection must be returned.
+4. Implement the `getCallerActions()` function, which is called when the connection must be returned.
 
 5. Build the package and push it into a registry for usage by others.
 
@@ -28,9 +28,9 @@ To create a client connector, you:
 
 You can see the source code for this example at:
 
-1. [Single file](https://github.com/muthulee/package-twilio-super-simple/blob/master/twilio/twilio_endpoint.bal) version (easier for reading).
+1. [Single file](https://github.com/wso2-ballerina/package-twilio/blob/master/guide/twilio_sample.bal) version (easier for reading).
 
-2. [Multiple files](https://github.com/muthulee/package-client-endpoint-guide/tree/master/clientendpointsample) version (split across files following good project structure).
+2. [Multiple files](https://github.com/wso2-ballerina/package-twilio/tree/master/twilio) version (split across files following good project structure).
 
 WSO2 has created a connector for Twilio and pushed it into Ballerina Central as `wso2/twilio`. You can find this connector on the command line:
 
@@ -44,11 +44,11 @@ The Twilio connector reuses the HTTP client connector and adds some additional p
 import ballerina/http;
 import wso2/twilio;
 
-function main(string[] args) {
+function main(string... args) {
     endpoint TwilioClient twilioClient {
-        clientConfig:{
-            auth:{
-                scheme:"basic",
+        clientConfig: {
+            auth: {
+                scheme: http:BASIC_AUTH,
                 username: "",
                 password: ""
             }
@@ -60,16 +60,16 @@ function main(string[] args) {
 }
 ```
 
-In this example, the endpoint is going to instantiate a `TwilioClient` object. This object takes an input parameter defined as a `clientConfig` object. The `clientConfig` object includes an `auth` object which is part of the `http:Client` connector, which is distributed as part of the standard library.
+In this example, the endpoint is going to instantiate a `TwilioClient` object. This object takes an input parameter defined as a `clientConfig` object. The `clientConfig` object includes an `auth` object, which is part of the `http:Client` connector, which is distributed as part of the standard library.
 
-The Twilio connector then defines a custom function, `getAccountDetails()` which is called by the end user to interact with the endpoint. The package developer will also implement a `TwilioClient::init()` method which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
+The Twilio connector then defines a custom function, `getAccountDetails()` which is called by the end user to interact with the endpoint. The package developer will also implement a `TwilioClient::init()` method, which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
 
 ### The TwilioClient Object
 
 The connector is a data structure that is represented by an `object`.
 
 ```ballerina
-public type Client object {
+public type TwilioClient object {
 
     // Data structure that will hold config info and a connector
     public {
@@ -77,8 +77,8 @@ public type Client object {
         TwilioConnector twilioConnector = new;
     }
 
-    public function init (TwilioConfiguration twilioConfig);
-    public function getClient () returns TwilioConnector;
+    public function init(TwilioConfiguration config);
+    public function getCallerActions() returns TwilioConnector;
 };
 
 // Part of the TwilioClient object and passed as an input parameter to
@@ -93,8 +93,8 @@ public type TwilioConfiguration {
 // standard connector that is in the http system library
 public type TwilioConnector object {
     public {
-        string accountSid;
-        http:Client basicClient;
+        string accountSId;
+        http:Client client;
     }
 
     public function getAccountDetails() returns (Account|error);
@@ -110,22 +110,24 @@ We now implement the method that will be called when an endpoint is instantiated
 // Constant
 @final string BASE_URL = "https://api.twilio.com/2010-04-01";
 
-public function TwilioClient::init (TwilioConfiguration twilioConfig) {
+public function TwilioClient::init(TwilioConfiguration config) {
 
     // Navigate our client object into the targets file of the http::Client object
-    twilioConfig.clientConfig.targets = [{url:BASE_URL}];
-    var usernameOrEmpty = twilioConfig.clientConfig.auth.username;
+    config.clientConfig.url = BASE_URL;
     string username;
     string password;
+
+    var usernameOrEmpty = config.clientConfig.auth.username;
     match usernameOrEmpty {
         string usernameString => username = usernameString;
         () => {
             error err;
             err.message = "Username cannot be empty";
             throw err;
-              }
+        }
     }
-    var passwordOrEmpty = twilioConfig.clientConfig.auth.password;
+
+    var passwordOrEmpty = config.clientConfig.auth.password;
     match passwordOrEmpty {
         string passwordString => password = passwordString;
         () => {
@@ -135,30 +137,27 @@ public function TwilioClient::init (TwilioConfiguration twilioConfig) {
         }
     }
 
-    http:AuthConfig authConfig = {scheme:"basic", username:username , password:password};
-
     // We can reference the fields of the TwilioClient object
-    self.twilioConnector.accountSid = username;
-    twilioConfig.clientConfig.auth = authConfig;
+    self.twilioConnector.accountSId = username;
 
     // Calling initialize of the embedded http client object
-    self.twilioConnector.basicClient.init(twilioConfig.clientConfig);
+    self.twilioConnector.client.init(config.clientConfig);
 }
 ```
 
-### Implement the `getClient()` Function for the Connector
+### Implement the `getCallerActions()` Function for the Connector
 
-The `getClient()` function is called whenever the system needs to return an active connection to the end user developer for use in their code. We've already initialized the conneciton and its saved within the TwilioClient object.
+The `getCallerActions()` function is called whenever the system needs to return an active connection to the end user developer for use in their code. We have already initialized the connection and it is saved within the TwilioClient object.
 
 ```ballerina
-public function TwilioClient::getClient () returns TwilioConnector {
+public function TwilioClient::getCallerActions() returns TwilioConnector {
     return self.twilioConnector;
 }
 ```
 
 ### Implement Custom Functions For Endpoint Interaction
 
-While the `TwilioClient` object implements `init()` and `getClient()`, if you want to explose custom actions for your end users to use against the connector, these are defined in the `TwilioConnector` object which was initialized and stored as a reference to the `TwilioClient` object. You can add as many or as few custom functions to this object.
+While the `TwilioClient` object implements `init()` and `getCallerActions()`, if you want to expose custom actions for your end users to use against the connector, these are defined in the `TwilioConnector` object, which was initialized and stored as a reference to the `TwilioClient` object. You can add as many or as few custom functions to this object.
 
 In our example, we added a `getAccountDetails()` function that can be invoked as part of the endpoint by the end user:
 
@@ -178,16 +177,11 @@ And within the package that includes your custom connector, we have these additi
 @final string RESPONSE_TYPE_JSON = ".json";
 
 public function TwilioConnector::getAccountDetails() returns (Account|error) {
-    endpoint http:Client httpClient = self.basicClient;
-    http:Request request = new();
-
-    string requestPath = ACCOUNTS_API + self.accountSid + RESPONSE_TYPE_JSON;
-    var response = httpClient -> get(requestPath, request);
-    var jsonResponse = parseResponseToJson(response);
-    match jsonResponse {
-        json jsonPayload => { return mapJsonToAccount(jsonPayload); }
-        error err => return err;
-    }
+    endpoint http:Client httpClient = self.client;
+    string requestPath = ACCOUNTS_API + self.accountSId + RESPONSE_TYPE_JSON;
+    var response = httpClient->get(requestPath);
+    json jsonResponse = check parseResponseToJson(response);
+    return mapJsonToAccount(jsonResponse);
 }
 ```
 
@@ -216,7 +210,7 @@ For more information on how to structure the code you write, see [How to Structu
 
 ### Learn More
 
-You can create connectors for a range of protocols and interfaces, including those endpoints which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
+You can create connectors for a range of protocols and interfaces, including those endpoints, which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
 
 1. A [Hello Gatsby client](https://github.com/muthulee/package-twilio-super-simple/blob/master/hello/hello_world_endpoint.bal), which is a minimal custom client.
 
@@ -272,8 +266,8 @@ import ballerinax/hello;
 service<http:Service> helloWorld bind {port:9091} {
    sayHello(endpoint outboundEP, http:Request request) {
        http:Response response = new;
-       response.setStringPayload("Hello, World from service helloWorld ! \n");
-       _ = outboundEP -> respond(response);
+       response.setTextPayload("Hello, World from service helloWorld ! \n");
+       _ = outboundEP->respond(response);
    }
 }
 ```
@@ -281,11 +275,11 @@ service<http:Service> helloWorld bind {port:9091} {
 If the end user saved this file as `hello_world.bal` then after building the file (with our custom build extension) will produce:
 
 ``` bash
-$> tree
+$ tree
 ├── hello_world.bal
 ├── hello_world.balx
 └── hello_world.txt
-$> cat hello_world.txt
+$ cat hello_world.txt
 Guten Tag!
 ```
 
@@ -367,7 +361,7 @@ In the `pom.xml`, add Ballerina IO as the parent:
     <parent>
         <groupId>io.ballerina</groupId>
         <artifactId>ballerina</artifactId>
-        <version>0.970.0-beta4</version>
+        <version>0.975.0</version>
     </parent>
 ```
 
@@ -378,7 +372,19 @@ In the `pom.xml` add Ballerina's maven dependencies:
         <dependency>
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-lang</artifactId>
-            <version>0.970.0-beta4</version>
+            <version>0.975.0</version>
+        </dependency>
+         <dependency>
+                <groupId>org.ballerinalang</groupId>
+                <version>0.975.0</version>
+                <artifactId>lib-creator</artifactId>
+         </dependency>
+         <dependency>
+            <groupId>org.ballerinalang</groupId>
+            <artifactId>ballerina-builtin</artifactId>
+            <version>0.975.0</version>
+            <type>zip</type>
+            <classifier>ballerina-binary-repo</classifier>
         </dependency>
     </dependencies>
 ```
@@ -445,15 +451,14 @@ In the maven project, create a hello-extension/src/main/ballerina/ballerinax/doc
 The annotation is defined using Ballerina syntax in the `annotation.bal`:
 
 ```ballerina
-package ballerinax.hello;
-
-@Description {value:"THIS TEXT APPEARS IN API DOCS"}
-@Field {value:"salutation: THIS TEXT APPEARS IN API DOCS"}
+documentation {Hello annotation configuration
+    F{{salutation}} - Greeting
+}
 public type HelloConfiguration {
-   string salutation;
+    string salutation;
 };
 
-@Description {value:"THIS TEXT APPEARS IN API DOCS"}
+documentation {@hello:Greeting annotation configuration}
 public annotation <service> Greeting HelloConfiguration;
 
 // You can replace the <> value with different objects this annotation may attach to
@@ -599,6 +604,164 @@ Configure Maven compiler plugin. Ballerina requires Java8 for the builder extens
 </plugin>
 ```
 
+Configure Maven plugins to generate balo files.
+```xml
+         <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>gen-balo</id>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                            <systemProperties>
+                                <systemProperty>
+                                    <key>BALLERINA_DEV_MODE_COMPILE</key>
+                                    <value>true</value>
+                                </systemProperty>
+                            </systemProperties>
+                            <arguments>
+                                <!--is built in pkg loaded from source-->
+                                <argument>false</argument>
+                                <!--source project dir-->
+                                <argument>${basedir}/src/main/ballerina/ballerinax</argument>
+                                <!--balo destination-->
+                                <argument>${project.build.directory}/generated-balo/repo/ballerinax</argument>
+                                <!--ballerina home-->
+                                <argument>${project.build.directory}</argument>
+                                <!--not used-->
+                                <argument>${project.version}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>org.ballerinalang.stdlib.utils.GenerateBalo</mainClass>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-dependencies</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeClassifiers>ballerina-binary-repo</includeClassifiers>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <execution>
+                        <id>distribution</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attached</goal>
+                        </goals>
+                        <configuration>
+                            <descriptorSourceDirectory>assembly</descriptorSourceDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+```
+
+Create a folder named `assembly` in  `hello-extension/` folder and add following files.
+1. balo.xml
+```xml
+<assembly>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <baseDirectory>/</baseDirectory>
+    <id>ballerina-binary-repo</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.directory}/generated-balo</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>**</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>
+```
+2. source.xml
+```xml
+<assembly>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <baseDirectory>ballerina</baseDirectory>
+    <id>ballerina-sources</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <fileSets>
+        <fileSet>
+            <directory>src/main/ballerina</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>**</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>
+```
+
+Create a file named `Ballerina.toml` in  `hello-extension/src/main/ballerina/ballerinax` folder and add following content.
+```toml
+[project]
+org-name = "ballerinax"
+version = "0.0.0"
+```
+
+Final folder structure looks like below.
+```bash
+.
+├── assembly
+│   ├── balo.xml
+│   └── source.xml
+├── pom.xml
+├── spotbugs-exclude.xml
+└── src
+    └── main
+        ├── ballerina
+        │   └── ballerinax
+        │       ├── Ballerina.toml
+        │       └── hello
+        │           └── annotation.bal
+        ├── java
+        │   └── org
+        │       └── ballerinax
+        │           └── hello
+        │               ├── HelloExtensionProvider.java
+        │               ├── HelloModel.java
+        │               └── HelloPlugin.java
+        └── resources
+            └── META-INF
+                └── services
+                    └── org.ballerinalang.compiler.plugins.CompilerPlugin
+
+```
+
 ##### Verify the Annotation
 
 Build the project and verify that the JAR file is built. The JAR file will contain your annotation definitions.
@@ -611,6 +774,9 @@ The resulting `target/hello-extension-1.0-SNAPSHOT.jar` will have the annotation
 
 Place the jar file at `<ballerina_tools_home>/bre/lib` of your Ballerina distribution.
 
+Extract `target/hello-extension-0.975.0-ballerina-binary-repo.zip` file and copy the `repo/ballerinax` folder to `<ballerina_tools_home>/repo/` folder. 
+The final `<ballerina_tools_home>/repo/` folder will  have two folders `ballerina` and `ballerinax`.
+
 You can now verify that the annotation is present even though we cannot react to it yet. Create a sample Ballerina file with your  annotation and make sure that Ballerina can compile the file without errors.
 
 ```ballerina
@@ -621,7 +787,7 @@ import ballerinax/hello;
 service<http:Service> helloWorld bind {port:9091} {
    sayHello(endpoint outboundEP, http:Request request) {
        http:Response response = new;
-       response.setStringPayload("Hello, World from service helloWorld ! \n");
+       response.setTextPayload("Hello, World from service helloWorld ! \n");
        _ = outboundEP -> respond(response);
    }
 }

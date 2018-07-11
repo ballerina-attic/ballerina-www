@@ -23,9 +23,9 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 [Ballerina by Guide](/learn/by-guide/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
 
-### Editors, IDEs and the Ballerina Composer
+### Tools, IDEs, and the Ballerina Composer
 
-<a href="https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md" target="_blank">Editors, IDEs and the Ballerina Composer</a> overviews the editing tools for code and diagrams. This includes language servers, editors, IDE, and a graphical visualization tool called the Ballerina Composer.
+[Tools, IDEs, and the Ballerina Composer](/learn/tools-ides-ballerina-composer/) overviews the editing tools for code and diagrams. This includes language servers, editors, IDE, and a graphical visualization tool called the Ballerina Composer.
 
 ### How to Structure Ballerina Code
 
@@ -77,6 +77,35 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 
 [Frequently Asked Questions](/learn/faq/) about Ballerina.
 
+## Events
+
+### Conferences
+
+<table class="cEventTable">
+<tr>
+      <td class="cEventDetail c2col">
+        <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
+    </td>
+        <td class="cEventURL c2col"><a class="cEventRegistration" href="https://con.ballerina.io/register/" target="_blank">Register Now</a></td>
+    </tr>
+</table>
+
+### Webinars
+
+<table class="cEventTable cWebinarList">
+<tr>
+    <td class="cEventDateContainer"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+    <td class="cEventDetail"><h4>Ballerina Serverless with Kubeless</h4>
+    <p>
+    <b>Adnan Abdulhussein</b> Software Engineer, Bitnami</p>
+    <p>
+    <b>Dmitry Sotnikov</b> Vice President - Cloud, WSO2</p>
+    </td>
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-serverless-with-kubeless/">Register Now</a></td>
+</tr>
+
+</table>
+
 ## Articles and Videos
 
 1. <a href="https://medium.com/ballerinalang/conceiving-ballerina-2dadf67c0503" target="_blank">Conceiving Ballerina</a>
@@ -99,3 +128,4 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 18. <a href="https://medium.com/@kevinratnasekera/write-integration-tests-for-ballerina-service-running-inside-docker-container-39fbbc20641c" target="_blank">Write Integration Tests for Ballerina Using TestContainers</a>
 19. <a href="https://medium.com/@kevinratnasekera/connect-with-kafka-brokers-using-ballerina-6f5f2880b7e8" target="_blank">Connect with Kafka Brokers Using Ballerina</a>
 20. <a href="https://medium.com/@lafernando/ballerina-concurrency-done-right-fa0afa350cb0" target="_blank">Ballerina: Concurrency Done Right!</a>
+21. <a href="https://www.infoq.com/articles/ballerina-microservices-language-part-1" target="_blank">Ballerina Microservices Programming Language: Introducing the Latest Release and "Ballerina Central"</a>
