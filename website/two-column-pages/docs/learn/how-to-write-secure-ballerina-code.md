@@ -105,7 +105,7 @@ function sanitizeSortColumn (string columnName) returns @untainted string {
 
 ## Securing Passwords and Secrets
 
-Ballerina provides an API for accessing configuration values from different sources. Please refer to the Config API Ballerina by Example for details.
+Ballerina provides an API for accessing configuration values from different sources. Please refer to the `Config` Ballerina by Example for details.
 
 Configuration values containing passwords or secrets should be encrypted. The Ballerina Config API will decrypt such configuration values when being accessed.
 
@@ -148,7 +148,7 @@ Ballerina will first look for a file named `secret.txt`. If such file exists, Ba
 The file based approach is useful in automated deployments. The file containing the decryption secret can be deployed along with the Ballerina program. The name and the path of the secret file can be configured using the `ballerina.config.secret` runtime parameter:
 
 ```
-ballerina run -eballerina.config.secret=path/to/secret/file securing_configuration_values.balx
+ballerina run -e ballerina.config.secret=path/to/secret/file securing_configuration_values.balx
 ```
 
 ## Authentication and Authorization
@@ -588,7 +588,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
        path:"/"
    }
    sayHello (endpoint caller, http:Request req) {
-       http:Response response = check downstreamServiceEP -> get("/update-stats", message = req);
+       http:Response response = check downstreamServiceEP -> get("/update-stats", message = untaint req);
        _ = caller -> respond(response);
    }
 }
@@ -631,7 +631,7 @@ service<http:Service> updateService bind secureUpdateServiceEp {
    }
    updateStats (endpoint caller, http:Request req) {
        http:Response resp = new;
-       resp.setTextPayload("Downstream Service Received JWT: " + req.getHeader("Authorization"));
+       resp.setTextPayload("Downstream Service Received JWT: " + untaint req.getHeader("Authorization"));
        _ = caller -> respond(resp);
    }
 }
@@ -713,7 +713,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
        path:"/"
    }
    sayHello (endpoint caller, http:Request req) {
-       http:Response response = check downstreamServiceEP -> get("/update-stats", message = req);
+       http:Response response = check downstreamServiceEP -> get("/update-stats", message = untaint req);
        _ = caller -> respond(response);
    }
 }
@@ -756,7 +756,7 @@ service<http:Service> updateService bind secureUpdateServiceEp {
    }
    updateStats (endpoint caller, http:Request req) {
        http:Response resp = new;
-       resp.setTextPayload("Downstream Service Received JWT: " + req.getHeader("Authorization"));
+       resp.setTextPayload("Downstream Service Received JWT: " + untaint req.getHeader("Authorization"));
        _ = caller -> respond(resp);
    }
 }
@@ -801,7 +801,7 @@ endpoint http:Client downstreamServiceEP {
       scheme: http:OAUTH2,
       accessToken: "34060588-dd4e-36a5-ad93-440cc77a1cfb",
       refreshToken: "15160398-ae07-71b1-aea1-411ece712e59",
-      refreshUrl: "https://ballerina.io/sample/refresh"
+      refreshUrl: "https://ballerina.io/sample/refresh",
       clientId: "rgfKVdnMQnJSSr_pKFTxj3apiwYa",
       clientSecret: "BRebJ0aqfclQB9v7yZwhj0JfW0ga"
    },
