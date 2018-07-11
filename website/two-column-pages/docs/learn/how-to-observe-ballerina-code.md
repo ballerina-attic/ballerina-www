@@ -377,7 +377,7 @@ Configuration Key | Description | Default Value | Possible Values
 --- | --- | --- | --- 
 b7a.observability.tracing.zipkin. reporter.hostname | Hostname of the Zipkin server | localhost | IP or hostname of the Zipkin server. If it is running on the same node as the Ballerina, it can be localhost. 
 b7a.observability.tracing.zipkin. reporter.port | Port of the Zipkin server | 9411 | The port which the Zipkin server is listening to.
-b7a.observability.tracing.zipkin. reporter.api.context | API context of the Zipkin server | /api/v2/spans | The API context of the Zipkin API. For V1 API, the context will be '/api/v1/spans', and for V2 API, the context will be '/api/v2/spans' for default Zipkin server.
+b7a.observability.tracing.zipkin. reporter.api.context | API context of the Zipkin server | `/api/v2/spans` | The API context of the Zipkin API. For V1 API, the context will be `/api/v1/spans`, and for V2 API, the context will be `/api/v2/spans` for default Zipkin server.
 b7a.observability.tracing.zipkin. reporter.api.version | API version of the Zipkin API | v2 | v1 or v2.
 b7a.observability.tracing.zipkin. reporter.compression.enabled | Enable the compression for the spans request | true | true or false.
 
