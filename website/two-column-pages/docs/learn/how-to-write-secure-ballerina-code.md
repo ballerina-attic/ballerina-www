@@ -106,7 +106,7 @@ function sanitizeSortColumn (string columnName) returns @untainted string {
 
 ## Securing Passwords and Secrets
 
-Ballerina provides an API for accessing configuration values from different sources. Please refer to the `Config` Ballerina by Example for details.
+Ballerina provides an API for accessing configuration values from different sources. Please refer to the [Config](https://ballerina.io/learn/by-example/config-api.html) Ballerina by Example for details.
 
 Configuration values containing passwords or secrets should be encrypted. The Ballerina Config API will decrypt such configuration values when being accessed.
 
