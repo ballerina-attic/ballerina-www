@@ -19,7 +19,7 @@
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
-    
+
     <!--FB-->
     <meta property="og:type"               content="article" />
     <meta property="og:title"              content="Cloud Native Programming Language" />
@@ -28,12 +28,12 @@
 
     <!--TWITTER-->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@ballerinaplat">
-    <meta name="twitter:creator" content="@ballerinaplat">
+    <meta name="twitter:site" content="@ballerinalang">
+    <meta name="twitter:creator" content="@ballerinalang">
     <meta name="twitter:title" content="Cloud Native Programming Language">
     <meta name="twitter:description" content="">
-    <meta name="twitter:image" content="https://ballerina.io/img/ballerina-sm.jpg"> 
-    <meta name="twitter:text:description" content="Ballerina makes it easy to create resilient services that integrate and orchestrate transactions across distributed endpoints."> 
+    <meta name="twitter:image" content="https://ballerina.io/img/ballerina-sm.jpg">
+    <meta name="twitter:text:description" content="Ballerina makes it easy to create resilient services that integrate and orchestrate transactions across distributed endpoints.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image:width" content="610">
 
@@ -102,9 +102,11 @@
         var mkdocs_page_url = '{{ page.abs_url | tojson | safe }}'.replace(/^"|"$/g, '');
         var base_download_url = '{{config.extra.base_download_url}}';
         var nightly_download_url = '{{config.extra.nightly_download_url}}';
+        var dev_download_url = '{{config.extra.dev_download_url}}';
         var archived_versions_json = '{{config.extra.archived_versions_json}}';
         var releaseNoteFilename = '{{config.extra.archived_release_note_html}}';
         var nightly_versions_json = '{{config.extra.nightly_versions_json}}';
+        var dev_versions_json = '{{config.extra.dev_versions_json}}';
         var latest_versions_json = '{{config.extra.latest_versions_json}}';
     </script>
     {% endif %} {%- endblock %} {%- block extrahead %} {% endblock %} {%- block analytics %} {% if config.google_analytics %} {% endif %} {%- endblock %}
@@ -123,8 +125,8 @@
     {% include "navigation.html" %} {{ page.content }} {% include "footer.html" %}
 
     <script>
-        $(document).ready(function() {    
-            
+        $(document).ready(function() {
+
             var ConBanner = '<div class="row cBallerinaConBanner"><a target="_blank" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner">' +
             '<div class="container">JOIN US FOR THE FIRST <span>BALLERINACON</span>, JULY 18TH, IN SAN FRANCISCO OR VIRTUALLY ON YOUR PC</div></a></div>';
 

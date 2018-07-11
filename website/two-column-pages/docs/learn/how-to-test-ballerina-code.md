@@ -17,15 +17,15 @@ Testerina design and usage is aligned with project and package semantics of Ball
 
 ## Writing and Running Tests 
 
-You need to import the `test` package in all tests. 
+To write tests, you need to import the `test` package in all Ballerina test source files. 
 
 ```
 import ballerina/test;
 ```
 
-For structured projects, it is recommended to use a structured test model that is aligned with standard package semantics. 
+For structured projects, it is recommended to use a structured test model that is aligned with standard package semantics. Structured test model consists of a seperate tests directory in a Ballerina package, which allows you to isolate the source from the tests.
 
-A package is mapped to a test suite. Unit and integration tests bound to a package need to be placed in a subfolder called `tests/` within the package. All tests within a package’s `tests/` subfolder are considered to be part of the same test suite.
+In a standard Ballerina project, a package is mapped to a test suite. Unit and integration tests bound to a package need to be placed in a subfolder called `tests/` within the package. All tests within a package’s `tests/` subfolder are considered to be part of the same test suite.
 
 Integration tests that are used to test the sources of combination of packages of a project needs to be placed at the project root level folder called `tests/`.
 
@@ -65,7 +65,7 @@ Integration tests that are used to test the sources of combination of packages o
       packages.can.include.dots.in.dir.name.bal
 ```
 
-The test source files could have any file names. The test functions must be specified with the `@test:Config` annotation. There are no restrictions on the test function name. 
+The test source files could have any file names. The test functions are just Ballerina functions that use a special annotation to mark the function as a test. Test functions must be specified with the @test:Config annotation and there are no restrictions on the test function name.
 
 The `ballerina test` command can be used to execute tests. 
 
@@ -110,8 +110,8 @@ function testSuiteInitialize() {
 Sample : 
 
 ```ballerina
-import ballerina/test;
 import ballerina/io;
+import ballerina/test;
 
 // The `BeforeSuite` function is executed before all test functions in this package. 
 @test:BeforeSuite
@@ -147,8 +147,8 @@ function beforeEachTest() {
 Sample :
 
 ```ballerina
-import ballerina/test;
 import ballerina/io;
+import ballerina/test;
 
 // Before each function, which is executed before each test function
 @test:BeforeEach
@@ -179,23 +179,23 @@ function testFunction3() {
 ```
 
 #### @test:Config {}
-The function specified following the annotation is a test function.
+The function specified following the annotation is a test function. This annotation supports the following parameters.
 
 ##### Parameters:
-`enable: {true | false}`: Enable or disables the test 
+`enable: {true | false}`: Enable/disable the test. 
 Default: true
 
-`before: "<function name>"`: Name of the function to be run just before the test is run 
+`before: "<function name>"`: Name of the function to be run just before the test is run. 
 Default: none
 
-`after: "<function name>"`: Name of the function to be run after the test is run
+`after: "<function name>"`: Name of the function to be run just after the test is run.
  
 `dependsOn: ["<function names>", …]`: A list of function names the test function depends on, and will be run before the test. The list of functions provided has no order of execution. The current test function will depend on the list provided and that list will run in whatever order, the order in which the comma separated list appears has no prominence. In case there needs to be an order, the way to do that is to define a sequence of test functions with with one point to another based on dependency using dependsOn parameter in each one's config.
 
 `dataProvider: “<function name>”`: Specifies the name of the function that will be used to provide the value sets to execute the test against. The given Ballerina function should return an array of arrays (eg: string[][] for a test function which accepts string parameters). Each array of the returned array of arrays should have a length similar to the number of arguments of the function (eg: function testSuffixC(string input, string expected) could have a dataProvider function which returns a `string[][]` like `[ [“ab”, “abc”], [“de”, “dec”] ]` ). The length of the array of arrays represents the number of time the same test case would run (eg: in the above example the test function testSuffixC would run 2 times with input parameters “ab”, “abc” and “de”, “dec” respectively.
 
-`groups:[“<test group name”, …]`
-List of test group names (one or more) that this test belongs to You can group a given test to a list of named test groups using this configuration. In order to execute tests belonging to a selected test group, you can name the test groups to be executed when you run tests.  
+`groups:[“<test group name”, …]`:
+List of test group names (one or more) that this test belongs to. You can group a given test to a list of named test groups using this configuration. In order to execute tests belonging to a selected test group, you can name the test groups to be executed when you run tests.  
 
 ```
 ballerina test `--groups <comma separated list of test group names> <package_name>`
@@ -218,9 +218,8 @@ function testBar() {
 Sample : 
 
 ```ballerina
-import ballerina/test;
 import ballerina/io;
-
+import ballerina/test;
 
 function beforeFunc() {
     // This is the before Test Function
@@ -266,8 +265,8 @@ function testSuiteCleanup() {
 Sample :
 
 ```ballerina
-import ballerina/test;
 import ballerina/io;
+import ballerina/test;
 
 // Test function.
 @test:Config
@@ -376,7 +375,7 @@ function foo(){
 
 ## Service Start/Stop Utility
 
-Testerina provides the functionality to start/stop all services of a developer preferred ballerina package. To control service related functionality we can use the following inbuilt functions.
+Testerina provides the functionality to start/stop all services of a developer preferred Ballerina package. To control service related functionality we can use the following inbuilt functions.
 
 #### test:startServices(string packageName) (boolean isSuccessful)
 
@@ -399,6 +398,7 @@ The following sample code illustrates how service start/stop can be used in a co
 ```ballerina
 import ballerina/http;
 import ballerina/io;
+import ballerina/test;
 
 boolean isHelloServiceStarted;
 
@@ -426,17 +426,16 @@ function testService () {
     test:assertTrue(isHelloServiceStarted, msg = "Hello service failed to start");
 
     // Send a GET request to the specified endpoint
-    var response = httpEndpoint -> get("/hello");
+    var response = httpEndpoint->get("/hello");
     match response {
         http:Response resp => {
             var jsonRes = resp.getJsonPayload();
             json expected = {"Hello":"World"};
             test:assertEquals(jsonRes, expected);
         }
-        http:HttpConnectorError err => test:assertFail(msg = "Failed to call the endpoint: " + uri);
+        error err => test:assertFail(msg = "Failed to call the endpoint.");
     }
 }
-
 
 // The service we are going to start and test
 endpoint http:Listener helloEP {
@@ -456,7 +455,7 @@ service<http:Service> HelloServiceMock bind helloEP {
         http:Response res = new;
         json j = {"Hello":"World"};
         res.setJsonPayload(j);
-        _ = caller -> respond(res);
+        _ = caller->respond(res);
     }
 }
 ```
@@ -467,13 +466,13 @@ Testerina provides the functionality to start/stop service skeletons generated f
 
 #### test:startServiceSkeleton(string packageName, string swaggerFilePath) (boolean isSuccessful)
 
-Start a service skeleton from a given Swagger definition in the given ballerina package. If it is successful returns true else returns false or throws an exception. For example: 
+Start a service skeleton from a given Swagger definition in the given Ballerina package. If it is successful it returns true. Alternatively, it returns false or throws an exception. For example: 
 
 ```ballerina
 boolean isSuccessful =  test:startServiceSkeleton("petstore.service.skeleton", "/tmp/petstore.yaml");
 ```
 
-When the tests are executing service skeleton related ballerina definition will be generated and started. Host names, ports you have defined in the Swagger definition will be used when starting the service. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service.
+When the tests are executing service skeleton related Ballerina service definition will be generated and started. The host names and ports you have defined in the Swagger definition will be used when starting the services. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service.
 
 #### test:stopServiceSkeleton (string packageName) 
 
@@ -486,9 +485,9 @@ test:stopServiceSkeleton(“petstore.service.skeleton”);
 The following sample explains how you can start and stop a skeleton service based on a swagger definition.
 
 ```ballerina
+import ballerina/config;
 import ballerina/http;
 import ballerina/test;
-import ballerina/config;
 
 string uri = "http://0.0.0.0:9095/v1";
 boolean isServiceSkeletonStarted;
@@ -515,14 +514,14 @@ function testService () {
     test:assertTrue(isServiceSkeletonStarted, msg = "Service skeleton failed to start");
 
     // Send a GET request to the specified endpoint
-    var response = httpEndpoint -> get("/pets");
+    var response = httpEndpoint->get("/pets");
     match response {
                http:Response resp => {
                     var strRes = resp.getTextPayload();
                     string expected = "Sample listPets Response";
                     test:assertEquals(strRes, expected);
                }
-               error err => test:assertFail(msg = "Failed to call the endpoint: "+uri);
+               error err => test:assertFail(msg = "Failed to call the endpoint: " + uri);
     }
 }
 ```

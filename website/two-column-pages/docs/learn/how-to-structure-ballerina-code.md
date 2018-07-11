@@ -46,7 +46,7 @@ service<http:Service> hello bind { port: 9090 } {
 ```
 
 ### Build and Run Programs
-You can build and run the `main()` function of a Ballerina file by:
+You can build and run the `main()` function or services of a Ballerina file by:
 ```bash
 # Run from any location
 $ ballerina run /local/ballerina/src/sample.bal
@@ -56,15 +56,6 @@ $ cd /local/ballerina/src
 $ ballerina run sample.bal
 ```
 
-Build and run the services of a file in the default package:
-```bash
-
-# Run from any location
-$ ballerina run -s /local/ballerina/src/sample.bal
-```
-
-If your package contains only services, then you may omit the `-s` flag.
-
 You can build the program without running it:
 ```bash
 $ cd /local/ballerina/src
@@ -72,7 +63,7 @@ $ ballerina build sample.bal
 
 # This generates 'sample.balx'
 # You can run an existing program that has a '.balx'
-$ ballerina run [-s] sample.balx
+$ ballerina run sample.balx
 ```
 
 ## Packages
@@ -125,28 +116,20 @@ service<network:Service> hello bind { port:9090 } {
 ```
 
 ### Package Version Dependency
-If your source file is not part of a project, then you can explicitly manage version dependencies of imported packages within the source file using the `import` statement.
+If your source file or package is a part of a project, then you can explicitly manage version dependencies of imported packages within the project by defining it in `Ballerina.toml`:
+
+```toml
+[dependencies."tyler/http"]
+version = "3.0.1"
+```
 
 If an import statement does not explicitly specify a version, then the compiler will use the `latest` package version from a repository, if one exists. 
 
 ```ballerina
-import tyler/http version 3.0.1;
+import tyler/http;
 
 function main(string... args) {
   http:Person x = http:getPerson();
-}
-```
-
-### Importing Different Versions of the Same Package
-Your program can import multiple versions of the same package.
-
-```ballerina
-import tyler/http version 3.0.1 as identity3;
-import tyler/http version 4.5.0 as identity4;
-
-function main(string... args) {
-  identity3:Person x = identity3:getPerson();
-  identity4:Person y = identity4:getPerson();
 }
 ```
 
@@ -156,10 +139,10 @@ A compiled package is the compiled representation of a single package of Balleri
 Packages can only be created, versioned, and pushed into a repository as part of a *project*.
 
 ### Running Compiled Packages
-An entrypoint such as a `main()` or a `service<>` that is compiled as part of a named package is automatically linked into a `.balx`. You can run a named, already-compiled package:
+An entrypoint such as a `main()` or a `service<>` that is compiled as part of a named package is automatically linked into a `.balx`. You can run the compiled package `.balx`:
 
 ```bash
-ballerina run [-s] <org-name>/<package-name>
+ballerina run package.balx
 ```
 
 ## Projects
@@ -203,15 +186,12 @@ The folders `.ballerina/`, `tests/`, and `resources/` are reserved folder names 
     *.bal              # In this dir and recursively in subdirs except tests/ and resources/
     [tests/]           # Package-specific unit and integration tests
     [resources/]       # Package-specific resources
-      *.jar            # Optional, if package includes native Java libraries to link + embed 
     
   packages.can.include.dots.in.dir.name/
     Package.md
     *.bal
-    *.jar
     [tests/]         
     [resources/]     
-      *.jar            # Optional, if package includes native Java libraries to link + embed 
 
   [tests/]             # Tests executed for every package in the project
   [resources/]         # Resources included with every package in the project
@@ -264,41 +244,28 @@ A repository is a collection of packages. A repository helps organize packages u
 There are four kinds of repositories:
 1. Project Repository. This repository is located in a project's `.ballerina/` folder and contains installed versions of packages from the project and any dependencies of the project.  
 
-2. Home Repository. This repository is located on a developer's machine at the location of `BALLERINA_REPOSITORY`, or `~\.ballerina` if not specified. 
+2. Home Repository. This repository is located on a developer's machine at the location of `BALLERINA_HOME_DIR` or `~\.ballerina` if not specified. 
 
 3. System Repository. A special repository that is embedded within the Ballerina distribution which contains `ballerina/*` core packages. 
 
-4. Ballerina Central. Located at http://central.ballerina.io, this centrally managed repository is a community hub to discover, download, and publish Ballerina packages. 
+4. Ballerina Central. Located at [http://central.ballerina.io](http://central.ballerina.io), this centrally managed repository is a community hub to discover, download, and publish Ballerina packages. 
 
 ### Repository Precedence
 When building a Ballerina program with a project, the build system will search repositories for any imported dependencies. Dependencies are searched in the system, then project, then home, then Ballerina Central repositories for the dependency. Once found, it will be installed into the project repository if not already present.
 
-If a package is discovered at Ballerina Central, the build system will download the package's files before installing into both the home and project repository for reuse. 
+If a package is discovered at Ballerina Central, the build system will download the package's files before installing into the home repository for reuse. 
 
 ### Package Installation
 When building a package in a project, that package is automatically installed into the project's local repository. That package can be shared across other projects by installing it into the home repository.
 
-To install all packages in a project:
+The org-name and the version of the package will be read from the manifest file `Ballerina.toml` inside the project.
 
+To install a single package in a project:
 ```bash
-ballerina install
+ballerina install <package-name>
 
 # Alternate form:
-ballerina push --repository=home
-```
-
-There are parameters with the `push` command which let you push into a remote registry hosted at a domain referenced by a URL, such as a private registry used by corporations.
-
-You can also install a single package:
-```
-ballerina install <package>
-ballerina push <org-name>/<package-name>:<version> --repository=home
-```
-
-### Uninstall a Package in the Home Repository
-You can remove a package from the home repository:
-```
-ballerina uninstall <org-name>/<package>:<version>
+ballerina push <package-name> --repository home
 ```
 
 ### Organizations
@@ -315,32 +282,23 @@ Remotely hosted repositories, such as Ballerina Central, can each have their own
 When pushing a package from a local computer into a remote repository, such as Ballerina Central, the user's organization name in the remote repository MUST match the `<org-name>` assigned in the Ballerina.toml. If the names do not match, then the push operation will fail. This enforcement may seem arbitrary, however, it is a simple way to ensure organization naming consistency across remote and local development environments.
 
 ### Pulling Remote Packages
-You can install packages that exist in a remote repository into your home repository through "pulling". Pulling a package discovers and downloads the package source and binaries from a remote repository and installs it into a home repository. When pulling a package, if a remote repository is not specified, then Ballerina Central is assumed.
+You can install packages that exist in a remote repository into your home repository through "pulling". Pulling a package discovers and downloads the package source and binaries from a remote repository and installs it into the home repository. The package will be pulled from Ballerina Central.
 
 ```bash
-ballerina pull <org-name>/<package-name>[:<version>] [--repository=<url>]
+ballerina pull <org-name>/<package-name>[:<version>]
 ```
 
-Projects that perform dependency analysis will automatically pull packages into the home repository and also copy them into the project repository.
+Projects that perform dependency analysis will automatically pull packages into the home repository.
 
 ### Pushing Packages Into Remote Repositories
-"Pushing" a package uploads the associated package files and installs the package into a remote repository. If you do not specify a remote repository URL, then Ballerina Central is assumed. 
+"Pushing" a package uploads the associated package files and installs the package into a remote repository, which is Ballerina Central. 
 
+The org-name and the version of the package will be read from the manifest file `Ballerina.toml` inside the project.
 ```
-# Push all packages in a project
-ballerina push [--repository=home|url]
-
 # Push a single package
-ballerina push <org-name>/<package-name>:<version> [--repository=home|url]
+ballerina push <package-name>
 ```
 
 Ballerina Central requires an account in order to push packages. Your account is represented by a CLI token that is installed into your local Ballerina configuration file, located at `~/.ballerina/Settings.toml`. The CLI token is automatically installed into this file the first time you perform a `ballerina push` as Ballerina redirects to an OAuth authorization screen, configures your account, and then copies your CLI key from Ballerina Central into your local CLI configuration.
 
 Every push of the same package into Ballerina Central REQUIRES a new version, even for minor text updates. We enforce this policy to ensure that projects that make use of dependencies cannot experience accidental behavior drift across two versions of the same package given the same version. Essentially, there is no way to "update" a package for a specific version at Ballerina Central.
-
-### Removing Packages From Remote Repositories
-“Removing” a package deletes the version from the remote registry. If the version specified is the last version found in the repository, then the package is no longer searchable, though the package’s owner may still have an audit history. 
-
-```bash
-ballerina remove <org-name>/<package>:<version> [--repository=home|<url>]
-```

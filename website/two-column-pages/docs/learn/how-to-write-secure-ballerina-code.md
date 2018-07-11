@@ -29,8 +29,8 @@ Ballerina standard library makes sure untrusted data cannot be used with securit
 Security sensitive functions and actions of Ballerina standard libraries are decorated with  `@sensitive` parameter annotation that denotes untrusted data (tainted data) should not be passed to the parameter. For example, `sqlQuery` parameter of `ballerina/sql`, `select` action.
 
 ```ballerina
-public native function select (@sensitive string sqlQuery, (typedesc|()) recordType,
-                               Parameter... parameters) returns @tainted (table|error);
+public native function select(@sensitive string sqlQuery, typedesc? recordType, boolean loadToMemory = false,
+                              Param... parameters) returns @tainted table|error;
 ```
 
 Consider the following example that constructs a SQL query with a tainted argument:
@@ -44,7 +44,7 @@ endpoint mysql:Client testDB {
 };
 
 type ResultStudent {
-    string NAME,
+   string NAME,
 };
 
 function main (string... args) {
@@ -52,9 +52,8 @@ function main (string... args) {
    string studentId = "S_" + args[0];
 
    // Execute select query using the untrusted (tainted) student ID
-   var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = " + studentId, ResultStudent);
-   var closeStatus = testDB->close();
-   return;
+   var dt = testDB -> select("SELECT NAME FROM STUDENT WHERE ID = " + studentId, ResultStudent);
+   testDB.stop();
 }
 ```
 
@@ -68,8 +67,10 @@ In order to compile, the program is modified to use query parameters:
 
 ```ballerina
 sql:Parameter paramId = ( sql:TYPE_VARCHAR, studentId );
-var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent, paramId);
+var dt = testDB -> select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent, paramId);
 ```
+
+Please note that it is required to import `ballerina/sql` package to use `sql:Parameter`.
 
 Command-line arguments to Ballerina programs and inputs received through service resources are considered tainted. Additionally, return values of certain functions and actions are marked with `@tainted` annotation to denote that the resulting value should be considered as untrusted data.
 
@@ -85,7 +86,7 @@ There can be certain situations where a tainted value must be passed into a secu
 // Execute select query using the untrusted (tainted) student ID
 boolean isValid = isNumeric(studentId);
 if (isValid) {
-   var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = " + untaint studentId, ResultStudent);
+   var dt = testDB -> select("SELECT NAME FROM STUDENT WHERE ID = " + untaint studentId, ResultStudent);
 }
 // ...
 ```
@@ -104,7 +105,7 @@ function sanitizeSortColumn (string columnName) returns @untainted string {
 
 ## Securing Passwords and Secrets
 
-Ballerina provides an API for accessing configuration values from different sources. Please refer to the `Config` Ballerina by Example for details.
+Ballerina provides an API for accessing configuration values from different sources. Please refer to the Config API Ballerina by Example for details.
 
 Configuration values containing passwords or secrets should be encrypted. The Ballerina Config API will decrypt such configuration values when being accessed.
 
@@ -147,7 +148,7 @@ Ballerina will first look for a file named `secret.txt`. If such file exists, Ba
 The file based approach is useful in automated deployments. The file containing the decryption secret can be deployed along with the Ballerina program. The name and the path of the secret file can be configured using the `ballerina.config.secret` runtime parameter:
 
 ```
-ballerina run -e ballerina.config.secret=path/to/secret/file securing_configuration_values.balx
+ballerina run -eballerina.config.secret=path/to/secret/file securing_configuration_values.balx
 ```
 
 ## Authentication and Authorization
@@ -158,7 +159,7 @@ Ballerina supports JWT based authentication and and Basic Authentication. When B
 
 _Note: It is recommended to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
 
-### JWT Based Authentication and Authorization
+### JWT Based Authentication
 
 Instead of the `http:Listener` used in creating HTTP server listeners, the `http:SecureListener` should be used to enforce authentication and authorization checks. The security checks enforced by the `http:SecureListeneris` can be configured by using `http:AuthProvider`.
 
@@ -212,7 +213,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
    sayHello (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
-       _ = caller->respond(resp);
+       _ = caller -> respond(resp);
    }
 }
 ```
@@ -301,7 +302,7 @@ sayHello (endpoint caller, http:Request req) {
 // ...
 ```
 
-### JWT Based Authorization and Authorization
+### JWT Based Authorization
 
 Ballerina uses scope based authorization. The JWT can include scopes available for the user. The scopes can then be validated in the Ballerina service. For example, the following service will only allow invocations, if 'hello' scope is available for the user.
 
@@ -348,7 +349,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
    sayHello (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
-       _ = caller->respond(resp);
+       _ = caller -> respond(resp);
    }
 }
 ```
@@ -463,7 +464,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
    sayHello (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
-       _ = caller->respond(resp);
+       _ = caller -> respond(resp);
    }
 }
 ```
@@ -565,7 +566,7 @@ endpoint http:SecureListener secureHelloWorldEp {
 
 endpoint http:Client downstreamServiceEP {
    url: "https://localhost:9092",
-   auth: { scheme: "jwt" },
+   auth: { scheme: http:JWT_AUTH },
    secureSocket: {
        trustStore: {
            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
@@ -587,10 +588,8 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
        path:"/"
    }
    sayHello (endpoint caller, http:Request req) {
-       http:Response response = check downstreamServiceEP->get("/update-stats", request = untaint req);
-       http:Response resp = new;
-       resp.setTextPayload("Hello, World!");
-       _ = caller->respond(resp);
+       http:Response response = check downstreamServiceEP -> get("/update-stats", message = req);
+       _ = caller -> respond(response);
    }
 }
 
@@ -632,10 +631,30 @@ service<http:Service> updateService bind secureUpdateServiceEp {
    }
    updateStats (endpoint caller, http:Request req) {
        http:Response resp = new;
-       resp.setTextPayload("Status updated!");
-       _ = caller->respond(resp);
+       resp.setTextPayload("Downstream Service Received JWT: " + req.getHeader("Authorization"));
+       _ = caller -> respond(resp);
    }
 }
+```
+
+Invoking `/hello` resource of the service will result in invoking the downstream service exposed through port `9092` with the JWT. The response generated by the downstream services confirms that it received the JWT:
+
+```
+curl -k -v -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYWxsZXJpbmEiLCJpc3MiOiJiYWxsZXJpbmEiLCJleHAiOjI4MTg0MTUwMTksImlhdCI6MTUyNDU3NTAxOSwianRpIjoiZjVhZGVkNTA1ODVjNDZmMmI4Y2EyMzNkMGMyYTNjOWQiLCJhdWQiOlsiYmFsbGVyaW5hIiwiYmFsbGVyaW5hLm9yZyIsImJhbGxlcmluYS5pbyJdLCJzY29wZSI6ImhlbGxvIn0.bNoqz9_DzgeKSK6ru3DnKL7NiNbY32ksXPYrh6Jp0_O3ST7WfXMs9WVkx6Q2TiYukMAGrnMUFrJnrJvZwC3glAmRBrl4BYCbQ0c5mCbgM9qhhCjC1tBA50rjtLAtRW-JTRpCKS0B9_EmlVKfvXPKDLIpM5hnfhOin1R3lJCPspJ2ey_Ho6fDhsKE3DZgssvgPgI9PBItnkipQ3CqqXWhV-RFBkVBEGPDYXTUVGbXhdNOBSwKw5ZoVJrCUiNG5XD0K4sgN9udVTi3EMKNMnVQaq399k6RYPAy3vIhByS6QZtRjOG8X93WJw-9GLiHvcabuid80lnrs2-mAEcstgiHVw' https://localhost:9091/hello
+
+> GET /hello HTTP/1.1
+> Host: localhost:9091
+> User-Agent: curl/7.60.0
+> Accept: */*
+> Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYWxsZXJpbmEiLCJpc3MiOiJiYWxsZXJpbmEiLCJleHAiOjI4MTg0MTUwMTksImlhdCI6MTUyNDU3NTAxOSwianRpIjoiZjVhZGVkNTA1ODVjNDZmMmI4Y2EyMzNkMGMyYTNjOWQiLCJhdWQiOlsiYmFsbGVyaW5hIiwiYmFsbGVyaW5hLm9yZyIsImJhbGxlcmluYS5pbyJdLCJzY29wZSI6ImhlbGxvIn0.bNoqz9_DzgeKSK6ru3DnKL7NiNbY32ksXPYrh6Jp0_O3ST7WfXMs9WVkx6Q2TiYukMAGrnMUFrJnrJvZwC3glAmRBrl4BYCbQ0c5mCbgM9qhhCjC1tBA50rjtLAtRW-JTRpCKS0B9_EmlVKfvXPKDLIpM5hnfhOin1R3lJCPspJ2ey_Ho6fDhsKE3DZgssvgPgI9PBItnkipQ3CqqXWhV-RFBkVBEGPDYXTUVGbXhdNOBSwKw5ZoVJrCUiNG5XD0K4sgN9udVTi3EMKNMnVQaq399k6RYPAy3vIhByS6QZtRjOG8X93WJw-9GLiHvcabuid80lnrs2-mAEcstgiHVw
+
+< HTTP/1.1 200 OK
+< content-type: text/plain
+< date: Wed, 20 Jun 2018 15:39:09 +0530
+< server: wso2-http-transport
+< content-length: 659
+<
+Downstream Service Received JWT: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYWxsZXJpbmEiLCJpc3MiOiJiYWxsZXJpbmEiLCJleHAiOjI4MTg0MTUwMTksImlhdCI6MTUyNDU3NTAxOSwianRpIjoiZjVhZGVkNTA1ODVjNDZmMmI4Y2EyMzNkMGMyYTNjOWQiLCJhdWQiOlsiYmFsbGVyaW5hIiwiYmFsbGVyaW5hLm9yZyIsImJhbGxlcmluYS5pbyJdLCJzY29wZSI6ImhlbGxvIn0.bNoqz9_DzgeKSK6ru3DnKL7NiNbY32ksXPYrh6Jp0_O3ST7WfXMs9WVkx6Q2TiYukMAGrnMUFrJnrJvZwC3glAmRBrl4BYCbQ0c5mCbgM9qhhCjC1tBA50rjtLAtRW-JTRpCKS0B9_EmlVKfvXPKDLIpM5hnfhOin1R3lJCPspJ2ey_Ho6fDhsKE3DZgssvgPgI9PBItnkipQ3CqqXWhV-RFBkVBEGPDYXTUVGbXhdNOBSwKw5ZoVJrCUiNG5XD0K4sgN9udVTi3EMKNMnVQaq399k6RYPAy3vIhByS6QZtRjOG8X93WJw-9GLiHvcabuid80lnrs2-mAEcstgiHVw
 ```
 
 Even if the current service is configured to use Basic Authentication, Ballerina can be configured to internally generate a new JWT when calling external or downstream services. To do so, it is required to add JWT issuer configuration to the `basicAuthProvider`, and enable JWT token propagation using `propagateToken` configuration:
@@ -672,7 +691,7 @@ endpoint http:SecureListener secureHelloWorldEp {
 
 endpoint http:Client downstreamServiceEP {
    url: "https://localhost:9092",
-   auth: { scheme: "jwt" },
+   auth: { scheme: http:JWT_AUTH },
    secureSocket: {
        trustStore: {
            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
@@ -694,11 +713,8 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
        path:"/"
    }
    sayHello (endpoint caller, http:Request req) {
-       http:Request request;
-       http:Response response = check downstreamServiceEP->get("/update-stats", request = untaint req);
-       http:Response resp = new;
-       resp.setTextPayload("Hello, World!");
-       _ = caller->respond(resp);
+       http:Response response = check downstreamServiceEP -> get("/update-stats", message = req);
+       _ = caller -> respond(response);
    }
 }
 
@@ -740,10 +756,38 @@ service<http:Service> updateService bind secureUpdateServiceEp {
    }
    updateStats (endpoint caller, http:Request req) {
        http:Response resp = new;
-       resp.setTextPayload("Status updated!");
-       _ = caller->respond(resp);
+       resp.setTextPayload("Downstream Service Received JWT: " + req.getHeader("Authorization"));
+       _ = caller -> respond(resp);
    }
 }
+```
+
+Start the service using the following command after creating `sample-users.toml` with the set of valid users.
+
+```
+ballerina run --config sample-users.toml basic_auth_sample.bal
+```
+
+Use 'ballerina' as the password to decrypt user passwords, if you are using the `sample-users.toml` file provided in this page.
+
+'Admin' user will be able to invoke the `/hello` resource and invoke the JWT protected downstream service:
+
+```
+curl -k -v -u admin:password https://localhost:9091/hello
+
+> GET /hello HTTP/1.1
+> Host: localhost:9091
+> Authorization: Basic YWRtaW46cGFzc3dvcmQ=
+> User-Agent: curl/7.60.0
+> Accept: */*
+
+< HTTP/1.1 200 OK
+< content-type: text/plain
+< date: Wed, 20 Jun 2018 16:07:09 +0530
+< server: wso2-http-transport
+< content-length: 602
+<
+Downstream Service Received JWT: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImlzcyI6ImJhbGxlcmluYSIsImV4cCI6MTUyOTQ5MTMyOCwiaWF0IjoxNTI5NDkxMDI4LCJqdGkiOiI2NDZkZThlYi02Y2QzLTQ3ODUtYmFiYS1lNGI2YWZjZGMyM2MiLCJhdWQiOlsiYmFsbGVyaW5hLmlvIl19.OBjpINzO63aUZ1brLN4MnNY7AE_yfuFlKaueJtT47__Pknr7A8nimf6DIX3MtdaK1FAEE02ivlRpS-gtYxARBXyaKZYOxVMLo08px6E6zS5t1KGi6WnSWNE4OtvU13mzGir4S6eKerUHiXM8p8EzfCqDU2Nip6PJdCZPwdTr24D8rtMxOdT3-qTj4C6GT3j8TRK6AFGYLcvog2N-5jQVjonVlWAY-f9UKjjOvsy4h4fvQ-fxwhL6T9WVLruIAXM9mTF4u5WXvMwoid3TNIuyvdFuJaWyVp572hYyGMXkj_9tUurTgQAw46GyeGeWMENr-JDHSNs1ZV4fbdH_EUlM6Q==
 ```
 
 #### OAuth2 Based Client Authentication
@@ -754,10 +798,10 @@ service<http:Service> updateService bind secureUpdateServiceEp {
 endpoint http:Client downstreamServiceEP {
    url: "https://localhost:9092",
    auth: {
-      scheme: "oauth",
+      scheme: http:OAUTH2,
       accessToken: "34060588-dd4e-36a5-ad93-440cc77a1cfb",
       refreshToken: "15160398-ae07-71b1-aea1-411ece712e59",
-      refreshUrl: "https://ballerina.io/sample/refresh",
+      refreshUrl: "https://ballerina.io/sample/refresh"
       clientId: "rgfKVdnMQnJSSr_pKFTxj3apiwYa",
       clientSecret: "BRebJ0aqfclQB9v7yZwhj0JfW0ga"
    },
@@ -778,7 +822,7 @@ endpoint http:Client downstreamServiceEP {
 endpoint http:Client downstreamServiceEP {
    url: "https://localhost:9092",
    auth: {
-      scheme: "basic",
+      scheme: http:BASIC_AUTH,
       username: "downstreamServiceUser",
       password: "password"
    },

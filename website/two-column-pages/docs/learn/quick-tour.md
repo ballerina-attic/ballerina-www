@@ -38,7 +38,7 @@ This means your service is up and running. You can invoke the service using an H
 $ curl http://localhost:9090/hello/sayHello
 ```
 
-> **Tip**: If you do not have cURL installed, you can download it from https://curl.haxx.se/download.html.
+> **Tip**: If you do not have cURL installed, you can download it from [https://curl.haxx.se/download.html](https://curl.haxx.se/download.html).
 
 You get the following response.
 
@@ -249,7 +249,7 @@ You just tweeted using Ballerina!
 
 Now that you have verified your service, let's go ahead and deploy this on Docker.
 
-> **Tip**: This was tested on the community edition version of Docker Edge. You need to have Docker installed to use this. Also start/restart Docker prior to running your code.
+> **Tip**: This was tested on the community edition version of Docker Edge. You need to have Docker installed to use this. Also start/restart Docker prior to running your code. Windows users should enable **[Expose Daemon without TLS](https://github.com/ballerinax/docker/tree/master/samples#prerequisites)** option. 
 
 Import the Docker package.
 
