@@ -214,7 +214,7 @@ You can create connectors for a range of protocols and interfaces, including tho
 
 1. A [Hello Gatsby client](https://github.com/muthulee/package-twilio-super-simple/blob/master/hello/hello_world_endpoint.bal), which is a minimal custom client.
 
-2. ballerina/http Client [source code](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/http/src/main/ballerina/http/http_client.bal).
+2. ballerina/http Client [source code](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/http/src/main/ballerina/http/client_endpoint.bal).
 
 3. Source code for a [Salesforce client connector](https://github.com/wso2-ballerina/package-salesforce).
 
