@@ -52,8 +52,8 @@ function main (string... args) {
    string studentId = "S_" + args[0];
 
    // Execute select query using the untrusted (tainted) student ID
-   var dt = testDB -> select("SELECT NAME FROM STUDENT WHERE ID = " + studentId, ResultStudent);
-   var closeStatus = testDB -> close();
+   var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = " + studentId, ResultStudent);
+   var closeStatus = testDB->close();
    return;
 }
 ```
@@ -68,7 +68,7 @@ In order to compile, the program is modified to use query parameters:
 
 ```ballerina
 sql:Parameter paramId = ( sql:TYPE_VARCHAR, studentId );
-var dt = testDB -> select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent, paramId);
+var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent, paramId);
 ```
 
 Command-line arguments to Ballerina programs and inputs received through service resources are considered tainted. Additionally, return values of certain functions and actions are marked with `@tainted` annotation to denote that the resulting value should be considered as untrusted data.
@@ -85,7 +85,7 @@ There can be certain situations where a tainted value must be passed into a secu
 // Execute select query using the untrusted (tainted) student ID
 boolean isValid = isNumeric(studentId);
 if (isValid) {
-   var dt = testDB -> select("SELECT NAME FROM STUDENT WHERE ID = " + untaint studentId, ResultStudent);
+   var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = " + untaint studentId, ResultStudent);
 }
 // ...
 ```
@@ -104,7 +104,7 @@ function sanitizeSortColumn (string columnName) returns @untainted string {
 
 ## Securing Passwords and Secrets
 
-Ballerina provides an API for accessing configuration values from different sources. Please refer to the Config API Ballerina by Example for details.
+Ballerina provides an API for accessing configuration values from different sources. Please refer to the `Config` Ballerina by Example for details.
 
 Configuration values containing passwords or secrets should be encrypted. The Ballerina Config API will decrypt such configuration values when being accessed.
 
@@ -147,7 +147,7 @@ Ballerina will first look for a file named `secret.txt`. If such file exists, Ba
 The file based approach is useful in automated deployments. The file containing the decryption secret can be deployed along with the Ballerina program. The name and the path of the secret file can be configured using the `ballerina.config.secret` runtime parameter:
 
 ```
-ballerina run -eballerina.config.secret=path/to/secret/file securing_configuration_values.balx
+ballerina run -e ballerina.config.secret=path/to/secret/file securing_configuration_values.balx
 ```
 
 ## Authentication and Authorization
@@ -212,7 +212,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
    sayHello (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
-       _ = caller -> respond(resp);
+       _ = caller->respond(resp);
    }
 }
 ```
@@ -348,7 +348,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
    sayHello (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
-       _ = caller -> respond(resp);
+       _ = caller->respond(resp);
    }
 }
 ```
@@ -463,7 +463,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
    sayHello (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
-       _ = caller -> respond(resp);
+       _ = caller->respond(resp);
    }
 }
 ```
@@ -587,10 +587,10 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
        path:"/"
    }
    sayHello (endpoint caller, http:Request req) {
-       http:Response response = check downstreamServiceEP -> get("/update-stats", request = req);
+       http:Response response = check downstreamServiceEP->get("/update-stats", request = untaint req);
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
-       _ = caller -> respond(resp);
+       _ = caller->respond(resp);
    }
 }
 
@@ -633,7 +633,7 @@ service<http:Service> updateService bind secureUpdateServiceEp {
    updateStats (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Status updated!");
-       _ = caller -> respond(resp);
+       _ = caller->respond(resp);
    }
 }
 ```
@@ -695,10 +695,10 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
    }
    sayHello (endpoint caller, http:Request req) {
        http:Request request;
-       http:Response response = check downstreamServiceEP -> get("/update-stats", request = req);
+       http:Response response = check downstreamServiceEP->get("/update-stats", request = untaint req);
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
-       _ = caller -> respond(resp);
+       _ = caller->respond(resp);
    }
 }
 
@@ -741,7 +741,7 @@ service<http:Service> updateService bind secureUpdateServiceEp {
    updateStats (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Status updated!");
-       _ = caller -> respond(resp);
+       _ = caller->respond(resp);
    }
 }
 ```
@@ -757,7 +757,7 @@ endpoint http:Client downstreamServiceEP {
       scheme: "oauth",
       accessToken: "34060588-dd4e-36a5-ad93-440cc77a1cfb",
       refreshToken: "15160398-ae07-71b1-aea1-411ece712e59",
-      refreshUrl: "https://ballerina.io/sample/refresh"
+      refreshUrl: "https://ballerina.io/sample/refresh",
       clientId: "rgfKVdnMQnJSSr_pKFTxj3apiwYa",
       clientSecret: "BRebJ0aqfclQB9v7yZwhj0JfW0ga"
    },
