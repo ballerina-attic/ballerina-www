@@ -362,17 +362,13 @@ name="zipkin"
 
 **Step 7:** The following configuration is a sample configuration option available for Zipkin tracer.
 
-```
+```yaml
 [b7a.observability.tracing.zipkin]
 reporter.hostname="localhost"
 reporter.port=9411
-
-# The below properties can be changed if the Zipkin API version need to be changed to V1. By default it's V2. 
-#reporter.api.context="/api/v2/spans"
-#reporter.api.version="v2"
-
-# The below properties can allow to disable the compression by setting this to false. By default it's enabled.
-#reporter.compression.enabled=true
+reporter.api.context="/api/v2/spans"
+reporter.api.version="v2"
+reporter.compression.enabled=true
 ```
 
 The below table provides the descriptions of each configuration option and possible values that can be assigned. 
@@ -381,9 +377,9 @@ Configuration Key | Description | Default Value | Possible Values
 --- | --- | --- | --- 
 b7a.observability.tracing.zipkin.reporter.hostname | Hostname of the Zipkin server | localhost | IP or hostname of the Zipkin server. If it is running on the same node as the Ballerina, it can be localhost. 
 b7a.observability.tracing.zipkin.reporter.port | Port of the Zipkin server | 9411 | The port which the Zipkin server is listening to.
-b7a.observability.tracing.zipkin.reporter.api.context | API context of the Zipkin server | /api/v2/spans | The API context of the Zipkin API. For V1 API, the context will be '/api/v2/spans', and for V2 API, the context will be '/api/v1/spans' for default Zipkin server.
+b7a.observability.tracing.zipkin.reporter.api.context | API context of the Zipkin server | /api/v2/spans | The API context of the Zipkin API. For V1 API, the context will be '/api/v1/spans', and for V2 API, the context will be '/api/v2/spans' for default Zipkin server.
 b7a.observability.tracing.zipkin.reporter.api.version | API version of the Zipkin API | v2 | v1 or v2.
-b7a.observability.tracing.zipkin.reporter.compression.enabled | Enable the compression for the request data | true | true or false.
+b7a.observability.tracing.zipkin.reporter.compression.enabled | Enable the compression for the spans request | true | true or false.
 
 ### Setup External Systems for Tracing
 Ballerina by default supports Jaerger and Zipkin for distributed tracing. This section focuses on configuring the
