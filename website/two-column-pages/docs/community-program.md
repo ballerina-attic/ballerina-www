@@ -247,8 +247,8 @@ import ballerina/io;
 
 function main(string... args) {
 
-    int c = 0;
-    while ( c != 5) {
+    int operation = 0;
+    while ( operation != 5) {
         // print options menu to choose from
         io:println("Select operation.");
         io:println("1. Add");
@@ -259,25 +259,25 @@ function main(string... args) {
 
         // read user's choice
         string choice = io:readln("Enter choice 1 - 5: ");
-        c = check <int>choice;
+        operation = check <int>choice;
 
-        if (c == 5) {
+        if (operation == 5) {
             break;
         }
 
         // Read two numbers from user to be used for calculator operations
         var input1 = io:readln("Enter first number: ");
-        float a = check <float>input1;
+        float firstNumber = check <float>input1;
         var input2 = io:readln("Enter second number: ");
-        float b = check <float>input2;
+        float secondNumber = check <float>input2;
 
         // Execute calculator operations based on user's choice
-        if(c == 1) {
+        if(operation == 1) {
             io:print("Add result: ");
-            io:println(add(a, b));
-        } else if(c == 2) {
+            io:println(add(firstNumber, secondNumber));
+        } else if(operation == 2) {
             io:print("Subtract result: ");
-            io:println(subtract(a, b));
+            io:println(subtract(firstNumber, secondNumber));
         } else {
             io:println("Invalid choice");
         }   
@@ -321,8 +321,8 @@ service<http:Service> Calculator bind listener {
     // Resource that handles the HTTP POST requests that are directed to
     // the path `/operation` to execute a given calculate operation
     // Sample requests for add operation in JSON format
-    // `{ "a": 10, "b":  200, "operation": "add"}`
-    // `{ "a": 10, "b":  20.0, "operation": "+"}`
+    // `{ "firstNumber": 10, "secondNumber":  200, "operation": "add"}`
+    // `{ "firstNumber": 10, "secondNumber":  20.0, "operation": "+"}`
 
     @http:ResourceConfig {
         methods: ["POST"],
@@ -334,25 +334,25 @@ service<http:Service> Calculator bind listener {
 
         any result = 0.0;
         // Pick first number for the calculate operation from the JSON request
-        float a = 0;
-        var input = operationReq.a;
+        float firstNumber = 0;
+        var input = operationReq.firstNumber;
         match input {
-            int ivalue => a = ivalue;
-            float fvalue => a = fvalue;
+            int ivalue => firstNumber = ivalue;
+            float fvalue => firstNumber = fvalue;
             json other => {} //error
         }
 
         // Pick second number for the calculate operation from the JSON request
-        float b = 0;
-        input = operationReq.b;
+        float secondNumber = 0;
+        input = operationReq.secondNumber;
         match input {
-            int ivalue => b = ivalue;
-            float fvalue => b = fvalue;
+            int ivalue => secondNumber = ivalue;
+            float fvalue => secondNumber = fvalue;
             json other => {} //error
         }
 
         if(operation == "add" || operation == "+") {
-            result = add(a, b);
+            result = add(firstNumber, secondNumber);
         }
 
         // Create response message.
@@ -379,7 +379,7 @@ Inside the calculator package, you now have both a main program that you previou
 When Ballerina is run for the calculator package, the main program is run, and the service is started.</li>
 <li>Open a new command line to invoke the service using an HTTP client program such as cURL.</li>
 <li>Invoke the service using an HTTP client.
-<code> curl -v -X POST -d '{"a": 10, "b":  200, "operation": "add"}' "http://localhost:9090/calculator/operation" -H "Content-Type:application/json" </code>
+<code> curl -v -X POST -d '{"firstNumber": 10, "secondNumber":  200, "operation": "add"}' "http://localhost:9090/calculator/operation" -H "Content-Type:application/json" </code>
 </li>
 </ol>
 
@@ -408,7 +408,7 @@ function main(string... args) {
     http:Request req = new;
 
     // Set the JSON payload to the message to be sent to the endpoint.
-    json jsonMsg = { a: 15.6, b: 18.9, operation: "add" };
+    json jsonMsg = { firstNumber: 15.6, secondNumber: 18.9, operation: "add" };
     req.setJsonPayload(jsonMsg);
 
     var response = clientEndpoint->post("/calculator/operation", req);
@@ -417,8 +417,8 @@ function main(string... args) {
             var msg = resp.getJsonPayload();
             match msg {
                 json jsonPayload => {
-                    string resultMessage = "Addition result " + jsonMsg["a"].toString() +
-                        " + " + jsonMsg["b"].toString() + " : " +
+                    string resultMessage = "Addition result " + jsonMsg["firstNumber"].toString() +
+                        " + " + jsonMsg["secondNumber"].toString() + " : " +
                         jsonPayload["result"].toString();
                     io:println(resultMessage);
                 }
