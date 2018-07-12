@@ -72,10 +72,8 @@ The connector is a data structure that is represented by an `object`.
 public type TwilioClient object {
 
     // Data structure that will hold config info and a connector
-    public {
-        TwilioConfiguration twilioConfig;
-        TwilioConnector twilioConnector = new;
-    }
+    public TwilioConfiguration twilioConfig;
+    public TwilioConnector twilioConnector = new;
 
     public function init(TwilioConfiguration config);
     public function getCallerActions() returns TwilioConnector;
@@ -83,7 +81,7 @@ public type TwilioClient object {
 
 // Part of the TwilioClient object and passed as an input parameter to
 // the connector when it is instantiated
-public type TwilioConfiguration {
+public type TwilioConfiguration record {
 
     // This type is a record defined in the http system library
     http:ClientEndpointConfig clientConfig;
@@ -92,10 +90,9 @@ public type TwilioConfiguration {
 // The actual connector object, which also includes a reference to the
 // standard connector that is in the http system library
 public type TwilioConnector object {
-    public {
-        string accountSId;
-        http:Client client;
-    }
+    public string accountSId;
+    public http:Client client;
+
 
     public function getAccountDetails() returns (Account|error);
 };
@@ -110,7 +107,7 @@ We now implement the method that will be called when an endpoint is instantiated
 // Constant
 @final string BASE_URL = "https://api.twilio.com/2010-04-01";
 
-public function TwilioClient::init(TwilioConfiguration config) {
+function TwilioClient::init(TwilioConfiguration config) {
 
     // Navigate our client object into the targets file of the http::Client object
     config.clientConfig.url = BASE_URL;
@@ -150,7 +147,7 @@ public function TwilioClient::init(TwilioConfiguration config) {
 The `getCallerActions()` function is called whenever the system needs to return an active connection to the end user developer for use in their code. We have already initialized the connection and it is saved within the TwilioClient object.
 
 ```ballerina
-public function TwilioClient::getCallerActions() returns TwilioConnector {
+function TwilioClient::getCallerActions() returns TwilioConnector {
     return self.twilioConnector;
 }
 ```
@@ -176,7 +173,7 @@ And within the package that includes your custom connector, we have these additi
 @final string ACCOUNTS_API = "/Accounts/";
 @final string RESPONSE_TYPE_JSON = ".json";
 
-public function TwilioConnector::getAccountDetails() returns (Account|error) {
+function TwilioConnector::getAccountDetails() returns (Account|error) {
     endpoint http:Client httpClient = self.client;
     string requestPath = ACCOUNTS_API + self.accountSId + RESPONSE_TYPE_JSON;
     var response = httpClient->get(requestPath);
@@ -188,7 +185,7 @@ public function TwilioConnector::getAccountDetails() returns (Account|error) {
 And the `Account` record is also defined in the same file:
 
 ```ballerina
-public type Account {
+public type Account record {
     string sid;
     string name;
     string status;
@@ -212,29 +209,27 @@ For more information on how to structure the code you write, see [How to Structu
 
 You can create connectors for a range of protocols and interfaces, including those endpoints, which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
 
-1. A [Hello Gatsby client](https://github.com/muthulee/package-twilio-super-simple/blob/master/hello/hello_world_endpoint.bal), which is a minimal custom client.
+1. ballerina/http Client [source code](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/http/src/main/ballerina/http/client_endpoint.bal).
 
-2. ballerina/http Client [source code](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/ballerina-http/src/main/ballerina/http/client_endpoint.bal).
+2. Source code for a [Salesforce client connector](https://github.com/wso2-ballerina/package-salesforce).
 
-3. Source code for a [Salesforce client connector](https://github.com/wso2-ballerina/package-salesforce).
+3. Source code for a [GitHub client connector](https://github.com/wso2-ballerina/package-github).
 
-4. Source code for a [GitHub client connector](https://github.com/wso2-ballerina/package-github).
+4. Source code for a [Jira client connector](https://github.com/wso2-ballerina/package-jira).
 
-5. Source code for a [Jira client connector](https://github.com/wso2-ballerina/package-jira).
+5. Source code for a [Sonaqube client connector](https://github.com/wso2-ballerina/package-sonarqube).
 
-6. Source code for a [Sonaqube client connector](https://github.com/wso2-ballerina/package-sonarqube).
+6. Source code for a [SCIM2 client connector](https://github.com/wso2-ballerina/package-scim2).
 
-7. Source code for a [SCIM2 client connector](https://github.com/wso2-ballerina/package-scim2).
+7. Source code for a [Gmail client connector](https://github.com/wso2-ballerina/package-gmail).
 
-8. Source code for a [Gmail client connector](https://github.com/wso2-ballerina/package-gmail).
+8. Source code for a [Google Spreadsheet client connector](https://github.com/wso2-ballerina/package-googlespreadsheet).
 
-9. Source code for a [Google Spreadsheet client connector](https://github.com/wso2-ballerina/package-googlespreadsheet).
+9. Source code for a [Twitter client connector](https://github.com/wso2-ballerina/package-twitter).
 
-10. Source code for a [Twitter client connector](https://github.com/wso2-ballerina/package-twitter).
+10. Source code for a [gRPC client connector](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/grpc/src/main/ballerina/grpc/client_endpoint.bal).
 
-11. Source code for a [gRPC client connector](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/ballerina-grpc/src/main/ballerina/grpc/client_endpoint.bal).
-
-12. Source code for a [MySQL client connector](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/database/ballerina-mysql/src/main/ballerina/mysql/mysql_endpoint.bal).
+11. Source code for a [MySQL client connector](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/database/mysql/src/main/ballerina/mysql/endpoint.bal).
 
 ## Create Custom Annotations & Builder Extensions
 
@@ -361,7 +356,7 @@ In the `pom.xml`, add Ballerina IO as the parent:
     <parent>
         <groupId>io.ballerina</groupId>
         <artifactId>ballerina</artifactId>
-        <version>0.975.0</version>
+        <version>0.970.0-beta5</version>
     </parent>
 ```
 
@@ -372,17 +367,17 @@ In the `pom.xml` add Ballerina's maven dependencies:
         <dependency>
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-lang</artifactId>
-            <version>0.975.0</version>
+            <version>0.980.0</version>
         </dependency>
          <dependency>
                 <groupId>org.ballerinalang</groupId>
-                <version>0.975.0</version>
+                <version>0.980.0</version>
                 <artifactId>lib-creator</artifactId>
          </dependency>
          <dependency>
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-builtin</artifactId>
-            <version>0.975.0</version>
+            <version>0.980.0</version>
             <type>zip</type>
             <classifier>ballerina-binary-repo</classifier>
         </dependency>
@@ -426,7 +421,7 @@ mvn clean install
 
 ### Create Custom Annotation Definition
 
-In the maven project, create a hello-extension/src/main/ballerina/ballerinax/docker/annotation.bal file.
+In the maven project, create a hello-extension/src/main/ballerina/ballerinax/hello/annotation.bal file.
 
 ```bash
 ├── pom.xml
@@ -434,7 +429,7 @@ In the maven project, create a hello-extension/src/main/ballerina/ballerinax/doc
 │   ├── main
 │   │   ├── ballerina
 │   │   │   └── ballerinax
-│   │   │       └── docker
+│   │   │       └── hello
 │   │   │           └── annotation.bal
 │   │   └── java
 │   │       └── ballerinax
@@ -454,7 +449,7 @@ The annotation is defined using Ballerina syntax in the `annotation.bal`:
 documentation {Hello annotation configuration
     F{{salutation}} - Greeting
 }
-public type HelloConfiguration {
+public type HelloConfiguration record {
     string salutation;
 };
 
@@ -473,7 +468,7 @@ Remove the archetype generated `App.java` and `AppTest.java` files. They are not
 Create `HelloExtensionProvider.java` class in `hello/src/main/java/org/ballerinax/hello` package. This class will implement `SystemPackageRepositoryProvider`.
 
 ```java
-package org.ballerinax.hello;
+package ballerinax.hello;
 
 import org.ballerinalang.annotation.JavaSPIService;
 import org.ballerinalang.spi.SystemPackageRepositoryProvider;
@@ -491,6 +486,7 @@ public class HelloExtensionProvider implements SystemPackageRepositoryProvider {
        return new JarRepo(SystemPackageRepositoryProvider.getClassUri(this));
    }
 }
+
 ```
 
 ##### Update the pom.xml
@@ -733,7 +729,7 @@ org-name = "ballerinax"
 version = "0.0.0"
 ```
 
-Final folder structure looks like below.
+Final folder structure will look like below.
 ```bash
 .
 ├── assembly
@@ -749,8 +745,7 @@ Final folder structure looks like below.
         │       └── hello
         │           └── annotation.bal
         ├── java
-        │   └── org
-        │       └── ballerinax
+        │   └── ballerinax
         │           └── hello
         │               ├── HelloExtensionProvider.java
         │               ├── HelloModel.java
@@ -772,10 +767,10 @@ mvn clean install
 
 The resulting `target/hello-extension-1.0-SNAPSHOT.jar` will have the annotation definitions.
 
-Place the jar file at `<ballerina_tools_home>/bre/lib` of your Ballerina distribution.
+Place the jar file at `<ballerina_platform_home>/bre/lib` of your Ballerina distribution.
 
-Extract `target/hello-extension-0.975.0-ballerina-binary-repo.zip` file and copy the `repo/ballerinax` folder to `<ballerina_tools_home>/repo/` folder. 
-The final `<ballerina_tools_home>/repo/` folder will  have two folders `ballerina` and `ballerinax`.
+Extract `target/hello-extension-0.980.0-ballerina-binary-repo.zip` file and copy the `repo/ballerinax` folder to `<ballerina_platform_home>/lib/repo/` folder. 
+The final `<ballerina_platform_home>/lib/repo/` folder will  have two folders `ballerina` and `ballerinax`.
 
 You can now verify that the annotation is present even though we cannot react to it yet. Create a sample Ballerina file with your  annotation and make sure that Ballerina can compile the file without errors.
 
@@ -798,7 +793,7 @@ service<http:Service> helloWorld bind {port:9091} {
 Create `HelloPlugin.java` in `hello/src/main/java/org/ballerinax/hello` package. We will then implement the annotation methods that we want to act upon.
 
 ```java
-package org.ballerinax.hello;
+package ballerinax.hello;
 
 import org.ballerinalang.compiler.plugins.AbstractCompilerPlugin;
 import org.ballerinalang.compiler.plugins.SupportedAnnotationPackages;
@@ -858,7 +853,7 @@ public class HelloPlugin extends AbstractCompilerPlugin {
    }
 
    @Override
-   public void codeGenerated(Path binaryPath) {
+   public void codeGenerated(PackageID packageID, Path binaryPath) {
        //extract file name.
        String filePath = binaryPath.toAbsolutePath().toString().replace(".balx", ".txt");
        String greeting = HelloModel.getInstance().getGreeting();
@@ -901,7 +896,7 @@ The annotation value is read and cached in a singleton model class. Upon receivi
 Create `HelloModel.java` in `hello/src/main/java/org/ballerinax/hello` package.
 
 ```java
-package org.ballerinax.hello;
+package ballerinax.hello;
 
 /**
  * Model class to store greeting value.
@@ -937,7 +932,7 @@ public class HelloModel {
 Create an file named `org.ballerinalang.compiler.plugins.CompilerPlugin` in `hello/src/main/resources/META-INF/services` directory. This file is read by the compiler and registers our `HelloPlugin.java` class as an extension. The events will be received by the registered classes. The file should contain the fully qualified Java class name of the builder extension.
 
 ```
-org.ballerinax.hello.HelloPlugin
+ballerinax.hello.HelloPlugin
 ```
 
 Rebuild the maven project and replace the jar file in `<ballerina_tools_home>/bre/lib` with the latest. You should now be able to compile the sample Ballerina file we created earlier. There should be a text file created with annotation value.

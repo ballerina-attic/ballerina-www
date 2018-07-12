@@ -38,21 +38,22 @@ Consider the following example that constructs a SQL query with a tainted argume
 ```ballerina
 import ballerina/mysql;
 
-endpoint mysql:Client testDB {
-   host: "localhost",
-   port: 3306
-};
-
-type ResultStudent {
+type ResultStudent record {
    string NAME,
 };
 
 function main (string... args) {
+
+    endpoint mysql:Client testDB {
+       host: "localhost",
+       port: 3306
+    };
+    
    // Construct student ID based on user input.
    string studentId = "S_" + args[0];
 
    // Execute select query using the untrusted (tainted) student ID
-   var dt = testDB -> select("SELECT NAME FROM STUDENT WHERE ID = " + studentId, ResultStudent);
+   var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = " + studentId, ResultStudent);
    testDB.stop();
 }
 ```
@@ -66,8 +67,8 @@ tainted value passed to sensitive parameter 'sqlQuery'
 In order to compile, the program is modified to use query parameters:
 
 ```ballerina
-sql:Parameter paramId = ( sql:TYPE_VARCHAR, studentId );
-var dt = testDB -> select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent, paramId);
+sql:Parameter paramId = {sqlType:sql:TYPE_VARCHAR, value:studentId};
+var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent, paramId);
 ```
 
 Please note that it is required to import `ballerina/sql` package to use `sql:Parameter`.
@@ -86,7 +87,7 @@ There can be certain situations where a tainted value must be passed into a secu
 // Execute select query using the untrusted (tainted) student ID
 boolean isValid = isNumeric(studentId);
 if (isValid) {
-   var dt = testDB -> select("SELECT NAME FROM STUDENT WHERE ID = " + untaint studentId, ResultStudent);
+   var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = " + untaint studentId, ResultStudent);
 }
 // ...
 ```
@@ -105,7 +106,7 @@ function sanitizeSortColumn (string columnName) returns @untainted string {
 
 ## Securing Passwords and Secrets
 
-Ballerina provides an API for accessing configuration values from different sources. Please refer to the `Config` Ballerina by Example for details.
+Ballerina provides an API for accessing configuration values from different sources. Please refer to the [Config](https://ballerina.io/learn/by-example/config-api.html) Ballerina by Example for details.
 
 Configuration values containing passwords or secrets should be encrypted. The Ballerina Config API will decrypt such configuration values when being accessed.
 
@@ -213,7 +214,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
    sayHello (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
-       _ = caller -> respond(resp);
+       _ = caller->respond(resp);
    }
 }
 ```
@@ -349,7 +350,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
    sayHello (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
-       _ = caller -> respond(resp);
+       _ = caller->respond(resp);
    }
 }
 ```
@@ -464,7 +465,7 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
    sayHello (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
-       _ = caller -> respond(resp);
+       _ = caller->respond(resp);
    }
 }
 ```
@@ -588,8 +589,8 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
        path:"/"
    }
    sayHello (endpoint caller, http:Request req) {
-       http:Response response = check downstreamServiceEP -> get("/update-stats", message = untaint req);
-       _ = caller -> respond(response);
+       http:Response response = check downstreamServiceEP->get("/update-stats", message = untaint req);
+       _ = caller->respond(response);
    }
 }
 
@@ -632,7 +633,7 @@ service<http:Service> updateService bind secureUpdateServiceEp {
    updateStats (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Downstream Service Received JWT: " + untaint req.getHeader("Authorization"));
-       _ = caller -> respond(resp);
+       _ = caller->respond(resp);
    }
 }
 ```
@@ -713,8 +714,8 @@ service<http:Service> helloWorld bind secureHelloWorldEp {
        path:"/"
    }
    sayHello (endpoint caller, http:Request req) {
-       http:Response response = check downstreamServiceEP -> get("/update-stats", message = untaint req);
-       _ = caller -> respond(response);
+       http:Response response = check downstreamServiceEP->get("/update-stats", message = untaint req);
+       _ = caller->respond(response);
    }
 }
 
@@ -757,7 +758,7 @@ service<http:Service> updateService bind secureUpdateServiceEp {
    updateStats (endpoint caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Downstream Service Received JWT: " + untaint req.getHeader("Authorization"));
-       _ = caller -> respond(resp);
+       _ = caller->respond(resp);
    }
 }
 ```
