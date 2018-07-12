@@ -181,9 +181,9 @@ The descriptions of each configuration above are provided below with possible al
 Configuration Key | Description | Default Value | Possible Values 
 --- | --- | --- | --- 
 b7a.observability.metrics. enabled | Whether metrics monitoring is enabled (true) or disabled (false) | false | true or false
-b7a.observability.metrics. reporter | Reporter name which reports the collected Metrics to the remote metrics server. This is only required to be modified if a custom reporter is implemented and needs to be used. | prometheus | prometheus or if any custom implementation, then name of the reporter.
-b7a.observability.metrics. prometheus.port | The value of the port in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the Ballerina service. | 9797 | Any suitable value for port 0 - 0 - 65535. However, within that range, ports 0 - 1023 are generally reserved for specific purposes, therefore it is advisable to select a port without that range. 
-b7a.observability.metrics. prometheus.host | The name of the host in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the Ballerina service. | 0.0.0.0 | IP or Hostname or 0.0.0.0 of the node in which the Ballerina service is running.
+b7a.observability.metrics. reporter | Reporter name that reports the collected Metrics to the remote metrics server. This is only required to be modified if a custom reporter is implemented and needs to be used. | prometheus | prometheus or if any custom implementation, then name of the reporter.
+b7a.observability.metrics. prometheus.port | The value of the port in which the service '/metrics' will bind to. This service will be used by Prometheus to scrape the information of the Ballerina service. | 9797 | Any suitable value for port 0 - 0 - 65535. However, within that range, ports 0 - 1023 are generally reserved for specific purposes, therefore it is advisable to select a port without that range. 
+b7a.observability.metrics. prometheus.host | The name of the host in which the service '/metrics' will bind to. This service will be used by Prometheus to scrape the information of the Ballerina service. | 0.0.0.0 | IP or Hostname or 0.0.0.0 of the node in which the Ballerina service is running.
 
 ### Setup External Systems for Metrics
 There are mainly two systems involved in collecting and visualizing the metrics. [Prometheus] is used to collect the
@@ -325,7 +325,7 @@ The below table provides the descriptions of each configuration option and possi
 
 Configuration Key | Description | Default Value | Possible Values 
 --- | --- | --- | --- 
-b7a.observability.tracing. jaeger.reporter.hostname | Hostname of the Jaeger server | localhost | IP or hostname of the Jaeger server. If it is running on the same node as the Ballerina, it can be localhost. 
+b7a.observability.tracing. jaeger.reporter.hostname | Hostname of the Jaeger server | localhost | IP or hostname of the Jaeger server. If it is running on the same node as Ballerina, it can be localhost. 
 b7a.observability.tracing. jaeger.reporter.port | Port of the Jaeger server | 5775 | The port which the Jaeger server is listening to.
 b7a.observability.tracing. jaeger.sampler.type | Type of the sampling methods used in the Jaeger tracer. | const | `const`, `probabilistic`, or `ratelimiting`.
 b7a.observability.tracing. jaeger.sampler.param | It is a floating value. Based on the sampler type, the effect of the sampler param varies | 1.0 | For `const` `0` (no sampling) or `1` (sample all spans), for `probabilistic` `0.0` to `1.0`, for `ratelimiting` any positive integer (rate per second).
@@ -376,7 +376,7 @@ The below table provides the descriptions of each configuration option and possi
 Configuration Key | Description | Default Value | Possible Values 
 --- | --- | --- | --- 
 b7a.observability.tracing.zipkin. reporter.hostname | Hostname of the Zipkin server | localhost | IP or hostname of the Zipkin server. If it is running on the same node as the Ballerina, it can be localhost. 
-b7a.observability.tracing.zipkin. reporter.port | Port of the Zipkin server | 9411 | The port which the Zipkin server is listening to.
+b7a.observability.tracing.zipkin. reporter.port | Port of the Zipkin server | 9411 | The port that the Zipkin server is listening to.
 b7a.observability.tracing.zipkin. reporter.api.context | API context of the Zipkin server | `/api/v2/spans` | The API context of the Zipkin API. For V1 API, the context will be `/api/v1/spans`, and for V2 API, the context will be `/api/v2/spans` for default Zipkin server.
 b7a.observability.tracing.zipkin. reporter.api.version | API version of the Zipkin API | v2 | v1 or v2.
 b7a.observability.tracing.zipkin. reporter.compression.enabled | Enable the compression for the spans request | true | true or false.
