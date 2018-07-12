@@ -173,7 +173,7 @@ reporter="prometheus"
 
 [b7a.observability.metrics.prometheus]
 port=9797
-hostname="0.0.0.0"
+host="0.0.0.0"
 ```
 
 The descriptions of each configuration above are provided below with possible alternate options.
@@ -183,7 +183,7 @@ Configuration Key | Description | Default Value | Possible Values
 b7a.observability.metrics. enabled | Whether metrics monitoring is enabled (true) or disabled (false) | false | true or false
 b7a.observability.metrics. reporter | Reporter name which reports the collected Metrics to the remote metrics server. This is only required to be modified if a custom reporter is implemented and needs to be used. | prometheus | prometheus or if any custom implementation, then name of the reporter.
 b7a.observability.metrics. prometheus.port | The value of the port in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the Ballerina service. | 9797 | Any suitable value for port 0 - 0 - 65535. However, within that range, ports 0 - 1023 are generally reserved for specific purposes, therefore it is advisable to select a port without that range. 
-b7a.observability.metrics. prometheus.hostname | The hostname in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the Ballerina service. | 0.0.0.0 | IP or Hostname or 0.0.0.0 of the node in which the Ballerina service is running.
+b7a.observability.metrics. prometheus.host | The name of the host in which the service '/metrics' will be bind to. This service will be used by Prometheus to scrape the information of the Ballerina service. | 0.0.0.0 | IP or Hostname or 0.0.0.0 of the node in which the Ballerina service is running.
 
 ### Setup External Systems for Metrics
 There are mainly two systems involved in collecting and visualizing the metrics. [Prometheus] is used to collect the
