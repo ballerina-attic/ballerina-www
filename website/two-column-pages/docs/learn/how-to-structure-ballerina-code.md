@@ -92,11 +92,11 @@ You can have an explicit identifier by using the `as <identifier>` syntax.
 ```ballerina
 import ballerina/http;
 
-# The 'Service' object comes from the imported package.
+// The 'Service' object comes from the imported package.
 service<http:Service> hello bind { port:9090 } {
 
-    # The 'Request' object comes from the imported package.
-    sayHello (endpoint caller, http:Reqeust req) {
+    // The 'Request' object comes from the imported package.
+    sayHello (endpoint caller, http:Request req) {
         ...
     }
 }
@@ -108,8 +108,8 @@ import ballerina/http as network;
 
 service<network:Service> hello bind { port:9090 } {
 
-    # The 'Request' object comes from the imported package.
-    sayHello (endpoint caller, network:Reqeust req) {
+    // The 'Request' object comes from the imported package.
+    sayHello (endpoint caller, network:Request req) {
         ...
     }
 }
