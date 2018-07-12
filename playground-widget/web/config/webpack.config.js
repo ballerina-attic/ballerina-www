@@ -26,6 +26,7 @@
  const CopyWebpackPlugin = require('copy-webpack-plugin');
  const HtmlWebpackPlugin = require('html-webpack-plugin');
  const CleanWebpackPlugin = require('clean-webpack-plugin');
+ const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
  const WebfontPlugin = require('webpack-webfont').default;
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
@@ -191,10 +192,6 @@ const codepoints = {}
                 to: 'images'
             },
             {
-                from: 'node_modules/monaco-editor/min/vs',
-                to: 'vs'
-            },
-            {
                 from: 'node_modules/semantic-ui-css/themes',
                 to: 'themes'
             },
@@ -216,6 +213,10 @@ const codepoints = {}
         }),
         new webpack.optimize.CommonsChunkPlugin({
                name: 'manifest'
+        }),
+        new MonacoWebpackPlugin({
+            features:['bracketMatching', 'iPadShowKeyboard'],
+            languages: []
         })
      ],
      devServer: {
@@ -244,7 +245,8 @@ const codepoints = {}
             'api-client':  'composer/api-client',
             'images': path.join(composerWebRoot, 'public/images'),
             'TreeBuilder': 'composer/plugins/ballerina/model/tree-builder',
-            'PackageScopedEnvironment': 'composer/plugins/ballerina/env/package-scoped-environment'
+            'PackageScopedEnvironment': 'composer/plugins/ballerina/env/package-scoped-environment',
+            'monaco-editor': 'monaco-editor/esm/vs/editor/editor.api.js'
         }
      },
  
