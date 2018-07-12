@@ -209,7 +209,7 @@ For more information on how to structure the code you write, see [How to Structu
 
 You can create connectors for a range of protocols and interfaces, including those endpoints, which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
 
-1. ballerina/http Client [source code](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/http/src/main/ballerina/http/http_client.bal).
+1. ballerina/http Client [source code](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/http/src/main/ballerina/http/client_endpoint.bal).
 
 2. Source code for a [Salesforce client connector](https://github.com/wso2-ballerina/package-salesforce).
 
