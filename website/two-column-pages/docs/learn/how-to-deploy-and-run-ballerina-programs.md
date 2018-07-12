@@ -205,7 +205,7 @@ A developer enables deployment artifact generation by adding annotations to thei
 
 See the following example on how a developer can add Docker support in the code.
 
-Add following code to hello_world_docker.bal file.
+Add following code to `hello_world_docker.bal` file.
 
 ```ballerina
 import ballerina/http;  
@@ -233,10 +233,15 @@ Now your code is ready to generate deployment artifacts. In this case it is a Do
   
 ```bash
 $ ballerina build hello_world_docker.bal  
-@docker - complete 3/3  
+Compiling source
+    hello_world_docker.bal
 
-Run the following command to start docker container:  
-docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
+Generating executable
+    ./target/hello_world_docker.balx
+	@docker 		 - complete 3/3
+
+	Run following command to start docker container:
+	docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
 ```
   
 ```bash
@@ -253,8 +258,8 @@ REPOSITORY                TAG IMAGE ID       CREATED             SIZE
 docker.abc.com/helloworld  v1 df83ae43f69b   2 minutes ago       102MB
 ```
   
-You can run a Docker container and access it with your code by copying and pasting the Docker `run` command that displays as output of the Ballerina `build` command.
- ```bash 
+You can run a Docker container by copying and pasting the Docker `run` command that displays as output of the Ballerina `build` command.
+```bash
 $ docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0  
 130ded2ae413d0c37021f2026f3a36ed92e993c39c260815e3aa5993d947dd00
 ```
@@ -264,7 +269,7 @@ $ docker ps
 CONTAINER ID  IMAGE                          COMMAND                CREATED                STATUS       PORTS                  NAMES  
 130ded2ae413  docker.abc.com/helloworld:v1.0 "/bin/sh -c 'balleri…" Less than a second ago Up 3 seconds 0.0.0.0:9090->9090/tcp thirsty_hopper
 ```
-Access the hello world service with a cURL command:
+Invoke the hello world service with a cURL command:
 ```bash 
 $ curl http://localhost:9090/helloWorld/sayHello  
 Hello, World!
@@ -317,16 +322,16 @@ For more information, see the [Docker build extension GitHub repo](https://githu
 The Kubernetes builder extension offers native support for running Ballerina programs on Kubernetes with the use of annotations that you can include as part of your service code. Also, it will take care of the creation of the Docker images, so you don't need to explicitly create Docker images prior to deployment on Kubernetes.
 
 The following Kubernetes configurations are supported:
--   Kubernetes deployment support
--   Kubernetes service support
--   Kubernetes liveness probe support
--   Kubernetes ingress support
--   Kubernetes horizontal pod autoscaler support
--   Docker image generation
--   Docker push support with remote Docker registry
--   Kubernetes secret support
--   Kubernetes config map support
--   Kubernetes persistent volume claim support
+- Kubernetes deployment support
+- Kubernetes service support
+- Kubernetes liveness probe support
+- Kubernetes ingress support
+- Kubernetes horizontal pod autoscaler support
+- Docker image generation
+- Docker push support with remote Docker registry
+- Kubernetes secret support
+- Kubernetes config map support
+- Kubernetes persistent volume claim support
 
 The following Ballerina code section explains how you can use some of these Kubernetes capabilities by using Kubernetes annotation support in Ballerina. 
 Full example can be found at [Database Interaction Guide](https://ballerina.io/learn/by-guide/data-backed-service/)
@@ -405,6 +410,8 @@ Here we have used `@kubernetes:Deployment` to specify the Docker image name that
 The `@kubernetes:Service {}` annotation will create a Kubernetes service that will expose the Ballerina service running on a Pod.
 
 In addition, you can use `@kubernetes:Ingress`, which is the external interface to access your service (with path / and host name `ballerina.guides.io`).
+
+Minikube users please see the [Kubernetes Extension samples](https://github.com/ballerinax/kubernetes/tree/master/samples) for additional configurations required for Minikube.
 
 Now you can use the following command to build the Ballerina service that we developed above. This will also create the corresponding Docker image and the Kubernetes artifacts using the Kubernetes annotations that you have configured above.
 
