@@ -5,11 +5,6 @@
 ## Webinars
 
 
-<div >
-
-</div>
-
-
 <!-- [Webinars](/learn/events/webinars) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmdipiscing elitod tempom dolor sit amet, consectr [On-demand webinars](/learn/events/webinars##on-demand-webinars)incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut -->
 
 <table class="cEventTable cWebinarList">
@@ -21,7 +16,7 @@
     <p>
     <b>Dmitry Sotnikov</b> Vice President - Cloud, WSO2</p>
     </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-serverless-with-kubeless/">Register Now</a></td>
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-serverless-with-kubeless/">Watch Now</a></td>
 </tr>
 
 </table>
