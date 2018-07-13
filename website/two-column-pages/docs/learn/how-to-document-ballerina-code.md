@@ -1,10 +1,10 @@
 # How to Document Ballerina Code
 
-Ballerina has a built-in documentation framework named Docerina. The documentation framework allows you to write unstructured document with a bit of structure to enable generating HTML content as API documentation.
+Ballerina has a built-in documentation framework named Docerina. The documentation framework allows you to write unstructured documents with a bit of structure to enable generating HTML content as API documentation.
 
 Developers can write the documentation inline with the Ballerina source code using the lightweight [markdown](https://daringfireball.net/projects/markdown/syntax) markup language. They can mark special occurrences such as parameters, return parameters, fields, endpoints within the documentation code using documentation attributes. Once the code is documented, developers can generate a basic HTML version of their Ballerina packages using the `ballerina doc` command. You are encouraged to have your custom themes and styles, to have a better presentation of your Ballerina documentation. 
 
-Ballerina design and usage is aligned with project and package semantics of Ballerina. You can generate documentation for the project packages using the ``ballerina doc`` command.
+Ballerina design and usage is aligned with project and package semantics of Ballerina. You can generate documentation for the project packages using the `ballerina doc` command.
 
 
 ## Overview
@@ -12,7 +12,7 @@ Ballerina design and usage is aligned with project and package semantics of Ball
 * Ballerina programmers can place the documentation inline with the source code using documentation syntax.
 * Ballerina records, type definitions, objects, global variables, annotations, endpoints can be documented using the documentation syntax.
 * Fields, parameters, return parameters, endpoints can be marked using documentation attributes.
-* HTML documents can be generated using the ``ballerina doc`` command for each Ballerina package and if you have custom handlebars templates, you can use them to generate the HTMLs.
+* HTML documents can be generated using the `ballerina doc` command for each Ballerina package and if you have custom handlebars templates, you can use them to generate the HTMLs.
 
 ## Writing Ballerina Documentation
 
@@ -182,7 +182,8 @@ docerina-theme    index.html    math.html   package-list.html   time.html
 ```
 
 * `index.html`  - contains an index to the ballerina project documentation
-* `math.html` - contains the content of the package named `docker`
+* `math.html` - contains the content of the package named `math`
+* `time.html` - contains the content of the package named `time`
 * `package-list.html` - contains the package list which will be useful to find out the list of packages.
 * `docerina-theme` - folder contains basic styles shipped by default with the pack.
 
