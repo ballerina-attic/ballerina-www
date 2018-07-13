@@ -205,7 +205,7 @@ A developer enables deployment artifact generation by adding annotations to thei
 
 See the following example on how a developer can add Docker support in the code.
 
-Add following code to `hello_world_docker.bal` file.
+Add the following code to the `hello_world_docker.bal` file.
 
 ```ballerina
 import ballerina/http;  
@@ -240,7 +240,7 @@ Generating executable
     ./target/hello_world_docker.balx
 	@docker 		 - complete 3/3
 
-	Run following command to start Docker container:
+	Run the following command to start a Docker container:
 	docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
 ```
   
