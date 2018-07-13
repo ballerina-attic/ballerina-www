@@ -90,7 +90,7 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
     </tr>
 </table>
 
-### Webinars
+<!-- ### Webinars
 
 <table class="cEventTable cWebinarList">
 <tr>
@@ -104,7 +104,7 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
     <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-serverless-with-kubeless/">Register Now</a></td>
 </tr>
 
-</table>
+</table> -->
 
 ## Articles and Videos
 
