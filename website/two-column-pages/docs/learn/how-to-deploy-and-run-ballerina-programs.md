@@ -240,7 +240,7 @@ Generating executable
     ./target/hello_world_docker.balx
 	@docker 		 - complete 3/3
 
-	Run following command to start docker container:
+	Run following command to start Docker container:
 	docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
 ```
   
