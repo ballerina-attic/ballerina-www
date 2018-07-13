@@ -21,9 +21,7 @@ const MONACO_OPTIONS = {
     autoClosingBrackets: true,
     matchBrackets: true,
     automaticLayout: true,
-    lineNumbersMinChars: 2,
-    lineDecorationsWidth: 0,
-    glyphMargin: true,
+    lineNumbersMinChars: 3,
     scrollBeyondLastLine: false,
     minimap: {
         enabled: false,
