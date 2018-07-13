@@ -23,7 +23,7 @@ You can use existing Swagger files to generate connectors and services in Baller
 
 ## API documentation generator
 
-As you develop new connectors, actions, and functions that you want to share with others, it's important to add API documentation that describes each entity and how it's used. Ballerina provides a framework called **Docerina** that generates API documentation from your annotations in your Ballerina files. You can check it out at [here](https://github.com/ballerina-platform/ballerina-lang/tree/master/misc/docerina). 
+As you develop new connectors, actions, and functions that you want to share with others, it's important to add API documentation that describes each entity and how it's used. Ballerina provides a framework called **Docerina** that generates API documentation from your annotations in your Ballerina files. You can check it out [here](https://github.com/ballerina-platform/ballerina-lang/tree/master/misc/docerina). 
 
 ## Test framework
 
@@ -33,7 +33,7 @@ When you write your code in Ballerina Composer, the syntax is checked for you as
 ./ballerina test <package_name>
 ```
 
-Ballerina provides a testing framework called **Testerina** that you can use for your programs. You can check it out at [here](https://github.com/ballerina-platform/ballerina-lang/tree/master/misc/testerina). 
+Ballerina provides a testing framework called **Testerina** that you can use for your programs. You can check it out [here](https://github.com/ballerina-platform/ballerina-lang/tree/master/misc/testerina). 
 
 ## Flexible composer
 
