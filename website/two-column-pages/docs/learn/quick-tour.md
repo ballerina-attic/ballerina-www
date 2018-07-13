@@ -242,7 +242,7 @@ endpoint twitter:Client twitterEP {
    accessTokenSecret: config:getAsString("accessTokenSecret")
 };
 
-endpoint http:Listener tweetEP {
+endpoint http:Listener listener {
     port: 9090
 };
 
@@ -266,7 +266,6 @@ service<http:Service> hello bind listener {
 }
 ```
 
-> **Note**: `response.setTextPayload("ID:" + <string>st.id + "\n");` must be added after `http:Response response = new;`.
 
 Go ahead and run it and this time pass the config file:
 
