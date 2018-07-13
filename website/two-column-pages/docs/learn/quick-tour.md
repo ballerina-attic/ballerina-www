@@ -430,11 +430,9 @@ To start the composer:
 
 1. In the command line, type `composer`.
 
-2. Access the Composer from the following URL in your browser: `http://localhost:9091`
+2. In the Composer, click **File** and choose **Open File**.
 
-3. In the Composer, click **File** and choose **Open File**.
-
-4. Navigate to your service and open it to view this in the Composer.
+3. Navigate to your service and open it to view this in the Composer.
 
 ![Ballerina Composer](/img/docs-images/quick-tour-composer.png)
 
