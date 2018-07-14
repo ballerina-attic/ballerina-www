@@ -85,8 +85,14 @@ class Console extends React.Component {
                         if (!msg || msg.startsWith('BVM-OUTPUT:/ballerina/runtime/bin/ballerina: line ')) {
                             return (<span/>);
                         }
-                        if (msg === 'building...' && msgs.length > (index + 1)
-                                && msgs[index + 1].startsWith('build completed in')) {
+                        if (msg === 'Compiling source' || msg === 'Generating executable') {
+                            return (<span/>);
+                        }
+                        if ((index - 1) >= 0 && (msgs[index - 1] === 'Compiling source' || msgs[index - 1] === 'Generating executable')) {
+                            return (<span/>);
+                        }
+                        if (msg === 'building...' && msgs.length > (index + 6)
+                                && msgs[index + 6].startsWith('build completed in')) {
                             return (<span/>);
                         }
                         if (msg.startsWith('build completed in')) {
