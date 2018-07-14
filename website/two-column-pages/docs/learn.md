@@ -106,6 +106,13 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 
 </table> -->
 
+### Past Event Recordings
+
+1. <a href="https://www.youtube.com/watch?v=67v7mjlSHWI" target="_blank">Ballerina: A Cloud Native Programming Language</a> - Ballerina introduction webinar by Paul Fremantle
+2. <a href="https://www.youtube.com/watch?v=JtwmHo5Ivwg" target="_blank">Ballerina - A new language for the networked world</a> - Ballerina language design session by Sanjiva Weerawarana at SummerSOC 2018
+3. <a href="https://www.youtube.com/watch?v=IqE44dGZqMw" target="_blank">Cloud Native Programming with Ballerina and Kubernetes</a> - Kasun Indrasiri at the Kubernetes Mountain View meetup demonstrating integration of Ballerina with Codefresh CI/CD
+4. <a href="https://ballerina.io/learn/events/webinars/ballerina-serverless-with-kubeless/" target="_blank">Ballerina Serverless with Kubeless</a> - Webinar by Adnan Abdulhussein and Dmitry Sotnikov
+
 ## Articles and Videos
 
 1. <a href="https://medium.com/ballerinalang/conceiving-ballerina-2dadf67c0503" target="_blank">Conceiving Ballerina</a>
@@ -129,3 +136,4 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 19. <a href="https://medium.com/@kevinratnasekera/connect-with-kafka-brokers-using-ballerina-6f5f2880b7e8" target="_blank">Connect with Kafka Brokers Using Ballerina</a>
 20. <a href="https://medium.com/@lafernando/ballerina-concurrency-done-right-fa0afa350cb0" target="_blank">Ballerina: Concurrency Done Right!</a>
 21. <a href="https://www.infoq.com/articles/ballerina-microservices-language-part-1" target="_blank">Ballerina Microservices Programming Language: Introducing the Latest Release and "Ballerina Central"</a>
+22. <a href="https://dzone.com/articles/yaml-less-kubernetes" target="_blank">Generate Kubernetes YAML Right From Your App Code</a>
