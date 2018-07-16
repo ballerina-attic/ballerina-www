@@ -36,32 +36,32 @@ Star and watch the GitHub repo <a href="https://github.com/ballerina-platform/ba
 </li>
 </ol>
 
-Once you complete the quick tour, please fill in the following information so that we can ship you a T-Shirt.
+Once you complete the quick tour, please fill in the following information so that we can ship you a T-Shirt.   
+
+#### Follow on GitHub
+<div class="cGitButtonContainer"><p data-button="iGitStarText">"Star"</p> <p data-button="iGitWatchText">"Watch"</p></div>
 
 ## Request T-Shirt
 
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInlineForm">
 <form name="communityForm" class="communityForm" method="post" action="" id="cInlineForm">
     <ul>
-   <li><input type="text" maxlength="50" value="" name="first_name" placeholder="First Name" title="First Name" class="cTextfieldstyle contact_first_name"></li>
-   <li><input type="text" maxlength="50" value="" name="last_name" placeholder="Last Name" title="Last Name" class="cTextfieldstyle contact_last_name"></li>
-   <li><input type="text" maxlength="50" value="" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email"></li>
+   <li><input type="text" maxlength="50" value="" name="first_name" placeholder="First Name *" title="First Name" class="cTextfieldstyle contact_first_name"></li>
+   <li><input type="text" maxlength="50" value="" name="last_name" placeholder="Last Name *" title="Last Name" class="cTextfieldstyle contact_last_name"></li>
+   <li><input type="text" maxlength="50" value="" name="email" placeholder="Email *" title="Email" class="cTextfieldstyle contact_email"></li>
    <li><input type="text" maxlength="50" value="" name="phone" placeholder="Phone" title="Phone" class="cTextfieldstyle contact_phone"></li>
    <li>
       <select class="cSelect shirtsize" name="shirtsize">
-         <option value="XL">XL</option>
-          <option value="L">L</option>
+           <option value="" disabled selected>Select T-Shirt Size</option>
+           <option value="XL">XL</option>
+           <option value="L">L</option>
            <option value="M">M</option>
            <option value="S">S</option>
-
       </select>
    </li>
-   <li><textarea type="text" maxlength="550" value="" name="issues" placeholder="List of GitHub issues you filed" title="List of GitHub issues you filed" class="cTextfieldstyle contact_issues"></textarea></li>
-
    <li><input type="text" maxlength="50" name="github_id" value="" placeholder="Your GitHub ID" class="cTextfieldstyle field_state contact_id" id="state_text" title="Your GitHub ID"></li>
-
-   <li><textarea type="text" maxlength="550" value="" name="feedback" placeholder="Your feedback and thoughts on Ballerina " title="Your feedback and thoughts on Ballerina " class="cTextfieldstyle contact_feedback"></textarea></li>
-
+   <li><textarea type="text" maxlength="550" value="" name="issues" placeholder="List of GitHub issues you filed" title="List of GitHub issues you filed" class="cTextfieldstyle cTextarea contact_issues"></textarea></li>
+   <li><textarea type="text" maxlength="550" value="" name="feedback" placeholder="Your feedback and thoughts on Ballerina " title="Your feedback and thoughts on Ballerina " class="cTextfieldstyle cTextarea contact_feedback"></textarea></li>
    <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from Ballerina.io to stay up to date on new releases and updates.</li>
    <li><input type="hidden" class="tokenid" value="" name="tokenid">
      <input type="hidden" class="pdep" value="/142131/2018-06-26/5672jb" name="pdep">
@@ -497,7 +497,7 @@ You may also go to the package landing page directly to view the package details
 
 ## Follow the Repo
 
-<div class="cGitButtonContainer"><p id="iGitStarText">"Star"</p> <p id="iGitWatchText">"Watch"</p></div>
+<div class="cGitButtonContainer"><p data-button="iGitStarText">"Star"</p> <p data-button="iGitWatchText">"Watch"</p></div>
 
 Ballerina source repository lives on GitHub.
 
