@@ -217,17 +217,6 @@
                                         </li>
                                         
                                         
-                                        <li>
-                                            <a href="#TypeDefinitions">
-                                                <div class="construct-icon">
-                                                    <span class="fw-type"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    Type Definitions
-                                                </div>
-                                            </a>
-                                        </li>
-                                        
                                         
                                         
 
@@ -294,6 +283,18 @@
                                             
                                           
                                         <li>
+                                            <a href="#byteArrayToString">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    byteArrayToString
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
                                             <a href="#compress">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
@@ -306,12 +307,12 @@
                                             
                                           
                                         <li>
-                                            <a href="#compressToBlob">
+                                            <a href="#compressToByteArray">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    compressToBlob
+                                                    compressToByteArray
                                                 </div>
                                             </a>
                                         </li>
@@ -330,24 +331,24 @@
                                             
                                           
                                         <li>
-                                            <a href="#decompressFromBlob">
+                                            <a href="#decompressFromByteArray">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    decompressFromBlob
+                                                    decompressFromByteArray
                                                 </div>
                                             </a>
                                         </li>
                                             
                                           
                                         <li>
-                                            <a href="#execBallerina">
+                                            <a href="#execBallerinaDoc">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    execBallerina
+                                                    execBallerinaDoc
                                                 </div>
                                             </a>
                                         </li>
@@ -595,10 +596,23 @@
                                             </li>
                                         </ul>
                                             
-                                           
                                     </ul>
                                 </div>
                                 
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
                             </li>
                         </ul>
                         
@@ -882,14 +896,14 @@
                                                  
                                              
                                                  
+                                             
+                                                 
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Path">Path</a></td>
                                                      
                                                          <td class="cSummary-table-desc"><p>Reference to the file location.</p>
 </td>
                                                      </tr>
-                                                 
-                                             
                                                  
                                              
                                          </table>
@@ -919,6 +933,14 @@
                                              
                                                  
                                                      <tr>
+                                                         <td class="cSummary-table-name"><a href="#byteArrayToString">byteArrayToString</a></td>
+                                                        <td class="cSummary-table-desc"><p>Converts given byte array to a string.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#compress">compress</a></td>
                                                         <td class="cSummary-table-desc"><p>Compresses a directory.</p>
 </td>
@@ -927,8 +949,8 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#compressToBlob">compressToBlob</a></td>
-                                                        <td class="cSummary-table-desc"><p>Compresses a directory into a blob.</p>
+                                                         <td class="cSummary-table-name"><a href="#compressToByteArray">compressToByteArray</a></td>
+                                                        <td class="cSummary-table-desc"><p>Compresses a directory into a byte array.</p>
 </td>
                                                      </tr>
                                                  
@@ -943,16 +965,16 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#decompressFromBlob">decompressFromBlob</a></td>
-                                                        <td class="cSummary-table-desc"><p>Decompresses a blob into a directory.</p>
+                                                         <td class="cSummary-table-name"><a href="#decompressFromByteArray">decompressFromByteArray</a></td>
+                                                        <td class="cSummary-table-desc"><p>Decompresses a byte array into a directory.</p>
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#execBallerina">execBallerina</a></td>
-                                                        <td class="cSummary-table-desc"><p>Executes a ballerina command</p>
+                                                         <td class="cSummary-table-name"><a href="#execBallerinaDoc">execBallerinaDoc</a></td>
+                                                        <td class="cSummary-table-desc"><p>Executes a ballerina doc command</p>
 </td>
                                                      </tr>
                                                  
@@ -983,43 +1005,10 @@
                                              
                                                  
                                              
-                                                 
-                                             
                                          </table>
                                          
                                          <!-- Type Definitions-->
                                          
-                                        <h3 id="TypeDefinitions">Type Definitions</h3>
-                                        <table class="cSummary-Table c3Col-Narrow">
-                                            <tr>
-                                                <th class="cSummary-table-name">Type</th>
-                                                <th class="cSummary-table-type">Values</th>
-                                                <th class="cSummary-table-desc">Description</th>
-                                            </tr>
-                                            
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">BallerinaCommand</td>
-                                                <td class="cSummary-table-type">version | uninstall | test | swagger | search | run | push | pull | install | init | grpc | encrypt | docker | doc | build</td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                        </table>
-                                        
                                         <!-- Global Variables-->
                                         
                                          <!-- Annotations -->
@@ -1386,6 +1375,75 @@
                                                 
                                                 <!-- Function -->
                                                 
+                                                <h2 id="byteArrayToString">
+                                                    <span class="fw-function sm-icon"> </span> public function byteArrayToString(byte[] content, string encoding) returns (string) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Converts given byte array to a string.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">content</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Byte array content to be converted</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">encoding</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Encoding to used in byte array conversion to string</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>String representation of the given byte array</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
                                                 <h2 id="compress">
                                                     <span class="fw-function sm-icon"> </span> public function compress(internal:0.0.0:Path dirPath, internal:0.0.0:Path destDir) returns (error) 
                                                 </h2>
@@ -1455,12 +1513,12 @@
                                                 
                                                 <!-- Function -->
                                                 
-                                                <h2 id="compressToBlob">
-                                                    <span class="fw-function sm-icon"> </span> public function compressToBlob(internal:0.0.0:Path dirPath) returns (blob | error) 
+                                                <h2 id="compressToByteArray">
+                                                    <span class="fw-function sm-icon"> </span> public function compressToByteArray(internal:0.0.0:Path dirPath) returns (byte[] | error) 
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Compresses a directory into a blob.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Compresses a directory into a byte array.</p>
 
                                                 </p>
                                                  
@@ -1493,9 +1551,9 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#blob">blob</a> | <a href="builtin.html#error">error</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a> | <a href="builtin.html#error">error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Compressed blob of the file</p>
+                                                        <td class="cAPI-table-desc"><p>Compressed byte array of the file</p>
 </td>
                                                     </tr>
                                                     
@@ -1585,12 +1643,12 @@
                                                 
                                                 <!-- Function -->
                                                 
-                                                <h2 id="decompressFromBlob">
-                                                    <span class="fw-function sm-icon"> </span> public function decompressFromBlob(blob content, internal:0.0.0:Path destDir) returns (error) 
+                                                <h2 id="decompressFromByteArray">
+                                                    <span class="fw-function sm-icon"> </span> public function decompressFromByteArray(byte[] content, internal:0.0.0:Path destDir) returns (error) 
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Decompresses a blob into a directory.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Decompresses a byte array into a directory.</p>
 
                                                 </p>
                                                  
@@ -1604,9 +1662,9 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">content</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#blob">blob</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Blob of the compressed file</p>
+                                                        <td class="cAPI-table-desc"><p>Byte array of the compressed file</p>
 </td>
                                                     </tr>
                                                     
@@ -1654,12 +1712,12 @@
                                                 
                                                 <!-- Function -->
                                                 
-                                                <h2 id="execBallerina">
-                                                    <span class="fw-function sm-icon"> </span> public function execBallerina(test|push|build|docker|encrypt|swagger|grpc|uninstall|version|doc|run|install|search|init|pull command, string packagePath) returns (string | error) 
+                                                <h2 id="execBallerinaDoc">
+                                                    <span class="fw-function sm-icon"> </span> public function execBallerinaDoc(string[] packageList, string? sourceRoot, string? outputPath, string? templatesPath, string[]? exclude, boolean includeNatives, map&lt;string&gt;? envVars, string? config, boolean verbose) returns (string | error) 
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Executes a ballerina command</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Executes a ballerina doc command</p>
 
                                                 </p>
                                                  
@@ -1672,21 +1730,91 @@
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">command</td>
-                                                        <td class="cAPI-table-type"><a href="internal.html#BallerinaCommand">test</a>|push|build|docker|encrypt|swagger|grpc|uninstall|version|doc|run|install|search|init|pull</td>
+                                                        <td class="cAPI-table-name">packageList</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><ul>
-<li>Ballerina command</li>
+<li>List of packages</li>
 </ul>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">packagePath</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-name">sourceRoot</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                        <td class="cAPI-table-default">null</td>
                                                         <td class="cAPI-table-desc"><ul>
-<li>Package path with necessary flags</li>
+<li>Root folder of the packages</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">outputPath</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Path to write api-docs</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">templatesPath</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Location of the templates</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">exclude</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]?</a></td>
+                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Packages to exclude</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">includeNatives</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
+                                                        <td class="cAPI-table-default">false</td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Generate docs for natives</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">envVars</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map<string>?</a></td>
+                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Environment variables to pass</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">config</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Path to configuration file</li>
+</ul>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">verbose</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
+                                                        <td class="cAPI-table-default">false</td>
+                                                        <td class="cAPI-table-desc"><ul>
+<li>Verbose mode</li>
 </ul>
 </td>
                                                     </tr>
@@ -2517,21 +2645,6 @@
                                                  
                                             </div>
                                                 
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
                                             </div>
                                         </div>
                                       </div>
@@ -2886,6 +2999,16 @@
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -2907,6 +3030,16 @@
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -3171,6 +3304,16 @@
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -3192,6 +3335,16 @@
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -3285,6 +3438,9 @@
         });
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
+
+<!-- 0.980.0 -->
+
 </body>
 </html>
 

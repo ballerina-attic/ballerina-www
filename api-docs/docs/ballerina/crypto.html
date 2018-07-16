@@ -393,6 +393,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -437,11 +451,10 @@
 <h3>Calculating CRC</h3>
 <p>The <code>crc32</code> function can be used to calculate CRC on input types such as string, xml , json, and blobs.</p>
 <h2>Samples</h2>
-<h3>Sample hash function</h3>
 <pre><code class="language-ballerina">import ballerina/io;
 import ballerina/crypto;
 
-function main(string[] args) {
+function main(string... args) {
      // The string content to be hashed.
      string input = &quot;Hello Ballerina&quot;;
      // The key used for hashing when required.
@@ -491,7 +504,7 @@ function main(string[] args) {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#crc32">crc32</a></td>
-                                                        <td class="cSummary-table-desc"><p>Returns the CRC32 hash for the provided element. This accepts <code>string</code>, <code>blob</code>, <code>json</code> and <code>xml</code> content.</p>
+                                                        <td class="cSummary-table-desc"><p>Returns the CRC32 hash for the provided element. This accepts <code>string</code>, <code>byte[]</code>, <code>json</code> and <code>xml</code> content.</p>
 </td>
                                                      </tr>
                                                  
@@ -604,7 +617,7 @@ function main(string[] args) {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Returns the CRC32 hash for the provided element. This accepts <code>string</code>, <code>blob</code>, <code>json</code> and <code>xml</code> content.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Returns the CRC32 hash for the provided element. This accepts <code>string</code>, <code>byte[]</code>, <code>json</code> and <code>xml</code> content.</p>
 
                                                 </p>
                                                  
@@ -661,7 +674,7 @@ function main(string[] args) {
                                                 <!-- Function -->
                                                 
                                                 <h2 id="hash">
-                                                    <span class="fw-function sm-icon"> </span> public function hash(string baseString, SHA256|MD5|SHA1 algorithm) returns (string) 
+                                                    <span class="fw-function sm-icon"> </span> public function hash(string baseString, SHA1|SHA256|MD5 algorithm) returns (string) 
                                                 </h2>
                                                 
                                                 <p>
@@ -687,7 +700,7 @@ function main(string[] args) {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">algorithm</td>
-                                                        <td class="cAPI-table-type"><a href="crypto.html#Algorithm">SHA256</a>|MD5|SHA1</td>
+                                                        <td class="cAPI-table-type"><a href="crypto.html#Algorithm">SHA1</a>|SHA256|MD5</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The hashing algorithm to be used</p>
 </td>
@@ -730,7 +743,7 @@ function main(string[] args) {
                                                 <!-- Function -->
                                                 
                                                 <h2 id="hmac">
-                                                    <span class="fw-function sm-icon"> </span> public function hmac(string baseString, string keyString, SHA256|MD5|SHA1 algorithm) returns (string) 
+                                                    <span class="fw-function sm-icon"> </span> public function hmac(string baseString, string keyString, SHA1|SHA256|MD5 algorithm) returns (string) 
                                                 </h2>
                                                 
                                                 <p>
@@ -764,7 +777,7 @@ function main(string[] args) {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">algorithm</td>
-                                                        <td class="cAPI-table-type"><a href="crypto.html#Algorithm">SHA256</a>|MD5|SHA1</td>
+                                                        <td class="cAPI-table-type"><a href="crypto.html#Algorithm">SHA1</a>|SHA256|MD5</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The hashing algorithm to be used</p>
 </td>
@@ -1215,6 +1228,16 @@ function main(string[] args) {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -1236,6 +1259,16 @@ function main(string[] args) {
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -1500,6 +1533,16 @@ function main(string[] args) {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -1521,6 +1564,16 @@ function main(string[] args) {
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -1614,6 +1667,9 @@ function main(string[] args) {
         });
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
+
+<!-- 0.980.0 -->
+
 </body>
 </html>
 

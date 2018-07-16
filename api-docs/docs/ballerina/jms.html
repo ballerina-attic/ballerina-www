@@ -1592,6 +1592,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -1654,7 +1668,7 @@ initialized. For other endpoints, the developer must explicitly provide a proper
 import ballerina/log;
 
 // Create a simple queue receiver.
-endpoint jms:SimpleQueueReceiver consumer {
+endpoint jms:SimpleQueueReceiver consumerEP {
     initialContextFactory: &quot;bmbInitialContextFactory&quot;,
     providerUrl: &quot;amqp://admin:admin@ballerina/default?brokerlist='tcp://localhost:5672'&quot;,
     acknowledgementMode: &quot;AUTO_ACKNOWLEDGE&quot;,
@@ -1662,7 +1676,7 @@ endpoint jms:SimpleQueueReceiver consumer {
 };
 
 // Bind the created consumer to the listener service.
-service&lt;jms:Consumer&gt; jmsListener bind consumer {
+service&lt;jms:Consumer&gt; jmsListener bind consumerEP {
 
     // The `OnMessage` resource gets invoked when a message is received.
     onMessage(endpoint consumer, jms:Message message) {
@@ -1720,13 +1734,13 @@ jms:Session jmsSession = new(conn, {
     });
 
 // Initialize a queue receiver using the created session.
-endpoint jms:QueueReceiver consumer {
+endpoint jms:QueueReceiver consumerEP {
     session: jmsSession,
     queueName: &quot;MyQueue&quot;
 };
 
 // Bind the created consumer to the listener service.
-service&lt;jms:Consumer&gt; jmsListener bind consumer {
+service&lt;jms:Consumer&gt; jmsListener bind consumerEP {
 
     // The `OnMessage` resource gets invoked when a message is received.
     onMessage(endpoint consumer, jms:Message message) {
@@ -2317,6 +2331,22 @@ please refer QueueSender endpoint.</p>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default">ConnectionFactory</td>
                                                         <td class="cAPI-table-desc"><p>JMS connection factory to be used in creating JMS connections</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">username</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Username for the JMS connection</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">password</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Password for the JMS connection</p>
 </td>
                                                     </tr>
                                                     
@@ -7369,6 +7399,16 @@ please refer QueueSender endpoint.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -7390,6 +7430,16 @@ please refer QueueSender endpoint.</p>
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -7654,6 +7704,16 @@ please refer QueueSender endpoint.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -7675,6 +7735,16 @@ please refer QueueSender endpoint.</p>
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -7768,6 +7838,9 @@ please refer QueueSender endpoint.</p>
         });
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
+
+<!-- 0.980.0 -->
+
 </body>
 </html>
 
