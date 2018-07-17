@@ -312,18 +312,6 @@
                                             
                                           
                                         <li>
-                                            <a href="#openSocket">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    openSocket
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
                                             <a href="#print">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
@@ -862,6 +850,32 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
+                                                <a href="#DataChannel-readVarInt">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        readVarInt
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#DataChannel-writeVarInt">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        writeVarInt
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
                                                 <a href="#DataChannel-close">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
@@ -952,6 +966,57 @@
                                             
                                           
                                         <li>
+                                            <a href="#ServerSocket">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    ServerSocket
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#ServerSocket-bindAddress">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        bindAddress
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#ServerSocket-accept">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        accept
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#ServerSocket-close">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        close
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                            
+                                          
+                                        <li>
                                             <a href="#Socket">
                                                 <div class="construct-icon">
                                                     <span class="fw-struct"> </span>
@@ -961,6 +1026,32 @@
                                                 </div>
                                             </a>
                                         </li>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Socket-bindAddress">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        bindAddress
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Socket-connect">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        connect
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
@@ -1093,10 +1184,23 @@
                                          
                                          
                                          
-                                         
                                     </ul>
                                 </div>
                                 
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
                             </li>
                         </ul>
                         
@@ -1269,7 +1373,7 @@ io:ByteChannel byteChannel = io:openFile(&quot;some/file.txt&quot;, io:RW);
 // Here is how 100 bytes are read from the channel.
 var readResult = byteChannel.read(100);
     match readResult {
-        (blob, int) content =&gt; {
+        (byte[], int) content =&gt; {
             return content; // Return the read content.
         }
     error err =&gt; {
@@ -1278,7 +1382,8 @@ var readResult = byteChannel.read(100);
 }
 
 // Write some content to the beginning of the file.
-blob content = &quot;some content&quot;.toBlob(&quot;UTF-8&quot;);
+string someContent = &quot;some content&quot;;
+byte[] content = someContent.toByteArray(&quot;UTF-8&quot;);
 var writeResult = byteChannel.write(content, 0);
 match writeResult {
     int numberOfBytesWritten =&gt; {
@@ -1340,19 +1445,15 @@ while (recordsChannel.hasNext()) {
         error err =&gt; {
             return err; // An IO error occurred when reading the records.
         }
-        () =&gt; {
-            error e = {message: &quot;Record channel not initialized properly.&quot;};
-            return e;
-        }
     }
 }
 </code></pre>
 <p>A <code>.CSV</code> file can be read and written directly into a <code>CSVChannel</code>, as shown in this code snippet.</p>
-<pre><code class="language-ballerina">var csvChannel = check io:openCsvFile(&quot;records.csv&quot;);
+<pre><code class="language-ballerina">var csvChannel = io:openCsvFile(&quot;records.csv&quot;);
 </code></pre>
 <p>Records of the <code>.CSV</code> file can read directly into a table of a matching type.</p>
 <pre><code class="language-ballerina">// First let’s define a type that matches a record in the CSV file.
-type Employee {
+type Employee record {
    string id;
    string name;
    float salary;
@@ -1365,11 +1466,69 @@ match csvChannel.getTable(Employee) {
        foreach employee in employees {
            totalSalary += employee.salary;
        }
-       return total; // Return total of salaries of all employees.
+       return totalSalary; // Return total of salaries of all employees.
    }
    error err =&gt; {
        return err; // An IO error occurred when reading the records.
    }
+}
+</code></pre>
+<h3>Data Channels</h3>
+<p>Ballerina supports performing data i/o operations</p>
+<p>Person object could be serialized into a file or a network socket in the following manner.</p>
+<pre><code class="language-ballerina">public type Person record {
+    string name;
+    int age;
+    float income;
+    boolean isMarried;
+};
+
+//Serialize record into binary
+function serialize(Person p, io:ByteChannel channel) {
+    io:DataChannel dc = new io:DataChannel(channel);
+    var length = lengthof p.name.toByteArray(&quot;UTF-8&quot;);
+    var lengthResult = dc.writeInt32(length);
+    var nameResult = dc.writeString(p.name, &quot;UTF-8&quot;);
+    var ageResult = dc.writeInt16(p.age);
+    var incomeResult = dc.writeFloat64(p.income);
+    var maritalStatusResult = dc.writeBool(p.isMarried);
+    var closeResult = dc.close();
+}
+
+//Deserialize record into binary
+function deserialize(io:ByteChannel channel) returns Person {
+    Person person;
+    int nameLength;
+    string nameValue;
+    io:DataChannel dc = new io:DataChannel(channel);
+    //Read 32 bit singed integer
+    match dc.readInt32() {
+        int namel =&gt; nameLength = namel;
+        error e =&gt; log:printError(&quot;Error occurred while reading name length&quot;,err = e);
+    }
+    //Read UTF-8 encoded string represented through specified amount of bytes
+    match dc.readString(nameLength, &quot;UTF-8&quot;) {
+        string name =&gt; person.name = name;
+        error e =&gt;log:printError(&quot;Error occurred while reading name&quot;,err = e);
+    }
+    //Read 16 bit signed integer
+    match dc.readInt16() {
+        int age =&gt; person.age = age;
+        error e =&gt;log:printError(&quot;Error occurred while reading age&quot;,err = e);
+    }
+    //Read 64 bit signed float
+    match dc.readFloat64() {
+        float income =&gt; person.income = income;
+        error e =&gt;log:printError(&quot;Error occurred while reading income&quot;,err = e);
+    }
+    //Read boolean
+    match dc.readBool() {
+        boolean isMarried =&gt; person.isMarried = isMarried;
+        error e =&gt;log:printError(&quot;Error occurred while reading marital status&quot;,err = e);
+    }
+    //Finally close the data channel
+    var closeResult = dc.close();
+    return person;
 }
 </code></pre>
 
@@ -1398,8 +1557,6 @@ match csvChannel.getTable(Employee) {
 
     </td>
                                                      </tr>
-                                                 
-                                             
                                                  
                                              
                                                  
@@ -1495,8 +1652,6 @@ match csvChannel.getTable(Employee) {
                                                  
                                              
                                                  
-                                             
-                                                 
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ByteChannel">ByteChannel</a></td>
                                                      
@@ -1543,6 +1698,15 @@ match csvChannel.getTable(Employee) {
                                              
                                                  
                                                      <tr>
+                                                         <td class="cSummary-table-name"><a href="#ServerSocket">ServerSocket</a></td>
+                                                     
+                                                         <td class="cSummary-table-desc"><p>Represents a TCP server socket.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#Socket">Socket</a></td>
                                                      
                                                          <td class="cSummary-table-desc"><p>Represents a TCP socket.</p>
@@ -1557,8 +1721,6 @@ match csvChannel.getTable(Employee) {
                                                          <td class="cSummary-table-desc"><p>Represents a reader which will wrap string content as a channel.</p>
 </td>
                                                      </tr>
-                                                 
-                                             
                                                  
                                              
                                                  
@@ -1636,14 +1798,6 @@ match csvChannel.getTable(Employee) {
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#openSecureSocket">openSecureSocket</a></td>
                                                         <td class="cSummary-table-desc"><p>Opens a secure socket connection with a remote server.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#openSocket">openSocket</a></td>
-                                                        <td class="cSummary-table-desc"><p>Opens a socket from a specified network location.</p>
 </td>
                                                      </tr>
                                                  
@@ -1758,7 +1912,7 @@ match csvChannel.getTable(Employee) {
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">ByteOrder</td>
-                                                <td class="cSummary-table-type">LI | BI</td>
+                                                <td class="cSummary-table-type">BE</td>
                                                 <td class="cSummary-table-desc"><p>Represents network byte order.</p>
 <p>BIG_ENDIAN - specifies the bytes to be in the order of most significant byte first</p>
 <p>LITTLE_ENDIAN - specifies the byte order to be the least significant byte first</p>
@@ -1796,7 +1950,6 @@ APPEND - append to existing file instead of replacing</p>
                                                 <td class="cSummary-table-desc"><p>Field separators which are supported by DelimitedTextRecordChannel.</p>
 </td>
                                             </tr>
-                                              
                                               
                                               
                                               
@@ -1881,13 +2034,6 @@ APPEND - append to existing file instead of replacing</p>
                                             <tr>
                                                 <td class="cSummary-table-name">DEFAULT</td>
                                                 <td class="cSummary-table-type"><a href="io.html#Format">Format</a></td>
-                                                <td class="cSummary-table-desc"></td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">LITTLE_ENDIAN</td>
-                                                <td class="cSummary-table-type"><a href="io.html#ByteOrder">ByteOrder</a></td>
                                                 <td class="cSummary-table-desc"></td>
                                             </tr>
                                               
@@ -2048,7 +2194,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="createMemoryChannel">
-                                                    <span class="fw-function sm-icon"> </span> public function createMemoryChannel(blob content) returns (ByteChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function createMemoryChannel(byte[] content) returns (ByteChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2066,7 +2212,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">content</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#blob">blob</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Content which should be exposed as channel</p>
 </td>
@@ -2109,7 +2255,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openCsvFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, w|r|rw|a mode, :|,|	 fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, w|a|r|rw mode, :|	|, fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2135,7 +2281,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">mode</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Mode">w</a>|r|r<a href="io.html#Mode">w</a>|a</td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Mode">w</a>|a|r|r<a href="io.html#Mode">w</a></td>
                                                         <td class="cAPI-table-default">r</td>
                                                         <td class="cAPI-table-desc"><p>Permission which should be used to open CSV file</p>
 </td>
@@ -2143,7 +2289,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">fieldSeparator</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Separator">:</a>|,|	</td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Separator">:</a>|	|,</td>
                                                         <td class="cAPI-table-default">,</td>
                                                         <td class="cAPI-table-desc"><p>CSV record seperator (i.e comma or tab)</p>
 </td>
@@ -2202,7 +2348,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, w|r|rw|a accessMode) returns (ByteChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, w|a|r|rw accessMode) returns (ByteChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2228,7 +2374,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">accessMode</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Mode">w</a>|r|r<a href="io.html#Mode">w</a>|a</td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Mode">w</a>|a|r|r<a href="io.html#Mode">w</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Permission to open the file</p>
 </td>
@@ -2327,83 +2473,6 @@ APPEND - append to existing file instead of replacing</p>
                                                         <td class="cAPI-table-type"><a href="io.html#Socket">Socket</a> | <a href="builtin.html#error">error</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Socket which will represent the network object or an error</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <h2 id="openSocket">
-                                                    <span class="fw-function sm-icon"> </span> public function openSocket(string host, int port, io:0.0.0:SocketProperties options) returns (Socket | error) 
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Opens a socket from a specified network location.</p>
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Parameter Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">host</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Remote server domain/IP</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">port</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Remote server port</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">options</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#SocketProperties">io:0.0.0:SocketProperties</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Connection stream that bridge the client and the server</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="cReturnTableHeader"></div>
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name"></th>
-                                                        <th class="cAPI-table-type">Return Type</th>
-                                                        <th class="cAPI-table-default"></th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Socket">Socket</a> | <a href="builtin.html#error">error</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Socket which will allow to communicate with a remote server or error</p>
 </td>
                                                     </tr>
                                                     
@@ -2660,7 +2729,7 @@ APPEND - append to existing file instead of replacing</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ByteChannel&gt;
-                                                   </span> read(int nBytes) returns ((blob,int) | error) 
+                                                   </span> read(int nBytes) returns ((byte[],int) | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2700,7 +2769,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type">(<a href="builtin.html#blob">blob</a>,<a href="primitive-types.html#int">int</a>) | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type">(<a href="builtin.html#byte">byte[]</a>,<a href="primitive-types.html#int">int</a>) | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Content, the number of bytes read or an error</p>
 </td>
@@ -2715,7 +2784,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ByteChannel&gt;
-                                                   </span> write(blob content, int offset) returns (int | error) 
+                                                   </span> write(byte[] content, int offset) returns (int | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2734,7 +2803,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">content</td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#blob">blob</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Block of bytes which should be written</p>
 </td>
@@ -2907,7 +2976,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CSVChannel&gt;
-                                                   </span> new(io:0.0.0:CharacterChannel channel, :|,|	 fs, int nHeaders) 
+                                                   </span> new(io:0.0.0:CharacterChannel channel, :|	|, fs, int nHeaders) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2933,7 +3002,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">fs</td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#Separator">:</a>|,|	</td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#Separator">:</a>|	|,</td>
                                                                     <td class="cAPI-table-default">,</td>
                                                                     <td class="cAPI-table-desc"><p>Field separator which will separate between the records in the CSV</p>
 </td>
@@ -3580,7 +3649,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;DataChannel&gt;
-                                                   </span> new(io:0.0.0:ByteChannel byteChannel, LI|BI bOrder) 
+                                                   </span> new(io:0.0.0:ByteChannel byteChannel, BE bOrder) 
                                                             </h2>
                                                              
                                                             <table>
@@ -3600,8 +3669,8 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">bOrder</td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ByteOrder">LI</a>|BI</td>
-                                                                    <td class="cAPI-table-default">BI</td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ByteOrder">BE</a></td>
+                                                                    <td class="cAPI-table-default">BE</td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
                                                                 
@@ -4246,6 +4315,92 @@ time.</p>
                                                         </li>
                                                         
                                                         <li>
+                                                            <h2 id="DataChannel-readVarInt">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;DataChannel&gt;
+                                                   </span> readVarInt() returns (int | error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Reads a variable length integer.</p>
+
+                                                            </p>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>value of the integer which is read or an error</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="DataChannel-writeVarInt">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;DataChannel&gt;
+                                                   </span> writeVarInt(int value) returns (error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Writes a given integer identifying the variable length.</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">value</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>the value which should be written</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>nill if the content is written successfully or an error</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
                                                             <h2 id="DataChannel-close">
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
@@ -4537,6 +4692,162 @@ time.</p>
                                                 
                                                 <!-- Objects and its functions -->
                                                 
+                                                <h2 id="ServerSocket">
+                                                    <span class="fw-struct sm-icon"></span> public type ServerSocket object
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Represents a TCP server socket.</p>
+
+                                                </p>
+                                                  
+                                                <div class="function-wrapper">
+                                                    <ul>
+                                                        
+                                                        <li>
+                                                            <h2 id="ServerSocket-bindAddress">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;ServerSocket&gt;
+                                                   </span> bindAddress(int port, string? interface) returns (error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Binds socket to a local port.</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">port</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">interface</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>An error if could not bind to the port</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="ServerSocket-accept">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;ServerSocket&gt;
+                                                   </span> accept() returns (Socket | error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>This blocking function will wait until new client socket connect.</p>
+
+                                                            </p>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#Socket">Socket</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>An error if could not create new socket.</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="ServerSocket-close">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;ServerSocket&gt;
+                                                   </span> close() returns (error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Closes a socket connection.</p>
+
+                                                            </p>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>An error if the connection could not be closed properly</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                                 
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
                                                 <h2 id="Socket">
                                                     <span class="fw-struct sm-icon"></span> public type Socket object
                                                 </h2>
@@ -4563,11 +4874,10 @@ time.</p>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">port</td>
+                                                        <td class="cAPI-table-name">remotePort</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Remote server connection port</p>
-</td>
+                                                        <td class="cAPI-table-desc"></td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -4579,11 +4889,10 @@ time.</p>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">address</td>
+                                                        <td class="cAPI-table-name">remoteAddress</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>IP/Host of the remote server</p>
-</td>
+                                                        <td class="cAPI-table-desc"></td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -4598,6 +4907,122 @@ time.</p>
                                                  
                                                 <div class="function-wrapper">
                                                     <ul>
+                                                        
+                                                        <li>
+                                                            <h2 id="Socket-bindAddress">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Socket&gt;
+                                                   </span> bindAddress(int port, string? interface) returns (error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Binds socket to a local port.</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">port</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">interface</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>An error if could not bind to the port</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Socket-connect">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Socket&gt;
+                                                   </span> connect(string host, int port) returns (error) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Open a connection with remote server.</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">host</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">port</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>An error if could not connect with the remote server.</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
                                                         
                                                         <li>
                                                             <h2 id="Socket-close">
@@ -4927,21 +5352,6 @@ time.</p>
                                                     </ul>
                                                 </div>
                                                  
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
                                             </div>
                                                 
                                             <div class="construct-wrapper">
@@ -5523,6 +5933,16 @@ time.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -5544,6 +5964,16 @@ time.</p>
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -5808,6 +6238,16 @@ time.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -5829,6 +6269,16 @@ time.</p>
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -5922,6 +6372,9 @@ time.</p>
         });
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
+
+<!-- 0.980.0 -->
+
 </body>
 </html>
 
