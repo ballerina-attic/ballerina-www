@@ -36,7 +36,7 @@ using their defined attributes, in a streaming manner.
 The syntax for defining a new stream is as follows.
 
 ```ballerina
-type <record name>  {
+type <record name> record {
     <attribute type> <attribute name>;
     <attribute type> <attribute name>;
     <attribute type> <attribute name>;
@@ -57,7 +57,7 @@ The following parameters are configured in a stream definition.
 
 ###### Example
 ```ballerina
-type Employee {
+type Employee record {
     string name;
     int age;
     string status;
@@ -150,13 +150,13 @@ This query consumes events from the `tempStream` stream (that is already defined
 the room number to the `roomTempStream` stream.
 
 ```ballerina
-type temperature {
+type temperature record {
   int deviceID;
   int roomNo;
   float value;
 }
 
-type roomTemperature {
+type roomTemperature record {
   int roomNo;
   float value;
 }
@@ -853,13 +853,13 @@ Square brackets can be used to indicate the event index where `1` can be used as
 The following streaming query calculates the temperature difference between two regulator events.
 
 ```ballerina
-type Temperature {
+type Temperature record {
     int deviceID,
     int roomNo,
     float temp
 };
 
-type Regulator {
+type Regulator record {
     int deviceID,
     int roomNo,
     float tempSet,
@@ -912,14 +912,14 @@ Here the `!` pattern can be followed by either an `&&` clause or the effective p
 Following streaming query, sends the `stop` control action to the regulator when the key is removed from the hotel room.
 ```ballerina
 
-type RegulatorState {
+type RegulatorState record {
     int deviceID,
     int roomNo,
     float tempSet,
     string action
 };
 
-type RoomKey {
+type RoomKey record {
     int deviceID,
     int roomNo,
     string action
@@ -942,14 +942,14 @@ This streaming query generates an alert if we have switch off the regulator befo
 
 ```ballerina
 
-type RegulatorState {
+type RegulatorState record {
     int deviceID,
     int roomNo,
     float tempSet,
     string action
 };
 
-type Temperature {
+type Temperature record {
     int deviceID,
     int roomNo,
     float temp
@@ -971,14 +971,14 @@ This streaming query generates an alert if the temperature does not reduce to 12
 
 ```ballerina
 
-type RegulatorState {
+type RegulatorState record {
     int deviceID,
     int roomNo,
     float tempSet,
     string action
 };
 
-type Temperature {
+type Temperature record {
     int deviceID,
     int roomNo,
     float temp
@@ -1080,7 +1080,7 @@ This streaming query identifies temperature peeks.
 
 ```ballerina
 
-type Temperature {
+type Temperature record {
     int deviceID,
     int roomNo,
     float temp
@@ -1122,17 +1122,17 @@ This streaming query notifies the state when a regulator event is immediately fo
 
 ```ballerina
 
-type Temperature {
+type Temperature record {
     int deviceID,
     float temp
 };
 
-type Humidity {
+type Humidity record {
     int deviceID,
     float humid
 };
 
-type Regulator {
+type Regulator record {
     int deviceID,
     boolean isOn
 };
