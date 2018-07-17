@@ -294,7 +294,7 @@ import ballerina/test;
 @test:Config
 function testAssertTrue() {
     boolean value = false;
-    test:assertTrue(value, msg = "AssertFalse failed");
+    test:assertTrue(value, msg = "AssertTrue failed");
 }
 ```
 
@@ -375,7 +375,7 @@ function foo() {
 }
 ```
 
-## Service Start/Stop Utility
+<!-- ## Service Start/Stop Utility
 
 Testerina provides the functionality to start/stop all services of a developer preferred Ballerina package. To control service related functionality we can use the following inbuilt functions.
 
@@ -461,7 +461,7 @@ service<http:Service> HelloServiceMock bind helloEP {
     }
 }
 ```
-
+-->
 ## Service Skeleton Start/Stop Utility
 
 Testerina provides the functionality to start/stop service skeletons generated from Swagger definitions.
