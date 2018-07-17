@@ -426,13 +426,25 @@ $ ballerina help push
 ## Run the Composer
 Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
 
-To start the composer: 
+### To start the composer: 
 
-1. In the command line, type `composer`.
+#### Linux
 
-2. In the Composer, click **File** and choose **Open File**.
+In the command line, type `composer`.
 
-3. Navigate to your service and open it to view this in the Composer.
+#### Windows
+
+Launch Ballerina Composer from start menu.
+
+#### Mac 
+
+Launch Ballerina Composer app from Applications.
+
+### To edit a ballerina file in composer:
+
+1. In the Composer, click **File** and choose **Open File**.
+
+2. Navigate to your service and open it to view this in the Composer.
 
 ![Ballerina Composer](/img/docs-images/quick-tour-composer.png)
 
