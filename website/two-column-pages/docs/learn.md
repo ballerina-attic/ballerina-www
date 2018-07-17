@@ -67,7 +67,7 @@ The [API Documentation](/learn/api-docs/) describes the native functions in Ball
 
 ### Language Specification
 
-The <a href="/res/Ballerina-Language-Specification-WD-2018-05-01.pdf" download="Ballerina-Language-Specification-WD-2018-05-01.pdf">Language Specification</a> is the document that defines Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.
+The <a href="/res/Ballerina-Language-Specification-WD-2018-07-12.pdf" download="Ballerina-Language-Specification-WD-2018-07-12.pdf">Language Specification</a> is the document that defines Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.
 
 ### Ballerina Streaming Guide
 
@@ -106,13 +106,13 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 
 </table> -->
 
-### Past Event Recordings
+<!--### Past Event Recordings
 
 1. <a href="https://www.youtube.com/watch?v=67v7mjlSHWI" target="_blank">Ballerina: A Cloud Native Programming Language</a> - Ballerina introduction webinar by Paul Fremantle
 2. <a href="https://www.youtube.com/watch?v=JtwmHo5Ivwg" target="_blank">Ballerina - A new language for the networked world</a> - Ballerina language design session by Sanjiva Weerawarana at SummerSOC 2018
 3. <a href="https://www.youtube.com/watch?v=IqE44dGZqMw" target="_blank">Cloud Native Programming with Ballerina and Kubernetes</a> - Kasun Indrasiri at the Kubernetes Mountain View meetup demonstrating integration of Ballerina with Codefresh CI/CD
 4. <a href="https://ballerina.io/learn/events/webinars/ballerina-serverless-with-kubeless/" target="_blank">Ballerina Serverless with Kubeless</a> - Webinar by Adnan Abdulhussein and Dmitry Sotnikov
-
+-->
 ## Articles and Videos
 
 1. <a href="https://medium.com/ballerinalang/conceiving-ballerina-2dadf67c0503" target="_blank">Conceiving Ballerina</a>
