@@ -450,7 +450,7 @@ Launch Ballerina Composer app from Applications.
 
 ## Follow the Repo
 
-<div class="cGitButtonContainer"><p id="iGitStarText">"Star"</p> <p id="iGitWatchText">"Watch"</p></div>
+<div class="cGitButtonContainer"><p data-button="iGitStarText">"Star"</p> <p data-button="iGitWatchText">"Watch"</p></div>
 
 Star [GitHub repo](https://github.com/ballerina-platform/ballerina-lang)  and show appreciation to Ballerina maintainers for their work. Watch the repo to keep track of Ballerina issues.
 
