@@ -19,9 +19,9 @@ $(document).ready(function () {
 			{"name": "Ballerina API Gateway", "desc": "Ballerina services with policies enforced by Ballerina API Gateway", "url": "api-gateway", "git": ""},
 			{"name": "Messaging with Ballerina", "desc": "Ballerina services that communicate through Ballerina Message Broker/Reliable and persistent delivery", "url": "messaging-with-ballerina", "git": ""},
 			{"name": "Content-based Routing", "desc": "Content-based Routing", "url": "content-based-routing", "git": ""},
-			{"name": "Passthrough messaging", "desc": "Passthrough messaging", "url": "pass-through-messaging", "git": ""},
-			{"name": "Message filtering", "desc": "Message filtering", "url": "message-filtering", "git": ""},
-			{"name": "Scatter gather messaging", "desc": "Scatter gather messaging", "url": "scatter-gather-messaging", "git": ""}
+			{"name": "Passthrough Messaging", "desc": "Passthrough messaging", "url": "pass-through-messaging", "git": ""},
+			{"name": "Message Filtering", "desc": "Message filtering", "url": "message-filtering", "git": ""},
+			{"name": "Scatter-Gather Messaging", "desc": "Scatter gather messaging", "url": "scatter-gather-messaging", "git": ""}
 	],
 	"Integrating Ballerina With Other Products":[{"name": "Messaging with JMS", "desc": "Publish and subscribe to messages with a JMS broker", "url": "messaging-with-jms-queues", "git": ""},
 		{"name": "Messaging with Kafka", "desc": "Pub-sub based asynchronous communication with Kafka", "url": "messaging-with-kafka", "git": ""},
