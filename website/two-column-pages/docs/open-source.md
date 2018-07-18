@@ -21,7 +21,7 @@ Please see [Ballerina Downloads page](/downloads/) for Ballerina version history
 
 ### Source Code
 
-<div class="cGitButtonContainer"><p id="iGitStarText">"Star"</p> <p id="iGitWatchText">"Watch"</p></div>
+<div class="cGitButtonContainer"><p data-button="iGitStarText">"Star"</p> <p data-button="iGitWatchText">"Watch"</p></div>
 
 See our [GitHub repo](https://github.com/ballerina-platform/ballerina-lang) and star the repo to show your appreciation to Ballerina maintainers. Watch the repo to keep track of Ballerina issues.
 
