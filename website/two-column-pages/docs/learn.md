@@ -79,40 +79,9 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 
 ## Events
 
-### Conferences
+The [Events](/learn/events) page consists of webinars, meetups, and conferences about Ballerina.
 
-<table class="cEventTable">
-<tr>
-      <td class="cEventDetail c2col">
-        <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
-    </td>
-        <td class="cEventURL c2col"><a class="cEventRegistration" href="https://con.ballerina.io/register/" target="_blank">Register Now</a></td>
-    </tr>
-</table>
 
-<!-- ### Webinars
-
-<table class="cEventTable cWebinarList">
-<tr>
-    <td class="cEventDateContainer"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
-    <td class="cEventDetail"><h4>Ballerina Serverless with Kubeless</h4>
-    <p>
-    <b>Adnan Abdulhussein</b> Software Engineer, Bitnami</p>
-    <p>
-    <b>Dmitry Sotnikov</b> Vice President - Cloud, WSO2</p>
-    </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-serverless-with-kubeless/">Register Now</a></td>
-</tr>
-
-</table> -->
-
-<!--### Past Event Recordings
-
-1. <a href="https://www.youtube.com/watch?v=67v7mjlSHWI" target="_blank">Ballerina: A Cloud Native Programming Language</a> - Ballerina introduction webinar by Paul Fremantle
-2. <a href="https://www.youtube.com/watch?v=JtwmHo5Ivwg" target="_blank">Ballerina - A new language for the networked world</a> - Ballerina language design session by Sanjiva Weerawarana at SummerSOC 2018
-3. <a href="https://www.youtube.com/watch?v=IqE44dGZqMw" target="_blank">Cloud Native Programming with Ballerina and Kubernetes</a> - Kasun Indrasiri at the Kubernetes Mountain View meetup demonstrating integration of Ballerina with Codefresh CI/CD
-4. <a href="https://ballerina.io/learn/events/webinars/ballerina-serverless-with-kubeless/" target="_blank">Ballerina Serverless with Kubeless</a> - Webinar by Adnan Abdulhussein and Dmitry Sotnikov
--->
 ## Articles and Videos
 
 1. <a href="https://medium.com/ballerinalang/conceiving-ballerina-2dadf67c0503" target="_blank">Conceiving Ballerina</a>
