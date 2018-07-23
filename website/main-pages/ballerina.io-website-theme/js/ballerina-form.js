@@ -135,6 +135,64 @@ $(document).ready(function() {
                     url: params
                 },
                 function(response, status) {
+                    $(".cRegForm").html('<span>Your information has been submitted successfully.</span>');
+                });
+
+            return false;
+        }
+    });
+
+    //Ballerina Day Registration
+    $('.ballerinadayForm').validate({
+        rules: {
+            first_name: "required",
+            last_name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+             phone: "required",
+             job_title: "required",
+             company: "required"
+        },
+        messages: {
+            first_name: "Please enter your first name",
+            last_name: "Please enter your last name",
+            email: {
+                required: "Please enter your email",
+                email: "Please enter a valid email"
+            },
+             phone: "Please enter your contact number",
+             job_title: "Please enter your job title",
+             company: "Please enter your company name"
+        },
+        highlight: function(element) {
+            $(element).addClass('form-error');
+
+        },
+        unhighlight: function(element) {
+            $(element).removeClass('form-error');
+
+        },
+        submitHandler: function(form) {
+            $(".ballerinaday_submit").attr("disabled", true);
+
+            var first_name = $(".contact_first_name").val();
+            var last_name = $(".contact_last_name").val();
+            var email = $(".contact_email").val();
+            var phone = $(".contact_phone").val();
+            var job_title = $(".shirtsize").val();
+            var company = $(".contact_issues").val();
+            var country = $(".contact_id").val();
+
+            var params = "https://go.pardot.com/l/142131/2018-07-23/57mgq4?first_name=" + encodeURI(first_name) + "&last_name=" + encodeURI(last_name) +
+            "&email=" + encodeURI(email) + "&phone=" + encodeURI(phone) + "&job_title=" + encodeURI(job_title) +
+            "&company=" + encodeURI(company) + "&country=" + encodeURI(country);
+
+            $.post("/scripts/formSubmit.php", {
+                    url: params
+                },
+                function(response, status) {
                     $(".cInlineForm").html('<span>Your information has been submitted successfully.</span>');
                 });
 
