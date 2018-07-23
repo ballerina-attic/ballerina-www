@@ -6,7 +6,7 @@ status: Published
 abstract:  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
 socialmediaimage: drone-innovation-technology-57544.jpg
 ---
-<link rel="stylesheet" href="/css/ballerina-day.css"></link>
+<script src="/js/ballerina-form.js"></script><link rel="stylesheet" href="/css/ballerina-day.css"></link>
 
 # Ballerina Day Asia 2018
 
@@ -133,28 +133,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     </tr>
 </table>
 
-
-
-
-
-
-
-
-
 <div id="webinar_registration" class="modal fade" role="dialog">
 <div class="modal-dialog">
    <div class="modal-content">
-      <div class="col-xs-12 col-sm-12 com-md-12 col-lg-12 cWebinarForm">
+      <div class="col-xs-12 col-sm-12 com-md-12 col-lg-12 cRegForm">
             <img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/>
          <h2>Register </h2>
-         <form name="wsForm" method="post" action="" id="wsForm" novalidate="novalidate">
+         <form name="ballerinadayForm" method="post" action="" id="ballerinadayForm" class="ballerinadayForm">
              <ul>
-            <li><input type="text" maxlength="50" value="" name="first_name" placeholder="First Name" title="First Name" class="cTextfieldstyle contact_first_name"></li>
-            <li><input type="text" maxlength="50" value="" name="last_name" placeholder="Last Name" title="Last Name" class="cTextfieldstyle contact_last_name"></li>
-            <li><input type="text" maxlength="50" value="" name="email" placeholder="Email" title="Email" class="cTextfieldstyle contact_email"></li>
+            <li><input type="text" maxlength="50" value="" name="first_name" placeholder="First Name *" title="First Name" class="cTextfieldstyle contact_first_name"></li>
+            <li><input type="text" maxlength="50" value="" name="last_name" placeholder="Last Name *" title="Last Name" class="cTextfieldstyle contact_last_name"></li>
+            <li><input type="text" maxlength="50" value="" name="email" placeholder="Email *" title="Email" class="cTextfieldstyle contact_email"></li>
             <li><input type="text" maxlength="50" value="" name="phone" placeholder="Phone" title="Phone" class="cTextfieldstyle contact_phone"></li>
-            <li><input type="text" maxlength="50" value="" placeholder="Job Title" name="job_title" class="cTextfieldstyle contact_job_title" title="Job Title"></li>
-            <li><input type="text" maxlength="50" value="" name="company" placeholder="Company" title="Company" class="cTextfieldstyle contact_company"></li>
+            <li><input type="text" maxlength="50" value="" placeholder="Job Title *" name="job_title" class="cTextfieldstyle contact_job_title" title="Job Title"></li>
+            <li><input type="text" maxlength="50" value="" name="company" placeholder="Company *" title="Company" class="cTextfieldstyle contact_company"></li>
             <li>
                <select class="cSelect contact_country" name="country">
                   <option value="">Select the country</option>
@@ -409,84 +401,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                   <option value="Zimbabwe">Zimbabwe</option>
                </select>
             </li>
-            <li><input type="text" maxlength="50" name="state" value="" placeholder="State" class="cTextfieldstyle field_state contact_state" id="state_text" title="State"></li>
-            <li>
-               <select size="1" class="cSelect" id="state_select_us" style="display:none;">
-                  <option value="">Select the State</option>
-                  <option value="AK">AK</option>
-                  <option value="AL">AL</option>
-                  <option value="AR">AR</option>
-                  <option value="AZ">AZ</option>
-                  <option value="CA">CA</option>
-                  <option value="CO">CO</option>
-                  <option value="CT">CT</option>
-                  <option value="DC">DC</option>
-                  <option value="DE">DE</option>
-                  <option value="FL">FL</option>
-                  <option value="GA">GA</option>
-                  <option value="HI">HI</option>
-                  <option value="IA">IA</option>
-                  <option value="ID">ID</option>
-                  <option value="IL">IL</option>
-                  <option value="IN">IN</option>
-                  <option value="KS">KS</option>
-                  <option value="KY">KY</option>
-                  <option value="LA">LA</option>
-                  <option value="MA">MA</option>
-                  <option value="MD">MD</option>
-                  <option value="ME">ME</option>
-                  <option value="MI">MI</option>
-                  <option value="MN">MN</option>
-                  <option value="MO">MO</option>
-                  <option value="MS">MS</option>
-                  <option value="MT">MT</option>
-                  <option value="NC">NC</option>
-                  <option value="ND">ND</option>
-                  <option value="NE">NE</option>
-                  <option value="NH">NH</option>
-                  <option value="NJ">NJ</option>
-                  <option value="NM">NM</option>
-                  <option value="NV">NV</option>
-                  <option value="NY">NY</option>
-                  <option value="OH">OH</option>
-                  <option value="OK">OK</option>
-                  <option value="OR">OR</option>
-                  <option value="PA">PA</option>
-                  <option value="PR">PR</option>
-                  <option value="RI">RI</option>
-                  <option value="SC">SC</option>
-                  <option value="SD">SD</option>
-                  <option value="TN">TN</option>
-                  <option value="TX">TX</option>
-                  <option value="UT">UT</option>
-                  <option value="VA">VA</option>
-                  <option value="VT">VT</option>
-                  <option value="WA">WA</option>
-                  <option value="WI">WI</option>
-                  <option value="WV">WV</option>
-                  <option value="WY">WY</option>
-               </select>
-            </li>
-            <li style="display:none;">
-               <select size="1" class="cSelect" id="state_select_can">
-                  <option value="">Select the State</option>
-                  <option value="AB">AB</option>
-                  <option value="BC">BC</option>
-                  <option value="MB">MB</option>
-                  <option value="NB">NB</option>
-                  <option value="NL">NL</option>
-                  <option value="NS">NS</option>
-                  <option value="NT">NT</option>
-                  <option value="NU">NU</option>
-                  <option value="ON">ON</option>
-                  <option value="PE">PE</option>
-                  <option value="QC">QC</option>
-                  <option value="SK">SK</option>
-                  <option value="YT">YT</option>
-               </select>
-            </li>
-            <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from WSO2 to stay up to date on new releases and updates.</li>
-            <li><input type="hidden" class="tokenid" value="" name="tokenid"><input type="hidden" class="pdep" value="142131/2018-06-15/55dl7h" name="pdep"><input type="hidden" class="w_id" value="608225955" name="w_id"><input type="hidden" class="series_pds" value="" name="series_pds"><input type="hidden" class="series_ids" value="" name="series_ids"><input type="hidden" class="w_name" value="The Rise of Streaming SQL and Evolution of Streaming Applications" name="w_name"><input type="hidden" class="series_name" value="" name="series_name"><input class="cSubmitButton" type="submit" value="Register" name="contact_submit"></li>
+
+            <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from Ballerina.io to stay up to date on new releases and updates.</li>
+            <li><input type="hidden" class="tokenid" value="" name="tokenid">
+              <input type="hidden" class="pdep" value="/142131/2018-06-26/5672jb" name="pdep"><input type="hidden" class="w_id" value="794720699" name="w_id">
+              <input class="cSubmitButton" type="submit" value="Register" name="ballerinaday_submit" id="ballerinaday_submit"></li>
             </ul>
          </form>
       </div>
