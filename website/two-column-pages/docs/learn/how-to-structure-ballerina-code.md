@@ -242,6 +242,7 @@ org-name = “tyler”
 A repository is a collection of packages. A repository helps organize packages used by multiple programs by managing their versions and assets in a central location.
 
 There are four kinds of repositories:
+
 1. Project Repository. This repository is located in a project's `.ballerina/` folder and contains installed versions of packages from the project and any dependencies of the project.  
 
 2. Home Repository. This repository is located on a developer's machine at the location of `BALLERINA_HOME_DIR` or `~\.ballerina` if not specified. 
