@@ -50,63 +50,39 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
 <table class="cEventTable cAgendaTable">
                     <tbody>
                     <tr>
-                        <td class="cTime cTop">08:00–09:00</td>
+                        <td class="cTime cTop">08:15–08:45</td>
                         <td class="cSession">
                           Registration & Continental Breakfast
 
                         </td>
                     </tr>
                     <tr>
-                        <td class="cTime">09:00–10:30</td>
+                        <td class="cTime">09:00–10:00</td>
                         <td class="cSession">
                             <div class="cSessionTitle">
-                                Introduction to Ballerina and its Concepts
+                                Introduction to Ballerina Programming Language and its Concepts
                             </div>
                             <div class="cSpeakerDetail">
 
                             </div>
                         </td>
                     </tr>
-                     <tr>
-                        <td class="cTime">10:00–10:30</td>
-                        <td class="cSession">
-                            <div class="cSession">
-                                Tutorial Session 1
-                            </div>
-                        </td>
-                    </tr>
                     <tr>
-                        <td class="cTime">10:30–11:00</td>
+                        <td class="cTime">10:00–10:15</td>
                         <td class="cSession cBreak">
                             Break
                         </td>
                     </tr>
-                    <tr>
-                        <td class="cTime">10:30–11:30</td>
+                     <tr>
+                        <td class="cTime">10:15–12:30</td>
                         <td class="cSession">
-                            <div class="cSessionTitle">
-                            Advanced Ballerina
+                            <div class="cSession">
+                                Ballerina Basics Tutorials
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="cTime">11:00–11:30</td>
-                        <td class="cSession">
-                            Tutorial Session 2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="cTime">11:30–12:00</td>
-                        <td class="cSession">
-                            Tutorial Session 3
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="cTime">12:00–12:30</td>
-                        <td class="cSession">
-                            Tutorial Session 4
-                        </td>
-                    </tr>
+
+
                     <tr>
                         <td class="cTime">12:30–13:30</td>
                         <td class="cSession cBreak">
@@ -176,7 +152,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         <td class="cTime">16:30–18:30</td>
                         <td class="cSession">
                             <div class="cSessionTitle">
-                                Hacking
+                                Hacking Continues
                             </div>
 
                         </td>
@@ -185,7 +161,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         <td class="cTime">18:30–19:00</td>
                         <td class="cSession">
                             <div class="cSessionTitle">
-                              Presentation of Applications
+                              Project Presentatios
                             </div>
 
                         </td>
@@ -240,6 +216,8 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
 <li><input type="text" maxlength="50" value="" name="company" placeholder="Company *" title="Company" class="cTextfieldstyle contact_company"></li>
 
 <li>
+<p>This is a hands-on programming event. In order to participate, you must be a programmer with knowledge of several programming languages.</p>
+
 I am a programmer *
   Yes <input type="radio" value="1" name="field_optin" class="field_optin" id="field_optin">
   No <input type="radio" value="1" name="field_optin" class="field_optin" id="field_optin">
