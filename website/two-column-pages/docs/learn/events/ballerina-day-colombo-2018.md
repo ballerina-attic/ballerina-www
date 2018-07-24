@@ -241,8 +241,8 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
 
 <li>
 I am a programmer *
-  Yes <input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">
-  No <input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">
+  Yes <input type="radio" value="1" name="field_optin" class="field_optin" id="field_optin">
+  No <input type="radio" value="1" name="field_optin" class="field_optin" id="field_optin">
 
   </li>
 
