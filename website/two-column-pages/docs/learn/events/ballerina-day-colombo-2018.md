@@ -20,41 +20,47 @@ socialmediaimage: drone-innovation-technology-57544.jpg
     </tr>
 </table>
 
-Ballerina is a new programming language being created by WSO2 to be the leading enterprise application programming language of the future. Ballerina is a concurrent, transactional, statically typed programming language. It provides all the functionality expected of a modern, general purpose programming language, but it is designed specifically for integration: it brings fundamental concepts, ideas and tools of distributed system integration into the language with direct support for providing and consuming network services, distributed transactions, reliable messaging, stream processing, security and workflows. It is intended to be a pragmatic language suitable for mass-market commercial adoption; it tries to feel familiar to programmers who are used to popular, modern C-family languages, notably Java, C# JavaScript.
+Ballerina is a new programming language created by WSO2 to be the leading enterprise application programming language of the future.
 
-## About the event:
-Ballerina is still a baby! Come to this event to get an early start with Ballerina -  learn about it from the creators, hack some code, learn the language and love it (or hate it)!
+It’s a concurrent, transactional, statically typed language, which provides all the functionality expected of a modern, general purpose programming language, but is designed specifically for integration — it brings fundamental concepts, ideas and tools of distributed system integration into the language with direct support for providing and consuming network services, distributed transactions, reliable messaging, stream processing, security, and workflows.
 
-The agenda is designed to give you a bit of an intro to get started and then for you to spend time writing an interesting application using Ballerina. We will have some ideas lined up and ready to go but you're welcome to show up with your own ideas as well.
+It is intended to be a pragmatic language suitable for mass-market commercial adoption so it will feel familiar to programmers who are used to popular, modern C-family languages, notably Java, C# and JavaScript.
 
-This is an event by programmers, for programmers. Come ready to learn some computer science concepts, learn the philosophy behind the language and to get your hands dirty with actual code you write and take home.
+## About the Event
 
-What do we get out of it? Ballerina is still in the oven. We want to hear from you during the day (and after) about what you liked about the language, what you didn't like, and what you think needs to be better etc. etc. so that we can make sure it comes out tasting just right and ready to take over the world!
+Ballerina is still a baby! Come to this event to get an early start with Ballerina - learn about it from the creators, hack some code, and love it (or hate it)!
+
+We will kick off the day with an introduction to Ballerina and its concepts. Then you’ll get to spend some time writing an interesting application using Ballerina. We’ll have some ideas lined up for you, but you’re welcome to work on your own ideas as well!
+
+This is an event by programmers, for programmers. Come ready to learn some computer science concepts, learn the philosophy behind the language and get your hands dirty with actual code you write and take home.
+
+What do we get out of it? Ballerina is still in the oven. We want to hear from you during the day (and after) about what you liked about the language, what you didn't like, and what you think needs to be better, so that we can make sure it comes out tasting just right and ready to take over the world!
+
 
 ### Prerequisites:
 
-- You must be a programmer with knowledge of several languages (hopefully some combination of Java, C++, C#, Node.JS, Javascript, Python, PHP, Go or Rust) and a student of languages.
+- You must be a programmer with knowledge of several languages (hopefully some combination of Java, C++, C#, Node.JS, Javascript, Python, PHP, Go, or Rust) and a student of languages.
 - You must be passionate about writing code - this is not a powerpoint meeting nor one for project managers.
-- Students are welcome, but coding passion and fundamental computer science knowledge will be assumed.
-- Bring your laptop with VSCode installed (learn it a bit before you come!)
+- Students are welcome, but coding passion and fundamental computer science knowledge will be assumed. Bring your laptop with VSCode installed (learn it a bit before you come!)
 - We will give you the hot-off-the-press, latest and greatest distribution of Ballerina at the event; no prior experience with Ballerina will be expected or assumed.
 
-<!-- ## Agenda
+
+## Agenda
 
 <table class="cEventTable cAgendaTable">
                     <tbody>
                     <tr>
-                        <td class="cTime cTop">08:30–09:00</td>
+                        <td class="cTime cTop">08:00–09:00</td>
                         <td class="cSession">
-                            Registration &amp; Continental Breakfast
+                          Registration & Continental Breakfast
 
                         </td>
                     </tr>
                     <tr>
-                        <td class="cTime">09:00–09:30</td>
+                        <td class="cTime">09:00–10:30</td>
                         <td class="cSession">
                             <div class="cSessionTitle">
-                                Introduction to Ballerina
+                                Introduction to Ballerina and its Concepts
                             </div>
                             <div class="cSpeakerDetail">
 
@@ -62,15 +68,15 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         </td>
                     </tr>
                      <tr>
-                        <td class="cTime">09:30–10:15</td>
+                        <td class="cTime">10:00–10:30</td>
                         <td class="cSession">
                             <div class="cSession">
-                                Quick Start - Hands-on Session
+                                Tutorial Session 1
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td class="cTime">10:15–10:30</td>
+                        <td class="cTime">10:30–11:00</td>
                         <td class="cSession cBreak">
                             Break
                         </td>
@@ -84,13 +90,25 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         </td>
                     </tr>
                     <tr>
-                        <td class="cTime">11:30–12:00</td>
+                        <td class="cTime">11:00–11:30</td>
                         <td class="cSession">
-                            Team formation
+                            Tutorial Session 2
                         </td>
                     </tr>
                     <tr>
-                        <td class="cTime">12:15–13:00</td>
+                        <td class="cTime">11:30–12:00</td>
+                        <td class="cSession">
+                            Tutorial Session 3
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="cTime">12:00–12:30</td>
+                        <td class="cSession">
+                            Tutorial Session 4
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="cTime">12:30–13:30</td>
                         <td class="cSession cBreak">
                             <div class="cSessionTitle">
                               Lunch
@@ -98,7 +116,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         </td>
                     </tr>
                     <tr>
-                        <td class="cTime">13:00–15:00</td>
+                        <td class="cTime">13:30–15:30</td>
                         <td class="cSession">
                             <div class="cSessionTitle">
                                 Hacking
@@ -107,13 +125,55 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         </td>
                     </tr>
                     <tr>
-                        <td class="cTime">15.00–15:30</td>
+                        <td class="cTime">15.30–16:00</td>
                         <td class="cSession cBreak">
                             Break
                         </td>
                     </tr>
                     <tr>
-                        <td class="cTime">15:30–17:00</td>
+                        <td class="cTime">16:00–16:30</td>
+                        <td class="cSession">
+<table class="cUnconference">
+<tr>
+<td>
+<div class="cSessionTitle">
+    Unconference Session 1
+</div>
+</td>
+<td>
+<div class="cSessionTitle">
+    Unconference Session 2
+</div>
+</td>
+<td>
+<div class="cSessionTitle">
+    Unconference Session 3
+</div>
+</td>
+<td>
+<div class="cSessionTitle">
+    Unconference Session 4
+</div>
+</td>
+<td>
+<div class="cSessionTitle">
+    Unconference Session 5
+</div>
+</td>
+<td>
+<div class="cSessionTitle">
+    Unconference Session 6
+</div>
+</td>
+</tr>
+</table>
+
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="cTime">16:30–18:30</td>
                         <td class="cSession">
                             <div class="cSessionTitle">
                                 Hacking
@@ -121,9 +181,26 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
 
                         </td>
                     </tr>
+                    <tr>
+                        <td class="cTime">18:30–19:00</td>
+                        <td class="cSession">
+                            <div class="cSessionTitle">
+                              Presentation of Applications
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                       <td class="cTime">19:00–20:30</td>
+                       <td class="cSession">
+                           <div class="cSession cBreak">
+                               After Party
+                           </div>
+                       </td>
+                   </tr>
 
                 </tbody>
-                </table> -->
+                </table>
 
 
 <!-- ## Presenters
