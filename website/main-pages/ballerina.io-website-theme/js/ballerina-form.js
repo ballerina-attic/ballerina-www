@@ -199,7 +199,7 @@ $(document).ready(function() {
                     url: params
                 },
                 function(response, status) {
-                    $(".cRegForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>Your information has been submitted successfully.</span>');
+                    $(".cRegForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>You have successfully registered to the Ballerina Day Colombo. A confirmation mail will follow.</span>');
                 });
 
             return false;
