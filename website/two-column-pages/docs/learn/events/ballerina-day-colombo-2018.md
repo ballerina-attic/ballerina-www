@@ -6,7 +6,7 @@ status: Published
 abstract: Ballerina Day is an event by programmers for programmers. Our experts will introduce Ballerina and you will have the opportunity to write applications using this cloud native programming language.
 socialmediaimage: ballerina-day-colombo.jpg
 ---
-<script src="/js/ballerina-form.js?2518"></script><link rel="stylesheet" href="/css/ballerina-day.css"></link>
+<script src="/js/ballerina-form.js?2618"></script><link rel="stylesheet" href="/css/ballerina-day.css"></link>
 
 # Ballerina Day Colombo 2018
 
