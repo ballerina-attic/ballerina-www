@@ -3,7 +3,7 @@ title: Ballerina Day Asia 2018
 author: Ballerina Day Asia 2018
 date: 11 August 2018
 status: Published
-abstract:  Ballerina Day is an event by programmers for programmers. Our experts will introduce Ballerina and you will have the opportunity to write applications using this cloud native programming language.
+abstract: Ballerina Day is an event by programmers for programmers. Our experts will introduce Ballerina and you will have the opportunity to write applications using this cloud native programming language.
 socialmediaimage: ballerina-day-colombo.jpg
 ---
 <script src="/js/ballerina-form.js?2518"></script><link rel="stylesheet" href="/css/ballerina-day.css"></link>
