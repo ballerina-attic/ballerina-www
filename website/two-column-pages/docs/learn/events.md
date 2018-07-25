@@ -1,6 +1,21 @@
 <script src="/js/events.js"></script>
 <link rel="stylesheet" href="/css/events-page.css"></link>
+
 # Events
+
+<table class="cEventTable cOtherEventsList">
+<tr>
+    <td class="cEventDateContainer"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)
+      <p class="cEventLocation">Galle Face Hotel - Grand Ballroom, Colombo 3, Sri Lanka</p>
+    </td>
+    <td class="cEventDetail"><a target="_blank" href="/learn/events/ballerina-day-colombo-2018/">
+    <h4>Ballerina Day Colombo 2018</h4>
+    <p>This is an event by programmers, for programmers. Come ready to learn some computer science concepts, learn the philosophy behind the language and get your hands dirty with actual code you write and take home.</p>
+    </a>
+    </td>
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/ballerina-day-colombo-2018/">Register Now</a></td>
+</tr>
+</table>
 
 ## Webinars
 
