@@ -3,8 +3,8 @@ title: Ballerina Day Asia 2018
 author: Ballerina Day Asia 2018
 date: 11 August 2018
 status: Published
-abstract:  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-socialmediaimage: drone-innovation-technology-57544.jpg
+abstract:  Ballerina Day is an event by programmers for programmers. Our experts will introduce Ballerina and you will have the opportunity to write applications using this cloud native programming language.
+socialmediaimage: ballerina-day-colombo.jpg
 ---
 <script src="/js/ballerina-form.js?18"></script><link rel="stylesheet" href="/css/ballerina-day.css"></link>
 
@@ -60,7 +60,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         <td class="cTime">09:00–10:00</td>
                         <td class="cSession">
                             <div class="cSessionTitle">
-                                Introduction to Ballerina Programming Language and its Concepts
+                                Introduction to Ballerina Programming Language and It's Concepts
                             </div>
                             <div class="cSpeakerDetail">
 
@@ -161,7 +161,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         <td class="cTime">18:30–19:00</td>
                         <td class="cSession">
                             <div class="cSessionTitle">
-                              Project Presentatios
+                              Project Presentations
                             </div>
 
                         </td>
