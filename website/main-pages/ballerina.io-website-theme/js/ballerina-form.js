@@ -190,6 +190,7 @@ $(document).ready(function() {
             var country = $(".country").val();
             var programmer = $(".programmer").val();
             var languages = $(".language").val();
+            var languages = languages.replace("&", " and ");
 
             var params = "https://go.pardot.com/l/142131/2018-07-23/57mgq4?first_name=" + encodeURI(first_name) + "&last_name=" + encodeURI(last_name) +
             "&email=" + encodeURI(email) + "&phone=" + encodeURI(phone) + "&job_title=" + encodeURI(job_title) +
@@ -199,7 +200,7 @@ $(document).ready(function() {
                     url: params
                 },
                 function(response, status) {
-                    $(".cRegForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>You have successfully registered to the Ballerina Day Colombo. A confirmation mail will follow.</span>');
+                    $(".cRegForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>You have successfully registered to the Ballerina Day Colombo.<br> A confirmation mail will follow.</span>');
                 });
 
             return false;
