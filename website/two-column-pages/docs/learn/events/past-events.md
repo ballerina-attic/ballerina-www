@@ -1,28 +1,10 @@
 <script src="/js/events.js"></script>
 <link rel="stylesheet" href="/css/events-page.css"></link>
+# Past Events
 
-# Events
+## Webinars
 
-<table class="cEventTable cOtherEventsList">
-<tr>
-    <td class="cEventDateContainer"  style="border:none;"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)
-      <p class="cEventLocation"  style="border:none;">Galle Face Hotel - Grand Ballroom, Colombo 3, Sri Lanka</p>
-    </td>
-    <td class="cEventDetail"  style="border:none;"><a target="_blank" href="/learn/events/ballerina-day-colombo-2018/">
-    <h4>Ballerina Day Colombo 2018</h4>
-    <p>This is an event by programmers, for programmers. Come ready to learn some computer science concepts, learn the philosophy behind the language and get your hands dirty with actual code you write and take home.</p>
-    </a>
-    </td>
-    <td class="cEventURL"  style="border:none;"><a class="cEventRegistration" href="/learn/events/ballerina-day-colombo-2018/">Register Now</a></td>
-</tr>
-</table>
-
-
-
-
-<!-- [Webinars](/learn/events/webinars) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmdipiscing elitod tempom dolor sit amet, consectr [On-demand webinars](/learn/events/webinars##on-demand-webinars)incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut -->
-
-<!-- <table class="cEventTable cWebinarList">
+<table class="cEventTable cWebinarList">
 <tr>
     <td class="cEventDateContainer"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
     <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/ballerina-serverless-with-kubeless/"><h4>Ballerina Serverless with Kubeless</h4></a>
@@ -32,7 +14,7 @@
     <b>Dmitry Sotnikov</b> Vice President - Cloud, WSO2</p>
     </td>
     <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-serverless-with-kubeless/">Watch Now</a></td>
-</tr> -->
+</tr>
 
 </table>
 
@@ -61,12 +43,13 @@
 ## Conferences
 
 <table class="cEventTable cConferencesList">
-    <!-- <tr>
+    <tr>
       <td class="cEventDetail c2col" colspan="2">
-        <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
+        <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png" style="padding-bottom:5px !important;"/>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
       </td>
-        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a></td>
-    </tr> -->
+        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/#Agenda" target="_blank">Watch Videos</a></td>
+    </tr>
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">June 26 - 29, 2018</span>
         <p class="cEventLocation">New York Marriott Marquis</p>
