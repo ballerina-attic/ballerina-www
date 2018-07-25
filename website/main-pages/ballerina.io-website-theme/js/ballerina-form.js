@@ -153,7 +153,9 @@ $(document).ready(function() {
             },
              phone: "required",
              job_title: "required",
-             company: "required"
+             company: "required",
+             programmer:"required",
+             language:"required"
         },
         messages: {
             first_name: "Please enter your first name",
@@ -164,7 +166,9 @@ $(document).ready(function() {
             },
              phone: "Please enter your contact number",
              job_title: "Please enter your job title",
-             company: "Please enter your company name"
+             company: "Please enter your company name",
+             programmer: "You need to be a programmer to signup for this event",
+             language: "Please enter languages you are using",
         },
         highlight: function(element) {
             $(element).addClass('form-error');
@@ -181,22 +185,34 @@ $(document).ready(function() {
             var last_name = $(".contact_last_name").val();
             var email = $(".contact_email").val();
             var phone = $(".contact_phone").val();
-            var job_title = $(".shirtsize").val();
-            var company = $(".contact_issues").val();
-            var country = $(".contact_id").val();
+            var job_title = $(".job_title").val();
+            var company = $(".company").val();
+            var country = $(".country").val();
+            var programmer = $(".programmer").val();
+            var languages = $(".language").val();
 
             var params = "https://go.pardot.com/l/142131/2018-07-23/57mgq4?first_name=" + encodeURI(first_name) + "&last_name=" + encodeURI(last_name) +
             "&email=" + encodeURI(email) + "&phone=" + encodeURI(phone) + "&job_title=" + encodeURI(job_title) +
-            "&company=" + encodeURI(company) + "&country=" + encodeURI(country);
+            "&company=" + encodeURI(company) + "&country=" + encodeURI(country)+ "&programmer=" + encodeURI(programmer)+ "&languages=" + encodeURI(languages);
 
             $.post("/scripts/formSubmit.php", {
                     url: params
                 },
                 function(response, status) {
-                    $(".cInlineForm").html('<span>Your information has been submitted successfully.</span>');
+                    $(".cRegForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>Your information has been submitted successfully.</span>');
                 });
 
             return false;
         }
     });
+
+        $('.language').hide();
+        $('.programmer').change(function(){
+        if ($('.programmer').prop('checked')){
+        $('.language').show();
+      }else{
+        $('.language').hide();
+      }
+    });
+
 });
