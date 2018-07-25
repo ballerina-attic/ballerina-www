@@ -210,8 +210,10 @@ $(document).ready(function() {
         $('.programmer').change(function(){
         if ($('.programmer').prop('checked')){
         $('.language').show();
+        $('#language-error').show();
       }else{
         $('.language').hide();
+        $('#language-error').hide();
       }
     });
 
