@@ -69,7 +69,7 @@ In this session, we will cover:
 
             <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from Ballerina.io to stay up to date on new releases and updates.</li>
             <li><input type="hidden" class="tokenid" value="" name="tokenid">
-              <input type="hidden" class="pdep" value="/142131/2018-06-26/5672jb" name="pdep"><input type="hidden" class="w_id" value="794720699" name="w_id">
+              <input type="hidden" class="pdep" value="/142131/2018-07-25/57r2c4" name="pdep"><input type="hidden" class="w_id" value="528513379" name="w_id">
               <input class="cSubmitButton" type="submit" value="Register" name="webinar_submit" id="webinar_submit"></li>
             </ul>
          </form>
