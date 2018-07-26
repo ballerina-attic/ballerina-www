@@ -24,7 +24,7 @@
 
 <!-- <table class="cEventTable cWebinarList">
 <tr>
-    <td class="cEventDateContainer"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+    <td class="cEventDateContainer"><span class="cEventDate">August 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
     <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/ballerina-serverless-with-kubeless/"><h4>Ballerina Serverless with Kubeless</h4></a>
     <p>
     <b>Adnan Abdulhussein</b> Software Engineer, Bitnami</p>
@@ -67,7 +67,7 @@
       </td>
         <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a></td>
     </tr> -->
-    <tr>
+    <!-- <tr>
         <td class="cEventDateContainer"><span class="cEventDate">June 26 - 29, 2018</span>
         <p class="cEventLocation">New York Marriott Marquis</p>
         </td>
@@ -76,7 +76,7 @@
         <p>Speaker: Sameera Jayasoma</p>
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://qconnewyork.com/ny2018/presentation/ballerina-cloud-native-programming-language" target="_blank">More Info</a></td>
-    </tr>
+    </tr> -->
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">August 1, 2018</span>
         <p class="cEventLocation">New York Marriott Marquis</p>
