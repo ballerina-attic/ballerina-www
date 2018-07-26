@@ -22,11 +22,17 @@ socialmediaimage: ballerina-serverless-with-kubeless.jpg
 One of the key advantages of cloud native applications is that they allow you to build software applications in such a way that they can be released to production at any time. Shipping small batches of software to production constantly, through automation, allows you to deliver features frequently, at less risk, and receive continuous and fast results.
 
 In this session, we will cover:
-- An introduction to cloud native applications
-- The role of continuous delivery in building cloud native applications
-- An introduction to Clodefresh - a continuous delivery platform built for Kubernetes  
-- An introduction to Ballerina - a cloud native programming language
-- Building continuous delivery for cloud native applications with Codefresh and Ballerina
+
+<ul>
+<li>An introduction to cloud native applications</li>
+<li>The role of continuous delivery in building cloud native applications</li>
+<li>An introduction to Clodefresh - a continuous delivery platform built for Kubernetes</li>
+<li>An introduction to Ballerina - a cloud native programming language</li>
+<li>Building continuous delivery for cloud native applications with Codefresh and Ballerina</li>
+
+
+</ul>
+
 
 ## Presenters
 
