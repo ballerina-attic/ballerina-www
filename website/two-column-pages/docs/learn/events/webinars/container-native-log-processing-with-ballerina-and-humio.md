@@ -1,10 +1,10 @@
 ---
 title: Container Native Log Processing with Ballerina + Humio
 author:
-date: 1 August 2018
+date: 22 August 2018
 status: Published
 abstract:  Ballerina and Humio can create a more flexible environment where it’s easy to discern what is happening under the hood.
-socialmediaimage: ballerina-serverless-with-kubeless.jpg
+socialmediaimage: sm-webinar-Humio-ballerina.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link>
 
@@ -13,7 +13,7 @@ socialmediaimage: ballerina-serverless-with-kubeless.jpg
 
  <table class="cEventTable">
     <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">August 1, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+        <td class="cEventDateContainer"><span class="cEventDate">August 22, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
         <td class="cEventURL"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank" id="iRegisterNow">Register Now</a></td>
     </tr>
 </table>
@@ -33,14 +33,15 @@ Ballerina is a cloud and container native programming language. In a container e
 
         <p>Anjana is a key part of WSO2’s Ballerina and ecosystem engineering team where he spearheads efforts to shape the capabilities offered in the related technology areas. He has also contributed to WSO2’s integration-related projects, including the Ballerina programming language, in the areas of the VM, transactions, and data handling. He has carried out several onsite customer engagements providing support for integration and analytics projects as well.</p></td>
     </tr>
-    <!-- <tr>
-        <td class="cWebinarPresenterPic"><img src="https://wso2.cachefly.net/wso2/newsletter/images/wso2coneu2017/Dmitry.jpg"/></td>
+     <tr>
+        <td class="cWebinarPresenterPic"><img src="/img/profile.jpg"/></td>
         <td class="cWebinarPresenterBio">
-      <span class="cPresenterName">Dmitry Sotnikov</span>
-      <span class="cPresenterTitle">Vice President - Cloud, WSO2</span>
+      <span class="cPresenterName">PJ Hagerty</span>
+      <!-- <span class="cPresenterTitle">Vice President - Cloud, WSO2</span> -->
 
-        <p>In his role, Dmitry oversees WSO2’s Cloud solutions and drives efforts to develop and enhance capabilities. Prior to WSO2, Dmitry worked at Quest Software (now part of Dell) as a Director of Cloud Solutions, and later co-founded Jelastic PaaS and led Jelastic’s sales, marketing, customer and partner relationships. He has been a featured speaker at multiple industry events including Microsoft TechEd, VMware VMWorld, Parallels Summit, Quest Innovate, and Technology Experts Conference (TEC).</p></td>
-    </tr> -->
+        <p>Developer, writer, speaker, musician, and Community Advocate, PJ is the founder of DevRelate.io and Developer Advocate for Humio.com. He is known to travel the world speaking about programming and the way people think and interact.  He is also known for wearing hats.
+</td>
+    </tr>
 </table>
 
 <div id="webinar_registration" class="modal fade" role="dialog">
@@ -57,7 +58,7 @@ Ballerina is a cloud and container native programming language. In a container e
 
             <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from Ballerina.io to stay up to date on new releases and updates.</li>
             <li><input type="hidden" class="tokenid" value="" name="tokenid">
-              <input type="hidden" class="pdep" value="/142131/2018-06-26/5672jb" name="pdep"><input type="hidden" class="w_id" value="794720699" name="w_id">
+              <input type="hidden" class="pdep" value="/142131/2018-07-23/57mh1q" name="pdep"><input type="hidden" class="w_id" value="700433747" name="w_id">
               <input class="cSubmitButton" type="submit" value="Register" name="webinar_submit" id="webinar_submit"></li>
             </ul>
          </form>

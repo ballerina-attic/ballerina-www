@@ -5,7 +5,7 @@
 
 <table class="cEventTable cOtherEventsList">
 <tr>
-    <td class="cEventDateContainer"  style="border:none;"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)
+    <td class="cEventDateContainer"  style="border:none;"><span class="cEventDate">August 11, 2018</span>9:00 am PDT (5:00 pm in UK)
       <p class="cEventLocation"  style="border:none;">Galle Face Hotel - Grand Ballroom, Colombo 3, Sri Lanka</p>
     </td>
     <td class="cEventDetail"  style="border:none;"><a target="_blank" href="/learn/events/ballerina-day-colombo-2018/">
@@ -18,21 +18,19 @@
 </table>
 
 
+## Webinars
 
-
-<!-- [Webinars](/learn/events/webinars) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmdipiscing elitod tempom dolor sit amet, consectr [On-demand webinars](/learn/events/webinars##on-demand-webinars)incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut -->
-
-<!-- <table class="cEventTable cWebinarList">
+<table class="cEventTable cWebinarList">
 <tr>
     <td class="cEventDateContainer"><span class="cEventDate">August 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
     <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/ballerina-serverless-with-kubeless/"><h4>Ballerina Serverless with Kubeless</h4></a>
     <p>
-    <b>Adnan Abdulhussein</b> Software Engineer, Bitnami</p>
+    <b>Kasun Indrasiri</b> Director – Integration Architecture, WSO2</p>
     <p>
-    <b>Dmitry Sotnikov</b> Vice President - Cloud, WSO2</p>
+    <b>Dan Garfield</b> VP of Marketing, Codefresh</p>
     </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-serverless-with-kubeless/">Watch Now</a></td>
-</tr> -->
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/continuous-delivery-for-cloud-native-applications-with-kubernetes-ballerina-and-codefresh/">Watch Now</a></td>
+</tr>
 
 </table>
 

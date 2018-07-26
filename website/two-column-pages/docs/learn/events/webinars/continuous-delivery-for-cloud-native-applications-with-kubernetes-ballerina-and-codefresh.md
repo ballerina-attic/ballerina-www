@@ -4,7 +4,7 @@ author:
 date: 15 August 2018
 status: Published
 abstract: Automating the process of shipping small batches of software to production allows you to deliver features frequently with less risk and receive continuous and fast results.
-socialmediaimage: ballerina-serverless-with-kubeless.jpg
+socialmediaimage: sm-webinar-codefresh-ballerina.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link>
 
