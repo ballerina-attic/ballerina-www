@@ -12,21 +12,21 @@ socialmediaimage: ballerina-day-colombo.jpg
 
 <table class="cEventTable">
     <tr>
-        <td class="cEventDateContainer">
-        <span class="cEventDate">August 11, 2018</span>
-        <span class="cLocation">Galle Face Hotel - Grand Ballroom, Colombo 3, Sri Lanka</span>
+        <td class="cEventDateContainer" style="border:none;">
+        <span class="cEventDate" style="border:none;">August 11, 2018</span>
+        <span class="cLocation" style="border:none;">Galle Face Hotel - Grand Ballroom, Colombo 3, Sri Lanka</span>
         </td>
-        <td class="cEventURL"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank">Register Now</a></td>
+        <td class="cEventURL" style="border:none;"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank">Register Now</a></td>
     </tr>
 </table>
-
+<!--
 Ballerina is a new programming language created by WSO2 to be the leading enterprise application programming language of the future.
 
 It’s a concurrent, transactional, statically typed language, which provides all the functionality expected of a modern, general purpose programming language, but is designed specifically for integration — it brings fundamental concepts, ideas and tools of distributed system integration into the language with direct support for providing and consuming network services, distributed transactions, reliable messaging, stream processing, security, and workflows.
 
 It is intended to be a pragmatic language suitable for mass-market commercial adoption so it will feel familiar to programmers who are used to popular, modern C-family languages, notably Java, C# and JavaScript.
 
-## About the Event
+## About the Event -->
 
 Ballerina is still a baby! Come to this event to get an early start with Ballerina - learn about it from the creators, hack some code, and love it (or hate it)!
 
@@ -60,7 +60,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         <td class="cTime">09:00–10:00</td>
                         <td class="cSession">
                             <div class="cSessionTitle">
-                                Introduction to Ballerina Programming Language and It's Concepts
+                                Introduction to Ballerina Programming Language and Its Concepts
                             </div>
                             <div class="cSpeakerDetail">
 
@@ -224,7 +224,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                  <li>
                      <textarea type="text" maxlength="550" value="" name="language" placeholder="I use the following languages *" title="I use the following languages" class="cTextfieldstyle cTextarea language" style="height: 100px;" aria-invalid="false"></textarea>
                  </li>
-                 <li>
+                 <!-- <li>
                      <select class="cSelect contact_country" name="country">
                          <option value="">Select the country</option>
                          <option value="United States">United States</option>
@@ -477,7 +477,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                          <option value="Zambia">Zambia</option>
                          <option value="Zimbabwe">Zimbabwe</option>
                      </select>
-                 </li>
+                 </li> -->
 
                  <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from Ballerina.io to stay up to date on new releases and updates.</li>
                  <li><input type="hidden" class="tokenid" value="" name="tokenid">
