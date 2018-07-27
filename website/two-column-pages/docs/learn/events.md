@@ -29,7 +29,7 @@
     <p>
     <b>Dan Garfield</b> VP of Marketing, Codefresh</p>
     </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/continuous-delivery-for-cloud-native-applications-with-kubernetes-ballerina-and-codefresh/">Watch Now</a></td>
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/continuous-delivery-for-cloud-native-applications-with-kubernetes-ballerina-and-codefresh/">Register Now</a></td>
 </tr>
 
 </table>
