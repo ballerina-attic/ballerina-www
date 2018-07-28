@@ -24,7 +24,7 @@ type myRec record  {string a; int i; };
 public type Person object {
     public int age,
     public string name,
-    public string fullName,
+    @readonly public string fullName,
 
     private string email = "default@abc.com",
     private int[] marks,

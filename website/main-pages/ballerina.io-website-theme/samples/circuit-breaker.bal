@@ -1,4 +1,3 @@
-import ballerina/http;
 // circuit breaker example
 endpoint http:Client backendClientEP {
     url: "http://localhost:8080",
