@@ -212,8 +212,8 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                  <li><input type="text" maxlength="50" value="" name="last_name" placeholder="Last Name *" title="Last Name" class="cTextfieldstyle contact_last_name"></li>
                  <li><input type="text" maxlength="50" value="" name="email" placeholder="Email *" title="Email" class="cTextfieldstyle contact_email"></li>
                  <li><input type="text" maxlength="50" value="" name="phone" placeholder="Phone" title="Phone" class="cTextfieldstyle contact_phone"></li>
-                 <li><input type="text" maxlength="50" value="" placeholder="Job Title *" name="job_title" class="cTextfieldstyle contact_job_title" title="Job Title"></li>
-                 <li><input type="text" maxlength="50" value="" name="company" placeholder="Company *" title="Company" class="cTextfieldstyle contact_company"></li>
+                 <li><input type="text" maxlength="50" value="" placeholder="Job Title *" name="job_title" class="cTextfieldstyle job_title" title="Job Title"></li>
+                 <li><input type="text" maxlength="50" value="" name="company" placeholder="Company *" title="Company" class="cTextfieldstyle company"></li>
 
                  <li>
                     <p>This is a hands-on programming event. In order to participate, you must be a programmer with knowledge of several programming languages.</p>
