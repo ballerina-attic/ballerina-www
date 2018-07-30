@@ -3,7 +3,7 @@ title: Continuous Delivery for Cloud Native Applications with Kubernetes, Baller
 author:
 date: 15 August 2018
 status: Published
-abstract: Automating the process of shipping small batches of software to production allows you to deliver features frequently with less risk and receive continuous and fast results.
+abstract: We will introduce Cloudfresh and how it works with Ballerina to build continuous delivery for cloud native applications.
 socialmediaimage: sm-webinar-codefresh-ballerina.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link>
@@ -17,7 +17,7 @@ socialmediaimage: sm-webinar-codefresh-ballerina.jpg
     </tr>
 </table>
 
-<a href="https://kubeless.io/" target="_blank"><img class="cInlineLogo" src="/img/codefresh-logo-300x145.png"/></a>
+<a href="https://codefresh.io/" target="_blank"><img class="cInlineLogo" src="/img/codefresh-logo-300x145.png"/></a>
 
 One of the key advantages of cloud native applications is that they allow you to build software applications in such a way that they can be released to production at any time. Shipping small batches of software to production constantly, through automation, allows you to deliver features frequently, at less risk, and receive continuous and fast results.
 
