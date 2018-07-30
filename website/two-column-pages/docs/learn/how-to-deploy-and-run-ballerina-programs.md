@@ -351,28 +351,15 @@ endpoint mysql:Client employeeDB {
     password:config:getAsString("db-password")
 };
 
-@kubernetes:ConfigMap {
-    ballerinaConf:"./conf/data-service.toml",
-}
-
 @kubernetes:Ingress {
     hostname:"ballerina.guides.io",
     name:"ballerina-guides-employee-database-service",
     path:"/"
 }
-
 @kubernetes:Service {
     serviceType:"NodePort",
     name:"ballerina-guides-employee-database-service"
 }
-
-@kubernetes:Deployment {
-    image:"ballerina.guides.io/employee_database_service:v1.0",
-    name:"ballerina-guides-employee-database-service",
-    copyFiles:[{target:"/ballerina/runtime/bre/lib",
-                source:"./conf/mysql-connector-java-8.0.11.jar"}]
-}
-
 endpoint http:Listener listener {
     port:9090,
     secureSocket:{
@@ -387,6 +374,15 @@ endpoint http:Listener listener {
     }
 };
 
+@kubernetes:ConfigMap {
+    ballerinaConf:"./conf/data-service.toml",
+}
+@kubernetes:Deployment {
+    image:"ballerina.guides.io/employee_database_service:v1.0",
+    name:"ballerina-guides-employee-database-service",
+    copyFiles:[{target:"/ballerina/runtime/bre/lib",
+                source:"./conf/mysql-connector-java-8.0.11.jar"}]
+}
 @http:ServiceConfig {
     basePath:"/records"
 }
