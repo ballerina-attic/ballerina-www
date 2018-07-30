@@ -1,12 +1,12 @@
 import ballerina/io;
 import ballerina/runtime;
 
-type StatusCount {
+type StatusCount record {
     string status;
     int totalCount;
 };
 
-type Teacher {
+type Teacher record {
     string name;
     int age;
     string status;
