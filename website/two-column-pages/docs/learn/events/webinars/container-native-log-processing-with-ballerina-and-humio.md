@@ -13,7 +13,7 @@ socialmediaimage: sm-webinar-humio-ballerina.jpg
 
  <table class="cEventTable">
     <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">August 22, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+        <td class="cEventDateContainer"><span class="cEventDate">August 22, 2018</span>10:00 am PDT (6:00 pm in UK)</td>
         <td class="cEventURL"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank" id="iRegisterNow">Register Now</a></td>
     </tr>
 </table>
@@ -34,7 +34,7 @@ Ballerina is a cloud and container native programming language. In a container e
         <p>Anjana is a key part of WSO2’s Ballerina and ecosystem engineering team where he spearheads efforts to shape the capabilities offered in the related technology areas. He has also contributed to WSO2’s integration-related projects, including the Ballerina programming language, in the areas of the VM, transactions, and data handling. He has carried out several onsite customer engagements providing support for integration and analytics projects as well.</p></td>
     </tr>
      <tr>
-        <td class="cWebinarPresenterPic"><img src="/img/profile.jpg"/></td>
+        <td class="cWebinarPresenterPic"><img src="/img/pj-hagerty.jpg"/></td>
         <td class="cWebinarPresenterBio">
       <span class="cPresenterName">PJ Hagerty</span>
       <!-- <span class="cPresenterTitle">Vice President - Cloud, WSO2</span> -->
