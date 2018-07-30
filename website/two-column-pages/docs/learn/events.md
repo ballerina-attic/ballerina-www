@@ -5,7 +5,7 @@
 
 <table class="cEventTable cOtherEventsList">
 <tr>
-    <td class="cEventDateContainer"  style="border:none;"><span class="cEventDate">August 11, 2018</span>9:00 am PDT (5:00 pm in UK)
+    <td class="cEventDateContainer"  style="border:none;"><span class="cEventDate">August 11, 2018</span>08:15 am IST
       <p class="cEventLocation"  style="border:none;">Galle Face Hotel - Grand Ballroom, Colombo 3, Sri Lanka</p>
     </td>
     <td class="cEventDetail"  style="border:none;"><a target="_blank" href="/learn/events/ballerina-day-colombo-2018/">
@@ -22,7 +22,7 @@
 
 <table class="cEventTable cWebinarList">
 <tr>
-    <td class="cEventDateContainer"><span class="cEventDate">August 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+    <td class="cEventDateContainer"><span class="cEventDate">August 15, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
     <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/continuous-delivery-for-cloud-native-applications-with-kubernetes-ballerina-and-codefresh/"><h4>Continuous Delivery for Cloud Native Applications with Kubernetes, Ballerina, and Codefresh</h4></a>
     <p>
     <b>Kasun Indrasiri</b> Director – Integration Architecture, WSO2</p>
@@ -31,13 +31,23 @@
     </td>
     <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/continuous-delivery-for-cloud-native-applications-with-kubernetes-ballerina-and-codefresh/">Register Now</a></td>
 </tr>
+<tr>
+    <td class="cEventDateContainer"><span class="cEventDate">August 22, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/container-native-log-processing-with-ballerina-and-humio/"><h4>Container Native Log Processing with Ballerina + Humio</h4></a>
+    <p>
+    <b>Anjana Fernando</b> Director - Engineering, WSO2</p>
+    <p>
+    <b>PJ Hagerty</p>
+    </td>
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/container-native-log-processing-with-ballerina-and-humio/">Register Now</a></td>
+</tr>
 
 </table>
 
 ## Meetups
 
 <table class="cEventTable cMeetupsList">
-    <tr>
+    <!-- <tr>
         <td class="cEventDateContainer"><span class="cEventDate">July 10, 2018 </span>6:00 PM
 <p class="cEventLocation">WSO2, 787 Castro Street, 94041, Mountain View, CA
 </td>
@@ -45,7 +55,7 @@
 
        </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/Mountain-View-Kubernetes-Meetup/events/252370805/?rv=me1&_xtd=gatlbWFpbF9jbGlja9oAJDUxNjE1NTNjLTI4MDUtNDljOS1iYTY0LWU5YWQ4NGQzOGQ4MA&_af=event&_af_eid=252370805&https=on" target="_blank">Register Now</a></td>
-    </tr>
+    </tr> -->
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">October 9, 2018</span></td>
         <td class="cEventDetail"><h4> London Cloud Native Meetup</h4>

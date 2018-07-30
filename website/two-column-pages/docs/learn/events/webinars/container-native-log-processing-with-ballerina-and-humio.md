@@ -3,7 +3,7 @@ title: Container Native Log Processing with Ballerina + Humio
 author:
 date: 22 August 2018
 status: Published
-abstract:  Ballerina and Humio can create a more flexible environment where it’s easy to discern what is happening under the hood.
+abstract:  In this webinar, we will look at Ballerina, how its features and related log data are generated, and how Humio can be used to process and query this log data for assisting in the observability of the system.
 socialmediaimage: sm-webinar-Humio-ballerina.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link>
@@ -18,7 +18,7 @@ socialmediaimage: sm-webinar-Humio-ballerina.jpg
     </tr>
 </table>
 
-<a href="https://kubeless.io/" target="_blank"><img class="cInlineLogo" src="/img/Humio-logo.svg"/></a>
+<a href="https://www.humio.com/" target="_blank"><img class="cInlineLogo" src="/img/Humio-logo.svg"/></a>
 
 Ballerina is a cloud and container native programming language. In a container environment, it requires unique functionality for log collection and processing. It is no longer possible and sufficient to just store logs in the local file system. This is where we need a centralized and an externalized log processing system, and Humio fills this role in an efficient manner. It contains extensive functionality in log extraction, storing, and real-time querying. In this webinar, we will look at the Ballerina programming language, how its features and related log data are generated, and how Humio can be used to process and query this log data for assisting in the observability of the system.
 
@@ -39,7 +39,7 @@ Ballerina is a cloud and container native programming language. In a container e
       <span class="cPresenterName">PJ Hagerty</span>
       <!-- <span class="cPresenterTitle">Vice President - Cloud, WSO2</span> -->
 
-        <p>Developer, writer, speaker, musician, and Community Advocate, PJ is the founder of DevRelate.io and Developer Advocate for Humio.com. He is known to travel the world speaking about programming and the way people think and interact.  He is also known for wearing hats.
+        <p>Developer, writer, speaker, musician, and Community Advocate, PJ is the founder of DevRelate.io and Developer Advocate for Humio.com. He is known to travel the world speaking about programming and the way people think and interact.  He is also known for wearing hats.</p>
 </td>
     </tr>
 </table>
