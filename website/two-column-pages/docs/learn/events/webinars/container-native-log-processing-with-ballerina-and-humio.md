@@ -4,7 +4,7 @@ author:
 date: 22 August 2018
 status: Published
 abstract:  In this webinar, we will look at Ballerina, how its features and related log data are generated, and how Humio can be used to process and query this log data for assisting in the observability of the system.
-socialmediaimage: sm-webinar-Humio-ballerina.jpg
+socialmediaimage: sm-webinar-humio-ballerina.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link>
 
