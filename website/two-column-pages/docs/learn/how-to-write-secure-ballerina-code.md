@@ -153,7 +153,8 @@ Ballerina will first look for a file named `secret.txt`. If such file exists, Ba
 The file based approach is useful in automated deployments. The file containing the decryption secret can be deployed along with the Ballerina program. The name and the path of the secret file can be configured using the `ballerina.config.secret` runtime parameter:
 
 ```
-ballerina run -e ballerina.config.secret=path/to/secret/file securing_configuration_values.balx
+ballerina run -e ballerina.config.secret=path/to/secret/file \
+securing_configuration_values.balx
 ```
 
 ## Authentication and Authorization
