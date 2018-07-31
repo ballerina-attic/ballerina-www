@@ -265,6 +265,9 @@ function main(string... args) {
 
         if (operation == 5) {
             break;
+        } else if (operation < 1 || operation > 5) {
+            io:println("Invalid choice \n");
+            continue;
         }
 
         // Read two numbers from user to be used for calculator operations
