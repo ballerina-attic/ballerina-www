@@ -37,7 +37,7 @@ Ballerina is a cloud and container native programming language. In a container e
         <td class="cWebinarPresenterPic"><img src="/img/pj-hagerty.jpg"/></td>
         <td class="cWebinarPresenterBio">
       <span class="cPresenterName">PJ Hagerty</span>
-      <!-- <span class="cPresenterTitle">Vice President - Cloud, WSO2</span> -->
+     <span class="cPresenterTitle">Founder of DevRelate.io and Developer Advocate for Humio.com</span> 
 
         <p>Developer, writer, speaker, musician, and Community Advocate, PJ is the founder of DevRelate.io and Developer Advocate for Humio.com. He is known to travel the world speaking about programming and the way people think and interact.  He is also known for wearing hats.</p>
 </td>

@@ -32,12 +32,13 @@
     <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/continuous-delivery-for-cloud-native-applications-with-kubernetes-ballerina-and-codefresh/">Register Now</a></td>
 </tr>
 <tr>
-    <td class="cEventDateContainer"><span class="cEventDate">August 22, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+    <td class="cEventDateContainer"><span class="cEventDate">August 22, 2018</span>10:00 am PDT (6:00 pm in UK)</td>
     <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/container-native-log-processing-with-ballerina-and-humio/"><h4>Container Native Log Processing with Ballerina + Humio</h4></a>
     <p>
     <b>Anjana Fernando</b> Director - Engineering, WSO2</p>
     <p>
-    <b>PJ Hagerty</p>
+    <b>PJ Hagerty</b></p>
+    <p>Founder of DevRelate.io and Developer Advocate for Humio.com</p>
     </td>
     <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/container-native-log-processing-with-ballerina-and-humio/">Register Now</a></td>
 </tr>
