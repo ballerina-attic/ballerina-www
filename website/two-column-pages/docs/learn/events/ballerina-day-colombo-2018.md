@@ -79,13 +79,13 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         <td class="cSession">
                             <div class="cSession">
                                 Ballerina Basics Tutorials
-
+<!-- 
                                 <table class="cUnconference">
                                 <tr>
                                 <td>
                                 <div class="cSessionTitle">
-                                <a data-toggle="modal" data-target="#Ballerina-Language-Basics">Ballerina Language Basics</a>
-
+                                <a data-toggle="modal" data-target="#Ballerina-Language-Basics"></a>
+Ballerina Language Basics
                                 </div>
                                 </td>
                                 <td>
@@ -104,7 +104,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                                 </div>
                                 </td>
                                 </tr>
-                                </table>
+                                </table> -->
 
                             </div>
                         </td>
