@@ -13,8 +13,9 @@ socialmediaimage: sm-ballerina-day.jpg
 <table class="cEventTable">
     <tr>
         <td class="cEventDateContainer" style="border:none;">
-        <span class="cEventDate" style="border:none;">August 11, 2018</span>
+        <span class="cEventDate" style="border:none;">August 11 and 12, 2018</span>
         <span class="cLocation" style="border:none;">Galle Face Hotel - Grand Ballroom, Colombo 3, Sri Lanka</span>
+        <p style="color:#20b6b0;">Please note that registrations are closed for August 11. Registrations are open for August 12, but do sign up quickly as there are a limited number of seats available.</p>
         </td>
         <td class="cEventURL" style="border:none;"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank">Register Now</a></td>
     </tr>

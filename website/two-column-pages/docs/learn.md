@@ -79,8 +79,9 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 
 ## Events
 
-The [Events](/learn/events) page consists of webinars, meetups, and conferences about Ballerina.
+The [Events](/learn/events) page consists of upcoming webinars, meetups, and conferences about Ballerina.
 
+Refer to the [Past Events](/learn/events/past-events) page to view videos and slides from conferences and webinars.
 
 ## Articles and Videos
 
