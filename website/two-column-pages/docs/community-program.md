@@ -166,7 +166,9 @@ function main(string... args) {
         http:Response resp => {
             io:println(resp.getTextPayload());
         }
-        error err => { log:printError(err.message, err = err); }
+        error err => {
+            log:printError(err.message, err = err);
+        }
     }
 }
 ```
@@ -248,7 +250,7 @@ import ballerina/io;
 function main(string... args) {
 
     int operation = 0;
-    while ( operation != 5) {
+    while (operation != 5) {
         // print options menu to choose from
         io:println("Select operation.");
         io:println("1. Add");
@@ -272,10 +274,10 @@ function main(string... args) {
         float secondNumber = check <float>input2;
 
         // Execute calculator operations based on user's choice
-        if(operation == 1) {
+        if (operation == 1) {
             io:print("Add result: ");
             io:println(add(firstNumber, secondNumber));
-        } else if(operation == 2) {
+        } else if (operation == 2) {
             io:print("Subtract result: ");
             io:println(subtract(firstNumber, secondNumber));
         } else {
@@ -307,7 +309,6 @@ This service only implements the add operation. You may extend this and implemen
 4. Copy the following code and paste it into the **service.bal** file and save it.
 
 ``` ballerina
-
 import ballerina/http;
 
 endpoint http:Listener listener {
@@ -394,7 +395,6 @@ The client sends a JSON request that provides the input to calculate on and the 
 5. Before going ahead, delete **main.bal** from the package folder if it still exists.
 
 ``` ballerina
-
 import ballerina/http;
 import ballerina/io;
 import ballerina/log;
@@ -417,9 +417,10 @@ function main(string... args) {
             var msg = resp.getJsonPayload();
             match msg {
                 json jsonPayload => {
-                    string resultMessage = "Addition result " + jsonMsg["firstNumber"].toString() +
-                        " + " + jsonMsg["secondNumber"].toString() + " : " +
-                        jsonPayload["result"].toString();
+                    string resultMessage = "Addition result "
+                        + jsonMsg["firstNumber"].toString() + " + "
+                        + jsonMsg["secondNumber"].toString() + " : "
+                        + jsonPayload["result"].toString();
                     io:println(resultMessage);
                 }
                 error err => {
@@ -446,7 +447,7 @@ This will invoke the service, and print the result
 
 ## Push your Package to Ballerina Central
 
-Visit [https://central.ballerina.io/](https://central.ballerina.io/) and sign up. You can click **Sign U** action on the top right corner of the website and use an existing Google account or a GitHub account of yours to sign up.
+Visit [https://central.ballerina.io/](https://central.ballerina.io/) and sign up. You can click **Sign Up** action on the top right corner of the website and use an existing Google account or a GitHub account of yours to sign up.
 
 Once you sign up, you will be asked to create an organization for you on [https://central.ballerina.io/create-organization](https://central.ballerina.io/create-organization). You may use your name or another name of your choice as the organization name.
 
@@ -461,7 +462,6 @@ To do this, go to the folder where you created your calculator package. Then cre
 [project]
 org-name = "sami"
 version = "0.1.0"
-
 ```
 
 You also need to have a Package.md file inside your package that describes the package before you push the package into Ballerina Central.
