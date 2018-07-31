@@ -20,7 +20,7 @@ Ballerina binary distributions are available for the following supported operati
 
 If your operating system or architecture is not on the list, you can [install from source](https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source) instead.
 
-## Installing Ballerina
+## Installing Ballerina via installers
 
 If you are upgrading to the latest version of Ballerina from an older version, you can download the latest version and run it without uninstalling the old version. 
 If you are building from source, you must update the path with the new version of Ballerina.
@@ -55,10 +55,26 @@ rpm -i <ballerina-binary>.rpm
 ```
 This installs the Ballerina distribution to `/opt/ballerina`.
 
+## Installing via the Ballerina platform zip file
+
+>> **Note**: Before you install Ballerina using the zip file, ensure that you have Java Development Kit (JDK) version 1.8 installed.
+
+[Download the Ballerina platform zip file](/downloads) and unzip it to a preferred location using an archiver tool of your choice. This creates a directory named `ballerina-platform-<version>` in your system. 
+
+Follow one of the steps below depending on your operating system to configure your system environment to run Ballerina:
+
+* If your operating system is Linux or Mac OS, set the PATH environment variable to point to the bin directory of the unzipped Ballerina distribution.
+* If your operating system is Windows, add a new environment variable specifying the following values:
+  * Variable name: PATH
+  * Variable value: The location of the bin directory of the unzipped Ballerina distribution. For example,  c:/Program Files/Ballerina/ballerina-platform-<version>/bin
+  
 ## Uninstalling Ballerina
 
-To remove an existing Ballerina installation, go to the Ballerina installation location and delete the Ballerina directory. The Ballerina installation location is usually `/Library/Ballerina` in Mac OS X, `/opt/ballerina` in Linux, and `C:\Program Files\Ballerina\` in Windows.
-You should also remove the Ballerina bin directory from your PATH environment variable.
+To remove an existing Ballerina installation, go to the Ballerina installation location and delete the Ballerina directory.
+
+>> **Note**:
+>> * If you installed Ballerina via an installer, the installation location is usually `/Library/Ballerina` in Mac OS X, `/opt/ballerina` in Linux, and `C:\Program Files\Ballerina\` in Windows.
+>> * If you installed Ballerina using the Ballerina platform zip file, be sure to remove the Ballerina PATH environment variable that you set in your system environment.
 
 ## Getting help
 
