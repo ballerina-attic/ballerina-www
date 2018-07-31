@@ -22,7 +22,7 @@ socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-suho.jpg
 
 <div class="clearfix"></div>
 
-<a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton cDownloadSlides" target="_blank">Download Slides</a>
+<a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton cDownloadSlides" target="_blank" href="https://www.slideshare.net/ballerinaslides/stream-processing-with-ballerina-108078794">Download Slides</a>
 
 <div class="clearfix"></div>
 
