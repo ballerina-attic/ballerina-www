@@ -55,11 +55,11 @@ rpm -i <ballerina-binary>.rpm
 ```
 This installs the Ballerina distribution to `/opt/ballerina`.
 
-## Installing via the Ballerina platform zip file
+## Installing via the Ballerina platform ZIP file
 
->> **Note**: Before you install Ballerina using the zip file, ensure that you have Java Development Kit (JDK) version 1.8 installed.
+>> **Note**: Before you install Ballerina using the ZIP file, ensure that you have Java Development Kit (JDK) version 1.8 installed.
 
-[Download the Ballerina platform zip file](/downloads) and unzip it to a preferred location using an archiver tool of your choice. This creates a directory named `ballerina-platform-<version>` in your system. 
+[Download the Ballerina platform ZIP file](/downloads) and unzip it to a preferred location using an archiver tool of your choice. This creates a directory named `ballerina-platform-<version>` in your system. 
 
 Follow one of the steps below depending on your operating system to configure your system environment to run Ballerina:
 
@@ -74,7 +74,7 @@ To remove an existing Ballerina installation, go to the Ballerina installation l
 
 >> **Note**:
 >> * If you installed Ballerina via an installer, the installation location is usually `/Library/Ballerina` in Mac OS X, `/opt/ballerina` in Linux, and `C:\Program Files\Ballerina\` in Windows.
->> * If you installed Ballerina using the Ballerina platform zip file, be sure to remove the Ballerina PATH environment variable that you set in your system environment.
+>> * If you installed Ballerina using the Ballerina platform ZIP file, be sure to remove the Ballerina PATH environment variable that you set in your system environment.
 
 ## Getting help
 
