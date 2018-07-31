@@ -79,6 +79,33 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         <td class="cSession">
                             <div class="cSession">
                                 Ballerina Basics Tutorials
+
+                                <table class="cUnconference">
+                                <tr>
+                                <td>
+                                <div class="cSessionTitle">
+                                <a data-toggle="modal" data-target="#Ballerina-Language-Basics">Ballerina Language Basics</a>
+
+                                </div>
+                                </td>
+                                <td>
+                                <div class="cSessionTitle">
+                                    Unconference Session 2
+                                </div>
+                                </td>
+                                <td>
+                                <div class="cSessionTitle">
+                                    Unconference Session 3
+                                </div>
+                                </td>
+                                <td>
+                                <div class="cSessionTitle">
+                                    Unconference Session 4
+                                </div>
+                                </td>
+                                </tr>
+                                </table>
+
                             </div>
                         </td>
                     </tr>
@@ -171,7 +198,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                        <td class="cTime">19:00–20:30</td>
                        <td class="cSession">
                            <div class="cSession cBreak">
-                               After Party
+                                Networking Event
                            </div>
                        </td>
                    </tr>
@@ -200,6 +227,54 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate .</p></td>
     </tr>
 </table> -->
+
+
+<div id="Ballerina-Language-Basics" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="col-xs-12 col-sm-12 com-md-12 col-lg-12 cWebinarForm cRegForm">
+                <img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/>
+                <h1>Ballerina Language Basics</h1>
+                <h2>Abstract:</h2>
+                <p>Ballerina is a compiled, transactional, statically and strongly typed programming language with textual and graphical syntaxes, and it is an attempt to build a modern industrial-grade programming language. It aims to make microservices and integration-heavy programming simpler by baking integration concepts into the language, such as a network-aware type system, first-class network services, and resources along with functions/objects, distributed transactions, stream processing, etc. In this session, we will look at the language’s core features and basic client endpoints, which are outbound connectors that interact with external systems.
+                </p>
+                <h2>Key Areas:</h2>
+                <ul class="cKeyAreas">
+                    <li>Type system - primitive types, map/record/JSON, XML, table etc</li>
+                    <li>Language statements - if, while, try/catch, fork/join, transactions, workers etc</li>
+                    <li>Concurrency and error handling</li>
+                    <li>Client connectors HTTP, SQL, Twitter etc</li>
+                </ul>
+
+                <table class="cWebinarPresenter">
+                    <tr>
+                        <td class="cWebinarPresenterPic"><img src="https://wso2.cachefly.net/wso2/sites/all/images/wso2conus18/new/srinath-perera-wso2conus18.png"/></td>
+                        <td class="cWebinarPresenterBio">
+                            <span class="cPresenterName">Srinath Perera</span>
+                            <span class="cPresenterTitle">Vice President - Research, WSO2</span>
+
+                    </tr>
+                    <tr>
+                        <td class="cWebinarPresenterPic"><img src="https://wso2.cachefly.net/wso2/sites/all/images/wso2conus18/new/srinath-perera-wso2conus18.png"/></td>
+                        <td class="cWebinarPresenterBio">
+                            <span class="cPresenterName">Srinath Perera</span>
+                            <span class="cPresenterTitle">Vice President - Research, WSO2</span>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
 
 <div id="webinar_registration" class="modal fade" role="dialog">
 <div class="modal-dialog">
