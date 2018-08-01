@@ -30,7 +30,7 @@ Ballerina is an attempt to build a modern industrial-grade programming language.
 
 In this session, Sameera will discuss and demonstrate how Ballerina simplifies your microservices development. Also, he will show you how Ballerina helps you to achieve agility and integration simplicity with its first-class integration syntax and environmental deployment constructs.
 
-## Presenters
+## Presenter
 
 <table class="cWebinarPresenter">
     <tr>

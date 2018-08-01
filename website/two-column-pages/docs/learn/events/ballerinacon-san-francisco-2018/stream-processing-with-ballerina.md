@@ -37,7 +37,7 @@ In this talk, we will discuss the following:
 - The roadmap.
 
 
-## Presenters
+## Presenter
 
 <table class="cWebinarPresenter">
     <tr>

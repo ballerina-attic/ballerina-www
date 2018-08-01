@@ -1,5 +1,5 @@
 ---
-title: Ballerina Serverless with Kubeless
+title: Ballerina: Cloud Native Programming Language
 author:
 date: 11 July 2018
 status: Published
@@ -28,7 +28,7 @@ socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
 
 Increasingly, developers and architects are disaggregating their architectures to create more scalable and agile applications. As this happens, everything is becoming a programmable endpoint. Ballerina is a new generation of programming language designed around this problem. In this talk, Paul will introduce the challenges and background of why Ballerina has been created, as well as demonstrating the core features of the language. If you haven't seen a CTO attempt a live demo before, you may find this amusing!
 
-## Presenters
+## Presenter
 
 <table class="cWebinarPresenter">
     <tr>

@@ -47,13 +47,13 @@ In this talk, Rodric, Adnan and Amila will speak about the advantages of adoptin
          <span class="cPresenterTitle">Kubeless</span>
           <p>Adnan Abdulhussein is a Software Engineer at Bitnami, where he works on building tools to make apps easier to run on Kubernetes. He contributes to the Kubernetes community as a co-chair of SIG-Apps and a core maintainer of the Helm project. Adnan is passionate about cloud-native infrastructure, developer tools & experience, open source and the possibility of time travel. He holds a BSc in Computer Science from the University of Bristol.</p>
           </tr>
-          <tr>
+          <!-- <tr>
               <td class="cWebinarPresenterPic"><img src="//con.ballerina.io/wp-content/themes/ballerinacon/images/speakers/amilam.jpg"/></td>
               <td class="cWebinarPresenterBio">
             <span class="cPresenterName">Amila Maha Arachchi</span>
             <span class="cPresenterTitle">WSO2</span>
              <p>Amila is a Director at WSO2, leading the WSO2 Cloud Team. He is responsible for architecting and running the public cloud offering of WSO2. He also plays a role in WSO2 Managed Cloud offering too. Amila has involved with many customer engagements and with the WSO2 public cloud customers where he guides them with their solution architecture. Apart from the public and managed cloud offerings, Amila is currently working on the WSO2 Serverless Solution which is a private managed function platform for the enterprises.</p>
-        </tr>
+        </tr> -->
 
 </table>
 

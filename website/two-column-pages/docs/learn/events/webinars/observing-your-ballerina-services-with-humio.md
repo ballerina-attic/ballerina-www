@@ -1,14 +1,14 @@
 ---
-title: Container Native Log Processing with Ballerina + Humio
+title: Observing Your Ballerina Services with Humio
 author:
 date: 22 August 2018
 status: Published
 abstract:  In this webinar, we will look at Ballerina, how its features and related log data are generated, and how Humio can be used to process and query this log data for assisting in the observability of the system.
-socialmediaimage: sm-webinar-humio-ballerina-1.jpg
+socialmediaimage: sm-webinar-humio-ballerina-2.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link>
 
-# Container Native Log Processing with Ballerina + Humio
+# Observing Your Ballerina Services with Humio
 
 
  <table class="cEventTable">
