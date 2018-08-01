@@ -80,7 +80,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                             <div class="cSession">
                                 Ballerina Basics Tutorials
 
-                                <table class="cUnconference">
+                                <!-- <table class="cUnconference">
                                 <tr>
                                 <td>
                                 <div class="cSessionTitle">
@@ -104,7 +104,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                                 </div>
                                 </td>
                                 </tr>
-                                </table>
+                                </table> -->
 
                             </div>
                         </td>
@@ -232,7 +232,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
 <div id="Ballerina-Language-Basics" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="col-xs-12 col-sm-12 com-md-12 col-lg-12 cWebinarForm cRegForm">
+            <div class="col-xs-12 col-sm-12 com-md-12 col-lg-12 cWebinarForm cRegForm cSessions">
                 <img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/>
                 <h1>Ballerina Language Basics</h1>
                 <h2>Abstract:</h2>
@@ -245,14 +245,13 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                     <li>Concurrency and error handling</li>
                     <li>Client connectors HTTP, SQL, Twitter etc</li>
                 </ul>
-
                 <table class="cWebinarPresenter">
                     <tr>
                         <td class="cWebinarPresenterPic"><img src="https://wso2.cachefly.net/wso2/sites/all/images/wso2conus18/new/srinath-perera-wso2conus18.png"/></td>
                         <td class="cWebinarPresenterBio">
                             <span class="cPresenterName">Srinath Perera</span>
                             <span class="cPresenterTitle">Vice President - Research, WSO2</span>
-
+                        </td>
                     </tr>
                     <tr>
                         <td class="cWebinarPresenterPic"><img src="https://wso2.cachefly.net/wso2/sites/all/images/wso2conus18/new/srinath-perera-wso2conus18.png"/></td>
@@ -262,7 +261,6 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         </td>
                     </tr>
                 </table>
-
             </div>
         </div>
     </div>

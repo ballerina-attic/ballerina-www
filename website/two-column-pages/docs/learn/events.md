@@ -33,7 +33,7 @@
 </tr>
 <tr>
     <td class="cEventDateContainer"><span class="cEventDate">August 22, 2018</span>10:00 am PDT (6:00 pm in UK)</td>
-    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/observing-your-ballerina-services-with-humio/"><h4>Container Native Log Processing with Ballerina + Humio</h4></a>
+    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/observing-your-ballerina-services-with-humio/"><h4>Observing Your Ballerina Services with Humio</h4></a>
     <p>
     <b>Anjana Fernando</b> Director - Engineering, WSO2</p>
     <p>
