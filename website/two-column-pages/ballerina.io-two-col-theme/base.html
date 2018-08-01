@@ -13,7 +13,7 @@
     <meta name="author" content="{{ config.site_author }}">{% endif %} {% if config.site_favicon %}
     <link rel="shortcut icon" href="{{ base_url }}/{{ config.site_favicon }}"> {% else %}
     <link rel="shortcut icon" href="/img/favicon.ico">{% endif %} {%- endblock %} {%- block htmltitle %}
-    <title>{% if page and page.title and not page.is_hompage %}{{ page.title }} - {% endif %}</title>
+    <title>{% if page and page.title and not page.is_hompage %}{{ page.title }} {% endif %}</title>
     {%- endblock %} {%- block styles %}
 
 
