@@ -30,7 +30,7 @@ Typically, you find a distinguishable set of tools for integration development a
 
 During this talk, we will look at Ballerina's development lifecycle and how the available tools can be utilized to increase productivity and ensure that quality is maintained during integration development.
 
-## Presenters
+## Presenter
 
 <table class="cWebinarPresenter">
     <tr>

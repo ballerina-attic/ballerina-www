@@ -32,7 +32,7 @@ Ballerina is a new cloud native programing language that understands the archite
 
 In this session, Lakmal will explore Ballerina's deployment automation capabilities. Most of the talk will be a live demo, and he will also discuss the motivation for creating a new cloud native programing language and its design inspirations.
 
-## Presenters
+## Presenter
 
 <table class="cWebinarPresenter">
     <tr>

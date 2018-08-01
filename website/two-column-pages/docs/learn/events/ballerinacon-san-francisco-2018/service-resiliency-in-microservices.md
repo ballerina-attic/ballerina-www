@@ -30,7 +30,7 @@ Cloud native programming inherently involves working with remote endpoints: micr
 
 In this session, Afkham will look at how Ballerina helps integration developers write resilient programs and how it helps eliminate or reduce failures due to oversight. He will also demonstrate core resiliency techniques, such as timeout, retry, circuit breaker, distributed transactions, and others.
 
-## Presenters
+## Presenter
 
 <table class="cWebinarPresenter">
     <tr>

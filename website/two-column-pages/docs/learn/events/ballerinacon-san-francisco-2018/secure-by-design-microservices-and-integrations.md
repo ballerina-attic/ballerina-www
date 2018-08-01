@@ -32,6 +32,8 @@ Security is not an easy problem. It is easy to overlook something when attack pa
 
 In this session, Ayoma will walk through securing microservices and how Ballerina helps developers to write secure programs by providing inherent protection against threats listed in OWASP Top 10 Vulnerabilities and SANS Top 25 Software Errors. The session will also include demonstrations on the Ballerina compiler's security awareness features and how it prevents mistakes that could result in major security breaches.
 
+## Presenter
+
 <table class="cWebinarPresenter">
     <tr>
         <td class="cWebinarPresenterPic"><img src="//con.ballerina.io/wp-content/themes/ballerinacon/images/speakers/ayoma.jpg"/></td>

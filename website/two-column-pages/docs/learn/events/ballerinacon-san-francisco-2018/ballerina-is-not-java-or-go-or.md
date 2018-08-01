@@ -29,7 +29,7 @@ socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-sanjiva.jpg
 Ballerina is a general purpose language optimized for integration and writing network services and applications. While it looks like Java and other popular languages in some ways, it is very different from those in fundamental ways. This talk will explore how Ballerina is different, why it is different and how those differences give Ballerina an unfair advantage when it comes to writing resilient, performant and secure network services and applications.
 
 
-## Presenters
+## Presenter
 
 <table class="cWebinarPresenter">
     <tr>

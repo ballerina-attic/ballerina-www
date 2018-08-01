@@ -39,7 +39,7 @@ In this session, David and Kasun will discuss the following:
 - Seamless integration of Ballerina and Istio
 
 
-## Presenters
+## Presenter
 
 <table class="cWebinarPresenter">
     <tr>
