@@ -137,6 +137,8 @@ Now you can start the service again and call it by opening a new command line wi
 $ curl http://localhost:9090 -X POST
 ```
 
+> **Tip**: To ensure that you have root access, run the cURL command using `sudo`.
+
 ## Use an Endpoint
 
 Ballerina client endpoint is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. An endpoint can be used to configure parameters related to the network accessible service.
@@ -278,6 +280,8 @@ Now go to the terminal window and send a request containing the text for the twe
 ```bash
 $ curl -d "Ballerina" -X POST localhost:9090
 ```
+
+> **Tip**: To ensure that you have root access, run the cURL command using `sudo`.
 
 You just tweeted using Ballerina!
 
