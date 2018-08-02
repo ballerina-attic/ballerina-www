@@ -1,10 +1,10 @@
 ---
 title: Continuous Delivery for Cloud Native Applications with Kubernetes, Ballerina, and Codefresh
 author:
-date: 15 August 2018
+date: 14 August 2018
 status: Published
 abstract: We will introduce Cloudfresh and how it works with Ballerina to build continuous delivery for cloud native applications.
-socialmediaimage: sm-webinar-codefresh-ballerina.jpg
+socialmediaimage: sm-webinar-codefresh-ballerina-new.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link>
 
@@ -12,7 +12,7 @@ socialmediaimage: sm-webinar-codefresh-ballerina.jpg
 
 <table class="cEventTable">
     <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">August 15, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+        <td class="cEventDateContainer"><span class="cEventDate">August 14, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
         <td class="cEventURL"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank" id="iRegisterNow">Register Now</a></td>
     </tr>
 </table>
