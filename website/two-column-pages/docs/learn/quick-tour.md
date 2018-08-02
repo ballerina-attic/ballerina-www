@@ -137,7 +137,7 @@ Now you can start the service again and call it by opening a new command line wi
 $ curl http://localhost:9090 -X POST
 ```
 
-> **Tip**: You may need root permissions for this so run the cURL command using `sudo`.
+> **Tip**: To ensure that you have root access, run the cURL command using `sudo`.
 
 ## Use an Endpoint
 
@@ -281,7 +281,7 @@ Now go to the terminal window and send a request containing the text for the twe
 $ curl -d "Ballerina" -X POST localhost:9090
 ```
 
-> **Tip**: You may need root permissions for this so run the cURL command using `sudo`.
+> **Tip**: To ensure that you have root access, run the cURL command using `sudo`.
 
 You just tweeted using Ballerina!
 
