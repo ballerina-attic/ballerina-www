@@ -84,23 +84,23 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                         <tr>
                             <td>
                                 <div class="cSessionTitle">
-                                    <a data-toggle="modal" data-target="#Ballerina-Language-Basics">Ballerina Language Basics</a>
+                                    <a data-toggle="modal" data-target="#Ballerina-Language-Basics">Tutorial 1: Ballerina Language Basics</a>
 
                                 </div>
                             </td>
                             <td>
                                 <div class="cSessionTitle">
-                                    <a data-toggle="modal" data-target="#Writing-Services-with-Ballerina">Writing Services with Ballerina</a>
+                                    <a data-toggle="modal" data-target="#Writing-Services-with-Ballerina">Tutorial 2: Writing Services with Ballerina</a>
                                 </div>
                             </td>
                             <td>
                                 <div class="cSessionTitle">
-                                    <a data-toggle="modal" data-target="#Ballerina-Resiliency-and-Security">Ballerina Resiliency and Security</a>
+                                    <a data-toggle="modal" data-target="#Ballerina-Resiliency-and-Security">Tutorial 3: Ballerina Resiliency and Security</a>
                                 </div>
                             </td>
                             <td>
                                 <div class="cSessionTitle">
-                                    <a data-toggle="modal" data-target="#Ballerina-Tooling">Ballerina Tooling</a>
+                                    <a data-toggle="modal" data-target="#Ballerina-Tooling">Tutorial 4: Ballerina Tooling</a>
                                 </div>
                             </td>
                         </tr>
