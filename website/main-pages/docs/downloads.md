@@ -78,7 +78,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <br>
-                    <!--<div id="devPackContainer">
+                    <div id="devPackContainer">
                     <h3 class="release-version">RC <span id="devInfo"></span></h3>
                     <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
                         <div class="devPackages0container">
@@ -91,7 +91,7 @@
                         </div>
                     </div></div>
                     <div class="clearfix"></div>
-                    <br>-->
+                    <br>
                     <div id="nightlyPackContainer">
                     <h3 class="release-version">Nightly <span id="nightlyInfo"></span></h3>
                     <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
