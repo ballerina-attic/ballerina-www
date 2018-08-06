@@ -200,7 +200,7 @@ $(document).ready(function() {
                     url: params
                 },
                 function(response, status) {
-                    $(".cRegForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>You have successfully registered to the Ballerina Day Colombo.<br> A confirmation mail will follow.</span>');
+                    $(".cRegForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>Thank you for submiting your details. <br><br>Due to an overwhelming number of registrants, we have reached our seating capacity for both 11 and 12 August. However, we aim to hold similar events for Ballerina in the future, and we have added your details to our database. <br><br>We will inform you on future events soon.</span>');
                 });
 
             return false;
