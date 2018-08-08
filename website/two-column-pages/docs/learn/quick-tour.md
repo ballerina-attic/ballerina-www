@@ -332,11 +332,12 @@ Compiling source
     hello_service.bal
 
 Generating executable
-    ./target/hello_service.balx
-	@docker 		 - complete 3/3
+    hello_service.balx
+        @docker                  - complete 3/3
 
-	Run following command to start docker container:
-	docker run -d registry.hub.docker.com/helloworld:v1.0
+        Run the following command to start a Docker container:
+        docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
+
 ```
 
 Run the following command to start the Docker container:
@@ -357,7 +358,7 @@ If Docker is running, you will see an output similar to the following.
 
 ```
 REPOSITORY                                      TAG                 IMAGE ID            CREATED              SIZE
-registry.hub.docker.com/helloballerina          v1.0                eb4f9888f72f        About a minute ago   127MB
+registry.hub.docker.com/helloworld              v1.0                eb4f9888f72f        About a minute ago   127MB
 ```
 
 Run the following to get details of the Docker container.
