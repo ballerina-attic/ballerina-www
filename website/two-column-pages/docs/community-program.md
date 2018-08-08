@@ -88,7 +88,7 @@ To check if the installation is done right, run the following command.
 
 This should print the version of Ballerina you have installed.
 
-``` Ballerina 0.980.0 ```
+``` Ballerina 0.981.0 ```
 
 ## Hello World with Ballerina
 
@@ -201,12 +201,8 @@ To start the Composer:
 
 1. In the command line, run
 ``` composer ```
-2. Access the Composer.
-You will be directed to the Composer, with a browser window of your default Web browser being automatically opened by the Composer.
-If this was not automatically done, access the Composer with a browser window using the URL
-[http://localhost:9091](http://localhost:9091)
-3. In the Composer, click **File** and choose **Open Project**.
-4. Navigate to your folder where you ran `ballerina init` to create your first service and open it to view the project in the Composer.
+2. In the Composer, click **File** and choose **Open Project**.
+3. Navigate to your folder where you ran `ballerina init` to create your first service and open it to view the project in the Composer.
 
 ## Create a New Package
 
