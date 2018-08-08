@@ -945,12 +945,12 @@ Second, the fastest way to learn about advanced annotation processing is to revi
 
 Docker:
 
-1. The [Ballerina file defining the annotation](https://github.com/ballerinax/docker/blob/master/src/main/ballerina/ballerinax/docker/annotation.bal).
+1. The [Ballerina file defining the annotation](https://github.com/ballerinax/docker/blob/master/docker-extension/src/main/ballerina/ballerinax/docker/annotation.bal).
 
-2. The [Java code with the builder extension](https://github.com/ballerinax/docker/tree/master/src/main/java/org/ballerinax/docker).
+2. The [Java code with the builder extension](https://github.com/ballerinax/docker/tree/master/docker-extension/src/main/java/org/ballerinax/docker).
 
 Kubernetes
 
-1. The [Ballerina file defining the annotation](https://github.com/ballerinax/kubernetes/blob/master/src/main/ballerina/ballerinax/kubernetes/annotation.bal).
+1. The [Ballerina file defining the annotation](https://github.com/ballerinax/kubernetes/blob/master/kubernetes-extension/src/main/ballerina/ballerinax/kubernetes/annotation.bal).
 
-2. The [Java code with the builder extension](https://github.com/ballerinax/kubernetes/tree/master/src/main/java/org/ballerinax/kubernetes).
+2. The [Java code with the builder extension](https://github.com/ballerinax/kubernetes/tree/master/kubernetes-extension/src/main/java/org/ballerinax/kubernetes).
