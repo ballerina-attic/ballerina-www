@@ -2742,7 +2742,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> setContentDisposition(mime:0.0.0:ContentDisposition contentDisposition) 
+                                                   </span> setContentDisposition(mime:ContentDisposition contentDisposition) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2760,7 +2760,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">contentDisposition</td>
-                                                                    <td class="cAPI-table-type"><a href="mime.html#ContentDisposition">mime:0.0.0:ContentDisposition</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mime.html#ContentDisposition">mime:ContentDisposition</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Content disposition that needs to be set to entity</p>
 </td>
@@ -2809,7 +2809,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> setBody(string|xml|json|byte[]|io:ByteChannel|mime:0.0.0:Entity[] entityBody) 
+                                                   </span> setBody(string|xml|json|byte[]|io:ByteChannel|mime:Entity[] entityBody) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2827,7 +2827,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">entityBody</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a>|<a href="mime.html#Entity">mime:0.0.0:Entity[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Entity body can be of type <code>string</code>,<code>xml</code>,<code>json</code>,<code>byte[]</code>,<code>io:ByteChannel</code> or <code>Entity[]</code></p>
 </td>
@@ -3385,7 +3385,7 @@ returned in case of errors.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> setBodyParts(mime:0.0.0:Entity[] bodyParts, string contentType) 
+                                                   </span> setBodyParts(mime:Entity[] bodyParts, string contentType) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3405,7 +3405,7 @@ by passing the content type as an optional parameter.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">bodyParts</td>
-                                                                    <td class="cAPI-table-type"><a href="mime.html#Entity">mime:0.0.0:Entity[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mime.html#Entity">mime:Entity[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Represents the body parts that needs to be set to the entity</p>
 </td>
@@ -5106,9 +5106,6 @@ with the given header value.</p>
         });
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
-
-<!-- 0.980.0 -->
-
 </body>
 </html>
 
