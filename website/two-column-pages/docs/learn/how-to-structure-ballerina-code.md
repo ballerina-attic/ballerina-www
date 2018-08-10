@@ -187,19 +187,14 @@ The folders `.ballerina/`, `tests/`, and `resources/` are reserved folder names 
     [tests/]           # Package-specific unit and integration tests
     [resources/]       # Package-specific resources
     
-  packages.can.include.dots.in.dir.name/
+  packages.can.include.dots.inthe.dir.name/
     Package.md
     *.bal
     [tests/]         
     [resources/]     
 
-  [tests/]             # Tests executed for every package in the project
-  [resources/]         # Resources included with every package in the project
-
   target/              # Compiled binaries and other artifacts end up here
       main.balx
-      package1.balo
-      packages.can.include.dots.in.dir.name.bal
 ```
 
 Any source files located in the project root are assumed to be part of the unnamed package. They are each assumed to be entry points and compiled into `target/<file-name>.balx`. This structure is to simplify new development, but not recommended for large projects. Large projects should place the entrypoint or entry service into a named package.
