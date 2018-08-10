@@ -2255,7 +2255,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openCsvFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, w|a|r|rw mode, :|	|, fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, a|w|rw|r mode, :|	|, fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2281,7 +2281,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">mode</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Mode">w</a>|a|r|r<a href="io.html#Mode">w</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Mode">a</a>|w|rw|r</td>
                                                         <td class="cAPI-table-default">r</td>
                                                         <td class="cAPI-table-desc"><p>Permission which should be used to open CSV file</p>
 </td>
@@ -2348,7 +2348,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, w|a|r|rw accessMode) returns (ByteChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, a|w|rw|r accessMode) returns (ByteChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2374,7 +2374,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">accessMode</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Mode">w</a>|a|r|r<a href="io.html#Mode">w</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Mode">a</a>|w|rw|r</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Permission to open the file</p>
 </td>
@@ -2417,7 +2417,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openSecureSocket">
-                                                    <span class="fw-function sm-icon"> </span> public function openSecureSocket(string host, int port, io:0.0.0:SocketProperties options) returns (Socket | error) 
+                                                    <span class="fw-function sm-icon"> </span> public function openSecureSocket(string host, int port, io:SocketProperties options) returns (Socket | error) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2451,7 +2451,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">options</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#SocketProperties">io:0.0.0:SocketProperties</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#SocketProperties">io:SocketProperties</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Mata data to initialize the connection(i.e security information)</p>
 </td>
@@ -2976,7 +2976,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CSVChannel&gt;
-                                                   </span> new(io:0.0.0:CharacterChannel channel, :|	|, fs, int nHeaders) 
+                                                   </span> new(io:CharacterChannel channel, :|	|, fs, int nHeaders) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2994,7 +2994,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">channel</td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#CharacterChannel">io:0.0.0:CharacterChannel</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#CharacterChannel">io:CharacterChannel</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>ChracterChannel which will represent the content in the CSV</p>
 </td>
@@ -3261,7 +3261,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CharacterChannel&gt;
-                                                   </span> new(io:0.0.0:ByteChannel channel, string charset) 
+                                                   </span> new(io:ByteChannel channel, string charset) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3279,7 +3279,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">channel</td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">io:0.0.0:ByteChannel</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">io:ByteChannel</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>ByteChannel which would be used to read/write characters</p>
 </td>
@@ -3649,7 +3649,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;DataChannel&gt;
-                                                   </span> new(io:0.0.0:ByteChannel byteChannel, BE bOrder) 
+                                                   </span> new(io:ByteChannel byteChannel, BE bOrder) 
                                                             </h2>
                                                              
                                                             <table>
@@ -3662,7 +3662,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">byteChannel</td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">io:0.0.0:ByteChannel</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">io:ByteChannel</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4469,7 +4469,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;DelimitedTextRecordChannel&gt;
-                                                   </span> new(io:0.0.0:CharacterChannel channel, string fs, string rs, string fmt) 
+                                                   </span> new(io:CharacterChannel channel, string fs, string rs, string fmt) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4487,7 +4487,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">channel</td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#CharacterChannel">io:0.0.0:CharacterChannel</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#CharacterChannel">io:CharacterChannel</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>CharacterChannel which will point to the input/output resource</p>
 </td>
@@ -4867,7 +4867,7 @@ time.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">channel</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#ByteChannel">io:0.0.0:ByteChannel</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#ByteChannel">io:ByteChannel</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>ByteChannel which will represent the socket connection</p>
 </td>
@@ -4877,7 +4877,8 @@ time.</p>
                                                         <td class="cAPI-table-name">remotePort</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Remote server connection port</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -4892,7 +4893,8 @@ time.</p>
                                                         <td class="cAPI-table-name">remoteAddress</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>IP/Host of the remote server</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -6372,9 +6374,6 @@ time.</p>
         });
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
-
-<!-- 0.980.0 -->
-
 </body>
 </html>
 

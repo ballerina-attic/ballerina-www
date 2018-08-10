@@ -368,6 +368,28 @@
                                         </li>
                                         
                                         
+                                        <li>
+                                            <a href="#TypeDefinitions">
+                                                <div class="construct-icon">
+                                                    <span class="fw-type"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Type Definitions
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        <li>
+                                            <a href="#GlobalVariables">
+                                                <div class="construct-icon">
+                                                    <span class="fw-globe"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Global Variables
+                                                </div>
+                                            </a>
+                                        </li>
                                         
                                         
                                         <li>
@@ -383,6 +405,18 @@
                                         
 
                                         
+                                          
+                                        <li>
+                                            <a href="#ExtensionConfig">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    ExtensionConfig
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
                                           
                                         <li>
                                             <a href="#HubClientEndpointConfig">
@@ -469,12 +503,12 @@
                                             
                                           
                                         <li>
-                                            <a href="#startUpBallerinaHub">
+                                            <a href="#startHub">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    startUpBallerinaHub
+                                                    startHub
                                                 </div>
                                             </a>
                                         </li>
@@ -1083,7 +1117,14 @@
                                             </li>
                                         </ul>
                                             
+                                           
+                                           
                                              
+                                         
+                                         
+                                         
+                                         
+                                         
                                     </ul>
                                 </div>
                                 
@@ -1270,7 +1311,7 @@ import ballerina/websub;
 function main(string... args) {
 
     log:printInfo(&quot;Starting up the Ballerina Hub Service&quot;);
-    websub:WebSubHub webSubHub = websub:startUpBallerinaHub(port = 9191) but {
+    websub:WebSubHub webSubHub = websub:startHub(9191) but {
         websub:HubStartedUpError hubStartedUpErr =&gt; hubStartedUpErr.startedUpHub
     };
 
@@ -1403,6 +1444,16 @@ where the values specified via the Config API would override values specified as
                                              
                                                  
                                                      <tr>
+                                                         <td class="cSummary-table-name"><a href="#ExtensionConfig">ExtensionConfig</a></td>
+                                                         <td class="cSummary-table-desc">
+    The extension configuration to introduce custom subscriber services.
+
+    </td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#HubClientEndpointConfig">HubClientEndpointConfig</a></td>
                                                          <td class="cSummary-table-desc">
     Record representing the configuration parameters for the WebSub Hub Client Endpoint.
@@ -1481,6 +1532,20 @@ where the values specified via the Config API would override values specified as
                                              
                                                  
                                              
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
                                          </table>
                                          
                                         <!-- objects -->
@@ -1492,6 +1557,8 @@ where the values specified via the Config API would override values specified as
                                               
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
+                                             
+                                                 
                                              
                                                  
                                              
@@ -1561,6 +1628,20 @@ Notification requests to a Hub.</p>
                                              
                                                  
                                              
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
                                          </table>
                                          
                                          <!-- endpoints -->
@@ -1571,6 +1652,8 @@ Notification requests to a Hub.</p>
                                                  <th class="cSummary-table-name">Endpoint</th>
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
+                                             
+                                                 
                                              
                                                  
                                              
@@ -1616,6 +1699,20 @@ Notification requests to a Hub.</p>
                                              
                                                  
                                              
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
                                          </table>
                                          
                                          <!-- functions -->
@@ -1642,6 +1739,8 @@ Notification requests to a Hub.</p>
                                                  
                                              
                                                  
+                                             
+                                                 
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#addWebSubLinkHeader">addWebSubLinkHeader</a></td>
                                                         <td class="cSummary-table-desc"><p>Function to add link headers to a response to allow WebSub discovery.</p>
@@ -1651,10 +1750,24 @@ Notification requests to a Hub.</p>
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#startUpBallerinaHub">startUpBallerinaHub</a></td>
+                                                         <td class="cSummary-table-name"><a href="#startHub">startHub</a></td>
                                                         <td class="cSummary-table-desc"><p>Starts up the Ballerina Hub.</p>
 </td>
                                                      </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
                                                  
                                              
                                                  
@@ -1677,7 +1790,127 @@ Notification requests to a Hub.</p>
                                          
                                          <!-- Type Definitions-->
                                          
+                                        <h3 id="TypeDefinitions">Type Definitions</h3>
+                                        <table class="cSummary-Table c3Col-Narrow">
+                                            <tr>
+                                                <th class="cSummary-table-name">Type</th>
+                                                <th class="cSummary-table-type">Values</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">RemotePublishMode</td>
+                                                <td class="cSummary-table-type">PUBLISH_MODE_FETCH | PUBLISH_MODE_DIRECT</td>
+                                                <td class="cSummary-table-desc"><p>The identifier to be used to identify the mode in which update content should be identified.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TopicIdentifier</td>
+                                                <td class="cSummary-table-type">TOPIC_ID_PAYLOAD_KEY | TOPIC_ID_HEADER_AND_PAYLOAD | TOPIC_ID_HEADER</td>
+                                                <td class="cSummary-table-desc"><p>The identifier to be used to identify the topic for dispatching with custom subscriber services.</p>
+</td>
+                                            </tr>
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                        </table>
+                                        
                                         <!-- Global Variables-->
+                                        
+                                        <h3 id="GlobalVariables">Global Variables</h3>
+                                        <table class="cSummary-Table c3Col-Narrow">
+                                            <tr>
+                                                <th class="cSummary-table-name">Name</th>
+                                                <th class="cSummary-table-type">Data Type</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">PUBLISH_MODE_DIRECT</td>
+                                                <td class="cSummary-table-type"><a href="websub.html#RemotePublishMode">RemotePublishMode</a></td>
+                                                <td class="cSummary-table-desc"><p><code>RemotePublishMode</code> indicating direct update content notification (fat-ping). The payload of the update
+notification request from the publisher to the hub would include be the update content.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">PUBLISH_MODE_FETCH</td>
+                                                <td class="cSummary-table-type"><a href="websub.html#RemotePublishMode">RemotePublishMode</a></td>
+                                                <td class="cSummary-table-desc"><p><code>RemotePublishMode</code> indicating that once the publisher notifies the hub that an update is available, the hub
+needs to fetch the topic URL to identify the update content.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TOPIC_ID_HEADER</td>
+                                                <td class="cSummary-table-type"><a href="websub.html#TopicIdentifier">TopicIdentifier</a></td>
+                                                <td class="cSummary-table-desc"><p><code>TopicIdentifier</code> indicating dispatching based solely on a header of the request.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TOPIC_ID_HEADER_AND_PAYLOAD</td>
+                                                <td class="cSummary-table-type"><a href="websub.html#TopicIdentifier">TopicIdentifier</a></td>
+                                                <td class="cSummary-table-desc"><p><code>TopicIdentifier</code> indicating dispatching based on a combination of header and values specified for a key/key(s) in
+the JSON payload of the request.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TOPIC_ID_PAYLOAD_KEY</td>
+                                                <td class="cSummary-table-type"><a href="websub.html#TopicIdentifier">TopicIdentifier</a></td>
+                                                <td class="cSummary-table-desc"><p><code>TopicIdentifier</code> indicating dispatching based solely on a value for a key in the JSON payload of the request.</p>
+</td>
+                                            </tr>
+                                              
+                                        </table>
                                         
                                          <!-- Annotations -->
                                         
@@ -1705,6 +1938,9 @@ Notification requests to a Hub.</p>
                                               
                                               
                                               
+                                              
+                                              
+                                              
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">SubscriberServiceConfig</td>
@@ -1714,12 +1950,94 @@ Notification requests to a Hub.</p>
 </td>
                                             </tr>
                                               
+                                              
+                                              
+                                              
+                                              
+                                              
                                         </table>
                                         
                                      </div>
                                       
                                       <div class="cConstructsWraperContainer"> 
                                             
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="ExtensionConfig">
+                                                    <span class="fw-record sm-icon"></span> public type ExtensionConfig
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>
+    The extension configuration to introduce custom subscriber services.
+
+    
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">topicIdentifier</td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#TopicIdentifier">TOPIC_ID_PAYLOAD_KEY|TOPIC_ID_HEADER_AND_PAYLOAD|TOPIC_ID_HEADER</a></td>
+                                                        <td class="cAPI-table-default">TOPIC_ID_HEADER</td>
+                                                        <td class="cAPI-table-desc"><p>The identifier based on which dispatching should happen for custom subscriber
+services</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">topicHeader</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The header to consider if required with dispatching for custom services</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">headerResourceMap</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;(string,typedesc)&gt;?</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The mapping between header value and resource details</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">payloadKeyResourceMap</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;map&lt;(string,typedesc)&gt;&gt;?</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The mapping between value for a particular JSON payload key and resource details</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">headerAndPayloadKeyResourceMap</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;map&lt;map&lt;(string,typedesc)&gt;&gt;&gt;?</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The mapping between values for the header and a particular JSON payload key and resource details</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
                                                 
@@ -1835,7 +2153,7 @@ Notification requests to a Hub.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">startedUpHub</td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#WebSubHub">websub:0.0.0:WebSubHub</a></td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#WebSubHub">websub:WebSubHub</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The <code>WebSubHub</code> object representing the started up Hub</p>
 </td>
@@ -1879,7 +2197,7 @@ Notification requests to a Hub.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">endpoints</td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#Listener">websub:0.0.0:Listener[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#Listener">websub:Listener[]</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Array of endpoints the service would be attached to</p>
 </td>
@@ -2036,34 +2354,10 @@ to redirected hubs/topics</p>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">topicIdentifier</td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#TopicIdentifier">TOPIC_ID_HEADER|TOPIC_ID_PAYLOAD_KEY|TOPIC_ID_HEADER_AND_PAYLOAD?</a></td>
+                                                        <td class="cAPI-table-name">extensionConfig</td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#ExtensionConfig">websub:ExtensionConfig?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The identifier based on which dispatching should happen for custom subscriber services</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">topicHeader</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The header to consider if required with dispatching for custom services</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">topicPayloadKeys</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]?</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The payload keys to consider if required with dispatching for custom services</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">topicResourceMap</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;map&lt;string&gt;&gt;?</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The mapping between topics and resources if required for custom services</p>
+                                                        <td class="cAPI-table-desc"><p>The extension configuration to introduce custom subscriber services (webhooks)</p>
 </td>
                                                     </tr>
                                                     
@@ -2207,7 +2501,7 @@ to redirected hubs/topics</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="addWebSubLinkHeader">
-                                                    <span class="fw-function sm-icon"> </span> public function addWebSubLinkHeader(http:Response response, string[] hubs, string topic) returns (Response) 
+                                                    <span class="fw-function sm-icon"> </span> public function addWebSubLinkHeader(http:Response response, string[] hubs, string topic) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2248,26 +2542,7 @@ to redirected hubs/topics</p>
                                                     </tr>
                                                     
                                                 </table>
-                                                 
-                                                <div class="cReturnTableHeader"></div>
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name"></th>
-                                                        <th class="cAPI-table-type">Return Type</th>
-                                                        <th class="cAPI-table-default"></th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="http.html#Response">Response</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p><code>http:Response</code> Response with the link header added</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
+                                                  
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -2283,8 +2558,8 @@ to redirected hubs/topics</p>
                                                 
                                                 <!-- Function -->
                                                 
-                                                <h2 id="startUpBallerinaHub">
-                                                    <span class="fw-function sm-icon"> </span> public function startUpBallerinaHub(int? port, int? leaseSeconds, string? signatureMethod, boolean? remotePublishingEnabled, string? remotePublishingMode, boolean? topicRegistrationRequired, string? publicUrl, boolean? sslEnabled, http:ServiceSecureSocket? serviceSecureSocket, http:SecureSocket? clientSecureSocket) returns (WebSubHub | HubStartedUpError) 
+                                                <h2 id="startHub">
+                                                    <span class="fw-function sm-icon"> </span> public function startHub(int port, int? leaseSeconds, string? signatureMethod, boolean? remotePublishingEnabled, PUBLISH_MODE_FETCH|PUBLISH_MODE_DIRECT? remotePublishMode, boolean? topicRegistrationRequired, string? publicUrl, boolean? sslEnabled, http:ServiceSecureSocket? serviceSecureSocket, http:SecureSocket? clientSecureSocket) returns (WebSubHub | HubStartedUpError) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2302,8 +2577,8 @@ to redirected hubs/topics</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">port</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The port to start up the hub on</p>
 </td>
                                                     </tr>
@@ -2333,8 +2608,8 @@ to redirected hubs/topics</p>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">remotePublishingMode</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                        <td class="cAPI-table-name">remotePublishMode</td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#RemotePublishMode">PUBLISH_MODE_FETCH</a>|PUBLISH_MODE_DIRECT?</td>
                                                         <td class="cAPI-table-default">null</td>
                                                         <td class="cAPI-table-desc"><p>If remote publishing is allowed, the mode to use, <code>direct</code> (default) - fat ping with
 the notification payload specified or <code>fetch</code> - the hub fetches the topic URL
@@ -2467,7 +2742,7 @@ Notification requests to a Hub.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerActions&gt;
-                                                   </span> subscribe(websub:0.0.0:SubscriptionChangeRequest subscriptionRequest) returns (SubscriptionChangeResponse | error) 
+                                                   </span> subscribe(websub:SubscriptionChangeRequest subscriptionRequest) returns (SubscriptionChangeResponse | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2485,7 +2760,7 @@ Notification requests to a Hub.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">subscriptionRequest</td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeRequest">websub:0.0.0:SubscriptionChangeRequest</a></td>
+                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeRequest">websub:SubscriptionChangeRequest</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The <code>SubscriptionChangeRequest</code> containing subscription details</p>
 </td>
@@ -2520,7 +2795,7 @@ Notification requests to a Hub.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerActions&gt;
-                                                   </span> unsubscribe(websub:0.0.0:SubscriptionChangeRequest unsubscriptionRequest) returns (SubscriptionChangeResponse | error) 
+                                                   </span> unsubscribe(websub:SubscriptionChangeRequest unsubscriptionRequest) returns (SubscriptionChangeResponse | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2538,7 +2813,7 @@ Notification requests to a Hub.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">unsubscriptionRequest</td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeRequest">websub:0.0.0:SubscriptionChangeRequest</a></td>
+                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeRequest">websub:SubscriptionChangeRequest</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The <code>SubscriptionChangeRequest</code> containing unsubscription details</p>
 </td>
@@ -3942,7 +4217,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">config</td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#HubClientEndpointConfig">websub:0.0.0:HubClientEndpointConfig</a></td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#HubClientEndpointConfig">websub:HubClientEndpointConfig</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The configuration for the endpoint</p>
 </td>
@@ -3958,7 +4233,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> subscribe(websub:0.0.0:SubscriptionChangeRequest subscriptionRequest) returns (websub:0.0.0:SubscriptionChangeResponse|error) 
+                                                   </span> subscribe(websub:SubscriptionChangeRequest subscriptionRequest) returns (websub:SubscriptionChangeResponse|error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3978,7 +4253,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">subscriptionRequest</td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeRequest">websub:0.0.0:SubscriptionChangeRequest</a></td>
+                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeRequest">websub:SubscriptionChangeRequest</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -3996,7 +4271,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeResponse">websub:0.0.0:SubscriptionChangeResponse</a>|<a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeResponse">websub:SubscriptionChangeResponse</a>|<a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4010,7 +4285,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> unsubscribe(websub:0.0.0:SubscriptionChangeRequest unsubscriptionRequest) returns (websub:0.0.0:SubscriptionChangeResponse|error) 
+                                                   </span> unsubscribe(websub:SubscriptionChangeRequest unsubscriptionRequest) returns (websub:SubscriptionChangeResponse|error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4030,7 +4305,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">unsubscriptionRequest</td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeRequest">websub:0.0.0:SubscriptionChangeRequest</a></td>
+                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeRequest">websub:SubscriptionChangeRequest</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4048,7 +4323,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeResponse">websub:0.0.0:SubscriptionChangeResponse</a>|<a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeResponse">websub:SubscriptionChangeResponse</a>|<a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4360,7 +4635,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">config</td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#SubscriberServiceEndpointConfiguration">websub:0.0.0:SubscriberServiceEndpointConfiguration</a></td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#SubscriberServiceEndpointConfiguration">websub:SubscriberServiceEndpointConfiguration</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The configuration for the endpoint</p>
 </td>
@@ -4685,7 +4960,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Listener&gt;
-                                                   </span> redirect(http:Response response, 308|300|303|302|307|305|304|301 code, string[] locations) returns (error?) 
+                                                   </span> redirect(http:Response response, 303|300|307|305|302|308|301|304 code, string[] locations) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4712,7 +4987,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">code</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#RedirectCode">308</a>|300|303|302|307|305|304|301</td>
+                                                                    <td class="cAPI-table-type"><a href="http.html#RedirectCode">303</a>|300|307|305|302|308|301|304</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4749,6 +5024,111 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                     </ul>
                                                 </div>
                                                  
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
                                                 <!-- Records -->
                                                 
                                                 <!-- Objects and its functions -->
@@ -5563,9 +5943,6 @@ construction which makes this different from <code>getTextPayload()</code> funct
         });
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
-
-<!-- 0.980.0 -->
-
 </body>
 </html>
 

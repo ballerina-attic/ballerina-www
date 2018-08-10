@@ -1250,7 +1250,7 @@ during the usage.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">summary</td>
-                                                        <td class="cAPI-table-type"><a href="observe.html#Snapshot">observe:0.0.0:Snapshot[]?</a></td>
+                                                        <td class="cAPI-table-type"><a href="observe.html#Snapshot">observe:Snapshot[]?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>If the metric is configured with statistics config, then the calculated statistics of the metric.</p>
 </td>
@@ -1386,7 +1386,7 @@ during the usage.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">percentileValues</td>
-                                                        <td class="cAPI-table-type"><a href="observe.html#PercentileValue">observe:0.0.0:PercentileValue[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="observe.html#PercentileValue">observe:PercentileValue[]</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The percentiles values calculated wihtin the time window.</p>
 </td>
@@ -2152,7 +2152,7 @@ during the usage.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">statisticConfigs</td>
-                                                        <td class="cAPI-table-type"><a href="observe.html#StatisticConfig">observe:0.0.0:StatisticConfig[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="observe.html#StatisticConfig">observe:StatisticConfig[]</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Array of StatisticConfig objects which defines about the statistical calculation
 of the gauge during its usage.</p>
@@ -2169,7 +2169,7 @@ of the gauge during its usage.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Gauge&gt;
-                                                   </span> new(string name, string? desc, map&lt;string&gt;? tags, observe:0.0.0:StatisticConfig[]? statisticConfig) 
+                                                   </span> new(string name, string? desc, map&lt;string&gt;? tags, observe:StatisticConfig[]? statisticConfig) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2209,7 +2209,7 @@ are optional and have its own default values when no params are passed.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">statisticConfig</td>
-                                                                    <td class="cAPI-table-type"><a href="observe.html#StatisticConfig">observe:0.0.0:StatisticConfig[]?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="observe.html#StatisticConfig">observe:StatisticConfig[]?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -3236,9 +3236,6 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
         });
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
-
-<!-- 0.980.0 -->
-
 </body>
 </html>
 

@@ -708,7 +708,13 @@
                                             <div class="cAPIdocsDescription">
                                                 <h2>Package overview</h2>
 <p>The <code>ballerina/time</code> package provides implementations related to time, date, time zones, and durations.</p>
-<p>The package has two main types as <a href="time.html#Time">Time</a> and <a href="time.html#Timezone">Timezone</a>. The type <code>Time</code> represents a time associated with a given time zone. It has <code>time</code> and <code>zone</code> as attributes. The type <code>Timezone</code> represents the time zone associated with a given time. It has <code>zoneId</code> and <code>zoneOffset</code> as attributes.</p>
+<p>The package has two main types as <a href="time.html#Time">Time</a> and <a href="time.html#Timezone">Timezone</a>. The type <code>Time</code> represents a time associated with a given time zone. It has <code>time</code> and <code>zone</code> as attributes. The type <code>Timezone</code> represents the time zone associated with a given time. It has <code>zoneId</code> and <code>zoneOffset</code> as attributes. A <code>zoneId</code> can be one of the following:</p>
+<ul>
+<li>If <code>zoneId</code> equals 'Z', the result is UTC.</li>
+<li>If <code>zoneId</code> equals 'GMT', 'UTC' or 'UT', it is equivalent to UTC.</li>
+<li>If <code>zoneId</code> starts with '+' or '-', the ID is parsed as an offset. Offset can be specified in one of the following ways. +h, +hh, +hh:mm, -hh:mm, +hhmm, -hhmm, +hh:mm:ss, -hh:mm:ss, +hhmmss, -hhmmss</li>
+<li>Also <code>zoneId</code> can be a region-based zone ID. The format is '{area}/{city}' eg: &quot;America/Panama&quot;. The zones are based on IANA Time Zone Database (TZDB) supplied data.</li>
+</ul>
 <h2>Samples</h2>
 <h3>Getting the current time/date</h3>
 <pre><code class="language-ballerina">time:Time time = time:currentTime(); // Create an object of type ‘Time’.
@@ -1330,7 +1336,7 @@ int diffInMillis = time1.time - time2.time;
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">zone</td>
-                                                        <td class="cAPI-table-type"><a href="time.html#Timezone">time:0.0.0:Timezone</a></td>
+                                                        <td class="cAPI-table-type"><a href="time.html#Timezone">time:Timezone</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The time zone of the time</p>
 </td>
@@ -1346,7 +1352,7 @@ int diffInMillis = time1.time - time2.time;
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Time&gt;
-                                                   </span> new(int time, time:0.0.0:Timezone zone) 
+                                                   </span> new(int time, time:Timezone zone) 
                                                             </h2>
                                                              
                                                             <table>
@@ -1366,7 +1372,7 @@ int diffInMillis = time1.time - time2.time;
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">zone</td>
-                                                                    <td class="cAPI-table-type"><a href="time.html#Timezone">time:0.0.0:Timezone</a></td>
+                                                                    <td class="cAPI-table-type"><a href="time.html#Timezone">time:Timezone</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -2881,9 +2887,6 @@ int diffInMillis = time1.time - time2.time;
         });
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
-
-<!-- 0.980.0 -->
-
 </body>
 </html>
 
