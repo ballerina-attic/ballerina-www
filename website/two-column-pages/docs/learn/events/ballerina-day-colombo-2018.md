@@ -17,7 +17,9 @@ socialmediaimage: sm-ballerina-day.jpg
             <span class="cLocation" style="border:none;">Galle Face Hotel - Grand Ballroom, Colombo 3, Sri Lanka</span>
             <p style="color:#20b6b0;">Due to an overwhelming number of registrants, we have reached our seating capacity for both 11 and 12 August. However, do fill in your contact details, as we aim to hold similar events for Ballerina in the future.</p>
         </td>
-        <td class="cEventURL" style="border:none;"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank">Register Now</a></td>
+        <td class="cEventURL" style="border:none;">
+        <!-- <a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank">Register Now</a> -->
+        </td>
     </tr>
 </table>
 <!--
@@ -88,7 +90,7 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
 
                     <table class="cUnconference">
                         <tr>
-                          
+
                             <td>
                                 <div class="cSessionTitle">
                                     <a data-toggle="modal" data-target="#Writing-Services-with-Ballerina">Tutorial 2: Writing Services with Ballerina</a>

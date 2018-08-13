@@ -12,7 +12,9 @@
     <p>This is an event by programmers, for programmers. Come ready to learn some computer science concepts, learn the philosophy behind the language and get your hands dirty with actual code you write and take home.</p>
     </a>
     </td>
-    <td class="cEventURL"  style="border:none;"><a class="cEventRegistration" href="/learn/events/ballerina-day-colombo-2018/">Register Now</a></td>
+    <td class="cEventURL"  style="border:none;">
+    <!-- <a class="cEventRegistration" href="/learn/events/ballerina-day-colombo-2018/">Register Now</a> -->
+    </td>
 </tr>
 </table>
 
