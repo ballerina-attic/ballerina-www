@@ -69,25 +69,26 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
             </td>
         </tr>
         <tr>
-            <td class="cTime">10:00–10:15</td>
+            <td class="cTime">10:00–10:30</td>
+            <td class="cSession">
+            <a data-toggle="modal" data-target="#Ballerina-Language-Basics">Tutorial 1: Ballerina Language Basics</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="cTime">10:00–11:00</td>
             <td class="cSession cBreak">
                 Break
             </td>
         </tr>
         <tr>
-            <td class="cTime">10:15–12:30</td>
+            <td class="cTime">11:00–12:30</td>
             <td class="cSession">
                 <div class="cSession">
                     Ballerina Basics Tutorials
 
                     <table class="cUnconference">
                         <tr>
-                            <td>
-                                <div class="cSessionTitle">
-                                    <a data-toggle="modal" data-target="#Ballerina-Language-Basics">Tutorial 1: Ballerina Language Basics</a>
-
-                                </div>
-                            </td>
+                          
                             <td>
                                 <div class="cSessionTitle">
                                     <a data-toggle="modal" data-target="#Writing-Services-with-Ballerina">Tutorial 2: Writing Services with Ballerina</a>
