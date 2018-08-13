@@ -8,6 +8,8 @@ $(document).ready(function() {
     // Getting latest release information
     $.getJSON(latest_versions_json, function(latest_pack) {
 
+      /*
+
         var version = latest_pack['version'];
         var version_pack = version.replace(/ /g, "-").toLowerCase();
         var released_date = latest_pack['release-date'];
@@ -104,6 +106,7 @@ $(document).ready(function() {
             var row_id = 1;
         }
         $("#insPackages" + row_id).append(release_content);
+        */
     });
 
     //Nightly Packages
