@@ -91,7 +91,7 @@ Av. Angélica, 2529 - 10° andar · São Paulo, Brazil</p>
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://qconnewyork.com/ny2018/presentation/ballerina-cloud-native-programming-language" target="_blank">More Info</a></td>
     </tr> -->
-    <tr>
+    <!-- <tr>
         <td class="cEventDateContainer"><span class="cEventDate">August 1, 2018</span>
         <p class="cEventLocation">New York Marriott Marquis</p>
         </td>
@@ -99,7 +99,7 @@ Av. Angélica, 2529 - 10° andar · São Paulo, Brazil</p>
         <p>Speaker: Tyler Jewell </p>
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.javasig.com/" target="_blank">More Info</a></td>
-    </tr>
+    </tr> -->
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">September 9 - 14, 2018</span>
         <p class="cEventLocation">Sydney, Australia</p>
