@@ -15,37 +15,16 @@ socialmediaimage: sm-ballerina-day.jpg
         <td class="cEventDateContainer" style="border:none;">
             <span class="cEventDate" style="border:none;">August 11 and 12, 2018</span>
             <span class="cLocation" style="border:none;">Galle Face Hotel - Grand Ballroom, Colombo 3, Sri Lanka</span>
-            <p style="color:#20b6b0;">Due to an overwhelming number of registrants, we have reached our seating capacity for both 11 and 12 August. However, do fill in your contact details, as we aim to hold similar events for Ballerina in the future.</p>
+            <!-- <p style="color:#20b6b0;">Due to an overwhelming number of registrants, we have reached our seating capacity for both 11 and 12 August. However, do fill in your contact details, as we aim to hold similar events for Ballerina in the future.</p> -->
         </td>
         <td class="cEventURL" style="border:none;">
-        <!-- <a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank">Register Now</a> -->
+        <!-- <a class="cEventRegistration cSmallButton" data-toggle="modal" data-target="#webinar_registration" target="_blank">Register Now</a> -->
         </td>
     </tr>
 </table>
-<!--
-Ballerina is a new programming language created by WSO2 to be the leading enterprise application programming language of the future.
 
-It’s a concurrent, transactional, statically typed language, which provides all the functionality expected of a modern, general purpose programming language, but is designed specifically for integration — it brings fundamental concepts, ideas and tools of distributed system integration into the language with direct support for providing and consuming network services, distributed transactions, reliable messaging, stream processing, security, and workflows.
+The day kicked off with an introduction to Ballerina and its concepts. Afterwards, attendees spent some time writing an interesting application using the language. While the presenters had some ideas lined up, registrants were welcome to work on their own ideas as well.
 
-It is intended to be a pragmatic language suitable for mass-market commercial adoption so it will feel familiar to programmers who are used to popular, modern C-family languages, notably Java, C# and JavaScript.
-
-## About the Event -->
-
-Ballerina is still a baby! Come to this event to get an early start with Ballerina - learn about it from the creators, hack some code, and love it (or hate it)!
-
-We will kick off the day with an introduction to Ballerina and its concepts. Then you’ll get to spend some time writing an interesting application using Ballerina. We’ll have some ideas lined up for you, but you’re welcome to work on your own ideas as well!
-
-This is an event by programmers, for programmers. Come ready to learn some computer science concepts, learn the philosophy behind the language and get your hands dirty with actual code you write and take home.
-
-What do we get out of it? Ballerina is still in the oven. We want to hear from you during the day (and after) about what you liked about the language, what you didn't like, and what you think needs to be better, so that we can make sure it comes out tasting just right and ready to take over the world!
-
-
-### Prerequisites:
-
-- You must be a programmer with knowledge of several languages (hopefully some combination of Java, C++, C#, Node.JS, Javascript, Python, PHP, Go, or Rust) and a student of languages.
-- You must be passionate about writing code - this is not a powerpoint meeting nor one for project managers.
-- Students are welcome, but coding passion and fundamental computer science knowledge will be assumed. Bring your laptop with VSCode installed (learn it a bit before you come!)
-- We will give you the hot-off-the-press, latest and greatest distribution of Ballerina at the event; no prior experience with Ballerina will be expected or assumed.
 
 
 ## Agenda
@@ -270,6 +249,8 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                     <li>Websocket support in Ballerina</li>
                     <li>Webhook based event notifications</li>
                 </ul>
+<div class="clearfix"></div>
+<a class="cEventRegistration cSmallButton" target="_blank" href="https://www.slideshare.net/ballerinaslides/writing-services-in-ballerinaballerina-day-cmb-2018">Download Slides </a>
 
             </div>
         </div>
@@ -281,35 +262,42 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
         <div class="modal-content">
             <div class="col-xs-12 col-sm-12 com-md-12 col-lg-12 cSessions">
                 <img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/>
-                <h1>Writing Services with Ballerina</h1>
+                <h1>Ballerina Resiliency and Security</h1>
                 <h2>Abstract:</h2>
                 <p>Resilience is the ability to recover to a working condition after being affected by a serious incident. Integration programmers have to be aware of such failures and also make their programs robust ro deal with and recover from such failures. In this session, we will look at how Ballerina helps integration developers to write resilient programs and how it helps eliminate or reduce failures due to oversight. Also we will demonstrate core resiliency techniques, such as timeout, retry, circuit breaker, distributed transactions. </p>
                 <p>Security has become a top priority in cloud native, integration, and microservices programing.     In this session, we will look at how to secure microservices and how Ballerina helps developers to write secure programs by providing inherent protection against threats. This will will also include details on the Ballerina compiler's security awareness features and how it prevents mistakes that could result in major security breaches.</p>
 
                <h2>Key Areas:</h2>
                <ul class="cKeyAreas">
-                   <li>Ballerina Resiliency features
-                   <ul>
-                   <li>Timeout</li>
-                   <li>Retry</li>
-                   <li>Failover</li>
-                   <li>Load balancing</li>
-                   <li>Circuit breaker</li>
-                   <li>Transactions</li>
-                   </ul>
-                   </li>
-                   <li>Security Vulnerability Prevention with Taint Analysis</li>
-                   <li>Built-in Security Features
-                    <ul>
-                   <li>Config API reading encrypted passwords or secrets</li>
-                   <li>Cryptographic operations</li>
-                    </ul>
-                   </li>
-                   <li>Authentication and Authorization</li>
-
+    <li>Ballerina Resiliency features
+        <ul>
+            <li>Timeout</li>
+            <li>Retry</li>
+            <li>Failover</li>
+            <li>Load balancing</li>
+            <li>Circuit breaker</li>
+            <li>Transactions
+                <ul>
+                    <li>
+                        <ul>
+                            <li>Security Vulnerability Prevention with Taint Analysis</li>
+                            <li>Built-in Security Features</li>
+                        </ul>
+                    </li>
+                    <li>Config API reading encrypted passwords or secrets</li>
+                    <li>Cryptographic operations
+                        <ul>
+                            <li>Authentication and Authorization</li>
+                        </ul>
+                    </li>
                 </ul>
-
-            </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+                <div class="clearfix"></div>
+                <a class="cEventRegistration cSmallButton" target="_blank" href="https://www.slideshare.net/ballerinaslides/resiliency-securityballerina-day-cmb-2018">Download Slides </a>
+              </div>
         </div>
     </div>
 </div>
@@ -338,12 +326,16 @@ What do we get out of it? Ballerina is still in the oven. We want to hear from y
                             <li>Package management</li>
                             <li>Documentation support</li>
                             <li>Swagger / OpenAPI support</li>
-
                         </ul>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
+                        </li>
+                    </ul>
+                        <div class="clearfix"></div>
+                        <a class="cEventRegistration cSmallButton" target="_blank" href="/pdf/ballerinaday2018-composer-tutorial.pdf">Download Tutorial</a>
+
+</div>
+</div>
+</div>
+  </div>
 
 
 
