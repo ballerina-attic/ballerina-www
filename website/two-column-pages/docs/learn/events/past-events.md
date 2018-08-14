@@ -9,7 +9,7 @@
     </td>
     <td class="cEventDetail"  style="border:none;"><a target="_blank" href="/learn/events/ballerina-day-colombo-2018/">
     <h4>Ballerina Day Colombo 2018</h4>
-    <p>This is an event by programmers, for programmers. Come ready to learn some computer science concepts, learn the philosophy behind the language and get your hands dirty with actual code you write and take home.</p>
+    <p>This was an event by programmers for programmers. Attendees came ready to learn some computer science concepts and the philosophy behind the language. They also got their hands dirty with actual code, which they wrote and took home.</p>
     </a>
     </td>
     <td class="cEventURL"  style="border:none;">
