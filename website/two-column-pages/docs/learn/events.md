@@ -3,6 +3,23 @@
 
 # Events
 
+## Workshops
+
+<table class="cEventTable cWorkshopList">
+<tr>
+    <td class="cEventDateContainer"><span class="cEventDate">September 06, 2018</span>9:00 am
+    <p class="cEventLocation">Broad Sanctuary, Westminster, London</p>
+
+    </td>
+    <td class="cEventDetail"><a target="_blank" href="https://2018.container.camp/uk/schedule/cloud-native-programming-with-docker-and-kubernetes/"><h4>Cloud Native Programming with Docker and Kubernetes</h4></a>
+    <p>
+    <b>Lakmal Warusawithana,</b> Senior Director – Cloud Architecture, WSO2</p>
+  </p>
+    </td>
+    <td class="cEventURL"><a class="cEventRegistration" href="https://2018.container.camp/uk/schedule/cloud-native-programming-with-docker-and-kubernetes/">Register Now</a></td>
+</tr>
+</table>
+
 
 ## Webinars
 
@@ -34,15 +51,17 @@
 ## Meetups
 
 <table class="cEventTable cMeetupsList">
-    <!-- <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">July 10, 2018 </span>6:00 PM
-<p class="cEventLocation">WSO2, 787 Castro Street, 94041, Mountain View, CA
+    <tr>
+        <td class="cEventDateContainer"><span class="cEventDate">September 10, 2018 </span>6:00 PM
+<p class="cEventLocation">inovaBra habitat,
+Av. Angélica, 2529 - 10° andar · São Paulo, Brazil</p>
 </td>
-        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/Mountain-View-Kubernetes-Meetup/events/252370805/?rv=me1&_xtd=gatlbWFpbF9jbGlja9oAJDUxNjE1NTNjLTI4MDUtNDljOS1iYTY0LWU5YWQ4NGQzOGQ4MA&_af=event&_af_eid=252370805&https=on"><h4> Cloud Native Programing with Ballerina and Kubernetes</h4></a>
+        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/pt-BR/Cloud-Native-Sao-Paulo/events/253753781/"><h4> Cloud Native São Paulo - Meetup #6 - Aplicações Cloud Native</h4></a>
+        <p>Speakers: Edgar Silva and João Emilio</p>
 
        </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/Mountain-View-Kubernetes-Meetup/events/252370805/?rv=me1&_xtd=gatlbWFpbF9jbGlja9oAJDUxNjE1NTNjLTI4MDUtNDljOS1iYTY0LWU5YWQ4NGQzOGQ4MA&_af=event&_af_eid=252370805&https=on" target="_blank">Register Now</a></td>
-    </tr> -->
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/pt-BR/Cloud-Native-Sao-Paulo/events/253753781/" target="_blank">Register Now</a></td>
+    </tr>
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">October 9, 2018</span></td>
         <td class="cEventDetail"><h4> London Cloud Native Meetup</h4>
