@@ -7,6 +7,13 @@ endpoint http:Listener listener {
     timeoutMillis: 12000
 };
 
+endpoint twitter:Client twitterClient {
+    clientId:"<CONSUMER_ID>",
+    clientSecret:"<CONSUMER_SECRET>",
+    accessToken:"<ACCESS_TOKEN>",
+    accessTokenSecret:"<ACCESS_TOKEN_SECRET>"
+};
+
 endpoint http:Client clientEP {
     url: "http://localhost:9092/hello",
     compression: http:COMPRESSION_ALWAYS,
@@ -21,13 +28,10 @@ service<http:Service> passthrough bind { port: 9090 } {
         path: "/"
     }
     passthrough(endpoint caller, http:Request req) {
-        // When `forward()` is called on the backend client endpoint, it forwards the request that the passthrough
-        // resource received to the backend. When forwarding, the request is made using the same HTTP method that was
-        // used to invoke the passthrough resource. The `forward()` function returns the response from the backend if
-        // there are no errors.
-        // var clientResponse = clientEP->forward("/", req);
-        http:Response clientResponse = check clientEP->forward("/", req);
-        caller->respond(clientResponse) but { error e =>
+        // When tweet is called, it posts message in twitter
+        twitter:Status twitterStatus = check twitterClient->tweet("my first Ballerina program", "", "");
+        caller->respond("Tweet ID: " + <string> twitterStatus.id 
+                                   + ", Tweet: " + twitterStatus.text) but { error e =>
                             log:printError("Error sending response", err = e) };
     }
 }
