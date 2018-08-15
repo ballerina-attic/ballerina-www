@@ -208,32 +208,36 @@
             <p class="cGreenTitle cPhil-box-titles">RUNTIME ARCHITECTURE</p>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>BALLERINA API GATEWAY</h3>
-                    <p>Enforces performance and identity policies for running services. Configured and deployed through code annotations. Can run embedded in-line with a service, as a containered proxy managing multiple services, or with an API management
-                        solution like WSO2 API Manager.</p>
-                </div>
-            </div>
-            <div class="cPhil-title-boxes cPhil-title-boxes-white">
-                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>BALLERINA SERVICE</h3>
-                    <p>Represent your API and execution logic. Services operate over different protocols and the internal code structure is compiled into API interfaces with support for OpenAPI and Swagger. Services communicate with endpoints, whether they
-                        are the calling client or other services.
+                    <h3>SERVICE</h3>
+                    <p>Represent your API and execution logic. Services operate over different protocols and the internal code structure is compiled into API interfaces with support for OpenAPI and Swagger. Services communicate with endpoints, whether they are the calling client or other services.
                     </p>
                 </div>
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>BALLERINA BRIDGE</h3>
-                    <p>Enables legacy code and services to participate with Ballerina services in distributed transactions. The bridge wraps your existing service with a localhost proxy that enlists and brokers distributed transactions with invoking Ballerina
-                        services.
+                    <h3>MAIN FUNCTION</h3>
+                    <p>The default function entry point for Ballerina. This function is automatically called when a Ballerina program is executed.
                     </p>
                 </div>
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>MESSAGE BROKER, TRANSACTION COORDINATOR, AND IDENTITY BROKER</h3>
-                    <p>Provide brokered infrastructure capabilities to Ballerina services participating in transactions, event-driven communications, or authentication flows. These components are embedded within services for single service deployments or
-                        can be separately deployed and scaled for managing multiple services.
+                    <h3>OBSERVABILITY</h3>
+                    <p>Ballerina contains observability features and provides monitoring, logging, and distributed tracing. This enables language features such as services, functions, and streams to be observed by default, without writing explicit user code.
+                    </p>
+                </div>
+            </div>
+            <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <h3>SECURITY</h3>
+                    <p>Following the secure-by-design principle, security best practices are enforced into the language itself. This is enabled by features such as service authentication/authorization, taint analysis, and secure defaults.
+                    </p>
+                </div>
+            </div>
+            <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <h3>TRANSACTIONS</h3>
+                    <p>The language provides protection against partial failures in processes by making sure they fail or succeed as a whole. Ballerina contains support for local, XA, and distributed transactions.
                     </p>
                 </div>
             </div>
@@ -266,8 +270,7 @@
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>BALLERINA TOOLS</h3>
-                    <p>Get intellisense like autocomplete and debugging within VS Code and IntelliJ using our language server. Ballerina's keywords and syntax structure is designed to represent sequence diagrams. Visualize and edit Ballerina code with Ballerina
-                        Composer. Bonus - it also visualizes runtime dev traces.</p>
+                    <p>The language server enables autocompletion and debugging with VS Code and IntelliJ. Ballerina's keyword and syntax structure is designed to represent sequence diagrams. Visualize and edit Ballerina code with Ballerina Composer. Bonus - it also visualizes runtime dev traces.</p>
                 </div>
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
