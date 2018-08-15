@@ -108,19 +108,19 @@
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                      <h3>LANGUAGE INSPIRATION</h3>
-                    <p>Sequence diagrams are a reflection of how designers developers document interconnected systems. Ballerina’s syntax and effective coding model requires developers to code using strong interaction best practices. </p>
+                    <p>Sequence diagrams are a reflection of how designers and developers document interconnected systems. Ballerina’s syntax and effective coding model requires developers to code using strong interaction best practices. </p>
                 </div>
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>VISUALIZATION AS SEQUENCE DIAGRAMS</h3>
-                    <p>Ballerina’s language semantics model how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow.</p>
+                    <p>Ballerina’s language semantics model how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of its flow. </p>
                 </div>
             </div>
              <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>ACTORS AND ACTIONS</h3>
-                    <p>Ballerina represents clients, workers and remote systems as different actors in the sequence diagram. In code, remote endpoints are interfaced via connectors, which offer type safe actions. Graphically, each connector is represented as an actor in the sequence diagram (i.e. a vertical line) and actions are represented as interactions with those actors.</p>
+                    <p>Ballerina represents clients, workers, and remote systems as different actors in the sequence diagram. In code, remote endpoints are interfaced via connectors, which offer type-safe actions. Graphically, each connector is represented as an actor in the sequence diagram (i.e., a vertical line) and actions are represented as interactions with those actors.</p>
                 </div>
             </div>
         </div>
@@ -146,7 +146,7 @@
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>TYPE SAFETY</h3>
-                    <p>Ballerina has a structural type system with primitive, record, object, tuple and union types. This typesafe model incorporates type inference at assignment and provides numerous compile time integrity checks for connectors, logic and network-bound payloads.  </p>
+                    <p>Ballerina has a structural type system with primitive, record, object, tuple, and union types. This type-safe model incorporates type inference at assignment and provides numerous compile time integrity checks for connectors, logic, and network-bound payloads.  </p>
                 </div>
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
