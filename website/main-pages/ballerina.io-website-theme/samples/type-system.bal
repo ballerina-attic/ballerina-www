@@ -17,7 +17,7 @@ json | xml | string unionType;
 (string, int) tuple = ("hello", 5); 
 () n = (); // the empty tuple acts as "null"
 string | error stringOrError = "this is a union type";
-int? optionalInt = 5; // this can have an int value or no value
+int? optionalInt = 5; // an int value or no value
 var inferred = ("hello", 5); 
 map<boolean> myMap = {"ballerina": true}; 
 
