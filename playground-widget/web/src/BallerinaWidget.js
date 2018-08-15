@@ -42,10 +42,12 @@ class BallerinaWidget extends Component {
   }
 
   onSampleSelect(selectedSampleIndex) {
-    this.setState({
-      isReadyToRun: false
-    });
     const sample = this.state.samples[selectedSampleIndex];
+    const { main } = sample;
+    this.setState({
+      isReadyToRun: false,
+      curlVisible: !main
+    });
     if (sample.content) {
       this.setState({
         selectedSampleIndex,
