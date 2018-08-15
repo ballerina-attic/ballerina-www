@@ -868,6 +868,14 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cLanguageFeatures bbgfeatureSet1">
                         </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cLanguageFeatures bbgfeatureSet2">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cLanguageFeatures bbgfeatureSet3">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cLanguageFeatures bbgfeatureSet4">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cLanguageFeatures bbgfeatureSet5">
+                        </div>
                     </div>
                 </div>
             </div>
