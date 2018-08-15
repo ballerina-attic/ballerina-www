@@ -16,7 +16,7 @@ $(document).ready(function () {
 			{"name": "Load Balancing", "desc": "", "url": "loadbalancing-failover", "git": ""},
 			{"name": "Database Transactions", "desc": "Transaction blocks using Ballerina", "url": "managing-database-transactions", "git": ""},
 			{"name": "Streams Processing", "desc": "Consuming and publishing a stateful data stream", "url": "stream-processing", "git": ""},
-			{"name": "Building an API Gateway", "desc": "Ballerina services with policies enforced by Ballerina API Gateway", "url": "api-gateway", "git": ""},
+			{"name": "Ballerina API Gateway", "desc": "Ballerina services with policies enforced by Ballerina API Gateway", "url": "api-gateway", "git": ""},
 			{"name": "Messaging with Ballerina", "desc": "Ballerina services that communicate through Ballerina Message Broker/Reliable and persistent delivery", "url": "messaging-with-ballerina", "git": ""},
 			{"name": "Content-based Routing", "desc": "Content-based Routing", "url": "content-based-routing", "git": ""},
 			{"name": "Passthrough Messaging", "desc": "Passthrough messaging", "url": "pass-through-messaging", "git": ""},
@@ -24,13 +24,6 @@ $(document).ready(function () {
 			{"name": "Scatter-Gather Messaging", "desc": "Scatter gather messaging", "url": "scatter-gather-messaging", "git": ""}
 	],
 	"Integrating Ballerina With Other Products":[{"name": "Messaging with JMS", "desc": "Publish and subscribe to messages with a JMS broker", "url": "messaging-with-jms-queues", "git": ""},
-		{"name": "Messaging with Kafka", "desc": "Pub-sub based asynchronous communication with Kafka", "url": "messaging-with-kafka", "git": ""},
-		{"name": "Salesforce-Twilio Integration", "desc": "", "url": "salesforce-twilio-integration", "git": ""},
-		{"name": "Gmail-Google Sheets Integration", "desc": "", "url": "gmail-spreadsheet-integration", "git": ""},
-		{"name": "SonarQube-GitHub Integration ", "desc": "", "url": "sonarqube-github-integration", "git": ""},
-		{"name": "Running with Istio ", "desc": "", "url": "ballerina-with-istio", "git": ""}
-	],				     ],
-	"New Section Ballerina Integration":[{"name": "Messaging with JMS", "desc": "Publish and subscribe to messages with a JMS broker", "url": "messaging-with-jms-queues", "git": ""},
 		{"name": "Messaging with Kafka", "desc": "Pub-sub based asynchronous communication with Kafka", "url": "messaging-with-kafka", "git": ""},
 		{"name": "Salesforce-Twilio Integration", "desc": "", "url": "salesforce-twilio-integration", "git": ""},
 		{"name": "Gmail-Google Sheets Integration", "desc": "", "url": "gmail-spreadsheet-integration", "git": ""},

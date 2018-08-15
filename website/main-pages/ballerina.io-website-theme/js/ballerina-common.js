@@ -245,6 +245,8 @@ $(document).ready(function() {
     $(".bash").removeClass('cBasicCode');
 
     $(".cRuntimeContent").addClass('cShow');
+    $(".cSEQUENCE").addClass('active');
+    $(".cRUNTIME").addClass('active');
 
     $(".cRUNTIME").click(function() {
         $(".cRuntimeContent").addClass('cShow');
