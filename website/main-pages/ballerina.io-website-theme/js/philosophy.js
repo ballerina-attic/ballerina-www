@@ -40,7 +40,7 @@ $(document).ready(function () {
 			{"name": "Salesforce-Twilio Integration", "desc": "", "url": "salesforce-twilio-integration", "git": ""},
 			{"name": "Gmail-Google Sheets Integration", "desc": "", "url": "gmail-spreadsheet-integration", "git": ""},
 			{"name": "SonarQube-GitHub Integration ", "desc": "", "url": "sonarqube-github-integration", "git": ""},
-			
+
 		]
 	};
 
@@ -65,7 +65,7 @@ $(document).ready(function () {
 
 			div_content += '</ul>';
 
-			var row_id = i % 2;
+			var row_id = i % 6;
 			$(".bbgfeatureSet" + row_id).append(div_content);
 			i++;
 	});
