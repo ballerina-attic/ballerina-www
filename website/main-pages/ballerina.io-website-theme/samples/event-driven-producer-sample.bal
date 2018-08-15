@@ -22,30 +22,14 @@ endpoint http:Listener listener {
 service<http:Service> productAdminService bind listener {
 
     @http:ResourceConfig {
-        methods:["POST"], 
-        consumes:["application/json"],
-        produces:["application/json"]
+        methods:["POST"]
     }
     updatePrice (endpoint client, http:Request request, json reqPayload) {
-        http:Response response;
-
-        json username = reqPayload.Username;
-        json password = reqPayload.Password;
         json productName = reqPayload.Product;
         json newPrice = reqPayload.Price;
 
         // Convert the price value to float
         float newPriceAmount = check <float>newPrice.toString();
-
-        // If the credentials does not match with the admin credentials,
-        // send an "Access Forbidden" response message
-        if (username.toString() != ADMIN_USERNAME ||
-            password.toString() != ADMIN_PASSWORD) {
-            response.statusCode = 403;
-            response.setJsonPayload({"Message":"Access Forbidden"});
-            _ = client->respond(response);
-            done;
-        }
 
         // Construct and serialize the message to be published to the Kafka topic
         json priceUpdateInfo = {"Product":productName, "UpdatedPrice":newPriceAmount};
@@ -54,6 +38,7 @@ service<http:Service> productAdminService bind listener {
         // Produce the message and publish it to the Kafka topic
         kafkaProducer->send(serializedMsg, "product-price", partition = 0);
         // Send a success status to the admin request
+        http:Response response;
         response.setJsonPayload({"Status":"Success"});
         _ = client->respond(response);
     }
