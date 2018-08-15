@@ -212,7 +212,7 @@
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>MAIN FUNCTION</h3>
-                    <p>The default function entry point for Ballerina. This function is automatically called when a Ballerina program is executed.
+                    <p>The default function entry point in Ballerina. This function is automatically called when a Ballerina program is executed.
                     </p>
                 </div>
             </div>
