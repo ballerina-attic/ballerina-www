@@ -16,7 +16,7 @@ $(document).ready(function () {
 			{"name": "Load Balancing", "desc": "", "url": "loadbalancing-failover", "git": ""},
 			{"name": "Database Transactions", "desc": "Transaction blocks using Ballerina", "url": "managing-database-transactions", "git": ""},
 			{"name": "Streams Processing", "desc": "Consuming and publishing a stateful data stream", "url": "stream-processing", "git": ""},
-			{"name": "Ballerina API Gateway", "desc": "Ballerina services with policies enforced by Ballerina API Gateway", "url": "api-gateway", "git": ""},
+			{"name": "Building an API Gateway", "desc": "Ballerina services with policies enforced by Ballerina API Gateway", "url": "api-gateway", "git": ""},
 			{"name": "Messaging with Ballerina", "desc": "Ballerina services that communicate through Ballerina Message Broker/Reliable and persistent delivery", "url": "messaging-with-ballerina", "git": ""},
 			{"name": "Content-based Routing", "desc": "Content-based Routing", "url": "content-based-routing", "git": ""},
 			{"name": "Passthrough Messaging", "desc": "Passthrough messaging", "url": "pass-through-messaging", "git": ""},
