@@ -96,7 +96,7 @@
                     <div class="tab-pane type-system-code-tab" id="3b">
                         <div class="code-wrapper">
                             <pre id="type-system-code" class="code-block">
-                                <code class="ballerina tab-pane active"></code>
+                                <code class="ballerina"></code>
                             </pre>
                         </div>
                     </div>
@@ -862,18 +862,9 @@
             <div class="col-xs-12">
                 <div id="ballerina-by-example">
                     <div class="cLanguageFeaturesContainer clearfix">
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 cLanguageFeatures bbgfeatureSet0">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cLanguageFeatures bbgfeatureSet0">
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 cLanguageFeatures bbgfeatureSet1">
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 cLanguageFeatures bbgfeatureSet2">
-                        </div>
-                        <!-- <div class="clearfix"></div> -->
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 cLanguageFeatures bbgfeatureSet3">
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 cLanguageFeatures bbgfeatureSet4">
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 cLanguageFeatures bbgfeatureSet5">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cLanguageFeatures bbgfeatureSet1">
                         </div>
                     </div>
                 </div>

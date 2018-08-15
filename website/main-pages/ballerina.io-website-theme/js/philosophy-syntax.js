@@ -209,7 +209,6 @@ $(document).ready(function() {
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
         var target = $(e.target).attr("href"); // activated tab
         if (target === "#3b") {
-            $('#type-system-code .line-numbers-wrap').remove();
             loadData('type-system');
         }
     });
