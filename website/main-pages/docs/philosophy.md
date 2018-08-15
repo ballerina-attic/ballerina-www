@@ -24,9 +24,11 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-content-wraper">
                 <h2 class="cMainH2Title">Why did we build Ballerina? </h2>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol ">
-                    <p> Integration with ESBs is still waterfall development. The server must be deployed, connectors configured, service logic programmed with XML, and data querying and transformation with XPath. This is not developer friendly.
+                    <p> Cloud-native and microservices architectures enable enterprises to have trillions of programmable network endpoints, making integration the glue that brings APIs, microservices, and data together as a whole.
                     </p>
-                    <p>Programming languages with frameworks like Spring and Node.js offer agility, but do not make it simple to program distributed system constructs with concurrency models that are not suited for sequence parallelization.</p>
+                    <p>Centralized and configuration-driven approaches to integration, with conventional integration platforms such as ESBs, are not agile or cloud native.</p>
+                    <p>Programming languages with frameworks like Spring and Node.js offer agility, but requires writing a lot of complex and boiler-plate code to integrate endpoints.</p>
+                    <p>Ballerina provides first-class constructs to make distributed system integration simple, while maintaining agility and cloud-native characteristics.</p>
                 </div>
             </div>
         </div>
@@ -210,7 +212,7 @@
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>MAIN FUNCTION</h3>
-                    <p>The default function entry point for Ballerina. This function is automatically called when a Ballerina program is executed.
+                    <p>The default function entry point in Ballerina. This function is automatically called when a Ballerina program is executed.
                     </p>
                 </div>
             </div>
