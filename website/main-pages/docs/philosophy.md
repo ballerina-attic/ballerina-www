@@ -870,6 +870,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cLanguageFeatures bbgfeatureSet2">
                         </div>
+                        <div class="clearfix"></div>
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cLanguageFeatures bbgfeatureSet3">
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cLanguageFeatures bbgfeatureSet4">
