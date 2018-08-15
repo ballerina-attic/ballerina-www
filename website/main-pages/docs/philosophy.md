@@ -114,7 +114,7 @@
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>VISUALIZATION AS SEQUENCE DIAGRAMS</h3>
-                    <p>Ballerina’s language semantics model how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow. These visualizations are available in plugins for IntelliJ and VS Code. The Ballerina Composer is a tool for authoring Ballerina services with sequence diagrams. </p>
+                    <p>Ballerina’s language semantics model how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of it’s flow.</p>
                 </div>
             </div>
              <div class="cPhil-title-boxes cPhil-title-boxes-white">
