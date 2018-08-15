@@ -11,11 +11,6 @@ endpoint http:Client backendClientEP {
     // Circuit breaker configuration options that control the
     // behavior of the Ballerina circuit breaker
     circuitBreaker: {
-        rollingWindow: {
-            timeWindowMillis: 10000,
-            bucketSizeMillis: 2000,
-            requestVolumeThreshold: 0
-        },
         failureThreshold: 0.2,
         statusCodes: [400, 404, 500]
     },
@@ -27,10 +22,6 @@ endpoint http:Client backendClientEP {
     }
 };
 
-// Create an HTTP service bound to the endpoint (circuitBreakerEP).
-@http:ServiceConfig {
-    basePath: "/cb"
-}
 service<http:Service> circuitbreaker bind { port: 9090 } {
     // Create a REST resource within the API.
     @http:ResourceConfig {

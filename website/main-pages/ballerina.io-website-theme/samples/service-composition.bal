@@ -21,27 +21,18 @@ service<http:Service> travelAgencyService bind { port: 9090 } {
 
     // Resource to arrange a tour
     @http:ResourceConfig {
-        methods:["POST"], 
-        consumes:["application/json"], 
-        produces:["application/json"]
+        methods:["POST"]
     }
     arrangeTour(endpoint client, http:Request inRequest) {
-        http:Response outResponse;
         json inReqPayload = check inRequest.getJsonPayload();
         // Json payload format for an http out request
-        json outReqPayload = {"Name":"", "ArrivalDate":"", "DepartureDate":"", "Preference":""};
-
-        outReqPayload.Name = inReqPayload.Name;
-        outReqPayload.ArrivalDate = inReqPayload.ArrivalDate;
-        outReqPayload.DepartureDate = inReqPayload.DepartureDate;
-        json airlinePreference = inReqPayload.Preference.Airline;
-        json hotelPreference = inReqPayload.Preference.Accommodation;
-        json carPreference = inReqPayload.Preference.Car;
+        json outReqPayload = {"Name":inReqPayload.Name, "ArrivalDate":inReqPayload.ArrivalDate, 
+                            "DepartureDate":inReqPayload.DepartureDate, "Preference":""};
 
         // Reserve airline ticket for the user by calling Airline reservation service
         // construct the payload
         json outReqPayloadAirline = outReqPayload;
-        outReqPayloadAirline.Preference = airlinePreference;
+        outReqPayloadAirline.Preference = inReqPayload.Preference.Airline;
 
         // Send a post request to airlineReservationService with appropriate payload and get response
         http:Response inResAirline = check airlineReservationEP -> post("/reserve", untaint outReqPayloadAirline);
@@ -53,7 +44,7 @@ service<http:Service> travelAgencyService bind { port: 9090 } {
         // Reserve hotel room for the user by calling Hotel reservation service
         // construct the payload
         json outReqPayloadHotel = outReqPayload;
-        outReqPayloadHotel.Preference = hotelPreference;
+        outReqPayloadHotel.Preference = inReqPayload.Preference.Accommodation;
 
         // Send a post request to hotelReservationService with appropriate payload and get response
         http:Response inResHotel = check hotelReservationEP -> post("/reserve", untaint outReqPayloadHotel);
@@ -65,7 +56,7 @@ service<http:Service> travelAgencyService bind { port: 9090 } {
         // Renting car for the user by calling Car rental service
         // construct the payload
         json outReqPayloadCar = outReqPayload;
-        outReqPayloadCar.Preference = carPreference;
+        outReqPayloadCar.Preference = inReqPayload.Preference.Car;
 
         // Send a post request to carRentalService with appropriate payload and get response
         http:Response inResCar = check carRentalEP -> post("/rent", untaint outReqPayloadCar);
@@ -75,6 +66,7 @@ service<http:Service> travelAgencyService bind { port: 9090 } {
         string carRentalStatus = carResPayload.Status.toString();
 
         // If all three services response positive status, send a successful message to the user
+        http:Response outResponse = new;
         outResponse.setJsonPayload({"Message":"Congratulations! Your journey is ready!!"});
         _ = client -> respond(outResponse);
     }
