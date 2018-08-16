@@ -20,7 +20,7 @@ endpoint http:Client clientEP {
     cache: { isShared: true }
 };
 
-service<http:Service> passthrough bind { port: 9090 } {
+service<http:Service> passthrough bind listener {
 
     //The passthrough resource allows all HTTP methods since the resource configuration does not explicitly specify
     //which HTTP methods are allowed.
