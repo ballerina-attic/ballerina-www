@@ -1612,9 +1612,7 @@
                     </div>
                     <div class="tab-pane type-system-code-tab" id="4b">
                         <div class="code-wrapper">
-                            <p>Test</p>
-                              <img src="/img/philosophy/philosophy-diagrams-security.svg" />
-
+                          <img src="/img/philosophy/philosophy-diagrams-security.svg" />
                         </div>
                     </div>
                 </div>
