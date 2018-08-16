@@ -1,6 +1,7 @@
 import ballerina/log;
 import wso2/kafka;
 import ballerina/internal;
+import ballerina/io;
 
 // Kafka consumer endpoint
 endpoint kafka:SimpleConsumer consumer {
@@ -20,10 +21,12 @@ service<kafka:Consumer> kafkaService bind consumer {
         foreach entry in records {
             byte[] serializedMsg = entry.value;
             // Convert the serialized message to string message
-            string msg = internal:byteArrayToString(serializedMsg, "UTF-8");
-            log:printInfo("New message received from the product admin");
-            log:printInfo("Topic: " + entry.topic + "; Received Message: " + msg);
-            log:printInfo("Database updated with the new price for the product");
+            io:ByteChannel channel = io:openFile("/some/filePath", io:APPEND);
+            int offset = 0;
+            int writtenBytes = check channel.write(serializedMsg, offset);
+            while (writtenBytes == lengthof serializedMsg) {
+                writtenBytes = check channel.write(serializedMsg, writtenBytes) + writtenBytes;
+            }
         }
     }
 }
