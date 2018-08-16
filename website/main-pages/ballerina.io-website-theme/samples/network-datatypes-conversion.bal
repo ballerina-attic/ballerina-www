@@ -2,44 +2,38 @@ import ballerina/http;
 import ballerina/log;
 import ballerina/io;
 
+// Back-end server to which client endpoint connets.
 endpoint http:Client backendClientEP {
     url: "http://b.content.wso2.com"
 };
 
-service<http:Service> hello bind { port: 9090 } {
+// Retrieves a JSON response from the back-end. 
+// JSON response contains an array of book details. 
+// Service filters out all the books which have been published after year 1900. 
+// Then converts it into a XML before sending back the response.
+service<http:Service> store bind { port: 9090 } {
 
-    sayHello(endpoint caller, http:Request req) {
-        var params = req.getQueryParams();
-        int yearParam = check <int>params.year;
-        var backendResponse = backendClientEP->get("/sites/all/ballerina-day/sample.json");
-        match backendResponse {
-            http:Response response => {
-                json bookStore = check response.getJsonPayload();
-                json filteredBooks = filterBooks(bookStore, yearParam);
-                response.setPayload(untaint filteredBooks);
-                caller->respond(response) but { error e => log:printError("Error sending response", err = e) };
-            }
-            error responseError => {
-                io:println(responseError.message);
-            }
-        }
+    bookDetails(endpoint caller, http:Request req) {
+        http:Response response = check backendClientEP->get("/sites/all/ballerina-day/sample.json");
+        json bookStore = check response.getJsonPayload();
+        json filteredBooksJson = filterBooks(bookStore, 1900);
+        // Converts the json into xml
+        xml filteredBooksXml = check filteredBooksJson.toXML({});
+        response.setPayload(untaint filteredBooksXml);
+        // Send back the response
+        caller->respond(response) but { error e => log:printError("Error sending response", err = e) };
     }
 }
 
+// Filters books which are published after year 1900
 function filterBooks(json bookStore, int yearParam) returns json {
     json filteredBooks;
     int index;
-    foreach book in  bookStore.store.books {
-        match book.year {
-            int year => {
-                if (year > yearParam) {
-                    filteredBooks[index] = book;
-                    index++;
-                }
-            }
-            any a => {
-                io:println("incorrect year: ", a);
-            }
+    foreach book in bookStore.store.books {
+        int year = check <int>book.year;
+        if (year > yearParam) {
+            filteredBooks[index] = book;
+            index++;
         }
     }
     return filteredBooks;
