@@ -1,23 +1,24 @@
 import ballerina/http;
 import ballerina/log;
 
+// Server endpoint which listened to inbound http requests 
+// a bunch unch of configurations is povided to configure server endpoint
+// such as Keep-Alive, timeout, request limits, etc.
 endpoint http:Listener listener {
     port: 9090,
     keepAlive: http:KEEPALIVE_ALWAYS,
-    timeoutMillis: 12000
+    timeoutMillis: 12000,
 };
 
+// Client endpoint talks to external endpoints. 
+// In this case we have used twitter endpoint as the sample. 
+// similar to server endpoints client endpoint provides a bunch of
+// configuration to configure.
 endpoint twitter:Client twitterClient {
     clientId:"<CONSUMER_ID>",
     clientSecret:"<CONSUMER_SECRET>",
     accessToken:"<ACCESS_TOKEN>",
     accessTokenSecret:"<ACCESS_TOKEN_SECRET>"
-};
-
-endpoint http:Client clientEP {
-    url: "http://localhost:9092/hello",
-    compression: http:COMPRESSION_ALWAYS,
-    cache: { isShared: true }
 };
 
 service<http:Service> passthrough bind listener {
