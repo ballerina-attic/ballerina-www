@@ -1589,6 +1589,7 @@
                     <li class="cSEQUENCE links first cActive"><a href="#1b" data-toggle="tab">SEQUENCE DIAGRAMMATIC</a></li>
                     <li class="cCONCURRENCY links"><a href="#2b" data-toggle="tab">CONCURRENCY</a></li>
                     <li class="cTYPE links"><a href="#3b" data-toggle="tab">TYPE SYSTEM</a></li>
+                    <li class="cSECUREBYDEFAULT  links"><a href="#4b" data-toggle="tab">SECURE BY DEFAULT </a></li>
                  </ul>
             </div>
         </div>
@@ -1607,6 +1608,13 @@
                             <pre id="type-system-code" class="code-block">
                                 <code class="ballerina"></code>
                             </pre>
+                        </div>
+                    </div>
+                    <div class="tab-pane type-system-code-tab" id="4b">
+                        <div class="code-wrapper">
+                            <p>Test</p>
+                              <img src="/img/philosophy/philosophy-diagrams-security.svg" />
+
                         </div>
                     </div>
                 </div>
@@ -1668,6 +1676,27 @@
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>HETEROGENEOUS DATA HANDLING</h3>
                     <p>The Ballerina type system has rich built in support for JSON, XML, streams and tables, as well as direct support for ProtoBuf and gRPC. The result is clean, readable code for dealing with network payloads, SQL programming and stream processing. Data transformation logic isn’t encumbered with complex generated types, third-party library code or other obfuscation - simple clear readable code captures interactions with heterogenous data and transformation logic.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cSECUREBYDEFAULTContent">
+            <!-- <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p> -->
+            <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <h3>TAINT ANALYSIS</h3>
+                    <p>This ensures that malicious data received by the program does not propagate through a system. In Ballerina, functions can mark returned values as tainted. Consumers of those functions are responsible for sanitizing such values. This analysis is performed statically, and using unsanitized data will result in compile time errors.</p>
+                </div>
+            </div>
+            <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <h3>SENSITIVE DATA</h3>
+                    <p>Functions can declare inputs to be security sensitive. Passing tainted data to such functions will result in compilation errors. The developer has to sanitize such data first.</p>
+                </div>
+            </div>
+            <div class="cPhil-title-boxes cPhil-title-boxes-white">
+                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+                    <h3>SECURE DEFAULTS</h3>
+                    <p>Ballerina enforces multiple security checks and secure-defaults to prevent critical security vulnerabilities.</p>
                 </div>
             </div>
         </div>
