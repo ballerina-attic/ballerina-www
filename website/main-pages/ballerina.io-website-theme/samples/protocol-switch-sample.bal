@@ -139,30 +139,3 @@ map descriptorMap =
     "google.protobuf.empty.proto":"0A0B656D7074792E70726F746F120F676F6F676C652E70726F746F62756622070A05456D70747942540A13636F6D2E676F6F676C652E70726F746F627566420A456D70747950726F746F50015A057479706573F80101A20203475042AA021E476F6F676C652E50726F746F6275662E57656C6C4B6E6F776E5479706573620670726F746F33"
   
 };
-
-
-// The server endpoint configuration.
-endpoint grpc:Listener listener {
-    host:"localhost",
-    port:9090
-};
-
-service UserProfile bind listener {
-
-    map<User> userMap = { "-1": {id:"0", info:{name:"Danesh",age:25,email:"dknkuruppu@gmail.com"}}};
-    int nextUserNo = 1;
-
-    addUser(endpoint caller, UserInfo userInfo) {
-        User user = {id:<string>nextUserNo, info: userInfo};
-        userMap[user.id] = user;        
-        nextUserNo++;
-
-        string respMsg = "user id " + user.id + " created successfully.";
-        check caller->send(respMsg);
-    }
-
-    getUser(endpoint caller, string id) {
-        User user = userMap!id;
-        check caller->send(user);
-    }
-}
