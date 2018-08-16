@@ -20,10 +20,9 @@ service<kafka:Consumer> kafkaService bind consumer {
         // Dispatched set of Kafka records to service, We process each one by one.
         foreach entry in records {
             byte[] serializedMsg = entry.value;
-            // Convert the serialized message to string message
+            // Write the serialized message to a file
             io:ByteChannel channel = io:openFile("/some/filePath", io:APPEND);
-            int offset = 0;
-            int writtenBytes = check channel.write(serializedMsg, offset);
+            int writtenBytes = 0;
             while (writtenBytes == lengthof serializedMsg) {
                 writtenBytes = check channel.write(serializedMsg, writtenBytes) + writtenBytes;
             }
