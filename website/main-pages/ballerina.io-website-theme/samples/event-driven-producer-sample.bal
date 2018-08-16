@@ -1,10 +1,6 @@
 import ballerina/http;
 import wso2/kafka;
 
-// Constants to store admin credentials
-@final string ADMIN_USERNAME = "Admin";
-@final string ADMIN_PASSWORD = "Admin";
-
 // Kafka producer endpoint
 endpoint kafka:SimpleProducer kafkaProducer {
     bootstrapServers: "localhost:9092",
