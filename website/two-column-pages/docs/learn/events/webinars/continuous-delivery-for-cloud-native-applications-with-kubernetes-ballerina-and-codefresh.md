@@ -10,12 +10,19 @@ socialmediaimage: sm-webinar-codefresh-ballerina-new.jpg
 
 # Continuous Delivery for Cloud Native Applications <br/>with Kubernetes, Ballerina, and Codefresh
 
-<table class="cEventTable">
+<script src="https://fast.wistia.com/embed/medias/jk1spxia15.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_jk1spxia15 videoFoam=true" style="height:100%;position:relative;width:100%"><div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/jk1spxia15/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" onload="this.parentNode.style.opacity=1;" /></div></div></div></div>
+
+
+<div class="clearfix"></div>
+
+---
+
+<!-- <table class="cEventTable">
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">August 14, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
         <td class="cEventURL"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank" id="iRegisterNow">Register Now</a></td>
     </tr>
-</table>
+</table> -->
 
 <a href="https://codefresh.io/" target="_blank"><img class="cInlineLogo" src="/img/codefresh-logo-300x145.png"/></a>
 

@@ -24,16 +24,7 @@
 ## Webinars
 
 <table class="cEventTable cWebinarList">
-<tr>
-    <td class="cEventDateContainer"><span class="cEventDate">August 14, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
-    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/continuous-delivery-for-cloud-native-applications-with-kubernetes-ballerina-and-codefresh/"><h4>Continuous Delivery for Cloud Native Applications with Kubernetes, Ballerina, and Codefresh</h4></a>
-    <p>
-    <b>Kasun Indrasiri</b> Director – Integration Architecture, WSO2</p>
-    <p>
-    <b>Dan Garfield</b> VP of Marketing, Codefresh</p>
-    </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/continuous-delivery-for-cloud-native-applications-with-kubernetes-ballerina-and-codefresh/">Register Now</a></td>
-</tr>
+
 <tr>
     <td class="cEventDateContainer"><span class="cEventDate">August 22, 2018</span>10:00 am PDT (6:00 pm in UK)</td>
     <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/observing-your-ballerina-services-with-humio/"><h4>Observing Your Ballerina Services with Humio</h4></a>
