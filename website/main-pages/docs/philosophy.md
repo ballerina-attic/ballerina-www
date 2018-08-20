@@ -1578,127 +1578,242 @@
         </div>
     </div>
 </div>
+
 <div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2 cDesign-Principles">
-    <div class="container">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cPhilosophyWhite cHowballerinaworks cDesign-principles">
-            <h2 class="cMainH2Title">What are Ballerina's language design principles?</h2>
-            <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol "></div> -->
-            <div class="col-xs-12 cCloudNative-box cLanguage-design-principles">
-            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls cCloudNativeNavLeftSide">
+   <div class="container">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cPhilosophyWhite cHowballerinaworks cDesign-principles">
+         <h2 class="cMainH2Title">What are Ballerina's language design principles?</h2>
+         <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cInnerPageContentCol "></div> -->
+         <div class="col-xs-12 cCloudNative-box cLanguage-design-principles">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 cCloudNativeControls">
                 <ul>
-                    <li class="cSEQUENCE links first cActive"><a href="#1b" data-toggle="tab">SEQUENCE DIAGRAMMATIC</a></li>
-                    <li class="cCONCURRENCY links"><a href="#2b" data-toggle="tab">CONCURRENCY</a></li>
-                    <li class="cTYPE links"><a href="#3b" data-toggle="tab">TYPE SYSTEM</a></li>
-                    <li class="cSECUREBYDEFAULT  links"><a href="#4b" data-toggle="tab">SECURE BY DEFAULT </a></li>
-                 </ul>
-            </div>
-        </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cPhilosophyWidget">
-            <div class="cPhilosophyWidgetContainer">
-             <div class="tab-content clearfix cPhilosophyWidgetInnerBox ">
-                    <div class="tab-pane active" id="1b">
-                        <img src="/img/philosophy-principle-diagrams-01.svg" />
-                    </div>
-                    <div class="tab-pane" id="2b">
-                        <img src="/img/philosophy-principle-diagrams-02.svg" />
-                    </div>
-                    <div class="tab-pane type-system-code-tab" id="3b">
-                        <div class="code-wrapper">
-                            <pre id="type-system-code" class="code-block">
+                  <li class="cSEQUENCE cFixedWidthLink links first cActive"><a href="#1b" data-toggle="tab">SEQUENCE DIAGRAMMATIC</a></li>
+                  <li class="cCONCURRENCY cFixedWidthLink links"><a href="#2b" data-toggle="tab">CONCURRENCY</a></li>
+                  <li class="cTYPE cFixedWidthLink links"><a href="#3b" data-toggle="tab">TYPE SYSTEM</a></li>
+                  <li class="cSECUREBYDEFAULT cFixedWidthLink  links"><a href="#4b" data-toggle="tab">SECURE BY DEFAULT </a></li>
+                  <li class="cNETWORKAWARE cFixedWidthLink   links"><a href="#5b" data-toggle="tab">NETWORK AWARE </a></li>
+                  <li class="cCLOUDNATIVE cFixedWidthLink  links"><a href="#6b" data-toggle="tab">CLOUD NATIVE </a></li>
+                  <li class="cBESTPRACTICESENFORCED cFixedWidthLink  links"><a href="#7b" data-toggle="tab">BEST PRACTICES ENFORCED</a></li>
+                  <li class="cBEYONDTHELANGUAGE cFixedWidthLink  links"><a href="#8b" data-toggle="tab">BEYOND THE LANGUAGE</a></li>
+                </ul>
+           </div>
+<!--           <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls cCloudNativeNavLeftSide">
+               <ul>
+                     <li class="cNETWORKAWARE   links"><a href="#5b" data-toggle="tab">NETWORK AWARE </a></li>
+                     <li class="cCLOUDNATIVE  links"><a href="#6b" data-toggle="tab">CLOUD NATIVE </a></li>
+                     <li class="cBESTPRACTICESENFORCED  links"><a href="#7b" data-toggle="tab">BEST PRACTICES ENFORCED</a></li>
+                     <li class="cBEYONDTHELANGUAGE  links"><a href="#8b" data-toggle="tab">BEYOND THE LANGUAGE</a></li>
+               </ul>
+            </div>-->
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cPhilosophyWidget">
+         <div class="cPhilosophyWidgetContainer">
+            <div class="tab-content clearfix cPhilosophyWidgetInnerBox ">
+               <div class="tab-pane active" id="1b">
+                  <img src="/img/philosophy-principle-diagrams-01.svg" />
+               </div>
+               <div class="tab-pane" id="2b">
+                  <img src="/img/philosophy-principle-diagrams-02.svg" />
+               </div>
+               <div class="tab-pane type-system-code-tab" id="3b">
+                  <div class="code-wrapper">
+                     <pre id="type-system-code" class="code-block">
                                 <code class="ballerina"></code>
                             </pre>
-                        </div>
-                    </div>
-                    <div class="tab-pane type-system-code-tab" id="4b">
-                        <div class="code-wrapper">
-                          <img src="/img/philosophy/philosophy-diagrams-security.svg" />
-                        </div>
-                    </div>
-                </div>
+                  </div>
+               </div>
+               <div class="tab-pane type-system-code-tab" id="4b">
+                  <div class="code-wrapper">
+                     <img src="/img/philosophy/philosophy-diagrams-security.svg" />
+                  </div>
+               </div>
+               <div class="tab-pane type-system-code-tab" id="5b">
+                  <div class="code-wrapper">
+                     <div class="code-wrapper">
+                        <pre id="type-system-code" class="code-block">
+  <img src="/img/philosophy/philosophy-diagrams-network-aware.svg" />
+                        </pre>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-pane type-system-code-tab" id="6b">
+                  <div class="code-wrapper">
+                     <div class="code-wrapper">
+                        <pre id="type-system-code" class="code-block">
+Cloud native
+                            </pre>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-pane type-system-code-tab" id="7b">
+                  <div class="code-wrapper">
+                     <pre id="type-system-code" class="code-block"></pre>
+                  </div>
+               </div>
+               <div class="tab-pane type-system-code-tab" id="8b">
+                  <div class="code-wrapper">
+                     <pre id="type-system-code" class="code-block">
+BEST PRACTICES ENFORCED </pre>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cSEQUENCEContent">
-            <!-- <p class="cGreenTitle cPhil-box-titles">SEQUENCE DIAGRAMMATIC</p> -->
-            <div class="cPhil-title-boxes cPhil-title-boxes-white">
-                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                     <h3>LANGUAGE INSPIRATION</h3>
-                    <p>Sequence diagrams are a reflection of how designers and developers document interconnected systems. Ballerina’s syntax and effective coding model requires developers to code using strong interaction best practices. </p>
-                </div>
-            </div>
-            <div class="cPhil-title-boxes cPhil-title-boxes-white">
-                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>VISUALIZATION AS SEQUENCE DIAGRAMS</h3>
-                    <p>Ballerina’s language semantics model how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of its flow. </p>
-                </div>
-            </div>
-             <div class="cPhil-title-boxes cPhil-title-boxes-white">
-                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>ACTORS AND ACTIONS</h3>
-                    <p>Ballerina represents clients, workers, and remote systems as different actors in the sequence diagram. In code, remote endpoints are interfaced via connectors, which offer type-safe actions. Graphically, each connector is represented as an actor in the sequence diagram (i.e., a vertical line) and actions are represented as interactions with those actors.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cCONCURRENCYContent">
-            <!-- <p class="cGreenTitle cPhil-box-titles">CONCURRENCY</p> -->
-            <div class="cPhil-title-boxes cPhil-title-boxes-white">
-                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>SEQUENCE DIAGRAMS AND CONCURRENCY</h3>
-                    <p>Ballerina’s concurrency model is parallel-first since interactions with remote parties always involve multiple workers. Interactions between workers are handled as message passing, with no shared state.</p>
-                </div>
-                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                     <h3>WORKER SEMANTICS</h3>
-                    <p>Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use non-blocking policies to ensure no function locks an executing thread, such as an HTTP I/O call awaiting response.</p>
-                </div>
-                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                     <h3>PROGRAMMING MODEL</h3>
-                    <p>Workers and fork/join language semantics abstract the underlying non-blocking approach to enable a simpler concurrency programming model.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTYPEContent">
-            <!-- <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p> -->
-            <div class="cPhil-title-boxes cPhil-title-boxes-white">
-                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>TYPE SAFETY</h3>
-                    <p>Ballerina has a structural type system with primitive, record, object, tuple, and union types. This type-safe model incorporates type inference at assignment and provides numerous compile time integrity checks for connectors, logic, and network-bound payloads.  </p>
-                </div>
-            </div>
-            <div class="cPhil-title-boxes cPhil-title-boxes-white">
-                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>UNION TYPES AND EXPLICIT NULLS</h3>
-                    <p>Individual network endpoints often return messages with different payload types and errors, depending on their inputs and logic. Ballerina’s type system embraces this variability with an approach based on union types. Union types explicitly capture this semantics without requiring developers to create unnecessary “wrapper” types. This approach also enhances the handling of null values. By default, types do not support null values. Developers must explicitly create union types to handle nulls. The result is that null exceptions cannot happen and the language syntax and compiler identifies whether null handling logic is required or not.</p>
-                </div>
-            </div>
-            <div class="cPhil-title-boxes cPhil-title-boxes-white">
-                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>HETEROGENEOUS DATA HANDLING</h3>
-                    <p>The Ballerina type system has rich built in support for JSON, XML, streams and tables, as well as direct support for ProtoBuf and gRPC. The result is clean, readable code for dealing with network payloads, SQL programming and stream processing. Data transformation logic isn’t encumbered with complex generated types, third-party library code or other obfuscation - simple clear readable code captures interactions with heterogenous data and transformation logic.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cSECUREBYDEFAULTContent">
-            <!-- <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p> -->
-            <div class="cPhil-title-boxes cPhil-title-boxes-white">
-                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>TAINT ANALYSIS</h3>
-                    <p>This ensures that malicious data received by the program does not propagate through a system. In Ballerina, functions can mark returned values as tainted. Consumers of those functions are responsible for sanitizing such values. This analysis is performed statically, and using unsanitized data will result in compile time errors.</p>
-                </div>
-            </div>
-            <div class="cPhil-title-boxes cPhil-title-boxes-white">
-                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>SENSITIVE DATA</h3>
-                    <p>Functions can declare inputs to be security sensitive. Passing tainted data to such functions will result in compilation errors. The developer has to sanitize such data first.</p>
-                </div>
-            </div>
-            <div class="cPhil-title-boxes cPhil-title-boxes-white">
-                <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>SECURE DEFAULTS</h3>
-                    <p>Ballerina enforces multiple security checks and secure-defaults to prevent critical security vulnerabilities.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+         </div>
+      </div>
+
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cSEQUENCEContent">
+      <!-- <p class="cGreenTitle cPhil-box-titles">SEQUENCE DIAGRAMMATIC</p> -->
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>LANGUAGE INSPIRATION</h3>
+            <p>Sequence diagrams are a reflection of how designers and developers document interconnected systems. Ballerina’s syntax and effective coding model requires developers to code using strong interaction best practices. </p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>VISUALIZATION AS SEQUENCE DIAGRAMS</h3>
+            <p>Ballerina’s language semantics model how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of its flow. </p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>ACTORS AND ACTIONS</h3>
+            <p>Ballerina represents clients, workers, and remote systems as different actors in the sequence diagram. In code, remote endpoints are interfaced via connectors, which offer type-safe actions. Graphically, each connector is represented as an actor in the sequence diagram (i.e., a vertical line) and actions are represented as interactions with those actors.</p>
+         </div>
+      </div>
+   </div>
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cCONCURRENCYContent">
+      <!-- <p class="cGreenTitle cPhil-box-titles">CONCURRENCY</p> -->
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>SEQUENCE DIAGRAMS AND CONCURRENCY</h3>
+            <p>Ballerina’s concurrency model is parallel-first since interactions with remote parties always involve multiple workers. Interactions between workers are handled as message passing, with no shared state.</p>
+         </div>
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>WORKER SEMANTICS</h3>
+            <p>Ballerina’s execution model is composed of lightweight parallel execution units known as workers. Workers use non-blocking policies to ensure no function locks an executing thread, such as an HTTP I/O call awaiting response.</p>
+         </div>
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>PROGRAMMING MODEL</h3>
+            <p>Workers and fork/join language semantics abstract the underlying non-blocking approach to enable a simpler concurrency programming model.</p>
+         </div>
+      </div>
+   </div>
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTYPEContent">
+      <!-- <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p> -->
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>TYPE SAFETY</h3>
+            <p>Ballerina has a structural type system with primitive, record, object, tuple, and union types. This type-safe model incorporates type inference at assignment and provides numerous compile time integrity checks for connectors, logic, and network-bound payloads.  </p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>UNION TYPES AND EXPLICIT NULLS</h3>
+            <p>Individual network endpoints often return messages with different payload types and errors, depending on their inputs and logic. Ballerina’s type system embraces this variability with an approach based on union types. Union types explicitly capture this semantics without requiring developers to create unnecessary “wrapper” types. This approach also enhances the handling of null values. By default, types do not support null values. Developers must explicitly create union types to handle nulls. The result is that null exceptions cannot happen and the language syntax and compiler identifies whether null handling logic is required or not.</p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>HETEROGENEOUS DATA HANDLING</h3>
+            <p>The Ballerina type system has rich built in support for JSON, XML, streams and tables, as well as direct support for ProtoBuf and gRPC. The result is clean, readable code for dealing with network payloads, SQL programming and stream processing. Data transformation logic isn’t encumbered with complex generated types, third-party library code or other obfuscation - simple clear readable code captures interactions with heterogenous data and transformation logic.</p>
+         </div>
+      </div>
+   </div>
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cSECUREBYDEFAULTContent">
+      <!-- <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p> -->
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>TAINT ANALYSIS</h3>
+            <p>This ensures that malicious data received by the program does not propagate through a system. In Ballerina, functions can mark returned values as tainted. Consumers of those functions are responsible for sanitizing such values. This analysis is performed statically, and using unsanitized data will result in compile time errors.</p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>SENSITIVE DATA</h3>
+            <p>Functions can declare inputs to be security sensitive. Passing tainted data to such functions will result in compilation errors. The developer has to sanitize such data first.</p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>SECURE DEFAULTS</h3>
+            <p>Ballerina enforces multiple security checks and secure-defaults to prevent critical security vulnerabilities.</p>
+         </div>
+      </div>
+   </div>
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cNETWORKAWAREContent">
+      <!-- <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p> -->
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>SERVICES & ENDPOINTS</h3>
+            <p>Services, endpoints, and networking concepts are first-class constructs in Ballerina, which are represented graphically as well as textually.</p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>NETWORK INTERACTIONS</h3>
+            <p>Interactions over the network are denoted by the arrow operator (->) to differentiate from normal function calls. Unreliability of the network is not ignored and calls over the network return an error in addition to the actual response.</p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>RESILIENCY & SECURITY</h3>
+            <p>Resiliency concepts such timeout, retry, and circuit breaking are in-built. Any data received over the network is treated as tainted and has to be sanitized.</p>
+         </div>
+      </div>
+   </div>
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cCLOUDNATIVEContent">
+      <!-- <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p> -->
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>OUT-OF-THE-BOX SUPPORT FOR DOCKER & KUBERNETES </h3>
+            <p>Code annotations generate docker and kubernetes artifacts during the build, which allows the developer to maintain deployment aspects </p>
+         </div>
+      </div>
+   </div>
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBESTPRACTICESENFORCEDContent">
+      <!-- <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p> -->
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>NO ROOM FOR BEST PRACTICES</h3>
+            <p>Code analysis tools complain if the code has been written in a way that may cause errors later. Ballerina does not leave room for such tools that enforce best practices. If the code shouldn’t be written in a certain way, Ballerina won’t allow you to write it that way. The language, by design, follows a lot more opinionated approach in this regard. </p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>Return values cannot be ignored</h3>
+            <p>A function return value indicates a result of some computation or whether the function is completed or some error occurred.  Returns values should always be checked regardless of whether the function is a side-effect free function or not. Ballerina complains if the return values of function calls are ignored during the compile time.</p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>Read-only (or effective final) function parameters</h3>
+            <p>Reassigning values to function parameter may lead to unintentional consequences and also reduces the code readability. Ballerina treats functions parameter as read-only variables to avoid intentional or unintentional reassigning of function parameters. </p>
+         </div>
+      </div>
+   </div>
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBEYONDTHELANGUAGEContent">
+      <!-- <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p> -->
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>PACKAGE MANAGEMENT</h3>
+            <p>Packages developed by others can be used in a program by pulling and importing those packages. Ballerina packages can be shared by pushing to shared repositories. Every package pushed to a repository will have a version, and newer versions can be pushed to the repository. Consumers of these packages can decide to use either a fixed version or the latest version of a package.</p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>TESTING</h3>
+            <p>Testing constructs are built-in. Test functions, dependent tests, and mocking are all part of the test framework in Ballerina.</p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>DOCUMENTATION</h3>
+            <p>Documentation is validated at compile time to ensure that the documentation changes are in sync with code changes.</p>
+         </div>
+      </div>
+   </div>
+          </div>
 </div>
 <div class="row cBallerina-io-White-row cPhilosophy cPhilosophy2 cHowBallerinaWorksRow">
     <div class="container">

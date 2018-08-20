@@ -245,12 +245,16 @@ $(document).ready(function() {
     $(".bash").removeClass('cBasicCode');
 
     $(".cRuntimeContent").addClass('cShow');
+    
     $(".cSEQUENCE").addClass('active');
     $(".cRUNTIME").addClass('active');
+   
+   
 
     $(".cRUNTIME").click(function() {
         $(".cRuntimeContent").addClass('cShow');
         $(".cDeploymentContent").removeClass('cShow');
+        $(".cSECUREBYDEFAULTContent").removeClass('cShow');
         $(".cLifecycleContent").removeClass('cShow');
 
     });
@@ -258,6 +262,7 @@ $(document).ready(function() {
     $(".cDEPLOYMENT").click(function() {
         $(".cRuntimeContent").removeClass('cShow');
         $(".cDeploymentContent").addClass('cShow');
+        $(".cSECUREBYDEFAULTContent").removeClass('cShow');
         $(".cLifecycleContent").removeClass('cShow');
 
     });
@@ -265,15 +270,24 @@ $(document).ready(function() {
     $(".cLIFECYCLE").click(function() {
         $(".cRuntimeContent").removeClass('cShow');
         $(".cDeploymentContent").removeClass('cShow');
+        $(".cSECUREBYDEFAULTContent").removeClass('cShow');
         $(".cLifecycleContent").addClass('cShow');
     });
 
     $(".cSEQUENCEContent").addClass('cShow');
 
+
+
+
     $(".cSEQUENCE").click(function() {
         $(".cSEQUENCEContent").addClass('cShow');
         $(".cCONCURRENCYContent").removeClass('cShow');
         $(".cTYPEContent").removeClass('cShow');
+        $(".cSECUREBYDEFAULTContent").removeClass('cShow');
+        $(".cNETWORKAWAREContent").removeClass('cShow');
+        $(".cCLOUDNATIVEContent").removeClass('cShow');
+        $(".cBESTPRACTICESENFORCEDContent").removeClass('cShow');
+        $(".cBEYONDTHELANGUAGEContent").removeClass('cShow');
 
     });
 
@@ -281,6 +295,11 @@ $(document).ready(function() {
         $(".cSEQUENCEContent").removeClass('cShow');
         $(".cCONCURRENCYContent").addClass('cShow');
         $(".cTYPEContent").removeClass('cShow');
+        $(".cSECUREBYDEFAULTContent").removeClass('cShow');
+        $(".cNETWORKAWAREContent").removeClass('cShow');
+        $(".cCLOUDNATIVEContent").removeClass('cShow');
+        $(".cBESTPRACTICESENFORCEDContent").removeClass('cShow');
+        $(".cBEYONDTHELANGUAGEContent").removeClass('cShow');
 
     });
 
@@ -288,7 +307,77 @@ $(document).ready(function() {
         $(".cSEQUENCEContent").removeClass('cShow');
         $(".cCONCURRENCYContent").removeClass('cShow');
         $(".cTYPEContent").addClass('cShow');
+        $(".cSECUREBYDEFAULTContent").removeClass('cShow');
+        $(".cNETWORKAWAREContent").removeClass('cShow');
+        $(".cCLOUDNATIVEContent").removeClass('cShow');
+        $(".cBESTPRACTICESENFORCEDContent").removeClass('cShow');
+        $(".cBEYONDTHELANGUAGEContent").removeClass('cShow');
     });
+    
+    $(".cSECUREBYDEFAULT").click(function() {
+        $(".cSEQUENCEContent").removeClass('cShow');
+        $(".cCONCURRENCYContent").removeClass('cShow');
+        $(".cTYPEContent").removeClass('cShow');
+        $(".cSECUREBYDEFAULTContent").addClass('cShow');
+        $(".cNETWORKAWAREContent").removeClass('cShow');
+        $(".cCLOUDNATIVEContent").removeClass('cShow');
+        $(".cBESTPRACTICESENFORCEDContent").removeClass('cShow');
+        $(".cBEYONDTHELANGUAGEContent").removeClass('cShow');
+    });
+    
+    $(".cSECUREBYDEFAULT").click(function() {
+        $(".cSEQUENCEContent").removeClass('cShow');
+        $(".cCONCURRENCYContent").removeClass('cShow');
+        $(".cTYPEContent").removeClass('cShow');
+        $(".cSECUREBYDEFAULTContent").addClass('cShow');
+        $(".cNETWORKAWAREContent").removeClass('cShow');
+        $(".cCLOUDNATIVEContent").removeClass('cShow');
+        $(".cBESTPRACTICESENFORCEDContent").removeClass('cShow');
+        $(".cBEYONDTHELANGUAGEContent").removeClass('cShow');
+    });
+    
+    $(".cNETWORKAWARE").click(function() {
+        $(".cSEQUENCEContent").removeClass('cShow');
+        $(".cCONCURRENCYContent").removeClass('cShow');
+        $(".cTYPEContent").removeClass('cShow');
+        $(".cSECUREBYDEFAULTContent").removeClass('cShow'); 
+        $(".cNETWORKAWAREContent").addClass('cShow');
+        $(".cCLOUDNATIVEContent").removeClass('cShow');
+        $(".cBESTPRACTICESENFORCEDContent").removeClass('cShow');
+        $(".cBEYONDTHELANGUAGEContent").removeClass('cShow');
+    });
+    
+    $(".cCLOUDNATIVE").click(function() {
+        $(".cSEQUENCEContent").removeClass('cShow');
+        $(".cCONCURRENCYContent").removeClass('cShow');
+        $(".cTYPEContent").removeClass('cShow');
+        $(".cSECUREBYDEFAULTContent").removeClass('cShow');
+        $(".cNETWORKAWAREContent").removeClass('cShow');
+        $(".cCLOUDNATIVEContent").addClass('cShow');
+        $(".cBESTPRACTICESENFORCEDContent").removeClass('cShow');
+        $(".cBEYONDTHELANGUAGEContent").removeClass('cShow');
+    });
+    
+    $(".cBESTPRACTICESENFORCED").click(function() {
+        $(".cSEQUENCEContent").removeClass('cShow');
+        $(".cCONCURRENCYContent").removeClass('cShow');
+        $(".cTYPEContent").removeClass('cShow');
+        $(".cSECUREBYDEFAULTContent").removeClass('cShow');
+        $(".cNETWORKAWAREContent").removeClass('cShow');
+        $(".cCLOUDNATIVEContent").removeClass('cShow');
+        $(".cBESTPRACTICESENFORCEDContent").addClass('cShow');
+        $(".cBEYONDTHELANGUAGEContent").removeClass('cShow');
+       });
+    $(".cBEYONDTHELANGUAGE").click(function() {
+        $(".cSEQUENCEContent").removeClass('cShow');
+        $(".cCONCURRENCYContent").removeClass('cShow');
+        $(".cTYPEContent").removeClass('cShow');
+        $(".cSECUREBYDEFAULTContent").removeClass('cShow');
+        $(".cNETWORKAWAREContent").removeClass('cShow');
+        $(".cCLOUDNATIVEContent").removeClass('cShow');
+        $(".cBESTPRACTICESENFORCEDContent").removeClass('cShow');
+        $(".cBEYONDTHELANGUAGEContent").addClass('cShow');
+     });
 
     /*
      * Search window toggle function
