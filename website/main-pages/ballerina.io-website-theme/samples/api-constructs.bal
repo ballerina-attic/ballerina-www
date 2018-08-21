@@ -19,8 +19,12 @@ service<http:Service> hello bind {port: 9090} {
         var  payload = request.getTextPayload();
         // Different handling depending on if we got proper string or error
         match payload {
-            string n => {res.setTextPayload("Hello " + untaint n + "!\n");}
-            error err => {res.setTextPayload(untaint err.message);}
+            string name => {
+                res.setTextPayload("Hello " + untaint name + "!\n");
+            }
+            error err => {
+                res.setTextPayload(untaint err.message);
+            }
         }   
         // Return response, '->' signifies remote call
         // '_' means ignore the function return value

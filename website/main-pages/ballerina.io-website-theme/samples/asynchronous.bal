@@ -5,13 +5,13 @@ function main(string... args) {
     future<int> f1 = start sum(40, 50);
 
     // "futures" can be passed as parameters into functions
-    int result = square_plus_cube(f1);
+    int result = square(f1);
     io:println("SQ + CB = " + result);
 }
 
 function sum (int a, int b) returns (int) { return a + b; }
 
-function square_plus_cube(future<int> f) returns int {
+function square(future<int> f) returns int {
     int n = await f;
     return n*n;
 }
