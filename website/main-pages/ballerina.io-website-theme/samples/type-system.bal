@@ -2,8 +2,8 @@ any anything;
 int integer = 0;
 float floatingPoint = 0.0;
 boolean b = true; 
-string hi = "hello"; 
-blob bl = hi.toBlob("UTF-8"); 
+string hi = "hello";
+byte[] byteArr = hi.toByteArray("UTF-8");
 
 json j = { a: "hello", b: 5 }; 
 
