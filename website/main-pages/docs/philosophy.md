@@ -1653,8 +1653,9 @@ Cloud native
                </div>
                <div class="tab-pane type-system-code-tab" id="8b">
                   <div class="code-wrapper">
-                     <pre id="type-system-code" class="code-block">
-BEST PRACTICES ENFORCED </pre>
+                     <pre id="beyond-the-language-code" class="code-block">
+                       <code class="ballerina"></code>
+                       </pre>
                   </div>
                </div>
             </div>
