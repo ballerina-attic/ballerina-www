@@ -22,7 +22,7 @@ endpoint http:Client backendClientEP {
     }
 };
 
-service<http:Service> circuitbreaker bind { port: 9090 } {
+service<http:Service> legacyEndpoint bind { port: 9090 } {
     // Create a REST resource within the API.
     @http:ResourceConfig {
         methods: ["GET"],
