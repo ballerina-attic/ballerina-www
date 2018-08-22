@@ -4,8 +4,6 @@ endpoint http:Listener listener {
     port:9090
 };
 
-// Order management is done using an in memory map.
-// Add some sample orders to 'ordersMap' at startup.
 map<json> ordersMap;
 
 // RESTful service.
@@ -16,7 +14,6 @@ service<http:Service> orderMgt bind listener {
     // order using path '/order/<orderId>'.
     @http:ResourceConfig {
         methods: ["GET"],
-        consumes: ["application/json"],
         produces: ["application/json"],
         path: "/order/{orderId}"
     }

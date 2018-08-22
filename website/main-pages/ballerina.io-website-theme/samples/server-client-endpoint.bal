@@ -31,8 +31,7 @@ service<http:Service> passthrough bind listener {
     passthrough(endpoint caller, http:Request req) {
         // When tweet is called, it posts message in twitter
         twitter:Status twitterStatus = check twitterClient->tweet("my first Ballerina program", "", "");
-        caller->respond("Tweet ID: " + <string> twitterStatus.id 
-                                   + ", Tweet: " + twitterStatus.text) but { error e =>
-                            log:printError("Error sending response", err = e) };
+        _ = caller->respond("Tweet ID: " + <string> twitterStatus.id 
+                                   + ", Tweet: " + twitterStatus.text);
     }
 }
