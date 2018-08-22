@@ -1,13 +1,10 @@
 import ballerina/grpc;
 import ballerina/http;
 
-// The server endpoint configuration.
 endpoint grpc:Listener listener {
-    host:"localhost",
     port:9090
 };
 
-// Back-end server to which client endpoint connets.
 endpoint http:Client backendClientEP {
     url: "http://b.content.wso2.com"
 };

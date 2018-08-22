@@ -9,8 +9,6 @@ endpoint http:Client httpEndpoint {
     }
 };
 
-// Create a JWT authentication provider with the relevant configuration
-// parameters. 
 http:AuthProvider jwtAuthProvider = {
     scheme:"jwt",
     issuer:"ballerina",
@@ -21,14 +19,9 @@ http:AuthProvider jwtAuthProvider = {
         password: "ballerina"
     }
 };
-// The endpoint used here is `http:SecureListener`. The JWT authentication
-// provider is set to this endpoint using the `authProviders` attribute. The
-// developer has the option to override the authentication and authorization
-// at the service and resource levels.
-endpoint http:SecureListener ep {
+endpoint http:SecureListener secureListener {
     port: 9090,
     authProviders:[jwtAuthProvider],
-    // The secure hello world sample uses https.
     secureSocket: {
         keyStore: {
             path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
@@ -47,15 +40,7 @@ endpoint http:SecureListener ep {
         authentication: { enabled: true }
     }
 }
-// Auth configuration comprises of two parts - authentication & authorization.
-// Authentication can be enabled by setting the `authentication:{enabled:true}`
-// flag.
-// Authorization is based on scopes, where a scope maps to one or more groups.
-// For a user to access a resource, the user should be in the same groups as
-// the scope.
-// To specify one or more scope of a resource, the annotation attribute
-// `scopes` can be used.
-service<http:Service> echo bind ep {
+service<http:Service> echo bind secureListener {
     @http:ResourceConfig {
         methods: ["GET"],
         path: "/sayHello",
@@ -63,10 +48,6 @@ service<http:Service> echo bind ep {
             scopes: ["hello"]
         }
     }
-    // The authentication and authorization settings can be overridden at
-    // resource level.
-    // The hello resource would inherit the `authentication:{enabled:true}` flag
-    // from the service level, and define 'hello' as the scope for the resource.
     hello(endpoint caller, http:Request req) {
         http:Response res = check httpEndpoint->get("/secured/endpoint");
         _ = caller->respond(res);
