@@ -35,7 +35,7 @@ service<http:Service> travelAgencyService bind { port: 9090 } {
         outReqPayloadAirline.Preference = inReqPayload.Preference.Airline;
 
         // Send a post request to airlineReservationService with appropriate payload and get response
-        http:Response inResAirline = check airlineReservationEP -> post("/reserve", untaint outReqPayloadAirline);
+        http:Response inResAirline = check airlineReservationEP->post("/reserve", untaint outReqPayloadAirline);
 
         // Get the reservation status
         var airlineResPayload = check inResAirline.getJsonPayload();
@@ -47,7 +47,7 @@ service<http:Service> travelAgencyService bind { port: 9090 } {
         outReqPayloadHotel.Preference = inReqPayload.Preference.Accommodation;
 
         // Send a post request to hotelReservationService with appropriate payload and get response
-        http:Response inResHotel = check hotelReservationEP -> post("/reserve", untaint outReqPayloadHotel);
+        http:Response inResHotel = check hotelReservationEP->post("/reserve", untaint outReqPayloadHotel);
 
         // Get the reservation status
         var hotelResPayload = check inResHotel.getJsonPayload();
@@ -59,7 +59,7 @@ service<http:Service> travelAgencyService bind { port: 9090 } {
         outReqPayloadCar.Preference = inReqPayload.Preference.Car;
 
         // Send a post request to carRentalService with appropriate payload and get response
-        http:Response inResCar = check carRentalEP -> post("/rent", untaint outReqPayloadCar);
+        http:Response inResCar = check carRentalEP->post("/rent", untaint outReqPayloadCar);
 
         // Get the rental status
         var carResPayload = check inResCar.getJsonPayload();
@@ -68,6 +68,6 @@ service<http:Service> travelAgencyService bind { port: 9090 } {
         // If all three services response positive status, send a successful message to the user
         http:Response outResponse = new;
         outResponse.setJsonPayload({"Message":"Congratulations! Your journey is ready!!"});
-        _ = client -> respond(outResponse);
+        _ = client->respond(outResponse);
     }
 }
