@@ -26,7 +26,6 @@ type myRecord record { string a; int b; };
 type myObject object {  
    public string x;
    private int y;
-
    new (x, y) {}
    function getX() returns (string) { return x; }
 };
