@@ -1653,9 +1653,8 @@ Cloud native
                </div>
                <div class="tab-pane type-system-code-tab" id="8b">
                   <div class="code-wrapper">
-                     <pre id="beyond-the-language-code" class="code-block">
-                       <code class="ballerina"></code>
-                       </pre>
+                     <pre id="type-system-code" class="code-block">
+BEST PRACTICES ENFORCED </pre>
                   </div>
                </div>
             </div>
@@ -2487,7 +2486,16 @@ Cloud native
         <div class="col-xs-12 cPhilosophyWhite cCloudNative clearfix">
             <div class="col-xs-12">
                 <div id="ballerina-by-example">
-                    <div class="cLanguageFeaturesContainer clearfix"></div>
+                    <div class="cLanguageFeaturesContainer clearfix">
+                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet0">
+                        </div>
+                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet1">
+                        </div>
+                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet2">
+                        </div>
+                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet3">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2503,7 +2511,7 @@ Cloud native
         </div>
         <div class="col-xs-12 cPhilosophyWhite cCloudNative clearfix">
             <div class="col-xs-12">
-                <div id="ballerina-by-guide">
+                <div id="ballerina-by-example">
                     <div class="cLanguageFeaturesContainer clearfix">
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cLanguageFeatures bbgfeatureSet0">
                         </div>
