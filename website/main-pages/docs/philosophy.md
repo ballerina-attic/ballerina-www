@@ -1531,11 +1531,8 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-content-wraper">
                 <h2 class="cMainH2Title">Why did we build Ballerina? </h2>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol ">
-                    <p> Cloud-native and microservices architectures enable enterprises to have trillions of programmable network endpoints, making integration the glue that brings APIs, microservices, and data together as a whole.
-                    </p>
-                    <p>Centralized and configuration-driven approaches to integration, with conventional integration platforms such as ESBs, are not agile or cloud native.</p>
-                    <p>Programming languages with frameworks like Spring and Node.js offer agility, but requires writing a lot of complex and boiler-plate code to integrate endpoints.</p>
-                    <p>Ballerina provides first-class constructs to make distributed system integration simple, while maintaining agility and cloud-native characteristics.</p>
+                    <p>Cloud-native and microservices architectures enable enterprises to have trillions of programmable network endpoints, making integration the glue that brings APIs, microservices, and data together as a whole. Centralized and configuration-driven approaches to integration, with ESBs, are not agile or cloud-native. Programming languages with frameworks like Spring and Node.js offer agility but require writing a lot of complex and boilerplate code to integrate endpoints. </p>
+                    <p>Ballerina provides first-class constructs to make distributed system integration simple, while maintaining agility and cloud-native characteristics.  </p>
                 </div>
             </div>
         </div>
@@ -1544,7 +1541,7 @@
                 <div class="cPhil-Gray">
                     <h4>Integration<br/> Products
                     </h4>
-                    <p>ESBs, EAI, BPM, and DSLs require XML and configuration disrupting the iterative developer flow: edit, build, run, and test.
+                    <p>ESBs, EAI, BPM, and DSLs require writing configuration-driven integration which is disrupting the iterative developer flow: edit, build, run, and test.
                     </p>
                     <div class="ch4Container">
                         <h4>Not Agile </h4>
@@ -1569,7 +1566,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cBallerina-io-Home-widget cPhilosophy-widget">
                 <div class="cPhil-Gray">
                     <h4>General Purpose <br/>Programming Languages</h4>
-                    <p>Developers take responsibility for the hard problems of integration with runtimes not suited to sequence parallelization. </p>
+                    <p>Developers take responsibility for the hard problems of integrating endpoints with runtimes that lack adequate integration abstractions.  </p>
                     <div class="ch4Container">
                         <h4>Not Integration Simple </h4>
                     </div>
@@ -2512,7 +2509,7 @@ BEST PRACTICES ENFORCED </pre>
         <div class="col-xs-12 cPhilosophyWhite cCloudNative clearfix">
             <div class="col-xs-12">
                 <div id="ballerina-by-example">
-                    <div class="cLanguageFeaturesContainer clearfix">
+                    <div class="cLanguageFeaturesContainer-1 clearfix">
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cLanguageFeatures bbgfeatureSet0">
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cLanguageFeatures bbgfeatureSet1">
