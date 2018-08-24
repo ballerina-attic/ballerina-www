@@ -7,7 +7,14 @@ echo "....Building philosophy samples..."
 
 if [ -z "$BALLERINACMD" ] ; then
   if [ -n "$BALLERINA_HOME"  ] ; then
-    BALLERINACMD="$BALLERINA_HOME/bin/ballerina"
+	if [ $OSTYPE == "msys" ];
+	  EXEC=""
+	  then
+		EXEC="bin/ballerina.bat"
+	  else
+        EXEC="bin/ballerina"
+	fi
+	BALLERINACMD=$BALLERINA_HOME$EXEC 
   else
     BALLERINACMD=ballerina
   fi
@@ -18,14 +25,13 @@ if [ -z "$BALLERINA_HOME" ]; then
   exit 1
 fi
 
-if [ ! -x "$BALLERINACMD" ] ; then
+if [ ! -x "$BALLERINACMD" && $OSTYPE -ne "msys" ] ; then
   echo "[ERROR] BALLERINA_HOME is not defined correctly."
   echo "[ERROR] cannot execute $BALLERINACMD"
   exit 1
 fi
 
-
-echo "Ballerina Home :" $BALLERINA_HOME
+echo "Ballerina Home : $BALLERINA_HOME"
 $BALLERINACMD -v
 
 exit_on_error() {
