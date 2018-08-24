@@ -14,7 +14,7 @@ socialmediaimage: sm-webinar-humio-ballerina-2.jpg
  <table class="cEventTable">
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">August 22, 2018</span>10:00 am PDT (6:00 pm in UK)</td>
-        <td class="cEventURL"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank" id="iRegisterNow">Register Now</a></td>
+        <td class="cEventURL"></td>
     </tr>
 </table>
 

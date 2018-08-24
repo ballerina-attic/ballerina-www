@@ -32,7 +32,7 @@
 </table>
 
 
-## Webinars
+<!-- ## Webinars
 
 <table class="cEventTable cWebinarList">
 
@@ -48,7 +48,7 @@
     <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/observing-your-ballerina-services-with-humio/">Register Now</a></td>
 </tr>
 
-</table>
+</table> -->
 
 ## Meetups
 
