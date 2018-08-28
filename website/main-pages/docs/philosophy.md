@@ -1953,16 +1953,19 @@ BEST PRACTICES ENFORCED </pre>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls cCloudNativeNavLeftSide">
                 <ul>
                     <li class="links first cActive">API CONSTRUCTS</li>
-                    <li class="links">LOGIC LANGUAGE</li>
+<!--                    <li class="links">LOGIC LANGUAGE</li>-->
                     <li class="links">ASYNCHRONOUS</li>
+                    <li class="links">WORKERS</li>
                     <li class="links">JSON and XML</li>
+
                 </ul>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls">
                 <ul>
                     <li class="links">ANNOTATIONS</li>
-                    <li class="links">STATICALLY AND STRONGLY TYPED</li>
+<!--                    <li class="links">STATICALLY AND STRONGLY TYPED</li>-->
                     <li class="links">STREAMS</li>
+                    <li class="links">TRANSACTIONS</li>
                 </ul>
             </div>
         </div>
@@ -1984,10 +1987,13 @@ BEST PRACTICES ENFORCED </pre>
                             <pre id="api-constructs-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
-                            <pre id="logic-language-code" class="code-block">
+<!--                            <pre id="logic-language-code" class="code-block">
+                                <code class="ballerina tab-pane active"></code>
+                            </pre>-->
+                            <pre id="asynchronous-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
-                            <pre id="asynchronous-code" class="code-block">
+                            <pre id="workers-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
                             <pre id="json-and-xml-code" class="code-block">
@@ -1996,21 +2002,26 @@ BEST PRACTICES ENFORCED </pre>
                             <pre id="annotations-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
-                            <pre id="statically-and-strongly-typed-code" class="code-block">
+<!--                            <pre id="statically-and-strongly-typed-code" class="code-block">
+                                <code class="ballerina tab-pane active"></code>
+                            </pre>-->
+                            <pre id="streams-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
-                            <pre id="streams-code" class="code-block">
+                            <pre id="transactions-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
                         </div>
                         <div class="code cOutput">
                             <div class="highlight">
                                 <pre id="api-constructs-shell" class="shell-display"></pre>
-                                <pre id="logic-language-shell" class="shell-display"></pre>
+<!--                            <pre id="logic-language-shell" class="shell-display"></pre>-->
                                 <pre id="asynchronous-shell" class="shell-display"></pre>
+                                <pre id="workers-shell" class="shell-display"></pre>
                                 <pre id="json-and-xml-shell" class="shell-display"></pre>
                                 <pre id="annotations-shell" class="shell-display"></pre>
                                 <pre id="streams-shell" class="shell-display"></pre>
+                                <pre id="transactions-shell" class="shell-display"></pre>
                             </div>
                         </div>
                     </div>
