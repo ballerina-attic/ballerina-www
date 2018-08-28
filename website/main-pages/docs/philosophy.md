@@ -1532,7 +1532,6 @@
                 <h2 class="cMainH2Title">Why did we build Ballerina? </h2>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol ">
                     <p>Cloud-native and microservices architectures enable enterprises to have trillions of programmable network endpoints, making integration the glue that brings APIs, microservices, and data together as a whole. Centralized and configuration-driven approaches to integration, with ESBs, are not agile or cloud-native. Programming languages with frameworks like Spring and Node.js offer agility but require writing a lot of complex and boilerplate code to integrate endpoints. </p>
-                    <p>Ballerina provides first-class constructs to make distributed system integration simple, while maintaining agility and cloud-native characteristics.  </p>
                 </div>
             </div>
         </div>
@@ -1966,6 +1965,8 @@ BEST PRACTICES ENFORCED </pre>
 <!--                    <li class="links">STATICALLY AND STRONGLY TYPED</li>-->
                     <li class="links">STREAMS</li>
                     <li class="links">TRANSACTIONS</li>
+                    <li class="links">TAINT ANALYSIS</li>
+
                 </ul>
             </div>
         </div>
@@ -2011,6 +2012,9 @@ BEST PRACTICES ENFORCED </pre>
                             <pre id="transactions-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
+                            <pre id="taint-analysis-code" class="code-block">
+                                <code class="ballerina tab-pane active"></code>
+                            </pre>
                         </div>
                         <div class="code cOutput">
                             <div class="highlight">
@@ -2022,7 +2026,8 @@ BEST PRACTICES ENFORCED </pre>
                                 <pre id="annotations-shell" class="shell-display"></pre>
                                 <pre id="streams-shell" class="shell-display"></pre>
                                 <pre id="transactions-shell" class="shell-display"></pre>
-                            </div>
+                                <pre id="taint-analysis-shell" class="shell-display"></pre>
+                             </div>
                         </div>
                     </div>
                     <!-- End the codeNativeBox -->
