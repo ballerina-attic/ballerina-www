@@ -1590,7 +1590,7 @@
                   <li class="cNETWORKAWARE cFixedWidthLink   links"><a href="#5b" data-toggle="tab">NETWORK AWARE </a></li>
 <!--                  <li class="cCLOUDNATIVE cFixedWidthLink  links"><a href="#6b" data-toggle="tab">CLOUD NATIVE </a></li>-->
                   <li class="cBESTPRACTICESENFORCED cFixedWidthLink  links"><a href="#6b" data-toggle="tab">DEVOPS READY</a></li>
-                  <li class="cBEYONDTHELANGUAGE cFixedWidthLink  links"><a href="#7b" data-toggle="tab">IDIOMATIC </a></li>
+                  <li class="cBEYONDTHELANGUAGE cFixedWidthLink  links"><a href="#7b" data-toggle="tab">IDIOMATIC</a></li>
                 </ul>
            </div>
 <!--           <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls cCloudNativeNavLeftSide">
@@ -2466,7 +2466,7 @@ IDIOMATIC  </pre>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="resilient-communication-text">
             <div data-startLine="5" data-endLine="5" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Circuit breakers are used to protect against distributed failure. 
+                    <p>Circuit breakers are used to protect against distributed failure.
                         The circuit breaker looks for errors across a rolling time window.
                         When the circuit breaks, requests are not sent to the backend until <code>resetTime</code>.
                     </p>
@@ -2634,11 +2634,11 @@ IDIOMATIC  </pre>
             </div>
             <div data-startLine="12" data-endLine="12" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>This particular service deals with user profiles. It contains a collection of resources to add and remove users. 
-                        Resource name can be any name. The name of the resource must be followed by the endpoint. Rest of the resource 
-                        arguments can be anything such as custom records, string, int, etc. 
+                    <p>This particular service deals with user profiles. It contains a collection of resources to add and remove users.
+                        Resource name can be any name. The name of the resource must be followed by the endpoint. Rest of the resource
+                        arguments can be anything such as custom records, string, int, etc.
                     </p>
-                    <p>Once the service is implemented, client stub can be generated using the service. Ballerina provides a command line 
+                    <p>Once the service is implemented, client stub can be generated using the service. Ballerina provides a command line
                         tool to generate the stub.
                     </p>
                 </div>
@@ -2670,7 +2670,7 @@ IDIOMATIC  </pre>
             </div>
             <div data-startLine="33" data-endLine="37" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Record the literals defined for the GRPC service. These record literals can be in any form. 
+                    <p>Record the literals defined for the GRPC service. These record literals can be in any form.
                         In this sample the record literals are UserInfo and User.
                     </p>
                 </div>
