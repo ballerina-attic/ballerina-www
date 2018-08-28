@@ -2112,28 +2112,82 @@ IDIOMATIC  </pre>
                     </p>
                 </div>
             </div>
-            <div data-startLine="16" data-endLine="32" class="hTrigger cCodeDesription">
+<!--            <div data-startLine="16" data-endLine="32" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads. Threads can join using different conditions (all end, some end).
                     </p>
                 </div>
+            </div>-->
+        </div>
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="workers-text">
+            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
+                <div>
+                    <p>Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads </p>
+                </div>
+            </div>
+            <div data-startLine="6" data-endLine="8" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                     Calculate sum in a worker thread
+                    </p>
+                </div>
+            </div>
+            <div data-startLine="15" data-endLine="26" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        Calculate sum of squares in another thread
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="json-and-xml-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="transactions-text">
+            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
+                <div>
+                    <p>To improve the reliability of microservice-based applications, a series of invocations can be bound into a single unit of work called transaction. </p>
+                </div>
+            </div>
+            <div data-startLine="16" data-endLine="28" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                      Start a trasaction block with four retry attempts and perform two database insert operations within the transaction
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="transactions-text">
+            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
+                <div>
+                    <p>To improve the reliability of microservice-based applications, a series of invocations can be bound into a single unit of work called transaction. </p>
+                </div>
+            </div>
+            <div data-startLine="16" data-endLine="28" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                      Start a trasaction block with four retry attempts and perform two database insert operations within the transaction
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="taint-analysis-text">
             <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription">
                 <div>
-                    <p>JSON and XML are first class citizens in Ballerina.</p>
+                    <p>The Ballerina compiler identifies untrusted (tainted) data by observing how tainted data propagates through the program. If untrusted data is passed to a security sensitive parameter, a compiler error is generated.</p>
                 </div>
             </div>
-            <div data-startLine="7" data-endLine="19" class="hTrigger cCodeDesription">
+            <div data-startLine="3" data-endLine="5" class="hTrigger cCodeDesription">
                 <div>
-                    <p>You can construct JSON and XML objects inline or from other variables, arrays, and values.</p>
+                    <p>Sensitive parameters of the functions built-in-to ballerina are decorated with @sensitive annotation. This ensures that tainted data cannot pass into  the security sensitive parameter.</p>
                 </div>
             </div>
-            <div data-startLine="26" data-endLine="32" class="hTrigger cCodeDesription">
+            <div data-startLine="27" data-endLine="30" class="hTrigger cCodeDesription">
                 <div>
-                    <p>You can convert JSON to XML and XML to JSON, access individual elements, and use various functions.</p>
+                    <p>The @tainted annotation denotes that the return value of the function should not be trusted (tainted))</p>
+                </div>
+            </div>
+            <div data-startLine="32" data-endLine="35" class="hTrigger cCodeDesription">
+                <div>
+                    <p>The @untainted annotation denotes that the return value of the function should be trusted (untainted)</p>
                 </div>
             </div>
         </div>
@@ -2141,7 +2195,7 @@ IDIOMATIC  </pre>
             <div data-startLine="1" data-endLine="3" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        Packages extend the language not just with objects and functions, but also with annotations.
+                          The @untainted annotation denotes that the return value of the function should be trusted (untainted)
                     </p>
                 </div>
             </div>
