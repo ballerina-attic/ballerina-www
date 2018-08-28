@@ -429,7 +429,7 @@ $ ballerina help push
 ```
 
 ## Run the Composer
-Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
+Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina language. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
 
 ### To start the Composer: 
 
