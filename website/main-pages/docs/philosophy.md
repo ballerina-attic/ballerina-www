@@ -1588,9 +1588,9 @@
                   <li class="cTYPE cFixedWidthLink links"><a href="#3b" data-toggle="tab">TYPE SYSTEM</a></li>
                   <li class="cSECUREBYDEFAULT cFixedWidthLink  links"><a href="#4b" data-toggle="tab">SECURE BY DEFAULT </a></li>
                   <li class="cNETWORKAWARE cFixedWidthLink   links"><a href="#5b" data-toggle="tab">NETWORK AWARE </a></li>
-                  <li class="cCLOUDNATIVE cFixedWidthLink  links"><a href="#6b" data-toggle="tab">CLOUD NATIVE </a></li>
-                  <li class="cBESTPRACTICESENFORCED cFixedWidthLink  links"><a href="#7b" data-toggle="tab">BEST PRACTICES ENFORCED</a></li>
-                  <li class="cBEYONDTHELANGUAGE cFixedWidthLink  links"><a href="#8b" data-toggle="tab">BEYOND THE LANGUAGE</a></li>
+<!--                  <li class="cCLOUDNATIVE cFixedWidthLink  links"><a href="#6b" data-toggle="tab">CLOUD NATIVE </a></li>-->
+                  <li class="cBESTPRACTICESENFORCED cFixedWidthLink  links"><a href="#6b" data-toggle="tab">DEVOPS READY</a></li>
+                  <li class="cBEYONDTHELANGUAGE cFixedWidthLink  links"><a href="#7b" data-toggle="tab">IDIOMATIC </a></li>
                 </ul>
            </div>
 <!--           <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls cCloudNativeNavLeftSide">
@@ -1637,22 +1637,24 @@
                   <div class="code-wrapper">
                      <div class="code-wrapper">
                         <pre id="type-system-code" class="code-block">
-Cloud native
+DEVOPS READY
                             </pre>
                      </div>
                   </div>
                </div>
                <div class="tab-pane type-system-code-tab" id="7b">
                   <div class="code-wrapper">
-                     <pre id="type-system-code" class="code-block"></pre>
+                      <pre id="type-system-code" class="code-block">
+                      IDIOMATIC
+                      </pre>
                   </div>
                </div>
-               <div class="tab-pane type-system-code-tab" id="8b">
+<!--               <div class="tab-pane type-system-code-tab" id="8b">
                   <div class="code-wrapper">
                      <pre id="type-system-code" class="code-block">
-BEST PRACTICES ENFORCED </pre>
+IDIOMATIC  </pre>
                   </div>
-               </div>
+               </div>-->
             </div>
          </div>
       </div>
