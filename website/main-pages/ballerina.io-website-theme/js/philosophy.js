@@ -87,7 +87,7 @@ function printExamples() {
                     category = 'other';
                     categoryName = 'Other';
                 } else {
-                    category = (value['category'].toLowerCase()).replace(' ', '_');
+                    category = (value['category'].toLowerCase()).replace(/./g, '_');
                     categoryName = (value['category'].toLowerCase());
                 }
 
