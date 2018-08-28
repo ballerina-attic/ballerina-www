@@ -13,13 +13,15 @@ endpoint kafka:SimpleConsumer consumer {
 };
 
 service<kafka:Consumer> kafkaService bind consumer {
-    onMessage(kafka:ConsumerAction consumerAction, kafka:ConsumerRecord[] records) {
+    onMessage(kafka:ConsumerAction consumerAction, 
+                                                kafka:ConsumerRecord[] records) {
         foreach entry in records {
             byte[] serializedMsg = entry.value;
             io:ByteChannel channel = io:openFile("/some/filePath", io:APPEND);
             int writtenBytes = 0;
             while (writtenBytes == lengthof serializedMsg) {
-                writtenBytes = check channel.write(serializedMsg, writtenBytes) + writtenBytes;
+                writtenBytes = check channel.write(serializedMsg, writtenBytes) + 
+                                                                    writtenBytes;
             }
         }
     }
@@ -52,7 +54,8 @@ service<http:Service> productAdminService bind listener {
         json newPrice = reqPayload.Price;
 
         float newPriceAmount = check <float>newPrice.toString();
-        json priceUpdateInfo = {"Product":productName, "UpdatedPrice":newPriceAmount};
+        json priceUpdateInfo = {"Product":productName, 
+                                                  "UpdatedPrice":newPriceAmount};
         byte[] serializedMsg = priceUpdateInfo.toString().toByteArray("UTF-8");
 
         kafkaProducer->send(serializedMsg, "product-price", partition = 0);

@@ -32,7 +32,7 @@ service<http:Service> orderMgt bind { port:9090 } {
         response.setJsonPayload(untaint payload);
         response.statusCode = 201;
         response.setHeader("Location", "http://localhost:9090/ordermgt/order/" +
-                orderId);
+                                                                        orderId);
 
         _ = client->respond(response);
     }

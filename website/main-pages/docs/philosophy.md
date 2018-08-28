@@ -2464,14 +2464,6 @@ IDIOMATIC  </pre>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="resilient-communication-text">
-            <div data-startLine="5" data-endLine="5" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Circuit breakers are used to protect against distributed failure.
-                        The circuit breaker looks for errors across a rolling time window.
-                        When the circuit breaks, requests are not sent to the backend until <code>resetTime</code>.
-                    </p>
-                </div>
-            </div>
             <div data-startLine="7" data-endLine="10" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Circuit breaker configuration options that control the behavior of the Ballerina circuit breaker.</p>
@@ -2519,42 +2511,42 @@ IDIOMATIC  </pre>
                     <p>Travel agency service to arrange a complete tour for a user.</p>
                 </div>
             </div>
-            <div data-startLine="18" data-endLine="47" class="hTrigger cCodeDesription gray">
+            <div data-startLine="18" data-endLine="52" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Resource to arrange a tour.</p>
                 </div>
             </div>
-            <div data-startLine="23" data-endLine="24" class="hTrigger cCodeDesription gray">
+            <div data-startLine="23" data-endLine="25" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>JSON payload format for an HTTP out request.</p>
                 </div>
             </div>
-            <div data-startLine="26" data-endLine="26" class="hTrigger cCodeDesription gray">
+            <div data-startLine="27" data-endLine="27" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Call the airline reservation service to reserve an airline ticket for the user. Construct the payload.</p>
                 </div>
             </div>
-            <div data-startLine="28" data-endLine="28" class="hTrigger cCodeDesription gray">
+            <div data-startLine="29" data-endLine="30" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Send a post request to <code>airlineReservationService</code> with an appropriate payload, and get a response.</p>
                 </div>
             </div>
-            <div data-startLine="36" data-endLine="36" class="hTrigger cCodeDesription gray">
+            <div data-startLine="36" data-endLine="37" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Get the reservation status.</p>
                 </div>
             </div>
-            <div data-startLine="40" data-endLine="40" class="hTrigger cCodeDesription gray">
+            <div data-startLine="43" data-endLine="44" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Send a post request to <code>carRentalService</code> with an appropriate payload and get a response.</p>
                 </div>
             </div>
-            <div data-startLine="42" data-endLine="42" class="hTrigger cCodeDesription gray">
+            <div data-startLine="47" data-endLine="47" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Get the rental status.</p>
                 </div>
             </div>
-            <div data-startLine="44" data-endLine="44" class="hTrigger cCodeDesription gray">
+            <div data-startLine="48" data-endLine="50" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>If all three services respond with a positive status, send a successful message to the user.</p>
                 </div>
@@ -2567,55 +2559,55 @@ IDIOMATIC  </pre>
                     <p>Kafka consumer endpoint.</p>
                 </div>
             </div>
-            <div data-startLine="15" data-endLine="26" class="hTrigger cCodeDesription gray">
+            <div data-startLine="15" data-endLine="28" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Kafka service that listens from the topic <code>product-price</code>
                         Subscribe <code>inventoryControlService</code> to new product price updates from
                         the product admin, and update the database.</p>
                 </div>
             </div>
-            <div data-startLine="16" data-endLine="16" class="hTrigger cCodeDesription gray">
+            <div data-startLine="16" data-endLine="17" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Trigger whenever a message is added to the subscribed topic.</p>
                 </div>
             </div>
-            <div data-startLine="17" data-endLine="17" class="hTrigger cCodeDesription gray">
+            <div data-startLine="18" data-endLine="18" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Dispatch the set of Kafka records to the service. These are processed one by one.</p>
                 </div>
             </div>
-            <div data-startLine="19" data-endLine="19" class="hTrigger cCodeDesription gray">
+            <div data-startLine="20" data-endLine="20" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Write the serialized message to a file.</p>
                 </div>
             </div>
             <!-- Producer -->
-            <div data-startLine="33" data-endLine="38" class="hTrigger cCodeDesription gray">
+            <div data-startLine="35" data-endLine="40" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Kafka producer endpoint.</p>
                 </div>
             </div>
-            <div data-startLine="40" data-endLine="42" class="hTrigger cCodeDesription gray">
+            <div data-startLine="42" data-endLine="44" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>HTTP service endpoint.</p>
                 </div>
             </div>
-            <div data-startLine="54" data-endLine="54" class="hTrigger cCodeDesription gray">
+            <div data-startLine="56" data-endLine="56" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Convert the price value to float.</p>
                 </div>
             </div>
-            <div data-startLine="55" data-endLine="55" class="hTrigger cCodeDesription gray">
+            <div data-startLine="57" data-endLine="58" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Construct and serialize the message to be published to the Kafka topic.</p>
                 </div>
             </div>
-            <div data-startLine="58" data-endLine="58" class="hTrigger cCodeDesription gray">
+            <div data-startLine="61" data-endLine="61" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Produce the message and publish it to the Kafka topic.</p>
                 </div>
             </div>
-            <div data-startLine="59" data-endLine="61" class="hTrigger cCodeDesription gray">
+            <div data-startLine="62" data-endLine="64" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Send a success status to the admin request.</p>
                 </div>
@@ -2634,21 +2626,21 @@ IDIOMATIC  </pre>
             </div>
             <div data-startLine="12" data-endLine="12" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>This particular service deals with user profiles. It contains a collection of resources to add and remove users.
-                        Resource name can be any name. The name of the resource must be followed by the endpoint. Rest of the resource
-                        arguments can be anything such as custom records, string, int, etc.
+                    <p>This particular service deals with user profiles. It contains a collection of resources to add and remove users. 
+                        Resource name can be any name. The name of the resource must be followed by the endpoint. Rest of the resource 
+                        arguments can be anything such as custom records, string, int, etc. 
                     </p>
-                    <p>Once the service is implemented, client stub can be generated using the service. Ballerina provides a command line
+                    <p>Once the service is implemented, client stub can be generated using the service. Ballerina provides a command line 
                         tool to generate the stub.
                     </p>
                 </div>
             </div>
-            <div data-startLine="18" data-endLine="18" class="hTrigger cCodeDesription gray">
+            <div data-startLine="17" data-endLine="17" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Cast the record literal to JSON.</p>
                 </div>
             </div>
-            <div data-startLine="21" data-endLine="21" class="hTrigger cCodeDesription gray">
+            <div data-startLine="20" data-endLine="21" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Send the received GRPC data to the HTTP backend.</p>
                 </div>
@@ -2658,19 +2650,19 @@ IDIOMATIC  </pre>
                     <p>Get the response payload as string and send it back to the GRPC client.</p>
                 </div>
             </div>
-            <div data-startLine="28" data-endLine="28" class="hTrigger cCodeDesription gray">
+            <div data-startLine="29" data-endLine="29" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Cast the JSON payload to a user-defined record literal.</p>
                 </div>
             </div>
-            <div data-startLine="29" data-endLine="29" class="hTrigger cCodeDesription gray">
+            <div data-startLine="30" data-endLine="30" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Send back the record literal as the result to the GRPC client.</p>
                 </div>
             </div>
-            <div data-startLine="33" data-endLine="37" class="hTrigger cCodeDesription gray">
+            <div data-startLine="34" data-endLine="38" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Record the literals defined for the GRPC service. These record literals can be in any form.
+                    <p>Record the literals defined for the GRPC service. These record literals can be in any form. 
                         In this sample the record literals are UserInfo and User.
                     </p>
                 </div>
@@ -2690,7 +2682,7 @@ IDIOMATIC  </pre>
                     </p>
                 </div>
             </div>
-            <div data-startLine="25" data-endLine="25" class="hTrigger cCodeDesription gray">
+            <div data-startLine="25" data-endLine="34" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The secure hello world sample uses HTTPS.</p>
                 </div>
@@ -2711,6 +2703,34 @@ IDIOMATIC  </pre>
                         The hello resource inherits the <code>authentication:{enabled:true}</code> flag
                         from the service level and defines 'hello' as the scope for the resource.
                     </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2" id="ballerina-by-examples">
+    <div class="container">
+        <div class="col-xs-12 cPhilosophyWhite cCloudNative">
+            <div class="col-xs-12">
+                <h2 class="cMainH2Title">Try the language with Ballerina by Example</h2>
+                <div class="col-xs-12 col-md-6 cInnerPageContentCol ">
+                    <p>Ballerina by Example teaches you the language incrementally with commented examples that cover every nuance of our syntax. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 cPhilosophyWhite cCloudNative clearfix">
+            <div class="col-xs-12">
+                <div id="ballerina-by-example">
+                    <div class="cLanguageFeaturesContainer clearfix">
+                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet0">
+                        </div>
+                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet1">
+                        </div>
+                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet2">
+                        </div>
+                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet3">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

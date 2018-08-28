@@ -23,7 +23,7 @@ service<http:Service> legacyEndpoint bind { port: 9090 } {
     }
     invokeEndpoint(endpoint caller, http:Request request) {
         http:Response backendRes = check backendClientEP->forward("/hello", 
-                                                                       request);
+                                                                        request);
         caller->respond(backendRes) but {
             error e => log:printError("Error sending response", err = e)
         };
