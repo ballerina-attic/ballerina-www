@@ -20,8 +20,9 @@ service<http:Service> passthrough bind listener {
         path: "/"
     }
     passthrough(endpoint caller, http:Request req) {
-        twitter:Status twitterStatus = check twitterClient->tweet("my first Ballerina program", "", "");
+        twitter:Status twitterStatus = check twitterClient->tweet(
+                                    	   "my first Ballerina program", "", "");
         _ = caller->respond("Tweet ID: " + <string> twitterStatus.id 
-                                   + ", Tweet: " + twitterStatus.text);
+                                      	     + ", Tweet: " + twitterStatus.text);
     }
 }
