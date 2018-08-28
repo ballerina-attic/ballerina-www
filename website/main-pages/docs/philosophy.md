@@ -1604,51 +1604,51 @@
          </div>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cPhilosophyWidget">
-         <div class="cPhilosophyWidgetContainer">
-            <div class="tab-content clearfix cPhilosophyWidgetInnerBox ">
-               <div class="tab-pane active" id="1b">
-                  <img src="/img/philosophy-principle-diagrams-01.svg" />
-               </div>
-               <div class="tab-pane" id="2b">
-                  <img src="/img/philosophy-principle-diagrams-02.svg" />
-               </div>
-               <div class="tab-pane type-system-code-tab" id="3b">
-                  <div class="code-wrapper">
-                     <pre id="type-system-code" class="code-block">
+          <div class="cPhilosophyWidgetContainer">
+              <div class="tab-content clearfix cPhilosophyWidgetInnerBox ">
+                  <div class="tab-pane active" id="1b">
+                      <img src="/img/philosophy-principle-diagrams-01.svg" />
+                  </div>
+                  <div class="tab-pane" id="2b">
+                      <img src="/img/philosophy-principle-diagrams-02.svg" />
+                  </div>
+                  <div class="tab-pane type-system-code-tab" id="3b">
+                      <div class="code-wrapper">
+                          <pre id="type-system-code" class="code-block">
                                 <code class="ballerina"></code>
-                            </pre>
+                          </pre>
+                      </div>
                   </div>
-               </div>
-               <div class="tab-pane type-system-code-tab" id="4b">
-                  <div class="code-wrapper">
-                     <img src="/img/philosophy/philosophy-diagrams-security.svg" />
+                  <div class="tab-pane type-system-code-tab" id="4b">
+                      <div class="code-wrapper">
+                          <img src="/img/philosophy/philosophy-diagrams-security.svg" />
+                      </div>
                   </div>
-               </div>
-               <div class="tab-pane type-system-code-tab" id="5b">
-                  <div class="code-wrapper">
-                     <div class="code-wrapper">
-                        <pre id="type-system-code" class="code-block">
+                  <div class="tab-pane type-system-code-tab" id="5b">
+                      <div class="code-wrapper">
+                          <div class="code-wrapper">
+                              <pre id="type-system-code" class="code-block">
   <img src="/img/philosophy/philosophy-diagrams-network-aware.svg" />
-                        </pre>
-                     </div>
+                              </pre>
+                          </div>
+                      </div>
                   </div>
-               </div>
-               <div class="tab-pane type-system-code-tab" id="6b">
-                  <div class="code-wrapper">
-                     <div class="code-wrapper">
-                        <pre id="type-system-code" class="code-block">
-DEVOPS READY
-                            </pre>
-                     </div>
+                  <div class="tab-pane devops-ready-code-tab" id="6b">
+                      <div class="code-wrapper">
+                          <div class="code-wrapper">
+                              <pre id="devops-ready-code" class="code-block">
+                             <code class="ballerina"></code>
+                              </pre>
+                          </div>
+                      </div>
                   </div>
-               </div>
-               <div class="tab-pane type-system-code-tab" id="7b">
-                  <div class="code-wrapper">
-                      <pre id="type-system-code" class="code-block">
-                      IDIOMATIC
-                      </pre>
+                  <div class="tab-pane idiomatic-code-tab" id="7b">
+                      <div class="code-wrapper">
+                        <pre id="idiomatic-code" class="code-block">
+                                <code class="ballerina"></code>
+                          </pre>
+                      </div>
                   </div>
-               </div>
 <!--               <div class="tab-pane type-system-code-tab" id="8b">
                   <div class="code-wrapper">
                      <pre id="type-system-code" class="code-block">
@@ -1773,20 +1773,26 @@ IDIOMATIC  </pre>
       <!-- <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p> -->
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
          <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-            <h3>NO ROOM FOR BEST PRACTICES</h3>
-            <p>Code analysis tools complain if the code has been written in a way that may cause errors later. Ballerina does not leave room for such tools that enforce best practices. If the code shouldn’t be written in a certain way, Ballerina won’t allow you to write it that way. The language, by design, follows a lot more opinionated approach in this regard. </p>
+            <h3>OPINIONATED TOOLCHAIN</h3>
+            <p>Over the past 15 years, best practices and expectations on the associated toolset that a language provides have evolved. Now, a language is not ready for adoption unless it includes a unit test framework, build system, documentation generation, dependency management and versioning, and a way to share modules of reusable code. Ballerina includes all of these subsystems as part of its core distribution so that there is no risk of community drift, which is what happens when the ecosystem needs to build tools on top of a language instead of designing it within the language. </p>
          </div>
       </div>
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
          <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-            <h3>Return values cannot be ignored</h3>
-            <p>A function return value indicates a result of some computation or whether the function is completed or some error occurred.  Returns values should always be checked regardless of whether the function is a side-effect free function or not. Ballerina complains if the return values of function calls are ignored during the compile time.</p>
+            <h3>PACKAGE MANAGEMENT</h3>
+            <p>Ballerina’s package management, dependency and versioning model is based on learnings from Docker, Elm, and NPM. While it is possible to build and run individual Ballerina source files, packages (modules) can only be built as part of a project, which is managed by Ballerina. Every project has its own dependency cache and all packages are versioned according to semver rules. Strict rules limit dependency conflicts from applications that import packages from a central registry. Packages can be pushed to Ballerina Central and shared with the other users.</p>
          </div>
       </div>
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
          <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-            <h3>Read-only (or effective final) function parameters</h3>
-            <p>Reassigning values to function parameter may lead to unintentional consequences and also reduces the code readability. Ballerina treats functions parameter as read-only variables to avoid intentional or unintentional reassigning of function parameters. </p>
+            <h3>UNIT TESTING</h3>
+            <p>Testing constructs are built-in. Test functions, dependent tests, and mocking are all part of the test framework in Ballerina.</p>
+         </div>
+      </div>
+      <div class="cPhil-title-boxes cPhil-title-boxes-white">
+         <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
+            <h3>ENVIRONMENT AWARE</h3>
+            <p>Ballerina’s language and annotations are intentionally environment-aware, treating these other components as syntactical objects and also relationships as decorated annotations. By having the language and build system be environmentally aware of other components surrounding our service, we can generate essential artifact code ahead of CI/CD, perform data and integrity checks around network-bound payloads, and pre-package dependent but not yet deployed components as part of the Ballerina binary.</p>
          </div>
       </div>
    </div>
@@ -1794,20 +1800,20 @@ IDIOMATIC  </pre>
       <!-- <p class="cGreenTitle cPhil-box-titles">TYPE SYSTEM</p> -->
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
          <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-            <h3>PACKAGE MANAGEMENT</h3>
-            <p>Packages developed by others can be used in a program by pulling and importing those packages. Ballerina packages can be shared by pushing to shared repositories. Every package pushed to a repository will have a version, and newer versions can be pushed to the repository. Consumers of these packages can decide to use either a fixed version or the latest version of a package.</p>
+            <h3>No pitfalls</h3>
+            <p>Ballerina ensures that the best practices are followed by developers at all times. Static code analysis tools which are designed to catch pitfalls in languages are not required when you code in Ballerina. Ballerina follows a highly opinionated approach towards writing code that leaves no room for pitfalls. </p>
          </div>
       </div>
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
          <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-            <h3>TESTING</h3>
-            <p>Testing constructs are built-in. Test functions, dependent tests, and mocking are all part of the test framework in Ballerina.</p>
+            <h3>Return values cannot be ignored.</h3>
+            <p>A function return value indicates a result of some computation or whether the function is completed or some error occurred. Returns values should always be checked regardless of whether the function is a side-effect free function or not. Ballerina complains if the return values of function calls are ignored during the compile time.</p>
          </div>
       </div>
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
          <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-            <h3>DOCUMENTATION</h3>
-            <p>Documentation is validated at compile time to ensure that the documentation changes are in sync with code changes.</p>
+            <h3>Read-only (or effective final) function parameters. </h3>
+            <p>Reassigning values to function parameters may lead to unintentional consequences and also reduces the code readability. Ballerina treats function parameters as read-only variables to avoid intentional or unintentional reassigning of function parameters. </p>
          </div>
       </div>
    </div>
