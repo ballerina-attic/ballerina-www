@@ -63,5 +63,5 @@ export function isClientOnWindows() {
 }
 
 export function getMonospaceFontFamily() {
-   return "Consolas, 'Anonymous Pro', monospace";
+   return 'AnonymousPro-Regular, monospace';
 }
