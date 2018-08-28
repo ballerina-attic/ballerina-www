@@ -19,6 +19,5 @@ function deleteFile(string filePath) returns error? {
         error e = {message : "File Not found"};
         return e;
     }
-    return new(filePath).delete();
+    return delete(filePath);
 }
-
