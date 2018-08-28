@@ -1628,7 +1628,7 @@
                       <div class="code-wrapper">
                           <div class="code-wrapper">
                               <pre id="type-system-code" class="code-block">
-  <img src="/img/philosophy/philosophy-diagrams-network-aware.svg" />
+                          <img src="/img/philosophy/philosophy-diagrams-network-aware.svg" />
                               </pre>
                           </div>
                       </div>
