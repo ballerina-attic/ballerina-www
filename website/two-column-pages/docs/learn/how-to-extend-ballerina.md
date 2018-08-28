@@ -767,10 +767,10 @@ mvn clean install
 
 The resulting `target/hello-extension-1.0-SNAPSHOT.jar` will have the annotation definitions.
 
-Place the jar file at `<ballerina_platform_home>/bre/lib` of your Ballerina distribution.
+Place the jar file at `<ballerina_lang_home>/bre/lib` of your Ballerina distribution.
 
-Extract `target/hello-extension-0.980.0-ballerina-binary-repo.zip` file and copy the `repo/ballerinax` folder to `<ballerina_platform_home>/lib/repo/` folder. 
-The final `<ballerina_platform_home>/lib/repo/` folder will  have two folders `ballerina` and `ballerinax`.
+Extract `target/hello-extension-0.980.0-ballerina-binary-repo.zip` file and copy the `repo/ballerinax` folder to `<ballerina_lang_home>/lib/repo/` folder. 
+The final `<ballerina_lang_home>/lib/repo/` folder will  have two folders `ballerina` and `ballerinax`.
 
 You can now verify that the annotation is present even though we cannot react to it yet. Create a sample Ballerina file with your  annotation and make sure that Ballerina can compile the file without errors.
 
