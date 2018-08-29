@@ -1625,36 +1625,22 @@
                       </div>
                   </div>
                   <div class="tab-pane type-system-code-tab" id="5b">
-                      <div class="code-wrapper">
-                          <div class="code-wrapper">
-                              <pre id="type-system-code" class="code-block">
-                          <img src="/img/philosophy/philosophy-diagrams-network-aware.svg" />
-                              </pre>
-                          </div>
-                      </div>
+                    <img src="/img/philosophy/philosophy-diagrams-network-aware.svg" />
                   </div>
                   <div class="tab-pane devops-ready-code-tab" id="6b">
-                      <div class="code-wrapper">
-                          <div class="code-wrapper">
-                              <pre id="devops-ready-code" class="code-block">
-                             <code class="ballerina"></code>
-                              </pre>
+                      <div class="code-wrapper cOutput">
+                          <div class="highlight">
+                              <pre id="devops-ready-shell" class="shell-display"></pre>
                           </div>
                       </div>
                   </div>
                   <div class="tab-pane idiomatic-code-tab" id="7b">
                       <div class="code-wrapper">
-                        <pre id="idiomatic-code" class="code-block">
-                                <code class="ballerina"></code>
+                          <pre id="idiomatic-code" class="code-block">
+                             <code class="ballerina"></code>
                           </pre>
                       </div>
                   </div>
-<!--               <div class="tab-pane type-system-code-tab" id="8b">
-                  <div class="code-wrapper">
-                     <pre id="type-system-code" class="code-block">
-IDIOMATIC  </pre>
-                  </div>
-               </div>-->
             </div>
          </div>
       </div>
@@ -2703,34 +2689,6 @@ IDIOMATIC  </pre>
                         The hello resource inherits the <code>authentication:{enabled:true}</code> flag
                         from the service level and defines 'hello' as the scope for the resource.
                     </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row cBallerina-io-Gray-row cPhilosophy cPhilosophy2" id="ballerina-by-examples">
-    <div class="container">
-        <div class="col-xs-12 cPhilosophyWhite cCloudNative">
-            <div class="col-xs-12">
-                <h2 class="cMainH2Title">Try the language with Ballerina by Example</h2>
-                <div class="col-xs-12 col-md-6 cInnerPageContentCol ">
-                    <p>Ballerina by Example teaches you the language incrementally with commented examples that cover every nuance of our syntax. </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 cPhilosophyWhite cCloudNative clearfix">
-            <div class="col-xs-12">
-                <div id="ballerina-by-example">
-                    <div class="cLanguageFeaturesContainer clearfix">
-                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet0">
-                        </div>
-                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet1">
-                        </div>
-                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet2">
-                        </div>
-                        <div class="col-xs-12 col-sm-16 col-md-3 col-lg-3 cLanguageFeatures featureSet3">
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
