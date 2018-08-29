@@ -219,20 +219,6 @@
         ]
     },
  	{
-        "title": "Task",
-        "column": 1,
-        "category": "Language concepts",
-        "samples": [{
-                "name": "Task Timer",
-                "url": "task-timer"
-            },
-            {
-                "name": "Task Appointment",
-                "url": "task-appointment"
-            }
-        ]
-    },
- 	{
         "title": "I/O",
         "column": 2,
         "category": "Language concepts",
@@ -298,7 +284,7 @@
     },
  	{
         "title": "Object",
-        "column": 2,
+        "column": 0,
         "category": "Language concepts",
         "samples": [{
                 "name": "Object",
@@ -344,9 +330,23 @@
             }
         ]
     },
+ 	{
+        "title": "Task",
+        "column": 2,
+        "category": "Language concepts",
+        "samples": [{
+                "name": "Task Timer",
+                "url": "task-timer"
+            },
+            {
+                "name": "Task Appointment",
+                "url": "task-appointment"
+            }
+        ]
+    },
     {
         "title": "Streams",
-        "column": 3,
+        "column": 1,
         "category": "Language concepts",
         "samples": [{
                 "name": "Streams",
@@ -367,6 +367,58 @@
             {
                 "name": "Identify Trends",
                 "url": "identify-trends"
+            }
+        ]
+    },
+ 	{
+        "title": "Common Libraries",
+        "column": 2,
+        "category": "Language concepts",
+        "samples": [{
+                "name": "Date Time",
+                "url": "date-time"
+            },
+            {
+                "name": "Caching",
+                "url": "cache"
+            },
+            {
+                "name": "Config ",
+                "url": "config-api"
+            },
+            {
+                "name": "Log ",
+                "url": "log-api"
+            },
+            {
+                "name": "Math",
+                "url": "math-functions"
+            },
+            {
+                "name": "String ",
+                "url": "strings"
+            },
+            {
+                "name": "XML/JSON Conversion",
+                "url": "xml-to-json-conversion"
+            }
+        ]
+    },
+ 	{
+        "title": "Database",
+        "column": 3,
+        "category": "Language concepts",
+        "samples": [{
+                "name": "JDBC Client",
+                "url": "jdbc-client"
+            },
+            {
+                "name": "H2 Client",
+                "url": "h2-client"
+            },
+            {
+                "name": "MySQL Client",
+                "url": "mysql-client"
             }
         ]
     },
@@ -614,21 +666,25 @@
             }
         ]
     },
-    {
-        "title": "Database",
+ 	{
+        "title": "WebSub",
         "column": 1,
         "category": "Working over the network",
         "samples": [{
-                "name": "JDBC Client",
-                "url": "jdbc-client"
+                "name": "WebSub Internal Hub Sample",
+                "url": "websub-internal-hub-sample"
             },
             {
-                "name": "H2 Client",
-                "url": "h2-client"
+                "name": "WebSub Remote Hub Sample",
+                "url": "websub-remote-hub-sample"
             },
             {
-                "name": "MySQL Client",
-                "url": "mysql-client"
+                "name": "WebSub Hub Client Sample",
+                "url": "websub-hub-client-sample"
+            },
+            {
+                "name": "WebSub Service Integration Sample",
+                "url": "websub-service-integration-sample"
             }
         ]
     },
@@ -675,62 +731,6 @@
             }
         ]
     },
-    {
-        "title": "WebSub",
-        "column": 2,
-        "category": "Working over the network",
-        "samples": [{
-                "name": "WebSub Internal Hub Sample",
-                "url": "websub-internal-hub-sample"
-            },
-            {
-                "name": "WebSub Remote Hub Sample",
-                "url": "websub-remote-hub-sample"
-            },
-            {
-                "name": "WebSub Hub Client Sample",
-                "url": "websub-hub-client-sample"
-            },
-            {
-                "name": "WebSub Service Integration Sample",
-                "url": "websub-service-integration-sample"
-            }
-        ]
-    },
-    {
-        "title": "Common Libraries",
-        "column": 2,
-        "category": "Working over the network",
-        "samples": [{
-                "name": "Date Time",
-                "url": "date-time"
-            },
-            {
-                "name": "Caching",
-                "url": "cache"
-            },
-            {
-                "name": "Config ",
-                "url": "config-api"
-            },
-            {
-                "name": "Log ",
-                "url": "log-api"
-            },
-            {
-                "name": "Math",
-                "url": "math-functions"
-            },
-            {
-                "name": "String ",
-                "url": "strings"
-            },
-            {
-                "name": "XML/JSON Conversion",
-                "url": "xml-to-json-conversion"
-            }
-        ]
-    },
  	{
         "title": "Observability",
         "column": 2,
@@ -749,9 +749,27 @@
             }
         ]
     },
+ 	{
+        "title": "Swagger",
+        "column": 2,
+        "category": "Working over the network",
+        "samples": [{
+                "name": "Client Generation",
+                "url": "client-generation"
+            },
+            {
+                "name": "Ballerina To Swagger",
+                "url": "ballerina-to-swagger"
+            },
+            {
+                "name": "Swagger To Ballerina",
+                "url": "swagger-to-ballerina"
+            }
+        ]
+    },
     {
         "title": "Message Broker",
-        "column": 3,
+        "column": 2,
         "category": "Working over the network",
         "samples": [{
                 "name": "MB Simple Queue Receiver",
@@ -838,24 +856,6 @@
             {
                 "name": "Send JMS Message to HTTP Endpoint",
                 "url": "send-jms-message-to-http-endpoint"
-            }
-        ]
-    },
-    {
-        "title": "Swagger ",
-        "column": 1,
-        "category": "Working over the network",
-        "samples": [{
-                "name": "Client Generation",
-                "url": "client-generation"
-            },
-            {
-                "name": "Ballerina To Swagger",
-                "url": "ballerina-to-swagger"
-            },
-            {
-                "name": "Swagger To Ballerina",
-                "url": "swagger-to-ballerina"
             }
         ]
     }
