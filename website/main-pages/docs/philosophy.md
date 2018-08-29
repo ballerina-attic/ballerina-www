@@ -1843,37 +1843,34 @@
             <!-- <p class="cGreenTitle cPhil-box-titles">RUNTIME ARCHITECTURE</p> -->
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>SERVICE</h3>
-                    <p>Represent your API and execution logic. Services operate over different protocols and the internal code structure is compiled into API interfaces with support for OpenAPI and Swagger. Services communicate with endpoints, whether they are the calling client or other services.
+                    <h3>Network-aware data types</h3>
+                    <p>Ballerina has built-in network aware data types such as JSON, XML, table & stream. Service code can directly work with these data types.
                     </p>
                 </div>
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>MAIN FUNCTION</h3>
+                    <h3>Built-in QoS</h3>
                     <p>The default function entry point in Ballerina. This function is automatically called when a Ballerina program is executed.
                     </p>
                 </div>
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>OBSERVABILITY</h3>
-                    <p>Ballerina contains observability features and provides monitoring, logging, and distributed tracing. This enables language features such as services, functions, and streams to be observed by default, without writing explicit user code.
-                    </p>
+                    <h3>Endpoints</h3>
+                    <p>Service endpoints represent entry points to services. Client endpoints represent connections to external systems & APIs. These endpoints are bound to transport protocols.</p>
                 </div>
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>SECURITY</h3>
-                    <p>Following the secure-by-design principle, security best practices are enforced into the language itself. This is enabled by features such as service authentication/authorization, taint analysis, and secure defaults.
-                    </p>
+                    <h3>Transports</h3>
+                    <p>The standard library has support for HTTP, gRPC, WebSocket, messaging and other transport protocols.  </p>
                 </div>
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>TRANSACTIONS</h3>
-                    <p>The language provides protection against partial failures in processes by making sure they fail or succeed as a whole. Ballerina contains support for local, XA, and distributed transactions.
-                    </p>
+                    <h3>Workers & Asynchrony</h3>
+                    <p>A worker is a parallel unit of execution in Ballerina. Every bit of code runs within the context of a worker. Therefore, service logic runs within a worker. Also, the runtime is designed to have inherent asynchronous execution features, such as seamless non-blocking I/O</p>
                 </div>
             </div>
         </div>
@@ -2104,6 +2101,23 @@
                     </p>
                 </div>
             </div>-->
+        </div>
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="json-and-xml-text">
+            <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription">
+                <div>
+                    <p>JSON and XML are first class citizens in Ballerina.</p>
+                </div>
+            </div>
+            <div data-startLine="7" data-endLine="19" class="hTrigger cCodeDesription">
+                <div>
+                    <p>You can construct JSON and XML objects inline or from other variables, arrays, and values.</p>
+                </div>
+            </div>
+            <div data-startLine="26" data-endLine="32" class="hTrigger cCodeDesription">
+                <div>
+                    <p>You can convert JSON to XML and XML to JSON, access individual elements, and use various functions.</p>
+                </div>
+            </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="workers-text">
             <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
@@ -2612,11 +2626,11 @@
             </div>
             <div data-startLine="12" data-endLine="12" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>This particular service deals with user profiles. It contains a collection of resources to add and remove users. 
-                        Resource name can be any name. The name of the resource must be followed by the endpoint. Rest of the resource 
-                        arguments can be anything such as custom records, string, int, etc. 
+                    <p>This particular service deals with user profiles. It contains a collection of resources to add and remove users.
+                        Resource name can be any name. The name of the resource must be followed by the endpoint. Rest of the resource
+                        arguments can be anything such as custom records, string, int, etc.
                     </p>
-                    <p>Once the service is implemented, client stub can be generated using the service. Ballerina provides a command line 
+                    <p>Once the service is implemented, client stub can be generated using the service. Ballerina provides a command line
                         tool to generate the stub.
                     </p>
                 </div>
@@ -2648,7 +2662,7 @@
             </div>
             <div data-startLine="34" data-endLine="38" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Record the literals defined for the GRPC service. These record literals can be in any form. 
+                    <p>Record the literals defined for the GRPC service. These record literals can be in any form.
                         In this sample the record literals are UserInfo and User.
                     </p>
                 </div>
