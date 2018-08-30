@@ -1,5 +1,4 @@
 import ballerina/http;
-import ballerina/log;
 
 endpoint http:Listener listener {
     port: 9090,
@@ -20,7 +19,7 @@ service<http:Service> passthrough bind listener {
         path: "/"
     }
     passthrough(endpoint caller, http:Request req) {
-        twitter:Status twitterStatus = check twitterClient->tweet("my first Ballerina program", "", "");
+        twitter:Status twitterStatus = check twitterClient->tweet("Hello", "", "");
         _ = caller->respond("Tweet ID: " + <string> twitterStatus.id 
                                    + ", Tweet: " + twitterStatus.text);
     }
