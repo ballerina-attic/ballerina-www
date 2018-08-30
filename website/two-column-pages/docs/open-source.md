@@ -69,4 +69,4 @@ We have lots of materials prepared to help with different meetup presentations. 
 
 ### Get Stuff
 
-We have supplies of Ballerina sticker, shirts, and committer sweaters. We send these with our speakers and to committers. Our supplies are en pointe, and we can send your team a package, too. Please [contact us](mailto:contact@ballerina.io) with your details.
+We have supplies of Ballerina stickers, shirts, and committer sweaters. We send these with our speakers and to committers. Our supplies are en pointe, and we can send your team a package, too. Please [contact us](mailto:contact@ballerina.io) with your details.

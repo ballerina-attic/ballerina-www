@@ -18,22 +18,24 @@
     </td>
     <td class="cEventURL"><a class="cEventRegistration" href="https://2018.container.camp/uk/schedule/cloud-native-programming-with-docker-and-kubernetes/">Register Now</a></td>
 </tr>
+<tr>
+    <td class="cEventDateContainer"><span class="cEventDate">October 12 - 13, 2018</span>
+    <p class="cEventLocation">Mercure Congress Centre KYIV</p>
+    </td>
+    <td class="cEventDetail"><a target="_blank" href="https://devopsstage.com/stranitsa-spikera/lakmal-warusawithana/"><h4>Devops Stage</h4></a>
+    <h4>Workshop - Ballerina: Cloud Native Programing with Docker, Kubernetes, and Ballerina</h4>
+    <h4>Speech -Ballerina: A Cloud Native Programming Language</h4>
+    <b>Lakmal Warusawithana,</b> Senior Director – Cloud Architecture, WSO2</p>
+    </td>
+    <td class="cEventURL"><a class="cEventRegistration" href="https://devopsstage.com/stranitsa-spikera/lakmal-warusawithana/" target="_blank">More Info</a></td>
+</tr>
 </table>
 
 
-## Webinars
+<!-- ## Webinars
 
 <table class="cEventTable cWebinarList">
-<tr>
-    <td class="cEventDateContainer"><span class="cEventDate">August 14, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
-    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/continuous-delivery-for-cloud-native-applications-with-kubernetes-ballerina-and-codefresh/"><h4>Continuous Delivery for Cloud Native Applications with Kubernetes, Ballerina, and Codefresh</h4></a>
-    <p>
-    <b>Kasun Indrasiri</b> Director – Integration Architecture, WSO2</p>
-    <p>
-    <b>Dan Garfield</b> VP of Marketing, Codefresh</p>
-    </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/continuous-delivery-for-cloud-native-applications-with-kubernetes-ballerina-and-codefresh/">Register Now</a></td>
-</tr>
+
 <tr>
     <td class="cEventDateContainer"><span class="cEventDate">August 22, 2018</span>10:00 am PDT (6:00 pm in UK)</td>
     <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/observing-your-ballerina-services-with-humio/"><h4>Observing Your Ballerina Services with Humio</h4></a>
@@ -46,7 +48,7 @@
     <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/observing-your-ballerina-services-with-humio/">Register Now</a></td>
 </tr>
 
-</table>
+</table> -->
 
 ## Meetups
 
@@ -104,10 +106,10 @@ Av. Angélica, 2529 - 10° andar · São Paulo, Brazil</p>
         <td class="cEventDateContainer"><span class="cEventDate">September 9 - 14, 2018</span>
         <p class="cEventLocation">Sydney, Australia</p>
         </td>
-        <td class="cEventDetail"><a target="_blank" href="https://www.javasig.com/"><h4>BPM 2018 </h4></a>
+        <td class="cEventDetail"><a target="_blank" href="http://bpm2018.web.cse.unsw.edu.au/keynotes.html"><h4>BPM 2018 </h4></a>
         <h4>Bringing Middleware to Everyday Developers with Ballerina</h4>
         <p>Speaker: Sanjiva Weerawarana </p>
         </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.javasig.com/" target="_blank">More Info</a></td>
+        <td class="cEventURL"><a class="cEventRegistration" href="http://bpm2018.web.cse.unsw.edu.au/keynotes.html" target="_blank">More Info</a></td>
     </tr>
 </table>

@@ -13,7 +13,7 @@
     </a>
     </td>
     <td class="cEventURL"  style="border:none;">
-    <!-- <a class="cEventRegistration" href="/learn/events/ballerina-day-colombo-2018/">Register Now</a> -->
+    <a class="cEventRegistration" href="/learn/events/ballerina-day-colombo-2018/">View Slides</a>
     </td>
 </tr>
 </table>
@@ -21,6 +21,27 @@
 ## On-demand Webinars
 
 <table class="cEventTable cWebinarList">
+<tr>
+    <td class="cEventDateContainer"><span class="cEventDate">August 22, 2018</span>10:00 am PDT (6:00 pm in UK)</td>
+    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/observing-your-ballerina-services-with-humio/"><h4>Observing Your Ballerina Services with Humio</h4></a>
+    <p>
+    <b>Anjana Fernando</b> Director - Engineering, WSO2</p>
+    <p>
+    <b>PJ Hagerty</b></p>
+    <p>Founder of DevRelate.io and Developer Advocate for Humio.com</p>
+    </td>
+    <td class="cEventURL"></td>
+</tr>
+<tr>
+    <td class="cEventDateContainer"><span class="cEventDate">August 14, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/continuous-delivery-for-cloud-native-applications-with-kubernetes-ballerina-and-codefresh/"><h4>Continuous Delivery for Cloud Native Applications with Kubernetes, Ballerina, and Codefresh</h4></a>
+    <p>
+    <b>Kasun Indrasiri</b> Director – Integration Architecture, WSO2</p>
+    <p>
+    <b>Dan Garfield</b> VP of Marketing, Codefresh</p>
+    </td>
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/continuous-delivery-for-cloud-native-applications-with-kubernetes-ballerina-and-codefresh/">Watch Now</a></td>
+</tr>
 <tr>
     <td class="cEventDateContainer"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
     <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/ballerina-serverless-with-kubeless/"><h4>Ballerina Serverless with Kubeless</h4></a>
