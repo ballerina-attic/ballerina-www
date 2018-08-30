@@ -27,30 +27,40 @@ var fileId = function(fileName) {
  * @param {string} fileName code sample name
  */
 var loadData = function(fileName) {
-    $.ajax({
-        url: "../samples/" + fileName + ".out",
-        method: "GET",
-        success: function(data) {
-            $('#' + fileName + "-shell").text(data);
-        }
-    });
+    var $shellContainer = $('#' + fileName + "-shell"),
+        $codeContainer = $('#' + fileName + "-code > code");
 
-    $.ajax({
-        url: "../samples/" + fileName + ".bal",
-        method: "GET",
-        success: function(data) {
-            // Set the code to the container
-            var highlightCode = hljs.highlightAuto;
+    if ($shellContainer.length > 0) {
+        $.ajax({
+            url: "../samples/" + fileName + ".out",
+            method: "GET",
+            success: function(data) {
+                $shellContainer.text(data);
+            },
+            error: function() {
+                return;
+            }
+        });
+    }
 
-            $('#' + fileName + "-code > code").text(data);
+    if ($codeContainer.length > 0) {
+        $.ajax({
+            url: "../samples/" + fileName + ".bal",
+            method: "GET",
+            success: function(data) {
+                // Set the code to the container
+                var highlightCode = hljs.highlightAuto;
 
-            // Doing the syntax highlighting
-            hljs.highlightBlock($('#' + fileName + "-code > code").get(0));
+                $codeContainer.text(data);
 
-            addLineNumbers(fileName, data);
-            addCodeHighlights(fileName);
-        }
-    });
+                // Doing the syntax highlighting
+                hljs.highlightBlock($('#' + fileName + "-code > code").get(0));
+
+                addLineNumbers(fileName, data);
+                addCodeHighlights(fileName);
+            }
+        });
+    }
 };
 
 /*
@@ -205,13 +215,6 @@ $(document).ready(function() {
      */
     toggleCodeBlock($('#nativeLanguage li.first').text(), 'nativeLanguage');
     toggleCodeBlock($('#integration li.first').text(), 'integration');
-
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-        var target = $(e.target).attr("href"); // activated tab
-        if (target === "#3b") {
-            loadData('type-system');
-        }
-    });
 
     /*
      * On code descriptions hover toggle relative code segment highlighter

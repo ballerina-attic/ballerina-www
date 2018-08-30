@@ -1792,13 +1792,13 @@
       </div>
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
          <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-            <h3>Return values cannot be ignored.</h3>
+            <h3>Return values cannot be ignored</h3>
             <p>A function return value indicates a result of some computation or whether the function is completed or some error occurred. Returns values should always be checked regardless of whether the function is a side-effect free function or not. Ballerina complains if the return values of function calls are ignored during the compile time.</p>
          </div>
       </div>
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
          <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-            <h3>Read-only (or effective final) function parameters. </h3>
+            <h3>Read-only (or effective final) function parameters</h3>
             <p>Reassigning values to function parameters may lead to unintentional consequences and also reduces the code readability. Ballerina treats function parameters as read-only variables to avoid intentional or unintentional reassigning of function parameters. </p>
          </div>
       </div>
@@ -1850,7 +1850,7 @@
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
-                    <h3>Built-in QoS</h3>
+                    <h3>Built-in <span style="text-transform: none">QoS</span></h3>
                     <p>The default function entry point in Ballerina. This function is automatically called when a Ballerina program is executed.
                     </p>
                 </div>
@@ -1943,7 +1943,6 @@
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls cCloudNativeNavLeftSide">
                 <ul>
                     <li class="links first cActive">API CONSTRUCTS</li>
-<!--                    <li class="links">LOGIC LANGUAGE</li>-->
                     <li class="links">ASYNCHRONOUS</li>
                     <li class="links">WORKERS</li>
                     <li class="links">JSON and XML</li>
@@ -1952,11 +1951,9 @@
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls">
                 <ul>
                     <li class="links">ANNOTATIONS</li>
-<!--                    <li class="links">STATICALLY AND STRONGLY TYPED</li>-->
                     <li class="links">STREAMS</li>
                     <li class="links">TRANSACTIONS</li>
                     <li class="links">TAINT ANALYSIS</li>
-
                 </ul>
             </div>
         </div>
@@ -1978,9 +1975,6 @@
                             <pre id="api-constructs-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
-<!--                            <pre id="logic-language-code" class="code-block">
-                                <code class="ballerina tab-pane active"></code>
-                            </pre>-->
                             <pre id="asynchronous-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
@@ -1993,9 +1987,6 @@
                             <pre id="annotations-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
-<!--                            <pre id="statically-and-strongly-typed-code" class="code-block">
-                                <code class="ballerina tab-pane active"></code>
-                            </pre>-->
                             <pre id="streams-code" class="code-block">
                                 <code class="ballerina tab-pane active"></code>
                             </pre>
@@ -2009,7 +2000,6 @@
                         <div class="code cOutput">
                             <div class="highlight">
                                 <pre id="api-constructs-shell" class="shell-display"></pre>
-<!--                            <pre id="logic-language-shell" class="shell-display"></pre>-->
                                 <pre id="asynchronous-shell" class="shell-display"></pre>
                                 <pre id="workers-shell" class="shell-display"></pre>
                                 <pre id="json-and-xml-shell" class="shell-display"></pre>
@@ -2026,12 +2016,12 @@
         </div>
         <!-- first part end -->
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="api-constructs-text">
-            <div data-startLine="1" data-endLine="3" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="33" class="hTrigger cCodeDesription">
                 <div>
                     <p>Ballerina makes it easy to build APIs, provide and consume HTTP, WebSocket, gRPC, Protobuf, and other services. This example demonstrates a simple REST API built with Ballerina.</p>
                 </div>
             </div>
-            <div data-startLine="10" data-endLine="21" class="hTrigger cCodeDesription">
+            <div data-startLine="7" data-endLine="33" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Services, resources, endpoints, request and response objects are all native language constructs.
@@ -2041,7 +2031,7 @@
                     </p>
                 </div>
             </div>
-            <div data-startLine="23" data-endLine="26" class="hTrigger cCodeDesription">
+            <div data-startLine="21" data-endLine="28" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Note how the "match" command in the code is used to handle a union-type return: if the return value is a string - normal processing happens. If our service did not get the string it expected - we use error-handling logic instead.
@@ -2330,7 +2320,7 @@
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 cCloudNativeControls cIntegrationFrameworkNavLeftSide">
                 <ul>
                     <li class="links first cActive">Services and resources</li>
-                    <li class="links">Connectors</li>
+                    <li class="links">Endpoints</li>
                     <li class="links">Network Data Types and conversions</li>
                     <li class="links">Resilient communication</li>
                 </ul>
@@ -2340,7 +2330,7 @@
                     <li class="links">Service Composition</li>
                     <li class="links">Asynchronous event-driven messaging</li>
                     <li class="links">Protocol conversions</li>
-                    <li class="links">Security</li>
+                    <li class="links">API Security</li>
                 </ul>
             </div>
         </div>
@@ -2359,7 +2349,7 @@
                     <pre id="services-and-resources-code" class="code-block">
                         <code class="ballerina tab-pane active"></code>
                     </pre>
-                    <pre id="connectors-code" class="code-block">
+                    <pre id="endpoints-code" class="code-block">
                         <code class="ballerina tab-pane active"></code>
                     </pre>
                     <pre id="network-data-types-and-conversions-code" class="code-block">
@@ -2377,56 +2367,30 @@
                     <pre id="protocol-conversions-code" class="code-block">
                         <code class="ballerina tab-pane active"></code>
                     </pre>
-                    <pre id="security-code" class="code-block">
+                    <pre id="api-security-code" class="code-block">
                         <code class="ballerina tab-pane active"></code>
                     </pre>
-                    <!-- <div class="code cOutput">
-                        <div class="highlight">
-                            <pre id="type-safe-endpoint-integration-shell" class="shell-display"></pre>
-                            <pre id="docker-and-kubernetes-shell" class="shell-display"></pre>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="services-and-resources-text">
-            <div data-startLine="5" data-endLine="6" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="39" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Services represent collections of network accessible entry points. Resources represent one such entry point. How a resource is exposed over a network protocol depends on the listener that binds the service. In this case, anonymous listener is used to expose the service.</p>
+                    <p>Ballerina provides first class support for Services. Services represent collections of network accessible entry points. Resources represent one such entry point. How a resource is exposed over a network protocol depends on the listener that binds the service. Here, an anonymous listener is used to expose the service.</p>
                 </div>
             </div>
             <div data-startLine="8" data-endLine="12" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Resource that handles HTTP GET requests that are directed to a specific. Order using path <code>/order/&lt;orderId&gt;</code>.</p>
-                </div>
-            </div>
-            <div data-startLine="14" data-endLine="15" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Find the requested order from the map and retrieve it in JSON format.</p>
-                </div>
-            </div>
-            <div data-startLine="16" data-endLine="16" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Set the JSON payload in the outgoing response message. 'untaint' unary expression can be used to mark the proceeding value as trusted.</p>
-                </div>
-            </div>
-            <div data-startLine="17" data-endLine="17" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Send response to the client.</p>
+                    <p>Here, the resource is written in a Restful manner, and accepts GET requests with the path param <code>orderId</code>.</p>
                 </div>
             </div>
             <div data-startLine="20" data-endLine="25" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Resource that handles HTTP POST requests that are directed to the path <code>/order</code> to create a new order. Map the request body entity to the <code>orderReq</code> JSON.</p>
-                </div>
-            </div>
-            <div data-startLine="34" data-endLine="35" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Resource that handles HTTP DELETE requests, which are directed to the path <code>/order/&lt;orderId&gt;</code> to delete an existing Order.</p>
+                    <p>Similarly, the second resource is written to handle HTTP POST requests that are directed to the path <code>/order</code> to create a new order. This maps the request body entity to the <code>orderReq</code> JSON.</p>
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="connectors-text">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="endpoints-text">
             <div data-startLine="4" data-endLine="8" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Server endpoint that listens to inbound http requests. Provide configuration parameters such as Keep-Alive, timeout, request limits etc to configure the server endpoint.</p>
@@ -2449,7 +2413,7 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="network-data-types-and-conversions-text">
-            <div data-startLine="11" data-endLine="20" class="hTrigger cCodeDesription gray">
+            <div data-startLine="9" data-endLine="17" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Retrieve a JSON response from the back-end. The JSON response should contain an array of book details.
                         Use the service to filter all books that have been published after the year 1900.
@@ -2457,34 +2421,34 @@
                     </p>
                 </div>
             </div>
-            <div data-startLine="23" data-endLine="34" class="hTrigger cCodeDesription gray">
+            <div data-startLine="20" data-endLine="31" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Function to filter books that are published after year 1900</p>
+                    <p>Function to filter books that are published after year 1900.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="resilient-communication-text">
-            <div data-startLine="7" data-endLine="10" class="hTrigger cCodeDesription gray">
+            <div data-startLine="6" data-endLine="9" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Circuit breaker configuration options that control the behavior of the Ballerina circuit breaker.</p>
                 </div>
             </div>
-            <div data-startLine="11" data-endLine="11" class="hTrigger cCodeDesription gray">
+            <div data-startLine="10" data-endLine="10" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>This is the endpoint timeout. If the response is not received within the given time period, the endpoint times out.</p>
                 </div>
             </div>
-            <div data-startLine="13" data-endLine="13" class="hTrigger cCodeDesription gray">
+            <div data-startLine="12" data-endLine="12" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Multiplier of the retry interval to exponentially increase.</p>
                 </div>
             </div>
-            <div data-startLine="14" data-endLine="14" class="hTrigger cCodeDesription gray">
+            <div data-startLine="13" data-endLine="13" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Number of times to retry.</p>
                 </div>
             </div>
-            <div data-startLine="15" data-endLine="15" class="hTrigger cCodeDesription gray">
+            <div data-startLine="14" data-endLine="14" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Initial retry interval in milliseconds.</p>
                 </div>
@@ -2501,52 +2465,32 @@
                     <p>Client endpoint to communicate with the hotel reservation service.</p>
                 </div>
             </div>
-            <div data-startLine="11" data-endLine="13" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Client endpoint to communicate with the car rental service.</p>
-                </div>
-            </div>
-            <div data-startLine="15" data-endLine="15" class="hTrigger cCodeDesription gray">
+            <div data-startLine="12" data-endLine="12" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Travel agency service to arrange a complete tour for a user.</p>
                 </div>
             </div>
-            <div data-startLine="18" data-endLine="52" class="hTrigger cCodeDesription gray">
+            <div data-startLine="17" data-endLine="40" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Resource to arrange a tour.</p>
                 </div>
             </div>
-            <div data-startLine="23" data-endLine="25" class="hTrigger cCodeDesription gray">
+            <div data-startLine="19" data-endLine="24" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>JSON payload format for an HTTP out request.</p>
                 </div>
             </div>
-            <div data-startLine="27" data-endLine="27" class="hTrigger cCodeDesription gray">
+            <div data-startLine="27" data-endLine="28" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Call the airline reservation service to reserve an airline ticket for the user. Construct the payload.</p>
                 </div>
             </div>
-            <div data-startLine="29" data-endLine="30" class="hTrigger cCodeDesription gray">
+            <div data-startLine="32" data-endLine="33" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Send a post request to <code>airlineReservationService</code> with an appropriate payload, and get a response.</p>
                 </div>
             </div>
-            <div data-startLine="36" data-endLine="37" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Get the reservation status.</p>
-                </div>
-            </div>
-            <div data-startLine="43" data-endLine="44" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Send a post request to <code>carRentalService</code> with an appropriate payload and get a response.</p>
-                </div>
-            </div>
-            <div data-startLine="47" data-endLine="47" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Get the rental status.</p>
-                </div>
-            </div>
-            <div data-startLine="48" data-endLine="50" class="hTrigger cCodeDesription gray">
+            <div data-startLine="37" data-endLine="38" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>If all three services respond with a positive status, send a successful message to the user.</p>
                 </div>
@@ -2660,21 +2604,14 @@
                     <p>Send back the record literal as the result to the GRPC client.</p>
                 </div>
             </div>
-            <div data-startLine="34" data-endLine="38" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Record the literals defined for the GRPC service. These record literals can be in any form.
-                        In this sample the record literals are UserInfo and User.
-                    </p>
-                </div>
-            </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="security-text">
-            <div data-startLine="12" data-endLine="21" class="hTrigger cCodeDesription gray">
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="api-security-text">
+            <div data-startLine="3" data-endLine="12" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Create a JWT authentication provider with the relevant configuration parameters.</p>
                 </div>
             </div>
-            <div data-startLine="22" data-endLine="35" class="hTrigger cCodeDesription gray">
+            <div data-startLine="23" data-endLine="36" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The endpoint used here is <code>http:SecureListener</code>. The JWT authentication
                         provider is set to this endpoint using the <code>authProviders</code> attribute. The
@@ -2682,12 +2619,12 @@
                     </p>
                 </div>
             </div>
-            <div data-startLine="25" data-endLine="34" class="hTrigger cCodeDesription gray">
+            <div data-startLine="38" data-endLine="43" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The secure hello world sample uses HTTPS.</p>
                 </div>
             </div>
-            <div data-startLine="43" data-endLine="55" class="hTrigger cCodeDesription gray">
+            <div data-startLine="44" data-endLine="57" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Auth configuration comprises of two parts - authentication and authorization.
                         Authentication can be enabled by setting the <code>authentication:{enabled:true}</code> flag.
@@ -2697,7 +2634,7 @@
                     </p>
                 </div>
             </div>
-            <div data-startLine="51" data-endLine="54" class="hTrigger cCodeDesription gray">
+            <div data-startLine="52" data-endLine="56" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The authentication and authorization settings can be overridden at the resource level.
                         The hello resource inherits the <code>authentication:{enabled:true}</code> flag
