@@ -1,41 +1,39 @@
 import ballerina/http;
 
-endpoint http:Client airlineEP {
-    url:"http://localhost:9091/airline"
-};
+map<json> ordersMap;
 
-endpoint http:Client hotelEP {
-    url:"http://localhost:9092/hotel"
-};
-
-@http:ServiceConfig {basePath:"/travel"}
-service<http:Service> travelAgencyService bind { port: 9090 } {
+@http:ServiceConfig { basePath: "/ordermgt" }
+service<http:Service> orderMgt bind { port:9090 } {
 
     @http:ResourceConfig {
-        methods:["POST"]
+        methods: ["GET"],
+        produces: ["application/json"],
+        path: "/order/{orderId}"
     }
-    arrangeTour(endpoint client, http:Request inRequest) {
-        json inReqPayload = check inRequest.getJsonPayload();
-        json outReqPayload = {
-                                "Name":inReqPayload.Name, 
-                                "ArrivalDate":inReqPayload.ArrivalDate, 
-                                "DepartureDate":inReqPayload.DepartureDate, 
-                                "Preference":""
-                             };
+    findOrder(endpoint client, http:Request req, string orderId) {
+        json? payload = ordersMap[orderId];
+        http:Response response;
+        response.setJsonPayload(untaint payload);
+        _ = client->respond(response);
+    }
 
-        outReqPayload.Preference = inReqPayload.Preference.Airline;
-        http:Response inResAirline = check airlineEP->post(
-            "/reserve", untaint outReqPayload);
-        // Implement the business logic for the retrieved response
+    @http:ResourceConfig {
+        methods: ["POST"],
+        consumes: ["application/json"],
+        produces: ["application/json"],
+        path: "/order"
+    }
+    addOrder(endpoint client, http:Request req, json orderReq) {
+        string orderId = orderReq.Order.ID.toString();
+        ordersMap[orderId] = orderReq;
 
-        outReqPayload.Preference = inReqPayload.Preference.Accommodation;
-        http:Response inResHotel = check hotelEP->post(
-            "/reserve", untaint outReqPayload);
-        // Implement the business logic for the retrieved response
+        json payload = { status: "Order Created.", orderId: orderId };
+        http:Response response;
+        response.setJsonPayload(untaint payload);
+        response.statusCode = 201;
+        response.setHeader("Location", "http://localhost:9090/ordermgt/order/" +
+                                                                        orderId);
 
-        http:Response outResponse;
-        outResponse.setJsonPayload({"Message":"Congratulations! " + 
-            "Your journey is ready!!"});
-        _ = client->respond(outResponse);
+        _ = client->respond(response);
     }
 }
