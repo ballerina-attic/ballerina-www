@@ -1,4 +1,3 @@
-//Quick demo of JSON and XML manipulation
 import ballerina/io;
 
 function main (string... args) {
