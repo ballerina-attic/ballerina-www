@@ -1,26 +1,26 @@
 import ballerina/mysql;
 
-function userDefinedSecureOperation(@sensitive string secureParameter) {
+function secureOperation(@sensitive string secureParameter) {
 }
 
 function main(string... args) {
     //Pass input argument to security sensitive parameter
-    userDefinedSecureOperation(args[0]);
+    secureOperation(args[0]);
     if (isInteger(args[0])) {
         //After sanitizing the content untaint can be used
-        userDefinedSecureOperation(untaint args[0]);
+        secureOperation(untaint args[0]);
     } else {
-        error err = { message: "Validation error: ID should be an integer" };
+        error err = { message: "Error: ID should be an integer" };
         throw err;
     }
 
     //Tainted return value cannot be passed into sensitive parameter
     json taintedJson = generateTaintedData();
-    userDefinedSecureOperation(check <string>taintedJson.name);
+    secureOperation(check <string>taintedJson.name);
 
     //Untainted return value can be passed into sensitive parameter
-    string sanitizedData = sanitizeAndReturnUntainted(check <string>taintedJson.firstname);
-    userDefinedSecureOperation(sanitizedData);
+    string sanitizedData = sanitize(check <string>taintedJson.firstname);
+    secureOperation(sanitizedData);
     return;
 }
 
@@ -29,7 +29,7 @@ function generateTaintedData() returns @tainted json {
     return j;
 }
 
-function sanitizeAndReturnUntainted(string input) returns @untainted string {
+function sanitize(string input) returns @untainted string {
     string regEx = "[^a-zA-Z]";
     return input.replace(regEx, "");
 }
