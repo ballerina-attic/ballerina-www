@@ -1,4 +1,5 @@
 import ballerina/http;
+import wso2/twitter;
 
 endpoint http:Listener listener {
     port: 9090,
@@ -22,6 +23,6 @@ service<http:Service> passthrough bind listener {
         twitter:Status twitterStatus = check twitterClient->tweet(
                 "Hello", "", "");
         _ = caller->respond("Tweet ID: " + <string> twitterStatus.id 
-                                 + ", Tweet: " + twitterStatus.text);
+                 + ", Tweet: " + twitterStatus.text);
     }
 }
