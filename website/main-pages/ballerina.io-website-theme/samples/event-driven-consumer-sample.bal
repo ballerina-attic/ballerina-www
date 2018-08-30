@@ -1,6 +1,4 @@
-import ballerina/log;
 import wso2/kafka;
-import ballerina/internal;
 import ballerina/io;
 
 endpoint kafka:SimpleConsumer consumer {
@@ -14,11 +12,8 @@ service<kafka:Consumer> kafkaService bind consumer {
     onMessage(kafka:ConsumerAction consumerAction, kafka:ConsumerRecord[] records) {
         foreach entry in records {
             byte[] serializedMsg = entry.value;
-            io:ByteChannel channel = io:openFile("/some/filePath", io:APPEND);
-            int writtenBytes = 0;
-            while (writtenBytes == lengthof serializedMsg) {
-                writtenBytes = check channel.write(serializedMsg, writtenBytes) + writtenBytes;
-            }
+            io:ByteChannel channel = io:openFile("/some/Path", io:APPEND);
+            int writtenBytes = check channel.write(serializedMsg, 0);
         }
     }
 }
