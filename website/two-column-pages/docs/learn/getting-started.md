@@ -44,14 +44,14 @@ The installer should put the `C:\Program Files\Ballerina\<ballerina-directory>\b
 ```
 dpkg -i /<ballerina-home>/<ballerina-binary>.deb
 ```
-This installs the Ballerina distribution to `/opt/ballerina`.
+This installs the Ballerina distribution to `/usr/lib/ballerina`.
 
 * If you downloaded the RPM file, use the following command, and specify the actual filename and location in the command:
 
 ```
 rpm -i <ballerina-binary>.rpm
 ```
-This installs the Ballerina distribution to `/opt/ballerina`.
+This installs the Ballerina distribution to `/usr/lib64/ballerina`.
 
 ## Installing via the Ballerina language ZIP file
 
@@ -71,7 +71,7 @@ Follow one of the steps below depending on your operating system to configure yo
 To remove an existing Ballerina installation, go to the Ballerina installation location and delete the Ballerina directory.
 
 > **Note**:
-> * If you installed Ballerina via an installer, the installation location is usually `/Library/Ballerina` in Mac OS X, `/opt/ballerina` in Linux, and `C:\Program Files\Ballerina\` in Windows.
+> * If you installed Ballerina via an installer, the installation location is usually `/Library/Ballerina` in Mac OS X, `/usr/lib/ballerina/` in Ubuntu, `/usr/lib64/ballerina` in CentOS, and `C:\Program Files\Ballerina\` in Windows.
 
 > * If you installed Ballerina using the Ballerina language ZIP file, be sure to remove the Ballerina PATH environment variable that you set in your system environment.
 
