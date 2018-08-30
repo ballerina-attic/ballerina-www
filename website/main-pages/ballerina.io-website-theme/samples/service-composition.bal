@@ -1,15 +1,11 @@
 import ballerina/http;
 
-endpoint http:Client airlineReservationEP {
+endpoint http:Client airlineEP {
     url:"http://localhost:9091/airline"
 };
 
-endpoint http:Client hotelReservationEP {
+endpoint http:Client hotelEP {
     url:"http://localhost:9092/hotel"
-};
-
-endpoint http:Client carRentalEP {
-    url:"http://localhost:9093/car"
 };
 
 @http:ServiceConfig {basePath:"/travel"}
@@ -20,34 +16,26 @@ service<http:Service> travelAgencyService bind { port: 9090 } {
     }
     arrangeTour(endpoint client, http:Request inRequest) {
         json inReqPayload = check inRequest.getJsonPayload();
-        json outReqPayload = {"Name":inReqPayload.Name, 
-                    "ArrivalDate":inReqPayload.ArrivalDate, 
-                    "DepartureDate":inReqPayload.DepartureDate, "Preference":""};
+        json outReqPayload = {
+                                "Name":inReqPayload.Name, 
+                                "ArrivalDate":inReqPayload.ArrivalDate, 
+                                "DepartureDate":inReqPayload.DepartureDate, 
+                                "Preference":""
+                             };
 
-        json outReqPayloadAirline = outReqPayload;
-        outReqPayloadAirline.Preference = inReqPayload.Preference.Airline;
-        http:Response inResAirline = check airlineReservationEP->post("/reserve", 
-                                                   untaint outReqPayloadAirline);
+        outReqPayload.Preference = inReqPayload.Preference.Airline;
+        http:Response inResAirline = check airlineEP->post(
+            "/reserve", untaint outReqPayload);
+        // Implement the business logic for the retrieved response
 
-        var airlineResPayload = check inResAirline.getJsonPayload();
-        string airlineStatus = airlineResPayload.Status.toString();
-        json outReqPayloadHotel = outReqPayload;
-        outReqPayloadHotel.Preference = inReqPayload.Preference.Accommodation;
-        http:Response inResHotel = check hotelReservationEP->post("/reserve", 
-                                                     untaint outReqPayloadHotel);
+        outReqPayload.Preference = inReqPayload.Preference.Accommodation;
+        http:Response inResHotel = check hotelEP->post(
+            "/reserve", untaint outReqPayload);
+        // Implement the business logic for the retrieved response
 
-        var hotelResPayload = check inResHotel.getJsonPayload();
-        string hotelStatus = hotelResPayload.Status.toString();
-        json outReqPayloadCar = outReqPayload;
-        outReqPayloadCar.Preference = inReqPayload.Preference.Car;
-        http:Response inResCar = check carRentalEP->post("/rent", 
-                                                       untaint outReqPayloadCar);
-
-        var carResPayload = check inResCar.getJsonPayload();
-        string carRentalStatus = carResPayload.Status.toString();
         http:Response outResponse;
         outResponse.setJsonPayload({"Message":"Congratulations! " + 
-                                                     "Your journey is ready!!"});
+            "Your journey is ready!!"});
         _ = client->respond(outResponse);
     }
 }
