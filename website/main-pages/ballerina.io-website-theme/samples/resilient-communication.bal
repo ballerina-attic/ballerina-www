@@ -1,7 +1,7 @@
 import ballerina/http;
 import ballerina/log;
 
-endpoint http:Client backendClientEP {
+endpoint http:Client backendEP {
     url: "http://localhost:8080",
     circuitBreaker: {
         failureThreshold: 0.2,
@@ -20,7 +20,8 @@ service<http:Service> legacyEndpoint bind { port: 9090 } {
         path: "/"
     }
     invokeEndpoint(endpoint caller, http:Request request) {
-        http:Response backendRes = check backendClientEP->forward("/hello", request);
+        http:Response backendRes = check backendEP->forward(
+            "/hello", request);
         _ = caller->respond(backendRes);
     }
 }

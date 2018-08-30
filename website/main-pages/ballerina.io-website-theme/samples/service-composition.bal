@@ -24,15 +24,18 @@ service<http:Service> travelAgencyService bind { port: 9090 } {
                              };
 
         outReqPayload.Preference = inReqPayload.Preference.Airline;
-        http:Response inResAirline = check airlineEP->post("/reserve", untaint outReqPayload);
+        http:Response inResAirline = check airlineEP->post(
+            "/reserve", untaint outReqPayload);
         // Implement the business logic for the retrieved response
 
         outReqPayload.Preference = inReqPayload.Preference.Accommodation;
-        http:Response inResHotel = check hotelEP->post("/reserve", untaint outReqPayload);
+        http:Response inResHotel = check hotelEP->post(
+            "/reserve", untaint outReqPayload);
         // Implement the business logic for the retrieved response
 
         http:Response outResponse;
-        outResponse.setJsonPayload({"Message":"Congratulations! Your journey is ready!!"});
+        outResponse.setJsonPayload({"Message":"Congratulations! " + 
+            "Your journey is ready!!"});
         _ = client->respond(outResponse);
     }
 }

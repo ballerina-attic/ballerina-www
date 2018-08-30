@@ -69,11 +69,10 @@
 .cPhilosophyWhite.cHowballerinaworks {
     margin-bottom: 30px;
 }
+
 .cPhilosophyWhite.cHowballerinaworks.cDesign-principles {
     margin-bottom: 0;
 }
-
-
 
 .cPhilosophyWidgetContainer {
     width: 100%;
@@ -88,18 +87,16 @@
 .cCloudNative-box.cHow-does-Ballerina-work {
     padding-top: 25px;
     padding-bottom: 25px;
-    
 }
+
 .cCloudNative-box.cLanguage-design-principles {
     padding-bottom: 25px;
 }
-
 
 .cPhilosophyWidgetInnerBox {
     width: 100%;
     text-align: center;
     background-color: transparent;
-/*    padding-left: 30px;*/
 }
 
 .cPhilosophyWidgetInnerBox .tab-pane {
@@ -116,7 +113,9 @@
 }
 
 .cPhilosophyWidgetInnerBox img {
+    max-width: 100%;
     width: 100%;
+    margin: auto;
 }
 
 .nav-pills>li {
@@ -201,7 +200,12 @@ ul.cPhilosophyWidgetControls {
 
 .cSEQUENCEContent,
 .cCONCURRENCYContent,
-.cTYPEContent {
+.cTYPEContent,
+.cSECUREBYDEFAULTContent,
+.cNETWORKAWAREContent,
+.cCLOUDNATIVEContent,
+.cBESTPRACTICESENFORCEDContent,
+.cBEYONDTHELANGUAGEContent {
     display: none;
 }
 
@@ -213,7 +217,12 @@ ul.cPhilosophyWidgetControls {
 
 .cSEQUENCEContent.cShow,
 .cCONCURRENCYContent.cShow,
-.cTYPEContent.cShow {
+.cTYPEContent.cShow,
+.cSECUREBYDEFAULTContent.cShow,
+.cNETWORKAWAREContent.cShow,
+.cCLOUDNATIVEContent.cShow,
+.cBESTPRACTICESENFORCEDContent.cShow,
+.cBEYONDTHELANGUAGEContent.cShow {
     display: block;
 }
 
@@ -308,7 +317,7 @@ ul.cPhilosophyWidgetControls {
 }
 
 .cIntegrationFrameworkNavLeftSide {
-    max-width: 300px;
+    max-width: 350px;
 }
 
 .cCloudNativeControls ul {
@@ -327,6 +336,15 @@ ul.cPhilosophyWidgetControls {
     color: #585556;
     text-transform: uppercase;
     cursor: pointer;
+    text-decoration: none;
+}
+
+.cCloudNativeControls li.cFixedWidthLink,
+.cCloudNativeControls li.cFixedWidthLink a {
+    width: 200px;
+    margin-right: 50px;
+    float: left;
+    display: inline-block;
 }
 
 .cCloudNativeControls li.activelink {
@@ -365,16 +383,10 @@ ul.cPhilosophyWidgetControls {
 }
 
 #type-system-code code {
-    padding: 4px 6px;
     text-align: left;
     font-size: 14px;
     background: #f5f6f6;
     min-height: 510px;
-    line-height: 20px;
-}
-
-#type-system-code .line-numbers-wrap {
-    display: none;
 }
 
 .type-system-code-tab {
@@ -529,11 +541,26 @@ div.text-display div.cCodeDesription p {
     background-color: #fff;
 }
 
-.cLanguageFeaturesContainer {
+.cLanguageFeaturesContainer,
+.cLanguageFeaturesContainer-1 {
     background: #f5f6f6;
     padding: 40px 30px;
     display: inline-block;
     width: 100%;
+}
+
+.cLanguageFeaturesContainer h3,
+.cLanguageFeaturesContainer-1 h3 {
+    text-transform: capitalize;
+}
+
+.cLanguageFeaturesContainer>div:first-child h3 {
+    margin-top: 0;
+}
+
+.cLanguageFeaturesContainer hr,
+.cLanguageFeaturesContainer-1 hr {
+    border-top: 1px solid #d1d4da;
 }
 
 .cLanguageFeatures li {
@@ -555,8 +582,8 @@ div.text-display div.cCodeDesription p {
 
 .cLanguageFeatures ul {
     padding: 0;
-    margin: 0;
-    border-top: 1px solid #cecfd0;
+    margin: 0 0 25px;
+    /* border-top: 1px solid #cecfd0; */
 }
 
 .cLanguageFeatures li a {
@@ -782,6 +809,7 @@ div.text-display div.cCodeDesription p {
 .code-wrapper pre code {
     display: block;
     white-space: pre;
+    text-align: left;
 }
 
 .cOutput .highlight pre {
@@ -861,7 +889,7 @@ div.cPhilosophyWidgetContainer.codeNativeBox {
     }
     .cPhil-Gray,
     .cPhil-green {
-        min-height: 360px;
+        min-height: 372px;
         padding: 0;
     }
     .cPhil-green-left,
@@ -879,8 +907,8 @@ div.cPhilosophyWidgetContainer.codeNativeBox {
         background-position: 16px center;
     }
     .cPhilosophy-widget p {
-        margin-bottom: 42px;
-        margin-top: 42px;
+        margin-bottom: 33px;
+        margin-top: 40px;
     }
 }
 
