@@ -1,27 +1,30 @@
 import ballerina/mysql;
 
-function secureOperation(@sensitive string secureParameter) {
-}
+function secureOperation(@sensitive string secureParameter) { }
 
 function main(string... args) {
-    //Pass input argument to security sensitive parameter
+
+    // Pass input argument to security sensitive parameter
     secureOperation(args[0]);
+
     if (isInteger(args[0])) {
-        //After sanitizing the content untaint can be used
+        // After sanitizing the content untaint can be used
         secureOperation(untaint args[0]);
     } else {
         error err = { message: "Error: ID should be an integer" };
         throw err;
     }
 
-    //Tainted return value cannot be passed into sensitive parameter
+    // Tainted return value cannot be passed into sensitive parameter
     json taintedJson = generateTaintedData();
     secureOperation(check <string>taintedJson.name);
 
-    //Untainted return value can be passed into sensitive parameter
+    // Untainted return value can be passed into sensitive parameter
     string sanitizedData = sanitize(check <string>taintedJson.firstname);
     secureOperation(sanitizedData);
+
     return;
+
 }
 
 function generateTaintedData() returns @tainted json {

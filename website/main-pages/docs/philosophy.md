@@ -2016,12 +2016,12 @@
         </div>
         <!-- first part end -->
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="api-constructs-text">
-            <div data-startLine="1" data-endLine="33" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="39" class="hTrigger cCodeDesription">
                 <div>
                     <p>Ballerina makes it easy to build APIs, provide and consume HTTP, WebSocket, gRPC, Protobuf, and other services. This example demonstrates a simple REST API built with Ballerina.</p>
                 </div>
             </div>
-            <div data-startLine="7" data-endLine="33" class="hTrigger cCodeDesription">
+            <div data-startLine="8" data-endLine="39" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Services, resources, endpoints, request and response objects are all native language constructs.
@@ -2031,7 +2031,7 @@
                     </p>
                 </div>
             </div>
-            <div data-startLine="21" data-endLine="28" class="hTrigger cCodeDesription">
+            <div data-startLine="25" data-endLine="32" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Note how the "match" command in the code is used to handle a union-type return: if the return value is a string - normal processing happens. If our service did not get the string it expected - we use error-handling logic instead.
@@ -2039,61 +2039,45 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="logic-language-text">
-            <div data-startLine="1" data-endLine="3" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        Ballerina is a compiled, type safe, Turing-complete, concurrent programming language. It is extensible with packages and ships with over 30 libraries.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="6" data-endLine="6" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        Ballerina programs have entry points with either main functions for console apps or service&lt;&gt; objects for hosted services.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="11" data-endLine="14" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        JSON is a first-class data type just like int, float, string, boolean, xml, and others.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="18" data-endLine="32" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        This code sample (generating a random integer, finding its factors, and outputting those as JSON) demonstrates the use of math library, functions, standard types, arrays, flow controls such as the while loop and the if statement.
-                    </p>
-                </div>
-            </div>
-        </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="asynchronous-text">
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="21" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Ballerina makes it easy to call functions and remote services asynchronously, wait for results when needed, check status and cancel asynchronous execution, fork and join threads, and pass data between threads.
                     </p>
                 </div>
             </div>
-            <div data-startLine="5" data-endLine="8" class="hTrigger cCodeDesription">
+            <div data-startLine="6" data-endLine="6" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Asynchronous calls to functions and endpoints create a future&lt;type&gt; variable that can then be passed further to other calls is needed. Once the actual value is needed, the wait operator can be used to wait for the actual return.
                     </p>
                 </div>
             </div>
-<!--            <div data-startLine="16" data-endLine="32" class="hTrigger cCodeDesription">
+        </div>
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="workers-text">
+            <div data-startLine="3" data-endLine="31" class="hTrigger cCodeDesription">
+                <div>
+                    <p>Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads </p>
+                </div>
+            </div>
+            <div data-startLine="8" data-endLine="13" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads. Threads can join using different conditions (all end, some end).
+                     Calculate sum in a worker thread
                     </p>
                 </div>
-            </div>-->
+            </div>
+            <div data-startLine="20" data-endLine="25" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                        Calculate sum of squares in another thread
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="json-and-xml-text">
-            <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="37" class="hTrigger cCodeDesription">
                 <div>
                     <p>JSON and XML are first class citizens in Ballerina.</p>
                 </div>
@@ -2103,80 +2087,9 @@
                     <p>You can construct JSON and XML objects inline or from other variables, arrays, and values.</p>
                 </div>
             </div>
-            <div data-startLine="26" data-endLine="32" class="hTrigger cCodeDesription">
+            <div data-startLine="28" data-endLine="28" class="hTrigger cCodeDesription">
                 <div>
                     <p>You can convert JSON to XML and XML to JSON, access individual elements, and use various functions.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="workers-text">
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
-                <div>
-                    <p>Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads </p>
-                </div>
-            </div>
-            <div data-startLine="6" data-endLine="8" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                     Calculate sum in a worker thread
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="15" data-endLine="26" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        Calculate sum of squares in another thread
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="transactions-text">
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
-                <div>
-                    <p>To improve the reliability of microservice-based applications, a series of invocations can be bound into a single unit of work called transaction. </p>
-                </div>
-            </div>
-            <div data-startLine="16" data-endLine="28" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                      Start a trasaction block with four retry attempts and perform two database insert operations within the transaction
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="transactions-text">
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
-                <div>
-                    <p>To improve the reliability of microservice-based applications, a series of invocations can be bound into a single unit of work called transaction. </p>
-                </div>
-            </div>
-            <div data-startLine="16" data-endLine="28" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                      Start a trasaction block with four retry attempts and perform two database insert operations within the transaction
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="taint-analysis-text">
-            <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription">
-                <div>
-                    <p>The Ballerina compiler identifies untrusted (tainted) data by observing how tainted data propagates through the program. If untrusted data is passed to a security sensitive parameter, a compiler error is generated.</p>
-                </div>
-            </div>
-            <div data-startLine="3" data-endLine="5" class="hTrigger cCodeDesription">
-                <div>
-                    <p>Sensitive parameters of the functions built-in-to ballerina are decorated with @sensitive annotation. This ensures that tainted data cannot pass into  the security sensitive parameter.</p>
-                </div>
-            </div>
-            <div data-startLine="27" data-endLine="30" class="hTrigger cCodeDesription">
-                <div>
-                    <p>The @tainted annotation denotes that the return value of the function should not be trusted (tainted))</p>
-                </div>
-            </div>
-            <div data-startLine="32" data-endLine="35" class="hTrigger cCodeDesription">
-                <div>
-                    <p>The @untainted annotation denotes that the return value of the function should be trusted (untainted)</p>
                 </div>
             </div>
         </div>
@@ -2202,7 +2115,7 @@
                     </p>
                 </div>
             </div>
-            <div data-startLine="20" data-endLine="29" class="hTrigger cCodeDesription">
+            <div data-startLine="19" data-endLine="22" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         These http annotations modify the way the HTTP service and resource are exposed.
@@ -2210,95 +2123,80 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="statically-and-strongly-typed-text">
-            <div data-startLine="1" data-endLine="1" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        Ballerina is a strongly-typed compiled language. This approach allows developers to catch significant percentage of errors at coding and compilation time and thus boosts developer productivity.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="7" data-endLine="7" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        Types have methods for data manipulation.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="11" data-endLine="13" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        JSON and XML are first-class citizens with rich set of built-in functionality.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="16" data-endLine="16" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        Union types make it easier to program functions that may return multiple types or may fail.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="20" data-endLine="20" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        To make developers more productive, var shorthand can be used instead of providing complex type signatures. In that case, Ballerina compiler will still infer the type best on the assignment statement and perform the corresponding consistency checks in the subsequent code.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="25" data-endLine="36" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        Ballerina includes objects.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="34" data-endLine="34" class="hTrigger cCodeDesription">
-                <div>
-                    <p>
-                        Packages (such as 'mime' in this example) can come with the types of their own.
-                    </p>
-                </div>
-            </div>
-        </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="streams-text">
-            <div data-startLine="1" data-endLine="2" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="67" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Ballerina provides first class support for streams. You can build streaming queries by using the user friendly syntax provided by Ballerina The queries include, projection, filtering, windows, stream joins and patterns.
                     </p>
                 </div>
             </div>
-            <div data-startLine="18" data-endLine="26" class="hTrigger cCodeDesription">
+            <div data-startLine="19" data-endLine="27" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Define the stream-processing query that will get evaluated over the incoming stream and create a new aggregation stream when the query condition is met.
                     </p>
                 </div>
             </div>
-            <div data-startLine="30" data-endLine="31" class="hTrigger cCodeDesription">
+            <div data-startLine="33" data-endLine="34" class="hTrigger cCodeDesription">
                 <div>
                     <p>Create the input and output streams and bind them to specific event types.</p>
                 </div>
             </div>
-            <div data-startLine="32" data-endLine="32" class="hTrigger cCodeDesription">
+            <div data-startLine="36" data-endLine="36" class="hTrigger cCodeDesription">
                 <div>
                     <p>Start the stream processing function.</p>
                 </div>
             </div>
-            <div data-startLine="33" data-endLine="33" class="hTrigger cCodeDesription">
+            <div data-startLine="37" data-endLine="37" class="hTrigger cCodeDesription">
                 <div>
                     <p>Subscribe to the output stream. Each time that stream has events our function will be called.</p>
                 </div>
             </div>
-            <div data-startLine="34" data-endLine="39" class="hTrigger cCodeDesription">
+            <div data-startLine="39" data-endLine="58" class="hTrigger cCodeDesription">
                 <div>
                     <p>Create 3 events and push them into the input stream.</p>
                 </div>
             </div>
-            <div data-startLine="43" data-endLine="46" class="hTrigger cCodeDesription">
+            <div data-startLine="64" data-endLine="67" class="hTrigger cCodeDesription">
                 <div>
                     <p>This function gets called each time there is an event in the output stream and prints that event to the console.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="transactions-text">
+            <div data-startLine="20" data-endLine="20" class="hTrigger cCodeDesription">
+                <div>
+                    <p>To improve the reliability of microservice-based applications, a series of invocations can be bound into a single unit of work called transaction. </p>
+                </div>
+            </div>
+            <div data-startLine="22" data-endLine="33" class="hTrigger cCodeDesription">
+                <div>
+                    <p>
+                      Start a trasaction block with four retry attempts and perform two database insert operations within the transaction
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="taint-analysis-text">
+            <div data-startLine="1" data-endLine="44" class="hTrigger cCodeDesription">
+                <div>
+                    <p>The Ballerina compiler identifies untrusted (tainted) data by observing how tainted data propagates through the program. If untrusted data is passed to a security sensitive parameter, a compiler error is generated.</p>
+                </div>
+            </div>
+            <div data-startLine="3" data-endLine="3" class="hTrigger cCodeDesription">
+                <div>
+                    <p>Sensitive parameters of the functions built-in-to ballerina are decorated with <code>@sensitive</code> annotation. This ensures that tainted data cannot pass into  the security sensitive parameter.</p>
+                </div>
+            </div>
+            <div data-startLine="30" data-endLine="33" class="hTrigger cCodeDesription">
+                <div>
+                    <p>The <code>@tainted</code> annotation denotes that the return value of the function should not be trusted (tainted))</p>
+                </div>
+            </div>
+            <div data-startLine="35" data-endLine="38" class="hTrigger cCodeDesription">
+                <div>
+                    <p>The <code>@untainted</code> annotation denotes that the return value of the function should be trusted (untainted)</p>
                 </div>
             </div>
         </div>
