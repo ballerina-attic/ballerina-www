@@ -2101,21 +2101,21 @@
                     </p>
                 </div>
             </div>
-            <div data-startLine="5" data-endLine="10" class="hTrigger cCodeDesription">
+            <div data-startLine="6" data-endLine="10" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Annotations can extend Ballerina parser, compiler, and runtime behavior. For example, this annotation comes from kubernetes package and instructs the build process to generate a Docker image file and deployment artifacts.
                     </p>
                 </div>
             </div>
-            <div data-startLine="12" data-endLine="17" class="hTrigger cCodeDesription">
+            <div data-startLine="13" data-endLine="17" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         These annotations provide additional fields for the generated swagger/openapi definition.
                     </p>
                 </div>
             </div>
-            <div data-startLine="19" data-endLine="22" class="hTrigger cCodeDesription">
+            <div data-startLine="20" data-endLine="22" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         These http annotations modify the way the HTTP service and resource are exposed.
