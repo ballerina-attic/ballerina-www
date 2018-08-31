@@ -10,6 +10,7 @@ endpoint http:Client backendEP {
 };
 
 service UserProfile bind listener {
+
     int nextUserNo = 1;
 
     addUser(endpoint caller, UserInfo userInfo) {
@@ -19,22 +20,29 @@ service UserProfile bind listener {
         
         http:Response backendRes = check backendEP->post(
             "/test/add", untaint userJSON);
+
         check caller->send(backendRes.getPayloadAsString());
     }
 
     getUser(endpoint caller, string id) {
         http:Response backendRes = check backendEP->get(
             "/test/get?id=" + untaint id);
+
         json userJson = check backendRes.getJsonPayload();
         User user = check <User>userJson;
+
         check caller->send(user);
     }
+
 }
 
 type UserInfo record {
-    // contains name, age, etc
+    string name;
+    int age;
+    string email;
 };
 
 type User record {
-    // contains the id and userinfo of user
+    string id;
+    UserInfo userinfo;
 };

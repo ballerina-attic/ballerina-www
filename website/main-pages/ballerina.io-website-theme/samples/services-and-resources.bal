@@ -12,8 +12,10 @@ service<http:Service> orderMgt bind { port:9090 } {
     }
     findOrder(endpoint client, http:Request req, string orderId) {
         json? payload = ordersMap[orderId];
+
         http:Response response;
         response.setJsonPayload(untaint payload);
+
         _ = client->respond(response);
     }
 
@@ -28,12 +30,15 @@ service<http:Service> orderMgt bind { port:9090 } {
         ordersMap[orderId] = orderReq;
 
         json payload = { status: "Order Created.", orderId: orderId };
+
         http:Response response;
+
         response.setJsonPayload(untaint payload);
         response.statusCode = 201;
-        response.setHeader("Location", "http://localhost:9090/ordermgt/order/" +
-                                                                        orderId);
+        response.setHeader("Location", 
+            "http://localhost:9090/ordermgt/order/" + orderId);
 
         _ = client->respond(response);
     }
+
 }

@@ -1,8 +1,7 @@
 // Consumer Example
+// --------------------------------------------------------
 
-import ballerina/log;
 import wso2/kafka;
-import ballerina/internal;
 import ballerina/io;
 
 endpoint kafka:SimpleConsumer consumer {
@@ -13,21 +12,24 @@ endpoint kafka:SimpleConsumer consumer {
 };
 
 service<kafka:Consumer> kafkaService bind consumer {
+
     onMessage(kafka:ConsumerAction consumerAction, 
-                                                kafka:ConsumerRecord[] records) {
+        kafka:ConsumerRecord[] records) {
+        
         foreach entry in records {
             byte[] serializedMsg = entry.value;
-            io:ByteChannel channel = io:openFile("/some/filePath", io:APPEND);
-            int writtenBytes = 0;
-            while (writtenBytes == lengthof serializedMsg) {
-                writtenBytes = check channel.write(serializedMsg, writtenBytes) + 
-                                                                    writtenBytes;
-            }
+            io:ByteChannel channel = io:openFile("/some/Path", 
+                io:APPEND);
+            int writtenBytes = check channel.write(
+                serializedMsg, 0);
         }
+
     }
+
 }
 
 // Producer Example
+// --------------------------------------------------------
 
 import ballerina/http;
 import wso2/kafka;
@@ -39,28 +41,21 @@ endpoint kafka:SimpleProducer kafkaProducer {
     noRetries:3
 };
 
-endpoint http:Listener listener {
-    port:9090
-};
+service<http:Service> productAdminService bind { port: 9090 } {
 
-@http:ServiceConfig {basePath:"/product"}
-service<http:Service> productAdminService bind listener {
+    updatePrice (endpoint client, http:Request request, 
+        json reqPayload) {
 
-    @http:ResourceConfig {
-        methods:["POST"]
-    }
-    updatePrice (endpoint client, http:Request request, json reqPayload) {
-        json productName = reqPayload.Product;
-        json newPrice = reqPayload.Price;
+        byte[] serializedMsg = reqPayload.toString().toByteArray(
+            "UTF-8");
+        kafkaProducer->send(serializedMsg, "product-price", 
+            partition = 0);
 
-        float newPriceAmount = check <float>newPrice.toString();
-        json priceUpdateInfo = {"Product":productName, 
-                                                  "UpdatedPrice":newPriceAmount};
-        byte[] serializedMsg = priceUpdateInfo.toString().toByteArray("UTF-8");
-
-        kafkaProducer->send(serializedMsg, "product-price", partition = 0);
         http:Response response;
         response.setJsonPayload({"Status":"Success"});
+
         _ = client->respond(response);
+    
     }
+
 }

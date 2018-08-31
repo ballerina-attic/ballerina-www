@@ -2374,272 +2374,149 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="services-and-resources-text">
-            <div data-startLine="1" data-endLine="39" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="44" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Ballerina provides first class support for Services. Services represent collections of network accessible entry points. Resources represent one such entry point. How a resource is exposed over a network protocol depends on the listener that binds the service. Here, an anonymous listener is used to expose the service.</p>
+                    <p>Ballerina provides first class support for services. Services represent collections of network accessible entry points. Resources represent one such entry point. How a resource is exposed over a network protocol depends on the listener that binds the service. Here, an anonymous listener is used to expose the service.</p>
                 </div>
             </div>
             <div data-startLine="8" data-endLine="12" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Here, the resource is written in a Restful manner, and accepts GET requests with the path param <code>orderId</code>.</p>
+                    <p>Here, the resource is written in a RESTful manner, and accepts GET requests with the path param <code>orderId</code>.</p>
                 </div>
             </div>
-            <div data-startLine="20" data-endLine="25" class="hTrigger cCodeDesription gray">
+            <div data-startLine="22" data-endLine="27" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Similarly, the second resource is written to handle HTTP POST requests that are directed to the path <code>/order</code> to create a new order. This maps the request body entity to the <code>orderReq</code> JSON.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="endpoints-text">
+            <div data-startLine="1" data-endLine="29" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>Ballerina provides a set of endpoints to send and receive messages using different protocols.</p>
+                </div>
+            </div>
             <div data-startLine="4" data-endLine="8" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Server endpoint that listens to inbound http requests. Provide configuration parameters such as Keep-Alive, timeout, request limits etc to configure the server endpoint.</p>
+                    <p>The server endpoint listens to inbound HTTP requests. To configure the server endpoint, use configuration parameters such as Keep-Alive, timeout, request limits, etc.</p>
                 </div>
             </div>
             <div data-startLine="10" data-endLine="15" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Client endpoint talks to external endpoints over the network. Similar to server endpoint, provide configuration parameters to configure the client endpoint. Here we use a Twitter client endpoint to talk to the Twitter API.</p>
-                </div>
-            </div>
-            <div data-startLine="19" data-endLine="21" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>The passthrough resource allows all HTTP methods because the resource configuration does not explicitly specify the HTTP methods that are allowed.</p>
-                </div>
-            </div>
-            <div data-startLine="23" data-endLine="24" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Call tweet to post a message in Twitter.</p>
+                    <p>The client endpoint talks to external endpoints over the network. Similar to the server endpoint, use configuration parameters to configure the client endpoint. Here we use a Twitter client endpoint to talk to the Twitter API.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="network-data-types-and-conversions-text">
-            <div data-startLine="9" data-endLine="17" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="39" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Retrieve a JSON response from the back-end. The JSON response should contain an array of book details.
-                        Use the service to filter all books that have been published after the year 1900.
-                        Then convert the JSON to XML before sending the response.
+                    <p>Ballerina provides first class support for network data types such as JSON and XML. This examples shows how easy it is to retrieve a JSON payload and then transform it based on the requirement. Finally, before sending the response, you can convert the transformed JSON payload to XML.
                     </p>
                 </div>
             </div>
-            <div data-startLine="20" data-endLine="31" class="hTrigger cCodeDesription gray">
+            <div data-startLine="15" data-endLine="15" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Function to filter books that are published after year 1900.</p>
+                    <p>To transform the JSON payload to XML, invoke the <code>toXML()</code> function.</p>
+                </div>
+            </div>
+            <div data-startLine="24" data-endLine="39" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>This function shows how to traverse JSON and filter out specific sections, while forming a new JSON payload. In this case, it simply filters out books that are written after the <code>yearParam</code> value.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="resilient-communication-text">
+            <div data-startLine="1" data-endLine="30" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>Ballerina embraces the fact that networks can fail transiently. To defend against such failures, Ballerina provides network resilient features such as Timeout, Retry, Circuit Breaker, etc.. This example demonstrates how to use a combination of these features.</p>
+                </div>
+            </div>
             <div data-startLine="6" data-endLine="9" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Circuit breaker configuration options that control the behavior of the Ballerina circuit breaker.</p>
+                    <p>Configuration options that are used to control the behavior of the Ballerina circuit breaker.</p>
                 </div>
             </div>
             <div data-startLine="10" data-endLine="10" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>This is the endpoint timeout. If the response is not received within the given time period, the endpoint times out.</p>
+                    <p>Endpoint timeout is configured using <code>timeoutMillis</code>.</p>
                 </div>
             </div>
-            <div data-startLine="12" data-endLine="12" class="hTrigger cCodeDesription gray">
+            <div data-startLine="11" data-endLine="15" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Multiplier of the retry interval to exponentially increase.</p>
-                </div>
-            </div>
-            <div data-startLine="13" data-endLine="13" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Number of times to retry.</p>
-                </div>
-            </div>
-            <div data-startLine="14" data-endLine="14" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Initial retry interval in milliseconds.</p>
+                    <p>Requests can be re-tried using the <code>retryConfig</code>.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="service-composition-text">
-            <div data-startLine="3" data-endLine="5" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="43" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Client endpoint to communicate with the airline reservation service.</p>
+                    <p>Service composition is a common use case in integration that involves communicating with many back-ends before formulating the response. This example demonstrates service composition with a simple tour arrangement system that involves airline reservation and hotel reservation.</p>
                 </div>
             </div>
-            <div data-startLine="7" data-endLine="9" class="hTrigger cCodeDesription gray">
+            <div data-startLine="3" data-endLine="9" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Client endpoint to communicate with the hotel reservation service.</p>
-                </div>
-            </div>
-            <div data-startLine="12" data-endLine="12" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Travel agency service to arrange a complete tour for a user.</p>
-                </div>
-            </div>
-            <div data-startLine="17" data-endLine="40" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Resource to arrange a tour.</p>
-                </div>
-            </div>
-            <div data-startLine="19" data-endLine="24" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>JSON payload format for an HTTP out request.</p>
+                    <p>Client endpoints used to communicate with the airline reservation and hotel reservation services.</p>
                 </div>
             </div>
             <div data-startLine="27" data-endLine="28" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Call the airline reservation service to reserve an airline ticket for the user. Construct the payload.</p>
+                    <p>The first endpoint is invoked with an HTTP POST request. Once the response is received, it is stored in <code>inResAirline</code>.</p>
                 </div>
             </div>
             <div data-startLine="32" data-endLine="33" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Send a post request to <code>airlineReservationService</code> with an appropriate payload, and get a response.</p>
+                    <p>The second endpoint is also invoked with an HTTP POST request and the received response is stored in <code>inResHotel</code>.</p>
                 </div>
             </div>
-            <div data-startLine="37" data-endLine="38" class="hTrigger cCodeDesription gray">
+            <div data-startLine="40" data-endLine="40" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>If all three services respond with a positive status, send a successful message to the user.</p>
+                    <p>The response is sent back based on the received inbound responses.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="asynchronous-event-driven-messaging-text">
-            <!-- Consumer -->
-            <div data-startLine="8" data-endLine="13" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="61" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Kafka consumer endpoint.</p>
-                </div>
-            </div>
-            <div data-startLine="15" data-endLine="28" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Kafka service that listens from the topic <code>product-price</code>
-                        Subscribe <code>inventoryControlService</code> to new product price updates from
-                        the product admin, and update the database.</p>
-                </div>
-            </div>
-            <div data-startLine="16" data-endLine="17" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Trigger whenever a message is added to the subscribed topic.</p>
-                </div>
-            </div>
-            <div data-startLine="18" data-endLine="18" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Dispatch the set of Kafka records to the service. These are processed one by one.</p>
-                </div>
-            </div>
-            <div data-startLine="20" data-endLine="20" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Write the serialized message to a file.</p>
-                </div>
-            </div>
-            <!-- Producer -->
-            <div data-startLine="35" data-endLine="40" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Kafka producer endpoint.</p>
-                </div>
-            </div>
-            <div data-startLine="42" data-endLine="44" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>HTTP service endpoint.</p>
-                </div>
-            </div>
-            <div data-startLine="56" data-endLine="56" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Convert the price value to float.</p>
-                </div>
-            </div>
-            <div data-startLine="57" data-endLine="58" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Construct and serialize the message to be published to the Kafka topic.</p>
-                </div>
-            </div>
-            <div data-startLine="61" data-endLine="61" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Produce the message and publish it to the Kafka topic.</p>
-                </div>
-            </div>
-            <div data-startLine="62" data-endLine="64" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Send a success status to the admin request.</p>
+                    <p>Ballerina supports integrating with different message brokers. This example demonstrates how to produce and consume messages from a Kafka broker, and how to store the consumed data in a file.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="protocol-conversions-text">
-            <div data-startLine="4" data-endLine="6" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="48" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>GRPC listener endpoint configured to listen on port 9090.</p>
+                    <p>This example demonstrates a simple protocol switch from gRPC to HTTP. The listener endpoint retrieves gRPC messages that are transformed to JSON messages before sending to the back-end.</p>
                 </div>
             </div>
-            <div data-startLine="8" data-endLine="10" class="hTrigger cCodeDesription gray">
+            <div data-startLine="17" data-endLine="19" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Back-end server to which the client endpoint connects.</p>
+                    <p>User-defined data structures can be cast into common network data types such as JSON and XML. In this case, <code>UserInfo</code> is cast into JSON.</p>
                 </div>
             </div>
-            <div data-startLine="12" data-endLine="12" class="hTrigger cCodeDesription gray">
+            <div data-startLine="31" data-endLine="34" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>This particular service deals with user profiles. It contains a collection of resources to add and remove users.
-                        Resource name can be any name. The name of the resource must be followed by the endpoint. Rest of the resource
-                        arguments can be anything such as custom records, string, int, etc.
-                    </p>
-                    <p>Once the service is implemented, client stub can be generated using the service. Ballerina provides a command line
-                        tool to generate the stub.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="17" data-endLine="17" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Cast the record literal to JSON.</p>
-                </div>
-            </div>
-            <div data-startLine="20" data-endLine="21" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Send the received GRPC data to the HTTP backend.</p>
-                </div>
-            </div>
-            <div data-startLine="22" data-endLine="22" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Get the response payload as string and send it back to the GRPC client.</p>
-                </div>
-            </div>
-            <div data-startLine="29" data-endLine="29" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Cast the JSON payload to a user-defined record literal.</p>
-                </div>
-            </div>
-            <div data-startLine="30" data-endLine="30" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Send back the record literal as the result to the GRPC client.</p>
+                    <p>The retrieved JSON message is cast into a user-defined data structure to match it with the gRPC response before sending it back the gRPC response.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="api-security-text">
+            <div data-startLine="1" data-endLine="60" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>Ballerina provides security features such as OAuth2, Basic Auth, OCSP, etc. This sample demonstrates connecting to an endpoint with JWT.</p>
+                </div>
+            </div>
             <div data-startLine="3" data-endLine="12" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Create a JWT authentication provider with the relevant configuration parameters.</p>
+                    <p>JWT Auth provider is configured with relevant parameters.</p>
                 </div>
             </div>
-            <div data-startLine="23" data-endLine="36" class="hTrigger cCodeDesription gray">
+            <div data-startLine="16" data-endLine="20" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>The endpoint used here is <code>http:SecureListener</code>. The JWT authentication
-                        provider is set to this endpoint using the <code>authProviders</code> attribute. The
-                        developer has the option to override the authentication and authorization at the service and resource levels.
-                    </p>
+                    <p>The client endpoint is configured to communicate with a back-end that is secured with Basic Auth.</p>
                 </div>
             </div>
-            <div data-startLine="38" data-endLine="43" class="hTrigger cCodeDesription gray">
+            <div data-startLine="25" data-endLine="25" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>The secure hello world sample uses HTTPS.</p>
-                </div>
-            </div>
-            <div data-startLine="44" data-endLine="57" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>Auth configuration comprises of two parts - authentication and authorization.
-                        Authentication can be enabled by setting the <code>authentication:{enabled:true}</code> flag.
-                        Authorization is based on scopes, where a scope maps to one or more groups.
-                        For a user to access a resource, the user should be in the same groups as the scope.
-                        To specify one or more scopes of a resource, the annotation attribute <code>scopes</code> can be used.
-                    </p>
-                </div>
-            </div>
-            <div data-startLine="52" data-endLine="56" class="hTrigger cCodeDesription gray">
-                <div>
-                    <p>The authentication and authorization settings can be overridden at the resource level.
-                        The hello resource inherits the <code>authentication:{enabled:true}</code> flag
-                        from the service level and defines 'hello' as the scope for the resource.
-                    </p>
+                    <p>The configured JWT endpoint is used in the <code>secureListener</code> to make the endpoint aware of JWT.</p>
                 </div>
             </div>
         </div>

@@ -42,6 +42,7 @@ endpoint http:SecureListener secureListener {
     }
 }
 service<http:Service> echo bind secureListener {
+
     @http:ResourceConfig {
         methods: ["GET"],
         path: "/sayHello",
@@ -52,6 +53,8 @@ service<http:Service> echo bind secureListener {
     hello(endpoint caller, http:Request req) {
         http:Response res = check httpEndpoint->get(
             "/secured/endpoint");
+
         _ = caller->respond(res);
     }
+
 }

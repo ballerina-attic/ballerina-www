@@ -16,12 +16,15 @@ endpoint http:Client backendEP {
 };
 
 service<http:Service> legacyEndpoint bind { port: 9090 } {
+
     @http:ResourceConfig {
         path: "/"
     }
     invokeEndpoint(endpoint caller, http:Request request) {
         http:Response backendRes = check backendEP->forward(
             "/hello", request);
+
         _ = caller->respond(backendRes);
     }
+
 }
