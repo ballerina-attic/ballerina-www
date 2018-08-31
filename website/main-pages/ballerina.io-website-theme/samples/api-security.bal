@@ -36,7 +36,6 @@ endpoint http:SecureListener secureListener {
 };
 
 @http:ServiceConfig {
-    basePath: "/hello",
     authConfig: {
         authentication: { enabled: true }
     }
@@ -44,8 +43,6 @@ endpoint http:SecureListener secureListener {
 service<http:Service> echo bind secureListener {
 
     @http:ResourceConfig {
-        methods: ["GET"],
-        path: "/sayHello",
         authConfig: {
             scopes: ["hello"]
         }
