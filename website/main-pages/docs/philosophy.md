@@ -2397,7 +2397,7 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="api-security-text">
-            <div data-startLine="1" data-endLine="60" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="57" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina provides security features such as OAuth2, Basic Auth, OCSP, etc. This sample demonstrates connecting to an endpoint with JWT.</p>
                 </div>
