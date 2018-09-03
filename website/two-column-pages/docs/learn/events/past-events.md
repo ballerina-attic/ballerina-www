@@ -30,7 +30,7 @@
     <b>PJ Hagerty</b></p>
     <p>Founder of DevRelate.io and Developer Advocate for Humio.com</p>
     </td>
-    <td class="cEventURL"></td>
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/observing-your-ballerina-services-with-humio/">Watch Now</a></td>
 </tr>
 <tr>
     <td class="cEventDateContainer"><span class="cEventDate">August 14, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
