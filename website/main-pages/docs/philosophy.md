@@ -1644,7 +1644,6 @@
             </div>
          </div>
       </div>
-
    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cSEQUENCEContent">
       <!-- <p class="cGreenTitle cPhil-box-titles">SEQUENCE DIAGRAMMATIC</p> -->
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
@@ -2376,6 +2375,16 @@
             <div data-startLine="1" data-endLine="61" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina supports integrating with different message brokers. This example demonstrates how to produce and consume messages from a Kafka broker, and how to store the consumed data in a file.</p>
+                </div>
+            </div>
+			<div data-startLine="14" data-endLine="14" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>This service is written to listen to `product-price` topic. Whenever, there is a message, it notifies the `onMessage` resource with the new message.</p>
+                </div>
+            </div>
+			<div data-startLine="14" data-endLine="14" class="hTrigger cCodeDesription gray">
+                <div>
+                    <p>Similar to consuming messages, it is possible to produce messages to topics as well, which is done with a kafka client endpoint.</p>
                 </div>
             </div>
         </div>
