@@ -2379,10 +2379,10 @@
             </div>
 			<div data-startLine="14" data-endLine="14" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>This service is written to listen to `product-price` topic. Whenever, there is a message, it notifies the `onMessage` resource with the new message.</p>
+					<p>This service is written to listen to <code>product-price</code> topic. Whenever, there is a message, it notifies the <code>onMessage</code> resource with the new message.</p>
                 </div>
             </div>
-			<div data-startLine="14" data-endLine="14" class="hTrigger cCodeDesription gray">
+			<div data-startLine="44" data-endLine="44" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Similar to consuming messages, it is possible to produce messages to topics as well, which is done with a kafka client endpoint.</p>
                 </div>
