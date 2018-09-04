@@ -1,3 +1,4 @@
+import ballerina/config;
 import ballerina/http;
 import wso2/twitter;
 
@@ -8,10 +9,10 @@ endpoint http:Listener listener {
 };
 
 endpoint twitter:Client twitterClient {
-    clientId:"<CONSUMER_ID>",
-    clientSecret:"<CONSUMER_SECRET>",
-    accessToken:"<ACCESS_TOKEN>",
-    accessTokenSecret:"<ACCESS_TOKEN_SECRET>"
+    clientId: config:getAsString("consumer_id"),
+    clientSecret: config:getAsString("consumer_secret"),
+    accessToken: config:getAsString("access_token"),
+    accessTokenSecret: config:getAsString("access_token_secret")
 };
 
 service<http:Service> passthrough bind listener {
