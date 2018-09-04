@@ -1,5 +1,5 @@
 # How to Structure Ballerina Code
-This document demonstrates the development of a Ballerina project and shows how to use the `ballerina` tool to fetch, build, and install Ballerina packages and commands with repositories that are local and remote. 
+This document demonstrates the development of a Ballerina project and shows how to use the `ballerina` tool to fetch, build, and install Ballerina packages and commands with repositories that are local and remote.
 
 Ballerina Central is a globally hosted package management system to discover, download, and publish packages.
 
@@ -17,7 +17,7 @@ A *program* is a runtime executable, ending with a `.balx` extension. A *program
 
 The program's package must contain a `main()` function (a process entry point) or contain a `service` (a network-accessible API).
 
-A program can import dependent *packages* which are stored within a *repository*. 
+A program can import dependent *packages* which are stored within a *repository*.
 
 Suppose you have the following structure:
 
@@ -70,11 +70,14 @@ $ ballerina run sample.balx
 A *package* is a directory that contains Ballerina source code files and are part of a namespace. Packages faciliate collaboration, sharing, and reuse. Packages can include functions, connectors, constants, annotations, enumerations, services, and objects. Packages are shared among programs, projects, and users by being pushed into a repository.
 
 Packages:
-1. May or may not have a version
-2. However, packages cannot be pushed into a registry for sharing without a version
-3. Are referenced by `<org-name>/<package-name>` where `<org-name>` is a namespace from within a repository.
 
-Package names can contain alphanumeric characters including dots `.`. Dots in a package name have no meaning other than the last segment after the final dot being used as a default alias within your source code. 
+<ol>
+<li>May or may not have a version</li>
+<li>However, packages cannot be pushed into a registry for sharing without a version</li>
+<li>Are referenced by `<org-name>/<package-name>` where `<org-name>` is a namespace from within a repository.</li>
+</ol>
+
+Package names can contain alphanumeric characters including dots `.`. Dots in a package name have no meaning other than the last segment after the final dot being used as a default alias within your source code.
 
 ### Importing Packages
 Your Ballerina source files can import packages:
@@ -85,7 +88,7 @@ import [<org-name>]/<package-name> her.package [ [version <string>] [as <identif
 
 When importing a package, you can then use its functions, annotations and other objects in your code. You reference these objects with a qualified identifier followed by a colon `:`, such as `<identifier>:<package-object>`.
 
-Identifiers are either derived or explicit. The default identifier is either the package name, or if the package name has dots `.` include, then the last word after the last dot. For example, `import ballerina/http;` will have `http:` be the derived identifer. The package `import tyler/net.http.exception` would have `exception:` as the default identifier. 
+Identifiers are either derived or explicit. The default identifier is either the package name, or if the package name has dots `.` include, then the last word after the last dot. For example, `import ballerina/http;` will have `http:` be the derived identifer. The package `import tyler/net.http.exception` would have `exception:` as the default identifier.
 
 You can have an explicit identifier by using the `as <identifier>` syntax.
 
@@ -123,7 +126,7 @@ If your source file or package is a part of a project, then you can explicitly m
 version = "3.0.1"
 ```
 
-If an import statement does not explicitly specify a version, then the compiler will use the `latest` package version from a repository, if one exists. 
+If an import statement does not explicitly specify a version, then the compiler will use the `latest` package version from a repository, if one exists.
 
 ```ballerina
 import tyler/http;
@@ -181,12 +184,12 @@ The folders `.ballerina/`, `tests/`, and `resources/` are reserved folder names 
   main.bal             # Part of the “unnamed” package, compiled into a main.balx
                        # You can have many files in the "unnamed" package, though unadvisable
 
-  package1/            # The source in this directory will be named “<org-name>/package1” 
+  package1/            # The source in this directory will be named “<org-name>/package1”
     Package.md         # Optional, contains descriptive metadata for display at Ballerina Central
     *.bal              # In this dir and recursively in subdirs except tests/ and resources/
     [tests/]           # Package-specific unit and integration tests
     [resources/]       # Package-specific resources
-    
+
   packages.can.include.dots.inthe.dir.name/
     Package.md
     *.bal
@@ -218,7 +221,7 @@ Packages in a project are assigned their version from within the `Ballerina.toml
 
 ```toml
 # The current version, obeying [semver](https://semver.org/)
-version = “string” 
+version = “string”
 ```
 
 All packages built in a project are assigned the same version. If you need two packages to have different versions, then those packages should be placed into different projects.
@@ -240,16 +243,16 @@ There are four kinds of repositories:
 
 1. Project Repository. This repository is located in a project's `.ballerina/` folder and contains installed versions of packages from the project and any dependencies of the project.  
 
-2. Home Repository. This repository is located on a developer's machine at the location of `BALLERINA_HOME_DIR` or `~\.ballerina` if not specified. 
+2. Home Repository. This repository is located on a developer's machine at the location of `BALLERINA_HOME_DIR` or `~\.ballerina` if not specified.
 
-3. System Repository. A special repository that is embedded within the Ballerina distribution which contains `ballerina/*` core packages. 
+3. System Repository. A special repository that is embedded within the Ballerina distribution which contains `ballerina/*` core packages.
 
-4. Ballerina Central. Located at [http://central.ballerina.io](http://central.ballerina.io), this centrally managed repository is a community hub to discover, download, and publish Ballerina packages. 
+4. Ballerina Central. Located at [http://central.ballerina.io](http://central.ballerina.io), this centrally managed repository is a community hub to discover, download, and publish Ballerina packages.
 
 ### Repository Precedence
 When building a Ballerina program with a project, the build system will search repositories for any imported dependencies. Dependencies are searched in the system, then project, then home, then Ballerina Central repositories for the dependency. Once found, it will be installed into the project repository if not already present.
 
-If a package is discovered at Ballerina Central, the build system will download the package's files before installing into the home repository for reuse. 
+If a package is discovered at Ballerina Central, the build system will download the package's files before installing into the home repository for reuse.
 
 ### Package Installation
 When building a package in a project, that package is automatically installed into the project's local repository. That package can be shared across other projects by installing it into the home repository.
@@ -287,7 +290,7 @@ ballerina pull <org-name>/<package-name>[:<version>]
 Projects that perform dependency analysis will automatically pull packages into the home repository.
 
 ### Pushing Packages Into Remote Repositories
-"Pushing" a package uploads the associated package files and installs the package into a remote repository, which is Ballerina Central. 
+"Pushing" a package uploads the associated package files and installs the package into a remote repository, which is Ballerina Central.
 
 The org-name and the version of the package will be read from the manifest file `Ballerina.toml` inside the project.
 ```
