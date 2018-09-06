@@ -59,7 +59,7 @@
 Av. Angélica, 2529 - 10° andar · São Paulo, Brazil</p>
 </td>
         <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/pt-BR/Cloud-Native-Sao-Paulo/events/253753781/"><h4> Cloud Native São Paulo - Meetup #6 - Aplicações Cloud Native</h4></a>
-        <p>Speakers: Edgar Silva and João Emilio</p>
+        <p>Speakers: Edgar Silva and Roberto Monteiro</p>
 
        </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/pt-BR/Cloud-Native-Sao-Paulo/events/253753781/" target="_blank">Register Now</a></td>
