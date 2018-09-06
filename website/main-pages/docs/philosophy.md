@@ -2190,12 +2190,12 @@
             </div>
             <div data-startLine="30" data-endLine="33" class="hTrigger cCodeDesription">
                 <div>
-                    <p>The <code>@tainted</code> annotation denotes that the return value of the function should not be trusted (tainted))</p>
+                    <p>The <code>@tainted</code> annotation denotes that the return value of the function should not be trusted (tainted).</p>
                 </div>
             </div>
             <div data-startLine="35" data-endLine="38" class="hTrigger cCodeDesription">
                 <div>
-                    <p>The <code>@untainted</code> annotation denotes that the return value of the function should be trusted (untainted)</p>
+                    <p>The <code>@untainted</code> annotation denotes that the return value of the function should be trusted (untainted).</p>
                 </div>
             </div>
         </div>
