@@ -4,7 +4,7 @@ Now that you know a little bit [about Ballerina](/philosophy), let's take it for
 
 ## Install Ballerina
 
-1. Go to the [Download page](https://ballerina.io/downloads) and click **Download Ballerina**.
+1. Go to the [Download page](https://ballerina.io/downloads).
 1. Download Ballerina for your OS and follow the instructions given to set it up. For more information, see [Getting Started](/learn/getting-started).
 
 > **Note**: Throughout this documentation, `<ballerina_home>` refers to the directory in which you just installed Ballerina.
@@ -429,7 +429,7 @@ $ ballerina help push
 ```
 
 ## Run the Composer
-Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
+Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina language. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
 
 ### To start the Composer: 
 
