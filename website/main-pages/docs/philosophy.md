@@ -1531,7 +1531,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-content-wraper">
                 <h2 class="cMainH2Title">Why did we build Ballerina? </h2>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cInnerPageContentCol ">
-                    <p>Cloud-native and microservices architectures enable enterprises to have trillions of programmable network endpoints, making integration the glue that brings APIs, microservices, and data together as a whole. Centralized and configuration-driven approaches to integration, with ESBs, are not agile or cloud-native. Programming languages with frameworks like Spring and Node.js offer agility but require writing a lot of complex and boilerplate code to integrate endpoints. </p>
+                    <p>Cloud native and microservices architectures enable enterprises to have trillions of programmable network endpoints, making integration the glue that brings APIs, microservices, and data together as a whole. Centralized and configuration-driven approaches to integration, with ESBs, are not agile or cloud native. Programming languages with frameworks like Spring and Node.js offer agility but require writing a lot of complex and boilerplate code to integrate endpoints. </p>
                 </div>
             </div>
         </div>
@@ -1786,7 +1786,7 @@
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
          <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
             <h3>No pitfalls</h3>
-            <p>Ballerina ensures that the best practices are followed by developers at all times. Static code analysis tools which are designed to catch pitfalls in languages are not required when you code in Ballerina. Ballerina follows a highly opinionated approach towards writing code that leaves no room for pitfalls. </p>
+            <p>Static code analysis tools which are designed to catch pitfalls in languages are not required when you code in Ballerina. </p>
          </div>
       </div>
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
@@ -1798,7 +1798,7 @@
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
          <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
             <h3>Read-only (or effective final) function parameters</h3>
-            <p>Reassigning values to function parameters may lead to unintentional consequences and also reduces the code readability. Ballerina treats function parameters as read-only variables to avoid intentional or unintentional reassigning of function parameters. </p>
+            <p>Ballerina treats function parameters as read-only variables to avoid intentional or unintentional reassigning of function parameters. </p>
          </div>
       </div>
    </div>

@@ -16,7 +16,7 @@ $(document).ready(function() {
             { "name": "Messaging with Kafka", "desc": "Pub-sub based asynchronous communication with Kafka", "url": "messaging-with-kafka", "git": "" },
             { "name": "Messaging with JMS", "desc": "Publish and subscribe to messages with a JMS broker", "url": "messaging-with-jms-queues", "git": "" },
         ],
-        "Data, Streams": [
+        "Data and Streams": [
             { "name": "Database Interaction", "desc": "Service that performs CRUD operations with a SQL database", "url": "data-backed-service", "git": "" },
             { "name": "Database Transactions", "desc": "Transaction blocks using Ballerina", "url": "managing-database-transactions", "git": "" },
             { "name": "Streams Processing", "desc": "Consuming and publishing a stateful data stream", "url": "stream-processing", "git": "" },
