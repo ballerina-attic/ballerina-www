@@ -2288,17 +2288,17 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="endpoints-text">
-            <div data-startLine="1" data-endLine="29" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="30" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina provides a set of endpoints to send and receive messages using different protocols.</p>
                 </div>
             </div>
-            <div data-startLine="4" data-endLine="8" class="hTrigger cCodeDesription gray">
+            <div data-startLine="5" data-endLine="9" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The server endpoint listens to inbound HTTP requests. To configure the server endpoint, use configuration parameters such as Keep-Alive, timeout, request limits, etc.</p>
                 </div>
             </div>
-            <div data-startLine="10" data-endLine="15" class="hTrigger cCodeDesription gray">
+            <div data-startLine="11" data-endLine="16" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The client endpoint talks to external endpoints over the network. Similar to the server endpoint, use configuration parameters to configure the client endpoint. Here we use a Twitter client endpoint to talk to the Twitter API.</p>
                 </div>
