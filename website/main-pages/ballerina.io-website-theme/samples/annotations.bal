@@ -20,9 +20,9 @@ import ballerinax/kubernetes;
 @http:ServiceConfig {
     basePath: "/"
 }
+service<http:Service> hello bind { port: 9090 } {
 
-service<http:Service> hello bind {port: 9090} {
-    // change the resource path and accepted verbs
+    // Change the resource path and accepted verbs
     @http:ResourceConfig {
         path: "/",
         methods: ["GET"]
@@ -30,6 +30,8 @@ service<http:Service> hello bind {port: 9090} {
     hi (endpoint caller, http:Request request) {
         http:Response res;
         res.setTextPayload("Hello World!\n");
+
         _ = caller->respond(res);
     }
+
 }
