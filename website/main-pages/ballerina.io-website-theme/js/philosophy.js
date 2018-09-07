@@ -72,6 +72,12 @@ $(document).ready(function() {
 
 });
 
+String.prototype.toSentenceCase = function () {
+    return this.replace(/\w\S*/, function(txt) {
+		return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+	});
+};
+
 //Generating BBEs
 function printExamples() {
     $.getJSON("/learn/by-example/all-bbes.json", function(example_data) {
@@ -88,7 +94,7 @@ function printExamples() {
                     categoryName = 'Other';
                 } else {
                     category = (value['category'].toLowerCase()).replace(/./g, '_');
-                    categoryName = (value['category'].toLowerCase());
+                    categoryName = (value['category'].toSentenceCase());
                 }
 
                 var $categoryElem = $('[data-category=' + category + ']');
