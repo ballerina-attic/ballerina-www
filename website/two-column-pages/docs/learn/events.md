@@ -55,23 +55,31 @@
 <table class="cEventTable cMeetupsList">
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">September 10, 2018 </span>6:00 PM
-<p class="cEventLocation">inovaBra habitat,
-Av. Angélica, 2529 - 10° andar · São Paulo, Brazil</p>
-</td>
+            <p class="cEventLocation">inovaBra habitat,
+                Av. Angélica, 2529 - 10° andar · São Paulo, Brazil</p>
+        </td>
         <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/pt-BR/Cloud-Native-Sao-Paulo/events/253753781/"><h4> Cloud Native São Paulo - Meetup #6 - Aplicações Cloud Native</h4></a>
-        <p>Speakers: Edgar Silva and Roberto Monteiro</p>
-
-       </td>
+            <p>Speakers: Edgar Silva and Roberto Monteiro</p>
+        </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/pt-BR/Cloud-Native-Sao-Paulo/events/253753781/" target="_blank">Register Now</a></td>
+    </tr>
+    <tr>
+        <td class="cEventDateContainer"><span class="cEventDate">September 24, 2018</span>6:00 PM to 8:00 PM
+            <p class="cEventLocation">Lyft HQ<br/>
+185 Berry St #5000 · San Francisco, CA</p>
+        </td>
+        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/KafkaBayArea/events/254248245"><h4>Kafka & Elasticsearch: Introduction, Best Practices & User Stories</h4></a>
+            <p>Speaker: Kasun Indrasiri</p>
+        </td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/KafkaBayArea/events/254248245" target="_blank">Register Now</a></td>
     </tr>
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">October 9, 2018</span></td>
         <td class="cEventDetail"><h4> London Cloud Native Meetup</h4>
-        <p>Speaker: Paul Fremantle</p>
-       </td>
+            <p>Speaker: Paul Fremantle</p>
+        </td>
         <td class="cEventURL"></td>
     </tr>
-
 </table>
 
 ## Conferences
