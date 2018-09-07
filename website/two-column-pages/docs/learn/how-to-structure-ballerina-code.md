@@ -83,7 +83,7 @@ Package names can contain alphanumeric characters including dots `.`. Dots in a 
 Your Ballerina source files can import packages:
 
 ```ballerina
-import [<org-name>]/<package-name> her.package [ [version <string>] [as <identifier>] ];
+import [<org-name>]/<package-name> [as <identifier>];
 ```
 
 When importing a package, you can then use its functions, annotations and other objects in your code. You reference these objects with a qualified identifier followed by a colon `:`, such as `<identifier>:<package-object>`.
