@@ -1,8 +1,8 @@
 $ ballerina build
 Pulling dependencies…
-  ballerinax/http     [central.ballerina.io -> home repo] [====>] 56/56 
-  ballerinax/rpc      [central.ballerina.io -> home repo] [====>] 98/98
-  ballerinax/twitter  [central.ballerina.io -> home repo] [====>] 79/79 
+  ballerinax/http     56/56 
+  ballerinax/rpc      98/98
+  ballerinax/twitter  79/79 
 
 Building binaries…
   something.bal ⇒ target/something.balo
@@ -24,9 +24,9 @@ SUCCESS
 
 $ tree
 /
-  .ballerina/             # Dependencies downloaded and cached locally
-  Ballerina.toml          # Defines project build intent
-  my.package/             # Any folder is a package                 
+  .ballerina/
+  Ballerina.toml
+  my.package/               
     RouterService.bal           
     tests/
       RouterTests.bal
