@@ -27,10 +27,10 @@ function parseContent(content) {
         content,
     };
     return axios.post(PARSER_API_URL, payload,
-            { 
+            {
                 headers: {
                     'content-type': 'application/json; charset=utf-8',
-                } 
+                }
             })
             .then((response) => {
                 return response.data;
@@ -67,7 +67,7 @@ class DiagramView extends React.Component {
             getOverlayContainer: () => {
                 return this.container;
             },
-            fitToWidth: true,
+            editMode: true,
         };
     }
 
@@ -91,9 +91,9 @@ class DiagramView extends React.Component {
                     </Dimmer>
                 }
             {model &&
-                <Diagram mode='action' 
-                    fitToWidth={true} 
-                    model={model} 
+                <Diagram mode='action'
+                    editMode={true}
+                    model={model}
                     { ...this.props.size } />
             }
         </div>
@@ -114,7 +114,7 @@ DiagramView.childContextTypes = {
     environment: PropTypes.instanceOf(PackageScopedEnvironment).isRequired,
     getDiagramContainer: PropTypes.func.isRequired,
     getOverlayContainer: PropTypes.func.isRequired,
-    fitToWidth: PropTypes.bool
+    editMode: PropTypes.bool
 };
 
 export default DragDropContext(HTML5Backend)(DiagramView);
