@@ -16,7 +16,7 @@ Ballerina design and usage is aligned with project and package semantics of Ball
 
 ## Writing Ballerina Documentation
 
-Ballerina flavored markdown documentation is a first class syntax in the Ballerina language. `#` at the begenning of a line denotes a documentation line. There can be multiple documentation lines as well which are grouped together.
+Ballerina flavored markdown documentation is a first class syntax in the Ballerina language. The `#` at the beginning of a line denotes a line of documentation. If necessary, you can have multiple lines of documentation, which you can group together.
 
 ```
 # <documentation line 1>
@@ -24,7 +24,7 @@ Ballerina flavored markdown documentation is a first class syntax in the Balleri
 # ...
 ```
 
-You can write your documentation using this markdown documentation syntax. For example:
+When you write documentation, you can use the markdown documentation syntax given above. For example:
 
 ```
 # Provides the HTTP actions for interacting with an HTTP server. Apart from the standard 
@@ -34,7 +34,7 @@ You can write your documentation using this markdown documentation syntax. For e
 # ...
 ```
 
-Supported structure of documentation syntax is as follows:
+The supported structure of documentation syntax is as follows:
 
 ```
 # <description_line_1>
@@ -55,7 +55,7 @@ Supported structure of documentation syntax is as follows:
 ```ballerina
 # Submits an HTTP request to a service with the specified HTTP verb.
 # The `submit()` function does not give out a `Response` as the result,
-# rather it returns an `HttpFuture` which can be used to do further 
+# rather it returns an `HttpFuture`, which can be used to do further 
 # interactions with the endpoint.
 #
 # Example:
