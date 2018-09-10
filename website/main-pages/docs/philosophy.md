@@ -2423,7 +2423,7 @@
             </div>
             <div data-startLine="25" data-endLine="25" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>The configured JWT endpoint is used in the <code>secureListener</code> to make the endpoint aware of JWT.</p>
+                    <p>The configured JWT auth provider is used in the <code>secureListener</code> to make the endpoint aware of JWT.</p>
                 </div>
             </div>
         </div>
