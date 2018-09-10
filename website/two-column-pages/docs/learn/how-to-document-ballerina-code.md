@@ -1,6 +1,6 @@
 # How to Document Ballerina Code
 
-Ballerina has a built-in documentation framework named Docerina. The documentation framework allows you to write unstructured documents with a bit of structure to enable generating HTML content as API documentation.
+Ballerina has a built-in ballerina flavored markdown documentation framework named Docerina. The documentation framework allows you to write unstructured documents with a bit of structure to enable generating HTML content as API documentation.
 
 Developers can write the documentation inline with the Ballerina source code using the lightweight [markdown](https://daringfireball.net/projects/markdown/syntax) markup language. They can mark special occurrences such as parameters, return parameters, fields, endpoints within the documentation code using documentation attributes. Once the code is documented, developers can generate a basic HTML version of their Ballerina packages using the `ballerina doc` command. You are encouraged to have your custom themes and styles, to have a better presentation of your Ballerina documentation. 
 
@@ -16,79 +16,59 @@ Ballerina design and usage is aligned with project and package semantics of Ball
 
 ## Writing Ballerina Documentation
 
-Documentation is a first class syntax in the Ballerina language. The `documentation` keyword followed by curly braces denotes a documentation node.
+Ballerina flavored markdown documentation is a first class syntax in the Ballerina language. The `#` at the beginning of a line denotes a line of documentation. If necessary, you can have multiple lines of documentation, which you can group together.
 
 ```
-documentation {
-     <your markdown documentation goes here>
-}
+# <documentation line 1>
+# <documentation line 2>
+# ...
 ```
 
-Within this `documentation` syntax, you can write your documentation in markdown markup language. For example:
+When you write documentation, you can use the markdown documentation syntax given above. For example:
 
 ```
-documentation {
-   Provides the HTTP actions for interacting with an HTTP server. Apart from the standard 
-   HTTP methods, `forward()` and `execute()` functions are provided. More complex and 
-   specific endpoint types can be created by wrapping this generic ```HTTP``` actions 
-   implementation.
-   ...
-}
+# Provides the HTTP actions for interacting with an HTTP server. Apart from the standard 
+# HTTP methods, `forward()` and `execute()` functions are provided. More complex and 
+# specific endpoint types can be created by wrapping this generic ```HTTP``` actions 
+# implementation.
+# ...
 ```
 
-While you have the freedom to write any markdown document within the `documentation` syntax, Docerina encourages you to have some structure within the `documentation` syntax. Recommended structure is defined below:
+The supported structure of documentation syntax is as follows:
 
 ```
-documentation {
-     <description>
-     <documentation_attribute>{{<documetable_object_name>}} <description> +
-}
+# <description_line_1>
+# <description_line_2>
+# ...
+# + <parameter_name/field_name> - <description_line_1>
+#                                 <description_line_2>
+# ...
+# + <parameter_name/field_name> - <description_line_1>
+#                                 <description_line_2>
+# ...
+# + return - <return_parameter_description_line_1>
+#            <return_parameter_description_line_2>
 ```
-
-## Supported Documentation Attributes
-
-`P` - Used to document a function input parameter
-```
-P{{id}} id of the employee
-```
-`R` - Used to document a function return parameter
-```
-R{{}} returns the name of the employee
-```
-`F` - Used to document a field of an object
-```
-F{{dob}} date of birth of the employee
-```
-`E` - Used to indicate an Endpoint object
-```
-E{{}}
-```
-> **NOTE:** Unlike other attributes, `E` attribute does not follow a description as it is used as an indicator.
-
 
 ### Sample Usage
 
 ```ballerina
-documentation {
-        Submits an HTTP request to a service with the specified HTTP verb.
-        The `submit()` function does not give out a `Response` as the result,
-        rather it returns an `HttpFuture` which can be used to do further 
-        interactions with the endpoint.
-        
-        Example:
-         ```ballerina
-               HttpFuture future = myMsg.submit("GET", "/test", req);
-         ```
-
-
-        P{{httpVerb}} The HTTP verb value
-        P{{path}} The resource path
-        P{{request}} An HTTP outbound request message
-        R{{}} An `HttpFuture` that represents an asynchronous service invocation, 
-        or an `error` if the submission fails
-    }
-    public function submit(@sensitive string httpVerb, string path, Request request) 
-         returns HttpFuture|error;
+# Submits an HTTP request to a service with the specified HTTP verb.
+# The `submit()` function does not give out a `Response` as the result,
+# rather it returns an `HttpFuture`, which can be used to do further 
+# interactions with the endpoint.
+#
+# Example:
+#     ```ballerina
+#     HttpFuture future = myMsg.submit("GET", "/test", req);
+#     ```
+#
+# + httpVerb - The HTTP verb value
+# + path - The resource path
+# + request - An HTTP outbound request message
+# + return - An `HttpFuture` that represents an asynchronous service invocation, 
+#            or an `error` if the submission fails
+public function submit(@sensitive string httpVerb, string path, Request request) returns HttpFuture|error;
 ```
 
 ## Documenting A Package
