@@ -2172,7 +2172,7 @@
             <div data-startLine="22" data-endLine="33" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                      Start a trasaction block with four retry attempts and perform two database insert operations within the transaction
+                      Start a transaction block with four retry attempts and perform two database insert operations within the transaction
                     </p>
                 </div>
             </div>
