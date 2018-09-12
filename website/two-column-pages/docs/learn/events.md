@@ -53,7 +53,7 @@
 ## Meetups
 
 <table class="cEventTable cMeetupsList">
-    <tr>
+    <!-- <tr>
         <td class="cEventDateContainer"><span class="cEventDate">September 10, 2018 </span>6:00 PM
             <p class="cEventLocation">inovaBra habitat,
                 Av. Angélica, 2529 - 10° andar · São Paulo, Brazil</p>
@@ -62,7 +62,7 @@
             <p>Speakers: Edgar Silva and Roberto Monteiro</p>
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/pt-BR/Cloud-Native-Sao-Paulo/events/253753781/" target="_blank">Register Now</a></td>
-    </tr>
+    </tr> -->
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">September 24, 2018</span>6:00 PM to 8:00 PM
             <p class="cEventLocation">Lyft HQ<br/>
@@ -72,6 +72,13 @@
             <p>Speaker: Kasun Indrasiri</p>
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/KafkaBayArea/events/254248245" target="_blank">Register Now</a></td>
+    </tr>
+      <tr>
+        <td class="cEventDateContainer"><span class="cEventDate">October 3, 2018</span>13:30 PM to 19:30 PM
+            <p class="cEventLocation">Zaftig Brewing Co, 7020A Huntley Rd, Columbus, OH 43229, USA.</p>
+        </td>
+        <td class="cEventDetail"><a target="_blank" href="/learn/events/osu-ballerina-meetup"><h4>OSU Ballerina Meetup</h4></a></td>
+        <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/osu-ballerina-meetup" target="_blank">More Info</a></td>
     </tr>
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">October 9, 2018</span></td>
