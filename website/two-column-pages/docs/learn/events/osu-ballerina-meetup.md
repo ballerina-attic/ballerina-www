@@ -14,7 +14,7 @@ socialmediaimage: osu-ballerina-meetup.jpg
     <tr>
         <td class="cEventDateContainer" style="border:none;">
             <span class="cEventDate" style="border:none;">October 03, 2018</span>
-            <span class="cLocation" style="border:none;">Venue - TBA</span>
+            <span class="cLocation" style="border:none;">Zaftig Brewing Co, 7020A Huntley Rd, Columbus, OH 43229, USA.</span>
             <!-- <p style="color:#20b6b0;">Due to an overwhelming number of registrants, we have reached our seating capacity for both 11 and 12 August. However, do fill in your contact details, as we aim to hold similar events for Ballerina in the future.</p> -->
         </td>
         <td class="cEventURL" style="border:none;">
