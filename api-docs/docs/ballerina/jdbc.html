@@ -583,7 +583,7 @@ foreach entry in dt {
     io:println(&quot;Student:Name:&quot; + entry.name);
 }
 </code></pre>
-<p>To re-iterate the same table multiple times, set the <code>loadToMemory</code> argument to true within the <code>select</code> action.</p>
+<p>To reiterate the same table multiple times, set the <code>loadToMemory</code> argument to true within the <code>select</code> action.</p>
 <pre><code class="language-ballerina">var selectRet = testDB-&gt;select(&quot;SELECT * FROM Students&quot;, Student, loadToMemory = true);
 table&lt;Student&gt; dt;
 match selectRet {
