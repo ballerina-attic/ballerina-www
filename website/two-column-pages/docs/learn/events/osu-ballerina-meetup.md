@@ -1,6 +1,6 @@
 ---
-title: OSU Ballerina Meetup
-author: OSU Ballerina Meetup
+title: Columbus Ballerina Meetup
+author: Columbus Ballerina Meetup
 date: 03 October 2018
 status: Published
 abstract: Ballerina is a cloud-native programming language which makes it easy to write microservices that integrate APIs. Ballerina makes it easy to write cloud native applications while maintaining reliability, scalability, observability, and security. .
@@ -8,7 +8,7 @@ socialmediaimage: osu-ballerina-meetup.jpg
 ---
 <script src="/js/ballerina-form.js?2618"></script><link rel="stylesheet" href="/css/ballerina-day.css"></link>
 
-# OSU Ballerina Meetup
+# Columbus Ballerina Meetup
 
 <table class="cEventTable">
     <tr>
