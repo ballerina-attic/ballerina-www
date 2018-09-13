@@ -12,8 +12,8 @@ service<kafka:Consumer> kafkaService bind consumer {
     onMessage(kafka:ConsumerAction consumerAction, kafka:ConsumerRecord[] records) {
         foreach entry in records {
             byte[] serializedMsg = entry.value;
-            io:ByteChannel channel = io:openFile("/some/Path", io:APPEND);
-            int writtenBytes = check channel.write(serializedMsg, 0);
+            io:ByteChannel byteChannel = io:openFile("/some/Path", io:APPEND);
+            int writtenBytes = check byteChannel.write(serializedMsg, 0);
         }
     }
 }
