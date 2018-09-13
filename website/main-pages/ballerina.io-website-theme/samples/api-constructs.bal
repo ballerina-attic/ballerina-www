@@ -18,7 +18,7 @@ service<http:Service> hello bind { port: 9090 } {
         // Create empty response
         http:Response res;
         // Try to retrieve parameters
-        var  payload = request.getTextPayload();
+        var payload = request.getTextPayload();
 
         // Different handling depending on if we got proper string 
         // or error
