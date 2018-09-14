@@ -77,7 +77,7 @@
         <td class="cEventDateContainer"><span class="cEventDate">October 3, 2018</span>13:30 PM to 19:30 PM
             <p class="cEventLocation">Zaftig Brewing Co, 7020A Huntley Rd, Columbus, OH 43229, USA.</p>
         </td>
-        <td class="cEventDetail"><a target="_blank" href="/learn/events/osu-ballerina-meetup"><h4>Columbus Ballerina Meetup</h4></a></td>
+        <td class="cEventDetail"><a target="_blank" href="/learn/events/columbus-ballerina-meetup"><h4>Columbus Ballerina Meetup</h4></a></td>
         <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/columbus-ballerina-meetup/" target="_blank">More Info</a></td>
     </tr>
     <tr>
