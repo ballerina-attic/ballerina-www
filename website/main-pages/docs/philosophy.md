@@ -1839,7 +1839,6 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cRuntimeContent">
-            <!-- <p class="cGreenTitle cPhil-box-titles">RUNTIME ARCHITECTURE</p> -->
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>Network-aware data types</h3>
@@ -1850,8 +1849,7 @@
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>Built-in <span style="text-transform: none">QoS</span></h3>
-                    <p>The default function entry point in Ballerina. This function is automatically called when a Ballerina program is executed.
-                    </p>
+                    <p>Built-in QoS in Ballerina enable developers to write resilient, transactional, secure & observable code without any additional libraries.</p>
                 </div>
             </div>
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
@@ -1874,7 +1872,6 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cDeploymentContent">
-            <!-- <p class="cGreenTitle cPhil-box-titles">DEPLOYMENT ARCHITECTURE</p> -->
             <div class="cPhil-title-boxes cPhil-title-boxes-white">
                 <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
                     <h3>IAAS</h3>
