@@ -6,7 +6,7 @@
 ## Workshops
 
 <table class="cEventTable cWorkshopList">
-<tr>
+<!-- <tr>
     <td class="cEventDateContainer"><span class="cEventDate">September 06, 2018</span>9:00 am
     <p class="cEventLocation">Broad Sanctuary, Westminster, London</p>
 
@@ -17,7 +17,7 @@
   </p>
     </td>
     <td class="cEventURL"><a class="cEventRegistration" href="https://2018.container.camp/uk/schedule/cloud-native-programming-with-docker-and-kubernetes/">Register Now</a></td>
-</tr>
+</tr> -->
 <tr>
     <td class="cEventDateContainer"><span class="cEventDate">October 12 - 13, 2018</span>
     <p class="cEventLocation">Mercure Congress Centre KYIV</p>
