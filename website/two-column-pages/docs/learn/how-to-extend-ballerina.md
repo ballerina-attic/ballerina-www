@@ -1,12 +1,10 @@
 # How to Extend Ballerina
 
-Developers and third parties can extend the behavior of Ballerina and package these customizations for use by others. There are three ways to customize the behavior of Ballerina:
+Developers and third parties can extend the behavior of Ballerina and package the customizations for use by others. There are two ways to customize the behavior of Ballerina:
 
 1. Package and distribute new client connectors to third party endpoints, such as databases, infrastructure and APIs.
 
-2. Package and distribute new server listeners that services can bind to to embrace different protocols.
-
-3. Add new annotations to Ballerina source files that the compiler can act on to alter binaries and generate artifacts.
+2. Add new annotations to Ballerina source files so that the compiler can act to alter binaries and generate artifacts.
 
 ## Create Client Connectors
 
