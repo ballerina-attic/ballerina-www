@@ -259,6 +259,8 @@ When building a package in a project, that package is automatically installed in
 
 The org-name and the version of the package will be read from the manifest file `Ballerina.toml` inside the project.
 
+By default the sources will be built before installing the package to the home repository. The building of the sources before installing can be skipped by having the "--no-build" flag.
+
 To install a single package in a project:
 ```bash
 ballerina install <package-name>
@@ -266,7 +268,17 @@ ballerina install <package-name>
 # Alternate form:
 ballerina push <package-name> --repository home
 ```
+To install a single package in a project without building the sources:
+```bash
+ballerina install <package-name> --no-build
+```
 
+### Uninstalling Packages
+Packages that are installed to the home repository which are shared across other projects can be uninstalled or removed.
+
+```bash
+ballerina uninstall <org-name>/<package-name>[:<version>]
+```
 ### Organizations
 An organization is a logical name used for grouping packages together under a common namespace within a repository.
 
@@ -293,9 +305,15 @@ Projects that perform dependency analysis will automatically pull packages into 
 "Pushing" a package uploads the associated package files and installs the package into a remote repository, which is Ballerina Central.
 
 The org-name and the version of the package will be read from the manifest file `Ballerina.toml` inside the project.
+
+By default the sources will be built before pushing the package to Ballerina Central. The building of the sources before pushing can be skipped by having the "--no-build" flag.
+                                                                                                
 ```
 # Push a single package
 ballerina push <package-name>
+
+# Push a single package without building the sources.
+ballerina push <package-name> --no-build
 ```
 
 Ballerina Central requires an account in order to push packages. Your account is represented by a CLI token that is installed into your local Ballerina configuration file, located at `~/.ballerina/Settings.toml`. The CLI token is automatically installed into this file the first time you perform a `ballerina push` as Ballerina redirects to an OAuth authorization screen, configures your account, and then copies your CLI key from Ballerina Central into your local CLI configuration.
