@@ -224,7 +224,7 @@ string status = check request.getTextPayload();
 
 > **Tip**: The check keyword means that this may return an error but I do not want to handle it here - pass it further away (to the caller function, or if this is a top-level function - generate a runtime failure).
 
-Now, we can get our response from Twitter by just calling its tweet action. Replace the `response.setTextPayload("Hello Ballerina!\n");` in the `sayHello` resource with:
+Now, you can get the response from Twitter by calling the tweet function. Replace `response.setTextPayload("Hello Ballerina!\n");` in the `sayHello` resource with the following lines of code:
 
 ```ballerina
 twitter:Status st = check twitterClient->tweet(status);
