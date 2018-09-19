@@ -204,7 +204,7 @@ import ballerina/config;
 Add this code after the import statement.
 
 ```ballerina
-endpoint twitter:Client twitter {
+endpoint twitter:Client twitterClient {
    clientId: config:getAsString("consumerKey"),
    clientSecret: config:getAsString("consumerSecret"),
    accessToken: config:getAsString("accessToken"),
@@ -224,10 +224,10 @@ string status = check request.getTextPayload();
 
 > **Tip**: The check keyword means that this may return an error but I do not want to handle it here - pass it further away (to the caller function, or if this is a top-level function - generate a runtime failure).
 
-Now, we can get our response from Twitter by just calling its tweet action. Add this into the `sayHello` resource as well.
+Now, you can get the response from Twitter by calling the tweet function. Replace `response.setTextPayload("Hello Ballerina!\n");` in the `sayHello` resource with the following lines of code:
 
 ```ballerina
-twitter:Status st = check twitter->tweet(status);
+twitter:Status st = check twitterClient->tweet(status);
 response.setTextPayload("ID:" + <string>st.id + "\n");
 ```
 
@@ -237,7 +237,7 @@ import ballerina/config;
 import ballerina/http;
 import wso2/twitter;
 
-endpoint twitter:Client twitterEP {
+endpoint twitter:Client twitterClient {
    clientId: config:getAsString("consumerKey"),
    clientSecret: config:getAsString("consumerSecret"),
    accessToken: config:getAsString("accessToken"),
@@ -258,7 +258,7 @@ service<http:Service> hello bind listener {
     }
     sayHello (endpoint caller, http:Request request) {
         string status = check request.getTextPayload();
-        twitter:Status st = check twitterEP->tweet(status, "", "");
+        twitter:Status st = check twitterClient->tweet(status);
 
         http:Response response = new;
         response.setTextPayload("ID:" + <string>st.id + "\n");
