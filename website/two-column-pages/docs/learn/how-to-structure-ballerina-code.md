@@ -15,7 +15,7 @@ The `ballerina` tool requires you to organize your code in a specific way. This 
 ## Programs
 A *program* is a runtime executable, ending with a `.balx` extension. A *program* is the transitive closure of one Ballerina package without including `ballerina/*` packages, since those are dynamically linked within Ballerina's runtime engine during execution. A *package* that is a *program* compiles into a file with a `.balx` extension, otherwise it is treated as a to-be-linked library that ends with a `.balo` extension.
 
-The program's package must contain a `main()` function (a process entry point) or contain a `service` (a network-accessible API).
+To generate a `.balx` file, the program's package must contain either a `main()` function (a process entry point) or a `service` (a network-accessible API).
 
 A program can import dependent *packages* which are stored within a *repository*.
 
@@ -31,8 +31,9 @@ and `sample.bal` contained both a `main()` entry point and a `service`:
 ```ballerina
 import ballerina/http;
 import ballerina/io;
+import ballerina/log;
 
-function main (string... args) {
+public function main() {
     io:println("Hello, World!");
 }
 
@@ -40,13 +41,22 @@ service<http:Service> hello bind { port: 9090 } {
     sayHello (endpoint caller, http:Request req) {
         http:Response res = new;
         res.setPayload("Hello, World!");
-        _ = caller->respond(res);
+        caller->respond(res) but { error e => log:printError(
+                                   "Error sending response", err = e) };
     }
 }
 ```
 
 ### Build and Run Programs
-You can build and run the `main()` function or services of a Ballerina file by:
+To generate a `.balx`, you can build a Ballerina program that contains a `main()` function or services:
+```bash
+$ cd /local/ballerina/src
+$ ballerina build sample.bal
+
+# This generates 'sample.balx'
+```
+
+You can use the ballerina `run` command to build and run the `main()` function or services of a Ballerina file.
 ```bash
 # Run from any location
 $ ballerina run /local/ballerina/src/sample.bal
@@ -56,18 +66,29 @@ $ cd /local/ballerina/src
 $ ballerina run sample.bal
 ```
 
-You can build the program without running it:
+You can use the following commands to build and run any public function in a Ballerina file:
 ```bash
-$ cd /local/ballerina/src
-$ ballerina build sample.bal
+# Run public function `add` from any location
+$ ballerina run /local/ballerina/src/sample.bal:add
 
-# This generates 'sample.balx'
-# You can run an existing program that has a '.balx'
+# Run public function `add` from within the local directory
+$ cd /local/ballerina/src
+$ ballerina run sample.bal:add
+```
+
+You can use the following command to run the `main()` function or services in a generated `.balx` file:
+```bash
 $ ballerina run sample.balx
 ```
 
+You can use the following command to run a public function in a generated `.balx` file:
+```bash
+# Run public function `add`
+$ ballerina run sample.balx:add
+```
+
 ## Packages
-A *package* is a directory that contains Ballerina source code files and are part of a namespace. Packages faciliate collaboration, sharing, and reuse. Packages can include functions, connectors, constants, annotations, enumerations, services, and objects. Packages are shared among programs, projects, and users by being pushed into a repository.
+A *package* is a directory that contains Ballerina source code files and is part of a namespace. Packages facilitate collaboration, sharing, and reuse. Packages can include functions, connectors, constants, annotations, services, and objects. To share a package among programs, projects, and users, you need to push the package into a repository.
 
 Packages:
 
@@ -86,7 +107,7 @@ Your Ballerina source files can import packages:
 import [<org-name>]/<package-name> [as <identifier>];
 ```
 
-When importing a package, you can then use its functions, annotations and other objects in your code. You reference these objects with a qualified identifier followed by a colon `:`, such as `<identifier>:<package-object>`.
+When you import a package, you can use its functions, annotations and other objects in your code. You can also reference the objects with a qualified identifier, followed by a colon `:`. For example, `<identifier>:<package-object>`.
 
 Identifiers are either derived or explicit. The default identifier is either the package name, or if the package name has dots `.` include, then the last word after the last dot. For example, `import ballerina/http;` will have `http:` be the derived identifer. The package `import tyler/net.http.exception` would have `exception:` as the default identifier.
 
@@ -131,7 +152,7 @@ If an import statement does not explicitly specify a version, then the compiler 
 ```ballerina
 import tyler/http;
 
-function main(string... args) {
+public function main() {
   http:Person x = http:getPerson();
 }
 ```
@@ -148,8 +169,16 @@ An entrypoint such as a `main()` or a `service<>` that is compiled as part of a 
 ballerina run package.balx
 ```
 
+If you want to invoke a public function in a `.balx`, you can use the ballerina `run` command and specify the function you want to invoke after the `.balx` as follows:
+
+```bash
+# Invoke the public function `add` in `sample.balx` 
+$ ballerina run sample.balx:add
+```
+
+
 ## Projects
-* A *project* is a directory which atomically manages a collection of *packages* and *programs*. It has:
+* A *project* is a directory that atomically manages a collection of *packages* and *programs*. It has:
   * A user-managed manifest file, `Ballerina.toml`
   * A Ballerina-managed `.ballerina/` folder with implementation metadata and cache
   * A project repository for storing dependencies
