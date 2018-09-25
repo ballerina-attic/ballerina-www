@@ -277,7 +277,7 @@ ballerina install <package-name> --no-build
 Packages that are installed to the home repository which are shared across other projects can be uninstalled or removed.
 
 ```bash
-ballerina uninstall <org-name>/<package-name>[:<version>]
+ballerina pull <org-name>/<package-name>:<version>
 ```
 ### Organizations
 An organization is a logical name used for grouping packages together under a common namespace within a repository.
