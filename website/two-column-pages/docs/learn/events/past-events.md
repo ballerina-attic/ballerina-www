@@ -59,6 +59,16 @@
 ## Past Conferences
 
 <table class="cEventTable cConferencesList">
+  <tr>
+      <td class="cEventDateContainer"><span class="cEventDate">September 9 - 14, 2018</span>
+      <p class="cEventLocation">Sydney, Australia</p>
+      </td>
+      <td class="cEventDetail"><a target="_blank" href="http://bpm2018.web.cse.unsw.edu.au/keynotes.html"><h4>BPM 2018 </h4></a>
+      <h4>Bringing Middleware to Everyday Developers with Ballerina</h4>
+      <p>Speaker: Sanjiva Weerawarana </p>
+      </td>
+      <td class="cEventURL"><a class="cEventRegistration" href="http://bpm2018.web.cse.unsw.edu.au/keynotes.html" target="_blank">More Info</a></td>
+  </tr>
     <tr>
       <td class="cEventDetail c2col" colspan="2">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png" style="padding-bottom:5px !important;"/>
