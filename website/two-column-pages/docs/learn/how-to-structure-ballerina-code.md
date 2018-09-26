@@ -205,7 +205,6 @@ The folders `.ballerina/`, `tests/`, and `resources/` are reserved folder names 
 ```
 /
   .gitignore
-  Ballerina-lock.toml  # Generated during build, used to rebuild identical binary
   Ballerina.toml       # Configuration that defines project intent
   .ballerina/          # Internal cache management and contains project repository
                        # Project repository is built or downloaded package dependencies
@@ -227,6 +226,7 @@ The folders `.ballerina/`, `tests/`, and `resources/` are reserved folder names 
 
   target/              # Compiled binaries and other artifacts end up here
       main.balx
+      Ballerina.lock   # Generated during build, used to rebuild identical binary
 ```
 
 Any source files located in the project root are assumed to be part of the unnamed package. They are each assumed to be entry points and compiled into `target/<file-name>.balx`. This structure is to simplify new development, but not recommended for large projects. Large projects should place the entrypoint or entry service into a named package.
@@ -270,7 +270,7 @@ A repository is a collection of packages. A repository helps organize packages u
 
 There are four kinds of repositories:
 
-1. Project Repository. This repository is located in a project's `.ballerina/` folder and contains installed versions of packages from the project and any dependencies of the project.  
+1. Project Repository. This repository is located in a project's `.ballerina/` folder and contains installed versions of packages from the project.  
 
 2. Home Repository. This repository is located on a developer's machine at the location of `BALLERINA_HOME_DIR` or `~\.ballerina` if not specified.
 
@@ -306,7 +306,7 @@ ballerina install <package-name> --no-build
 Packages that are installed to the home repository which are shared across other projects can be uninstalled or removed.
 
 ```bash
-ballerina pull <org-name>/<package-name>:<version>
+ballerina uninstall <org-name>/<package-name>:<version>
 ```
 ### Organizations
 An organization is a logical name used for grouping packages together under a common namespace within a repository.
