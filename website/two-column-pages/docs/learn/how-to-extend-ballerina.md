@@ -215,7 +215,7 @@ You can create connectors for a range of protocols and interfaces, including tho
 
 4. Source code for a [Jira client connector](https://github.com/wso2-ballerina/package-jira).
 
-5. Source code for a [Sonaqube client connector](https://github.com/wso2-ballerina/package-sonarqube).
+5. Source code for a [Sonarqube client connector](https://github.com/wso2-ballerina/package-sonarqube).
 
 6. Source code for a [SCIM2 client connector](https://github.com/wso2-ballerina/package-scim2).
 
@@ -365,17 +365,17 @@ In the `pom.xml` add Ballerina's maven dependencies:
         <dependency>
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-lang</artifactId>
-            <version>0.980.0</version>
+            <version>0.982.0</version>
         </dependency>
          <dependency>
                 <groupId>org.ballerinalang</groupId>
-                <version>0.980.0</version>
+                <version>0.982.0</version>
                 <artifactId>lib-creator</artifactId>
          </dependency>
          <dependency>
             <groupId>org.ballerinalang</groupId>
             <artifactId>ballerina-builtin</artifactId>
-            <version>0.980.0</version>
+            <version>0.982.0</version>
             <type>zip</type>
             <classifier>ballerina-binary-repo</classifier>
         </dependency>
@@ -444,14 +444,14 @@ In the maven project, create a hello-extension/src/main/ballerina/ballerinax/hel
 The annotation is defined using Ballerina syntax in the `annotation.bal`:
 
 ```ballerina
-documentation {Hello annotation configuration
-    F{{salutation}} - Greeting
-}
+# Hello annotation configuration
+#
+# + salutation - Greeting
 public type HelloConfiguration record {
     string salutation;
 };
 
-documentation {@hello:Greeting annotation configuration}
+# @hello:Greeting annotation configuration
 public annotation <service> Greeting HelloConfiguration;
 
 // You can replace the <> value with different objects this annotation may attach to
@@ -791,10 +791,11 @@ service<http:Service> helloWorld bind {port:9091} {
 Create `HelloPlugin.java` in `hello/src/main/java/org/ballerinax/hello` package. We will then implement the annotation methods that we want to act upon.
 
 ```java
-package ballerinax.hello;
+package org.ballerinax.hello;
 
 import org.ballerinalang.compiler.plugins.AbstractCompilerPlugin;
 import org.ballerinalang.compiler.plugins.SupportedAnnotationPackages;
+import org.ballerinalang.model.elements.PackageID;
 import org.ballerinalang.model.tree.AnnotationAttachmentNode;
 import org.ballerinalang.model.tree.ServiceNode;
 import org.ballerinalang.util.diagnostic.Diagnostic;
@@ -812,79 +813,75 @@ import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 /**
-* Compiler plugin to generate greetings.
-*/
+ * Compiler plugin to generate greetings.
+ */
 @SupportedAnnotationPackages(
-    // Tell compiler we are only interested in ballerinax.hello annotations.
-       value = "ballerinax.hello"
+        // Tell compiler we are only interested in ballerinax.hello annotations.
+        value = "ballerinax.hello"
 )
 public class HelloPlugin extends AbstractCompilerPlugin {
-   private DiagnosticLog dlog;
+    private DiagnosticLog dlog;
 
-   @Override
-   public void init(DiagnosticLog diagnosticLog) {
-       // Initialize the logger.
-       this.dlog = diagnosticLog;
-   }
 
-   // Our annotation is attached to service<> objects
-   @Override
-   public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations) {
+    @Override
+    public void init(DiagnosticLog diagnosticLog) {
+        // Initialize the logger.
+        this.dlog = diagnosticLog;
+    }
 
-       //Iterate through the annotation Attachment Node List
-       for (AnnotationAttachmentNode attachmentNode : annotations) {
-           List<BLangRecordLiteral.BLangRecordKeyValue> keyValues =
-                   ((BLangRecordLiteral) ((BLangAnnotationAttachment) attachmentNode).expr).getKeyValuePairs();
-           //Iterate through the annotations
-           for (BLangRecordLiteral.BLangRecordKeyValue keyValue : keyValues) {
-               String annotationValue = keyValue.getValue().toString();
-               switch (keyValue.getKey().toString()) {
-                   //Match annotation key and assign the value to model class
-                   case "salutation":
-                       HelloModel.getInstance().setGreeting(annotationValue);
-                       break;
-                   default:
-                       break;
-               }
-           }
-       }
-   }
+    // Our annotation is attached to service<> objects
+    @Override
+    public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations) {
+        //Iterate through the annotation Attachment Nodes
+        for (AnnotationAttachmentNode attachmentNode : annotations) {
+            List<BLangRecordLiteral.BLangRecordKeyValue> keyValues =
+                    ((BLangRecordLiteral) ((BLangAnnotationAttachment) attachmentNode).expr).getKeyValuePairs();
+            //Iterate through the annotations
+            for (BLangRecordLiteral.BLangRecordKeyValue keyValue : keyValues) {
+                String annotationValue = keyValue.getValue().toString();
+                //Match annotation key and assign the value
+                String s = keyValue.getKey().toString();
+                if ("salutation".equals(s)) {
+                    HelloModel.getInstance().setGreeting(annotationValue);
+                }
+            }
+        }
+    }
 
-   @Override
-   public void codeGenerated(PackageID packageID, Path binaryPath) {
-       //extract file name.
-       String filePath = binaryPath.toAbsolutePath().toString().replace(".balx", ".txt");
-       String greeting = HelloModel.getInstance().getGreeting();
-       try {
-           writeToFile(greeting, filePath);
-       } catch (IOException e) {
-           // This is how you can report compilation errors, warnings, and messages.
-           dlog.logDiagnostic(Diagnostic.Kind.ERROR, null, e.getMessage());
-       }
-   }
+    @Override
+    public void codeGenerated(PackageID packageID, Path binaryPath) {
+        //extract file name.
+        String filePath = binaryPath.toAbsolutePath().toString().replace(".balx", ".txt");
+        String greeting = HelloModel.getInstance().getGreeting();
+        try {
+            writeToFile(greeting, filePath);
+        } catch (IOException e) {
+            dlog.logDiagnostic(Diagnostic.Kind.ERROR, null, e.getMessage());
+        }
+    }
 
-   /**
-    * Write content to a File. Create the required directories if they don't not exists.
-    *
-    * @param context        context of the file
-    * @param targetFilePath target file path
-    * @throws IOException If an error occurs when writing to a file
-    */
-   public void writeToFile(String context, String targetFilePath) throws IOException {
-       File newFile = new File(targetFilePath);
-       // append if file exists
-       if (newFile.exists()) {
-           Files.write(Paths.get(targetFilePath), context.getBytes(StandardCharsets.UTF_8),
-                   StandardOpenOption.APPEND);
-           return;
-       }
-       //create required directories
-       if (newFile.getParentFile().mkdirs()) {
-           Files.write(Paths.get(targetFilePath), context.getBytes(StandardCharsets.UTF_8));
-           return;
-       }
-       Files.write(Paths.get(targetFilePath), context.getBytes(StandardCharsets.UTF_8));
-   }
+    /**
+     * Write content to a File. Create the required directories if they don't not exists.
+     *
+     * @param context        context of the file
+     * @param targetFilePath target file path
+     * @throws IOException If an error occurs when writing to a file
+     */
+    public void writeToFile(String context, String targetFilePath) throws IOException {
+        File newFile = new File(targetFilePath);
+        // append if file exists
+        if (newFile.exists()) {
+            Files.write(Paths.get(targetFilePath), context.getBytes(StandardCharsets.UTF_8),
+                    StandardOpenOption.APPEND);
+            return;
+        }
+        //create required directories
+        if (newFile.getParentFile().mkdirs()) {
+            Files.write(Paths.get(targetFilePath), context.getBytes(StandardCharsets.UTF_8));
+            return;
+        }
+        Files.write(Paths.get(targetFilePath), context.getBytes(StandardCharsets.UTF_8));
+    }
 }
 
 ```
