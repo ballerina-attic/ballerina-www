@@ -205,7 +205,6 @@ The folders `.ballerina/`, `tests/`, and `resources/` are reserved folder names 
 ```
 /
   .gitignore
-  Ballerina-lock.toml  # Generated during build, used to rebuild identical binary
   Ballerina.toml       # Configuration that defines project intent
   .ballerina/          # Internal cache management and contains project repository
                        # Project repository is built or downloaded package dependencies
@@ -227,6 +226,7 @@ The folders `.ballerina/`, `tests/`, and `resources/` are reserved folder names 
 
   target/              # Compiled binaries and other artifacts end up here
       main.balx
+      Ballerina.lock   # Generated during build, used to rebuild identical binary
 ```
 
 Any source files located in the project root are assumed to be part of the unnamed package. They are each assumed to be entry points and compiled into `target/<file-name>.balx`. This structure is to simplify new development, but not recommended for large projects. Large projects should place the entrypoint or entry service into a named package.
@@ -270,7 +270,7 @@ A repository is a collection of packages. A repository helps organize packages u
 
 There are four kinds of repositories:
 
-1. Project Repository. This repository is located in a project's `.ballerina/` folder and contains installed versions of packages from the project and any dependencies of the project.  
+1. Project Repository. This repository is located in a project's `.ballerina/` folder and contains installed versions of packages from the project.  
 
 2. Home Repository. This repository is located on a developer's machine at the location of `BALLERINA_HOME_DIR` or `~\.ballerina` if not specified.
 
@@ -288,6 +288,8 @@ When building a package in a project, that package is automatically installed in
 
 The org-name and the version of the package will be read from the manifest file `Ballerina.toml` inside the project.
 
+By default the sources will be built before installing the package to the home repository. The building of the sources before installing can be skipped by having the "--no-build" flag.
+
 To install a single package in a project:
 ```bash
 ballerina install <package-name>
@@ -295,7 +297,17 @@ ballerina install <package-name>
 # Alternate form:
 ballerina push <package-name> --repository home
 ```
+To install a single package in a project without building the sources:
+```bash
+ballerina install <package-name> --no-build
+```
 
+### Uninstalling Packages
+Packages that are installed to the home repository which are shared across other projects can be uninstalled or removed.
+
+```bash
+ballerina uninstall <org-name>/<package-name>:<version>
+```
 ### Organizations
 An organization is a logical name used for grouping packages together under a common namespace within a repository.
 
@@ -322,9 +334,15 @@ Projects that perform dependency analysis will automatically pull packages into 
 "Pushing" a package uploads the associated package files and installs the package into a remote repository, which is Ballerina Central.
 
 The org-name and the version of the package will be read from the manifest file `Ballerina.toml` inside the project.
+
+By default the sources will be built before pushing the package to Ballerina Central. The building of the sources before pushing can be skipped by having the "--no-build" flag.
+                                                                                                
 ```
 # Push a single package
 ballerina push <package-name>
+
+# Push a single package without building the sources.
+ballerina push <package-name> --no-build
 ```
 
 Ballerina Central requires an account in order to push packages. Your account is represented by a CLI token that is installed into your local Ballerina configuration file, located at `~/.ballerina/Settings.toml`. The CLI token is automatically installed into this file the first time you perform a `ballerina push` as Ballerina redirects to an OAuth authorization screen, configures your account, and then copies your CLI key from Ballerina Central into your local CLI configuration.
