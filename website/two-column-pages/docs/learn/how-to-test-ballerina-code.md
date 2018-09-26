@@ -363,14 +363,14 @@ Fails the test. Useful when we want to fail a test while in execution based on a
 ``` ballerina
 import ballerina/test;
 
-@test:config
+@test:Config
 function foo() {
     try {
-        bar(); // expecting an exception thrown here
-        assertFail("Expected an exception”);
+        bar(); // Expecting an exception thrown here
+        test:assertFail("Expected an exception");
     }   
-    catch (Exception e) {
-        assertTrue(e != null); //or some other assertions
+    catch (error e) {
+        test:assertTrue(e != null); // Some other assertions
     }
 }
 ```
