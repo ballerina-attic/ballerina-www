@@ -50,7 +50,7 @@ Options for running programs with entrypoints in a project:
 ```bash
 $ ballerina run main.balx  
 $ ballerina run target/main.balx
-$ ballerina [-projectroot <path>] run <package>
+$ ballerina run [--sourceroot <path>] <package>
 ```
 
 The `<package>` is the package name, which is the same as the name of the directory that holds the source files. 
@@ -73,7 +73,7 @@ Consider the following example, which reads a Ballerina config value and prints 
 import ballerina/io;
 import ballerina/config;
 
-function main(string... args) {
+public function main() {
   string name = config:getAsString("hello.user.name");
   io:println("Hello, " + name + " !");
 }
@@ -81,7 +81,7 @@ function main(string... args) {
 
 The config key is `hello.user.name`. To pass a value to this config from the CLI, we can run the following command. The `-e` argument passes the key and value to the program.
 ```bash
-$ ballerina run main.bal -e hello.user.name=Ballerina
+$ ballerina run -e hello.user.name=Ballerina main.bal
 Hello, Ballerina !
 ```
 
@@ -90,7 +90,7 @@ The value can be passed as an environment variable as well. Here as the value we
 
 ```bash
 $ export NAME=Ballerina
-$ ballerina run main.bal -e hello.user.name=@env:{NAME}
+$ ballerina run -e hello.user.name=@env:{NAME} main.bal
 Hello, Ballerina !
 ```
 
@@ -112,16 +112,16 @@ Hello, Ballerina !
 ```
 To explicitly specify a configuration file, use either the `--config` or the `-c` flag. The path to the configuration file can be either an absolute or a relative path. 
 ```bash
-$ ballerina run main.bal -c ../../ballerina.conf
+$ ballerina run -c ../../ballerina.conf main.bal
 Hello, Ballerina !
 
-$ ballerina run main.bal --config ../../ballerina.conf
+$ ballerina run --config ../../ballerina.conf main.bal
 Hello, Ballerina !
 
-$ ballerina run main.bal -c /Users/Test/Desktop/ballerina.conf
+$ ballerina run -c /Users/Test/Desktop/ballerina.conf main.bal
 Hello, Ballerina !
 
-$ ballerina run main.bal --config /Users/Test/Desktop/ballerina.conf
+$ ballerina run --config /Users/Test/Desktop/ballerina.conf main.bal
 Hello, Ballerina !
 ```
 
@@ -155,7 +155,7 @@ name="@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}"
 or (Enter secret `12345` when prompted.):
 
 ```bash
-$ ballerina run main.bal -e  hello.user.name="@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}"
+$ ballerina run -e hello.user.name=@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=} main.bal
 ballerina: enter secret for config value decryption:
 
 Hello, Ballerina !
