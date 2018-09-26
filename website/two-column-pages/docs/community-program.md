@@ -88,7 +88,7 @@ To check if the installation is done right, run the following command.
 
 This should print the version of Ballerina you have installed.
 
-``` Ballerina 0.981.0 ```
+``` Ballerina 0.982.0 ```
 
 ## Hello World with Ballerina
 
@@ -106,7 +106,7 @@ This automatically creates a typical Hello World service for you.
 <li>Start the service using the `ballerina run` command.
 ballerina run hello_service.bal
 You get the following output.
-<code> ballerina: initiating service(s) in 'hello_service.bal'
+<code> Initiating service(s) in 'hello_service.bal'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9090 </code>
 </li>
 <li>Open a new command line to invoke the service using a HTTP client program such as cURL.</li>
@@ -158,7 +158,7 @@ endpoint http:Client clientEndpoint {
     url: "http://localhost:9090"
 };
 
-function main(string... args) {
+public function main() {
     // Send a GET request to the Hello World service endpoint.
     var response = clientEndpoint->get("/hello/sayHello");
 
@@ -334,19 +334,19 @@ service<http:Service> Calculator bind listener {
 
         any result = 0.0;
         // Pick first number for the calculate operation from the JSON request
-        float firstNumber = 0;
+        float firstNumber = 0.0;
         var input = operationReq.firstNumber;
         match input {
-            int ivalue => firstNumber = ivalue;
+            int ivalue => firstNumber = <float> ivalue;
             float fvalue => firstNumber = fvalue;
             json other => {} //error
         }
 
         // Pick second number for the calculate operation from the JSON request
-        float secondNumber = 0;
+        float secondNumber = 0.0;
         input = operationReq.secondNumber;
         match input {
-            int ivalue => secondNumber = ivalue;
+            int ivalue => secondNumber = <float> ivalue;
             float fvalue => secondNumber = fvalue;
             json other => {} //error
         }
@@ -402,7 +402,7 @@ endpoint http:Client clientEndpoint {
     url: "http://localhost:9090"
 };
 
-function main(string... args) {
+public function main() {
 
     http:Request req = new;
 
@@ -476,11 +476,7 @@ sample REST service with JSON input/output to
 invoke calculator as a service
 ```
 
-Next, you need to do a build of the package before bushing the package into Ballerina Central.
-
-``` ballerina build calculator ```
-
-Now you can push the package to Ballerina Central
+Now you can push the package to Ballerina Central. The push command will do a build of the package before pushing the package to Ballerina Central.
 
 ``` ballerina push calculator ```
 
