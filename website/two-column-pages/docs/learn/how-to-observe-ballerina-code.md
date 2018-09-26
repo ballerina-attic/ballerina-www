@@ -75,7 +75,7 @@ ballerina: started publishing tracers to Jaeger on localhost:5775
 ballerina: initiating service(s) in 'ballerina-home/lib/balx/prometheus/reporter.balx'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9797
 ballerina: started Prometheus HTTP endpoint 0.0.0.0:9797
-ballerina: initiating service(s) in 'hello_world_service.bal'
+Initiating service(s) in 'hello_world_service.bal'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 
 ```
@@ -114,7 +114,7 @@ ballerina: started publishing tracers to Jaeger on localhost:5775
 ballerina: initiating service(s) in 'ballerina-home/lib/balx/prometheus/reporter.balx'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9797
 ballerina: started Prometheus HTTP endpoint 0.0.0.0:9797
-ballerina: initiating service(s) in 'hello_world_service.bal'
+Initiating service(s) in 'hello_world_service.bal'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
