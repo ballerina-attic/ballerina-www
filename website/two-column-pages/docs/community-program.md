@@ -476,7 +476,7 @@ sample REST service with JSON input/output to
 invoke calculator as a service
 ```
 
-Now you can push the package to Ballerina Central. Ballerina push will do a build of the package before bushing the package into Ballerina Central.
+Now you can push the package to Ballerina Central. The push command will do a build of the package before pushing the package to Ballerina Central.
 
 ``` ballerina push calculator ```
 
