@@ -78,7 +78,7 @@
             <p class="cEventLocation">Zaftig Brewing Co, 7020A Huntley Rd, Columbus, OH 43229, USA.</p>
         </td>
         <td class="cEventDetail"><a target="_blank" href="/learn/events/columbus-ballerina-meetup"><h4>Columbus Ballerina Meetup</h4></a></td>
-        <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/columbus-ballerina-meetup/" target="_blank">More Info</a></td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/columbus-microservices/events/254811906" target="_blank">Register Now</a></td>
     </tr>
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">October 9, 2018</span></td>
