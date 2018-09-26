@@ -50,7 +50,7 @@ Options for running programs with entrypoints in a project:
 ```bash
 $ ballerina run main.balx  
 $ ballerina run target/main.balx
-$ ballerina [--sourceroot <path>] run <package>
+$ ballerina run [--sourceroot <path>] <package>
 ```
 
 The `<package>` is the package name, which is the same as the name of the directory that holds the source files. 
