@@ -2,7 +2,7 @@ import ballerina/mysql;
 
 function secureOperation(@sensitive string secureParameter) { }
 
-function main(string... args) {
+public function main(string... args) {
 
     // Pass input argument to security sensitive parameter
     secureOperation(args[0]);

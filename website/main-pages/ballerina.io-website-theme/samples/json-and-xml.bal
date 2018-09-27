@@ -1,6 +1,6 @@
 import ballerina/io;
 
-function main (string... args) {
+public function main (string... args) {
 
     // Create a JSON object out of other primitives
     int i = 4;

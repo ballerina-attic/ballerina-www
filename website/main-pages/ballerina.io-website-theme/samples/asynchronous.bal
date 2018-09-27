@@ -1,6 +1,6 @@
 import ballerina/io;
 
-function main(string... args) {
+public function main(string... args) {
 
     // Any function or remote endpoint can be called asynchronously
     future<int> f1 = start sum(40, 50);
