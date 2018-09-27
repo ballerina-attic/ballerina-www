@@ -43,7 +43,7 @@ type ResultStudent record {
    string NAME,
 };
 
-function main (string... args) {
+public function main (string... args) {
 
     endpoint mysql:Client testDB {
        host: "localhost",
