@@ -43,13 +43,9 @@ You can build your integrations by writing code and viewing the corresponding se
 
 ### Run the Composer
 
-1. At the command prompt, type `composer`.
-
-1. Access the Composer from the following URL in your browser: http://localhost:9091
-
-    The welcome page of Ballerina Composer appears. 
+At the command prompt, type `composer`. The welcome page of Ballerina Composer appears. 
     
-    ![Ballerina Composer](/img/docs-images/ballerina-composer.png)
+![Ballerina Composer](/img/docs-images/ballerina-composer.png)
     
 Let's open a sample and take a look around. 
 
