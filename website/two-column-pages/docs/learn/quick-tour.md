@@ -86,11 +86,10 @@ service<http:Service> hello bind listener {
 
     # A resource is an invokable API method
     # Accessible at '/hello/sayHello
-    #'caller' is the client invoking this resource
+    # 'caller' is the client invoking this resource
 
     # + caller - Server Connector
     # + request - Request
-
     sayHello (endpoint caller, http:Request request) {
 
         // Create object to carry data back to caller
