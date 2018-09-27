@@ -7,7 +7,7 @@ endpoint jdbc:Client testDB {
     password: "root"
 };
 
-function main(string... args) {
+public function main(string... args) {
 
     // Create the tables
     var ret = testDB->update("CREATE TABLE CUSTOMER (

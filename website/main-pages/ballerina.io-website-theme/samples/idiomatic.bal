@@ -1,6 +1,6 @@
 import ballerina/io;
 
-function main(string... args) {
+public function main(string... args) {
 
     var result = deleteFile("./files/sample1.txt");
     io:println(result);

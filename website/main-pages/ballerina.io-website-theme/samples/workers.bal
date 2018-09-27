@@ -1,6 +1,6 @@
 import ballerina/io;
 
-function main(string... args) {
+public function main(string... args) {
 
     // Each function consists of one or more workers which are
     // which are independent parallel execution code blocks

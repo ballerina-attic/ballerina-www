@@ -28,7 +28,7 @@ function testAggregationQuery (stream<StatusCount> filteredCountStream,
 
 }
 
-function main (string... args) {
+public function main (string... args) {
 
     stream<StatusCount> filteredCountStream;
     stream<Teacher> teacherStream;
