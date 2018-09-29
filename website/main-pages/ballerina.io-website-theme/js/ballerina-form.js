@@ -180,6 +180,7 @@ $(document).ready(function() {
         },
         submitHandler: function(form) {
             $(".ballerinaday_submit").attr("disabled", true);
+            $(".ballerinaday_submit").val("Processing...");
 
             var first_name = $(".contact_first_name").val();
             var last_name = $(".contact_last_name").val();
