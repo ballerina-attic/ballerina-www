@@ -187,12 +187,12 @@ $(document).ready(function() {
             var phone = $(".contact_phone").val();
             var job_title = $(".job_title").val();
             var company = $(".company").val();
-            var country = $(".country").val();
+            var country = $(".contact_country").val();
             var programmer = $(".programmer").val();
             var languages = $(".language").val();
             var languages = languages.replace("&", " and ");
 
-            var params = "https://go.pardot.com/l/142131/2018-07-23/57mgq4?first_name=" + encodeURI(first_name) + "&last_name=" + encodeURI(last_name) +
+            var params = "https://go.pardot.com/l/142131/2018-09-28/5kf3jd?first_name=" + encodeURI(first_name) + "&last_name=" + encodeURI(last_name) +
             "&email=" + encodeURI(email) + "&phone=" + encodeURI(phone) + "&job_title=" + encodeURI(job_title) +
             "&company=" + encodeURI(company) + "&country=" + encodeURI(country)+ "&programmer=" + encodeURI(programmer)+ "&languages=" + encodeURI(languages);
 
@@ -200,7 +200,7 @@ $(document).ready(function() {
                     url: params
                 },
                 function(response, status) {
-                    $(".cRegForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>Thank you for submiting your details. <br><br>Due to an overwhelming number of registrants, we have reached our seating capacity for both 11 and 12 August. However, we aim to hold similar events for Ballerina in the future, and we have added your details to our database. <br><br>We will inform you on future events soon.</span>');
+                    $(".cRegForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>You have successfully registered for Ballerina Day London 2018. <br>Please check your inbox to view the confirmation email.</span>');
                 });
 
             return false;

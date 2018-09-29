@@ -352,7 +352,7 @@ Ballerina understands the architecture around it; the compiler is environment aw
                         <li>
                             <textarea type="text" maxlength="550" value="" name="language" placeholder="I use the following languages *" title="I use the following languages" class="cTextfieldstyle cTextarea language" style="height: 100px;" aria-invalid="false"></textarea>
                         </li>
-                        <!-- <li>
+                        <li>
                             <select class="cSelect contact_country" name="country">
                                 <option value="">Select the country</option>
                                 <option value="United States">United States</option>
@@ -605,7 +605,7 @@ Ballerina understands the architecture around it; the compiler is environment aw
                                 <option value="Zambia">Zambia</option>
                                 <option value="Zimbabwe">Zimbabwe</option>
                             </select>
-                        </li> -->
+                        </li>
 
                         <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from Ballerina.io to stay up to date on new releases and updates.</li>
                         <li><input type="hidden" class="tokenid" value="" name="tokenid">
