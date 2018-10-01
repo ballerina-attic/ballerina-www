@@ -233,6 +233,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -765,6 +779,10 @@ Note: Make sure that all started spans are closed properly to ensure that all sp
 <p>It is possible to add tags to span by using the <code>observe:addTagToSpan()</code> api by providing the span id and relevant tag key and tag value.</p>
 <pre><code class="language-ballerina">    _ = observe:addTagToSpan(spanId, &quot;Tag Key&quot;, &quot;Tag Value&quot;);
 </code></pre>
+<h4>Attach a tag to a span in the system trace</h4>
+<p>When no spanId is provided or -1 is given, the defined tags are added to the current active span in the ootb system trace.</p>
+<pre><code class="language-ballerina">    _ = observe:addTagToSpan(&quot;Tag Key&quot;, &quot;Tag Value&quot;);
+</code></pre>
 <h2>Metrics</h2>
 <p>There are mainly two kind of metrics instances supported; Counter and Gauge. A counter is a cumulative metric that
 represents a single monotonically increasing counter whose value can only increase or be reset to zero on restart.
@@ -987,40 +1005,32 @@ metric reporters, where they can fetch all metrics, format those, and report.</p
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Metric">Metric</a></td>
-                                                         <td class="cSummary-table-desc">
-    This represents the generic metric record that can represent both counter and gauge.
-
-    </td>
+                                                         <td class="cSummary-table-desc">This represents the generic metric record that can represent both counter and gauge.
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#PercentileValue">PercentileValue</a></td>
-                                                         <td class="cSummary-table-desc">
-    This represents the percentile value record.
-
-    </td>
+                                                         <td class="cSummary-table-desc">This represents the percentile value record.
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Snapshot">Snapshot</a></td>
-                                                         <td class="cSummary-table-desc">
-    This represents the snapshot of the statistics calculation of the gauge.
-
-    </td>
+                                                         <td class="cSummary-table-desc">This represents the snapshot of the statistics calculation of the gauge.
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#StatisticConfig">StatisticConfig</a></td>
-                                                         <td class="cSummary-table-desc">
-    This represents the statistic configuration that can be used to instatiate gauge metric.
-
-    </td>
+                                                         <td class="cSummary-table-desc">This represents the statistic configuration that can be used to instatiate gauge metric.
+</td>
                                                      </tr>
                                                  
                                              
@@ -1194,10 +1204,8 @@ during the usage.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    This represents the generic metric record that can represent both counter and gauge.
+                                                    <span class="fw-right gray xs-icon"></span>This represents the generic metric record that can represent both counter and gauge.
 
-    
                                                 </p>
                                                  
                                                 <table>
@@ -1278,10 +1286,8 @@ during the usage.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    This represents the percentile value record.
+                                                    <span class="fw-right gray xs-icon"></span>This represents the percentile value record.
 
-    
                                                 </p>
                                                  
                                                 <table>
@@ -1330,10 +1336,8 @@ during the usage.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    This represents the snapshot of the statistics calculation of the gauge.
+                                                    <span class="fw-right gray xs-icon"></span>This represents the snapshot of the statistics calculation of the gauge.
 
-    
                                                 </p>
                                                  
                                                 <table>
@@ -1414,10 +1418,8 @@ during the usage.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    This represents the statistic configuration that can be used to instatiate gauge metric.
+                                                    <span class="fw-right gray xs-icon"></span>This represents the statistic configuration that can be used to instatiate gauge metric.
 
-    
                                                 </p>
                                                  
                                                 <table>
@@ -1464,7 +1466,7 @@ during the usage.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="addTagToSpan">
-                                                    <span class="fw-function sm-icon"> </span> public function addTagToSpan(int spanId, string tagKey, string tagValue) returns (error) 
+                                                    <span class="fw-function sm-icon"> </span> public function addTagToSpan(string tagKey, string tagValue, int spanId) returns (error) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1481,14 +1483,6 @@ during the usage.</p>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">spanId</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Id of span to which the tags should be added</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
                                                         <td class="cAPI-table-name">tagKey</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
@@ -1501,6 +1495,14 @@ during the usage.</p>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Value of the tag</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">spanId</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default">-1</td>
+                                                        <td class="cAPI-table-desc"><p>Id of span to which the tags should be added or -1 to add tags to the current active span</p>
 </td>
                                                     </tr>
                                                     
@@ -1561,7 +1563,8 @@ during the usage.</p>
                                                         <td class="cAPI-table-name">spanId</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Id of span to finish</p>
+                                                        <td class="cAPI-table-desc"><p>Id of span to finish
+return - An error if an error occured while finishing the span</p>
 </td>
                                                     </tr>
                                                     
@@ -1895,7 +1898,8 @@ during the usage.</p>
                                                         <td class="cAPI-table-name">description</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Description of the counter metric.</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -1937,21 +1941,25 @@ are optional and have its own default values when no params are passed.</p>
                                                                     <td class="cAPI-table-name">name</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>Name of the Counter instance.</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">desc</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>Description of the Counter instance. If no description is provided, the the default empty string
+will be used.</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">tags</td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#map">map<string>?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The key/value pair of Tags. If no tags are provided, the default nil value will be used.</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -2139,7 +2147,8 @@ during the usage.</p>
                                                         <td class="cAPI-table-name">description</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Description of the counter metric.</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -2190,28 +2199,36 @@ are optional and have its own default values when no params are passed.</p>
                                                                     <td class="cAPI-table-name">name</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>Name of the Gauge instance.</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">desc</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>Description of the Gauge instance. If no description is provided, the the default empty string
+will be used.</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">tags</td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#map">map<string>?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The key/value pair of Tags. If no tags are provided, the default nil value will be used.</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">statisticConfig</td>
                                                                     <td class="cAPI-table-type"><a href="observe.html#StatisticConfig">observe:StatisticConfig[]?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>Statistics configurations array is used for statistics calculation. In case if empty
+statistics configurations array is passed, then statistics calculation will be disabled.
+If nil () is passed, then default statistics configs will be used for the statitics
+calculation.</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -2626,6 +2643,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -2737,6 +2764,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                    <!--Package Name-->
                                    
                                    <a href="jms.html">ballerina/<span class="bold">jms</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
                                    </a>
                                    
                                 </li>
@@ -2931,6 +2968,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -3042,6 +3089,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                    <!--Package Name-->
                                    
                                    <a href="jms.html">ballerina/<span class="bold">jms</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
                                    </a>
                                    
                                 </li>

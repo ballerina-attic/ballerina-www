@@ -177,6 +177,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -1323,6 +1330,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -1552,10 +1566,8 @@ function deserialize(io:ByteChannel channel) returns Person {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#SocketProperties">SocketProperties</a></td>
-                                                         <td class="cSummary-table-desc">
-    SocketProperties represents the properties which are used to configure TCP connection.
-
-    </td>
+                                                         <td class="cSummary-table-desc">SocketProperties represents the properties which are used to configure TCP connection.
+</td>
                                                      </tr>
                                                  
                                              
@@ -1709,8 +1721,7 @@ function deserialize(io:ByteChannel channel) returns Person {
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Socket">Socket</a></td>
                                                      
-                                                         <td class="cSummary-table-desc"><p>Represents a TCP socket.</p>
-</td>
+                                                         <td class="cSummary-table-desc"></td>
                                                      </tr>
                                                  
                                              
@@ -1829,7 +1840,15 @@ function deserialize(io:ByteChannel channel) returns Person {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#sprintf">sprintf</a></td>
-                                                        <td class="cSummary-table-desc"><p>Returns a formatted string using the specified format string and arguments.</p>
+                                                        <td class="cSummary-table-desc"><p>Returns a formatted string using the specified format string and arguments. Following format specifiers are allowed.
+b              boolean
+B              boolean (ALL_CAPS)
+d              int
+f              float
+x              hex
+X              HEX (ALL_CAPS)
+s              string (This specifier is applicable for any of the supported types in Ballerina.
+These values will be converted to their string representation.)</p>
 </td>
                                                      </tr>
                                                  
@@ -2096,10 +2115,8 @@ APPEND - append to existing file instead of replacing</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    SocketProperties represents the properties which are used to configure TCP connection.
+                                                    <span class="fw-right gray xs-icon"></span>SocketProperties represents the properties which are used to configure TCP connection.
 
-    
                                                 </p>
                                                  
                                                 <table>
@@ -2255,7 +2272,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openCsvFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, a|w|rw|r mode, :|	|, fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, a|rw|r|w mode, ,|	|: fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2281,7 +2298,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">mode</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Mode">a</a>|w|rw|r</td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Mode">a</a>|rw|r|w</td>
                                                         <td class="cAPI-table-default">r</td>
                                                         <td class="cAPI-table-desc"><p>Permission which should be used to open CSV file</p>
 </td>
@@ -2289,7 +2306,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">fieldSeparator</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Separator">:</a>|	|,</td>
+                                                        <td class="cAPI-table-type">,|	|<a href="io.html#Separator">:</a></td>
                                                         <td class="cAPI-table-default">,</td>
                                                         <td class="cAPI-table-desc"><p>CSV record seperator (i.e comma or tab)</p>
 </td>
@@ -2348,7 +2365,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, a|w|rw|r accessMode) returns (ByteChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, a|rw|r|w accessMode) returns (ByteChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2374,7 +2391,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">accessMode</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Mode">a</a>|w|rw|r</td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Mode">a</a>|rw|r|w</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Permission to open the file</p>
 </td>
@@ -2514,7 +2531,8 @@ APPEND - append to existing file instead of replacing</p>
                                                         <td class="cAPI-table-name">a</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#any">any[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>The value to be printed.</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -2555,7 +2573,8 @@ APPEND - append to existing file instead of replacing</p>
                                                         <td class="cAPI-table-name">a</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#any">any[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>The value to be printed.</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -2641,7 +2660,15 @@ APPEND - append to existing file instead of replacing</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Returns a formatted string using the specified format string and arguments.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Returns a formatted string using the specified format string and arguments. Following format specifiers are allowed.
+b              boolean
+B              boolean (ALL_CAPS)
+d              int
+f              float
+x              hex
+X              HEX (ALL_CAPS)
+s              string (This specifier is applicable for any of the supported types in Ballerina.
+These values will be converted to their string representation.)</p>
 
                                                 </p>
                                                  
@@ -2657,7 +2684,7 @@ APPEND - append to existing file instead of replacing</p>
                                                         <td class="cAPI-table-name">format</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Represent the format of the string which should be returned</p>
+                                                        <td class="cAPI-table-desc"><p>A format string</p>
 </td>
                                                     </tr>
                                                     
@@ -2665,7 +2692,8 @@ APPEND - append to existing file instead of replacing</p>
                                                         <td class="cAPI-table-name">args</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#any">any[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Arguments referenced by the format specifiers in the format string.</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -2831,7 +2859,8 @@ time.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Offset which should be kept when writing bytes</p>
+                                                                    <td class="cAPI-table-desc"><p>Offset which should be kept when writing bytes.
+Number of bytes written or an error.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -2976,7 +3005,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CSVChannel&gt;
-                                                   </span> new(io:CharacterChannel channel, :|	|, fs, int nHeaders) 
+                                                   </span> new(io:CharacterChannel byteChannel, ,|	|: fs, int nHeaders) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2993,7 +3022,7 @@ time.</p>
                                                                 </tr>
                                                                 
                                                                 <tr>
-                                                                    <td class="cAPI-table-name">channel</td>
+                                                                    <td class="cAPI-table-name">byteChannel</td>
                                                                     <td class="cAPI-table-type"><a href="io.html#CharacterChannel">io:CharacterChannel</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>ChracterChannel which will represent the content in the CSV</p>
@@ -3002,7 +3031,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">fs</td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#Separator">:</a>|	|,</td>
+                                                                    <td class="cAPI-table-type">,|	|<a href="io.html#Separator">:</a></td>
                                                                     <td class="cAPI-table-default">,</td>
                                                                     <td class="cAPI-table-desc"><p>Field separator which will separate between the records in the CSV</p>
 </td>
@@ -3261,7 +3290,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CharacterChannel&gt;
-                                                   </span> new(io:ByteChannel channel, string charset) 
+                                                   </span> new(io:ByteChannel bChannel, string charset) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3278,7 +3307,7 @@ time.</p>
                                                                 </tr>
                                                                 
                                                                 <tr>
-                                                                    <td class="cAPI-table-name">channel</td>
+                                                                    <td class="cAPI-table-name">bChannel</td>
                                                                     <td class="cAPI-table-type"><a href="io.html#ByteChannel">io:ByteChannel</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>ByteChannel which would be used to read/write characters</p>
@@ -3401,7 +3430,8 @@ time.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>Content length that written or an error.</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -4469,7 +4499,7 @@ time.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;DelimitedTextRecordChannel&gt;
-                                                   </span> new(io:CharacterChannel channel, string fs, string rs, string fmt) 
+                                                   </span> new(io:CharacterChannel charChannel, string fs, string rs, string fmt) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4486,7 +4516,7 @@ time.</p>
                                                                 </tr>
                                                                 
                                                                 <tr>
-                                                                    <td class="cAPI-table-name">channel</td>
+                                                                    <td class="cAPI-table-name">charChannel</td>
                                                                     <td class="cAPI-table-type"><a href="io.html#CharacterChannel">io:CharacterChannel</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>CharacterChannel which will point to the input/output resource</p>
@@ -4729,14 +4759,16 @@ time.</p>
                                                                     <td class="cAPI-table-name">port</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The port number that server start.</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">interface</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The interface that wish to bind.</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -4851,11 +4883,6 @@ time.</p>
                                                 <h2 id="Socket">
                                                     <span class="fw-struct sm-icon"></span> public type Socket object
                                                 </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Represents a TCP socket.</p>
-
-                                                </p>
                                                  
                                                 <table>
                                                     <tr>
@@ -4866,7 +4893,7 @@ time.</p>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">channel</td>
+                                                        <td class="cAPI-table-name">byteChannel</td>
                                                         <td class="cAPI-table-type"><a href="io.html#ByteChannel">io:ByteChannel</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>ByteChannel which will represent the socket connection</p>
@@ -4935,14 +4962,16 @@ time.</p>
                                                                     <td class="cAPI-table-name">port</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The port number.</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">interface</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The interface that wish to bind.</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -4993,14 +5022,16 @@ time.</p>
                                                                     <td class="cAPI-table-name">host</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The interface that wish to bind.</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">port</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The port number.</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -5344,7 +5375,8 @@ time.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>An error if could not close the channel.</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -5764,6 +5796,16 @@ time.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -5876,6 +5918,16 @@ time.</p>
                                    <!--Package Name-->
                                    
                                    <a href="jms.html">ballerina/<span class="bold">jms</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
                                    </a>
                                    
                                 </li>
@@ -6069,6 +6121,16 @@ time.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -6181,6 +6243,16 @@ time.</p>
                                    <!--Package Name-->
                                    
                                    <a href="jms.html">ballerina/<span class="bold">jms</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
                                    </a>
                                    
                                 </li>

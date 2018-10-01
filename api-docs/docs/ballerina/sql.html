@@ -254,6 +254,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -616,20 +630,16 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Parameter">Parameter</a></td>
-                                                         <td class="cSummary-table-desc">
-    Parameter represents a parameter for the SQL actions when a variable parameter needs to be passed to the action.
-
-    </td>
+                                                         <td class="cSummary-table-desc">Parameter represents a parameter for the SQL actions when a variable parameter needs to be passed to the action.
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#PoolOptions">PoolOptions</a></td>
-                                                         <td class="cSummary-table-desc">
-    Represents the properties which are used to configure DB connection pool.
-
-    </td>
+                                                         <td class="cSummary-table-desc">Represents the properties which are used to configure DB connection pool.
+</td>
                                                      </tr>
                                                  
                                              
@@ -935,11 +945,11 @@ INOUT - INOUT parameters are used to send values and get values from stored proc
                                                 <td class="cSummary-table-name">SQLType</td>
                                                 <td class="cSummary-table-type">VARCHAR | VARBINARY | TINYINT | TIMESTAMP | TIME | STRUCT | SMALLINT | REFCURSOR | REAL | NVARCHAR | NUMERIC | NCLOB | NCHAR | LONGVARCHAR | LONGVARBINARY | LONGNVARCHAR | INTEGER | FLOAT | DOUBLE | DECIMAL | DATETIME | DATE | CLOB | CHAR | BOOLEAN | BLOB | BIT | BINARY | BIGINT | ARRAY</td>
                                                 <td class="cSummary-table-desc"><p>The SQL Datatype of the parameter.</p>
-<p>VARCHAR - Small, variable-length character string
-CHAR - Small, fixed-length character string
-LONGVARCHAR - Large, variable-length character string
-NCHAR - Small, fixed-length character string with unicode support
-LONGNVARCHAR - Large, variable-length character string with unicode support</p>
+<p>VARCHAR - Small, variable length character string
+CHAR - Small, fixed length character string
+LONGVARCHAR - Large, variable length character string
+NCHAR - Small, fixed length character string with unicode support
+LONGNVARCHAR - Large, variable length character string with unicode support</p>
 <p>BIT - Single bit value that can be zero or one, or nil
 BOOLEAN - Boolean value either True or false
 TINYINT - 8-bit integer value which may be unsigned or signed
@@ -953,8 +963,8 @@ FLOAT - Double precision floating point number
 DOUBLE - Double precision floating point number</p>
 <p>BINARY - Small, fixed-length binary value
 BLOB - Binary Large Object
-LONGVARBINARY - Large, variable-length binary value
-VARBINARY - Small, variable-length binary value</p>
+LONGVARBINARY - Large, variable length binary value
+VARBINARY - Small, variable length binary value</p>
 <p>CLOB - Character Large Object.
 NCLOB - Character large objects in multibyte national character set</p>
 <p>DATE - Date consisting of day, month, and year
@@ -1273,10 +1283,8 @@ REFCURSOR - Cursor value</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    Parameter represents a parameter for the SQL actions when a variable parameter needs to be passed to the action.
+                                                    <span class="fw-right gray xs-icon"></span>Parameter represents a parameter for the SQL actions when a variable parameter needs to be passed to the action.
 
-    
                                                 </p>
                                                  
                                                 <table>
@@ -1289,7 +1297,7 @@ REFCURSOR - Cursor value</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">sqlType</td>
-                                                        <td class="cAPI-table-type"><a href="sql.html#SQLType">BIGINT|SMALLINT|VARCHAR|NVARCHAR|STRUCT|BIT|FLOAT|TINYINT|DATETIME|REAL|CLOB|LONGNVARCHAR|BLOB|NCLOB|NCHAR|REFCURSOR|TIME|DOUBLE|CHAR|DECIMAL|TIMESTAMP|LONGVARBINARY|INTEGER|NUMERIC|DATE|LONGVARCHAR|ARRAY|VARBINARY|BOOLEAN|BINARY</a></td>
+                                                        <td class="cAPI-table-type"><a href="sql.html#SQLType">DATETIME|TIME|NUMERIC|NVARCHAR|BIT|LONGNVARCHAR|LONGVARCHAR|REAL|INTEGER|BIGINT|DECIMAL|CLOB|BINARY|BLOB|STRUCT|VARCHAR|NCLOB|FLOAT|BOOLEAN|TINYINT|DATE|DOUBLE|SMALLINT|TIMESTAMP|ARRAY|LONGVARBINARY|VARBINARY|CHAR|NCHAR|REFCURSOR</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The data type of the corresponding SQL parameter</p>
 </td>
@@ -1305,7 +1313,7 @@ REFCURSOR - Cursor value</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">direction</td>
-                                                        <td class="cAPI-table-type"><a href="sql.html#Direction">IN|OUT|INOUT</a></td>
+                                                        <td class="cAPI-table-type"><a href="sql.html#Direction">IN|INOUT|OUT</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Direction of the SQL Parameter IN, OUT, or INOUT - Default value is IN</p>
 </td>
@@ -1342,10 +1350,8 @@ result row</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    Represents the properties which are used to configure DB connection pool.
+                                                    <span class="fw-right gray xs-icon"></span>Represents the properties which are used to configure DB connection pool.
 
-    
                                                 </p>
                                                  
                                                 <table>
@@ -1553,7 +1559,8 @@ to the pool</p>
                                                                     <td class="cAPI-table-name">parameters</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the procedure/function call. The number of parameters is variable</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -1629,7 +1636,8 @@ to the pool</p>
                                                                     <td class="cAPI-table-name">parameters</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the select query. The number of parameters is variable</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -1688,7 +1696,8 @@ to the pool</p>
                                                                     <td class="cAPI-table-name">parameters</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the update query. The number of parameters is variable</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -1747,7 +1756,9 @@ to the pool</p>
                                                                     <td class="cAPI-table-name">parameters</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>Variable number of parameter arrays each representing the set of parameters of belonging to each
+individual update</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -1822,7 +1833,8 @@ generated keys during the update action.</p>
                                                                     <td class="cAPI-table-name">parameters</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the update query. The number of parameters is variable</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -2624,6 +2636,16 @@ table that allows performing select/update operations over the actual database t
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -2735,6 +2757,16 @@ table that allows performing select/update operations over the actual database t
                                    <!--Package Name-->
                                    
                                    <a href="jms.html">ballerina/<span class="bold">jms</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
                                    </a>
                                    
                                 </li>
@@ -2929,6 +2961,16 @@ table that allows performing select/update operations over the actual database t
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -3040,6 +3082,16 @@ table that allows performing select/update operations over the actual database t
                                    <!--Package Name-->
                                    
                                    <a href="jms.html">ballerina/<span class="bold">jms</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
                                    </a>
                                    
                                 </li>
