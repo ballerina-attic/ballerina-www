@@ -154,8 +154,9 @@ $(document).ready(function() {
              phone: "required",
              job_title: "required",
              company: "required",
-             programmer:"required",
-             language:"required"
+             country:"required"
+             //programmer:"required",
+             //language:"required"
         },
         messages: {
             first_name: "Please enter your first name",
@@ -167,8 +168,9 @@ $(document).ready(function() {
              phone: "Please enter your contact number",
              job_title: "Please enter your job title",
              company: "Please enter your company name",
-             programmer: "You need to be a programmer to signup for this event",
-             language: "Please enter languages you are using",
+             country: "Please enter your country name"
+             //programmer: "You need to be a programmer to signup for this event",
+             //language: "Please enter languages you are using",
         },
         highlight: function(element) {
             $(element).addClass('form-error');
@@ -179,8 +181,7 @@ $(document).ready(function() {
 
         },
         submitHandler: function(form) {
-            $("#ballerinaday_submit").attr("disabled", true);
-            $("#ballerinaday_submit").val("Processing...");
+            $("#ballerinaday_submit").attr("disabled", true).val("Processing...");
 
             var first_name = $(".contact_first_name").val();
             var last_name = $(".contact_last_name").val();
@@ -189,13 +190,13 @@ $(document).ready(function() {
             var job_title = $(".job_title").val();
             var company = $(".company").val();
             var country = $(".contact_country").val();
-            var programmer = $(".programmer").val();
-            var languages = $(".language").val();
-            var languages = languages.replace("&", " and ");
+            //var programmer = $(".programmer").val();
+            //var languages = $(".language").val();
+            //var languages = languages.replace("&", " and ");
 
             var params = "https://go.pardot.com/l/142131/2018-09-28/5kf3jd?first_name=" + encodeURI(first_name) + "&last_name=" + encodeURI(last_name) +
             "&email=" + encodeURI(email) + "&phone=" + encodeURI(phone) + "&job_title=" + encodeURI(job_title) +
-            "&company=" + encodeURI(company) + "&country=" + encodeURI(country)+ "&programmer=" + encodeURI(programmer)+ "&languages=" + encodeURI(languages);
+            "&company=" + encodeURI(company) + "&country=" + encodeURI(country);
 
             $.post("/scripts/formSubmit.php", {
                     url: params
