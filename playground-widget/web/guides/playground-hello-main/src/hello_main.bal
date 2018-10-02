@@ -1,7 +1,7 @@
 import ballerina/io;
 
 // main function is the entry point
-function main(string... args) {
+public function main(string... args) {
 
     // Use one or more workers to define a function execution. 
     // Invoke the function to start all workers automatically.

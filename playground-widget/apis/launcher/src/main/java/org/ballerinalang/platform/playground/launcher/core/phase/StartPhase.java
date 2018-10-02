@@ -86,7 +86,8 @@ public class StartPhase implements Phase {
                 String line = "";
                 while ((line = reader.readLine()) != null) {
                     if (line.startsWith("ballerina: initiating service(s) in")
-                            || line.startsWith("ballerina: deploying service(s) in")) {
+                            || line.startsWith("ballerina: deploying service(s) in")
+                            || line.startsWith("Initiating service(s)")) {
                         continue;
                     } else if (line.startsWith("ballerina: started HTTP/WS endpoint")) {
                         updateHostAndPort(runSession, line);
