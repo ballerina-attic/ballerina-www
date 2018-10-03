@@ -143,19 +143,20 @@ const codepoints = {}
             test: /\.less$/,
             exclude: /node_modules/,
             use: extractLessBundle.extract({
-                fallback: 'style-loader',
+                fallback: {
+                    loader: 'style-loader',
+                    options: {
+                        hmr: !isProductionBuild,
+                    },
+                },
                 use: [{
                     loader: 'css-loader',
                     options: {
-                        hmr: !isProductionBuild,
-                        sourceMap: !isProductionBuild,
+                        sourceMap: isProductionBuild,
+                        minimize: isProductionBuild,
                     },
                 }, {
                     loader: 'less-loader',
-                    options: {
-                        hmr: !isProductionBuild,
-                        sourceMap: !isProductionBuild,
-                    },
                 }],
             }),
         },
