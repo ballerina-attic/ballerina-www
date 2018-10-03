@@ -39,6 +39,7 @@
  const composerWebRoot = path.join(__dirname, '../ballerina-lang/composer/modules/web');
  
  const extractCSSBundle = new ExtractTextPlugin({ filename: `./[name].[${hashToUse}].css`, allChunks: true });
+ const extractLessBundle = new ExtractTextPlugin({ filename: `./[name]-less.[${hashToUse}].css`, allChunks: true });
 
  const isExternal = function(modulePath) {
      return modulePath.includes('node_modules');
@@ -139,6 +140,26 @@ const codepoints = {}
              ],
          },
          {
+            test: /\.less$/,
+            exclude: /node_modules/,
+            use: extractLessBundle.extract({
+                fallback: 'style-loader',
+                use: [{
+                    loader: 'css-loader',
+                    options: {
+                        hmr: !isProductionBuild,
+                        sourceMap: !isProductionBuild,
+                    },
+                }, {
+                    loader: 'less-loader',
+                    options: {
+                        hmr: !isProductionBuild,
+                        sourceMap: !isProductionBuild,
+                    },
+                }],
+            }),
+        },
+         {
             test: /\.bal$/,
             use: 'raw-loader'
           }
@@ -147,6 +168,7 @@ const codepoints = {}
      plugins: [
          new ProgressBarPlugin(),
          new CleanWebpackPlugin([buildPath], { watch: true, root: moduleRoot }),
+         extractLessBundle,
          extractCSSBundle,
          new webpack.WatchIgnorePlugin([path.join(composerWebRoot, 'font/dist/')]),
          new WebfontPlugin({
@@ -191,10 +213,6 @@ const codepoints = {}
             {
                 from: 'images',
                 to: 'images'
-            },
-            {
-                from: 'node_modules/semantic-ui-css/themes',
-                to: 'themes'
             },
             {
                 from: 'guides',
@@ -250,7 +268,8 @@ const codepoints = {}
             'images': path.join(composerWebRoot, 'public/images'),
             'TreeBuilder': 'composer/plugins/ballerina/model/tree-builder',
             'PackageScopedEnvironment': 'composer/plugins/ballerina/env/package-scoped-environment',
-            'monaco-editor': 'monaco-editor/esm/vs/editor/editor.api.js'
+            'monaco-editor': 'monaco-editor/esm/vs/editor/editor.api.js',
+            '../../theme.config$': path.join(moduleRoot, 'src/styling/theme.config'),
         }
      },
  
