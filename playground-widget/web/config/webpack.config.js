@@ -27,10 +27,11 @@
  const HtmlWebpackPlugin = require('html-webpack-plugin');
  const CleanWebpackPlugin = require('clean-webpack-plugin');
  const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+ const GitRevisionPlugin = require('git-revision-webpack-plugin');
  const WebfontPlugin = require('webpack-webfont').default;
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
- const hashToUse = isProductionBuild ? 'chunkhash' : 'hash';
+ const hashToUse = isProductionBuild ? 'git-revision-hash' : 'hash';
  const backendHost = 'playground.preprod.ballerina.io';
 
  const moduleRoot = path.resolve(__dirname, '../');
@@ -217,7 +218,10 @@ const codepoints = {}
         new MonacoWebpackPlugin({
             features:['bracketMatching', 'iPadShowKeyboard'],
             languages: []
-        })
+        }),
+        new GitRevisionPlugin({
+            commithashCommand: 'log -n 1 --pretty=format:%H -- .',
+        }),
      ],
      devServer: {
          port: 3000,
