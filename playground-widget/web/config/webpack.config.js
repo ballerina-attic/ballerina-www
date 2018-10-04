@@ -100,7 +100,9 @@ const codepoints = {}
                 use: [{
                     loader: 'css-loader',
                     options: {
-                        sourceMap: true,
+                        url: false,
+                        sourceMap: isProductionBuild,
+                        minimize: isProductionBuild,
                     },
                 }, {
                     loader: 'sass-loader',
@@ -118,7 +120,8 @@ const codepoints = {}
                      loader: 'css-loader',
                      options: {
                          url: false,
-                         sourceMap: true,
+                         sourceMap: isProductionBuild,
+                         minimize: isProductionBuild,
                      },
                  }],
              }),
@@ -204,6 +207,10 @@ const codepoints = {}
         },
          new WriteFilePlugin(),
          new CopyWebpackPlugin([
+            {
+                from: 'fonts',
+                to: 'fonts',
+            },
             {
                 from: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
                 to: 'fonts',
