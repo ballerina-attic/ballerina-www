@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Container from 'semantic-ui-react/dist/es/elements/Container';
 import Segment from 'semantic-ui-react/dist/es/elements/Segment';
-import Icon from 'semantic-ui-react/dist/es/elements/Icon';
-import 'semantic-ui-css/semantic.min.css';
 import CodeEditor from './components/editor/CodeEditor';
 import SamplesList from './components/navigation/SamplesList';
 import './BallerinaWidget.scss';
@@ -14,6 +12,8 @@ import RunButton from './components/controls/RunButton';
 import DesignView from './components/design-view/DesignView';
 import DownloadsView from './components/downloads-view/DownloadsView';
 import { getMonospaceFontFamily } from './client-utils';
+import githubIcon from './../images/github-mark.svg';
+import './styling/semantic.less';
 
 class BallerinaWidget extends Component {
 
@@ -102,7 +102,7 @@ class BallerinaWidget extends Component {
               <span
                 className="sample-btn"
               >
-                <Icon name='github' />
+                <img name='github' className="github-icon" src={githubIcon} />
               </span>
               {/* <PopOutButton /> */}
           </Segment>
