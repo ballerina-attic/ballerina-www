@@ -19,11 +19,6 @@ import 'font-ballerina/css/font-ballerina.css';
  */
 function parseContent(content) {
     const payload = {
-        fileName: 'untitled.bal',
-        filePath: 'temp',
-        includeTree: true,
-        includePackageInfo: true,
-        includeProgramDir: true,
         content,
     };
     return axios.post(PARSER_API_URL, payload,
