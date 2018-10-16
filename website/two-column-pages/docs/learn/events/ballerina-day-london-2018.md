@@ -15,7 +15,7 @@ socialmediaimage: sm-ballerina-day-london.jpg
         <td class="cEventDateContainer" style="border:none;">
             <span class="cEventDate" style="border:none;">November 15</span>
             <span class="cLocation" style="border:none;">Hilton London Bankside, 2-8 Great Suffolk St, London SE1 0UG London, UK</span>
-            <!-- <p style="color:#20b6b0;">Due to an overwhelming number of registrants, we have reached our seating capacity for both 11 and 12 August. However, do fill in your contact details, as we aim to hold similar events for Ballerina in the future.</p> -->
+            <p style="color:#20b6b0;">Registration is free, but do sign up quickly as seating is limited. </p>
         </td>
         <td class="cEventURL" style="border:none;">
         <a class="cEventRegistration cSmallButton" data-toggle="modal" data-target="#webinar_registration" target="_blank" style="float:right;">Register Now</a>
@@ -344,15 +344,6 @@ Ballerina understands the architecture around it; the compiler is environment aw
                         <li><input type="text" maxlength="50" value="" name="company" placeholder="Company *" title="Company" class="cTextfieldstyle company"></li>
 
                         <li>
-                            <p>This is a hands-on programming event. In order to participate, you must be a programmer with knowledge of several programming languages.</p>
-                            I am a programmer *
-                            <input type="checkbox" value="1" name="programmer" class="field_optin programmer" id="field_optin">
-                        </li>
-
-                        <li>
-                            <textarea type="text" maxlength="550" value="" name="language" placeholder="I use the following languages *" title="I use the following languages" class="cTextfieldstyle cTextarea language" style="height: 100px;" aria-invalid="false"></textarea>
-                        </li>
-                        <!-- <li>
                             <select class="cSelect contact_country" name="country">
                                 <option value="">Select the country</option>
                                 <option value="United States">United States</option>
@@ -605,7 +596,7 @@ Ballerina understands the architecture around it; the compiler is environment aw
                                 <option value="Zambia">Zambia</option>
                                 <option value="Zimbabwe">Zimbabwe</option>
                             </select>
-                        </li> -->
+                        </li>                        
 
                         <li><input type="checkbox" value="1" name="field_optin" class="field_optin" id="field_optin">&nbsp;Yes, I would like to receive emails from Ballerina.io to stay up to date on new releases and updates.</li>
                         <li><input type="hidden" class="tokenid" value="" name="tokenid">
