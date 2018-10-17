@@ -11,6 +11,7 @@
     <td class="cEventDetail"  style="border:none !important;"><a target="_blank" href="/learn/events/ballerina-day-london-2018/">
     <h4>Ballerina Day London 2018</h4>
     <p>Ballerina takes center stage at Ballerina Day to showcase how we make integration simple and agile.</p>
+    <p style="color:#20b6b0;">Registration is free, but do sign up quickly as seating is limited. </p>
     </a>
     </td>
     <td class="cEventURL"  style="border:none !important;">
