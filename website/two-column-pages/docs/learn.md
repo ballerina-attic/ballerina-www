@@ -1,6 +1,6 @@
 # Learn Ballerina
 
-Ballerina is a simple programming language whose syntax and platform address the hard problems of integration. Ballerina is a general purpose, concurrent, transactional, statically and strongly typed programming language with both textual and graphical syntaxes. Its specialization is integration - it brings fundamental concepts, ideas and tools of distributed system integration into the language and offers a type safe, concurrent environment to implement such applications. These include distributed transactions, reliable messaging, stream processing, workflows and container management platforms.
+Ballerina is a simple programming language whose syntax addresses the hard problems of integration. Ballerina is a general purpose, concurrent, transactional, statically and strongly typed programming language with both textual and graphical syntaxes. Its specialization is integration - it brings fundamental concepts, ideas and tools of distributed system integration into the language and offers a type safe, concurrent environment to implement such applications. These include distributed transactions, reliable messaging, stream processing, workflows and container management platforms.
 
 
 ## Installation
@@ -29,7 +29,7 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### How to Structure Ballerina Code
 
-[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, create, version, search, and install Ballerina packages with repositories that are local and remote.
+[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, create, version, search, and install Ballerina modules with repositories that are local and remote.
 
 ### How to Test Ballerina Code
 
@@ -37,15 +37,15 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### How to Document Ballerina Code
 
-[How to Document Ballerina Code](/learn/how-to-document-ballerina-code/) provides guidelines on documenting your Ballerina programs and packages in order to generate API documentation.
+[How to Document Ballerina Code](/learn/how-to-document-ballerina-code/) provides guidelines on documenting your Ballerina programs and modules in order to generate API documentation.
 
 ### How to Write Secure Ballerina Services
 
 [How to Write Secure Ballerina Services](/learn/how-to-write-secure-ballerina-code/) provides guidelines on writing secure Ballerina services, while demonstrating different security features and controls available within Ballerina.
 
-### How to Publish Ballerina Packages
+### How to Publish Ballerina Modules
 
-[How to Publish Ballerina Packages](/learn/how-to-publish-packages/) provides settings and commands you need to share your local packages with the Ballerina community.
+[How to Publish Ballerina Modules](/learn/how-to-publish-modules/) provides settings and commands you need to share your local modules with the Ballerina community.
 
 ### How to Run and Deploy Ballerina Services
 
@@ -57,11 +57,11 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### How to Extend Ballerina
 
-[How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and package these customizations for use by others.
+[How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and collate these customizations for use by others.
 
 ## Reference Documentation
 
-### Package and API Documentation
+### Module and API Documentation
 
 The [API Documentation](/learn/api-docs/) describes the native functions in Ballerina that you can use in your programs.
 
