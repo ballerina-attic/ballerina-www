@@ -15,7 +15,7 @@ socialmediaimage: sm-ballerina-day.jpg
         <td class="cEventDateContainer" style="border:none;">
             <span class="cEventDate" style="border:none;">August 11 and 12, 2018</span>
             <span class="cLocation" style="border:none;">Galle Face Hotel - Grand Ballroom, Colombo 3, Sri Lanka</span>
-            <!-- <p style="color:#20b6b0;">Due to an overwhelming number of registrants, we have reached our seating capacity for both 11 and 12 August. However, do fill in your contact details, as we aim to hold similar events for Ballerina in the future.</p> -->
+            <p style="color:#20b6b0;">Registration is free, but do sign up quickly as seating is limited.</p>
         </td>
         <td class="cEventURL" style="border:none;">
         <!-- <a class="cEventRegistration cSmallButton" data-toggle="modal" data-target="#webinar_registration" target="_blank">Register Now</a> -->
