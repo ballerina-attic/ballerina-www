@@ -74,7 +74,7 @@ var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent,
                         paramId);
 ```
 
-Please note that it is required to import `ballerina/sql` package to use `sql:Parameter`.
+Please note that it is required to import `ballerina/sql` module to use `sql:Parameter`.
 
 Command-line arguments to Ballerina programs and inputs received through service resources are considered tainted. Additionally, return values of certain functions and actions are marked with `@tainted` annotation to denote that the resulting value should be considered as untrusted data.
 
