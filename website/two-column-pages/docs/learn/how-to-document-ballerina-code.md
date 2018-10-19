@@ -80,7 +80,6 @@ A typical project structure of a Ballerina project is like this:
 ```
 /
   .gitignore
-  Ballerina-lock.toml  # Generated during build, used to rebuild identical binary
   Ballerina.toml       # Configuration that defines project intent
   .ballerina/          # Internal cache management and contains project repository
                        # Project repository is built or downloaded module dependencies
