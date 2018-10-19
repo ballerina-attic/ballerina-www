@@ -4,7 +4,7 @@ Ballerina has a built-in test framework named Testerina. Testerina enables devel
 
 Developers and testers can cover multiple levels of the test pyramid including unit testing, integration testing and end to end testing with the building blocks the framework provides. It provides the flexibility to programmers and testers to build intelligent tests that suites the domain and application needs. 
 
-Testerina design and usage is aligned with project and package semantics of Ballerina. You can test the project packages while you are building the project in a seamless manner using the test constructs. 
+Testerina design and usage is aligned with project and module semantics of Ballerina. You can test the project modules while you are building the project in a seamless manner using the test constructs. 
 
 ## Overview
  
@@ -13,21 +13,21 @@ Testerina design and usage is aligned with project and package semantics of Ball
 * Test **assertions** can be used to verify the set of program behaviour expectations 
 * Data providers can be used to feed in the test data sets 
 * Service calls can be tested using service skeletons in the test phase of the project until the system is connected to real service 
-* Function mocks can be used to mimic third party function calls to enable testing a project package in isolation 
+* Function mocks can be used to mimic third party function calls to enable testing a project module in isolation 
 
 ## Writing and Running Tests 
 
-To write tests, you need to import the `test` package in all Ballerina test source files. 
+To write tests, you need to import the `test` module in all Ballerina test source files. 
 
 ```
 import ballerina/test;
 ```
 
-For structured projects, it is recommended to use a structured test model that is aligned with standard package semantics. Structured test model consists of a seperate `tests` directory in a Ballerina package, which allows you to isolate the source from the tests.
+For structured projects, it is recommended to use a structured test model that is aligned with standard module semantics. Structured test model consists of a seperate `tests` directory in a Ballerina module, which allows you to isolate the source from the tests.
 
-In a standard Ballerina project, a package is mapped to a test suite. Unit and integration tests bound to a package need to be placed in a subfolder called `tests/` within the package. All tests within a package’s `tests/` subfolder are considered to be part of the same test suite.
+In a standard Ballerina project, a module is mapped to a test suite. Unit and integration tests bound to a module need to be placed in a subfolder called `tests/` within the module. All tests within a module’s `tests/` subfolder are considered to be part of the same test suite.
 
-Integration tests that are used to test the sources of combination of packages of a project needs to be placed at the project root level folder called `tests/`.
+Integration tests that are used to test the sources of combination of modules of a project needs to be placed at the project root level folder called `tests/`.
 
 ### Project Structure
 ```
@@ -36,33 +36,33 @@ Integration tests that are used to test the sources of combination of packages o
   Ballerina-lock.toml  # Generated during build, used to rebuild identical binary
   Ballerina.toml       # Configuration that defines project intent
   .ballerina/          # Internal cache management and contains project repository
-                       # Project repository is built or downloaded package dependencies
+                       # Project repository is built or downloaded module dependencies
 
-  main.bal             # Part of the “unnamed” package, compiled into a main.balx
-                       # You can have many files in the "unnamed" package, though unadvisable
+  main.bal             # Part of the “unnamed” module, compiled into a main.balx
+                       # You can have many files in the "unnamed" module, though unadvisable
 
-  package1/            # The source in this directory will be named “<org-name>/package1” 
-    Package.md         # Optional, contains descriptive metadata for display at Ballerina Central
+  module1/            # The source in this directory will be named “<org-name>/module1” 
+    Module.md         # Optional, contains descriptive metadata for display at Ballerina Central
     *.bal              # In this dir and recursively in subdirs except tests/ and resources/
-    [tests/]           # Package-specific unit and integration tests
-    [resources/]       # Package-specific resources
-      *.jar            # Optional, if package includes native Java libraries to link + embed 
+    [tests/]           # Module-specific unit and integration tests
+    [resources/]       # Module-specific resources
+      *.jar            # Optional, if module includes native Java libraries to link + embed 
     
-  packages.can.include.dots.in.dir.name/
-    Package.md
+  modules.can.include.dots.in.dir.name/
+    Module.md
     *.bal
     *.jar
     [tests/]         
     [resources/]     
-      *.jar            # Optional, if package includes native Java libraries to link + embed 
+      *.jar            # Optional, if module includes native Java libraries to link + embed 
 
-  [tests/]             # Tests executed for every package in the project
-  [resources/]         # Resources included with every package in the project
+  [tests/]             # Tests executed for every module in the project
+  [resources/]         # Resources included with every module in the project
 
   target/              # Compiled binaries and other artifacts end up here
       main.balx
-      package1.balo
-      packages.can.include.dots.in.dir.name.bal
+      module1.balo
+      modules.can.include.dots.in.dir.name.bal
 ```
 
 The test source files could have any file names. The test functions are just Ballerina functions that use a special annotation to mark the function as a test. Test functions must be specified with the @test:Config annotation and there are no restrictions on the test function name.
@@ -75,10 +75,10 @@ Execute tests in a given Ballerina source file with the following command.
 ballerina test <balfile> 
 ```
 
-Execute tests within the specified package with the following command.
+Execute tests within the specified module with the following command.
 
 ```
-ballerina test <packagename> 
+ballerina test <modulename> 
 ```
 
 Execute tests in the entire project, using the `test` command without any parameters. 
@@ -103,7 +103,7 @@ The function specified following the annotation will be run once before any of t
 ```ballerina
 @test:BeforeSuite {} 
 function testSuiteInitialize() { 
-   // package level test initialization logic here 
+   // module level test initialization logic here 
 }
 ```
 
@@ -113,7 +113,7 @@ Sample :
 import ballerina/io;
 import ballerina/test;
 
-// The `BeforeSuite` function is executed before all test functions in this package. 
+// The `BeforeSuite` function is executed before all test functions in this module. 
 @test:BeforeSuite
 function beforeFunc() {
     io:println("I'm the before suite function!");
@@ -198,7 +198,7 @@ Default: none
 List of test group names (one or more) that this test belongs to. You can group a given test to a list of named test groups using this configuration. In order to execute tests belonging to a selected test group, you can name the test groups to be executed when you run tests.  
 
 ```
-ballerina test `--groups <comma separated list of test group names> <package_name>`
+ballerina test `--groups <comma separated list of test group names> <module_name>`
 ```
 
 You can skip a list of given tests with `--disable-groups <comma separated list of test group names>` Also you can use the  `--list-groups` flag to list the groups in your tests.
@@ -253,12 +253,12 @@ function testFunction3() {
 
 #### @test:AfterSuite {}
 
-The function specified following the annotation will be run once after all of the tests in the test suite is run. This can be used for cleaning up test suite level aspects. The test suite covers tests related to a package. 
+The function specified following the annotation will be run once after all of the tests in the test suite is run. This can be used for cleaning up test suite level aspects. The test suite covers tests related to a module. 
 
 ```ballerina
 @test:AfterSuite {}
 function testSuiteCleanup() { 
-   // package level test cleanup logic here 
+   // module level test cleanup logic here 
 }
 ```
 
@@ -275,7 +275,7 @@ function testFunction1() {
     test:assertTrue(true, msg = "Failed");
 }
 
-// The `AfterSuite` function is executed after all the test functions in this package. 
+// The `AfterSuite` function is executed after all the test functions in this module. 
 @test:AfterSuite
 function afterFunc() {
     io:println("I'm the after suite function!");
@@ -377,19 +377,19 @@ function foo() {
 
 <!-- ## Service Start/Stop Utility
 
-Testerina provides the functionality to start/stop all services of a developer preferred Ballerina package. To control service related functionality we can use the following inbuilt functions.
+Testerina provides the functionality to start/stop all services of a developer preferred Ballerina module. To control service related functionality we can use the following inbuilt functions.
 
-#### test:startServices(string packageName) (boolean isSuccessful)
+#### test:startServices(string moduleName) (boolean isSuccessful)
 
-Starts all the services of package identified by ‘packageName’. If it is successful returns true else returns false or throws an error. 
+Starts all the services of module identified by ‘moduleName’. If it is successful returns true else returns false or throws an error. 
 
 ```ballerina
 boolean isSuccessful = test:startServices(“abc.services”);
 ```
 
-#### test:stopServices(string packageName) 
+#### test:stopServices(string moduleName) 
 
-Stops all the services of package identified by ‘packageName’.
+Stops all the services of module identified by ‘moduleName’.
 
 ```ballerina
 test:stopServices(“abc.services”);
@@ -466,9 +466,9 @@ service<http:Service> HelloServiceMock bind helloEP {
 
 Testerina provides the functionality to start/stop service skeletons generated from Swagger definitions.
 
-#### test:startServiceSkeleton(string packageName, string swaggerFilePath) (boolean isSuccessful)
+#### test:startServiceSkeleton(string moduleName, string swaggerFilePath) (boolean isSuccessful)
 
-Start a service skeleton from a given Swagger definition in the given Ballerina package. If it is successful, it returns true. Alternatively, it returns false or throws an exception. For example: 
+Start a service skeleton from a given Swagger definition in the given Ballerina module. If it is successful, it returns true. Alternatively, it returns false or throws an exception. For example: 
 
 ```ballerina
 boolean isSuccessful =  test:startServiceSkeleton("petstore.service.skeleton", "/tmp/petstore.yaml");
@@ -476,9 +476,9 @@ boolean isSuccessful =  test:startServiceSkeleton("petstore.service.skeleton", "
 
 When the tests are executing service skeleton related Ballerina service definition will be generated and started. The host names and ports you have defined in the Swagger definition will be used when starting the services. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service.
 
-#### test:stopServiceSkeleton (string packageName) 
+#### test:stopServiceSkeleton (string moduleName) 
 
-Stop a service skeleton and cleanup created directories of a given Ballerina package. This function would first try to stop the service that was created using test:startServiceSkeleton function and then would try to clean up the directories created.
+Stop a service skeleton and cleanup created directories of a given Ballerina module. This function would first try to stop the service that was created using test:startServiceSkeleton function and then would try to clean up the directories created.
 
 ```ballerina
 test:stopServiceSkeleton(“petstore.service.skeleton”);
@@ -496,13 +496,13 @@ boolean isServiceSkeletonStarted;
 
 function init() {
     // Starting the swagger based service
-    isServiceSkeletonStarted = test:startServiceSkeleton("mypackage",
+    isServiceSkeletonStarted = test:startServiceSkeleton("mymodule",
         "<PATH_TO_SWAGGER_DEFINITION>/petstore.yaml");
 }
 
 function clean() {
     // Stopping the swager based service
-    test:stopServiceSkeleton("mypackage");
+    test:stopServiceSkeleton("mymodule");
 }
 
 @test:Config {
@@ -530,16 +530,16 @@ function testService() {
 
 ## Function Mocks
 
-Testerina provides the functionality to mock a function in a different third-party package with your own Ballerina function which will help you to test your package independently. 
+Testerina provides the functionality to mock a function in a different third-party module with your own Ballerina function, which will help you test your module independently. 
 
 #### @test:Mock {}
 
-The function specified following the annotation will be a mock function which will get triggered every time the original function is called. The original function that will be mocked should be defined using the annotation parameters.
+The function specified following the annotation will be a mock function that gets triggered every time the original function is called. The original function that will be mocked should be defined using the annotation parameters.
 
 ###### Parameters:
 
-`packageName: “<package name>”`: Name of the package where the function to be mocked resides in. 
-Default: “.” (No Package)
+`moduleName: “<module name>”`: Name of the module where the function to be mocked resides in. 
+Default: “.” (No Module)
 
 `functionName: “<function name>”`: Name of the function to be mocked. 
 Default: none
@@ -552,9 +552,9 @@ import ballerina/io;
 
 // This is the mock function which will replace the real intAdd function.
 @test:Mock {
-    // Since we don't have a package declaration, `.` is the current package
-    // We can include any package here e.g : `ballerina.io` etc.
-    packageName: ".",
+    // Since we do not have a module declaration, `.` is the current module
+    // We can include any module here e.g., `ballerina.io` etc.
+    moduleName: ".",
     functionName: "intAdd"
 }
 // The mock function's signature should match with the actual function's signature.
