@@ -11,10 +11,10 @@ The quick tour includes:
 - Hello World with Ballerina
 - Hello World Client
 - Run the Composer
-- Create a New Package
+- Create a New Module
 - Create a Calculator Service
 - Create a Client for Calculator Service
-- Push your Package to Ballerina Central
+- Push your Module to Ballerina Central
 - Follow the Repo
 
 <ol>
@@ -204,10 +204,10 @@ To start the Composer:
 2. In the Composer, click **File** and choose **Open Project**.
 3. Navigate to your folder where you ran `ballerina init` to create your first service and open it to view the project in the Composer.
 
-## Create a New Package
+## Create a New Module
 
 1. On the explorer pane, right click on the folder name that you opened as your project, and click on **New Folder**.
-2. Name the folder **calculator**. This means that you are going to implement a Ballerina package named calculator.
+2. Name the folder **calculator**. This means that you are going to implement a Ballerina module named calculator.
 3. Right click on the **calculator** folder and click on **New File**.
 4. Name the new file **lib.bal**.
 5. Double click on the **lib.bal** file to open the file. We will have the implementation of the calculator functions of add, subtract, multiply and divide in this lib.bal file.
@@ -292,7 +292,7 @@ function main(string... args) {
   
 <code> ballerina run calculator </code>
 
-This will run the calculator package’s main program interactively until you choose to quit with 5 as input.</li>
+This will run the calculator module’s main program interactively until you choose to quit with 5 as input.</li>
 <li>Enter 1 as input, then enter two numbers to add and see the result. You may also test the subtract option.</li>
 <li>Quit the main program by entering 5 as input.</li>
 </ol>
@@ -375,8 +375,8 @@ service<http:Service> Calculator bind listener {
 <li>Run the service on the command line using the following command:
   
 <code> ballerina run calculator </code>
-Inside the calculator package, you now have both a main program that you previously wrote and the service that you just wrote.
-When Ballerina is run for the calculator package, the main program is run, and the service is started.</li>
+Inside the calculator module, you now have both a main program that you previously wrote and the service that you just wrote.
+When Ballerina is run for the calculator module, the main program is run, and the service is started.</li>
 <li>Open a new command line to invoke the service using an HTTP client program such as cURL.</li>
 <li>Invoke the service using an HTTP client.
 <code> curl -v -X POST -d '{"firstNumber": 10, "secondNumber":  200, "operation": "add"}' "http://localhost:9090/calculator/operation" -H "Content-Type:application/json" </code>
@@ -385,13 +385,13 @@ When Ballerina is run for the calculator package, the main program is run, and t
 
 ## Create a Client for Calculator Service
 
-1. Right click on the package folder, that is the root folder that contains the **calculator** folder and click on **New File**.
+1. Right click on the module folder, that is the root folder that contains the **calculator** folder and click on **New File**.
 2. Name the new file **client.bal**.
 3. Double click on the **client.bal** file.
 We will have the implementation a REST client to invoke calculator service in this file.
 The client sends a JSON request that provides the input to calculate on and the operation (in this case, we execute the add operation) to execute to calculator service, receives the result and prints that.
 4. Copy the following code and paste it into the **client.bal** file and save it.
-5. Before going ahead, delete **main.bal** from the package folder if it still exists.
+5. Before going ahead, delete **main.bal** from the module folder if it still exists.
 
 ``` ballerina
 import ballerina/http;
@@ -444,18 +444,18 @@ This will invoke the service, and print the result
 </li>
 </ol>
 
-## Push your Package to Ballerina Central
+## Push your Module to Ballerina Central
 
 Visit [https://central.ballerina.io/](https://central.ballerina.io/) and sign up. You can click **Sign Up** action on the top right corner of the website and use an existing Google account or a GitHub account of yours to sign up.
 
 Once you sign up, you will be asked to create an organization for you on [https://central.ballerina.io/create-organization](https://central.ballerina.io/create-organization). You may use your name or another name of your choice as the organization name.
 
-Once you create an organization, you will be taken to your dashboard [https://central.ballerina.io/dashboard](https://central.ballerina.io/dashboard). There you can find your Ballerina token to access the Ballerina Central site from your computer to push packages. The `ballerina push` command uploads your package into Ballerina Central so that you can share your package with other developers.
+Once you create an organization, you will be taken to your dashboard [https://central.ballerina.io/dashboard](https://central.ballerina.io/dashboard). There you can find your Ballerina token to access the Ballerina Central site from your computer to push modules. The `ballerina push` command uploads your module into Ballerina Central so that you can share your module with other developers.
 
 For the `ballerina push` command to work, you need to copy and paste your Ballerina Central access token into `Settings.toml` in your home repository `<USER_HOME>/.ballerina/`. To do this, click on the copy button in front of the text box displaying the token on your Ballerina Central dashboard. Then go to your user home on a command line and go into the .ballerina folder and paste the token you copied into a file with the name Settings.toml. Since you are a new user, there would not be such file in there already, so you will have to create on in there.
 
-When you push a package to Ballerina Central, the runtime validates organization name you have on Ballerina Cantal for the user against the `org-name` defined in your project’s `Ballerina.toml` file. You need to add organization name into this file.
-To do this, go to the folder where you created your calculator package. Then create a file with the name Ballerina.toml and add in there the following. Note that this file in not within the calculator folder, but rather outside that at the same level of calculator folder (which is also referred to as Ballerina project home) You may also use the composer to create a new file, name that Ballerina.toml and add the following content using composer.
+When you push a module to Ballerina Central, the runtime validates organization name you have on Ballerina Cantal for the user against the `org-name` defined in your project’s `Ballerina.toml` file. You need to add organization name into this file.
+To do this, go to the folder where you created your calculator module. Then create a file with the name Ballerina.toml and add in there the following. Note that this file in not within the calculator folder, but rather outside that at the same level of calculator folder (which is also referred to as Ballerina project home) You may also use the composer to create a new file, name that Ballerina.toml and add the following content using composer.
 
 ```
 [project]
@@ -463,10 +463,12 @@ org-name = "sami"
 version = "0.1.0"
 ```
 
-You also need to have a Package.md file inside your package that describes the package before you push the package into Ballerina Central.
-You can either create this on command line or using composer, right click on calculator folder select New File and name that to Package.md. Add some meaningful content to help document the package in this file.
+You also need to have a Module.md file inside your module that describes the module before you push the module into Ballerina Central.
+
+You can either create this on command line or using composer, right click on calculator folder select New File and name that to Module.md. Add some meaningful content to help document the module in this file.
+
 For example
-Example calculator package.
+Example calculator module.
 
 ```
 Contains basic arithmetic operations
@@ -476,18 +478,18 @@ sample REST service with JSON input/output to
 invoke calculator as a service
 ```
 
-Now you can push the package to Ballerina Central. The push command will do a build of the package before pushing the package to Ballerina Central.
+Now you can push the module to Ballerina Central. The `push` command will do a build of the module before pushing the module to Ballerina Central.
 
 ``` ballerina push calculator ```
 
-You will get a confirmation message similar to
+You will get a confirmation message similar to the following.
 
 ``` <org-name>/calculator:0.1.0 [project repo -> central] ```
 
-Now you can go to your dashboard on Ballerina Central and view the package
-[https://central.ballerina.io/manage-organization#packages](https://central.ballerina.io/manage-organization#packages)
+Now you can go to your dashboard on Ballerina Central and view the module
+[https://central.ballerina.io/manage-organization#modules](https://central.ballerina.io/manage-organization#modules)
 
-You may also go to the package landing page directly to view the package details. Make sure to replace <org-name> with your organization name in the following URL
+You may also go to the module landing page directly to view the module details. Make sure to replace <org-name> with your organization name in the following URL
 [https://central.ballerina.io/<org-name>/calculator](https://central.ballerina.io/<org-name>/calculator)
 
 ## Follow the Repo
