@@ -11,7 +11,7 @@ Ballerina is a compiled, transactional, statically and strongly typed programmin
 
 Ballerina’s concurrency model is built on the sequence diagram metaphor and offers simple constructs for writing concurrent programs. Its type system is a modern type system designed with sufficient power to describe data that occurs in distributed applications. It also includes a distributed security architecture to make it easier to write applications that are secure by design.
 
-Ballerina is designed for modern development practices with a modularity architecture based on packages that are easily shared widely. Version management, dependency management, testing, documentation, building and sharing are part of the language design architecture and not left for later add-on tools.
+Ballerina is designed for modern development practices with a modularity architecture based on modules that are easily shared widely. Version management, dependency management, testing, documentation, building and sharing are part of the language design architecture and not left for later add-on tools.
 
 The Ballerina standard library is in two parts: the usual standard library level functionality (akin to libc) and a standard library of network protocols, interface standards, data formats, authentication/authorization standards that make writing secure, resilient distributed applications significantly easier than with other languages.
 
@@ -25,7 +25,7 @@ Through 2017 and the first part of 2018, the language was redesigned based upon 
 
 The current revision of Ballerina is pre-1.0. However, stability is happening quickly, and the .970.0 version is a candidate for 1.0 language-lock. We anticipate that the language changes leading up to the 1.0 release will be increasingly minor moving forward.
 
-The Ballerina project is currently working towards Ballerina 1, which includes a language specification, a virtual machine, standard libraries, build management, centralized package management at [central.ballerina.io](central.ballerina.io), unit test framework, and observability extension.
+The Ballerina project is currently working towards Ballerina 1, which includes a language specification, a virtual machine, standard libraries, build management, centralized module management at [central.ballerina.io](central.ballerina.io), unit test framework, and observability extension.
 
 Ballerina is currently community supported on Stack Overflow, and WSO2 is working towards offering commercial support in 2018.
 
@@ -90,7 +90,7 @@ Even if your proposal is compatible with Ballerina 1 specification, it might not
 
 ### What is the roadmap for Ballerina?
 
-The roadmap is driven by separate teams working on aspects of the language and platform. The key themes that are driving development teams are 1.0 language lock, commercial supportability, runtime and platform enhancements, and developer / integration tooling that includes Central, ballerinax/* packages, Ballerina API gateway, Ballerina message broker, Ballerina transaction coordinator, and workflow. 
+The roadmap is driven by separate teams working on aspects of the language and platform. The key themes that are driving development teams are 1.0 language lock, commercial supportability, runtime and platform enhancements, and developer / integration tooling that includes Central, ballerinax/* modules, Ballerina API gateway, Ballerina message broker, Ballerina transaction coordinator, and workflow. 
 
 1. The language
 * Language lock, stability
@@ -109,10 +109,10 @@ The roadmap is driven by separate teams working on aspects of the language and p
 * Enhance the seamless operation of cross platform behavior 
 * Expand the list of supported database management systems 
 
-4. Extension / ecosystem improvements, such as central, registry, packages, customization
+4. Extension / ecosystem improvements, such as Ballerina Central, registry, modules, customization
 * Private version of Ballerina registry, powering Ballerina Central
-* Ability to write compiler extensions packaged with Ballerina packages
-* Ability to push compiled Ballerina programs into a registry (not just packages)
+* Ability to write compiler extensions packaged with Ballerina modules
+* Ability to push compiled Ballerina programs into a registry (not just modules)
 
 5. Integration related things around API gateway, message broker, transaction coordinator
 * Persistent and stateful services, ie "workflow"
@@ -131,7 +131,7 @@ The roadmap is driven by separate teams working on aspects of the language and p
 
 Yes!
 
-There are several Ballerina programs deployed in production inside WSO2. A public example is the server behind central.ballerina.io. It’s package management interfaces were built as Ballerina services and then deployed as containers on Google’s Kubernetes engine.
+There are several Ballerina programs deployed in production inside WSO2. A public example is the server behind central.ballerina.io. Its module management interfaces were built as Ballerina services and then deployed as containers on Google’s Kubernetes engine.
 
 Other examples include the WSO2 Update Manager, which WSO2 customers use to access WSO2 software and  WSO2’s API Manager gateway component.
 
@@ -146,12 +146,12 @@ The best place to see the latest set of connectors is browsing Ballerina Central
 
 You can also write your own Ballerina connectors, maintain them locally, or push them into Ballerina Central.
 
-The Ballerina team and WSO2 are publishing a series of additional packages around Twitter, Gmail, Github, Salesforce.com, and others. You can browse the packages that WSO2 is publishing by viewing the [http://github.com/wso2-ballerina](http://github.com/wso2-ballerina) organization. Each repository is an additional package we are shipping.
+The Ballerina team and WSO2 are publishing a series of additional modules around Twitter, Gmail, Github, Salesforce.com, and others. You can browse the modules that WSO2 is publishing by viewing the [http://github.com/wso2-ballerina](http://github.com/wso2-ballerina) organization. Each repository is an additional module we are shipping.
 
-### Are there any restrictions for third parties in publishing packages to Ballerina Central?
-Ballerina Central is open for anyone to push packages that contain annotations, builder extensions, functions, and connectors. We have a terms of service similar to what NPM or DockerHub has on their site. You should review the TOS to understand which type of content is accessible. Package authors retain a number of rights related to their packages and can choose any license for their software.
+### Are there any restrictions for third parties in publishing modules to Ballerina Central?
+Ballerina Central is open for anyone to push modules that contain annotations, builder extensions, functions, and connectors. We have a terms of service similar to what NPM or DockerHub has on their site. You should review the TOS to understand which type of content is accessible. Module authors retain a number of rights related to their modules and can choose any license for their software.
 
-### Is there a way to run a private registry for Ballerina packages?
+### Is there a way to run a private registry for Ballerina modules?
 Ballerina Central is implemented as a hosted registry service. WSO2 is offering an option to host private registries that are optionally mirrored to Ballerina Central.
 
 ### How can I decouple and manage deployment environment details outside the implementation?
@@ -170,7 +170,7 @@ For details, see the [How to Secure Ballerina Programs](/learn/how-to-write-secu
 
 ### What build tools should be used for large projects with Ballerina?
 
-Ballerina ships with its own build system and package management.
+Ballerina ships with its own build system and module management.
 
 ### What are the recommendations on Continuous Integration / Continuous Delivery and Application Lifecycle Management for Ballerina? How do you track requirements to test results traceability with Ballerina? What DevOps tools are available for Ballerina?
 
@@ -178,7 +178,7 @@ Development teams should continue to use their favorite or existing lifecycle so
 
 ### What are the best practices for versioning Ballerina based applications?
 
-We require Ballerina packages to follow [semver](http://semver.org) semantics. If you are creating a shared package that is pushed into a Ballerina registry, like [Ballerina Central](http://central.ballerina.io), every push requires a versioning increment. We do not allow updates to an existing version as this creates confusion and difficulties with downstream adopters.
+We require Ballerina modules to follow [semver](http://semver.org) semantics. If you are creating a shared module that is pushed into a Ballerina registry, like [Ballerina Central](http://central.ballerina.io), every push requires a versioning increment. We do not allow updates to an existing version as this creates confusion and difficulties with downstream adopters.
 
 ### What are the guidelines for application governance with Ballerina?
 
@@ -246,7 +246,7 @@ Ballerina is based on type equivalence, rather than type inheritance. The type s
 
 This is for simplicity purposes.
 
-In Ballerina, functions can be defined with required parameters, defaultable parameters, and optional rest parameters. Ballerina supports calling defaultable parameters in any order by passing explicit `name=value` on invocation, and this approach cannot be combined with parameter overloading. We felt that this model offered package designers and developers more flexibility than overloading.
+In Ballerina, functions can be defined with required parameters, defaultable parameters, and optional rest parameters. Ballerina supports calling defaultable parameters in any order by passing explicit `name=value` on invocation, and this approach cannot be combined with parameter overloading. We felt that this model offered module designers and developers more flexibility than overloading.
 
 Ballerina also supports the use of function name as a function pointer. This makes it easy to understand code because there is a single function corresponding to a given function name and is more powerful than the use of function overloading.
 
@@ -281,10 +281,10 @@ A worker is not bound exclusively to a single operating system thread, but rathe
 This behavior gives a more natural programming environment for the developer, so she does not have to explicitly consider non-blocking I/O handling semantics. Also, this style of physical thread allocation is efficient and lowers the number of context switches optimizing CPU allocations.
 
 ### Would you provide NLP, ML toolkits around Ballerina?
-We do not have any plans. The community can add their own packages through Ballerina Central, and we will work hard to delegate frameworks and projects to the community.
+We do not have any plans. The community can add their own modules through Ballerina Central, and we will work hard to delegate frameworks and projects to the community.
 
 ### Which enterprise patterns and microservices patterns does Ballerina support?
 Ballerina is a language that can be used to implement any pattern. We provide examples of patterns with [Ballerina By Guide](/learn/by-guide/) related to doing lifecycle integration development. Many enterprise patterns are demonstrated with [Ballerina by Example](/learn/by-example/).
 
 ### What is your support for Docker and Kubernetes? What is the plan for supporting other infrastructure environments like CloudFoundry and Mesosphere?
-We provide annotations that activate builder extensions which can generate Dockerfiles, Docker images, and Kubernetes manifests. This makes it simple to target a service for deployment in a cloud-native environment. These annotations and extensions are provided within packages. Packages are a shareable unit and we will work with the ecosystem creates and pushes packages to support other enviornments with custom annotations.
+We provide annotations that activate builder extensions which can generate Dockerfiles, Docker images, and Kubernetes manifests. This makes it simple to target a service for deployment in a cloud-native environment. These annotations and extensions are provided within modules. Modules are a shareable unit and we will work with the ecosystem creates and pushes modules to support other enviornments with custom annotations.
