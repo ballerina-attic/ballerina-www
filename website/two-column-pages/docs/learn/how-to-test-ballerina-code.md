@@ -53,7 +53,6 @@ In a standard Ballerina project, a module is mapped to a test suite. Unit and in
     [resources/]     
       *.jar            # Optional, if module includes native Java libraries to link + embed 
 
-  [tests/]             # Tests executed for every module in the project
   [resources/]         # Resources included with every module in the project
 
   target/              # Compiled binaries and other artifacts end up here
