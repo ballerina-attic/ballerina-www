@@ -27,8 +27,6 @@ For structured projects, it is recommended to use a structured test model that i
 
 In a standard Ballerina project, a module is mapped to a test suite. Unit and integration tests bound to a module need to be placed in a subfolder called `tests/` within the module. All tests within a module’s `tests/` subfolder are considered to be part of the same test suite.
 
-Integration tests that are used to test the sources of combination of modules of a project needs to be placed at the project root level folder called `tests/`.
-
 ### Project Structure
 ```
 /
