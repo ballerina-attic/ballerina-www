@@ -107,7 +107,6 @@ A typical project structure of a Ballerina project is like this:
       *.jar            # Optional, if module includes native Java libraries to 
                        # link + embed 
 
-  [tests/]             # Tests executed for every module in the project
   [resources/]         # Resources included with every module in the project
 
   target/              # Compiled binaries and other artifacts end up here
