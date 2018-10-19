@@ -9,9 +9,9 @@ A Ballerina application can either be:
 
 Both of these are considered "entrypoints" for program execution. 
 
-These applications can be structured into a single program file or a Ballerina package. A collection of packages or source files can be managed together with versioning and dependency management as part of a Ballerina project. 
+These applications can be structured into a single program file or a Ballerina module. A collection of modules or source files can be managed together with versioning and dependency management as part of a Ballerina project. 
 
-Source files and packages can contain zero or more entrypoints, and the runtime engine has precedence and sequence rules for choosing which entrypoint to execute.
+Source files and modules can contain zero or more entrypoints, and the runtime engine has precedence and sequence rules for choosing which entrypoint to execute.
 
 ### Running Standalone Source Code
 A single Ballerina source code file can be placed into any folder. 
@@ -34,32 +34,32 @@ $ ballerina run filename.balx
 ```
 
 ### Running a Project
-A project is a folder that manages source files and packages as part of a common versioning, dependency management, build, and execution. You can build and run items collectively or individually as packages. See [How To Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) for in-depth structuring of projects.
+A project is a folder that manages source files and modules as part of a common versioning, dependency management, build, and execution. You can build and run items collectively or individually as modules. See [How To Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) for in-depth structuring of projects.
 
-Build all source files and packages of a project:
+Build all source files and modules of a project:
 ```bash    
 $ ballerina build
 ```
 
-Build a single package in a project:
+Build a single modules in a project:
 ```bash
-$ ballerina build <package-name>
+$ ballerina build <module-name>
 ```
 
 Options for running programs with entrypoints in a project:  
 ```bash
 $ ballerina run main.balx  
 $ ballerina run target/main.balx
-$ ballerina run [--sourceroot <path>] <package>
+$ ballerina run [--sourceroot <path>] <module>
 ```
 
-The `<package>` is the package name, which is the same as the name of the directory that holds the source files. 
+The `<module>` is the module name, which is the same as the name of the directory that holds the source files. 
 
 ## Configuring Your Ballerina Runtimes
 
 ### Ballerina Runtime Configuration Files
 
-A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure. The `ballerina/config` package provides an API for sourcing configuration parameters and using them within your source code. See [Config API Documentation](/learn/api-docs/ballerina/config/) for details.
+A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure. The `ballerina/config` module provides an API for sourcing configuration parameters and using them within your source code. See [Config API Documentation](/learn/api-docs/ballerina/config/) for details.
 
 The configuration APIs accept a key and an optional default value. If a mapping does not exist for the specified key, the default value is returned as the configuration value. The default values of these optional configurations are the default values of the return types of the functions.
 
@@ -197,7 +197,7 @@ It is possible for third parties and the ecosystem to create their own annotatio
 ### How to Enable Deployment
 A developer enables deployment artifact generation by adding annotations to their Ballerina code: 
 
-1.  Import the relevant extension package in the code.
+1.  Import the relevant extension module in the code.
 2.  Add relevant annotations within the code. 
 3.  Build the Ballerina project.
 
