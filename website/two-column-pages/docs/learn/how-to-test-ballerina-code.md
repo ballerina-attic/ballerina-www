@@ -74,7 +74,7 @@ ballerina test <balfile>
 Execute tests within the specified module with the following command.
 
 ```
-ballerina test <modulename> 
+ballerina test <module_name> 
 ```
 
 Execute tests in the entire project, using the `test` command without any parameters. 
