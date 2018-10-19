@@ -71,8 +71,8 @@ $ code <folder_path>\hello_service.bal
 You can view your service in VS Code.
 
 ```ballerina
-// A system package containing protocol access constructs
-// Package objects referenced with 'http:' in code
+// A system module containing protocol access constructs
+// Module objects referenced with 'http:' in code
 import ballerina/http;
 
 # A service endpoint represents a listener.
@@ -145,27 +145,27 @@ $ curl http://localhost:9090 -X POST
 
 Ballerina client endpoint is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. An endpoint can be used to configure parameters related to the network accessible service.
 
-Ballerina Central stores numerous packages that that can be used with your service. You can search for them using the `ballerina search` command. Use the following command to search for packages where the package name, description, or org name contain the word "twitter".
+Ballerina Central stores numerous modules that that can be used with your service. You can search for them using the `ballerina search` command. Use the following command to search for modules where the module name, description, or org name contains the word "twitter".
 
 ```
 $ ballerina search twitter
 ```
 
-This results in a list of available packages. You can pull the one you want from Ballerina Central.
+This results in a list of available modules. You can pull the one you want from Ballerina Central.
 
 ```
 $ ballerina pull wso2/twitter
 ```
 
-You can use the `wso2/twitter` package to integrate with a Twitter endpoint.
+You can use the `wso2/twitter` module to integrate with a Twitter endpoint.
 
-In your `hello_service.bal` file, import the Twitter package.
+In your `hello_service.bal` file, import the Twitter module.
 
 ```ballerina
 import wso2/twitter;
 ```
 
-> **Note**: You can import the package and use it without using `ballerina pull`. `ballerina pull` ensures code completion.
+> **Note**: You can import the module and use it without using `ballerina pull`. `ballerina pull` ensures code completion.
 
 You can now use Ballerina to integrate with Twitter.
 
@@ -197,7 +197,7 @@ Now you can program Ballerina to send a tweet.
 
 ### Program Ballerina to Send a Tweet
 
-In your `hello_service.bal` file, import the `ballerina/config` package.
+In your `hello_service.bal` file, import the `ballerina/config` module.
 
 ```ballerina
 import ballerina/config;
@@ -293,7 +293,7 @@ Now that you have verified your service, let's go ahead and deploy this on Docke
 
 > **Tip**: This was tested on the community edition version of Docker Edge. You need to have Docker installed to use this. Also start/restart Docker prior to running your code. Windows users should enable **[Expose Daemon without TLS](https://github.com/ballerinax/docker/tree/master/samples#prerequisites)** option.
 
-Import the Docker package.
+Import the Docker module.
 
 ```ballerina
 import ballerinax/docker;
@@ -384,17 +384,17 @@ $ curl -d "Hello Ballerina" -X POST localhost:9090
 
 You have now posted a tweet using the Docker hosted service.
 
-## Push your Package to Ballerina Central
+## Push your Module to Ballerina Central
 
 For the `ballerina push` command to work, you need to copy and paste your Ballerina Central access token in `Settings.toml` in your home repository `<USER_HOME>/.ballerina/`.
 
 Register on Ballerina Central and visit the user dashboard at [https://central.ballerina.io/dashboard](https://central.ballerina.io/dashboard) to gain access to your user token.  
 
-When you push a package to Ballerina Central, the runtime validates organizations for the user against the `org-name` defined in your package’s `Ballerina.toml` file.
+When you push a module to Ballerina Central, the runtime validates organizations for the user against the `org-name` defined in your module’s `Ballerina.toml` file.
 
-Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the package into and set that as the `org-name` in `Ballerina.toml` inside the project directory.
+Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the module into and set that as the `org-name` in `Ballerina.toml` inside the project directory.
 
-You need to build the package prior to pushing the package to Ballerina Central. The `ballerina` build command compiles and creates an executable binary file (i.e., a .balx file).
+You need to build the module prior to pushing the module to Ballerina Central. The `ballerina` build command compiles and creates an executable binary file (i.e., a .balx file).
 
 For more information on the `ballerina build` command run the following.
 
@@ -404,21 +404,21 @@ $ ballerina help build
 
 > **Tip**: You can use `ballerina help <command-name>` for more information on any of the commands.
 
-By default, the output filename for a package is the package name suffixed with `.balx`. The default output replaces the `.bal` suffix with `.balx`.
+By default, the output filename for a module is the module name suffixed with `.balx`. The default output replaces the `.bal` suffix with `.balx`.
 
-Build your package.
-
-```bash
-$ ballerina build <package-name>
-```
-
-Once that is done, push your package to Ballerina Central.
+Build your module.
 
 ```bash
-$ ballerina push <package-name>
+$ ballerina build <module-name>
 ```
 
-For example, if you have a Ballerina package named `math`, the following command will push it to Ballerina Central.
+Once that is done, push your module to Ballerina Central.
+
+```bash
+$ ballerina push <module-name>
+```
+
+For example, if you have a Ballerina module named `math`, the following command will push it to Ballerina Central.
 
 ```bash
 $ ballerina push math
@@ -466,4 +466,4 @@ Star [GitHub repo](https://github.com/ballerina-platform/ballerina-lang)  and sh
 Now that you have taken Ballerina around for a quick twirl, you can explore Ballerina more.
 
 * Go through [Ballerina by Example](/learn/by-example/) to learn Ballerina incrementally with commented examples that cover every nuance of the syntax.
-* See [Ballerina by Guide](/learn/by-guide/) for long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
+* See [Ballerina by Guide](/learn/by-guide/) for long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, modules, dependencies, coding, unit testing, deployment, and observability.
