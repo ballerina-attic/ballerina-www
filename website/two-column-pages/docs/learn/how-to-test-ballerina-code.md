@@ -33,7 +33,6 @@ Integration tests that are used to test the sources of combination of modules of
 ```
 /
   .gitignore
-  Ballerina-lock.toml  # Generated during build, used to rebuild identical binary
   Ballerina.toml       # Configuration that defines project intent
   .ballerina/          # Internal cache management and contains project repository
                        # Project repository is built or downloaded module dependencies
