@@ -14,9 +14,8 @@ Setting up the development environment
 
 ### Building
 
-1. `git clone https://github.com/ballerina-platform/ballerina-www.git`
-2. `git submodule update --init --recursive`
-3. `mvn clean install`
+1. `git clone --recurse-submodules https://github.com/ballerina-platform/ballerina-www.git`
+2. `mvn clean install`
 
 ### Running
 
