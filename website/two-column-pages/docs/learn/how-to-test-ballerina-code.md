@@ -534,10 +534,10 @@ The function specified following the annotation will be a mock function that get
 
 ###### Parameters:
 
-`moduleName: “<module name>”`: Name of the module where the function to be mocked resides in. 
+`moduleName: “<module_name>”`: Name of the module where the function to be mocked resides in. 
 Default: “.” (No Module)
 
-`functionName: “<function name>”`: Name of the function to be mocked. 
+`functionName: “<function_name>”`: Name of the function to be mocked. 
 Default: none
 
 The following is an example for function mocking.
