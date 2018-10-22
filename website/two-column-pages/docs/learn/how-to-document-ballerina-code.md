@@ -108,6 +108,7 @@ A typical project structure of a Ballerina project is like this:
       main.balx
       module1.balo
       modules.can.include.dots.in.dir.name.bal
+      Ballerina.lock # Generated during build, used to rebuild identical binary
 ```
 
 `ballerina doc` command will read the `Module.md` and append it in the generated HTML file.
