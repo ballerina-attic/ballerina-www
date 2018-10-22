@@ -19,7 +19,7 @@ import (
 
 var cacheDir = filepath.FromSlash("/tmp/gobyexample-cache")
 var pygmentizeBin = filepath.FromSlash("tools/ballerinaByExample/vendor/pygments/pygmentize")
-var githubBallerinaByExampleBaseURL = "https://github.com/ballerina-platform/ballerina-examples/tree/master"
+var githubBallerinaByExampleBaseURL = "https://github.com/ballerina-lang/ballerina/tree/master"
 var examplesDir = os.Args[1];
 var siteDir = os.Args[2];
 var dirPathWordSeparator = "-"

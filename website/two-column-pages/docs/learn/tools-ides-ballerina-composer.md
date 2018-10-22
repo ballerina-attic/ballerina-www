@@ -30,7 +30,7 @@ As you develop new connectors, actions, and functions that you want to share wit
 When you write your code in Ballerina Composer, the syntax is checked for you as you write it, and you can use the Debug button to step through your program. You can also manually test a Ballerina file using the following command:
 
 ```
-./ballerina test <package_name>
+./ballerina test <module_name>
 ```
 
 Ballerina provides a testing framework called **Testerina** that you can use for your programs. You can check it out [here](https://github.com/ballerina-platform/ballerina-lang/tree/master/misc/testerina). 

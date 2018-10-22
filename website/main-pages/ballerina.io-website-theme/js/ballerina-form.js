@@ -154,8 +154,9 @@ $(document).ready(function() {
              phone: "required",
              job_title: "required",
              company: "required",
-             programmer:"required",
-             language:"required"
+             country:"required"
+             //programmer:"required",
+             //language:"required"
         },
         messages: {
             first_name: "Please enter your first name",
@@ -167,8 +168,9 @@ $(document).ready(function() {
              phone: "Please enter your contact number",
              job_title: "Please enter your job title",
              company: "Please enter your company name",
-             programmer: "You need to be a programmer to signup for this event",
-             language: "Please enter languages you are using",
+             country: "Please enter your country name"
+             //programmer: "You need to be a programmer to signup for this event",
+             //language: "Please enter languages you are using",
         },
         highlight: function(element) {
             $(element).addClass('form-error');
@@ -179,7 +181,7 @@ $(document).ready(function() {
 
         },
         submitHandler: function(form) {
-            $(".ballerinaday_submit").attr("disabled", true);
+            $("#ballerinaday_submit").attr("disabled", true).val("Processing...");
 
             var first_name = $(".contact_first_name").val();
             var last_name = $(".contact_last_name").val();
@@ -187,20 +189,20 @@ $(document).ready(function() {
             var phone = $(".contact_phone").val();
             var job_title = $(".job_title").val();
             var company = $(".company").val();
-            var country = $(".country").val();
-            var programmer = $(".programmer").val();
-            var languages = $(".language").val();
-            var languages = languages.replace("&", " and ");
+            var country = $(".contact_country").val();
+            //var programmer = $(".programmer").val();
+            //var languages = $(".language").val();
+            //var languages = languages.replace("&", " and ");
 
-            var params = "https://go.pardot.com/l/142131/2018-07-23/57mgq4?first_name=" + encodeURI(first_name) + "&last_name=" + encodeURI(last_name) +
+            var params = "https://go.pardot.com/l/142131/2018-09-28/5kf3jd?first_name=" + encodeURI(first_name) + "&last_name=" + encodeURI(last_name) +
             "&email=" + encodeURI(email) + "&phone=" + encodeURI(phone) + "&job_title=" + encodeURI(job_title) +
-            "&company=" + encodeURI(company) + "&country=" + encodeURI(country)+ "&programmer=" + encodeURI(programmer)+ "&languages=" + encodeURI(languages);
+            "&company=" + encodeURI(company) + "&country=" + encodeURI(country);
 
             $.post("/scripts/formSubmit.php", {
                     url: params
                 },
                 function(response, status) {
-                    $(".cRegForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>Thank you for submiting your details. <br><br>Due to an overwhelming number of registrants, we have reached our seating capacity for both 11 and 12 August. However, we aim to hold similar events for Ballerina in the future, and we have added your details to our database. <br><br>We will inform you on future events soon.</span>');
+                    $(".cRegForm").html('<img class="cCloseButton" data-dismiss="modal" src="/img/close.svg"/><span>You have successfully registered for Ballerina Day London 2018. <br>Please check your inbox to view the confirmation email.</span>');
                 });
 
             return false;

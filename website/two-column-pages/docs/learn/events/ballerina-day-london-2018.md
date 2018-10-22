@@ -27,6 +27,7 @@ Ballerina makes it easy to write cloud native applications while maintaining rel
 
 Ballerina takes center stage at Ballerina Day to showcase how we make integration simple and agile. Featuring sessions on leveraging the cloud native programming language for building microservices in highly disaggregated architectures, stakeholders, contributors, and platform designers will present Ballerina’s core features and discuss support for your favorite orchestrators.
 
+Registration is free, but do sign up quickly as seating is limited!
 
 ## Agenda
 

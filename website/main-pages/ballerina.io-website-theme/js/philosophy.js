@@ -19,8 +19,7 @@ $(document).ready(function() {
         "Data and Streams": [
             { "name": "Database Interaction", "desc": "Service that performs CRUD operations with a SQL database", "url": "data-backed-service", "git": "" },
             { "name": "Database Transactions", "desc": "Transaction blocks using Ballerina", "url": "managing-database-transactions", "git": "" },
-            { "name": "Streams Processing", "desc": "Consuming and publishing a stateful data stream", "url": "stream-processing", "git": "" },
-            { "name": "Messaging with Ballerina", "desc": "Ballerina services that communicate through Ballerina Message Broker/Reliable and persistent delivery", "url": "messaging-with-ballerina", "git": "" }
+            { "name": "Streams Processing", "desc": "Consuming and publishing a stateful data stream", "url": "stream-processing", "git": "" }
         ],
         "Resiliency": [
             { "name": "Endpoint Resiliency", "desc": "Calling endpoints with retries and timeouts", "url": "resiliency-timeouts", "git": "" },
@@ -32,7 +31,11 @@ $(document).ready(function() {
             { "name": "Passthrough Messaging", "desc": "Passthrough messaging", "url": "pass-through-messaging", "git": "" },
             { "name": "Content-based Routing", "desc": "Content-based Routing", "url": "content-based-routing", "git": "" },
             { "name": "Message Filtering", "desc": "Message filtering", "url": "message-filtering", "git": "" },
-            { "name": "Scatter-Gather Messaging", "desc": "Scatter gather messaging", "url": "scatter-gather-messaging", "git": "" }
+            { "name": "Scatter-Gather Messaging", "desc": "Scatter gather messaging", "url": "scatter-gather-messaging", "git": "" },
+            { "name": "Message Construction Patterns", "desc": "Message Construction Patterns", "url": "eip-message-construction ", "git": "" },
+            { "name": "Messaging with ActiveMQ", "desc": "Messaging with ActiveMQ", "url": "messaging-with-activemq", "git": "" },
+            { "name": "Backend for Frontend", "desc": "Backend for Frontend", "url": "backend-for-frontend", "git": "" },
+            { "name": "EIP-Message-Transformation", "desc": "EIP-Message-Transformation", "url": "eip-message-transformation", "git": "" },
         ],
         "Integrating Ballerina With Other Technologies": [
             { "name": "Running with Istio ", "desc": "", "url": "ballerina-with-istio", "git": "" },

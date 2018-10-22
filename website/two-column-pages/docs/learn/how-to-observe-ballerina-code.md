@@ -417,7 +417,7 @@ properly. The below shown is the sample Zipkin dashboard for the hello world sam
 ![Zipkin Sample](images/zipkin-sample.png "Zipkin Sample")
 
 ## Distributed Logging
-Ballerina distributed logging and analysis is supported by Elastic Stack. Ballerina has a log package for logging in to 
+Ballerina distributed logging and analysis is supported by Elastic Stack. Ballerina has a log module for logging in to 
 the console. In order to monitor the logs, the Ballerina standard output needs to be redirected to a file.
 
 This can be done by running the Ballerina service as below.
@@ -482,7 +482,7 @@ input {
 }
 filter {
   grok  {
-    match => { "message" => "%{TIMESTAMP_ISO8601:date}%{SPACE}%{WORD:logLevel}%{SPACE}\[%{GREEDYDATA:package}\]%{SPACE}\-%{SPACE}%{GREEDYDATA:logMessage}"}
+    match => { "message" => "%{TIMESTAMP_ISO8601:date}%{SPACE}%{WORD:logLevel}%{SPACE}\[%{GREEDYDATA:module}\]%{SPACE}\-%{SPACE}%{GREEDYDATA:logMessage}"}
   }
 }
 output {
