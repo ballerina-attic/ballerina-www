@@ -99,11 +99,8 @@ A typical project structure of a Ballerina project is like this:
   modules.can.include.dots.in.dir.name/
     Module.md
     *.bal
-    *.jar
     [tests/]         
     [resources/]     
-      *.jar            # Optional, if module includes native Java libraries to 
-                       # link + embed 
 
   [resources/]         # Resources included with every module in the project
 
