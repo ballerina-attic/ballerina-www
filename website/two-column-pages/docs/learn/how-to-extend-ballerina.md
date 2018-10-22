@@ -1,18 +1,18 @@
 # How to Extend Ballerina
 
-Developers and third parties can extend the behavior of Ballerina and package the customizations for use by others. There are two ways to customize the behavior of Ballerina:
+Developers and third parties can extend the behavior of Ballerina and collate the customizations for use by others. There are two ways to customize the behavior of Ballerina:
 
-1. Package and distribute new client connectors to third party endpoints, such as databases, infrastructure and APIs.
+1. Collate and distribute new client connectors to third party endpoints, such as databases, infrastructure and APIs.
 
 2. Add new annotations to Ballerina source files so that the compiler can act to alter binaries and generate artifacts.
 
 ## Create Client Connectors
 
-A client connector is instantiated by developers when they create an `endpoint` object within their code. You can create your own connectors that are part of Ballerina packages that you push into a Ballerina registry, such as what is available at Ballerina Central.
+A client connector is instantiated by developers when they create an `endpoint` object within their code. You can create your own connectors that are part of Ballerina modules that you push into a Ballerina registry, such as what is available at Ballerina Central.
 
 To create a client connector, you:
 
-1. Create a Ballerina package in a Ballerina project.
+1. Create a Ballerina module in a Ballerina project.
 
 2. Create an object with an `init()` and `getCallerActions()` function.
 
@@ -20,7 +20,7 @@ To create a client connector, you:
 
 4. Implement the `getCallerActions()` function, which is called when the connection must be returned.
 
-5. Build the package and push it into a registry for usage by others.
+5. Build the module and push it into a registry for usage by others.
 
 ### The Twilio Connector
 
@@ -60,7 +60,7 @@ function main(string... args) {
 
 In this example, the endpoint is going to instantiate a `TwilioClient` object. This object takes an input parameter defined as a `clientConfig` object. The `clientConfig` object includes an `auth` object, which is part of the `http:Client` connector, which is distributed as part of the standard library.
 
-The Twilio connector then defines a custom function, `getAccountDetails()` which is called by the end user to interact with the endpoint. The package developer will also implement a `TwilioClient::init()` method, which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
+The Twilio connector then defines a custom function `getAccountDetails()`, which is called by the end user to interact with the endpoint. The module developer will also implement a `TwilioClient::init()` method, which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
 
 ### The TwilioClient Object
 
@@ -164,7 +164,7 @@ In our example, we added a `getAccountDetails()` function that can be invoked as
 Account account = check twilioClient->getAccountDetails();
 ```
 
-And within the package that includes your custom connector, we have these additional items that define the custom function:
+And within the module that includes your custom connector, we have these additional items that define the custom function:
 
 ```ballerina
 // Constants
@@ -195,9 +195,9 @@ public type Account record {
 
 ### Publish Your Connector
 
-You can publish your custom connector for others to use into a Ballerina registry, such as Ballerina Central. You will need to have your connector as part of a package, and built using Ballerina's project and build management tooling.
+You can publish your custom connector for others to use into a Ballerina registry, such as Ballerina Central. You will need to have your connector as part of a module, and built using Ballerina's project and build management tooling.
 
-Once you have built the package, you can `ballerina push <org-name>/<package-name>` and your package will be available at Ballerina Central for others to use. The `<org-name>` is defined in the `Ballerina.toml` that resides with the project and must match the organization name that is attached to your account at Ballerina Central. The `<package-name>` is defined by the folder that you placed the source code within the Ballerina project.
+Once you have built the module, you can `ballerina push <org-name>/<module-name>` and your module will be available at Ballerina Central for others to use. The `<org-name>` is defined in the `Ballerina.toml` that resides with the project and must match the organization name that is attached to your account at Ballerina Central. The `<module-name>` is defined by the folder that you placed the source code within the Ballerina project.
 
 You will need to have an account at Ballerina Central and your CLI token from central placed into your Ballerina settings. The `ballerina deploy` command will initiate an OAuth flow that automates this for you, even if you do not already have an existing account on Ballerina Central.
 
@@ -205,7 +205,7 @@ For more information on how to structure the code you write, see [How to Structu
 
 ### Learn More
 
-You can create connectors for a range of protocols and interfaces, including those endpoints, which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the packages built by the community:
+You can create connectors for a range of protocols and interfaces, including those endpoints, which are backed by proxies, firewalls, or special security parameters. You can also reuse existing connectors as part of your own endpoint implementation. The best way to learn about how to implement different kinds of connectors is to see the source for the connectors that ship as part of the standard library and with some of the modules built by the community:
 
 1. ballerina/http Client [source code](https://github.com/ballerina-platform/ballerina-lang/blob/master/stdlib/http/src/main/ballerina/http/client_endpoint.bal).
 
@@ -231,21 +231,21 @@ You can create connectors for a range of protocols and interfaces, including tho
 
 ## Create Custom Annotations & Builder Extensions
 
-Annotations decorate objects in Ballerina code. The Ballerina compiler parses annotations into an AST that can be read and acted upon. You can introduce custom annotations for use by others with Ballerina and package builder extensions that can act on those annotations. The builder can generate additional artifacts as part of the build process.
+Annotations decorate objects in Ballerina code. The Ballerina compiler parses annotations into an AST that can be read and acted upon. You can introduce custom annotations for use by others with Ballerina and module builder extensions that can act on those annotations. The builder can generate additional artifacts as part of the build process.
 
-Custom annotations are how the `ballerinax/docker` and `ballerinax/kubernetes` packages work. They introduce new annotations such as `@docker` and `@kubernetes` that can be attached to different parts of Ballerina code. The builder detects these annotations and then runs a post-compile process that generates deployment artifacts for direct deployment to those environments.
+Custom annotations are how the `ballerinax/docker` and `ballerinax/kubernetes` modules work. They introduce new annotations such as `@docker` and `@kubernetes` that can be attached to different parts of Ballerina code. The builder detects these annotations and then runs a post-compile process that generates deployment artifacts for direct deployment to those environments.
 
 ### Special Notes
 
 There are two caveats to building custom annotations:
 
-1. Currently, the Ballerina Compiler is implemented in Java and you will need JDK 1.8 and maven.
+1. Currently, the Ballerina Compiler is implemented in Java and you will need JDK 1.8 and Apache Maven.
 
-2. End users will need to manually install the extension into Ballerina. We will have a release mid-year that enables packaging these extensions as part of a Ballerina project, so that it's included in any package's pushed to central.
+2. End users will need to manually install the extension into Ballerina. We will have a release mid-year that enables collating these extensions as part of a Ballerina project, so that it's included in any modules pushed to central.
 
 ### Custom Annotation HelloWorld
 
-We will create a custom annotation `@hello:Greeting{}` with an attribute `salutation` that can be attached to a Ballerina service. The builder extension will read the annotation that is attached to a source file containing the text value and save it in another file. We'll ship this customization as a package that is pushed to Ballerina Central and available to end users by adding `import ballerinax/hello` to their source files.
+We will create a custom annotation `@hello:Greeting{}` with an attribute `salutation` that can be attached to a Ballerina service. The builder extension will read the annotation that is attached to a source file containing the text value and save it in another file. We'll ship this customization as a module that is pushed to Ballerina Central and available to end users by adding `import ballerinax/hello` to their source files.
 
 The end user might write some code that would look like:
 
@@ -298,7 +298,7 @@ Annotations can be attached to:
 * Transformer
 * Endpoint
 
-Ballerina has built-in a set of annotations such as @http:ServiceConfig, @http:ResourceConfig. These annotations are part of the standard library and shipped with each distribution of Ballerina. You can view the definitions of these annotations by browsing the package API reference.
+Ballerina has built-in a set of annotations such as @http:ServiceConfig, @http:ResourceConfig. These annotations are part of the standard library and shipped with each distribution of Ballerina. You can view the definitions of these annotations by browsing the module's API reference.
 
 A Ballerina "builder extension" is Java code that the build process will load and execute after the compilation phase. Builder extensions can act on any annotation information, whether those in the system library or custom annotations provided by you. Builder extensions that you write can register callbacks that act on annotations attached to different objects:
 
@@ -330,7 +330,7 @@ mvn archetype:generate -DgroupId=ballerinax.hello
 		       -DinteractiveMode=false
 ```
 
-This will create a maven project in following structure.
+This will create an Apache Maven project in following structure.
 
 ```bash	
 ├── pom.xml
@@ -348,7 +348,7 @@ This will create a maven project in following structure.
 └── target
 ```
 
-In the `pom.xml`, add Ballerina IO as the parent:
+In the `pom.xml`, add Ballerina IO as the parent.
 
 ```xml
     <parent>
@@ -358,7 +358,7 @@ In the `pom.xml`, add Ballerina IO as the parent:
     </parent>
 ```
 
-In the `pom.xml` add Ballerina's maven dependencies:
+In the `pom.xml` add Ballerina's Apache Maven dependencies.
 
 ```xml
     <dependencies>
@@ -382,7 +382,7 @@ In the `pom.xml` add Ballerina's maven dependencies:
     </dependencies>
 ```
 
-In the `pom.xml`, add Ballerina's repository information
+In the `pom.xml`, add Ballerina's repository information.
 
 ```xml
 <repositories>
@@ -411,7 +411,7 @@ In the `pom.xml`, add Ballerina's repository information
 </repositories>
 ```
 
-Make sure you are able to build the project:
+Make sure you are able to build the project.
 
 ```bash
 mvn clean install
@@ -463,7 +463,7 @@ Remove the archetype generated `App.java` and `AppTest.java` files. They are not
 
 ##### Define an Extension Provider
 
-Create `HelloExtensionProvider.java` class in `hello/src/main/java/org/ballerinax/hello` package. This class will implement `SystemPackageRepositoryProvider`.
+Create `HelloExtensionProvider.java` class in `hello/src/main/java/org/ballerinax/hello` module. This class will implement `SystemPackageRepositoryProvider`.
 
 ```java
 package ballerinax.hello;
@@ -532,7 +532,7 @@ Configure bsc plugin in the `pom.xml`:
 </plugin>
 ```
 
-Configure the maven shade plugin. This plugin manages the packaging of dependency jar files. The Ballerina Tools distribution contains all the dependency jars we have used in the plugin. Since we are copying the final jar to Ballerina tools, we are excluding the Ballerina dependencies from the final jar.
+Configure the Apache Maven shade plugin. This plugin manages the packaging of dependency .jar files. The Ballerina Tools distribution contains all the dependency .jar files we have used in the plugin. Since we are copying the final .jar file to Ballerina tools, we are excluding the Ballerina dependencies from the final .jar file.
 
 ```xml
 <plugin>
@@ -584,7 +584,7 @@ Configure the maven shade plugin. This plugin manages the packaging of dependenc
 </plugin>
 ```
 
-Configure Maven compiler plugin. Ballerina requires Java8 for the builder extensions.
+Configure Apache Maven compiler plugin. Ballerina requires Java 8 for the builder extensions.
 
 ```xml
 <plugin>
@@ -598,7 +598,8 @@ Configure Maven compiler plugin. Ballerina requires Java8 for the builder extens
 </plugin>
 ```
 
-Configure Maven plugins to generate balo files.
+Configure Apache Maven plugins to generate .balo files.
+
 ```xml
          <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -676,7 +677,7 @@ Configure Maven plugins to generate balo files.
 
 ```
 
-Create a folder named `assembly` in  `hello-extension/` folder and add following files.
+Create a folder named `assembly` in  `hello-extension/` folder and add the following files.
 1. balo.xml
 ```xml
 <assembly>
@@ -720,7 +721,8 @@ Create a folder named `assembly` in  `hello-extension/` folder and add following
 </assembly>
 ```
 
-Create a file named `Ballerina.toml` in  `hello-extension/src/main/ballerina/ballerinax` folder and add following content.
+Create a file named `Ballerina.toml` in `hello-extension/src/main/ballerina/ballerinax` folder and add the following content.
+
 ```toml
 [project]
 org-name = "ballerinax"
@@ -728,6 +730,7 @@ version = "0.0.0"
 ```
 
 Final folder structure will look like below.
+
 ```bash
 .
 ├── assembly
@@ -765,7 +768,7 @@ mvn clean install
 
 The resulting `target/hello-extension-1.0-SNAPSHOT.jar` will have the annotation definitions.
 
-Place the jar file at `<ballerina_lang_home>/bre/lib` of your Ballerina distribution.
+Place the .jar file at `<ballerina_lang_home>/bre/lib` of your Ballerina distribution.
 
 Extract `target/hello-extension-0.980.0-ballerina-binary-repo.zip` file and copy the `repo/ballerinax` folder to `<ballerina_lang_home>/lib/repo/` folder. 
 The final `<ballerina_lang_home>/lib/repo/` folder will  have two folders `ballerina` and `ballerinax`.
@@ -788,7 +791,7 @@ service<http:Service> helloWorld bind {port:9091} {
 
 ### Write the Build Extension Processor
 
-Create `HelloPlugin.java` in `hello/src/main/java/org/ballerinax/hello` package. We will then implement the annotation methods that we want to act upon.
+Create `HelloPlugin.java` in the `hello/src/main/java/org/ballerinax/hello` module. We will then implement the annotation methods that we want to act upon.
 
 ```java
 package org.ballerinax.hello;
@@ -888,7 +891,7 @@ public class HelloPlugin extends AbstractCompilerPlugin {
 
 The annotation value is read and cached in a singleton model class. Upon receiving the code generated event, we are extracting the output file name and write the value from the model class to a file.
 
-Create `HelloModel.java` in `hello/src/main/java/org/ballerinax/hello` package.
+Create `HelloModel.java` in `hello/src/main/java/org/ballerinax/hello` module.
 
 ```java
 package ballerinax.hello;
