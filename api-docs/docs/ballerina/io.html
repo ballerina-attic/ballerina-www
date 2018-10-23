@@ -2272,7 +2272,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openCsvFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, a|rw|r|w mode, ,|	|: fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openCsvFile(string path, rw|a|w|r mode, ,|:|	 fieldSeparator, string charset, int skipHeaders) returns (CSVChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2298,7 +2298,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">mode</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Mode">a</a>|rw|r|w</td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Mode">rw</a>|a|w|r</td>
                                                         <td class="cAPI-table-default">r</td>
                                                         <td class="cAPI-table-desc"><p>Permission which should be used to open CSV file</p>
 </td>
@@ -2306,7 +2306,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">fieldSeparator</td>
-                                                        <td class="cAPI-table-type">,|	|<a href="io.html#Separator">:</a></td>
+                                                        <td class="cAPI-table-type">,|<a href="io.html#Separator">:</a>|	</td>
                                                         <td class="cAPI-table-default">,</td>
                                                         <td class="cAPI-table-desc"><p>CSV record seperator (i.e comma or tab)</p>
 </td>
@@ -2365,7 +2365,7 @@ APPEND - append to existing file instead of replacing</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="openFile">
-                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, a|rw|r|w accessMode) returns (ByteChannel) 
+                                                    <span class="fw-function sm-icon"> </span> public function openFile(string path, rw|a|w|r accessMode) returns (ByteChannel) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2391,7 +2391,7 @@ APPEND - append to existing file instead of replacing</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">accessMode</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#Mode">a</a>|rw|r|w</td>
+                                                        <td class="cAPI-table-type"><a href="io.html#Mode">rw</a>|a|w|r</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Permission to open the file</p>
 </td>
@@ -3005,7 +3005,7 @@ Number of bytes written or an error.</p>
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CSVChannel&gt;
-                                                   </span> new(io:CharacterChannel byteChannel, ,|	|: fs, int nHeaders) 
+                                                   </span> new(io:CharacterChannel byteChannel, ,|:|	 fs, int nHeaders) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3031,7 +3031,7 @@ Number of bytes written or an error.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">fs</td>
-                                                                    <td class="cAPI-table-type">,|	|<a href="io.html#Separator">:</a></td>
+                                                                    <td class="cAPI-table-type">,|<a href="io.html#Separator">:</a>|	</td>
                                                                     <td class="cAPI-table-default">,</td>
                                                                     <td class="cAPI-table-desc"><p>Field separator which will separate between the records in the CSV</p>
 </td>
