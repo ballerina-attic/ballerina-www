@@ -2069,7 +2069,7 @@ the JSON payload of the request.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">topicIdentifier</td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#TopicIdentifier">TOPIC_ID_HEADER|TOPIC_ID_HEADER_AND_PAYLOAD|TOPIC_ID_PAYLOAD_KEY</a></td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#TopicIdentifier">TOPIC_ID_PAYLOAD_KEY|TOPIC_ID_HEADER|TOPIC_ID_HEADER_AND_PAYLOAD</a></td>
                                                         <td class="cAPI-table-default">TOPIC_ID_HEADER</td>
                                                         <td class="cAPI-table-desc"><p>The identifier based on which dispatching should happen for custom subscriber</p>
 </td>
@@ -2623,7 +2623,7 @@ to redirected hubs/topics</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="startHub">
-                                                    <span class="fw-function sm-icon"> </span> public function startHub(int port, int? leaseSeconds, string? signatureMethod, boolean? remotePublishingEnabled, PUBLISH_MODE_DIRECT|PUBLISH_MODE_FETCH? remotePublishMode, boolean? topicRegistrationRequired, string? publicUrl, boolean? sslEnabled, http:ServiceSecureSocket? serviceSecureSocket, http:SecureSocket? clientSecureSocket) returns (WebSubHub | HubStartedUpError) 
+                                                    <span class="fw-function sm-icon"> </span> public function startHub(int port, int? leaseSeconds, string? signatureMethod, boolean? remotePublishingEnabled, PUBLISH_MODE_FETCH|PUBLISH_MODE_DIRECT? remotePublishMode, boolean? topicRegistrationRequired, string? publicUrl, boolean? sslEnabled, http:ServiceSecureSocket? serviceSecureSocket, http:SecureSocket? clientSecureSocket) returns (WebSubHub | HubStartedUpError) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2673,7 +2673,7 @@ to redirected hubs/topics</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">remotePublishMode</td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#RemotePublishMode">PUBLISH_MODE_DIRECT</a>|PUBLISH_MODE_FETCH?</td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#RemotePublishMode">PUBLISH_MODE_FETCH</a>|PUBLISH_MODE_DIRECT?</td>
                                                         <td class="cAPI-table-default">null</td>
                                                         <td class="cAPI-table-desc"><p>If remote publishing is allowed, the mode to use, <code>direct</code> (default) - fat ping with
 the notification payload specified or <code>fetch</code> - the hub fetches the topic URL
@@ -5001,7 +5001,7 @@ happen as such.
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Listener&gt;
-                                                   </span> redirect(http:Response response, 305|302|300|301|308|304|303|307 code, string[] locations) returns (error?) 
+                                                   </span> redirect(http:Response response, 302|308|301|300|303|304|307|305 code, string[] locations) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5026,7 +5026,7 @@ happen as such.
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">code</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#RedirectCode">305</a>|302|300|301|308|304|303|307</td>
+                                                                    <td class="cAPI-table-type"><a href="http.html#RedirectCode">302</a>|308|301|300|303|304|307|305</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
