@@ -2866,7 +2866,7 @@
                                                 <!-- Function -->
                                                 
                                                 <h2 id="createJoinProcessor">
-                                                    <span class="fw-function sm-icon"> </span> public function createJoinProcessor(function (any) returns (()) nextProcessor, INNER|RIGHT|FULL|LEFT joinType, function (map,map) returns (boolean) conditionFunc) returns (JoinProcessor) 
+                                                    <span class="fw-function sm-icon"> </span> public function createJoinProcessor(function (any) returns (()) nextProcessor, INNER|LEFT|FULL|RIGHT joinType, function (map,map) returns (boolean) conditionFunc) returns (JoinProcessor) 
                                                 </h2>
                                                  
                                                 <table>
@@ -2886,7 +2886,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">joinType</td>
-                                                        <td class="cAPI-table-type"><a href="streams.html#JoinType">INNER</a>|RIGHT|FULL|LEFT</td>
+                                                        <td class="cAPI-table-type"><a href="streams.html#JoinType">INNER</a>|LEFT|FULL|RIGHT</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
@@ -3728,7 +3728,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Aggregator&gt;
-                                                   </span> process(any value, ALL|TIMER|RESET|CURRENT|EXPIRED eventType) returns (any) 
+                                                   </span> process(any value, RESET|ALL|TIMER|EXPIRED|CURRENT eventType) returns (any) 
                                                             </h2>
                                                              
                                                             <table>
@@ -3748,7 +3748,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">eventType</td>
-                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">ALL</a>|TIMER|RESET|CURRENT|EXPIRED</td>
+                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">RESET</a>|ALL|TIMER|EXPIRED|CURRENT</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -3829,7 +3829,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Average&gt;
-                                                   </span> process(any value, ALL|TIMER|RESET|CURRENT|EXPIRED eventType) returns (any) 
+                                                   </span> process(any value, RESET|ALL|TIMER|EXPIRED|CURRENT eventType) returns (any) 
                                                             </h2>
                                                              
                                                             <table>
@@ -3849,7 +3849,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">eventType</td>
-                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">ALL</a>|TIMER|RESET|CURRENT|EXPIRED</td>
+                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">RESET</a>|ALL|TIMER|EXPIRED|CURRENT</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -3951,7 +3951,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Count&gt;
-                                                   </span> process(any value, ALL|TIMER|RESET|CURRENT|EXPIRED eventType) returns (any) 
+                                                   </span> process(any value, RESET|ALL|TIMER|EXPIRED|CURRENT eventType) returns (any) 
                                                             </h2>
                                                              
                                                             <table>
@@ -3971,7 +3971,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">eventType</td>
-                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">ALL</a>|TIMER|RESET|CURRENT|EXPIRED</td>
+                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">RESET</a>|ALL|TIMER|EXPIRED|CURRENT</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4073,7 +4073,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;DistinctCount&gt;
-                                                   </span> process(any value, ALL|TIMER|RESET|CURRENT|EXPIRED eventType) returns (any) 
+                                                   </span> process(any value, RESET|ALL|TIMER|EXPIRED|CURRENT eventType) returns (any) 
                                                             </h2>
                                                              
                                                             <table>
@@ -4093,7 +4093,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">eventType</td>
-                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">ALL</a>|TIMER|RESET|CURRENT|EXPIRED</td>
+                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">RESET</a>|ALL|TIMER|EXPIRED|CURRENT</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4350,7 +4350,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">joinType</td>
-                                                        <td class="cAPI-table-type"><a href="streams.html#JoinType">INNER|RIGHT|FULL|LEFT</a></td>
+                                                        <td class="cAPI-table-type"><a href="streams.html#JoinType">INNER|LEFT|FULL|RIGHT</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
@@ -4365,7 +4365,7 @@
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;JoinProcessor&gt;
-                                                   </span> new(function (any) returns (()) nextProcessor, INNER|RIGHT|FULL|LEFT joinType, function (map,map) returns (boolean) onConditionFunc) 
+                                                   </span> new(function (any) returns (()) nextProcessor, INNER|LEFT|FULL|RIGHT joinType, function (map,map) returns (boolean) onConditionFunc) 
                                                             </h2>
                                                              
                                                             <table>
@@ -4385,7 +4385,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">joinType</td>
-                                                                    <td class="cAPI-table-type"><a href="streams.html#JoinType">INNER</a>|RIGHT|FULL|LEFT</td>
+                                                                    <td class="cAPI-table-type"><a href="streams.html#JoinType">INNER</a>|LEFT|FULL|RIGHT</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5581,7 +5581,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Max&gt;
-                                                   </span> process(any value, ALL|TIMER|RESET|CURRENT|EXPIRED eventType) returns (any) 
+                                                   </span> process(any value, RESET|ALL|TIMER|EXPIRED|CURRENT eventType) returns (any) 
                                                             </h2>
                                                              
                                                             <table>
@@ -5601,7 +5601,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">eventType</td>
-                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">ALL</a>|TIMER|RESET|CURRENT|EXPIRED</td>
+                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">RESET</a>|ALL|TIMER|EXPIRED|CURRENT</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5710,7 +5710,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;MaxForever&gt;
-                                                   </span> process(any value, ALL|TIMER|RESET|CURRENT|EXPIRED eventType) returns (any) 
+                                                   </span> process(any value, RESET|ALL|TIMER|EXPIRED|CURRENT eventType) returns (any) 
                                                             </h2>
                                                              
                                                             <table>
@@ -5730,7 +5730,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">eventType</td>
-                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">ALL</a>|TIMER|RESET|CURRENT|EXPIRED</td>
+                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">RESET</a>|ALL|TIMER|EXPIRED|CURRENT</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5853,7 +5853,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Min&gt;
-                                                   </span> process(any value, ALL|TIMER|RESET|CURRENT|EXPIRED eventType) returns (any) 
+                                                   </span> process(any value, RESET|ALL|TIMER|EXPIRED|CURRENT eventType) returns (any) 
                                                             </h2>
                                                              
                                                             <table>
@@ -5873,7 +5873,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">eventType</td>
-                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">ALL</a>|TIMER|RESET|CURRENT|EXPIRED</td>
+                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">RESET</a>|ALL|TIMER|EXPIRED|CURRENT</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5982,7 +5982,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;MinForever&gt;
-                                                   </span> process(any value, ALL|TIMER|RESET|CURRENT|EXPIRED eventType) returns (any) 
+                                                   </span> process(any value, RESET|ALL|TIMER|EXPIRED|CURRENT eventType) returns (any) 
                                                             </h2>
                                                              
                                                             <table>
@@ -6002,7 +6002,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">eventType</td>
-                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">ALL</a>|TIMER|RESET|CURRENT|EXPIRED</td>
+                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">RESET</a>|ALL|TIMER|EXPIRED|CURRENT</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -6358,7 +6358,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;StdDev&gt;
-                                                   </span> process(any value, ALL|TIMER|RESET|CURRENT|EXPIRED eventType) returns (any) 
+                                                   </span> process(any value, RESET|ALL|TIMER|EXPIRED|CURRENT eventType) returns (any) 
                                                             </h2>
                                                              
                                                             <table>
@@ -6378,7 +6378,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">eventType</td>
-                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">ALL</a>|TIMER|RESET|CURRENT|EXPIRED</td>
+                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">RESET</a>|ALL|TIMER|EXPIRED|CURRENT</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -6465,7 +6465,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">eventType</td>
-                                                        <td class="cAPI-table-type"><a href="streams.html#EventType">ALL|TIMER|RESET|CURRENT|EXPIRED</a></td>
+                                                        <td class="cAPI-table-type"><a href="streams.html#EventType">RESET|ALL|TIMER|EXPIRED|CURRENT</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
@@ -6494,7 +6494,7 @@
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;StreamEvent&gt;
-                                                   </span> new((string,map)|map eventData, ALL|TIMER|RESET|CURRENT|EXPIRED eventType, int timestamp) 
+                                                   </span> new((string,map)|map eventData, RESET|ALL|TIMER|EXPIRED|CURRENT eventType, int timestamp) 
                                                             </h2>
                                                              
                                                             <table>
@@ -6514,7 +6514,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">eventType</td>
-                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">ALL</a>|TIMER|RESET|CURRENT|EXPIRED</td>
+                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">RESET</a>|ALL|TIMER|EXPIRED|CURRENT</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -6639,7 +6639,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Sum&gt;
-                                                   </span> process(any value, ALL|TIMER|RESET|CURRENT|EXPIRED eventType) returns (any) 
+                                                   </span> process(any value, RESET|ALL|TIMER|EXPIRED|CURRENT eventType) returns (any) 
                                                             </h2>
                                                              
                                                             <table>
@@ -6659,7 +6659,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">eventType</td>
-                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">ALL</a>|TIMER|RESET|CURRENT|EXPIRED</td>
+                                                                    <td class="cAPI-table-type"><a href="streams.html#EventType">RESET</a>|ALL|TIMER|EXPIRED|CURRENT</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>

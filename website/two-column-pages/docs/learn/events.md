@@ -20,7 +20,7 @@
 </tr>
 </table>
 
-## Workshops
+<!-- ## Workshops -->
 
 <table class="cEventTable cWorkshopList">
 <!-- <tr>
@@ -35,37 +35,26 @@
     </td>
     <td class="cEventURL"><a class="cEventRegistration" href="https://2018.container.camp/uk/schedule/cloud-native-programming-with-docker-and-kubernetes/">Register Now</a></td>
 </tr> -->
-<tr>
-    <td class="cEventDateContainer"><span class="cEventDate">October 12 - 13, 2018</span>
-    <p class="cEventLocation">Mercure Congress Centre KYIV</p>
-    </td>
-    <td class="cEventDetail"><a target="_blank" href="https://devopsstage.com/stranitsa-spikera/lakmal-warusawithana/"><h4>Devops Stage</h4></a>
-    <h4>Workshop - Ballerina: Cloud Native Programing with Docker, Kubernetes, and Ballerina</h4>
-    <h4>Speech -Ballerina: A Cloud Native Programming Language</h4>
-    <b>Lakmal Warusawithana,</b> Senior Director – Cloud Architecture, WSO2</p>
-    </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="https://devopsstage.com/stranitsa-spikera/lakmal-warusawithana/" target="_blank">More Info</a></td>
-</tr>
+
 </table>
 
 
-<!-- ## Webinars
+## Webinars
 
 <table class="cEventTable cWebinarList">
 
 <tr>
-    <td class="cEventDateContainer"><span class="cEventDate">August 22, 2018</span>10:00 am PDT (6:00 pm in UK)</td>
-    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/observing-your-ballerina-services-with-humio/"><h4>Observing Your Ballerina Services with Humio</h4></a>
+    <td class="cEventDateContainer"><span class="cEventDate">October 30, 2018</span>10:00am -11:00am PDT </td>
+    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/cncf-webinar-series-intro-to-ballerina-a-cloud-native-programming-language/"><h4>CNCF Webinar Series: Intro to Ballerina - A Cloud Native Programming Language</h4></a>
     <p>
-    <b>Anjana Fernando</b> Director - Engineering, WSO2</p>
+    <b>Paul Fremantle</b> CTO and Co-Founder, WSO2 </p>
     <p>
-    <b>PJ Hagerty</b></p>
-    <p>Founder of DevRelate.io and Developer Advocate for Humio.com</p>
+
     </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/observing-your-ballerina-services-with-humio/">Register Now</a></td>
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/cncf-webinar-series-intro-to-ballerina-a-cloud-native-programming-language/">Register Now</a></td>
 </tr>
 
-</table> -->
+</table>
 
 ## Meetups
 
@@ -80,32 +69,20 @@
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/pt-BR/Cloud-Native-Sao-Paulo/events/253753781/" target="_blank">Register Now</a></td>
     </tr> -->
-    <!--<tr>
-        <td class="cEventDateContainer"><span class="cEventDate">September 24, 2018</span>6:00 PM to 8:00 PM
-            <p class="cEventLocation">Lyft HQ<br/>
-185 Berry St #5000 · San Francisco, CA</p>
-        </td>
-        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/KafkaBayArea/events/254248245"><h4>Kafka & Elasticsearch: Introduction, Best Practices & User Stories</h4></a>
-            <p>Speaker: Kasun Indrasiri</p>
-        </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/KafkaBayArea/events/254248245" target="_blank">Register Now</a></td>
-    </tr>-->
-      <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">October 3, 2018</span>1:30 PM to 7:30 PM
-            <p class="cEventLocation">Zaftig Brewing Co, 7020A Huntley Rd, Columbus, OH 43229, USA.</p>
-        </td>
-        <td class="cEventDetail"><a target="_blank" href="/learn/events/columbus-ballerina-meetup"><h4>Columbus Ballerina Meetup</h4></a></td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/columbus-microservices/events/254811906" target="_blank">Register Now</a></td>
-    </tr>
     <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">October 9, 2018</span>6:30 PM to 9:00 PM
-        <p class="cEventLocation">Entrepreneur First Tower Bridge Business, Complex Clements Rd, London.</p>
+        <td class="cEventDateContainer"><span class="cEventDate">November 7, 2018</span>6:30 PM to 9:00 PM
+            <p class="cEventLocation">Entrepreneur First, L block, The Biscuit Factory<br>
+100 Clements Road · London, SE16 4DG</p>
         </td>
-        <td class="cEventDetail"><h4> London Cloud Native Meetup</h4>
-            <p>Speaker: Paul Fremantle</p>
+        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/Cloud-Native-London/?_cookie-check=22IjcB8Q0g9inH5A"><h4>Cloud Native London</h4></a>
+        <p>Cloud Native London is the official Cloud Native Computing Foundation (CNCF) Meetup group dedicated to building a strong, open, diverse developer community around the Cloud Native platform and technologies in London.</p>
+            <!-- <p>Speaker: Kasun Indrasiri</p> -->
         </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/Cloud-Native-London/events/253873072/" target="_blank">Register Now</a></td>
+        <td class="cEventURL"><a class="cEventRegistration" href=https://www.meetup.com/Cloud-Native-London/?_cookie-check=22IjcB8Q0g9inH5A" target="_blank">Register Now</a></td>
     </tr>
+
+    <tr>
+
 </table>
 
 <!--## Conferences-->
