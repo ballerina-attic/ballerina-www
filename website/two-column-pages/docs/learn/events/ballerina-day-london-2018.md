@@ -57,9 +57,9 @@ Registration is free, but do sign up quickly as seating is limited!
                 <div class="cSessionTitle">
                   <a data-toggle="modal" data-target="#Ballerina-Philosophy">Ballerina Philosophy</a>
                 </div>
-                <div class="cSpeakerDetail">
-                Sanjiva Weerawarana, Ph.D,<br/>
-Founder, Chairman, WSO2
+                  <div class="cSpeakerDetail">
+                Sameera Jayasoma, <br/>
+Director - Platform Architecture, WSO2
                 </div>
             </td>
         </tr>
@@ -75,9 +75,9 @@ Founder, Chairman, WSO2
                 <div class="cSessionTitle">
                   <a data-toggle="modal" data-target="#Writing-Microservices">Writing Microservices</a>
                 </div>
-                <div class="cSpeakerDetail">
-                Sameera Jayasoma, <br/>
-Director - Platform Architecture, WSO2
+                 <div class="cSpeakerDetail">
+                Anjana Fernando,<br/>
+Director, WSO2
                 </div>
             </td>
         </tr>
