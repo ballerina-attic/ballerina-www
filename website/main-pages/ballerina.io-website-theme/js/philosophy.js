@@ -8,13 +8,14 @@ $(document).ready(function() {
             { "name": "Service Composition", "desc": "A composite microservice/integration microservice that create a composition of existing microservices", "url": "service-composition", "git": "" },
             { "name": "Asynchronous Invocations", "desc": "", "url": "asynchronous-invocation", "git": "" },
             { "name": "Parallel Service Orchestration", "desc": "Building a database backed RESTful web service.", "url": "parallel-service-orchestration", "git": "" },
+            { "name": "Inter-process communication for Microservices", "desc": "Inter-process communication for Microservices", "url": "inter-microservice-communication", "git": "" }
         ],
         "Protocols and Standards": [
             { "name": "gRPC", "desc": "Exposing gRPC services from existing JSON and/or SOAP service", "url": "grpc-service", "git": "" },
             { "name": "WebSockets", "desc": "Develop WebSocket service that handels JavaScrip WebSocket API calls", "url": "websocket-integration", "git": "" },
             { "name": "Swagger / OpenAPI", "desc": "", "url": "open-api-based-service", "git": "" },
             { "name": "Messaging with Kafka", "desc": "Pub-sub based asynchronous communication with Kafka", "url": "messaging-with-kafka", "git": "" },
-            { "name": "Messaging with JMS", "desc": "Publish and subscribe to messages with a JMS broker", "url": "messaging-with-jms-queues", "git": "" },
+            { "name": "Messaging with JMS", "desc": "Publish and subscribe to messages with a JMS broker", "url": "messaging-with-jms-queues", "git": "" }
         ],
         "Data and Streams": [
             { "name": "Database Interaction", "desc": "Service that performs CRUD operations with a SQL database", "url": "data-backed-service", "git": "" },
@@ -24,7 +25,7 @@ $(document).ready(function() {
         "Resiliency": [
             { "name": "Endpoint Resiliency", "desc": "Calling endpoints with retries and timeouts", "url": "resiliency-timeouts", "git": "" },
             { "name": "Circuit Breaker", "desc": "Applying circuit breakers to potentially-failing method calls", "url": "resiliency-circuit-breaker", "git": "" },
-            { "name": "Load Balancing", "desc": "", "url": "loadbalancing-failover", "git": "" },
+            { "name": "Load Balancing", "desc": "", "url": "loadbalancing-failover", "git": "" }
 
         ],
         "Integration Patterns": [
@@ -35,7 +36,7 @@ $(document).ready(function() {
             { "name": "Message Construction Patterns", "desc": "Message Construction Patterns", "url": "eip-message-construction ", "git": "" },
             { "name": "Messaging with ActiveMQ", "desc": "Messaging with ActiveMQ", "url": "messaging-with-activemq", "git": "" },
             { "name": "Backend for Frontend", "desc": "Backend for Frontend", "url": "backend-for-frontend", "git": "" },
-            { "name": "EIP-Message-Transformation", "desc": "EIP-Message-Transformation", "url": "eip-message-transformation", "git": "" },
+            { "name": "EIP-Message-Transformation", "desc": "EIP-Message-Transformation", "url": "eip-message-transformation", "git": "" }
         ],
         "Integrating Ballerina With Other Technologies": [
             { "name": "Running with Istio ", "desc": "", "url": "ballerina-with-istio", "git": "" },
@@ -43,6 +44,7 @@ $(document).ready(function() {
             { "name": "Salesforce-Twilio Integration", "desc": "", "url": "salesforce-twilio-integration", "git": "" },
             { "name": "Gmail-Google Sheets Integration", "desc": "", "url": "gmail-spreadsheet-integration", "git": "" },
             { "name": "SonarQube-GitHub Integration ", "desc": "", "url": "sonarqube-github-integration", "git": "" },
+	    { "name": "Honeycomb Integration ", "desc": "", "url": "ballerina-honeycomb", "git": "" }
 
         ]
     };
