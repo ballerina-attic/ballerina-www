@@ -8,7 +8,7 @@ $(document).ready(function() {
             { "name": "Service Composition", "desc": "A composite microservice/integration microservice that create a composition of existing microservices", "url": "service-composition", "git": "" },
             { "name": "Asynchronous Invocations", "desc": "", "url": "asynchronous-invocation", "git": "" },
             { "name": "Parallel Service Orchestration", "desc": "Building a database backed RESTful web service.", "url": "parallel-service-orchestration", "git": "" },
-            { "name": "Inter-process communication for Microservices", "desc": "Inter-process communication for Microservices", "url": "inter-microservice-communication", "git": "" }
+            { "name": "Inter-process Communication for Microservices", "desc": "Inter-process communication for Microservices", "url": "inter-microservice-communication", "git": "" }
         ],
         "Protocols and Standards": [
             { "name": "gRPC", "desc": "Exposing gRPC services from existing JSON and/or SOAP service", "url": "grpc-service", "git": "" },
