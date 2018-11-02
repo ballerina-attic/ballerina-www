@@ -39,7 +39,7 @@
 </table>
 
 
-## Webinars
+<!-- ## Webinars
 
 <table class="cEventTable cWebinarList">
 
@@ -54,7 +54,7 @@
     <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/cncf-webinar-series-intro-to-ballerina-a-cloud-native-programming-language/">Register Now</a></td>
 </tr>
 
-</table>
+</table> -->
 
 ## Meetups
 
