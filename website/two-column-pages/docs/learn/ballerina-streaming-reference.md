@@ -115,7 +115,9 @@ more than one event to the `highTemperatureSensorStream` stream.
             group by type
             having totalCount > 1
         =>  (HighTemperature [] values) {
-                highTemperatureSensorStream.publish(values);
+                foreach value in values {
+                    highTemperatureSensorStream.publish(value);
+                }
             }
     }
 ```
@@ -167,7 +169,9 @@ stream<temperature> tempStream;
 from tempStream
 select roomNo, value
 => (roomTemperature[] temperatures) {
-    roomTempStream.publish(temperatures);
+    foreach temperature in temperatures {
+        roomTempStream.publish(temperature);
+    }
 }
 ```
 
@@ -373,8 +377,10 @@ from the `tempStream` stream, and inserts the results into the `highTempStream` 
 ```ballerina
 from tempStream where (roomNo >= 100 && roomNo < 210) && temp > 40
 select roomNo, temp
-=> (RoomTemperature [] value) {
-    highTempStream.publish(values)
+=> (RoomTemperature [] values) {
+    foreach value in values {
+        highTempStream.publish(value);
+    }
 }
 ```
 
@@ -491,7 +497,9 @@ The following query calculates the average value for the `temp` attribute of the
 from tempStream window time(600000)
 select avg(temp) as avgTemp, roomNo, deviceID
 => (AvgTemperature [] values) {
-    avgTempStream.publish(values);
+    foreach value in values {
+        avgTempStream.publish(value);
+    }
 }
 ```
 Following are some inbuilt aggregation functions shipped with Ballerina, for more aggregation functions, see execution.
@@ -515,7 +523,9 @@ from pageVisitStream#window.time(5 sec)
 select userID, pageID, distinctCount(pageID) as distinctPages
 group by userID
 => (UserPageVisit [] visits) {
-    outputStream.publish(visits);
+    foreach visit in visits {
+        outputStream.publish(visit);
+    }
 }
 ```
 
@@ -525,7 +535,9 @@ group by userID
 from tempStream
 select room, timestamp, maxForever(temperature) as maxTemp
 => (RoomTemperature [] roomTemps) {
-	maxTempStream.publish(roomTemps);
+    foreach roomTemp in roomTemps {
+        maxTempStream.publish(roomTemp);
+    }
 }
 ```
 
@@ -535,7 +547,9 @@ select room, timestamp, maxForever(temperature) as maxTemp
 from stockExchangeStream window lengthBatch(1000)
 select stdDev(price) as deviation, symbol
 => (SymbolDeviation[] deviations) {
-	priceDeviationStream.publish(deviations);
+    foreach deviation in deviations {
+        priceDeviationStream.publish(deviation);
+    }
 }
 ```
 
@@ -568,7 +582,9 @@ from tempStream window time(600000)
 select avg(temp) as avgTemp, roomNo, deviceID
 group by roomNo, deviceID
 => (AvgTemperature [] values) {
-    avgTempStream.publish(values);
+    foreach value in values {
+        avgTempStream.publish(value);
+    }
 }
 ```
 
@@ -604,7 +620,9 @@ select avg(temp) as avgTemp, roomNo
 group by roomNo
 having avgTemp > 30
 => (Alert [] values) {
-    alertStream.publish(values);
+    foreach value in values {
+        alertStream.publish(value);
+    }
 }
 ```
 
@@ -641,7 +659,9 @@ select avg(temp) as avgTemp, roomNo, deviceID
 group by roomNo, deviceID
 order by avgTemp, roomNo descending
 => (AvgTemperature [] values) {
-    avgTempStream.publish(values);
+    foreach value in values {
+        avgTempStream.publish(value);
+    }
 }
 ```
 
@@ -697,7 +717,9 @@ from tempStream where (temp > 30.0) window time(60000) as T
   on T.roomNo == R.roomNo
 select T.roomNo, R.deviceID, 'start' as action
 => (RegulatorAction [] values) {
-    regulatorActionStream.publish(values);
+    foreach value in values {
+        regulatorActionStream.publish(value);
+    }
 }
 ```
 
@@ -804,7 +826,9 @@ from every( e1 = tempStream )
     within 10 minute
 select e1.roomNo, e1.temp as initialTemp, e2.temp as finalTemp
 => (Alert [] alerts) {
-    alertStream.publish(alerts);
+    foreach alert in alerts {
+        alertStream.publish(alert);
+    }
 }
 ```
 
@@ -874,7 +898,9 @@ from every( e1=regulatorStream)
     followed by e3=regulatorStream where (e1.roomNo==roomNo)
 select e1.roomNo, e2[0].temp - e2[last].temp as tempDiff
 => (TemperatureDiff [] values) {
-    tempDiffStream.publish(values);
+    foreach value in values {
+        tempDiffStream.publish(value);
+    }
 }
 ```
 
@@ -933,8 +959,10 @@ from every( e1=regulatorStateChangeStream where (action == 'on'))
       || e3=regulatorStateChangeStream where (e1.roomNo == roomNo && action == 'off')
 select e1.roomNo, e2 == null ? "none" : "stop" as action
     having action != 'none'
-=> (RegulatorAction [] output) {
-    regulatorActionStream.publish(output);
+=> (RegulatorAction [] outputs) {
+    foreach output in outputs {
+        regulatorActionStream.publish(output);
+    }
 }
 ```
 
@@ -963,7 +991,9 @@ from e1=regulatorStateChangeStream where (action == 'start')
     && e2=regulatorStateChangeStream where (action == 'off')
 select e1.roomNo as roomNo
 => (Alert [] alerts) {
-    alertStream.publish(alerts);
+    foreach alert in alerts {
+        alertStream.publish(alert);
+    }
 }
 ```
 
@@ -993,7 +1023,9 @@ from e1=regulatorStateChangeStream where (action == 'start')
         for 5 minutes
 select e1.roomNo as roomNo
 => (Alert [] alerts) {
-    alertStream.publish(alerts);
+    foreach alert in alerts {
+        alertStream.publish(alert);
+    }
 }
 ```
 
@@ -1039,7 +1071,9 @@ This query generates an alert if the increase in the temperature between two con
 from every e1=tempStream, e2=tempStream where (e1.temp + 1 < temp)
 select e1.temp as initialTemp, e2.temp as finalTemp
 => (Alert [] alerts) {
-    alertStream.publish(alerts);
+    foreach alert in alerts {
+        alertStream.publish(alert);
+    }
 }
 ```
 
@@ -1092,7 +1126,9 @@ from every e1=tempStream, e2=tempStream where (e1.temp <= temp)[1..],
            e3=tempStream where (e2[e2.length-1].temp > temp)
 select e1.temp as initialTemp, e2[e2.length-1].temp as peakTemp
 =>(PeekTemperature [] values) {
-    peekTempStream.publish(values);
+    foreach value in values {
+        peekTempStream.publish(value);
+    }
 }
 ```
 
@@ -1144,7 +1180,9 @@ stream<Regulator> regulatorStream;
 from every e1=regulatorStream, e2=tempStream && e3=humidStream
 select e2.temp, e3.humid
 => (Notification [] notifications) {
-    stateNotificationStream.publish(notifications);
+    foreach notification in notifications {
+        stateNotificationStream.publish(notification);
+    }
 }
 ```
 
