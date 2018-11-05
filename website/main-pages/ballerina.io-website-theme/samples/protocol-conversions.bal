@@ -16,7 +16,7 @@ service UserProfile bind listener {
     addUser(endpoint caller, UserInfo userInfo) {
         User user = {id:<string>nextUserNo, info: userInfo};
         json userJSON = check <json>user;
-        nextUserNo++;
+        nextUserNo += 1;
         
         http:Response backendRes = check backendEP->post(
             "/test/add", untaint userJSON);
