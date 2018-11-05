@@ -80,6 +80,7 @@ A typical project structure of a Ballerina project is like this:
 ```
 /
   .gitignore
+  Ballerina.toml       # Configuration that defines project intent
   .ballerina/          # Internal cache management and contains project repository
                        # Project repository is built or downloaded module dependencies
 
