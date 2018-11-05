@@ -430,31 +430,6 @@ For more information on the `ballerina push` command run the following.
 $ ballerina help push
 ```
 
-## Run the Composer
-Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina language. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
-
-### To start the Composer: 
-
-#### Linux
-
-In the command line, type `composer`.
-
-#### Windows
-
-Launch Ballerina Composer from start menu.
-
-#### Mac 
-
-Launch Ballerina Composer app from Applications.
-
-### To edit a Ballerina file in Composer:
-
-1. In the Composer, click **File** and choose **Open File**.
-
-2. Navigate to your service and open it to view this in the Composer.
-
-![Ballerina Composer](/img/docs-images/quick-tour-composer.png)
-
 ## Follow the Repo
 
 <div class="cGitButtonContainer"><p data-button="iGitStarText">"Star"</p> <p data-button="iGitWatchText">"Watch"</p></div>
