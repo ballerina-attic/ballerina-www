@@ -194,7 +194,7 @@ Default: none
 List of test group names (one or more) that this test belongs to. You can group a given test to a list of named test groups using this configuration. In order to execute tests belonging to a selected test group, you can name the test groups to be executed when you run tests.  
 
 ```
-ballerina test `--groups <comma separated list of test group names> <module_name>`
+ballerina test --groups <comma separated list of test group names> <module_name>
 ```
 
 You can skip a list of given tests with `--disable-groups <comma separated list of test group names>` Also you can use the  `--list-groups` flag to list the groups in your tests.
@@ -363,7 +363,7 @@ import ballerina/test;
 function foo() {
     try {
         bar(); // Expecting an exception thrown here
-        test:assertFail("Expected an exception");
+        test:assertFail(msg = "Expected an exception");
     }   
     catch (error e) {
         test:assertTrue(e != null); // Some other assertions
@@ -549,7 +549,7 @@ import ballerina/io;
 // This is the mock function which will replace the real intAdd function.
 @test:Mock {
     // Since we do not have a module declaration, `.` is the current module
-    // We can include any module here e.g., `ballerina.io` etc.
+    // We can include any module here e.g., `ballerina/io, foo/bar:0.0.1` etc.
     moduleName: ".",
     functionName: "intAdd"
 }
