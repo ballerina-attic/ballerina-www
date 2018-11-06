@@ -20,7 +20,7 @@ endpoint http:Client httpEndpoint {
     }
 };
 
-endpoint http:SecureListener secureListener {
+endpoint http:Listener secureListener {
     port: 9090,
     authProviders:[jwtAuthProvider],
     secureSocket: {

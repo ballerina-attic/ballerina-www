@@ -18,14 +18,13 @@ json | xml | string unionType;
 () n = (); // the empty tuple acts as "null"
 string | error stringOrError = "this is a union type";
 int? optionalInt = 5; // an int value or no value
-var inferred = ("hello", 5); 
 map<boolean> myMap = {"ballerina": true}; 
 
 type myRecord record { string a; int b; };
 
 type myObject object {  
-   public string x;
-   private int y;
-   new (x, y) {}
-   function getX() returns (string) { return x; }
+  public string p;
+  private int q;
+  new (p, q) {}
+  function getX() returns (string) { return p; }
 };

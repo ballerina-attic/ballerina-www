@@ -1,4 +1,4 @@
-import ballerina/jdbc;
+import ballerinax/jdbc;
 import ballerina/io;
 
 endpoint jdbc:Client testDB {

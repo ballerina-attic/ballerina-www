@@ -30,7 +30,7 @@ function filterBooks(json bookStore, int yearParam) returns json {
         int year = check <int>book.year;
         if (year > yearParam) {
             filteredBooks[index] = book;
-            index++;
+            index += 1;
         }
     }
 
