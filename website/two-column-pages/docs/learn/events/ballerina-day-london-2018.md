@@ -120,7 +120,7 @@ Director, WSO2
                   <a data-toggle="modal" data-target="#Data-integration">Data integration</a>
                 </div>
                 <div class="cSpeakerDetail">
-                Mohamad Shafreen,<br/>
+                Anupama Pathirage,<br/>
 Technical Lead, WSO2
                 </div>
             </td>
