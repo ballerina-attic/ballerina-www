@@ -11,7 +11,7 @@ HTTP/HTTPS based Ballerina services and any client connectors are observable by 
 connectors use semantic tags to make tracing and metrics monitoring more informative.
 
 ## Getting Started
-This section focuses on enabling Ballerina service observability with some its default supported systems.
+This section focuses on enabling Ballerina service observability with some of its default supported systems.
 [Prometheus] and [Grafana] are used for metrics monitoring, and [Jaeger] is used for distributed tracing. 
 Ballerina logs can be fed to any external log monitoring system like [Elastic Stack] to perform log monitoring and 
 analysis.
