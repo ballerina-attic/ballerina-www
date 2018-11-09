@@ -48,14 +48,15 @@
 
 </table>
 
-## Conferences
+## Conferences -
 
 <table class="cEventTable cConferencesList">
     <tr>
       <td class="cEventDetail c2col" colspan="2">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
       </td>
-        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a></td>
+        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a>
+        </td>
     </tr>
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">June 26 - 29, 2018</span>
