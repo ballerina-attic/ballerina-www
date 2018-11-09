@@ -10,6 +10,25 @@ $(document).ready(function() {
             { "name": "Parallel Service Orchestration", "desc": "Building a database backed RESTful web service.", "url": "parallel-service-orchestration", "git": "" },
             { "name": "Inter-process Communication for Microservices", "desc": "Inter-process communication for Microservices", "url": "inter-microservice-communication", "git": "" }
         ],
+	"Integration Patterns": [
+            { "name": "Passthrough Messaging", "desc": "Passthrough messaging", "url": "pass-through-messaging", "git": "" },
+            { "name": "Content-based Routing", "desc": "Content-based Routing", "url": "content-based-routing", "git": "" },
+            { "name": "Message Filtering", "desc": "Message filtering", "url": "message-filtering", "git": "" },
+            { "name": "Scatter-Gather Messaging", "desc": "Scatter gather messaging", "url": "scatter-gather-messaging", "git": "" },
+            { "name": "Message Construction Patterns", "desc": "Message Construction Patterns", "url": "eip-message-construction ", "git": "" },
+            { "name": "Messaging with ActiveMQ", "desc": "Messaging with ActiveMQ", "url": "messaging-with-activemq", "git": "" },
+            { "name": "Backend for Frontend", "desc": "Backend for Frontend", "url": "backend-for-frontend", "git": "" },
+            { "name": "EIP-Message-Transformation", "desc": "EIP-Message-Transformation", "url": "eip-message-transformation", "git": "" }
+        ],
+        "Integrating Ballerina With Other Technologies": [
+            { "name": "Running with Istio", "desc": "", "url": "ballerina-with-istio", "git": "" },
+            { "name": "Building an API Gateway", "desc": "Ballerina services with policies enforced by Ballerina API Gateway", "url": "api-gateway", "git": "" },
+            { "name": "Salesforce-Twilio Integration", "desc": "", "url": "salesforce-twilio-integration", "git": "" },
+            { "name": "Gmail-Google Sheets Integration", "desc": "", "url": "gmail-spreadsheet-integration", "git": "" },
+            { "name": "SonarQube-GitHub Integration ", "desc": "", "url": "sonarqube-github-integration", "git": "" },
+	    { "name": "Honeycomb Integration ", "desc": "", "url": "ballerina-honeycomb", "git": "" }
+
+        ],
         "Protocols and Standards": [
             { "name": "gRPC", "desc": "Exposing gRPC services from existing JSON and/or SOAP service", "url": "grpc-service", "git": "" },
             { "name": "WebSockets", "desc": "Develop WebSocket service that handels JavaScrip WebSocket API calls", "url": "websocket-integration", "git": "" },
@@ -28,24 +47,9 @@ $(document).ready(function() {
             { "name": "Load Balancing", "desc": "", "url": "loadbalancing-failover", "git": "" }
 
         ],
-        "Integration Patterns": [
-            { "name": "Passthrough Messaging", "desc": "Passthrough messaging", "url": "pass-through-messaging", "git": "" },
-            { "name": "Content-based Routing", "desc": "Content-based Routing", "url": "content-based-routing", "git": "" },
-            { "name": "Message Filtering", "desc": "Message filtering", "url": "message-filtering", "git": "" },
-            { "name": "Scatter-Gather Messaging", "desc": "Scatter gather messaging", "url": "scatter-gather-messaging", "git": "" },
-            { "name": "Message Construction Patterns", "desc": "Message Construction Patterns", "url": "eip-message-construction ", "git": "" },
-            { "name": "Messaging with ActiveMQ", "desc": "Messaging with ActiveMQ", "url": "messaging-with-activemq", "git": "" },
-            { "name": "Backend for Frontend", "desc": "Backend for Frontend", "url": "backend-for-frontend", "git": "" },
-            { "name": "EIP-Message-Transformation", "desc": "EIP-Message-Transformation", "url": "eip-message-transformation", "git": "" }
-        ],
-        "Integrating Ballerina With Other Technologies": [
-            { "name": "Running with Istio ", "desc": "", "url": "ballerina-with-istio", "git": "" },
-            { "name": "Building an API Gateway", "desc": "Ballerina services with policies enforced by Ballerina API Gateway", "url": "api-gateway", "git": "" },
-            { "name": "Salesforce-Twilio Integration", "desc": "", "url": "salesforce-twilio-integration", "git": "" },
-            { "name": "Gmail-Google Sheets Integration", "desc": "", "url": "gmail-spreadsheet-integration", "git": "" },
-            { "name": "SonarQube-GitHub Integration ", "desc": "", "url": "sonarqube-github-integration", "git": "" },
-	    { "name": "Honeycomb Integration ", "desc": "", "url": "ballerina-honeycomb", "git": "" }
-
+        
+	"Cloud Native Deployment": [
+            { "name": "Ballerina Deployment with Azure Kubernetes Service", "desc": "", "url": "ballerina-guides/ballerina-aks-deployment", "git": "" }
         ]
     };
 
@@ -70,7 +74,7 @@ $(document).ready(function() {
 
         div_content += '</ul>';
 
-        var row_id = i % 6;
+        var row_id = i % 7;
         $(".bbgfeatureSet" + row_id).append(div_content);
         i++;
     });
