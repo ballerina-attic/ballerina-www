@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -106,13 +106,6 @@
                     </div>
                     <div class="cLectColStyle">
                         <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
                         
                         <ul class=" ">
                             <li>
@@ -1051,7 +1044,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/mime</span> package </li>
+                            <li><span class="bold">ballerina/mime</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -1063,12 +1056,12 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/mime</span>  package 
+                                                <span class="bold">ballerina/mime</span>  module 
                                             </h1>
                                             
                                             <div class="cAPIdocsDescription">
-                                                <h2>Package Overview</h2>
-<p>This package provides functions to encapsulate multiple body parts, such as attachments in a single message. The communication of such messages follow the MIME (Multipurpose Internet Mail Extensions) specification as specified in the RFC 2045 standard.</p>
+                                                <h2>Module Overview</h2>
+<p>This module provides functions to encapsulate multiple body parts, such as attachments in a single message. The communication of such messages follow the MIME (Multipurpose Internet Mail Extensions) specification as specified in the RFC 2045 standard.</p>
 <h3>MIME specific terms</h3>
 <p>The following terms are MIME specific and are extracted from the MIME specification.</p>
 <h4>Entity</h4>
@@ -1084,7 +1077,7 @@ Content-Disposition: attachment; filename=genome.jpeg;
 Content-Description: a complete map of the human genome
 </code></pre>
 <h3>Modify and retrieve the data in an entity</h3>
-<p>The package provides functions to set and get an entity body from different kinds of message types, such as XML, text, JSON, blob, and body parts. Headers can be modified through functions such as <code>addHeader()</code>, <code>setHeader()</code>, <code>removeHeader()</code>, etc.</p>
+<p>The module provides functions to set and get an entity body from different kinds of message types, such as XML, text, JSON, blob, and body parts. Headers can be modified through functions such as <code>addHeader()</code>, <code>setHeader()</code>, <code>removeHeader()</code>, etc.</p>
 <h2>Samples</h2>
 <h3>Handle multipart request</h3>
 <p>The sample service given below handles a multipart request. It extracts the body content from each part, converts it to to a <code>string</code>, and sends a response.</p>
@@ -1177,7 +1170,7 @@ outRequest.setBodyParts(bodyParts, contentType = mime:MULTIPART_MIXED);
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -1852,7 +1845,7 @@ payload.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="base64DecodeByteChannel">
-                                                    <span class="fw-function sm-icon"> </span> public function base64DecodeByteChannel(io:ByteChannel valueToBeDecoded) returns (ioByteChannel | error) 
+                                                    <span class="fw-function sm-icon"> </span> public function base64DecodeByteChannel(io:ReadableByteChannel valueToBeDecoded) returns (io:ReadableByteChannel | error) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1870,7 +1863,7 @@ payload.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">valueToBeDecoded</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#ByteChannel">io:ByteChannel</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Content that needs to be decoded</p>
 </td>
@@ -1889,9 +1882,9 @@ payload.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="io.html#ByteChannel">ioByteChannel</a> | <a href="builtin.html#error">error</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a> | <a href="builtin.html#error">error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>A decoded <code>io:ByteChannel</code>. In case of errors, an <code>error</code> record is returned</p>
+                                                        <td class="cAPI-table-desc"><p>A decoded <code>io:ReadableByteChannel</code>. In case of errors, an <code>error</code> record is returned</p>
 </td>
                                                     </tr>
                                                     
@@ -2103,7 +2096,7 @@ payload.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="base64EncodeByteChannel">
-                                                    <span class="fw-function sm-icon"> </span> public function base64EncodeByteChannel(io:ByteChannel valueToBeEncoded) returns (ioByteChannel | error) 
+                                                    <span class="fw-function sm-icon"> </span> public function base64EncodeByteChannel(io:ReadableByteChannel valueToBeEncoded) returns (io:ReadableByteChannel | error) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2121,7 +2114,7 @@ payload.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">valueToBeEncoded</td>
-                                                        <td class="cAPI-table-type"><a href="io.html#ByteChannel">io:ByteChannel</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Content that needs to be encoded</p>
 </td>
@@ -2140,9 +2133,9 @@ payload.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="io.html#ByteChannel">ioByteChannel</a> | <a href="builtin.html#error">error</a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a> | <a href="builtin.html#error">error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>An encoded <code>io:ByteChannel</code>. In case of errors, an <code>error</code> record is returned</p>
+                                                        <td class="cAPI-table-desc"><p>An encoded <code>io:ReadableByteChannel</code>. In case of errors, an <code>error</code> record is returned</p>
 </td>
                                                     </tr>
                                                     
@@ -2823,7 +2816,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> setBody(string|xml|json|byte[]|io:ByteChannel|mime:Entity[] entityBody) 
+                                                   </span> setBody(string|xml|json|byte[]|io:ReadableByteChannel|mime:Entity[] entityBody) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2841,9 +2834,9 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">entityBody</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Entity body can be of type <code>string</code>,<code>xml</code>,<code>json</code>,<code>byte[]</code>,<code>io:ByteChannel</code> or <code>Entity[]</code></p>
+                                                                    <td class="cAPI-table-desc"><p>Entity body can be of type <code>string</code>,<code>xml</code>,<code>json</code>,<code>byte[]</code>,<code>io:ReadableByteChannel</code> or <code>Entity[]</code></p>
 </td>
                                                                 </tr>
                                                                 
@@ -3252,7 +3245,7 @@ errors.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> setByteChannel(io:ByteChannel byteChannel, string contentType) 
+                                                   </span> setByteChannel(io:ReadableByteChannel byteChannel, string contentType) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3272,7 +3265,7 @@ can be overridden by passing the content-type as an optional parameter.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">byteChannel</td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">io:ByteChannel</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Byte channel that needs to be set to entity</p>
 </td>
@@ -3296,7 +3289,7 @@ can be overridden by passing the content-type as an optional parameter.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> getByteChannel() returns (ioByteChannel | error) 
+                                                   </span> getByteChannel() returns (io:ReadableByteChannel | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3315,9 +3308,9 @@ can be overridden by passing the content-type as an optional parameter.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">ioByteChannel</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>An <code>io:ByteChannel</code>. An <code>error</code> record will be returned in case of errors</p>
+                                                                    <td class="cAPI-table-desc"><p>An <code>io:ReadableByteChannel</code>. An <code>error</code> record will be returned in case of errors</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3365,7 +3358,7 @@ returned in case of errors.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> getBodyPartsAsChannel() returns (ioByteChannel | error) 
+                                                   </span> getBodyPartsAsChannel() returns (io:ReadableByteChannel | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3384,7 +3377,7 @@ returned in case of errors.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">ioByteChannel</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Body parts as a byte channel</p>
 </td>
@@ -4492,7 +4485,7 @@ with the given header value.</p>
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
@@ -4611,16 +4604,6 @@ with the given header value.</p>
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>
@@ -4818,7 +4801,7 @@ with the given header value.</p>
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
                              <ul class="">
@@ -4936,16 +4919,6 @@ with the given header value.</p>
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>

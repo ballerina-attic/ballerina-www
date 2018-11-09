@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -749,13 +749,6 @@
                             </li>
                         </ul>
                         
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
                     </div>
                 </div>
             </div>
@@ -775,7 +768,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/internal</span> package </li>
+                            <li><span class="bold">ballerina/internal</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -787,12 +780,12 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/internal</span>  package 
+                                                <span class="bold">ballerina/internal</span>  module 
                                             </h1>
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -1731,7 +1724,7 @@ An error if an error occurs during the compression process.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="execBallerinaDoc">
-                                                    <span class="fw-function sm-icon"> </span> public function execBallerinaDoc(string[] packageList, string? sourceRoot, string? outputPath, string? templatesPath, string[]? exclude, boolean includeNatives, map&lt;string&gt;? envVars, string? config, boolean verbose) returns (string | error) 
+                                                    <span class="fw-function sm-icon"> </span> public function execBallerinaDoc(string[] moduleList, string? sourceRoot, string? outputPath, string? templatesPath, string[]? exclude, boolean includeNatives, map&lt;string&gt;? envVars, string? config, boolean verbose) returns (string | error) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1748,10 +1741,10 @@ An error if an error occurs during the compression process.</p>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">packageList</td>
+                                                        <td class="cAPI-table-name">moduleList</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>List of packages</p>
+                                                        <td class="cAPI-table-desc"><p>List of modules</p>
 </td>
                                                     </tr>
                                                     
@@ -1759,7 +1752,7 @@ An error if an error occurs during the compression process.</p>
                                                         <td class="cAPI-table-name">sourceRoot</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
                                                         <td class="cAPI-table-default">null</td>
-                                                        <td class="cAPI-table-desc"><p>Root folder of the packages</p>
+                                                        <td class="cAPI-table-desc"><p>Root folder of the modules</p>
 </td>
                                                     </tr>
                                                     
@@ -1783,7 +1776,7 @@ An error if an error occurs during the compression process.</p>
                                                         <td class="cAPI-table-name">exclude</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]?</a></td>
                                                         <td class="cAPI-table-default">null</td>
-                                                        <td class="cAPI-table-desc"><p>Packages to exclude</p>
+                                                        <td class="cAPI-table-desc"><p>Modules to exclude</p>
 </td>
                                                     </tr>
                                                     
@@ -2421,7 +2414,7 @@ An error if token validation fails.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Path&gt;
-                                                   </span> getModifiedTime() returns (timeTime | error) 
+                                                   </span> getModifiedTime() returns (time:Time | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2440,7 +2433,7 @@ An error if token validation fails.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="time.html#Time">timeTime</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="time.html#Time">time:Time</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Last modified time or an error if the path cannot be resolved</p>
 </td>
@@ -2810,7 +2803,7 @@ An error if token validation fails.</p>
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
@@ -2930,16 +2923,6 @@ An error if token validation fails.</p>
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>
@@ -3136,7 +3119,7 @@ An error if token validation fails.</p>
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
                              <ul class="">
@@ -3255,16 +3238,6 @@ An error if token validation fails.</p>
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>

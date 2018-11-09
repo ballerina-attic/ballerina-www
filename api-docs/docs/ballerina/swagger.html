@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -106,13 +106,6 @@
                     </div>
                     <div class="cLectColStyle">
                         <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
                         
                         <ul class=" ">
                             <li>
@@ -573,7 +566,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/swagger</span> package </li>
+                            <li><span class="bold">ballerina/swagger</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -585,12 +578,12 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/swagger</span>  package 
+                                                <span class="bold">ballerina/swagger</span>  module 
                                             </h1>
                                             
                                             <div class="cAPIdocsDescription">
-                                                <h2>Package overview</h2>
-<p>This package provides the following code generation capabilities to Ballerina:</p>
+                                                <h2>Module overview</h2>
+<p>This module provides the following code generation capabilities to Ballerina:</p>
 <ol>
 <li>Generate the Ballerina code for a given Swagger definition.</li>
 <li>Generate the client stub for an existing Ballerina service at build time.</li>
@@ -600,11 +593,11 @@
 Code generation from Swagger to Ballerina can produce <code>mock services</code> and <code>client stubs</code>.</p>
 <p>For build time client stub generation, annotation support is provided.</p>
 <h3>Mock Service from Swagger</h3>
-<p><code>ballerina swagger mock &lt;swaggerfile&gt; [-p packagename&gt;|--package &lt;packagename&gt;] [-o &lt;path&gt;|--output&lt;path&gt;]</code></p>
+<p><code>ballerina swagger mock &lt;swaggerfile&gt; [-m &lt;module-name&gt;|--module &lt;module-name&gt;] [-o &lt;path&gt;|--output&lt;path&gt;]</code></p>
 <p>Generates a Ballerina service for the Swagger file.</p>
-<p>This generated service is a mock version of the actual service. Generated sources contain the service definition in <code>gen/</code> and the resource implementation file in the package root directory with the suffix <code>_impl</code>. The <code>_impl</code> file is not overwritten by code regeneration.</p>
+<p>This generated service is a mock version of the actual service. Generated sources contain the service definition in <code>gen/</code> and the resource implementation file in the module root directory with the suffix <code>_impl</code>. The <code>_impl</code> file is not overwritten by code regeneration.</p>
 <h3>Client Stub from Swagger</h3>
-<p><code>ballerina swagger client &lt;swaggerfile&gt; [-p packagename&gt;|--package &lt;packagename&gt;] [-o &lt;path&gt;|--output&lt;path&gt;]</code></p>
+<p><code>ballerina swagger client &lt;swaggerfile&gt; [-m &lt;module-name&gt;|--module &lt;module-name&gt;] [-o &lt;path&gt;|--output&lt;path&gt;]</code></p>
 <p>Generates a Ballerina client stub for the service defined in a Swagger file.</p>
 <p>This client can be used in client applications to call the service defined in the Swagger file.</p>
 <h3>Service to Swagger Export</h3>
@@ -659,7 +652,7 @@ service Hello bind helloEp {
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -1672,7 +1665,8 @@ service Hello bind helloEp {
                                                         <td class="cAPI-table-name">description</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Description of the service</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -2094,7 +2088,7 @@ service Hello bind helloEp {
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
@@ -2213,16 +2207,6 @@ service Hello bind helloEp {
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>
@@ -2420,7 +2404,7 @@ service Hello bind helloEp {
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
                              <ul class="">
@@ -2538,16 +2522,6 @@ service Hello bind helloEp {
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>
