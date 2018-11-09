@@ -74,7 +74,7 @@
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png" style="padding-bottom:5px !important;"/>
         <p>Featuring sessions on leveraging Ballerina for building integrations in highly disaggregated architectures, watch the videos to hear from language and platform designers about our path to 1.0 and commercial support for your favorite orchestrators.</p>
       </td>
-        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/#Agenda" target="_blank">Watch Videos</a></td>
+        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/sanfrancisco#Agenda" target="_blank">Watch Videos</a></td>
     </tr>
     <!-- <tr>
         <td class="cEventDateContainer"><span class="cEventDate">June 26 - 29, 2018</span>
