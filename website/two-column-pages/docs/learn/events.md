@@ -48,7 +48,7 @@
 
 </table>
 
-## Conferences -
+## Conferences 
 
 <table class="cEventTable cConferencesList">
     <tr>
