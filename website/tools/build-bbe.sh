@@ -13,6 +13,7 @@ git clone https://github.com/ballerina-platform/ballerina-lang
 git --git-dir=ballerina-lang/.git --work-tree=ballerina-lang/ checkout v0.983.0
 mkdir -p target/dependencies/ballerina-examples/
 mv ballerina-lang/examples target/dependencies/ballerina-examples/examples/
+rm ballerina-lang -r
 
 go run tools/ballerinaByExample/tools/generate.go "target/dependencies/ballerina-examples" $2
 echo "....Completed building BBE Site...."
