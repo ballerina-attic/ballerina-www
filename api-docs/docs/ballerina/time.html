@@ -282,6 +282,34 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -694,7 +722,13 @@
                                             <div class="cAPIdocsDescription">
                                                 <h2>Package overview</h2>
 <p>The <code>ballerina/time</code> package provides implementations related to time, date, time zones, and durations.</p>
-<p>The package has two main types as <a href="time.html#Time">Time</a> and <a href="time.html#Timezone">Timezone</a>. The type <code>Time</code> represents a time associated with a given time zone. It has <code>time</code> and <code>zone</code> as attributes. The type <code>Timezone</code> represents the time zone associated with a given time. It has <code>zoneId</code> and <code>zoneOffset</code> as attributes.</p>
+<p>The package has two main types as <a href="time.html#Time">Time</a> and <a href="time.html#Timezone">Timezone</a>. The type <code>Time</code> represents a time associated with a given time zone. It has <code>time</code> and <code>zone</code> as attributes. The type <code>Timezone</code> represents the time zone associated with a given time. It has <code>zoneId</code> and <code>zoneOffset</code> as attributes. A <code>zoneId</code> can be one of the following:</p>
+<ul>
+<li>If <code>zoneId</code> equals 'Z', the result is UTC.</li>
+<li>If <code>zoneId</code> equals 'GMT', 'UTC' or 'UT', it is equivalent to UTC.</li>
+<li>If <code>zoneId</code> starts with '+' or '-', the ID is parsed as an offset. Offset can be specified in one of the following ways. +h, +hh, +hh:mm, -hh:mm, +hhmm, -hhmm, +hh:mm:ss, -hh:mm:ss, +hhmmss, -hhmmss</li>
+<li>Also <code>zoneId</code> can be a region-based zone ID. The format is '{area}/{city}' eg: &quot;America/Panama&quot;. The zones are based on IANA Time Zone Database (TZDB) supplied data.</li>
+</ul>
 <h2>Samples</h2>
 <h3>Getting the current time/date</h3>
 <pre><code class="language-ballerina">time:Time time = time:currentTime(); // Create an object of type ‘Time’.
@@ -717,15 +751,15 @@ string weekday = time.weekday(); // Day of the week. E.g., “TUESDAY”.
 <h3>Creating a time/date object</h3>
 <pre><code class="language-ballerina">// Create an object of type ‘Time’ with time zone.
 time:Timezone zoneIdValue = {zoneId:&quot;America/Panama&quot;};
-time:Time time1 = new (1498488382000, zoneValue);
+time:Time time1 = new (1498488382000, zoneIdValue);
 
 // Create an object of type ‘Time’ with the time zone offset.
 time:Timezone zoneOffsetValue = {zoneId:&quot;-05:00&quot;};
-time:Time time2 =new (1498488382000, zoneValue);
+time:Time time2 =new (1498488382000, zoneOffsetValue);
 
 // Create an object of type ‘Time’ without the time zone.
 time:Timezone noZoneValue = {zoneId:&quot;&quot;};
-time:Time time3 = new (1498488382000, zoneValue);
+time:Time time3 = new (1498488382000, noZoneValue);
 
 // Create an object of type ‘Time’ with time and date. E.g., 2018-03-28T23:42:45.554-05:00  
 time:Time dateTime = time:createTime(2018, 3, 28, 23, 42, 45, 554, &quot;America/Panama&quot;);
@@ -783,9 +817,8 @@ int diffInMillis = time1.time - time2.time;
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Timezone">Timezone</a></td>
-                                                         <td class="cSummary-table-desc">
-    Ballerina Timezone represents the timezone information associated with a particular time.
-    </td>
+                                                         <td class="cSummary-table-desc">Ballerina Timezone represents the timezone information associated with a particular time.
+</td>
                                                      </tr>
                                                  
                                              
@@ -969,9 +1002,8 @@ int diffInMillis = time1.time - time2.time;
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    Ballerina Timezone represents the timezone information associated with a particular time.
-    
+                                                    <span class="fw-right gray xs-icon"></span>Ballerina Timezone represents the timezone information associated with a particular time.
+
                                                 </p>
                                                  
                                                 <table>
@@ -1316,7 +1348,7 @@ int diffInMillis = time1.time - time2.time;
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">zone</td>
-                                                        <td class="cAPI-table-type"><a href="time.html#Timezone">time:0.0.0:Timezone</a></td>
+                                                        <td class="cAPI-table-type"><a href="time.html#Timezone">time:Timezone</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The time zone of the time</p>
 </td>
@@ -1332,7 +1364,7 @@ int diffInMillis = time1.time - time2.time;
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Time&gt;
-                                                   </span> new(int time, time:0.0.0:Timezone zone) 
+                                                   </span> new(int time, time:Timezone zone) 
                                                             </h2>
                                                              
                                                             <table>
@@ -1352,7 +1384,7 @@ int diffInMillis = time1.time - time2.time;
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">zone</td>
-                                                                    <td class="cAPI-table-type"><a href="time.html#Timezone">time:0.0.0:Timezone</a></td>
+                                                                    <td class="cAPI-table-type"><a href="time.html#Timezone">time:Timezone</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -1745,7 +1777,9 @@ int diffInMillis = time1.time - time2.time;
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type">(<a href="primitive-types.html#int">int</a>,<a href="primitive-types.html#int">int</a>,<a href="primitive-types.html#int">int</a>)</td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The year representation</p>
+                                                                    <td class="cAPI-table-desc"><p>The year representation.
+The month-of-year, from 1 (January) to 12 (December).
+The day-of-month, from 1 to 31.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -1779,7 +1813,10 @@ int diffInMillis = time1.time - time2.time;
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type">(<a href="primitive-types.html#int">int</a>,<a href="primitive-types.html#int">int</a>,<a href="primitive-types.html#int">int</a>,<a href="primitive-types.html#int">int</a>)</td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The hour-of-day, from 0 to 23</p>
+                                                                    <td class="cAPI-table-desc"><p>The hour-of-day, from 0 to 23.
+The minute-of-hour to represent, from 0 to 59.
+The second-of-minute, from 0 to 59.
+The milli-of-second, from 0 to 999.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -2257,6 +2294,16 @@ int diffInMillis = time1.time - time2.time;
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -2377,6 +2424,16 @@ int diffInMillis = time1.time - time2.time;
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -2427,6 +2484,16 @@ int diffInMillis = time1.time - time2.time;
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -2448,6 +2515,16 @@ int diffInMillis = time1.time - time2.time;
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -2542,6 +2619,16 @@ int diffInMillis = time1.time - time2.time;
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -2662,6 +2749,16 @@ int diffInMillis = time1.time - time2.time;
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -2712,6 +2809,16 @@ int diffInMillis = time1.time - time2.time;
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -2733,6 +2840,16 @@ int diffInMillis = time1.time - time2.time;
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>

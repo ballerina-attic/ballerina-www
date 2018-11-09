@@ -9,10 +9,9 @@ transaction {
             throw err.cause but {() => err};
         }
     }
-    var returnedKey = check <int>generatedID[0];
-    sql:Parameter para1 = {sqlType:sql:TYPE_INTEGER, value:returnedKey};
+    int returnedKey = check <int>generatedID[0];
     var ret = db2 -> update("INSERT INTO SALARY (ID, VALUE)
-            VALUES (?, 2500)", para1);
+            VALUES (?, 2500)", returnedKey);
 
     match ret {
         int retInt =>  {

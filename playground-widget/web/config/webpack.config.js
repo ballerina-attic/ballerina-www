@@ -26,10 +26,12 @@
  const CopyWebpackPlugin = require('copy-webpack-plugin');
  const HtmlWebpackPlugin = require('html-webpack-plugin');
  const CleanWebpackPlugin = require('clean-webpack-plugin');
+ const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+ const GitRevisionPlugin = require('git-revision-webpack-plugin');
  const WebfontPlugin = require('webpack-webfont').default;
  
  const isProductionBuild = process.env.NODE_ENV === 'production';
- const hashToUse = isProductionBuild ? 'chunkhash' : 'hash';
+ const hashToUse = isProductionBuild ? 'git-revision-hash' : 'hash';
  const backendHost = 'playground.preprod.ballerina.io';
 
  const moduleRoot = path.resolve(__dirname, '../');
@@ -37,6 +39,7 @@
  const composerWebRoot = path.join(__dirname, '../ballerina-lang/composer/modules/web');
  
  const extractCSSBundle = new ExtractTextPlugin({ filename: `./[name].[${hashToUse}].css`, allChunks: true });
+ const extractLessBundle = new ExtractTextPlugin({ filename: `./[name]-less.[${hashToUse}].css`, allChunks: true });
 
  const isExternal = function(modulePath) {
      return modulePath.includes('node_modules');
@@ -97,7 +100,9 @@ const codepoints = {}
                 use: [{
                     loader: 'css-loader',
                     options: {
-                        sourceMap: true,
+                        url: false,
+                        sourceMap: isProductionBuild,
+                        minimize: isProductionBuild,
                     },
                 }, {
                     loader: 'sass-loader',
@@ -115,7 +120,8 @@ const codepoints = {}
                      loader: 'css-loader',
                      options: {
                          url: false,
-                         sourceMap: true,
+                         sourceMap: isProductionBuild,
+                         minimize: isProductionBuild,
                      },
                  }],
              }),
@@ -137,6 +143,27 @@ const codepoints = {}
              ],
          },
          {
+            test: /\.less$/,
+            exclude: /node_modules/,
+            use: extractLessBundle.extract({
+                fallback: {
+                    loader: 'style-loader',
+                    options: {
+                        hmr: !isProductionBuild,
+                    },
+                },
+                use: [{
+                    loader: 'css-loader',
+                    options: {
+                        sourceMap: isProductionBuild,
+                        minimize: isProductionBuild,
+                    },
+                }, {
+                    loader: 'less-loader',
+                }],
+            }),
+        },
+         {
             test: /\.bal$/,
             use: 'raw-loader'
           }
@@ -145,6 +172,7 @@ const codepoints = {}
      plugins: [
          new ProgressBarPlugin(),
          new CleanWebpackPlugin([buildPath], { watch: true, root: moduleRoot }),
+         extractLessBundle,
          extractCSSBundle,
          new webpack.WatchIgnorePlugin([path.join(composerWebRoot, 'font/dist/')]),
          new WebfontPlugin({
@@ -180,6 +208,10 @@ const codepoints = {}
          new WriteFilePlugin(),
          new CopyWebpackPlugin([
             {
+                from: 'fonts',
+                to: 'fonts',
+            },
+            {
                 from: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
                 to: 'fonts',
             },
@@ -189,14 +221,6 @@ const codepoints = {}
             {
                 from: 'images',
                 to: 'images'
-            },
-            {
-                from: 'node_modules/monaco-editor/min/vs',
-                to: 'vs'
-            },
-            {
-                from: 'node_modules/semantic-ui-css/themes',
-                to: 'themes'
             },
             {
                 from: 'guides',
@@ -216,7 +240,14 @@ const codepoints = {}
         }),
         new webpack.optimize.CommonsChunkPlugin({
                name: 'manifest'
-        })
+        }),
+        new MonacoWebpackPlugin({
+            features:['bracketMatching', 'iPadShowKeyboard'],
+            languages: []
+        }),
+        new GitRevisionPlugin({
+            commithashCommand: 'log -n 1 --pretty=format:%H -- .',
+        }),
      ],
      devServer: {
          port: 3000,
@@ -244,7 +275,9 @@ const codepoints = {}
             'api-client':  'composer/api-client',
             'images': path.join(composerWebRoot, 'public/images'),
             'TreeBuilder': 'composer/plugins/ballerina/model/tree-builder',
-            'PackageScopedEnvironment': 'composer/plugins/ballerina/env/package-scoped-environment'
+            'PackageScopedEnvironment': 'composer/plugins/ballerina/env/package-scoped-environment',
+            'monaco-editor': 'monaco-editor/esm/vs/editor/editor.api.js',
+            '../../theme.config$': path.join(moduleRoot, 'src/styling/theme.config'),
         }
      },
  

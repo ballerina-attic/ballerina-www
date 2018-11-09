@@ -219,6 +219,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -284,6 +298,18 @@
                                             
                                           
                                         <li>
+                                            <a href="#base64DecodeByteArray">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    base64DecodeByteArray
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
                                             <a href="#base64DecodeByteChannel">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
@@ -320,6 +346,18 @@
                                             
                                           
                                         <li>
+                                            <a href="#base64EncodeByteArray">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    base64EncodeByteArray
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
                                             <a href="#base64EncodeByteChannel">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
@@ -338,6 +376,18 @@
                                                 </div>
                                                 <div class="construct-name">
                                                     base64EncodeString
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#byteArrayToString">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    byteArrayToString
                                                 </div>
                                             </a>
                                         </li>
@@ -626,12 +676,12 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Entity-setBlob">
+                                                <a href="#Entity-setByteArray">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
                                                     <div class="construct-name">
-                                                        setBlob
+                                                        setByteArray
                                                     </div>
                                                 </a>
                                             </li>
@@ -639,12 +689,12 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Entity-getBlob">
+                                                <a href="#Entity-getByteArray">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
                                                     </div>
                                                     <div class="construct-name">
-                                                        getBlob
+                                                        getByteArray
                                                     </div>
                                                 </a>
                                             </li>
@@ -968,6 +1018,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -1005,7 +1069,7 @@
                                             <div class="cAPIdocsDescription">
                                                 <h2>Package Overview</h2>
 <p>This package provides functions to encapsulate multiple body parts, such as attachments in a single message. The communication of such messages follow the MIME (Multipurpose Internet Mail Extensions) specification as specified in the RFC 2045 standard.</p>
-<h3>MIME Specific terms</h3>
+<h3>MIME specific terms</h3>
 <p>The following terms are MIME specific and are extracted from the MIME specification.</p>
 <h4>Entity</h4>
 <p>This refers to the header fields and the content of a message, or a part of the body in a multipart entity.</p>
@@ -1014,16 +1078,16 @@
 <h4>Body</h4>
 <p>This is the body of an entity, which can be a body of a message or the body of a multipart entity.</p>
 <h4>Header Fields</h4>
-<p>Content-Type, Content-Transfer-Encoding, Content-ID, Content-Description, and Content-Disposition are some MIME header fields. These headers exist along with the other headers in the <code>Entity</code>.</p>
+<p>Content-Type, Content-Transfer-Encoding, Content-ID, Content-Description, and Content-Disposition are some of the MIME header fields. These headers exist along with the other headers in the <code>Entity</code>.</p>
 <pre><code>Content-Type: image/jpeg
 Content-Disposition: attachment; filename=genome.jpeg;
 Content-Description: a complete map of the human genome
 </code></pre>
-<h3>Modify and retrieve the data in an Entity</h3>
+<h3>Modify and retrieve the data in an entity</h3>
 <p>The package provides functions to set and get an entity body from different kinds of message types, such as XML, text, JSON, blob, and body parts. Headers can be modified through functions such as <code>addHeader()</code>, <code>setHeader()</code>, <code>removeHeader()</code>, etc.</p>
 <h2>Samples</h2>
 <h3>Handle multipart request</h3>
-<p>The sample service given below handles a multipart request. It gets the message from each part of the body, converts the messages to a <code>string</code>, and sends a response.</p>
+<p>The sample service given below handles a multipart request. It extracts the body content from each part, converts it to to a <code>string</code>, and sends a response.</p>
 <pre><code class="language-ballerina">import ballerina/http;
 import ballerina/io;
 import ballerina/log;
@@ -1042,23 +1106,23 @@ service&lt;http:Service&gt; test bind {port:9090} {
 
        // Get the body parts from the request.
        match request.getBodyParts() {
-           // If there is an error while getting the body parts, set the response code as 500 and set the error message as the response message.
-           error err =&gt; {
-               response.statusCode = 500;
-               response.setPayload(err.message);
-           }
            // If the body parts were returned, iterate through each body part and handle the content.
            mime:Entity[] bodyParts =&gt; {
                string content = &quot;&quot;;
                foreach part in bodyParts {
                     content = content + &quot; -- &quot; + handleContent(part);
                }
-               response.setPayload(content);
+               response.setPayload(untaint content);
            }
+           // If there is an error while getting the body parts, set the response code as 500 and 
+           //set the error message as the response message.
+          error err =&gt; {
+              response.statusCode = 500;
+              response.setPayload(untaint err.message);
+          }
        }
        client -&gt; respond(response) but { error e =&gt; log:printError(&quot;Error in responding&quot;, err = e) };
    }
-
 }
 
 // The function that handles the content based on the body part type.
@@ -1089,8 +1153,8 @@ function handleContent(mime:Entity bodyPart) returns (string) {
 <p>The sample request that is sent to the above service is shown below.</p>
 <pre><code>curl -v -F &quot;request={\&quot;param1\&quot;: \&quot;value1\&quot;};type=application/json&quot; -F &quot;language=ballerina;type=text/plain&quot; -F &quot;upload=@/home/path-to-file/encode.txt;type=application/octet-stream&quot;  http://localhost:9090/test/multipleparts -H &quot;Expect:&quot;
 </code></pre>
-<h3>Create a multipart response</h3>
-<p>The sample given below creates a multipart request. It includes <code>application/json</code> and <code>text/xml</code> type content.</p>
+<h3>Create a multipart request</h3>
+<p>The sample given below creates a multipart request. It includes two body parts with <code>application/json</code> and <code>application/xml</code> content type.</p>
 <pre><code class="language-ballerina">// Create a JSON body part.
 mime:Entity bodyPart1 = new;
 // Set the JSON content.
@@ -1106,7 +1170,7 @@ mime:Entity[] bodyParts = [bodyPart1, bodyPart2];
 // Set the body parts to the outbound response.
 http:Request outRequest = new;
 // Set the content type as ‘multipart/mixed’ and set the body parts.
-outRequest.setBodyParts(bodyParts, mime:MULTIPART_MIXED);
+outRequest.setBodyParts(bodyParts, contentType = mime:MULTIPART_MIXED);
 </code></pre>
 
                                             </div>
@@ -1128,6 +1192,12 @@ outRequest.setBodyParts(bodyParts, mime:MULTIPART_MIXED);
                                               
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
                                              
                                                  
                                              
@@ -1247,7 +1317,15 @@ and an entity(body part) inside of a multipart entity.</p>
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#base64DecodeBlob">base64DecodeBlob</a></td>
-                                                        <td class="cSummary-table-desc"><p>Decodes a given blob with Base64 encoding scheme.</p>
+                                                        <td class="cSummary-table-desc"><p>Decodes a given byte[] with Base64 encoding scheme.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#base64DecodeByteArray">base64DecodeByteArray</a></td>
+                                                        <td class="cSummary-table-desc"><p>Decode a given byte[] with Base64 encoding scheme.</p>
 </td>
                                                      </tr>
                                                  
@@ -1271,7 +1349,15 @@ and an entity(body part) inside of a multipart entity.</p>
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#base64EncodeBlob">base64EncodeBlob</a></td>
-                                                        <td class="cSummary-table-desc"><p>Encodes a given blob with Base64 encoding scheme.</p>
+                                                        <td class="cSummary-table-desc"><p>Encodes a given byte[] with Base64 encoding scheme.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#base64EncodeByteArray">base64EncodeByteArray</a></td>
+                                                        <td class="cSummary-table-desc"><p>Encode a given byte[] with Base64 encoding scheme.</p>
 </td>
                                                      </tr>
                                                  
@@ -1288,6 +1374,14 @@ and an entity(body part) inside of a multipart entity.</p>
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#base64EncodeString">base64EncodeString</a></td>
                                                         <td class="cSummary-table-desc"><p>Encodes a given string with Base64 encoding scheme.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#byteArrayToString">byteArrayToString</a></td>
+                                                        <td class="cSummary-table-desc"><p>Converts given byte[] to a string.</p>
 </td>
                                                      </tr>
                                                  
@@ -1384,6 +1478,9 @@ and an entity(body part) inside of a multipart entity.</p>
                                                 <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             
+                                              
+                                              
+                                              
                                               
                                               
                                               
@@ -1634,11 +1731,11 @@ payload.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="base64DecodeBlob">
-                                                    <span class="fw-function sm-icon"> </span> public function base64DecodeBlob(blob valueToBeDecoded) returns (blob | error) 
+                                                    <span class="fw-function sm-icon"> </span> public function base64DecodeBlob(byte[] valueToBeDecoded) returns (byte[] | error) 
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Decodes a given blob with Base64 encoding scheme.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Decodes a given byte[] with Base64 encoding scheme.</p>
 
                                                 </p>
                                                  
@@ -1652,7 +1749,7 @@ payload.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">valueToBeDecoded</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#blob">blob</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Content that needs to be decoded</p>
 </td>
@@ -1671,9 +1768,69 @@ payload.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#blob">blob</a> | <a href="builtin.html#error">error</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a> | <a href="builtin.html#error">error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>A decoded <code>blob</code>. In case of errors, an <code>error</code> record is returned</p>
+                                                        <td class="cAPI-table-desc"><p>A decoded <code>byte[]</code>. In case of errors, an <code>error</code> record is returned</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="base64DecodeByteArray">
+                                                    <span class="fw-function sm-icon"> </span> public function base64DecodeByteArray(byte[] b) returns (byte[]) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Decode a given byte[] with Base64 encoding scheme.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">b</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Return a decoded byte[]</p>
 </td>
                                                     </tr>
                                                     
@@ -1825,11 +1982,11 @@ payload.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="base64EncodeBlob">
-                                                    <span class="fw-function sm-icon"> </span> public function base64EncodeBlob(blob valueToBeEncoded) returns (blob | error) 
+                                                    <span class="fw-function sm-icon"> </span> public function base64EncodeBlob(byte[] valueToBeEncoded) returns (byte[] | error) 
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Encodes a given blob with Base64 encoding scheme.</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Encodes a given byte[] with Base64 encoding scheme.</p>
 
                                                 </p>
                                                  
@@ -1843,7 +2000,7 @@ payload.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">valueToBeEncoded</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#blob">blob</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Content that needs to be encoded</p>
 </td>
@@ -1862,9 +2019,69 @@ payload.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#blob">blob</a> | <a href="builtin.html#error">error</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a> | <a href="builtin.html#error">error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>An encoded blob. In case of errors, an <code>error</code> record is returned</p>
+                                                        <td class="cAPI-table-desc"><p>An encoded byte[]. In case of errors, an <code>error</code> record is returned</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="base64EncodeByteArray">
+                                                    <span class="fw-function sm-icon"> </span> public function base64EncodeByteArray(byte[] b) returns (byte[]) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Encode a given byte[] with Base64 encoding scheme.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">b</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Return an encoded byte[]</p>
 </td>
                                                     </tr>
                                                     
@@ -1995,6 +2212,74 @@ payload.</p>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>An encoded <code>string</code>. In case of errors, an <code>error</code> record is returned</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="byteArrayToString">
+                                                    <span class="fw-function sm-icon"> </span> public function byteArrayToString(byte[] b, string encoding) returns (string) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Converts given byte[] to a string.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">b</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">encoding</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Encoding to used in byte[] conversion to string</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>String representation of the given byte[]</p>
 </td>
                                                     </tr>
                                                     
@@ -2471,7 +2756,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> setContentDisposition(mime:0.0.0:ContentDisposition contentDisposition) 
+                                                   </span> setContentDisposition(mime:ContentDisposition contentDisposition) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2489,7 +2774,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">contentDisposition</td>
-                                                                    <td class="cAPI-table-type"><a href="mime.html#ContentDisposition">mime:0.0.0:ContentDisposition</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mime.html#ContentDisposition">mime:ContentDisposition</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Content disposition that needs to be set to entity</p>
 </td>
@@ -2538,7 +2823,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> setBody(string|xml|json|blob|io:ByteChannel|mime:0.0.0:Entity[] entityBody) 
+                                                   </span> setBody(string|xml|json|byte[]|io:ByteChannel|mime:Entity[] entityBody) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2556,9 +2841,9 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">entityBody</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#blob">blob</a>|<a href="io.html#ByteChannel">io:ByteChannel</a>|<a href="mime.html#Entity">mime:0.0.0:Entity[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Entity body can be of type <code>string</code>,<code>xml</code>,<code>json</code>,<code>blob</code>,<code>io:ByteChannel</code> or <code>Entity[]</code></p>
+                                                                    <td class="cAPI-table-desc"><p>Entity body can be of type <code>string</code>,<code>xml</code>,<code>json</code>,<code>byte[]</code>,<code>io:ByteChannel</code> or <code>Entity[]</code></p>
 </td>
                                                                 </tr>
                                                                 
@@ -2883,15 +3168,15 @@ construction of the string body.</p>
                                                         </li>
                                                         
                                                         <li>
-                                                            <h2 id="Entity-setBlob">
+                                                            <h2 id="Entity-setByteArray">
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> setBlob(blob blobContent, string contentType) 
+                                                   </span> setByteArray(byte[] blobContent, string contentType) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Sets the entity body with the given blob content. This method overrides any existing <code>content-type</code> headers
+                                                                <span class="fw-right gray xs-icon"></span><p>Sets the entity body with the given byte[] content. This method overrides any existing <code>content-type</code> headers
 with the default content type <code>application/octet-stream</code>. The default value <code>application/octet-stream</code>
 can be overridden by passing the content type as an optional parameter.</p>
 
@@ -2907,9 +3192,9 @@ can be overridden by passing the content type as an optional parameter.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">blobContent</td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#blob">blob</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Blob content that needs to be set to entity</p>
+                                                                    <td class="cAPI-table-desc"><p>byte[] content that needs to be set to entity</p>
 </td>
                                                                 </tr>
                                                                 
@@ -2927,15 +3212,15 @@ can be overridden by passing the content type as an optional parameter.</p>
                                                         </li>
                                                         
                                                         <li>
-                                                            <h2 id="Entity-getBlob">
+                                                            <h2 id="Entity-getByteArray">
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> getBlob() returns (blob | error) 
+                                                   </span> getByteArray() returns (byte[] | error) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, gets the entity body as a <code>blob</code>. If the entity size is considerably large consider
+                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, gets the entity body as a <code>byte[]</code>. If the entity size is considerably large consider
 using getByteChannel() method instead.</p>
 
                                                             </p>
@@ -2951,9 +3236,9 @@ using getByteChannel() method instead.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#blob">blob</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p><code>blob</code> data extracted from the the entity body. An <code>error</code> record is returned in case of
+                                                                    <td class="cAPI-table-desc"><p><code>byte[]</code> data extracted from the the entity body. An <code>error</code> record is returned in case of
 errors.</p>
 </td>
                                                                 </tr>
@@ -3080,7 +3365,7 @@ returned in case of errors.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> getBodyPartsAsChannel() returns (ByteChannel) 
+                                                   </span> getBodyPartsAsChannel() returns (ioByteChannel | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3099,7 +3384,7 @@ returned in case of errors.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">ByteChannel</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">ioByteChannel</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Body parts as a byte channel</p>
 </td>
@@ -3114,7 +3399,7 @@ returned in case of errors.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> setBodyParts(mime:0.0.0:Entity[] bodyParts, string contentType) 
+                                                   </span> setBodyParts(mime:Entity[] bodyParts, string contentType) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3134,7 +3419,7 @@ by passing the content type as an optional parameter.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">bodyParts</td>
-                                                                    <td class="cAPI-table-type"><a href="mime.html#Entity">mime:0.0.0:Entity[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mime.html#Entity">mime:Entity[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Represents the body parts that needs to be set to the entity</p>
 </td>
@@ -4225,6 +4510,16 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -4345,6 +4640,16 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -4396,6 +4701,16 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -4417,6 +4732,16 @@ with the given header value.</p>
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -4510,6 +4835,16 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -4630,6 +4965,16 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -4681,6 +5026,16 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -4702,6 +5057,16 @@ with the given header value.</p>
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>

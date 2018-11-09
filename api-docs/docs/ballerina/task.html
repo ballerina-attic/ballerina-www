@@ -268,6 +268,34 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -484,7 +512,7 @@ executed. This function is responsible for handling errors that takes place whil
     (function() returns error?) onTriggerFunction = doTask;
     (function(error)) onErrorFunction = onError;
     timer = new task:Timer(onTriggerFunction, onErrorFunction, 500, delay = 1000);
-    _ = timer.start();
+    timer.start();
 
 </code></pre>
 <h3>Task appointments</h3>
@@ -497,7 +525,7 @@ function is called.</p>
 <pre><code class="language-ballerina">    (function() returns error?) onTriggerFunction = onTrigger;
     (function (error)) onErrorFunction = cleanupError;
     app = new task:Appointment(onTriggerFunction, onErrorFunction, &quot;0/05 * * * * ?&quot;);
-    _ = app.schedule();
+    app.schedule();
 </code></pre>
 <h2>Samples</h2>
 <h3>Tasks timer</h3>
@@ -505,18 +533,18 @@ function is called.</p>
 The <code>onTrigger</code> function is triggered when the clock goes off. The <code>onError</code> function is executed if an error is
 returned from the <code>onTrigger</code> function. Further, the count variable is incremented by the task and if the count is
 equal to 10, an error is returned. If the count is equal to 20, the task is stopped using the <code>stopTask()</code> function.</p>
-<pre><code class="language-ballerina">import ballerina/task;
-import ballerina/io;
+<pre><code class="language-ballerina">import ballerina/io;
 import ballerina/runtime;
+import ballerina/task;
 
 int count;
 task:Timer? timer;
 
-function main(string... args) {
+public function main(string... args) {
     io:println(&quot;tasks sample is running&quot;);
     scheduleTimer(1000,1000);
     // Keep the program running for 100*1000 milliseconds.
-    runtime:sleepCurrentWorker(100*1000);
+    runtime:sleep(100*1000);
 }
 
 function scheduleTimer(int delay, int interval) {
@@ -524,10 +552,10 @@ function scheduleTimer(int delay, int interval) {
     (function() returns error?) onTriggerFunction = onTrigger;
     // Point to the error function.
     (function (error)) onErrorFunction = onError;
-    // Register a task with given ‘onTrigger’ and ‘onError’ functions, and with given ‘delay’ and ‘interval’ times. 
+    // Register a task with given ‘onTrigger’ and ‘onError’ functions, and with given ‘delay’ and ‘interval’ times.
     timer = new task:Timer(onTriggerFunction, onErrorFunction, interval, delay = delay);
     // Start the timer.
-    _ = timer.start();
+    timer.start();
 }
 
 // Define the ‘onError’ function for the task timer.
@@ -541,12 +569,17 @@ function onTrigger() returns error? {
     count = count + 1;
     if(count == 10) {
         error e = {message:&quot;Task cannot be performed when the count is 10&quot;};
-	    //The ‘onError’ function is called when the error is returned.
+        //The ‘onError’ function is called when the error is returned.
         return e;
     }
 
     if(count == 20) {
-        _ = stopTask();
+        match stopTask() {
+            error e =&gt; {
+                return e;
+            }
+            () =&gt; {}
+        }
     }
     io:println(&quot;on trigger : count value is: &quot; + count);
     return ();
@@ -555,7 +588,7 @@ function onTrigger() returns error? {
 // Define the function to stop the task.
 function stopTask() returns error? {
     io:println(&quot;Stopping task&quot;);
-    _ = timer.stop();
+    timer.stop();
     count = -1;
     return ();
 }
@@ -566,19 +599,19 @@ function stopTask() returns error? {
 <code>onTrigger</code> function is triggered every 5 seconds. The <code>onError</code> function is executed if an error is returned from
 the <code>onTrigger</code> function. Further, the count variable is incremented by the task and if the count is equal to 10, an
 error is returned. If the count is equal to 20, the task is stopped.</p>
-<pre><code class="language-ballerina">import ballerina/task;
-import ballerina/io;
+<pre><code class="language-ballerina">import ballerina/io;
 import ballerina/runtime;
+import ballerina/task;
 
 int count;
 task:Appointment? app;
 
-function main(string... args) {
+public function main(string... args) {
     io:println(&quot;tasks sample is running&quot;);
     // To schedule the appointment with given cron expression.
     scheduleAppointment(&quot;0/05 * * * * ?&quot;);
     // Keep the program running for 100*1000 seconds
-    runtime:sleepCurrentWorker(100*1000);
+    runtime:sleep(100*1000);
 }
 function scheduleAppointment(string cronExpression) {
     // Define on trigger function
@@ -587,12 +620,12 @@ function scheduleAppointment(string cronExpression) {
     (function (error)) onErrorFunction = onError;
     // Schedule appointment.
     app = new task:Appointment(onTriggerFunction, onErrorFunction, cronExpression);
-    _ = app.schedule();
+    app.schedule();
 }
 
 function onTrigger() returns error? {
-    io:println(&quot;tasks is triggered and the value of count is : &quot; + count);
     count = count + 1;
+    io:println(&quot;tasks is triggered and the value of count is : &quot; + count);
 
     if(count == 10) {
         error e = {message:&quot;Task appointment cannot be executed when the count is 10&quot;};
@@ -615,7 +648,7 @@ function onError(error e) {
 
 // Define the function to stop the task.
 function cancelAppointment() {
-    _ = app.cancel();
+    app.cancel();
     count = -1;
 }
 
@@ -1047,6 +1080,16 @@ function cancelAppointment() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -1167,6 +1210,16 @@ function cancelAppointment() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -1217,6 +1270,16 @@ function cancelAppointment() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -1238,6 +1301,16 @@ function cancelAppointment() {
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -1332,6 +1405,16 @@ function cancelAppointment() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -1452,6 +1535,16 @@ function cancelAppointment() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -1502,6 +1595,16 @@ function cancelAppointment() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -1523,6 +1626,16 @@ function cancelAppointment() {
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>

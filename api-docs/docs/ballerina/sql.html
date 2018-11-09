@@ -247,6 +247,27 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -536,6 +557,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -578,7 +606,7 @@
 <h3>SQLType</h3>
 <p>The SQLType represents the SQL data type of a given parameter. When using a parameter, use the same SQL type as the actual database table column type. Otherwise data loss can occur.</p>
 <h3>Direction</h3>
-<p>The Direction type represents the direction of the parameter used in call operation. IN parameters are used to send values to stored procedures or pass parameters to other operations like select, update, etc. This is the default direction of a parameter. The OUT parameters are used to get values from stored procedures. The INOUT parameters are used to send values to stored procedures and retrieve values from stored procedures.</p>
+<p>The Direction type represents the direction of the parameter used in call operation. IN parameters are used to send values to stored procedures or pass parameters to other operations such as select, update, etc. This is the default direction of a parameter. The OUT parameters are used to get values from stored procedures. The INOUT parameters are used to send values to stored procedures and retrieve values from stored procedures.</p>
 <h3>Parameter</h3>
 <p>The Parameter type represents a parameter for the SQL operations when a variable needs to be passed into the sql statement given in the operation.</p>
 
@@ -602,20 +630,16 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Parameter">Parameter</a></td>
-                                                         <td class="cSummary-table-desc">
-    Parameter represents a parameter for the SQL actions when a variable parameter needs to pass to the action.
-
-    </td>
+                                                         <td class="cSummary-table-desc">Parameter represents a parameter for the SQL actions when a variable parameter needs to be passed to the action.
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#PoolOptions">PoolOptions</a></td>
-                                                         <td class="cSummary-table-desc">
-    Represents the properties which are used to configure DB connection pool.
-
-    </td>
+                                                         <td class="cSummary-table-desc">Represents the properties which are used to configure DB connection pool.
+</td>
                                                      </tr>
                                                  
                                              
@@ -921,11 +945,11 @@ INOUT - INOUT parameters are used to send values and get values from stored proc
                                                 <td class="cSummary-table-name">SQLType</td>
                                                 <td class="cSummary-table-type">VARCHAR | VARBINARY | TINYINT | TIMESTAMP | TIME | STRUCT | SMALLINT | REFCURSOR | REAL | NVARCHAR | NUMERIC | NCLOB | NCHAR | LONGVARCHAR | LONGVARBINARY | LONGNVARCHAR | INTEGER | FLOAT | DOUBLE | DECIMAL | DATETIME | DATE | CLOB | CHAR | BOOLEAN | BLOB | BIT | BINARY | BIGINT | ARRAY</td>
                                                 <td class="cSummary-table-desc"><p>The SQL Datatype of the parameter.</p>
-<p>VARCHAR - Small, variable-length character string
-CHAR - Small, fixed-length character string
-LONGVARCHAR - Large, variable-length character string
-NCHAR - Small, fixed-length character string with unicode support
-LONGNVARCHAR - Large, variable-length character string with unicode support</p>
+<p>VARCHAR - Small, variable length character string
+CHAR - Small, fixed length character string
+LONGVARCHAR - Large, variable length character string
+NCHAR - Small, fixed length character string with unicode support
+LONGNVARCHAR - Large, variable length character string with unicode support</p>
 <p>BIT - Single bit value that can be zero or one, or nil
 BOOLEAN - Boolean value either True or false
 TINYINT - 8-bit integer value which may be unsigned or signed
@@ -939,8 +963,8 @@ FLOAT - Double precision floating point number
 DOUBLE - Double precision floating point number</p>
 <p>BINARY - Small, fixed-length binary value
 BLOB - Binary Large Object
-LONGVARBINARY - Large, variable-length binary value
-VARBINARY - Small, variable-length binary value</p>
+LONGVARBINARY - Large, variable length binary value
+VARBINARY - Small, variable length binary value</p>
 <p>CLOB - Character Large Object.
 NCLOB - Character large objects in multibyte national character set</p>
 <p>DATE - Date consisting of day, month, and year
@@ -1259,10 +1283,8 @@ REFCURSOR - Cursor value</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    Parameter represents a parameter for the SQL actions when a variable parameter needs to pass to the action.
+                                                    <span class="fw-right gray xs-icon"></span>Parameter represents a parameter for the SQL actions when a variable parameter needs to be passed to the action.
 
-    
                                                 </p>
                                                  
                                                 <table>
@@ -1275,7 +1297,7 @@ REFCURSOR - Cursor value</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">sqlType</td>
-                                                        <td class="cAPI-table-type"><a href="sql.html#SQLType">TIMESTAMP|NUMERIC|SMALLINT|BIGINT|TIME|DOUBLE|VARBINARY|CLOB|REAL|NCLOB|STRUCT|ARRAY|FLOAT|NVARCHAR|DECIMAL|DATE|REFCURSOR|BOOLEAN|LONGNVARCHAR|INTEGER|BINARY|BIT|DATETIME|VARCHAR|BLOB|LONGVARBINARY|LONGVARCHAR|TINYINT|CHAR|NCHAR</a></td>
+                                                        <td class="cAPI-table-type"><a href="sql.html#SQLType">DATETIME|SMALLINT|NVARCHAR|REAL|ARRAY|REFCURSOR|STRUCT|BIGINT|DECIMAL|LONGVARCHAR|LONGNVARCHAR|BLOB|BINARY|LONGVARBINARY|FLOAT|INTEGER|TIMESTAMP|DATE|NCLOB|NCHAR|CHAR|BIT|TINYINT|DOUBLE|VARCHAR|VARBINARY|NUMERIC|BOOLEAN|TIME|CLOB</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The data type of the corresponding SQL parameter</p>
 </td>
@@ -1291,7 +1313,7 @@ REFCURSOR - Cursor value</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">direction</td>
-                                                        <td class="cAPI-table-type"><a href="sql.html#Direction">OUT|INOUT|IN</a></td>
+                                                        <td class="cAPI-table-type"><a href="sql.html#Direction">INOUT|IN|OUT</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Direction of the SQL Parameter IN, OUT, or INOUT - Default value is IN</p>
 </td>
@@ -1328,10 +1350,8 @@ result row</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    Represents the properties which are used to configure DB connection pool.
+                                                    <span class="fw-right gray xs-icon"></span>Represents the properties which are used to configure DB connection pool.
 
-    
                                                 </p>
                                                  
                                                 <table>
@@ -1437,7 +1457,7 @@ to the pool</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="close">
-                                                    <span class="fw-function sm-icon"> </span> public function close(sql:0.0.0:CallerActions callerActions) 
+                                                    <span class="fw-function sm-icon"> </span> public function close(sql:CallerActions callerActions) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1455,7 +1475,7 @@ to the pool</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">callerActions</td>
-                                                        <td class="cAPI-table-type"><a href="sql.html#CallerActions">sql:0.0.0:CallerActions</a></td>
+                                                        <td class="cAPI-table-type"><a href="sql.html#CallerActions">sql:CallerActions</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The CallerActions object which represents the connection pool.</p>
 </td>
@@ -1503,7 +1523,7 @@ to the pool</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerActions&gt;
-                                                   </span> call(string sqlQuery, typedesc[]? recordType, string|int|boolean|float|blob|sql:0.0.0:Parameter[] parameters) returns (table[] | null | error) 
+                                                   </span> call(string sqlQuery, typedesc[]? recordType, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns (table[] | null | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1537,9 +1557,10 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#blob">blob</a>|<a href="sql.html#Parameter">sql:0.0.0:Parameter[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the procedure/function call. The number of parameters is variable</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -1571,7 +1592,7 @@ to the pool</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerActions&gt;
-                                                   </span> select(string sqlQuery, typedesc? recordType, boolean loadToMemory, string|int|boolean|float|blob|sql:0.0.0:Parameter[] parameters) returns (table | error) 
+                                                   </span> select(string sqlQuery, typedesc? recordType, boolean loadToMemory, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns (table | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1613,9 +1634,10 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#blob">blob</a>|<a href="sql.html#Parameter">sql:0.0.0:Parameter[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the select query. The number of parameters is variable</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -1646,7 +1668,7 @@ to the pool</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerActions&gt;
-                                                   </span> update(string sqlQuery, string|int|boolean|float|blob|sql:0.0.0:Parameter[] parameters) returns (int | error) 
+                                                   </span> update(string sqlQuery, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns (int | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1672,9 +1694,10 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#blob">blob</a>|<a href="sql.html#Parameter">sql:0.0.0:Parameter[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the update query. The number of parameters is variable</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -1705,7 +1728,7 @@ to the pool</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerActions&gt;
-                                                   </span> batchUpdate(string sqlQuery, string|int|boolean|float|blob|sql:0.0.0:Parameter[][] parameters) returns (int[] | error) 
+                                                   </span> batchUpdate(string sqlQuery, string|int|boolean|float|byte[][][]|sql:Parameter parameters) returns (int[] | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1731,9 +1754,11 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#blob">blob</a>|<a href="sql.html#Parameter">sql:0.0.0:Parameter[][]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>Variable number of parameter arrays each representing the set of parameters of belonging to each
+individual update</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -1771,7 +1796,7 @@ continues to process commands after a command fails</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerActions&gt;
-                                                   </span> updateWithGeneratedKeys(string sqlQuery, string[]? keyColumns, string|int|boolean|float|blob|sql:0.0.0:Parameter[] parameters) returns ((int,string[]) | error) 
+                                                   </span> updateWithGeneratedKeys(string sqlQuery, string[]? keyColumns, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns ((int,string[]) | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1806,9 +1831,10 @@ generated keys during the update action.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#blob">blob</a>|<a href="sql.html#Parameter">sql:0.0.0:Parameter[]</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the update query. The number of parameters is variable</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -2610,6 +2636,16 @@ table that allows performing select/update operations over the actual database t
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -2730,6 +2766,16 @@ table that allows performing select/update operations over the actual database t
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -2780,6 +2826,16 @@ table that allows performing select/update operations over the actual database t
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -2803,6 +2859,16 @@ table that allows performing select/update operations over the actual database t
                                    <a>ballerina/<span class="bold">sql</a>
                                    
                                    
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
+                                   </a>
                                    
                                 </li>
                              </ul>
@@ -2895,6 +2961,16 @@ table that allows performing select/update operations over the actual database t
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -3015,6 +3091,16 @@ table that allows performing select/update operations over the actual database t
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -3065,6 +3151,16 @@ table that allows performing select/update operations over the actual database t
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -3088,6 +3184,16 @@ table that allows performing select/update operations over the actual database t
                                    <a>ballerina/<span class="bold">sql</a>
                                    
                                    
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
+                                   </a>
                                    
                                 </li>
                              </ul>

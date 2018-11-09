@@ -13,43 +13,43 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cDownloadsHeader">       
                 <div class="cFeaturedVersion">
-                    <h2>Current version: <span id="versionInfo"></span></h2>
+                    <h2>Current version: <span id="versionInfo">0.982.0 (Sep 29, 2018)</span></h2>
                 </div>
             </div>
         </div>
         <div class="clearfix"></div>
         <div class="row cDownloads">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadLeft">
-                <a id="packWindows" href="#" class="cDownload" data-download="downloads" data-pack="">
+                <a id="packWindows" href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-windows-installer-x64-0.982.0.msi" class="cDownload" data-download="downloads" data-pack="ballerina-platform-windows-installer-x64-0.982.0.msi">
                     <div>Windows</div>
-                    <div class="cSize">Installer msi <span id="packWindowsName"><span></div>
+                    <div class="cSize">Installer msi <span id="packWindowsName">(289mb)</span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
-                    <li><a id="packWindowsMd5" href="#">md5</a></li>
-                    <li><a id="packWindowsSha1" href="#">SHA-1</a></li>
-                    <li><a id="packWindowsAsc" href="#">asc</a></li>
+                    <li><a id="packWindowsMd5" href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-windows-installer-x64-0.982.0.msi.md5">md5</a></li>
+                    <li><a id="packWindowsSha1" href="https://product-dist.ballerina.io/downloads/0.982.1/ballerina-platform-windows-installer-x64-0.982.0.msi.sha1">SHA-1</a></li>
+                    <li><a id="packWindowsAsc" href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-windows-installer-x64-0.982.0.msi.asc">asc</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
-                <a id="packLinux" href="#" class="cDownload" data-download="downloads" data-pack="">
+                <a id="packLinux" href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-linux-installer-x64-0.982.0.deb" class="cDownload" data-download="downloads" data-pack="ballerina-platform-linux-installer-x64-0.982.0.deb">
                     <div>Linux</div>
-                    <div class="cSize">deb Package <span id="packLinuxName"></span></div>
+                    <div class="cSize">deb Package <span id="packLinuxName">(282mb)</span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
-                    <li><a id="packLinuxMd5" href="#">md5</a></li>
-                    <li><a id="packLinuxSha1" href="#">SHA-1</a></li>
-                    <li><a id="packLinuxAsc" href="#">asc</a></li>
+                    <li><a id="packLinuxMd5" href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-linux-installer-x64-0.982.0.deb.md5">md5</a></li>
+                    <li><a id="packLinuxSha1" href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-linux-installer-x64-0.982.0.deb.sha1">SHA-1</a></li>
+                    <li><a id="packLinuxAsc" href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-linux-installer-x64-0.982.0.deb.asc">asc</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
-                <a id="packMac" href="#" class="cDownload" data-download="downloads" data-pack="">
+                <a id="packMac" href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-macos-installer-x64-0.982.0.pkg" class="cDownload" data-download="downloads" data-pack="ballerina-platform-macos-installer-x64-0.982.0.pkg">
                     <div>MacOS</div>
-                    <div class="cSize">Installer pkg <span id="packMacName"></span></div>
+                    <div class="cSize">Installer pkg <span id="packMacName">(320mb)</span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
-                    <li><a id="packMacMd5" href="#">md5</a></li>
-                    <li><a id="packMacSha1" href="#">SHA-1</a></li>
-                    <li><a id="packMacAsc" href="#">asc</a></li>
+                    <li><a id="packMacMd5" href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-macos-installer-x64-0.982.0.pkg.md5">md5</a></li>
+                    <li><a id="packMacSha1" href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-macos-installer-x64-0.982.0.pkg.sha1">SHA-1</a></li>
+                    <li><a id="packMacAsc" href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-macos-installer-x64-0.982.0.pkg.asc">asc</a></li>
                 </ul>
             </div>
         </div>
@@ -65,17 +65,31 @@
             <div class="cStandaloneInstallers">
                 <h2>Installation Packages</h2>
                 <div class="cInstallers">
-                    <h3 class="release-version">Stable <span id="stableInfo"></span></h3>
+                    <h3 class="release-version">Stable <span id="stableInfo">0.982.0 (Sep 29, 2018)</span></h3>
                     <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
                         <div class="insPackages0container">
-                            <table id="insPackages0"></table>
+                            <table id="insPackages0"><tr><td style="width: 96%">ballerina-platform-windows-installer-x64-0.982.0.msi</td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-windows-installer-x64-0.982.0.msi" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-platform-windows-installer-x64-0.982.0.msi"><img src="../img/download-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-windows-installer-x64-0.982.0.msi.md5">md5</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-windows-installer-x64-0.982.0.msi.sha1">SHA-1</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-windows-installer-x64-0.982.0.msi.asc">asc</a></td></tr><tr><td style="width: 96%">ballerina-platform-linux-installer-x64-0.982.0.deb</td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-linux-installer-x64-0.982.0.deb" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-platform-linux-installer-x64-0.982.0.deb"><img src="../img/download-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-linux-installer-x64-0.982.0.deb.md5">md5</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-linux-installer-x64-0.982.0.deb.sha1">SHA-1</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-linux-installer-x64-0.982.0.deb.asc">asc</a></td></tr><tr><td style="width: 96%">ballerina-platform-macos-installer-x64-0.982.0.pkg</td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-macos-installer-x64-0.982.0.pkg" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-platform-macos-installer-x64-0.982.0.pkg"><img src="../img/download-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-macos-installer-x64-0.982.0.pkg.md5">md5</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-macos-installer-x64-0.982.0.pkg.sha1">SHA-1</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-macos-installer-x64-0.982.0.pkg.asc">asc</a></td></tr><tr><td style="width: 96%">ballerina-platform-0.982.0.zip</td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-0.982.0.zip" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-platform-0.982.0.zip"><img src="../img/download-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-0.982.0.1.zip.md5">md5</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-0.982.0.zip.sha1">SHA-1</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-0.982.0.zip.asc">asc</a></td></tr></table>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cRightTable">
                         <div class="insPackages1container">
-                            <table id="insPackages1"></table>
+                            <table id="insPackages1"><tr><td style="width: 96%">ballerina-platform-linux-installer-x64-0.982.0.rpm</td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-linux-installer-x64-0.982.0.rpm" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-platform-linux-installer-x64-0.982.0.rpm"><img src="../img/download-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-linux-installer-x64-0.982.0.rpm.md5">md5</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-linux-installer-x64-0.982.0.rpm.sha1">SHA-1</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-platform-linux-installer-x64-0.982.0.rpm.asc">asc</a></td></tr><tr><td style="width: 96%">ballerina-vscode-plugin-0.982.0.vsix</td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-vscode-plugin-0.982.0.vsix" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-vscode-plugin-0.982.0.vsix"><img src="../img/download-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-vscode-plugin-0.982.0.vsix.md5">md5</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-vscode-plugin-0.982.0.vsix.sha1">SHA-1</a></td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-vscode-plugin-0.982.0.vsix.asc">asc</a></td></tr><tr><td style="width: 96%">ballerina-intellij-idea-plugin</td><td style="width: 1%; white-space: nowrap;"><a href="https://plugins.jetbrains.com/plugin/9520-ballerina" target="_blank" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-intellij-idea-plugin-0.982.0"><img src="../img/right-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"></td><td style="width: 1%; white-space: nowrap;"></td><td style="width: 1%; white-space: nowrap;"></td></tr><tr><td style="width: 96%">ballerina-metrics-grafana-dashboard-prometheus.json</td><td style="width: 1%; white-space: nowrap;"><a href="https://product-dist.ballerina.io/downloads/0.982.0/ballerina-metrics-grafana-dashboard-prometheus.json" class="cDownloadLinkIcon" data-download="downloads" data-pack="ballerina-metrics-grafana-dashboard-prometheus.json-0.982.0"><img src="../img/download-bg-green-fill.svg"></a></td><td style="width: 1%; white-space: nowrap;"></td><td style="width: 1%; white-space: nowrap;"></td><td style="width: 1%; white-space: nowrap;"></td></tr></table>
                         </div>
                     </div>
+                    <div class="clearfix"></div>
+                    <br>
+                    <div id="devPackContainer">
+                    <h3 class="release-version">RC <span id="devInfo"></span></h3>
+                    <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cLeftTable">
+                        <div class="devPackages0container">
+                            <table id="devPackages0"></table>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cRightTable">
+                        <div class="devPackages0container">
+                            <table id="devPackages1"></table>
+                        </div>
+                    </div></div>
                     <div class="clearfix"></div>
                     <br>
                     <div id="nightlyPackContainer">

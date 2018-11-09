@@ -2,7 +2,7 @@ import ballerina/http;
 
 // this is a simple structured object definition in Ballerina
 // it can be automatically mapped into JSON and back again
-type Payment {
+type Payment record {
 	string name,
 	string cardnumber,
 	int month,

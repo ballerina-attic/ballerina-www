@@ -212,6 +212,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -1266,6 +1280,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -1319,7 +1347,7 @@ supported by this package:</p>
 import ballerina/log;
 
 // Create a simple queue receiver.
-mb:SimpleQueueReceiver receiver {
+endpoint mb:SimpleQueueReceiver receiver {
    host: &quot;localhost&quot;,
    port: 5672,
    queueName: &quot;MyQueue&quot;
@@ -1349,7 +1377,7 @@ endpoint mb:SimpleQueueSender queueSender {
    queueName: &quot;MyQueue&quot;
 };
 
-function main (string... args) {
+public function main (string... args) {
    // Create a text message.
    match (queueSender.createTextMessage(&quot;Hello from Ballerina&quot;)) {
        error e =&gt; {
@@ -1384,8 +1412,8 @@ function main (string... args) {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#BrokerURLConfig">BrokerURLConfig</a></td>
-                                                         <td class="cSummary-table-desc"> Configurations related to Ballerina message broker URL
-    </td>
+                                                         <td class="cSummary-table-desc">Configurations related to Ballerina message broker URL
+</td>
                                                      </tr>
                                                  
                                              
@@ -1399,56 +1427,55 @@ function main (string... args) {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ServiceSecureSocket">ServiceSecureSocket</a></td>
-                                                         <td class="cSummary-table-desc"> Configurations related to TLS
-    </td>
+                                                         <td class="cSummary-table-desc">Configurations related to TLS
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#SimpleDurableTopicSubscriberEndpointConfiguration">SimpleDurableTopicSubscriberEndpointConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"> Configuration related to simple topic subscriber endpoint
-    </td>
+                                                         <td class="cSummary-table-desc">Configuration related to simple topic subscriber endpoint
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#SimpleQueueListenerEndpointConfiguration">SimpleQueueListenerEndpointConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"> Configurations related to SimpleQueueReceiver endpoint
-    </td>
+                                                         <td class="cSummary-table-desc">Configurations related to SimpleQueueReceiver endpoint
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#SimpleQueueSenderEndpointConfiguration">SimpleQueueSenderEndpointConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"> Configurations related to SimpleQueueSender endpoint
-    </td>
+                                                         <td class="cSummary-table-desc">Configurations related to SimpleQueueSender endpoint
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#SimpleTopicPublisherEndpointConfiguration">SimpleTopicPublisherEndpointConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"> Configurations related to SimpleQueueSender endpoint
-    </td>
+                                                         <td class="cSummary-table-desc">Configurations related to SimpleQueueSender endpoint
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#SimpleTopicSubscriberEndpointConfiguration">SimpleTopicSubscriberEndpointConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"> Configuration related to simple topic subscriber endpoint
-    </td>
+                                                         <td class="cSummary-table-desc">Configuration related to simple topic subscriber endpoint
+</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Store">Store</a></td>
-                                                         <td class="cSummary-table-desc">
-    </td>
+                                                         <td class="cSummary-table-desc"></td>
                                                      </tr>
                                                  
                                              
@@ -1718,8 +1745,8 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span> Configurations related to Ballerina message broker URL
-    
+                                                    <span class="fw-right gray xs-icon"></span>Configurations related to Ballerina message broker URL
+
                                                 </p>
                                                  
                                                 <table>
@@ -1780,7 +1807,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">secureSocket</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#ServiceSecureSocket">mb:0.0.0:ServiceSecureSocket?</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#ServiceSecureSocket">mb:ServiceSecureSocket?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>TLS configurations</p>
 </td>
@@ -1851,8 +1878,8 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span> Configurations related to TLS
-    
+                                                    <span class="fw-right gray xs-icon"></span>Configurations related to TLS
+
                                                 </p>
                                                  
                                                 <table>
@@ -1865,7 +1892,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">trustStore</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#Store">mb:0.0.0:Store?</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#Store">mb:Store?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Trustore configurations</p>
 </td>
@@ -1873,7 +1900,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keyStore</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#Store">mb:0.0.0:Store?</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#Store">mb:Store?</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Keystore configuration</p>
 </td>
@@ -1909,8 +1936,8 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span> Configuration related to simple topic subscriber endpoint
-    
+                                                    <span class="fw-right gray xs-icon"></span>Configuration related to simple topic subscriber endpoint
+
                                                 </p>
                                                  
                                                 <table>
@@ -1971,9 +1998,10 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">secureSocket</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#ServiceSecureSocket">mb:0.0.0:ServiceSecureSocket?</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#ServiceSecureSocket">mb:ServiceSecureSocket?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Configuration for the TLS options to be used</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -1997,7 +2025,8 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                         <td class="cAPI-table-name">identifier</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>the identifier of the SimpleDurableTopicSubscriber</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -2046,8 +2075,8 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span> Configurations related to SimpleQueueReceiver endpoint
-    
+                                                    <span class="fw-right gray xs-icon"></span>Configurations related to SimpleQueueReceiver endpoint
+
                                                 </p>
                                                  
                                                 <table>
@@ -2108,16 +2137,18 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">secureSocket</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#ServiceSecureSocket">mb:0.0.0:ServiceSecureSocket?</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#ServiceSecureSocket">mb:ServiceSecureSocket?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Configuration for the TLS options to be used</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">connectionFactoryName</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default">ConnectionFactory</td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>the name of the connection factory</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -2175,8 +2206,8 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span> Configurations related to SimpleQueueSender endpoint
-    
+                                                    <span class="fw-right gray xs-icon"></span>Configurations related to SimpleQueueSender endpoint
+
                                                 </p>
                                                  
                                                 <table>
@@ -2237,9 +2268,10 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">secureSocket</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#ServiceSecureSocket">mb:0.0.0:ServiceSecureSocket?</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#ServiceSecureSocket">mb:ServiceSecureSocket?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Configuration for the TLS options to be used</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -2289,8 +2321,8 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span> Configurations related to SimpleQueueSender endpoint
-    
+                                                    <span class="fw-right gray xs-icon"></span>Configurations related to SimpleQueueSender endpoint
+
                                                 </p>
                                                  
                                                 <table>
@@ -2351,9 +2383,10 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">secureSocket</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#ServiceSecureSocket">mb:0.0.0:ServiceSecureSocket?</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#ServiceSecureSocket">mb:ServiceSecureSocket?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Configuration for the TLS options to be used</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -2403,8 +2436,8 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span> Configuration related to simple topic subscriber endpoint
-    
+                                                    <span class="fw-right gray xs-icon"></span>Configuration related to simple topic subscriber endpoint
+
                                                 </p>
                                                  
                                                 <table>
@@ -2465,9 +2498,10 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">secureSocket</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#ServiceSecureSocket">mb:0.0.0:ServiceSecureSocket?</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#ServiceSecureSocket">mb:ServiceSecureSocket?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Configuration for the TLS options to be used</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -2531,11 +2565,6 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                 <h2 id="Store">
                                                     <span class="fw-record sm-icon"></span> public type Store
                                                 </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    
-                                                </p>
                                                  
                                                 <table>
                                                     <tr>
@@ -2645,7 +2674,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ConsumerActions&gt;
-                                                   </span> acknowledge(mb:0.0.0:Message message) returns (error) 
+                                                   </span> acknowledge(mb:Message message) returns (error) 
                                                             </h2>
                                                              
                                                             <table>
@@ -2658,7 +2687,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -2759,7 +2788,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;DurableTopicSubscriberActions&gt;
-                                                   </span> acknowledge(mb:0.0.0:Message message) returns (error) 
+                                                   </span> acknowledge(mb:Message message) returns (error) 
                                                             </h2>
                                                              
                                                             <table>
@@ -2772,7 +2801,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -2806,6 +2835,11 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                    &lt;DurableTopicSubscriberActions&gt;
                                                    </span> receive(int timeoutInMilliSeconds) returns (Message | error) 
                                                             </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Synchronously receive a message</p>
+
+                                                            </p>
                                                              
                                                             <table>
                                                                 <tr>
@@ -2819,7 +2853,8 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                     <td class="cAPI-table-name">timeoutInMilliSeconds</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                                     <td class="cAPI-table-default">0</td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>time to wait until a message is received</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -2837,7 +2872,8 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="mb.html#Message">Message</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>Returns a message or nil if the timeout exceededs. Returns an error on jms provider internal error.</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -2870,7 +2906,8 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p><code>error</code> on failure to subscribe</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -4057,7 +4094,8 @@ identification; the body contains the application data being sent.</p>
                                                         <td class="cAPI-table-name">helper</td>
                                                         <td class="cAPI-table-type"><a href="jms.html#QueueReceiverActions">jms:QueueReceiverActions</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>the jms QueueReceiverActions</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -4097,7 +4135,7 @@ identification; the body contains the application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;QueueReceiverActions&gt;
-                                                   </span> acknowledge(mb:0.0.0:Message message) returns (error) 
+                                                   </span> acknowledge(mb:Message message) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4115,7 +4153,7 @@ identification; the body contains the application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>message to be acknowledged</p>
 </td>
@@ -4136,7 +4174,8 @@ identification; the body contains the application data being sent.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p><code>error</code> if the acknowledgement fails</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -4187,7 +4226,7 @@ identification; the body contains the application data being sent.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="mb.html#Message">Message</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Returns a message or nill if the timeout exceededs. Returns an error on broker internal error.</p>
+                                                                    <td class="cAPI-table-desc"><p><code>Message</code> or nil if the timeout exceededs. Returns an <code>error</code> on broker internal error.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -4230,7 +4269,7 @@ identification; the body contains the application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;QueueSenderActions&gt;
-                                                   </span> send(mb:0.0.0:Message message) returns (error) 
+                                                   </span> send(mb:Message message) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4248,10 +4287,9 @@ identification; the body contains the application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>message to be sent to Ballerina message broker</p>
-</td>
+                                                                    <td class="cAPI-table-desc"></td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -4269,7 +4307,8 @@ identification; the body contains the application data being sent.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p><code>error</code> on failure to send the <code>Message</code></p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -4311,7 +4350,7 @@ identification; the body contains the application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;TopicPublisherActions&gt;
-                                                   </span> send(mb:0.0.0:Message message) returns (error) 
+                                                   </span> send(mb:Message message) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4329,7 +4368,7 @@ identification; the body contains the application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>message to be sent to Ballerina message broker</p>
 </td>
@@ -4350,7 +4389,8 @@ identification; the body contains the application data being sent.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p><code>error</code> on failure to send the <code>Message</code></p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -4396,7 +4436,8 @@ identification; the body contains the application data being sent.</p>
                                                         <td class="cAPI-table-name">helper</td>
                                                         <td class="cAPI-table-type"><a href="jms.html#TopicSubscriberActions">jms:TopicSubscriberActions</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>the jms TopicSubscriberActions</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -4436,7 +4477,7 @@ identification; the body contains the application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;TopicSubscriberActions&gt;
-                                                   </span> acknowledge(mb:0.0.0:Message message) returns (error) 
+                                                   </span> acknowledge(mb:Message message) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4454,7 +4495,7 @@ identification; the body contains the application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Message to be acknowledged</p>
 </td>
@@ -4475,7 +4516,8 @@ identification; the body contains the application data being sent.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p><code>error</code> on failure to acknowledge</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -4526,7 +4568,7 @@ identification; the body contains the application data being sent.</p>
                                                                     <td class="cAPI-table-name"></td>
                                                                     <td class="cAPI-table-type"><a href="mb.html#Message">Message</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Returns a message or nill if the timeout exceededs. Returns an error on broker internal error.</p>
+                                                                    <td class="cAPI-table-desc"><p>Returns a message or nil if the timeout exceededs. Returns an error on broker internal error.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -4562,14 +4604,14 @@ identification; the body contains the application data being sent.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">callerActions</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#ConsumerActions">mb:0.0.0:ConsumerActions</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#ConsumerActions">mb:ConsumerActions</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">config</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#ConsumerEndpointConfiguration">mb:0.0.0:ConsumerEndpointConfiguration</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#ConsumerEndpointConfiguration">mb:ConsumerEndpointConfiguration</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
@@ -4584,7 +4626,7 @@ identification; the body contains the application data being sent.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ConsumerTemplate&gt;
-                                                   </span> acknowledge(mb:0.0.0:Message message) returns (error?) 
+                                                   </span> acknowledge(mb:Message message) returns (error?) 
                                                             </h2>
                                                              
                                                             <table>
@@ -4597,7 +4639,7 @@ identification; the body contains the application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4661,7 +4703,7 @@ identification; the body contains the application data being sent.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">config</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#SimpleDurableTopicSubscriberEndpointConfiguration">mb:0.0.0:SimpleDurableTopicSubscriberEndpointConfiguration</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#SimpleDurableTopicSubscriberEndpointConfiguration">mb:SimpleDurableTopicSubscriberEndpointConfiguration</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>configurations related to the endpoint</p>
 </td>
@@ -4677,7 +4719,7 @@ identification; the body contains the application data being sent.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;SimpleDurableTopicSubscriber&gt;
-                                                   </span> acknowledge(mb:0.0.0:Message message) returns (error?) 
+                                                   </span> acknowledge(mb:Message message) returns (error?) 
                                                             </h2>
                                                              
                                                             <table>
@@ -4690,7 +4732,7 @@ identification; the body contains the application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4722,8 +4764,13 @@ identification; the body contains the application data being sent.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;SimpleDurableTopicSubscriber&gt;
-                                                   </span> receive(int timeoutInMilliSeconds) returns (mb:0.0.0:Message|error?) 
+                                                   </span> receive(int timeoutInMilliSeconds) returns (mb:Message|error?) 
                                                             </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span>Synchronously receive a message
+
+                                                            </p>
                                                              
                                                             <table>
                                                                 <tr>
@@ -4753,7 +4800,7 @@ identification; the body contains the application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a>|<a href="builtin.html#error">error?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a>|<a href="builtin.html#error">error?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4771,8 +4818,8 @@ identification; the body contains the application data being sent.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span> Unsubscribes the durable subscriber from topic
-    
+                                                                <span class="fw-right gray xs-icon"></span>Unsubscribes the durable subscriber from topic
+
                                                             </p>
                                                               
                                                             <div class="cReturnTableHeader"></div>
@@ -4833,7 +4880,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">config</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#SimpleQueueListenerEndpointConfiguration">mb:0.0.0:SimpleQueueListenerEndpointConfiguration</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#SimpleQueueListenerEndpointConfiguration">mb:SimpleQueueListenerEndpointConfiguration</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>configurations related to the SimpleQueueReceiver endpoint</p>
 </td>
@@ -4849,12 +4896,12 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;SimpleQueueReceiver&gt;
-                                                   </span> acknowledge(mb:0.0.0:Message message) returns (error?) 
+                                                   </span> acknowledge(mb:Message message) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span> Acknowledges a received message
-        
+                                                                <span class="fw-right gray xs-icon"></span>Acknowledges a received message
+
                                                             </p>
                                                              
                                                             <table>
@@ -4867,7 +4914,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4899,12 +4946,12 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;SimpleQueueReceiver&gt;
-                                                   </span> receive(int timeoutInMilliSeconds) returns (mb:0.0.0:Message|error?) 
+                                                   </span> receive(int timeoutInMilliSeconds) returns (mb:Message|error?) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span> Synchronously receive a message from Ballerina message broker
-        
+                                                                <span class="fw-right gray xs-icon"></span>Synchronously receive a message from Ballerina message broker
+
                                                             </p>
                                                              
                                                             <table>
@@ -4935,7 +4982,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a>|<a href="builtin.html#error">error?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a>|<a href="builtin.html#error">error?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4982,7 +5029,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">config</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#SimpleQueueSenderEndpointConfiguration">mb:0.0.0:SimpleQueueSenderEndpointConfiguration</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#SimpleQueueSenderEndpointConfiguration">mb:SimpleQueueSenderEndpointConfiguration</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>configurations related to the SimpleQueueSender endpoint</p>
 </td>
@@ -4998,12 +5045,12 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;SimpleQueueSender&gt;
-                                                   </span> send(mb:0.0.0:Message message) returns (error?) 
+                                                   </span> send(mb:Message message) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span> Sends a message to Ballerina message broker
-        
+                                                                <span class="fw-right gray xs-icon"></span>Sends a message to Ballerina message broker
+
                                                             </p>
                                                              
                                                             <table>
@@ -5016,7 +5063,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5081,7 +5128,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">config</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#SimpleTopicPublisherEndpointConfiguration">mb:0.0.0:SimpleTopicPublisherEndpointConfiguration</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#SimpleTopicPublisherEndpointConfiguration">mb:SimpleTopicPublisherEndpointConfiguration</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>configurations related to the SimpleTopicPublisher endpoint</p>
 </td>
@@ -5097,12 +5144,12 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;SimpleTopicPublisher&gt;
-                                                   </span> send(mb:0.0.0:Message message) returns (error?) 
+                                                   </span> send(mb:Message message) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span> Sends a message to Ballerina message broker
-        
+                                                                <span class="fw-right gray xs-icon"></span>Sends a message to Ballerina message broker
+
                                                             </p>
                                                              
                                                             <table>
@@ -5115,7 +5162,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5179,7 +5226,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">config</td>
-                                                        <td class="cAPI-table-type"><a href="mb.html#SimpleTopicSubscriberEndpointConfiguration">mb:0.0.0:SimpleTopicSubscriberEndpointConfiguration</a></td>
+                                                        <td class="cAPI-table-type"><a href="mb.html#SimpleTopicSubscriberEndpointConfiguration">mb:SimpleTopicSubscriberEndpointConfiguration</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Simple topic subscrirber enpoint configuration</p>
 </td>
@@ -5195,12 +5242,12 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;SimpleTopicSubscriber&gt;
-                                                   </span> acknowledge(mb:0.0.0:Message message) returns (error?) 
+                                                   </span> acknowledge(mb:Message message) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span> Acknowledges a received message
-        
+                                                                <span class="fw-right gray xs-icon"></span>Acknowledges a received message
+
                                                             </p>
                                                              
                                                             <table>
@@ -5213,7 +5260,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5245,12 +5292,12 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;SimpleTopicSubscriber&gt;
-                                                   </span> receive(int timeoutInMilliSeconds) returns (mb:0.0.0:Message|error?) 
+                                                   </span> receive(int timeoutInMilliSeconds) returns (mb:Message|error?) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span> Synchronously receive a message from Ballerina message broker
-        
+                                                                <span class="fw-right gray xs-icon"></span>Synchronously receive a message from Ballerina message broker
+
                                                             </p>
                                                              
                                                             <table>
@@ -5281,7 +5328,7 @@ A new connection and a session will be create when this endpoint is initialize.<
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:0.0.0:Message</a>|<a href="builtin.html#error">error?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mb.html#Message">mb:Message</a>|<a href="builtin.html#error">error?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5482,6 +5529,16 @@ A new connection and a session will be create when this endpoint is initialize.<
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -5602,6 +5659,16 @@ A new connection and a session will be create when this endpoint is initialize.<
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -5653,6 +5720,16 @@ A new connection and a session will be create when this endpoint is initialize.<
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -5674,6 +5751,16 @@ A new connection and a session will be create when this endpoint is initialize.<
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -5767,6 +5854,16 @@ A new connection and a session will be create when this endpoint is initialize.<
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -5887,6 +5984,16 @@ A new connection and a session will be create when this endpoint is initialize.<
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -5938,6 +6045,16 @@ A new connection and a session will be create when this endpoint is initialize.<
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -5959,6 +6076,16 @@ A new connection and a session will be create when this endpoint is initialize.<
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>

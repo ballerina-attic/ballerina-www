@@ -233,6 +233,27 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -438,6 +459,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -518,16 +546,15 @@ service&lt;http:Service&gt; hello bind { port: 9090 } {
     hello(endpoint caller, http:Request req) {
         http:Response res = new;
         res.setTextPayload(&quot;hello world&quot;);
-        var result = caller -&gt; respond(res);
+        var result = caller-&gt;respond(res);
     }
 }
 
-annotationData[] annotations= reflect:getServiceAnnotations(hello); 
+reflect:annotationData[] annotations= reflect:getServiceAnnotations(hello); 
 string annoName = annotations[0].name; //Eg. “ServiceConfig”
-string annoPkg = annotations[0].package; //Eg/ “ballerina.http”
+string annoPkg = annotations[0].pkgName; //Eg/ “ballerina.http”
 
 </code></pre>
-<h2>Package contents</h2>
 
                                             </div>
                                             
@@ -687,8 +714,15 @@ JSON. Any other type returns FALSE.</p>
                                                     </tr>
                                                     
                                                     <tr>
+                                                        <td class="cAPI-table-name">pkgVersion</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
                                                         <td class="cAPI-table-name">value</td>
-                                                        <td class="cAPI-table-type"><a href="reflect.html#anyStruct">reflect:0.0.0:anyStruct</a></td>
+                                                        <td class="cAPI-table-type"><a href="reflect.html#anyStruct">reflect:anyStruct</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
@@ -1255,6 +1289,16 @@ JSON. Any other type returns FALSE.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -1375,6 +1419,16 @@ JSON. Any other type returns FALSE.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -1421,6 +1475,16 @@ JSON. Any other type returns FALSE.</p>
                                 </li>
                              </ul>
                              
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
                              <ul class="active-package">
                                 <li>
                                    <!--Package Name-->
@@ -1447,6 +1511,16 @@ JSON. Any other type returns FALSE.</p>
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -1540,6 +1614,16 @@ JSON. Any other type returns FALSE.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -1660,6 +1744,16 @@ JSON. Any other type returns FALSE.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -1706,6 +1800,16 @@ JSON. Any other type returns FALSE.</p>
                                 </li>
                              </ul>
                              
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
                              <ul class="active-package">
                                 <li>
                                    <!--Package Name-->
@@ -1732,6 +1836,16 @@ JSON. Any other type returns FALSE.</p>
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>

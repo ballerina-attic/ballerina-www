@@ -289,6 +289,34 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -724,10 +752,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#RemoteProtocol">RemoteProtocol</a></td>
-                                                         <td class="cSummary-table-desc">
-    This represents the protocol associated with the coordination type.
-
-    </td>
+                                                         <td class="cSummary-table-desc">This represents the protocol associated with the coordination type.</td>
                                                      </tr>
                                                  
                                              
@@ -991,7 +1016,7 @@ transaction  that is passed in to those functions.</p>
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#registerParticipantWithRemoteInitiator">registerParticipantWithRemoteInitiator</a></td>
-                                                        <td class="cSummary-table-desc"><p>Registers a participant with the initiator's coordinator. This function will be called by the participant</p>
+                                                        <td class="cSummary-table-desc"><p>Registers a participant with the initiator's coordinator. This function will be called by the participant.</p>
 </td>
                                                      </tr>
                                                  
@@ -1434,7 +1459,7 @@ transaction  that is passed in to those functions.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">retryConfig</td>
-                                                        <td class="cAPI-table-type"><a href="transactions.html#$anonType$1">transactions:0.0.0:$anonType$1</a></td>
+                                                        <td class="cAPI-table-type"><a href="transactions.html#$anonType$1">transactions:$anonType$1</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
@@ -1533,10 +1558,7 @@ transaction  that is passed in to those functions.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    This represents the protocol associated with the coordination type.
-
-    
+                                                    <span class="fw-right gray xs-icon"></span>This represents the protocol associated with the coordination type.
                                                 </p>
                                                  
                                                 <table>
@@ -1551,9 +1573,7 @@ transaction  that is passed in to those functions.</p>
                                                         <td class="cAPI-table-name">name</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>protocol name</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>protocol name</p>
 </td>
                                                     </tr>
                                                     
@@ -1561,10 +1581,8 @@ transaction  that is passed in to those functions.</p>
                                                         <td class="cAPI-table-name">url</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>protocol URL. This URL will have a value only if the participant is remote. If the participant is local,
-the <code>protocolFn</code> will be called</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>protocol URL. This URL will have a value only if the participant is remote. If the participant is local,
+the <code>protocolFn</code> will be called</p>
 </td>
                                                     </tr>
                                                     
@@ -1703,7 +1721,8 @@ transaction  that is passed in to those functions.</p>
                                                         <td class="cAPI-table-name"></td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>A string representing the ID of the current transaction.</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1724,11 +1743,11 @@ transaction  that is passed in to those functions.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="registerParticipantWithRemoteInitiator">
-                                                    <span class="fw-function sm-icon"> </span> public function registerParticipantWithRemoteInitiator(string transactionId, int transactionBlockId, string registerAtURL, transactions:0.0.0:RemoteProtocol[] participantProtocols) returns (TransactionContext | error) 
+                                                    <span class="fw-function sm-icon"> </span> public function registerParticipantWithRemoteInitiator(string transactionId, int transactionBlockId, string registerAtURL, transactions:RemoteProtocol[] participantProtocols) returns (TransactionContext | error) 
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Registers a participant with the initiator's coordinator. This function will be called by the participant</p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Registers a participant with the initiator's coordinator. This function will be called by the participant.</p>
 
                                                 </p>
                                                  
@@ -1744,9 +1763,7 @@ transaction  that is passed in to those functions.</p>
                                                         <td class="cAPI-table-name">transactionId</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>ID of the transaction to which this participant is registering with</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Global transaction ID to which this participant is registering with.</p>
 </td>
                                                     </tr>
                                                     
@@ -1754,9 +1771,7 @@ transaction  that is passed in to those functions.</p>
                                                         <td class="cAPI-table-name">transactionBlockId</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>The local ID of the transaction block on the participant</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>The local ID of the transaction block on the participant.</p>
 </td>
                                                     </tr>
                                                     
@@ -1764,17 +1779,16 @@ transaction  that is passed in to those functions.</p>
                                                         <td class="cAPI-table-name">registerAtURL</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>The URL of the initiator to which this participant will register with</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>The URL of the coordinator.</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">participantProtocols</td>
-                                                        <td class="cAPI-table-type"><a href="transactions.html#RemoteProtocol">transactions:0.0.0:RemoteProtocol[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="transactions.html#RemoteProtocol">transactions:RemoteProtocol[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>The coordination protocals supported by the participant.</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1792,7 +1806,8 @@ transaction  that is passed in to those functions.</p>
                                                         <td class="cAPI-table-name"></td>
                                                         <td class="cAPI-table-type"><a href="transactions.html#TransactionContext">TransactionContext</a> | <a href="builtin.html#error">error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>TransactionContext if the registration is successful or an error in case of a failure.</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -2489,6 +2504,16 @@ transaction  that is passed in to those functions.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -2609,6 +2634,16 @@ transaction  that is passed in to those functions.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -2659,6 +2694,16 @@ transaction  that is passed in to those functions.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -2680,6 +2725,16 @@ transaction  that is passed in to those functions.</p>
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>
@@ -2774,6 +2829,16 @@ transaction  that is passed in to those functions.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="builtin.html">ballerina/<span class="bold">builtin</span>
                                    </a>
                                    
@@ -2894,6 +2959,16 @@ transaction  that is passed in to those functions.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="log.html">ballerina/<span class="bold">log</span>
                                    </a>
                                    
@@ -2944,6 +3019,16 @@ transaction  that is passed in to those functions.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -2965,6 +3050,16 @@ transaction  that is passed in to those functions.</p>
                                    <!--Package Name-->
                                    
                                    <a href="sql.html">ballerina/<span class="bold">sql</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
                                    </a>
                                    
                                 </li>

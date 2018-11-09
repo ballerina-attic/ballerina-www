@@ -3,15 +3,15 @@
 ## Running Ballerina Programs and Services
 A Ballerina application can either be:
 
-1. A `main()` function that runs as a terminating process.
+1. A [`main()`](/learn/by-example/hello-world.html) function that runs as a terminating process.
 
-2. A `service<>`, which is a hosted non-terminating process.
+2. A [`service<>`](/learn/by-example/hello-world-service.html), which is a hosted non-terminating process.
 
 Both of these are considered "entrypoints" for program execution. 
 
-These applications can be structured into a single program file or a Ballerina package. A collection of packages or source files can be managed together with versioning and dependency management as part of a Ballerina project. 
+These applications can be structured into a single program file or a Ballerina module. A collection of modules or source files can be managed together with versioning and dependency management as part of a Ballerina project. 
 
-Source files and packages can contain zero or more entrypoints, and the runtime engine has precedence and sequence rules for choosing which entrypoint to execute.
+Source files and modules can contain zero or more entrypoints, and the runtime engine has precedence and sequence rules for choosing which entrypoint to execute.
 
 ### Running Standalone Source Code
 A single Ballerina source code file can be placed into any folder. 
@@ -34,32 +34,32 @@ $ ballerina run filename.balx
 ```
 
 ### Running a Project
-A project is a folder that manages source files and packages as part of a common versioning, dependency management, build, and execution. You can build and run items collectively or individually as packages. See [How To Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) for in-depth structuring of projects.
+A project is a folder that manages source files and modules as part of a common versioning, dependency management, build, and execution. You can build and run items collectively or individually as modules. See [How To Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) for in-depth structuring of projects.
 
-Build all source files and packages of a project:
+Build all source files and modules of a project:
 ```bash    
 $ ballerina build
 ```
 
-Build a single package in a project:
+Build a single modules in a project:
 ```bash
-$ ballerina build <package-name>
+$ ballerina build <module-name>
 ```
 
 Options for running programs with entrypoints in a project:  
 ```bash
 $ ballerina run main.balx  
 $ ballerina run target/main.balx
-$ ballerina [-projectroot <path>] run <package>
+$ ballerina run [--sourceroot <path>] <module>
 ```
 
-The `<package>` is the package name, which is the same as the name of the directory that holds the source files. 
+The `<module>` is the module name, which is the same as the name of the directory that holds the source files. 
 
 ## Configuring Your Ballerina Runtimes
 
 ### Ballerina Runtime Configuration Files
 
-A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure. The `ballerina/config` package provides an API for sourcing configuration parameters and using them within your source code. See [Config API Documentation](/learn/api-docs/ballerina/config/) for details.
+A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure. The `ballerina/config` module provides an API for sourcing configuration parameters and using them within your source code. See [Config API Documentation](/learn/api-docs/ballerina/config/) for details.
 
 The configuration APIs accept a key and an optional default value. If a mapping does not exist for the specified key, the default value is returned as the configuration value. The default values of these optional configurations are the default values of the return types of the functions.
 
@@ -73,7 +73,7 @@ Consider the following example, which reads a Ballerina config value and prints 
 import ballerina/io;
 import ballerina/config;
 
-function main(string... args) {
+public function main() {
   string name = config:getAsString("hello.user.name");
   io:println("Hello, " + name + " !");
 }
@@ -81,7 +81,7 @@ function main(string... args) {
 
 The config key is `hello.user.name`. To pass a value to this config from the CLI, we can run the following command. The `-e` argument passes the key and value to the program.
 ```bash
-$ ballerina run main.bal -e hello.user.name=Ballerina
+$ ballerina run -e hello.user.name=Ballerina main.bal
 Hello, Ballerina !
 ```
 
@@ -90,7 +90,7 @@ The value can be passed as an environment variable as well. Here as the value we
 
 ```bash
 $ export NAME=Ballerina
-$ ballerina run main.bal -e hello.user.name=@env:{NAME}
+$ ballerina run -e hello.user.name=@env:{NAME} main.bal
 Hello, Ballerina !
 ```
 
@@ -112,16 +112,16 @@ Hello, Ballerina !
 ```
 To explicitly specify a configuration file, use either the `--config` or the `-c` flag. The path to the configuration file can be either an absolute or a relative path. 
 ```bash
-$ ballerina run main.bal -c ../../ballerina.conf
+$ ballerina run -c ../../ballerina.conf main.bal
 Hello, Ballerina !
 
-$ ballerina run main.bal --config ../../ballerina.conf
+$ ballerina run --config ../../ballerina.conf main.bal
 Hello, Ballerina !
 
-$ ballerina run main.bal -c /Users/Test/Desktop/ballerina.conf
+$ ballerina run -c /Users/Test/Desktop/ballerina.conf main.bal
 Hello, Ballerina !
 
-$ ballerina run main.bal --config /Users/Test/Desktop/ballerina.conf
+$ ballerina run --config /Users/Test/Desktop/ballerina.conf main.bal
 Hello, Ballerina !
 ```
 
@@ -155,7 +155,7 @@ name="@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}"
 or (Enter secret `12345` when prompted.):
 
 ```bash
-$ ballerina run main.bal -e  hello.user.name="@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}"
+$ ballerina run -e hello.user.name=@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=} main.bal
 ballerina: enter secret for config value decryption:
 
 Hello, Ballerina !
@@ -197,7 +197,7 @@ It is possible for third parties and the ecosystem to create their own annotatio
 ### How to Enable Deployment
 A developer enables deployment artifact generation by adding annotations to their Ballerina code: 
 
-1.  Import the relevant extension package in the code.
+1.  Import the relevant extension module in the code.
 2.  Add relevant annotations within the code. 
 3.  Build the Ballerina project.
 
@@ -205,7 +205,7 @@ A developer enables deployment artifact generation by adding annotations to thei
 
 See the following example on how a developer can add Docker support in the code.
 
-Add following code to hello_world_docker.bal file.
+Add the following code to the `hello_world_docker.bal` file.
 
 ```ballerina
 import ballerina/http;  
@@ -233,10 +233,15 @@ Now your code is ready to generate deployment artifacts. In this case it is a Do
   
 ```bash
 $ ballerina build hello_world_docker.bal  
-@docker - complete 3/3  
+Compiling source
+    hello_world_docker.bal
 
-Run the following command to start docker container:  
-docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
+Generating executable
+    ./target/hello_world_docker.balx
+	@docker 		 - complete 3/3
+
+	Run the following command to start a Docker container:
+	docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0
 ```
   
 ```bash
@@ -253,8 +258,8 @@ REPOSITORY                TAG IMAGE ID       CREATED             SIZE
 docker.abc.com/helloworld  v1 df83ae43f69b   2 minutes ago       102MB
 ```
   
-You can run a Docker container and access it with your code by copying and pasting the Docker `run` command that displays as output of the Ballerina `build` command.
- ```bash 
+You can run a Docker container by copying and pasting the Docker `run` command that displays as output of the Ballerina `build` command.
+```bash
 $ docker run -d -p 9090:9090 docker.abc.com/helloworld:v1.0  
 130ded2ae413d0c37021f2026f3a36ed92e993c39c260815e3aa5993d947dd00
 ```
@@ -264,7 +269,7 @@ $ docker ps
 CONTAINER ID  IMAGE                          COMMAND                CREATED                STATUS       PORTS                  NAMES  
 130ded2ae413  docker.abc.com/helloworld:v1.0 "/bin/sh -c 'balleri…" Less than a second ago Up 3 seconds 0.0.0.0:9090->9090/tcp thirsty_hopper
 ```
-Access the hello world service with a cURL command:
+Invoke the hello world service with a cURL command:
 ```bash 
 $ curl http://localhost:9090/helloWorld/sayHello  
 Hello, World!
@@ -317,16 +322,16 @@ For more information, see the [Docker build extension GitHub repo](https://githu
 The Kubernetes builder extension offers native support for running Ballerina programs on Kubernetes with the use of annotations that you can include as part of your service code. Also, it will take care of the creation of the Docker images, so you don't need to explicitly create Docker images prior to deployment on Kubernetes.
 
 The following Kubernetes configurations are supported:
--   Kubernetes deployment support
--   Kubernetes service support
--   Kubernetes liveness probe support
--   Kubernetes ingress support
--   Kubernetes horizontal pod autoscaler support
--   Docker image generation
--   Docker push support with remote Docker registry
--   Kubernetes secret support
--   Kubernetes config map support
--   Kubernetes persistent volume claim support
+- Kubernetes deployment support
+- Kubernetes service support
+- Kubernetes liveness probe support
+- Kubernetes ingress support
+- Kubernetes horizontal pod autoscaler support
+- Docker image generation
+- Docker push support with remote Docker registry
+- Kubernetes secret support
+- Kubernetes config map support
+- Kubernetes persistent volume claim support
 
 The following Ballerina code section explains how you can use some of these Kubernetes capabilities by using Kubernetes annotation support in Ballerina. 
 Full example can be found at [Database Interaction Guide](https://ballerina.io/learn/by-guide/data-backed-service/)
@@ -346,28 +351,15 @@ endpoint mysql:Client employeeDB {
     password:config:getAsString("db-password")
 };
 
-@kubernetes:ConfigMap {
-    ballerinaConf:"./conf/data-service.toml",
-}
-
 @kubernetes:Ingress {
     hostname:"ballerina.guides.io",
     name:"ballerina-guides-employee-database-service",
     path:"/"
 }
-
 @kubernetes:Service {
     serviceType:"NodePort",
     name:"ballerina-guides-employee-database-service"
 }
-
-@kubernetes:Deployment {
-    image:"ballerina.guides.io/employee_database_service:v1.0",
-    name:"ballerina-guides-employee-database-service",
-    copyFiles:[{target:"/ballerina/runtime/bre/lib",
-                source:"./conf/mysql-connector-java-8.0.11.jar"}]
-}
-
 endpoint http:Listener listener {
     port:9090,
     secureSocket:{
@@ -382,6 +374,15 @@ endpoint http:Listener listener {
     }
 };
 
+@kubernetes:ConfigMap {
+    ballerinaConf:"./conf/data-service.toml",
+}
+@kubernetes:Deployment {
+    image:"ballerina.guides.io/employee_database_service:v1.0",
+    name:"ballerina-guides-employee-database-service",
+    copyFiles:[{target:"/ballerina/runtime/bre/lib",
+                source:"./conf/mysql-connector-java-8.0.11.jar"}]
+}
 @http:ServiceConfig {
     basePath:"/records"
 }
@@ -405,6 +406,8 @@ Here we have used `@kubernetes:Deployment` to specify the Docker image name that
 The `@kubernetes:Service {}` annotation will create a Kubernetes service that will expose the Ballerina service running on a Pod.
 
 In addition, you can use `@kubernetes:Ingress`, which is the external interface to access your service (with path / and host name `ballerina.guides.io`).
+
+Minikube users please see the [Kubernetes Extension samples](https://github.com/ballerinax/kubernetes/tree/master/samples) for additional configurations required for Minikube.
 
 Now you can use the following command to build the Ballerina service that we developed above. This will also create the corresponding Docker image and the Kubernetes artifacts using the Kubernetes annotations that you have configured above.
 

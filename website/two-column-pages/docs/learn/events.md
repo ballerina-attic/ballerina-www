@@ -1,64 +1,109 @@
 <script src="/js/events.js"></script>
 <link rel="stylesheet" href="/css/events-page.css"></link>
+
 # Events
 
-## Webinars
-
-
-<div >
-
-</div>
-
-
-<!-- [Webinars](/learn/events/webinars) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmdipiscing elitod tempom dolor sit amet, consectr [On-demand webinars](/learn/events/webinars##on-demand-webinars)incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut -->
-
-<table class="cEventTable cWebinarList">
+<table class="cEventTable cOtherEventsList">
 <tr>
-    <td class="cEventDateContainer"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
-    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/ballerina-serverless-with-kubeless/"><h4>Ballerina Serverless with Kubeless</h4></a>
-    <p>
-    <b>Adnan Abdulhussein</b> Software Engineer, Bitnami</p>
-    <p>
-    <b>Dmitry Sotnikov</b> Vice President - Cloud, WSO2</p>
+    <td class="cEventDateContainer"  style="border:none !important;"><span class="cEventDate">November 15, 2018</span>
+      <p class="cEventLocation"  style="border:none;">Hilton London Bankside, 2-8 Great Suffolk St, London SE1 0UG London, UK</p>
     </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-serverless-with-kubeless/">Register Now</a></td>
+    <td class="cEventDetail"  style="border:none !important;"><a target="_blank" href="/learn/events/ballerina-day-london-2018/">
+    <h4>Ballerina Day London 2018</h4>
+    <p>Ballerina takes center stage at Ballerina Day to showcase how we make integration simple and agile.</p>
+    <p style="color:#20b6b0;">Registration is free, but do sign up quickly as seating is limited. </p>
+    </a>
+    </td>
+    <td class="cEventURL"  style="border:none !important;">
+    <a class="cEventRegistration" href="/learn/events/ballerina-day-london-2018/">Register Now</a>
+    </td>
 </tr>
+</table>
+
+<!-- ## Workshops -->
+
+<table class="cEventTable cWorkshopList">
+<!-- <tr>
+    <td class="cEventDateContainer"><span class="cEventDate">September 06, 2018</span>9:00 am
+    <p class="cEventLocation">Broad Sanctuary, Westminster, London</p>
+
+    </td>
+    <td class="cEventDetail"><a target="_blank" href="https://2018.container.camp/uk/schedule/cloud-native-programming-with-docker-and-kubernetes/"><h4>Cloud Native Programming with Docker and Kubernetes</h4></a>
+    <p>
+    <b>Lakmal Warusawithana,</b> Senior Director – Cloud Architecture, WSO2</p>
+  </p>
+    </td>
+    <td class="cEventURL"><a class="cEventRegistration" href="https://2018.container.camp/uk/schedule/cloud-native-programming-with-docker-and-kubernetes/">Register Now</a></td>
+</tr> -->
 
 </table>
+
+
+<!-- ## Webinars
+
+<table class="cEventTable cWebinarList">
+
+<tr>
+    <td class="cEventDateContainer"><span class="cEventDate">October 30, 2018</span>10:00am -11:00am PDT </td>
+    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/cncf-webinar-series-intro-to-ballerina-a-cloud-native-programming-language/"><h4>CNCF Webinar Series: Intro to Ballerina - A Cloud Native Programming Language</h4></a>
+    <p>
+    <b>Paul Fremantle</b> CTO and Co-Founder, WSO2 </p>
+    <p>
+
+    </td>
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/cncf-webinar-series-intro-to-ballerina-a-cloud-native-programming-language/">Register Now</a></td>
+</tr>
+
+</table> -->
 
 ## Meetups
 
 <table class="cEventTable cMeetupsList">
+    <!-- <tr>
+        <td class="cEventDateContainer"><span class="cEventDate">September 10, 2018 </span>6:00 PM
+            <p class="cEventLocation">inovaBra habitat,
+                Av. Angélica, 2529 - 10° andar · São Paulo, Brazil</p>
+        </td>
+        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/pt-BR/Cloud-Native-Sao-Paulo/events/253753781/"><h4> Cloud Native São Paulo - Meetup #6 - Aplicações Cloud Native</h4></a>
+            <p>Speakers: Edgar Silva and Roberto Monteiro</p>
+        </td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/pt-BR/Cloud-Native-Sao-Paulo/events/253753781/" target="_blank">Register Now</a></td>
+    </tr> -->
     <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">July 10, 2018 </span>6:00 PM
-<p class="cEventLocation">WSO2, 787 Castro Street, 94041, Mountain View, CA
-</td>
-        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/Mountain-View-Kubernetes-Meetup/events/252370805/?rv=me1&_xtd=gatlbWFpbF9jbGlja9oAJDUxNjE1NTNjLTI4MDUtNDljOS1iYTY0LWU5YWQ4NGQzOGQ4MA&_af=event&_af_eid=252370805&https=on"><h4> Cloud Native Programing with Ballerina and Kubernetes</h4></a>
+        <td class="cEventDateContainer"><span class="cEventDate">November 7, 2018</span>6:30 PM to 9:00 PM
+            <p class="cEventLocation">Entrepreneur First, L block, The Biscuit Factory<br>
+100 Clements Road · London, SE16 4DG</p>
+        </td>
+        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/Cloud-Native-London/?_cookie-check=22IjcB8Q0g9inH5A"><h4>Cloud Native London</h4></a>
+        <p>Cloud Native London is the official Cloud Native Computing Foundation (CNCF) Meetup group dedicated to building a strong, open, diverse developer community around the Cloud Native platform and technologies in London.</p>
+            <!-- <p>Speaker: Kasun Indrasiri</p> -->
+        </td>
+        <td class="cEventURL"><a class="cEventRegistration" href=https://www.meetup.com/Cloud-Native-London/?_cookie-check=22IjcB8Q0g9inH5A" target="_blank">Register Now</a></td>
+    </tr>
 
-       </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/Mountain-View-Kubernetes-Meetup/events/252370805/?rv=me1&_xtd=gatlbWFpbF9jbGlja9oAJDUxNjE1NTNjLTI4MDUtNDljOS1iYTY0LWU5YWQ4NGQzOGQ4MA&_af=event&_af_eid=252370805&https=on" target="_blank">Register Now</a></td>
-    </tr>
     <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">October 9, 2018</span></td>
-        <td class="cEventDetail"><h4> London Cloud Native Meetup</h4>
-        <p>Speaker: Paul Fremantle</p>
-       </td>
-        <td class="cEventURL"></td>
-    </tr>
 
 </table>
 
-## Conferences 
 
-<table class="cEventTable cConferencesList">
+<!--## Conferences-->
+
+
+<!-- <table class="cEventTable cConferencesList">
     <tr>
       <td class="cEventDetail c2col" colspan="2">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
       </td>
+
         <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a>
         </td>
     </tr>
     <tr>
+
+        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a></td>
+    </tr> 
+     <tr>
+
         <td class="cEventDateContainer"><span class="cEventDate">June 26 - 29, 2018</span>
         <p class="cEventLocation">New York Marriott Marquis</p>
         </td>
@@ -67,7 +112,7 @@
         <p>Speaker: Sameera Jayasoma</p>
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://qconnewyork.com/ny2018/presentation/ballerina-cloud-native-programming-language" target="_blank">More Info</a></td>
-    </tr>
+    </tr> 
     <tr>
         <td class="cEventDateContainer"><span class="cEventDate">August 1, 2018</span>
         <p class="cEventLocation">New York Marriott Marquis</p>
@@ -76,30 +121,15 @@
         <p>Speaker: Tyler Jewell </p>
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.javasig.com/" target="_blank">More Info</a></td>
-    </tr>
-    <tr>
+    </tr> 
+   <tr>
         <td class="cEventDateContainer"><span class="cEventDate">September 9 - 14, 2018</span>
         <p class="cEventLocation">Sydney, Australia</p>
         </td>
-        <td class="cEventDetail"><a target="_blank" href="https://www.javasig.com/"><h4>BPM 2018 </h4></a>
+        <td class="cEventDetail"><a target="_blank" href="http://bpm2018.web.cse.unsw.edu.au/keynotes.html"><h4>BPM 2018 </h4></a>
         <h4>Bringing Middleware to Everyday Developers with Ballerina</h4>
         <p>Speaker: Sanjiva Weerawarana </p>
         </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.javasig.com/" target="_blank">More Info</a></td>
+        <td class="cEventURL"><a class="cEventRegistration" href="http://bpm2018.web.cse.unsw.edu.au/keynotes.html" target="_blank">More Info</a></td>
     </tr>
-</table>
-
-## Guest lectures
-
-<table class="cEventTable cGLList">
-    <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">June 26, 2018</span>2:00 PM
-<p class="cEventLocation">Foundation for Research and Technology - Hellas (FORTH) Institute of Computer Science, Crete, Greece </p>
-        </td>
-        <td class="cEventDetail"><a target="_blank" href="http://www.ics.forth.gr/index_main.php?l=e&n=4&id=524"><h4>Ballerina, a modern programming language focused on integration</h4></a>
-          <p>Speaker: Sanjiva Weerawarana</p>
-       </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="http://www.ics.forth.gr/index_main.php?l=e&n=4&id=524" target="_blank">More Info</a></td>
-    </tr>
-
-</table>
+</table> -->

@@ -29,7 +29,7 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### How to Structure Ballerina Code
 
-[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, create, version, search, and install Ballerina packages with repositories that are local and remote.
+[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, create, version, search, and install Ballerina modules with repositories that are local and remote.
 
 ### How to Test Ballerina Code
 
@@ -37,15 +37,15 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### How to Document Ballerina Code
 
-[How to Document Ballerina Code](/learn/how-to-document-ballerina-code/) provides guidelines on documenting your Ballerina programs and packages in order to generate API documentation.
+[How to Document Ballerina Code](/learn/how-to-document-ballerina-code/) provides guidelines on documenting your Ballerina programs and modules in order to generate API documentation.
 
 ### How to Write Secure Ballerina Services
 
 [How to Write Secure Ballerina Services](/learn/how-to-write-secure-ballerina-code/) provides guidelines on writing secure Ballerina services, while demonstrating different security features and controls available within Ballerina.
 
-### How to Publish Ballerina Packages
+### How to Publish Ballerina Modules
 
-[How to Publish Ballerina Packages](/learn/how-to-publish-packages/) provides settings and commands you need to share your local packages with the Ballerina community.
+[How to Publish Ballerina Modules](/learn/how-to-publish-modules/) provides settings and commands you need to share your local modules with the Ballerina community.
 
 ### How to Run and Deploy Ballerina Services
 
@@ -57,17 +57,17 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### How to Extend Ballerina
 
-[How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and package these customizations for use by others.
+[How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and collate these customizations for use by others.
 
 ## Reference Documentation
 
-### Package and API Documentation
+### Module and API Documentation
 
 The [API Documentation](/learn/api-docs/) describes the native functions in Ballerina that you can use in your programs.
 
 ### Language Specification
 
-The <a href="/res/Ballerina-Language-Specification-WD-2018-05-01.pdf" download="Ballerina-Language-Specification-WD-2018-05-01.pdf">Language Specification</a> is the document that defines Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.
+The <a href="/res/Ballerina-Language-Specification-WD-2018-07-12.pdf" download="Ballerina-Language-Specification-WD-2018-07-12.pdf">Language Specification</a> is the document that defines Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.
 
 ### Ballerina Streaming Guide
 
@@ -79,32 +79,9 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 
 ## Events
 
-### Conferences
+The [Events](/learn/events) page consists of upcoming webinars, meetups, and conferences about Ballerina.
 
-<table class="cEventTable">
-<tr>
-      <td class="cEventDetail c2col">
-        <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
-    </td>
-        <td class="cEventURL c2col"><a class="cEventRegistration" href="https://con.ballerina.io/register/" target="_blank">Register Now</a></td>
-    </tr>
-</table>
-
-### Webinars
-
-<table class="cEventTable cWebinarList">
-<tr>
-    <td class="cEventDateContainer"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
-    <td class="cEventDetail"><h4>Ballerina Serverless with Kubeless</h4>
-    <p>
-    <b>Adnan Abdulhussein</b> Software Engineer, Bitnami</p>
-    <p>
-    <b>Dmitry Sotnikov</b> Vice President - Cloud, WSO2</p>
-    </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-serverless-with-kubeless/">Register Now</a></td>
-</tr>
-
-</table>
+Refer to the [Past Events](/learn/events/past-events) page to view videos and slides from conferences and webinars.
 
 ## Articles and Videos
 
@@ -128,3 +105,5 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 18. <a href="https://medium.com/@kevinratnasekera/write-integration-tests-for-ballerina-service-running-inside-docker-container-39fbbc20641c" target="_blank">Write Integration Tests for Ballerina Using TestContainers</a>
 19. <a href="https://medium.com/@kevinratnasekera/connect-with-kafka-brokers-using-ballerina-6f5f2880b7e8" target="_blank">Connect with Kafka Brokers Using Ballerina</a>
 20. <a href="https://medium.com/@lafernando/ballerina-concurrency-done-right-fa0afa350cb0" target="_blank">Ballerina: Concurrency Done Right!</a>
+21. <a href="https://www.infoq.com/articles/ballerina-microservices-language-part-1" target="_blank">Ballerina Microservices Programming Language: Introducing the Latest Release and "Ballerina Central"</a>
+22. <a href="https://dzone.com/articles/yaml-less-kubernetes" target="_blank">Generate Kubernetes YAML Right From Your App Code</a>
