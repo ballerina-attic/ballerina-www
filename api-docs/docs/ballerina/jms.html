@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -106,13 +106,6 @@
                     </div>
                     <div class="cLectColStyle">
                         <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
                         
                         <ul class=" ">
                             <li>
@@ -1923,7 +1916,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/jms</span> package </li>
+                            <li><span class="bold">ballerina/jms</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -1935,14 +1928,15 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/jms</span>  package 
+                                                <span class="bold">ballerina/jms</span>  module 
                                             </h1>
                                             
                                             <div class="cAPIdocsDescription">
-                                                <h2>Package overview</h2>
-<p>The <code>ballerina/jms</code> package provides an API to connect to an external JMS provider like Ballerina Message Broker or ActiveMQ.</p>
-<p>The package provides consumer and producer endpoint types for queues and topics. Following are the endpoint types
-supported by this package:</p>
+                                                <h2>Module overview</h2>
+<p>The <code>ballerina/jms</code> module provides an API to connect to an external JMS provider like Ballerina Message Broker or
+ActiveMQ.</p>
+<p>The module provides consumer and producer endpoint types for queues and topics. Following are the endpoint types
+supported by this module:</p>
 <ul>
 <li>QueueReceiver</li>
 <li>TopicSubscriber</li>
@@ -1950,12 +1944,10 @@ supported by this package:</p>
 <li>SimpleQueueReceiver</li>
 <li>SimpleTopicSubscriber</li>
 <li>SimpleDurableTopicSubscriber</li>
-<li>QueueReceiver</li>
-<li>TopicSubscriber</li>
-<li>DurableTopicSubscriber</li>
-<li>SimpleQueueReceiver</li>
-<li>SimpleTopicSubscriber</li>
-<li>SimpleDurableTopicSubscriber</li>
+<li>QueueSender</li>
+<li>TopicPublisher</li>
+<li>SimpleQueueSender</li>
+<li>SimpleTopicPublisher</li>
 </ul>
 <p>The endpoints prefixed with <code>Simple</code> will automatically create a JMS connection and a JMS session when the endpoint is
 initialized. For other endpoints, the developer must explicitly provide a properly initialized JMS Session.</p>
@@ -2114,7 +2106,7 @@ service&lt;jms:Consumer&gt; jmsListener bind subscriberEndpoint {
 }
 </code></pre>
 <h3>JMS Topic Producer</h3>
-<p>Following is a topic producer program that publishes to a particular JMS topic</p>
+<p>Following is a topic producer program that publishes to a particular JMS topic.</p>
 <pre><code class="language-ballerina">import ballerina/jms;
 import ballerina/log;
 
@@ -2135,7 +2127,7 @@ endpoint jms:TopicPublisher topicPublisher {
 public function main(string... args) {
     match (jmsSession.createTextMessage(&quot;Hello from Ballerina&quot;)) {
         error e =&gt; {
-            log:printError(&quot;Error occurred while creating message&quot;, err=e);
+            log:printError(&quot;Error occurred while creating message&quot;, err = e);
         }
         jms:Message msg =&gt; {
             topicPublisher-&gt;send(msg) but {
@@ -2150,7 +2142,7 @@ public function main(string... args) {
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -8892,7 +8884,7 @@ please refer QueueSender endpoint.</p>
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
@@ -9011,16 +9003,6 @@ please refer QueueSender endpoint.</p>
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>
@@ -9218,7 +9200,7 @@ please refer QueueSender endpoint.</p>
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
                              <ul class="">
@@ -9336,16 +9318,6 @@ please refer QueueSender endpoint.</p>
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>

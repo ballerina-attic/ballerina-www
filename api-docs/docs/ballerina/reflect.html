@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -106,13 +106,6 @@
                     </div>
                     <div class="cLectColStyle">
                         <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
                         
                         <ul class=" ">
                             <li>
@@ -485,7 +478,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/reflect</span> package </li>
+                            <li><span class="bold">ballerina/reflect</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -497,12 +490,12 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/reflect</span>  package 
+                                                <span class="bold">ballerina/reflect</span>  module 
                                             </h1>
                                             
                                             <div class="cAPIdocsDescription">
-                                                <h2>Package overview</h2>
-<p>This package provides utility methods for obtaining reflective information about the Ballerina runtime.</p>
+                                                <h2>Module overview</h2>
+<p>This module provides utility methods for obtaining reflective information about the Ballerina runtime.</p>
 <h2>Samples</h2>
 <h3>Check whether two objects are equal</h3>
 <p>The <code>reflect:equals</code> function checks whether two objects in the Ballerina runtime, including arrays, are equal.</p>
@@ -552,7 +545,7 @@ service&lt;http:Service&gt; hello bind { port: 9090 } {
 
 reflect:annotationData[] annotations= reflect:getServiceAnnotations(hello); 
 string annoName = annotations[0].name; //Eg. “ServiceConfig”
-string annoPkg = annotations[0].pkgName; //Eg/ “ballerina.http”
+string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
 
 </code></pre>
 
@@ -560,7 +553,7 @@ string annoPkg = annotations[0].pkgName; //Eg/ “ballerina.http”
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -707,14 +700,14 @@ JSON. Any other type returns FALSE.</p>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">pkgName</td>
+                                                        <td class="cAPI-table-name">moduleName</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">pkgVersion</td>
+                                                        <td class="cAPI-table-name">moduleVersion</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
@@ -1271,7 +1264,7 @@ JSON. Any other type returns FALSE.</p>
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
@@ -1390,16 +1383,6 @@ JSON. Any other type returns FALSE.</p>
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>
@@ -1597,7 +1580,7 @@ JSON. Any other type returns FALSE.</p>
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
                              <ul class="">
@@ -1715,16 +1698,6 @@ JSON. Any other type returns FALSE.</p>
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>

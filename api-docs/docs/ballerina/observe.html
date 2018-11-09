@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -106,13 +106,6 @@
                     </div>
                     <div class="cLectColStyle">
                         <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
                         
                         <ul class=" ">
                             <li>
@@ -726,7 +719,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/observe</span> package </li>
+                            <li><span class="bold">ballerina/observe</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -738,13 +731,13 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/observe</span>  package 
+                                                <span class="bold">ballerina/observe</span>  module 
                                             </h1>
                                             
                                             <div class="cAPIdocsDescription">
-                                                <h2>Package Overview</h2>
-<p>This package provides apis for observing Ballerina services.
-Ballerina supports Observability out of the box. This package provides user api's to make Ballerina Observability more flexible for the user.</p>
+                                                <h2>Module Overview</h2>
+<p>This module provides apis for observing Ballerina services.
+Ballerina supports Observability out of the box. This module provides user api's to make Ballerina Observability more flexible for the user.</p>
 <p>To observe ballerina code, the <code>--observe</code> flag should be given when starting the service. i.e. <code>ballerina run hello_world.bal --observe</code>.
 For more information on Ballerina Observability visit <a href="https://ballerina.io/learn/how-to-observe-ballerina-code/">How to Observe Ballerina Services</a></p>
 <h2>Tracing</h2>
@@ -989,7 +982,7 @@ metric reporters, where they can fetch all metrics, format those, and report.</p
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -1563,8 +1556,7 @@ during the usage.</p>
                                                         <td class="cAPI-table-name">spanId</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Id of span to finish
-return - An error if an error occured while finishing the span</p>
+                                                        <td class="cAPI-table-desc"><p>Id of span to finish</p>
 </td>
                                                     </tr>
                                                     
@@ -1583,7 +1575,8 @@ return - An error if an error occured while finishing the span</p>
                                                         <td class="cAPI-table-name"></td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>An error if an error occured while finishing the span</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -2625,7 +2618,7 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
@@ -2744,16 +2737,6 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>
@@ -2951,7 +2934,7 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
                              <ul class="">
@@ -3069,16 +3052,6 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>

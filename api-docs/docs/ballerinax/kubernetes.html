@@ -36,7 +36,7 @@
     </script>
     <!-- End Google Tag Manager -->
     <link rel="shortcut icon" href="/img/favicon.ico">
-    <title>Ballerina - ballerinax/kubernetes API Docs</title>
+    <title>Ballerina - ballerina/kubernetes API Docs</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            // $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -114,11 +114,18 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
                                  
-                                <a class="cPackageList">ballerinax/<span class="bold">kubernetes</span></a>  
+                                <a class="cPackageList">ballerina/<span class="bold">kubernetes</span></a>  
                                 <div class="constructs-wrapper">
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
@@ -138,6 +145,17 @@
                                         
                                         
                                         
+                                        
+                                        <li>
+                                            <a href="#TypeDefinitions">
+                                                <div class="construct-icon">
+                                                    <span class="fw-type"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Type Definitions
+                                                </div>
+                                            </a>
+                                        </li>
                                         
                                         
                                         
@@ -168,6 +186,30 @@
                                             
                                           
                                         <li>
+                                            <a href="#ConfigMapKeyRef">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    ConfigMapKeyRef
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#ConfigMapKeyValue">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    ConfigMapKeyValue
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
                                             <a href="#ConfigMapMount">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
@@ -186,6 +228,30 @@
                                                 </div>
                                                 <div class="construct-name">
                                                     DeploymentConfiguration
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#FieldRef">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    FieldRef
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#FieldValue">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    FieldValue
                                                 </div>
                                             </a>
                                         </li>
@@ -264,12 +330,84 @@
                                             
                                           
                                         <li>
+                                            <a href="#ResourceFieldRef">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    ResourceFieldRef
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#ResourceFieldValue">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    ResourceFieldValue
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#ResourceQuotaConfig">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    ResourceQuotaConfig
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#ResourceQuotas">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    ResourceQuotas
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
                                             <a href="#Secret">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
                                                     Secret
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#SecretKeyRef">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    SecretKeyRef
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#SecretKeyValue">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    SecretKeyValue
                                                 </div>
                                             </a>
                                         </li>
@@ -298,6 +436,12 @@
                                             </a>
                                         </li>
                                             
+                                           
+                                           
+                                           
+                                           
+                                           
+                                             
                                              
                                              
                                              
@@ -331,7 +475,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerinax/kubernetes</span> package </li>
+                            <li><span class="bold">ballerina/kubernetes</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -343,12 +487,12 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerinax/kubernetes</span>  package 
+                                                <span class="bold">ballerina/kubernetes</span>  module 
                                             </h1>
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -364,7 +508,23 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ConfigMap">ConfigMap</a></td>
-                                                         <td class="cSummary-table-desc"><p>Kubernetes Config Map volume mount</p>
+                                                         <td class="cSummary-table-desc">Kubernetes Config Map volume mount.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#ConfigMapKeyRef">ConfigMapKeyRef</a></td>
+                                                         <td class="cSummary-table-desc">Value from config map key.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#ConfigMapKeyValue">ConfigMapKeyValue</a></td>
+                                                         <td class="cSummary-table-desc">Value for config map key.
 </td>
                                                      </tr>
                                                  
@@ -372,7 +532,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ConfigMapMount">ConfigMapMount</a></td>
-                                                         <td class="cSummary-table-desc"><p>Secret volume mount configurations for kubernetes</p>
+                                                         <td class="cSummary-table-desc">Secret volume mount configurations for kubernetes.
 </td>
                                                      </tr>
                                                  
@@ -380,7 +540,23 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#DeploymentConfiguration">DeploymentConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"><p>Kubernetes deployment configuration</p>
+                                                         <td class="cSummary-table-desc">Kubernetes deployment configuration.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#FieldRef">FieldRef</a></td>
+                                                         <td class="cSummary-table-desc">Value from field.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#FieldValue">FieldValue</a></td>
+                                                         <td class="cSummary-table-desc">Value for a field.
 </td>
                                                      </tr>
                                                  
@@ -388,7 +564,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#FileConfig">FileConfig</a></td>
-                                                         <td class="cSummary-table-desc"><p>External file type for docker</p>
+                                                         <td class="cSummary-table-desc">External file type for docker.
 </td>
                                                      </tr>
                                                  
@@ -396,7 +572,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#IngressConfiguration">IngressConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"><p>Kubernetes ingress configuration</p>
+                                                         <td class="cSummary-table-desc">Kubernetes ingress configuration.
 </td>
                                                      </tr>
                                                  
@@ -404,7 +580,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#JobConfig">JobConfig</a></td>
-                                                         <td class="cSummary-table-desc"><p>value:&quot;Kubernetes job configuration</p>
+                                                         <td class="cSummary-table-desc">Kubernetes job configuration.
 </td>
                                                      </tr>
                                                  
@@ -412,7 +588,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#PersistentVolumeClaimConfig">PersistentVolumeClaimConfig</a></td>
-                                                         <td class="cSummary-table-desc"><p>Kubernetes Persistent Volume Claim</p>
+                                                         <td class="cSummary-table-desc">Kubernetes Persistent Volume Claim.
 </td>
                                                      </tr>
                                                  
@@ -420,7 +596,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#PersistentVolumeClaims">PersistentVolumeClaims</a></td>
-                                                         <td class="cSummary-table-desc"><p>Persistent Volume Claims configurations for kubernetes</p>
+                                                         <td class="cSummary-table-desc">Persistent Volume Claims configurations for kubernetes.
 </td>
                                                      </tr>
                                                  
@@ -428,7 +604,39 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#PodAutoscalerConfig">PodAutoscalerConfig</a></td>
-                                                         <td class="cSummary-table-desc"><p>Kubernetes Horizontal Pod Autoscaler configuration</p>
+                                                         <td class="cSummary-table-desc">Kubernetes Horizontal Pod Autoscaler configuration
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#ResourceFieldRef">ResourceFieldRef</a></td>
+                                                         <td class="cSummary-table-desc">Value from resource field.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#ResourceFieldValue">ResourceFieldValue</a></td>
+                                                         <td class="cSummary-table-desc">Value for resource field.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#ResourceQuotaConfig">ResourceQuotaConfig</a></td>
+                                                         <td class="cSummary-table-desc">Kubernetes Resource Quota
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#ResourceQuotas">ResourceQuotas</a></td>
+                                                         <td class="cSummary-table-desc">Resource Quota configuration for kubernetes.
 </td>
                                                      </tr>
                                                  
@@ -436,7 +644,23 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Secret">Secret</a></td>
-                                                         <td class="cSummary-table-desc"><p>Kubernetes secret volume mount</p>
+                                                         <td class="cSummary-table-desc">Kubernetes secret volume mount.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#SecretKeyRef">SecretKeyRef</a></td>
+                                                         <td class="cSummary-table-desc">Value from secret key.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#SecretKeyValue">SecretKeyValue</a></td>
+                                                         <td class="cSummary-table-desc">Value for a secret key.
 </td>
                                                      </tr>
                                                  
@@ -444,7 +668,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#SecretMount">SecretMount</a></td>
-                                                         <td class="cSummary-table-desc"><p>Secret volume mount configurations for kubernetes</p>
+                                                         <td class="cSummary-table-desc">Secret volume mount configurations for kubernetes.
 </td>
                                                      </tr>
                                                  
@@ -452,9 +676,21 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ServiceConfiguration">ServiceConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"><p>Kubernetes service configuration</p>
+                                                         <td class="cSummary-table-desc">Kubernetes service configuration.
 </td>
                                                      </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
                                                  
                                              
                                                  
@@ -483,6 +719,87 @@
                                          
                                          <!-- Type Definitions-->
                                          
+                                        <h3 id="TypeDefinitions">Type Definitions</h3>
+                                        <table class="cSummary-Table c3Col-Narrow">
+                                            <tr>
+                                                <th class="cSummary-table-name">Type</th>
+                                                <th class="cSummary-table-type">Values</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">ImagePullPolicy</td>
+                                                <td class="cSummary-table-type">Never | IfNotPresent | Always</td>
+                                                <td class="cSummary-table-desc"><p>Image pull policy type field for kubernetes deployment and jobs.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">ResourceQuotaScope</td>
+                                                <td class="cSummary-table-type">Terminating | NotTerminating | NotBestEffort | BestEffort</td>
+                                                <td class="cSummary-table-desc"><p>Scopes for kubernetes resource quotas</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">RestartPolicy</td>
+                                                <td class="cSummary-table-type">OnFailure | Never | Always</td>
+                                                <td class="cSummary-table-desc"><p>Restart policy type field for kubernetes jobs.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">ServiceType</td>
+                                                <td class="cSummary-table-type">NodePort | LoadBalancer | ClusterIP</td>
+                                                <td class="cSummary-table-desc"><p>Service type field for kubernetes services.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">SessionAffinity</td>
+                                                <td class="cSummary-table-type">None | ClientIP</td>
+                                                <td class="cSummary-table-desc"><p>Session affinity field for kubernetes services.</p>
+</td>
+                                            </tr>
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                        </table>
+                                        
                                         <!-- Global Variables-->
                                         
                                          <!-- Annotations -->
@@ -508,21 +825,36 @@
                                               
                                               
                                               
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">ConfigMap</td>
                                                 <td class="cSummary-table-attach">service</td>
                                                 <td class="cSummary-table-type"><a href="kubernetes.html#ConfigMapMount">ConfigMapMount</a></td>
-                                                <td class="cSummary-table-desc"><p>@kubernetes:ConfigMap annotation to configure config maps</p>
+                                                <td class="cSummary-table-desc"><p>@kubernetes:ConfigMap annotation to configure config maps.</p>
 </td>
                                             </tr>
                                               
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">Deployment</td>
-                                                <td class="cSummary-table-attach">endpoint, service</td>
+                                                <td class="cSummary-table-attach">service, function, endpoint</td>
                                                 <td class="cSummary-table-type"><a href="kubernetes.html#DeploymentConfiguration">DeploymentConfiguration</a></td>
-                                                <td class="cSummary-table-desc"><p>@kubernetes:Deployment annotation to configure deplyoment yaml</p>
+                                                <td class="cSummary-table-desc"><p>@kubernetes:Deployment annotation to configure deplyoment yaml.</p>
 </td>
                                             </tr>
                                               
@@ -531,16 +863,16 @@
                                                 <td class="cSummary-table-name">HPA</td>
                                                 <td class="cSummary-table-attach">service</td>
                                                 <td class="cSummary-table-type"><a href="kubernetes.html#PodAutoscalerConfig">PodAutoscalerConfig</a></td>
-                                                <td class="cSummary-table-desc"><p>@kubernetes:HPA annotation to configure horizontal pod autoscaler yaml</p>
+                                                <td class="cSummary-table-desc"><p>@kubernetes:HPA annotation to configure horizontal pod autoscaler yaml.</p>
 </td>
                                             </tr>
                                               
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">Ingress</td>
-                                                <td class="cSummary-table-attach">endpoint, service</td>
+                                                <td class="cSummary-table-attach">service, endpoint</td>
                                                 <td class="cSummary-table-type"><a href="kubernetes.html#IngressConfiguration">IngressConfiguration</a></td>
-                                                <td class="cSummary-table-desc"><p>@kubernetes:Ingress annotation to configure ingress yaml</p>
+                                                <td class="cSummary-table-desc"><p>@kubernetes:Ingress annotation to configure ingress yaml.</p>
 </td>
                                             </tr>
                                               
@@ -549,7 +881,7 @@
                                                 <td class="cSummary-table-name">Job</td>
                                                 <td class="cSummary-table-attach">function</td>
                                                 <td class="cSummary-table-type"><a href="kubernetes.html#JobConfig">JobConfig</a></td>
-                                                <td class="cSummary-table-desc"><p>@kubernetes:Job annotation to configure kubernetes jobs</p>
+                                                <td class="cSummary-table-desc"><p>@kubernetes:Job annotation to configure kubernetes jobs.</p>
 </td>
                                             </tr>
                                               
@@ -558,7 +890,16 @@
                                                 <td class="cSummary-table-name">PersistentVolumeClaim</td>
                                                 <td class="cSummary-table-attach">service</td>
                                                 <td class="cSummary-table-type"><a href="kubernetes.html#PersistentVolumeClaims">PersistentVolumeClaims</a></td>
-                                                <td class="cSummary-table-desc"><p>@kubernetes:PersistentVolumeClaim annotation to configure Persistent Volume Claims</p>
+                                                <td class="cSummary-table-desc"><p>@kubernetes:PersistentVolumeClaim annotation to configure Persistent Volume Claims.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">ResourceQuota</td>
+                                                <td class="cSummary-table-attach">service, function, endpoint</td>
+                                                <td class="cSummary-table-type"><a href="kubernetes.html#ResourceQuotas">ResourceQuotas</a></td>
+                                                <td class="cSummary-table-desc"><p>@kubernetes:ResourcesQuotas annotation to configure Resource Quotas.</p>
 </td>
                                             </tr>
                                               
@@ -567,7 +908,7 @@
                                                 <td class="cSummary-table-name">Secret</td>
                                                 <td class="cSummary-table-attach">service</td>
                                                 <td class="cSummary-table-type"><a href="kubernetes.html#SecretMount">SecretMount</a></td>
-                                                <td class="cSummary-table-desc"><p>@kubernetes:Secret annotation to configure secrets</p>
+                                                <td class="cSummary-table-desc"><p>@kubernetes:Secret annotation to configure secrets.</p>
 </td>
                                             </tr>
                                               
@@ -576,7 +917,7 @@
                                                 <td class="cSummary-table-name">Service</td>
                                                 <td class="cSummary-table-attach">service, endpoint</td>
                                                 <td class="cSummary-table-type"><a href="kubernetes.html#ServiceConfiguration">ServiceConfiguration</a></td>
-                                                <td class="cSummary-table-desc"><p>@kubernetes:Service annotation to configure service yaml</p>
+                                                <td class="cSummary-table-desc"><p>@kubernetes:Service annotation to configure service yaml.</p>
 </td>
                                             </tr>
                                               
@@ -602,7 +943,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Kubernetes Config Map volume mount</p>
+                                                    <span class="fw-right gray xs-icon"></span>Kubernetes Config Map volume mount.
 
                                                 </p>
                                                  
@@ -618,9 +959,7 @@
                                                         <td class="cAPI-table-name">name</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Name of the volume mount</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Name of the volume mount</p>
 </td>
                                                     </tr>
                                                     
@@ -628,9 +967,7 @@
                                                         <td class="cAPI-table-name">mountPath</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Mount path</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Mount path</p>
 </td>
                                                     </tr>
                                                     
@@ -638,9 +975,7 @@
                                                         <td class="cAPI-table-name">readOnly</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Is mount read only</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Is mount read only</p>
 </td>
                                                     </tr>
                                                     
@@ -648,9 +983,99 @@
                                                         <td class="cAPI-table-name">data</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Paths to data files</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Paths to data files</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="ConfigMapKeyRef">
+                                                    <span class="fw-record sm-icon"></span> public type ConfigMapKeyRef
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Value from config map key.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">configMapKeyRef</td>
+                                                        <td class="cAPI-table-type"><a href="kubernetes.html#ConfigMapKeyValue">kubernetes:ConfigMapKeyValue</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Reference for config map key.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="ConfigMapKeyValue">
+                                                    <span class="fw-record sm-icon"></span> public type ConfigMapKeyValue
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Value for config map key.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">name</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>name of the config.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">key</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>key of the config.</p>
 </td>
                                                     </tr>
                                                     
@@ -676,7 +1101,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Secret volume mount configurations for kubernetes</p>
+                                                    <span class="fw-right gray xs-icon"></span>Secret volume mount configurations for kubernetes.
 
                                                 </p>
                                                  
@@ -692,9 +1117,7 @@
                                                         <td class="cAPI-table-name">ballerinaConf</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>path to ballerina configuration file</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>path to ballerina configuration file</p>
 </td>
                                                     </tr>
                                                     
@@ -702,9 +1125,7 @@
                                                         <td class="cAPI-table-name">configMaps</td>
                                                         <td class="cAPI-table-type"><a href="kubernetes.html#ConfigMap">kubernetes:ConfigMap[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Array of <a href="kubernetes.html#ConfigMap">ConfigMap</a></li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Array of <a href="kubernetes.html#ConfigMap">ConfigMap</a></p>
 </td>
                                                     </tr>
                                                     
@@ -730,7 +1151,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Kubernetes deployment configuration</p>
+                                                    <span class="fw-right gray xs-icon"></span>Kubernetes deployment configuration.
 
                                                 </p>
                                                  
@@ -746,19 +1167,23 @@
                                                         <td class="cAPI-table-name">name</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Name of the deployment</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Name of the deployment</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">namespace</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Kubernetes namespace</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">labels</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Map of labels for deployment</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Map of labels for deployment</p>
 </td>
                                                     </tr>
                                                     
@@ -766,19 +1191,15 @@
                                                         <td class="cAPI-table-name">replicas</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Number of replicas</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Number of replicas</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">enableLiveness</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Enable/Disable liveness probe</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Enable/Disable liveness probe</p>
 </td>
                                                     </tr>
                                                     
@@ -786,9 +1207,7 @@
                                                         <td class="cAPI-table-name">livenessPort</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Port to check the liveness</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Port to check the liveness</p>
 </td>
                                                     </tr>
                                                     
@@ -796,9 +1215,7 @@
                                                         <td class="cAPI-table-name">initialDelaySeconds</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Initial delay in seconds before performing the first probe</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Initial delay in seconds before performing the first probe</p>
 </td>
                                                     </tr>
                                                     
@@ -806,19 +1223,15 @@
                                                         <td class="cAPI-table-name">periodSeconds</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Liveness probe interval</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Liveness probe interval</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">imagePullPolicy</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-type"><a href="kubernetes.html#ImagePullPolicy">IfNotPresent|Never|Always?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Kubernetes image pull policy</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Kubernetes image pull policy</p>
 </td>
                                                     </tr>
                                                     
@@ -826,19 +1239,15 @@
                                                         <td class="cAPI-table-name">image</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker image with tag</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker image with tag</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">env</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;string|kubernetes:FieldRef|kubernetes:SecretKeyRef|kubernetes:ResourceFieldRef|kubernetes:ConfigMapKeyRef&gt;</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Environment varialbe map for containers</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Environment varialbe map for containers</p>
 </td>
                                                     </tr>
                                                     
@@ -846,9 +1255,7 @@
                                                         <td class="cAPI-table-name">buildImage</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker image to be build or not</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker image to be build or not</p>
 </td>
                                                     </tr>
                                                     
@@ -856,9 +1263,7 @@
                                                         <td class="cAPI-table-name">dockerHost</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker host IP and docker PORT. (e.g minikube IP and docker PORT)</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker host IP and docker PORT. (e.g minikube IP and docker PORT)</p>
 </td>
                                                     </tr>
                                                     
@@ -866,9 +1271,7 @@
                                                         <td class="cAPI-table-name">username</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Username for docker registry</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Username for docker registry</p>
 </td>
                                                     </tr>
                                                     
@@ -876,9 +1279,7 @@
                                                         <td class="cAPI-table-name">password</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Password for docker registry</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Password for docker registry</p>
 </td>
                                                     </tr>
                                                     
@@ -886,9 +1287,7 @@
                                                         <td class="cAPI-table-name">baseImage</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Base image for docker image building</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Base image for docker image building</p>
 </td>
                                                     </tr>
                                                     
@@ -896,9 +1295,7 @@
                                                         <td class="cAPI-table-name">push</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Push to remote registry</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Push to remote registry</p>
 </td>
                                                     </tr>
                                                     
@@ -906,9 +1303,7 @@
                                                         <td class="cAPI-table-name">dockerCertPath</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker certificate path</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker certificate path</p>
 </td>
                                                     </tr>
                                                     
@@ -916,9 +1311,115 @@
                                                         <td class="cAPI-table-name">copyFiles</td>
                                                         <td class="cAPI-table-type"><a href="kubernetes.html#FileConfig">kubernetes:FileConfig[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Array of <a href="kubernetes#FileConfig">External files</a> for docker image</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Array of <a href="kubernetes#FileConfig">External files</a> for docker image</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">singleYAML</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Generate a single yaml file with all kubernetes artifacts (services,deployment,ingress,)</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">dependsOn</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Services this deployment depends on</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">imagePullSecrets</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Image pull secrets</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="FieldRef">
+                                                    <span class="fw-record sm-icon"></span> public type FieldRef
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Value from field.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">fieldRef</td>
+                                                        <td class="cAPI-table-type"><a href="kubernetes.html#FieldValue">kubernetes:FieldValue</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Reference for a field.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="FieldValue">
+                                                    <span class="fw-record sm-icon"></span> public type FieldValue
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Value for a field.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">fieldPath</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Path of the field</p>
 </td>
                                                     </tr>
                                                     
@@ -944,7 +1445,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>External file type for docker</p>
+                                                    <span class="fw-right gray xs-icon"></span>External file type for docker.
 
                                                 </p>
                                                  
@@ -960,9 +1461,7 @@
                                                         <td class="cAPI-table-name">source</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>source path of the file (in your machine)</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>source path of the file (in your machine)</p>
 </td>
                                                     </tr>
                                                     
@@ -970,9 +1469,7 @@
                                                         <td class="cAPI-table-name">target</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>target path (inside container)</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>target path (inside container)</p>
 </td>
                                                     </tr>
                                                     
@@ -998,7 +1495,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Kubernetes ingress configuration</p>
+                                                    <span class="fw-right gray xs-icon"></span>Kubernetes ingress configuration.
 
                                                 </p>
                                                  
@@ -1014,9 +1511,7 @@
                                                         <td class="cAPI-table-name">name</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Name of the ingress</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Name of the ingress</p>
 </td>
                                                     </tr>
                                                     
@@ -1024,29 +1519,23 @@
                                                         <td class="cAPI-table-name">endpointName</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Name of the endpoint ingress attached</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Name of the endpoint ingress attached</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">labels</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Label map for ingress</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Label map for ingress</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">annotations</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Map of additional annotations</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Map of additional annotations</p>
 </td>
                                                     </tr>
                                                     
@@ -1054,9 +1543,7 @@
                                                         <td class="cAPI-table-name">hostname</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Host name of the ingress</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Host name of the ingress</p>
 </td>
                                                     </tr>
                                                     
@@ -1064,9 +1551,7 @@
                                                         <td class="cAPI-table-name">path</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Resource path</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Resource path</p>
 </td>
                                                     </tr>
                                                     
@@ -1074,9 +1559,7 @@
                                                         <td class="cAPI-table-name">targetPath</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Target path for url rewrite</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Target path for url rewrite</p>
 </td>
                                                     </tr>
                                                     
@@ -1084,9 +1567,7 @@
                                                         <td class="cAPI-table-name">ingressClass</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Ingress class</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Ingress class</p>
 </td>
                                                     </tr>
                                                     
@@ -1094,9 +1575,7 @@
                                                         <td class="cAPI-table-name">enableTLS</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Enable/Disable ingress TLS</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Enable/Disable ingress TLS</p>
 </td>
                                                     </tr>
                                                     
@@ -1122,7 +1601,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>value:&quot;Kubernetes job configuration</p>
+                                                    <span class="fw-right gray xs-icon"></span>Kubernetes job configuration.
 
                                                 </p>
                                                  
@@ -1138,29 +1617,23 @@
                                                         <td class="cAPI-table-name">name</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Name of the job</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Name of the job</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">labels</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Labels for job</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Labels for job</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">restartPolicy</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-type"><a href="kubernetes.html#RestartPolicy">Never|Always|OnFailure?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Restart policy</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Restart policy</p>
 </td>
                                                     </tr>
                                                     
@@ -1168,9 +1641,7 @@
                                                         <td class="cAPI-table-name">backoffLimit</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Backoff limit</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Backoff limit</p>
 </td>
                                                     </tr>
                                                     
@@ -1178,9 +1649,7 @@
                                                         <td class="cAPI-table-name">activeDeadlineSeconds</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Active deadline seconds</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Active deadline seconds</p>
 </td>
                                                     </tr>
                                                     
@@ -1188,36 +1657,31 @@
                                                         <td class="cAPI-table-name">schedule</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Schedule for cron jobs</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Schedule for cron jobs</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">env</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;string|kubernetes:FieldRef|kubernetes:SecretKeyRef|kubernetes:ResourceFieldRef|kubernetes:ConfigMapKeyRef&gt;</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Environment varialbes for container</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Environment varialbes for container</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">imagePullPolicy</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-type"><a href="kubernetes.html#ImagePullPolicy">IfNotPresent|Never|Always?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Policy for pulling an image</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">image</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker image with tag</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker image with tag</p>
 </td>
                                                     </tr>
                                                     
@@ -1225,9 +1689,7 @@
                                                         <td class="cAPI-table-name">buildImage</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker image to be build or not</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker image to be build or not</p>
 </td>
                                                     </tr>
                                                     
@@ -1235,9 +1697,7 @@
                                                         <td class="cAPI-table-name">dockerHost</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker host IP and docker PORT. (e.g minikube IP and docker PORT)</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker host IP and docker PORT. (e.g minikube IP and docker PORT)</p>
 </td>
                                                     </tr>
                                                     
@@ -1245,9 +1705,7 @@
                                                         <td class="cAPI-table-name">username</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Username for docker registry</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Username for docker registry</p>
 </td>
                                                     </tr>
                                                     
@@ -1255,9 +1713,7 @@
                                                         <td class="cAPI-table-name">password</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Password for docker registry</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Password for docker registry</p>
 </td>
                                                     </tr>
                                                     
@@ -1265,9 +1721,7 @@
                                                         <td class="cAPI-table-name">baseImage</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Base image for docker image building</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Base image for docker image building</p>
 </td>
                                                     </tr>
                                                     
@@ -1275,9 +1729,7 @@
                                                         <td class="cAPI-table-name">push</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Push to remote registry</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Push to remote registry</p>
 </td>
                                                     </tr>
                                                     
@@ -1285,9 +1737,31 @@
                                                         <td class="cAPI-table-name">dockerCertPath</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker cert path</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker cert path</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">copyFiles</td>
+                                                        <td class="cAPI-table-type"><a href="kubernetes.html#FileConfig">kubernetes:FileConfig[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Array of <a href="kubernetes#FileConfig">External files</a> for docker image</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">imagePullSecrets</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Image pull secrets</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">singleYAML</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Generate a single yaml file with all kubernetes artifacts (services,deployment,ingress,)</p>
 </td>
                                                     </tr>
                                                     
@@ -1313,7 +1787,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Kubernetes Persistent Volume Claim</p>
+                                                    <span class="fw-right gray xs-icon"></span>Kubernetes Persistent Volume Claim.
 
                                                 </p>
                                                  
@@ -1329,9 +1803,7 @@
                                                         <td class="cAPI-table-name">name</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Name of the volume claim</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Name of the volume claim</p>
 </td>
                                                     </tr>
                                                     
@@ -1339,9 +1811,7 @@
                                                         <td class="cAPI-table-name">mountPath</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Mount Path</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Mount Path</p>
 </td>
                                                     </tr>
                                                     
@@ -1349,9 +1819,7 @@
                                                         <td class="cAPI-table-name">accessMode</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Access mode</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Access mode</p>
 </td>
                                                     </tr>
                                                     
@@ -1359,9 +1827,15 @@
                                                         <td class="cAPI-table-name">volumeClaimSize</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Size of the volume claim</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Size of the volume claim</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">annotations</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Map of annotation values</p>
 </td>
                                                     </tr>
                                                     
@@ -1369,9 +1843,7 @@
                                                         <td class="cAPI-table-name">readOnly</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Is mount read only</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Is mount read only</p>
 </td>
                                                     </tr>
                                                     
@@ -1397,7 +1869,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Persistent Volume Claims configurations for kubernetes</p>
+                                                    <span class="fw-right gray xs-icon"></span>Persistent Volume Claims configurations for kubernetes.
 
                                                 </p>
                                                  
@@ -1413,9 +1885,7 @@
                                                         <td class="cAPI-table-name">volumeClaims</td>
                                                         <td class="cAPI-table-type"><a href="kubernetes.html#PersistentVolumeClaimConfig">kubernetes:PersistentVolumeClaimConfig[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Array of <a href="kubernetes.html#PersistentVolumeClaimConfig">PersistentVolumeClaimConfig</a></li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Array of <a href="kubernetes.html#PersistentVolumeClaimConfig">PersistentVolumeClaimConfig</a></p>
 </td>
                                                     </tr>
                                                     
@@ -1441,7 +1911,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Kubernetes Horizontal Pod Autoscaler configuration</p>
+                                                    <span class="fw-right gray xs-icon"></span>Kubernetes Horizontal Pod Autoscaler configuration
 
                                                 </p>
                                                  
@@ -1457,19 +1927,15 @@
                                                         <td class="cAPI-table-name">name</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Name of the Autoscaler</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Name of the Autoscaler</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">labels</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Labels for Autoscaler</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Labels for Autoscaler</p>
 </td>
                                                     </tr>
                                                     
@@ -1477,9 +1943,7 @@
                                                         <td class="cAPI-table-name">minReplicas</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Minimum number of replicas</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Minimum number of replicas</p>
 </td>
                                                     </tr>
                                                     
@@ -1487,9 +1951,7 @@
                                                         <td class="cAPI-table-name">maxReplicas</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Maximum number of replicas</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Maximum number of replicas</p>
 </td>
                                                     </tr>
                                                     
@@ -1497,9 +1959,207 @@
                                                         <td class="cAPI-table-name">cpuPercentage</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>CPU percentage to start scaling</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>CPU percentage to start scaling</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="ResourceFieldRef">
+                                                    <span class="fw-record sm-icon"></span> public type ResourceFieldRef
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Value from resource field.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">resourceFieldRef</td>
+                                                        <td class="cAPI-table-type"><a href="kubernetes.html#ResourceFieldValue">kubernetes:ResourceFieldValue</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Reference for resource field.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="ResourceFieldValue">
+                                                    <span class="fw-record sm-icon"></span> public type ResourceFieldValue
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Value for resource field.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">containerName</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Name of the container.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">resource</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Resource field</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="ResourceQuotaConfig">
+                                                    <span class="fw-record sm-icon"></span> public type ResourceQuotaConfig
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Kubernetes Resource Quota
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">name</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Name of the resource quota</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">labels</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;string&gt;?</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Labels for resource quota</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">hard</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;string&gt;</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Quotas for the resources</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">scopes</td>
+                                                        <td class="cAPI-table-type"><a href="kubernetes.html#ResourceQuotaScope">NotBestEffort|NotTerminating|Terminating|BestEffort[]</a></td>
+                                                        <td class="cAPI-table-default">[]</td>
+                                                        <td class="cAPI-table-desc"><p>Scopes of the quota</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="ResourceQuotas">
+                                                    <span class="fw-record sm-icon"></span> public type ResourceQuotas
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Resource Quota configuration for kubernetes.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">resourceQuotas</td>
+                                                        <td class="cAPI-table-type"><a href="kubernetes.html#ResourceQuotaConfig">kubernetes:ResourceQuotaConfig[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Array of <a href="kubernetes.html#ResourceQuotaConfig">ResourceQuotaConfig</a></p>
 </td>
                                                     </tr>
                                                     
@@ -1525,7 +2185,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Kubernetes secret volume mount</p>
+                                                    <span class="fw-right gray xs-icon"></span>Kubernetes secret volume mount.
 
                                                 </p>
                                                  
@@ -1541,9 +2201,7 @@
                                                         <td class="cAPI-table-name">name</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Name of the volume mount</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Name of the volume mount</p>
 </td>
                                                     </tr>
                                                     
@@ -1551,9 +2209,7 @@
                                                         <td class="cAPI-table-name">mountPath</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Mount path</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Mount path</p>
 </td>
                                                     </tr>
                                                     
@@ -1561,9 +2217,7 @@
                                                         <td class="cAPI-table-name">readOnly</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Is mount read only</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Is mount read only</p>
 </td>
                                                     </tr>
                                                     
@@ -1571,9 +2225,99 @@
                                                         <td class="cAPI-table-name">data</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Paths to data files as an array</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Paths to data files as an array</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="SecretKeyRef">
+                                                    <span class="fw-record sm-icon"></span> public type SecretKeyRef
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Value from secret key.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">secretKeyRef</td>
+                                                        <td class="cAPI-table-type"><a href="kubernetes.html#SecretKeyValue">kubernetes:SecretKeyValue</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Reference for secret key.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="SecretKeyValue">
+                                                    <span class="fw-record sm-icon"></span> public type SecretKeyValue
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Value for a secret key.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">name</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Name of the secret.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">key</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Key of the secret.</p>
 </td>
                                                     </tr>
                                                     
@@ -1599,7 +2343,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Secret volume mount configurations for kubernetes</p>
+                                                    <span class="fw-right gray xs-icon"></span>Secret volume mount configurations for kubernetes.
 
                                                 </p>
                                                  
@@ -1615,9 +2359,7 @@
                                                         <td class="cAPI-table-name">secrets</td>
                                                         <td class="cAPI-table-type"><a href="kubernetes.html#Secret">kubernetes:Secret[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Array of <a href="kubernetes.html#Secret">Secret</a></li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Array of <a href="kubernetes.html#Secret">Secret</a></p>
 </td>
                                                     </tr>
                                                     
@@ -1643,7 +2385,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Kubernetes service configuration</p>
+                                                    <span class="fw-right gray xs-icon"></span>Kubernetes service configuration.
 
                                                 </p>
                                                  
@@ -1659,34 +2401,134 @@
                                                         <td class="cAPI-table-name">name</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Name of the service</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Name of the service</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">labels</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#map">map</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;string&gt;?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Map of labels for deployment</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Map of labels for deployment</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">port</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int?</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Service port</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">sessionAffinity</td>
+                                                        <td class="cAPI-table-type"><a href="kubernetes.html#SessionAffinity">ClientIP|None?</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Session affinity for pods</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">serviceType</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-type"><a href="kubernetes.html#ServiceType">NodePort|LoadBalancer|ClusterIP?</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Service type of the service</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Service type of the service</p>
 </td>
                                                     </tr>
                                                     
                                                 </table>
                                                  
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
                                                 <!-- Objects and its functions -->
                                                 
                                             </div>
@@ -1976,7 +2818,7 @@
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
@@ -1984,7 +2826,17 @@
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="docker.html">ballerinax/<span class="bold">docker</span>
+                                   <a href="docker.html">ballerina/<span class="bold">docker</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>
@@ -1994,7 +2846,7 @@
                                 <li>
                                    <!--Package Name-->
                                     
-                                   <a>ballerinax/<span class="bold">kubernetes</a>
+                                   <a>ballerina/<span class="bold">kubernetes</a>
                                    
                                    
                                    
@@ -2002,14 +2854,24 @@
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
                              <ul class="">
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="docker.html">ballerinax/<span class="bold">docker</span>
+                                   <a href="docker.html">ballerina/<span class="bold">docker</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>
@@ -2019,7 +2881,7 @@
                                 <li>
                                    <!--Package Name-->
                                     
-                                   <a>ballerinax/<span class="bold">kubernetes</a>
+                                   <a>ballerina/<span class="bold">kubernetes</a>
                                    
                                    
                                    

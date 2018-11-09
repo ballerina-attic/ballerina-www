@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -106,13 +106,6 @@
                     </div>
                     <div class="cLectColStyle">
                         <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
                         
                         <ul class=" ">
                             <li>
@@ -457,6 +450,18 @@
                                             
                                           
                                         <li>
+                                            <a href="#SubscriberDetails">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    SubscriberDetails
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
                                             <a href="#SubscriberServiceConfiguration">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
@@ -511,6 +516,18 @@
                                                 </div>
                                                 <div class="construct-name">
                                                     addWebSubLinkHeader
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#extractTopicAndHubUrls">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    extractTopicAndHubUrls
                                                 </div>
                                             </a>
                                         </li>
@@ -937,6 +954,32 @@
                                                 </a>
                                             </li>
                                         </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#WebSubHub-getAvailableTopics">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        getAvailableTopics
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#WebSubHub-getSubscribers">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        getSubscribers
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
                                             
                                           
                                         <li>
@@ -1169,45 +1212,6 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-noContent">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-action"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        noContent
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-badRequest">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-action"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        badRequest
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Listener-internalServerError">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-action"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        internalServerError
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                             
                                            
                                            
@@ -1242,7 +1246,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/websub</span> package </li>
+                            <li><span class="bold">ballerina/websub</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -1254,12 +1258,12 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/websub</span>  package 
+                                                <span class="bold">ballerina/websub</span>  module 
                                             </h1>
                                             
                                             <div class="cAPIdocsDescription">
-                                                <h2>Package overview</h2>
-<p>This package contains an implementation of the W3C <a href="https://www.w3.org/TR/websub/"><strong>WebSub</strong></a> recommendation, which facilitates a push-based content delivery/notification mechanism between publishers and subscribers.</p>
+                                                <h2>Module overview</h2>
+<p>This module contains an implementation of the W3C <a href="https://www.w3.org/TR/websub/"><strong>WebSub</strong></a> recommendation, which facilitates a push-based content delivery/notification mechanism between publishers and subscribers.</p>
 <p>This implementation supports introducing all WebSub components: subscribers, publishers, and hubs.</p>
 <ul>
 <li>Subscriber - A party interested in receiving update notifications for particular topics.</li>
@@ -1295,7 +1299,7 @@ hub.</p>
 </li>
 </ol>
 <h4>Features</h4>
-<p>This package allows introducing a WebSub Subscriber Service with <code>onIntentVerification</code>, which accepts HTTP GET requests for intent verification, and <code>onNotification</code>, which accepts HTTP POST requests for notifications. The WebSub Subscriber Service provides the following capabilities:</p>
+<p>This module allows introducing a WebSub Subscriber Service with <code>onIntentVerification</code>, which accepts HTTP GET requests for intent verification, and <code>onNotification</code>, which accepts HTTP POST requests for notifications. The WebSub Subscriber Service provides the following capabilities:</p>
 <ul>
 <li>Subscription Requests are sent at service start time for the hub and topic, which are either specified as annotations or discovered based on the resource URL specified as an annotation.</li>
 <li>Auto Intent Verification against the topic specified as an annotation, or discovered based on the resource URL specified as an annotation, if <code>onIntentVerification</code> is not specified.</li>
@@ -1508,7 +1512,8 @@ where the values specified via the Config API would override values specified as
 <tr><th>Configuration Key</th><th>Default Value</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>b7a.websub.hub.port</td><td>9292</td><td>The port to start the WebSub Hub Service on</td></tr>
+<tr><td>b7a.websub.hub.host</td><td>0.0.0.0</td><td>The host to start the WebSub Hub Service on</td></tr>
+<tr><td>b7a.websub.hub.port</td><td>N/A</td><td>The port to start the WebSub Hub Service on</td></tr>
 <tr><td>b7a.websub.hub.leasetime</td><td>86400</td><td>The default lease period, if not specified in a request</td></tr>
 <tr><td>b7a.websub.hub.signaturemethod</td><td>&quot;SHA256&quot;</td><td>The signature method to use for authenticated content distribution</td></tr>
 <tr><td>b7a.websub.hub.remotepublish</td><td>false</td><td>Whether publishing updates against the topics in the hub could be done by remote publishers via HTTP requests with <code>hub.mode</code> set to <code>publish</code></td></tr>
@@ -1521,7 +1526,7 @@ where the values specified via the Config API would override values specified as
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -1554,6 +1559,14 @@ where the values specified via the Config API would override values specified as
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#HubStartedUpError">HubStartedUpError</a></td>
                                                          <td class="cSummary-table-desc">Error to represent that a WebSubHub is already started up, encapsulating the started up Hub.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#SubscriberDetails">SubscriberDetails</a></td>
+                                                         <td class="cSummary-table-desc">Record to represent Subscriber Details.
 </td>
                                                      </tr>
                                                  
@@ -1624,6 +1637,8 @@ where the values specified via the Config API would override values specified as
                                              
                                                  
                                              
+                                                 
+                                             
                                          </table>
                                          
                                         <!-- objects -->
@@ -1635,6 +1650,10 @@ where the values specified via the Config API would override values specified as
                                               
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
+                                             
+                                                 
+                                             
+                                                 
                                              
                                                  
                                              
@@ -1760,6 +1779,10 @@ Notification requests to a Hub.</p>
                                                  
                                              
                                                  
+                                             
+                                                 
+                                             
+                                                 
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Client">Client</a></td>
                                                         <td class="cSummary-table-desc"><p>Object representing the WebSub Hub Client Endpoint.</p>
@@ -1819,9 +1842,19 @@ Notification requests to a Hub.</p>
                                                  
                                              
                                                  
+                                             
+                                                 
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#addWebSubLinkHeader">addWebSubLinkHeader</a></td>
                                                         <td class="cSummary-table-desc"><p>Function to add link headers to a response to allow WebSub discovery.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#extractTopicAndHubUrls">extractTopicAndHubUrls</a></td>
+                                                        <td class="cSummary-table-desc"><p>Function to retrieve hub and topic URLs from the <code>http:response</code> from a publisher to a discovery request.</p>
 </td>
                                                      </tr>
                                                  
@@ -1892,6 +1925,8 @@ Notification requests to a Hub.</p>
                                               
                                               
                                               
+                                              
+                                              
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">RemotePublishMode</td>
@@ -1926,6 +1961,8 @@ Notification requests to a Hub.</p>
                                                 <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             
+                                              
+                                              
                                               
                                               
                                               
@@ -2019,6 +2056,8 @@ the JSON payload of the request.</p>
                                               
                                               
                                               
+                                              
+                                              
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">SubscriberServiceConfig</td>
@@ -2069,7 +2108,7 @@ the JSON payload of the request.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">topicIdentifier</td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#TopicIdentifier">TOPIC_ID_PAYLOAD_KEY|TOPIC_ID_HEADER|TOPIC_ID_HEADER_AND_PAYLOAD</a></td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#TopicIdentifier">TOPIC_ID_HEADER|TOPIC_ID_HEADER_AND_PAYLOAD|TOPIC_ID_PAYLOAD_KEY</a></td>
                                                         <td class="cAPI-table-default">TOPIC_ID_HEADER</td>
                                                         <td class="cAPI-table-desc"><p>The identifier based on which dispatching should happen for custom subscriber</p>
 </td>
@@ -2228,6 +2267,64 @@ the JSON payload of the request.</p>
                                                         <td class="cAPI-table-type"><a href="websub.html#WebSubHub">websub:WebSubHub</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The <code>WebSubHub</code> object representing the started up Hub</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="SubscriberDetails">
+                                                    <span class="fw-record sm-icon"></span> public type SubscriberDetails
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Record to represent Subscriber Details.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">callback</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The callback specified for the particular subscription</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">leaseSeconds</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The lease second period specified for the particular subscription</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">createdAt</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The time at which the subscription was created</p>
 </td>
                                                     </tr>
                                                     
@@ -2622,8 +2719,69 @@ to redirected hubs/topics</p>
                                                 
                                                 <!-- Function -->
                                                 
+                                                <h2 id="extractTopicAndHubUrls">
+                                                    <span class="fw-function sm-icon"> </span> public function extractTopicAndHubUrls(http:Response response) returns ((string,string[]) | error) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Function to retrieve hub and topic URLs from the <code>http:response</code> from a publisher to a discovery request.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">response</td>
+                                                        <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The <code>http:Response</code> received</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type">(<a href="primitive-types.html#string">string</a>,<a href="primitive-types.html#string">string</a>[]) | <a href="builtin.html#error">error</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p><code>(topic, hubs)</code> if parsing and extraction is successful, <code>error</code> if not</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
                                                 <h2 id="startHub">
-                                                    <span class="fw-function sm-icon"> </span> public function startHub(int port, int? leaseSeconds, string? signatureMethod, boolean? remotePublishingEnabled, PUBLISH_MODE_FETCH|PUBLISH_MODE_DIRECT? remotePublishMode, boolean? topicRegistrationRequired, string? publicUrl, boolean? sslEnabled, http:ServiceSecureSocket? serviceSecureSocket, http:SecureSocket? clientSecureSocket) returns (WebSubHub | HubStartedUpError) 
+                                                    <span class="fw-function sm-icon"> </span> public function startHub(int port, string? host, int? leaseSeconds, string? signatureMethod, boolean? remotePublishingEnabled, PUBLISH_MODE_FETCH|PUBLISH_MODE_DIRECT? remotePublishMode, boolean? topicRegistrationRequired, string? publicUrl, boolean? sslEnabled, http:ServiceSecureSocket? serviceSecureSocket, http:SecureSocket? clientSecureSocket) returns (WebSubHub | HubStartedUpError) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2644,6 +2802,14 @@ to redirected hubs/topics</p>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The port to start up the hub on</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">host</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-desc"><p>The hostname to start up the hub on</p>
 </td>
                                                     </tr>
                                                     
@@ -2912,12 +3078,12 @@ Notification requests to a Hub.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerActions&gt;
-                                                   </span> registerTopic(string topic, string? secret) returns (error) 
+                                                   </span> registerTopic(string topic) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span><p>Registers a topic in a Ballerina WebSub Hub against which subscribers can subscribe and the publisher will
-publish updates, with a secret which will be used in signature generation if specified.</p>
+publish updates.</p>
 
                                                             </p>
                                                              
@@ -2934,14 +3100,6 @@ publish updates, with a secret which will be used in signature generation if spe
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The topic to register</p>
-</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">secret</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
-                                                                    <td class="cAPI-table-desc"><p>The secret the publisher will use to generate a signature when publishing updates</p>
 </td>
                                                                 </tr>
                                                                 
@@ -2973,7 +3131,7 @@ publish updates, with a secret which will be used in signature generation if spe
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerActions&gt;
-                                                   </span> unregisterTopic(string topic, string? secret) returns (error) 
+                                                   </span> unregisterTopic(string topic) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2994,14 +3152,6 @@ publish updates, with a secret which will be used in signature generation if spe
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The topic to unregister</p>
-</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">secret</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
-                                                                    <td class="cAPI-table-desc"><p>The secret the publisher used when registering the topic</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3033,7 +3183,7 @@ publish updates, with a secret which will be used in signature generation if spe
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;CallerActions&gt;
-                                                   </span> publishUpdate(string topic, string|xml|json|byte[]|io:ByteChannel payload, string? contentType, string? secret, string signatureMethod, map&lt;string&gt;? headers) returns (error) 
+                                                   </span> publishUpdate(string topic, string|xml|json|byte[]|io:ReadableByteChannel payload, string? contentType, map&lt;string&gt;? headers) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3059,7 +3209,7 @@ publish updates, with a secret which will be used in signature generation if spe
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">payload</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The update payload</p>
 </td>
@@ -3070,22 +3220,6 @@ publish updates, with a secret which will be used in signature generation if spe
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
                                                                     <td class="cAPI-table-default">null</td>
                                                                     <td class="cAPI-table-desc"><p>The type of the update content, to set as the <code>ContentType</code> header</p>
-</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">secret</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
-                                                                    <td class="cAPI-table-desc"><p>The secret used when registering the topic</p>
-</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">signatureMethod</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                                    <td class="cAPI-table-default">sha256</td>
-                                                                    <td class="cAPI-table-desc"><p>The signature method to use to generate a secret</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3435,7 +3569,7 @@ is being done for subscription</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Notification&gt;
-                                                   </span> getEntity() returns (mimeEntity | error) 
+                                                   </span> getEntity() returns (mime:Entity | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3454,7 +3588,7 @@ is being done for subscription</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="mime.html#Entity">mimeEntity</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="mime.html#Entity">mime:Entity</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The <code>Entity</code> of the request. An <code>error</code> is returned, if entity construction fails</p>
 </td>
@@ -3834,7 +3968,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Notification&gt;
-                                                   </span> getByteChannel() returns (ioByteChannel | error) 
+                                                   </span> getByteChannel() returns (io:ReadableByteChannel | error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3853,7 +3987,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ByteChannel">ioByteChannel</a> | <a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a> | <a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>A byte channel from which the message payload can be read or <code>error</code> in case of errors</p>
 </td>
@@ -4082,7 +4216,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;WebSubHub&gt;
-                                                   </span> publishUpdate(string topic, string|xml|json|byte[]|io:ByteChannel payload, string? contentType) returns (error) 
+                                                   </span> publishUpdate(string topic, string|xml|json|byte[]|io:ReadableByteChannel payload, string? contentType) returns (error) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4108,7 +4242,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">payload</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The update payload</p>
 </td>
@@ -4242,6 +4376,92 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                     <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p><code>error</code> if an error occurred with unregistration</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="WebSubHub-getAvailableTopics">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;WebSubHub&gt;
+                                                   </span> getAvailableTopics() returns (string[]) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Retrieves topics currently recognized by the Hub.</p>
+
+                                                            </p>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>An array of available topics</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="WebSubHub-getSubscribers">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;WebSubHub&gt;
+                                                   </span> getSubscribers(string topic) returns (SubscriberDetails[]) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Retrieves details of subscribers registered to receive updates for a particular topic.</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">topic</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>The topic for which details need to be retrieved</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriberDetails">SubscriberDetails[]</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>An array of subscriber details</p>
 </td>
                                                                 </tr>
                                                                 
@@ -4398,12 +4618,12 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> registerTopic(string topic, string? secret) returns (error?) 
+                                                   </span> registerTopic(string topic) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
                                                                 <span class="fw-right gray xs-icon"></span>Registers a topic in a Ballerina WebSub Hub against which subscribers can subscribe and the publisher will
-publish updates, with a secret which will be used in signature generation if specified.
+publish updates.
 
                                                             </p>
                                                              
@@ -4418,13 +4638,6 @@ publish updates, with a secret which will be used in signature generation if spe
                                                                 <tr>
                                                                     <td class="cAPI-table-name">topic</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">secret</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4456,7 +4669,7 @@ publish updates, with a secret which will be used in signature generation if spe
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> unregisterTopic(string topic, string? secret) returns (error?) 
+                                                   </span> unregisterTopic(string topic) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4475,13 +4688,6 @@ publish updates, with a secret which will be used in signature generation if spe
                                                                 <tr>
                                                                     <td class="cAPI-table-name">topic</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">secret</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4513,7 +4719,7 @@ publish updates, with a secret which will be used in signature generation if spe
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> publishUpdate(string topic, string|xml|json|byte[]|io:ByteChannel payload, string? contentType, string? secret, string signatureMethod, map&lt;string&gt;? headers) returns (error?) 
+                                                   </span> publishUpdate(string topic, string|xml|json|byte[]|io:ReadableByteChannel payload, string? contentType, map&lt;string&gt;? headers) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4538,7 +4744,7 @@ publish updates, with a secret which will be used in signature generation if spe
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">payload</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4546,20 +4752,6 @@ publish updates, with a secret which will be used in signature generation if spe
                                                                 <tr>
                                                                     <td class="cAPI-table-name">contentType</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">secret</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">signatureMethod</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4704,7 +4896,7 @@ happen as such.
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Listener&gt;
-                                                   </span> respond(http:Response|string|xml|json|byte[]|io:ByteChannel|mime:Entity[]? message) returns (error?) 
+                                                   </span> respond(http:Response|string|xml|json|byte[]|io:ReadableByteChannel|mime:Entity[]? message) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4722,7 +4914,7 @@ happen as such.
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5001,7 +5193,7 @@ happen as such.
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Listener&gt;
-                                                   </span> redirect(http:Response response, 302|308|301|300|303|304|307|305 code, string[] locations) returns (error?) 
+                                                   </span> redirect(http:Response response, 300|303|305|304|307|301|308|302 code, string[] locations) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5026,7 +5218,7 @@ happen as such.
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">code</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#RedirectCode">302</a>|308|301|300|303|304|307|305</td>
+                                                                    <td class="cAPI-table-type"><a href="http.html#RedirectCode">300</a>|303|305|304|307|301|308|302</td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5065,7 +5257,7 @@ happen as such.
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Listener&gt;
-                                                   </span> ok(http:Response|string|xml|json|byte[]|io:ByteChannel|mime:Entity[]? message) returns (error?) 
+                                                   </span> ok(http:Response|string|xml|json|byte[]|io:ReadableByteChannel|mime:Entity[]? message) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5083,7 +5275,7 @@ happen as such.
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5115,7 +5307,7 @@ happen as such.
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Listener&gt;
-                                                   </span> created(http:Response|string|xml|json|byte[]|io:ByteChannel|mime:Entity[]? message) returns (error?) 
+                                                   </span> created(string uri, http:Response|string|xml|json|byte[]|io:ReadableByteChannel|mime:Entity[]? message) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5132,8 +5324,15 @@ happen as such.
                                                                 </tr>
                                                                 
                                                                 <tr>
+                                                                    <td class="cAPI-table-name">uri</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5165,7 +5364,7 @@ happen as such.
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Listener&gt;
-                                                   </span> accepted(http:Response|string|xml|json|byte[]|io:ByteChannel|mime:Entity[]? message) returns (error?) 
+                                                   </span> accepted(http:Response|string|xml|json|byte[]|io:ReadableByteChannel|mime:Entity[]? message) returns (error?) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5183,158 +5382,7 @@ happen as such.
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-noContent">
-                                                                <span class="fw-action sm-icon"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> noContent(http:Response? message) returns (error?) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Sends the outbound response to the caller with the status 204 No Content. If the given response contains a body
-that will be removed.
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response?</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-badRequest">
-                                                                <span class="fw-action sm-icon"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> badRequest(http:Response|string|xml|json|byte[]|io:ByteChannel|mime:Entity[]? message) returns (error?) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Sends the outbound response to the caller with the status 400 Bad Request.
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Listener-internalServerError">
-                                                                <span class="fw-action sm-icon"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Listener&gt;
-                                                   </span> internalServerError(http:Response|string|xml|json|byte[]|io:ByteChannel|mime:Entity[]? message) returns (error?) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>Sends the outbound response to the caller with the status 500 Internal Server Error.
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ByteChannel">io:ByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -5655,7 +5703,7 @@ that will be removed.
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
@@ -5774,16 +5822,6 @@ that will be removed.
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>
@@ -5981,7 +6019,7 @@ that will be removed.
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
                              <ul class="">
@@ -6099,16 +6137,6 @@ that will be removed.
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>

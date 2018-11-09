@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -106,13 +106,6 @@
                     </div>
                     <div class="cLectColStyle">
                         <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
                         
                         <ul class=" ">
                             <li>
@@ -545,7 +538,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/runtime</span> package </li>
+                            <li><span class="bold">ballerina/runtime</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -557,21 +550,21 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/runtime</span>  package 
+                                                <span class="bold">ballerina/runtime</span>  module 
                                             </h1>
                                             
                                             <div class="cAPIdocsDescription">
-                                                <h2>Package overview</h2>
-<p>This package includes functions to interact with the runtime, the invocation context and to manage errors.</p>
+                                                <h2>Module overview</h2>
+<p>This module includes functions to interact with the runtime, the invocation context and to manage errors.</p>
 <h3>Invocation Context</h3>
 <p>The Invocation Context is a data holder that is created per request and preserved for a single request-response flow.
 The Invocation Context comprises of a unique ID, a <code>UserPrincipal</code> instance that includes user details and an
 <code>AuthContext</code> instance that has the authentication related details if available.</p>
 <h3>Errors</h3>
-<p>The runtime package includes the <code>NullReferenceException</code> and <code>IllegalStateException</code> error types. These two error
-types wrap the <code>error</code> type defined in the <code>ballerina/runtime</code> package. Furthermore, there are utility methods to
+<p>The runtime module includes the <code>NullReferenceException</code> and <code>IllegalStateException</code> error types. These two error
+types wrap the <code>error</code> type defined in the <code>ballerina/runtime</code> module. Furthermore, there are utility methods to
 retrieve the current call stack and the particular call stack frame for an error.</p>
-<p>Additionally, the runtime package also contains utility methods to halt a <code>worker</code> (sleep) for a given period of time
+<p>Additionally, the runtime module also contains utility methods to halt a <code>worker</code> (sleep) for a given period of time
 and to look up properties from the runtime context.</p>
 <h3>Samples</h3>
 <p>The following sample shows how to access the Invocation Context, set data to it and access the same.</p>
@@ -650,7 +643,7 @@ try {
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -967,10 +960,10 @@ try {
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">packageName</td>
+                                                        <td class="cAPI-table-name">moduleName</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Package name</p>
+                                                        <td class="cAPI-table-desc"><p>Module name</p>
 </td>
                                                     </tr>
                                                     
@@ -1667,7 +1660,7 @@ try {
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
@@ -1786,16 +1779,6 @@ try {
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>
@@ -1993,7 +1976,7 @@ try {
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
                              <ul class="">
@@ -2111,16 +2094,6 @@ try {
                                    <!--Package Name-->
                                    
                                    <a href="io.html">ballerina/<span class="bold">io</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
                                    </a>
                                    
                                 </li>
