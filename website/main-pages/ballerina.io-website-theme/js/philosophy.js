@@ -49,7 +49,7 @@ $(document).ready(function() {
         ],
         
 	"Cloud Native Deployment": [
-            { "name": "Ballerina Deployment with Azure Kubernetes Service", "desc": "", "url": "ballerina-guides/ballerina-aks-deployment", "git": "" }
+            { "name": "Deployment with Azure Kubernetes Service", "desc": "", "url": "ballerina-guides/ballerina-aks-deployment", "git": "" }
         ]
     };
 
