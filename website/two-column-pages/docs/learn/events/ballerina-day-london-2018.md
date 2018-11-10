@@ -208,7 +208,9 @@ Director, WSO2
                 <h1>Ballerina: Cloud Native Programming Language</h1>
                 <h2>Abstract:</h2>
                 <p>
-                    TBD
+                   Ballerina is a strongly typed, concurrent general purpose language optimized for integration and writing network services and applications. It combines fundamental concepts and tools of distributed systems with direct support for network services, distributed transactions, reliable messaging, stream processing, security, and workflows. It is intended for commercial adoption and provides familiarity for users of Java, C#, and JavaScript. While it looks like Java and other popular languages in some ways, it is very different from those in fundamental ways.
+</p>
+<p>This talk will explore how Ballerina is different, why it is different and how those differences give Ballerina an unfair advantage when it comes to writing resilient, performant and secure network services and applications.
                 </p>
             </div>
         </div>
