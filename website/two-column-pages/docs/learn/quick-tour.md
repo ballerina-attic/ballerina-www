@@ -28,8 +28,8 @@ $ ballerina run hello_service.bal
 You get the following output.
 
 ```bash
-ballerina: initiating service(s) in 'hello_service.bal'
-ballerina: started HTTP/WS endpoint 0.0.0.0:9090
+Initiating service(s) in 'hello_service.bal'
+[ballerina/http] started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
 This means your service is up and running. You can invoke the service using an HTTP client. In this case, we use cURL.
@@ -55,6 +55,8 @@ Let's try this on VS Code.
 > **Note**: You need to have VS Code installed to try this. You can download it from [https://code.visualstudio.com/Download](https://code.visualstudio.com/Download).
 
 Open your service in VS Code. You can use the following command to do this on Linux or OSX.
+
+> **Tip**: To get the `code` command to work, you need to find the `Shell Command: Install 'code' command in PATH` command in the VSCode Command Palette.
 
 ```bash
 $ code /<folder_path>/hello_service.bal
