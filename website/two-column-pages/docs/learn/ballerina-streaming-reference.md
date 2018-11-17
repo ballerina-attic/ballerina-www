@@ -50,7 +50,7 @@ The following parameters are configured in a stream definition.
 | Parameter     | Description |
 | ------------- |-------------|
 | `stream name`      | The name of the created stream. |
-| `record name`      | The name of the recode that constrains the stream. |
+| `record name`      | The name of the record that constrains the stream. |
 | `attribute name`   | The uniquely identifiable attribute name. The schema of a record is defined by its attributes.|
 | `attribute type`   | The type of each attribute defined in the record. |
 
