@@ -91,8 +91,8 @@ class Console extends React.Component {
                         if ((index - 1) >= 0 && (msgs[index - 1] === 'Compiling source' || msgs[index - 1] === 'Generating executable')) {
                             return (<span/>);
                         }
-                        if (msg === 'building...' && msgs.length > (index + 6)
-                                && msgs[index + 6].startsWith('build completed in')) {
+                        if (msg === 'building...' && msgs.length > (index + 5)
+                                && msgs[index + 5].startsWith('build completed in')) {
                             return (<span/>);
                         }
                         if (msg === 'building...' && msgs.length > (index + 1)
