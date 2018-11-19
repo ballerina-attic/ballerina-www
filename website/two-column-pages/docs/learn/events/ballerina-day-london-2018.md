@@ -18,7 +18,7 @@ socialmediaimage: sm-ballerina-day-london.jpg
             <p style="color:#20b6b0;">Registration is free, but do sign up quickly as seating is limited. </p>
         </td>
         <td class="cEventURL" style="border:none;">
-        <a class="cEventRegistration cSmallButton" data-toggle="modal" data-target="#webinar_registration" target="_blank" style="float:right;">Register Now</a>
+        <!--<a class="cEventRegistration cSmallButton" data-toggle="modal" data-target="#webinar_registration" target="_blank" style="float:right;">Register Now</a>-->
         </td>
     </tr>
 </table>
