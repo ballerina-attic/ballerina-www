@@ -1,9 +1,9 @@
 ---
-title: Ballerina: Cloud Native Programming Language
-author:
-date: 11 July 2018
+title: Microservices Integration
+author: Kasun Indrasiri
+date: 15 November 2018
 status: Published
-abstract: Ballerina is a cloud-native programming language that makes it easy to work with remote endpoints, supports modern protocols and data formats, has built-in constructs for event and stream processing, resiliency, and parallel execution.
+abstract: This session delves into the implementation techniques and standards for implementing microservices patterns and discusses how you can leverage Ballerina to realize those patterns.
 socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link><link rel="stylesheet" href="/css/ballerinacon-page.css"></link>
@@ -14,19 +14,21 @@ socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding:0;">
 <a href="https://con.ballerina.io/" target="_blank"><img class="cInlineLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/></a>
 </div>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
+<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-lA3KD3ostU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-</div>
+</div> -->
 
 <div class="clearfix"></div>
 
-<a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton cDownloadSlides" target="_blank" href="https://www.slideshare.net/ballerinaslides/ballerina-cloud-native-programming-language">Download Slides</a>
+<a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton cDownloadSlides" target="_blank" href="https://www.slideshare.net/ballerinaslides/microservices-integration">Download Slides</a>
 
 <div class="clearfix"></div>
 
-Increasingly, developers and architects are disaggregating their architectures to create more scalable and agile applications. As this happens, everything is becoming a programmable endpoint. Ballerina is a new generation of programming language designed around this problem. In this talk, Paul will introduce the challenges and background of why Ballerina has been created, as well as demonstrating the core features of the language. If you haven't seen a CTO attempt a live demo before, you may find this amusing!
+Microservice composition or integration is probably the hardest thing in microservices architecture. Unlike conventional, centralized ESB-based integration, we need to leverage the smart-endpoints and dumb pipes terminology when it comes to integrating microservices. There are two main microservices integration patterns: service orchestration (active integrations) and service choreography (reactive integration).
+
+In this session, we will delve into the implementation techniques and standards for implementing these microservices patterns and discuss how you can leverage Ballerina to realize those patterns.
 
 ## Presenter
 
@@ -34,9 +36,9 @@ Increasingly, developers and architects are disaggregating their architectures t
     <tr>
         <td class="cWebinarPresenterPic"><img src="//con.ballerina.io/wp-content/themes/ballerinacon/images/speakers/paul.jpg"/></td>
         <td class="cWebinarPresenterBio">
-      <span class="cPresenterName">Paul Fremantle Ph.D.</span>
-      <span class="cPresenterTitle">CTO and Co-Founder, WSO2 </span>
-       <p>Paul is the CTO and Co-founder of WSO2. He has a long history of working in open source and middleware, including work on Apache Axis2, Synapse and WSO2 Carbon. Paul recently received his PhD from the University of Portsmouth for his thesis addressing how personal middleware can improve IoT security and privacy. He is a visiting lecturer at Oxford University, and has published a number of peer reviewed articles and has two patents. Paul previously worked at IBM where he was an STSM.</p></td>
+      <span class="cPresenterName">Kasun Indrasiri</span>
+      <span class="cPresenterTitle">Director -  Integration Architecture, WSO2 </span>
+       <p>Kasun is a key member of WSO2’s architecture team that drives development efforts of WSO2 integration platform. Previously, he was involved in developing WSO2 Enterprise Service Bus as a product lead of WSO2 ESB and he has authored the book, “Beginning WSO2 ESB”. He is an elected member of the Apache Software Foundation and a Project Management Committee member and a committer for the Apache Synapse open source ESB project. Kasun has provided technology consulting on numerous customer engagements by helping to successfully design and implement solutions for integrating Web Services, REST, SAP and various other technologies.</p></td>
     </tr>
 
 </table>

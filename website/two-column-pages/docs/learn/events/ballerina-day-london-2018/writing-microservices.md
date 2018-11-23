@@ -1,9 +1,9 @@
 ---
-title: Ballerina: Cloud Native Programming Language
-author:
-date: 11 July 2018
+title: Writing Microservices
+author: Anjana Fernando
+date: 15 November 2018
 status: Published
-abstract: Ballerina is a cloud-native programming language that makes it easy to work with remote endpoints, supports modern protocols and data formats, has built-in constructs for event and stream processing, resiliency, and parallel execution.
+abstract: This gives an in-depth overview of Ballerina’s language features: high-level network abstractions such as endpoints, services and resources, network-aware type system, error handling, and the concurrency model built on the sequence diagram metaphor.
 socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link><link rel="stylesheet" href="/css/ballerinacon-page.css"></link>
@@ -13,20 +13,24 @@ socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
 </div>
 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding:0;">
 <a href="https://con.ballerina.io/" target="_blank"><img class="cInlineLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/></a>
-</div>
+<!-- </div>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-lA3KD3ostU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-</div>
+</div> -->
 
 <div class="clearfix"></div>
 
-<a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton cDownloadSlides" target="_blank" href="https://www.slideshare.net/ballerinaslides/ballerina-cloud-native-programming-language">Download Slides</a>
+<a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton cDownloadSlides" target="_blank" href="https://www.slideshare.net/ballerinaslides/writing-microservices">Download Slides</a>
 
 <div class="clearfix"></div>
 
-Increasingly, developers and architects are disaggregating their architectures to create more scalable and agile applications. As this happens, everything is becoming a programmable endpoint. Ballerina is a new generation of programming language designed around this problem. In this talk, Paul will introduce the challenges and background of why Ballerina has been created, as well as demonstrating the core features of the language. If you haven't seen a CTO attempt a live demo before, you may find this amusing!
+With the massive adoption of microservices and serverless functions-based cloud native architectures, the need for cloud native programming languages is on the rise. Today, the apps we write increasingly integrate with programmable endpoints such as data, microservices, APIs, and serverless functions. Yet, with existing languages, developers have to take responsibility to solve the hard problems of integration such as security, resiliency, transactions, stream processing, workflows, protocol handling, data formats, and mediation.
+
+Ballerina is a cloud native programming language specializing in integration. It makes the development of microservices that integrate with other systems simpler by bringing fundamental concepts, ideas, and tools of distributed system integration into the language.
+
+In this session, we will give you an in-depth overview of Ballerina’s language features: high-level network abstractions such as endpoints, services and resources, network-aware type system, error handling, and the concurrency model built on the sequence diagram metaphor.
 
 ## Presenter
 
@@ -34,9 +38,9 @@ Increasingly, developers and architects are disaggregating their architectures t
     <tr>
         <td class="cWebinarPresenterPic"><img src="//con.ballerina.io/wp-content/themes/ballerinacon/images/speakers/paul.jpg"/></td>
         <td class="cWebinarPresenterBio">
-      <span class="cPresenterName">Paul Fremantle Ph.D.</span>
-      <span class="cPresenterTitle">CTO and Co-Founder, WSO2 </span>
-       <p>Paul is the CTO and Co-founder of WSO2. He has a long history of working in open source and middleware, including work on Apache Axis2, Synapse and WSO2 Carbon. Paul recently received his PhD from the University of Portsmouth for his thesis addressing how personal middleware can improve IoT security and privacy. He is a visiting lecturer at Oxford University, and has published a number of peer reviewed articles and has two patents. Paul previously worked at IBM where he was an STSM.</p></td>
+      <span class="cPresenterName">Anjana Fernando</span>
+      <span class="cPresenterTitle">Director - Engineering, WSO2 </span>
+       <p>Anjana is a key part of WSO2’s Ballerina and ecosystem engineering team where he spearheads efforts to shape the capabilities offered in the related technology areas. He has also contributed to WSO2’s integration-related projects, including the Ballerina programming language, in the areas of the VM, transactions, and data handling. He has carried out several onsite customer engagements providing support for integration and analytics projects as well.</p></td>
     </tr>
 
 </table>

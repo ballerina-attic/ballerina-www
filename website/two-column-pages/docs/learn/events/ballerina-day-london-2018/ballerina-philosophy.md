@@ -1,8 +1,9 @@
 ---
-title: Ballerina Philosophy 
-date: 11 July 2018
+title: Ballerina Philosophy
+author: Sameera Jayasoma
+date: 15 November 2018
 status: Published
-abstract: Ballerina is a cloud-native programming language that makes it easy to work with remote endpoints, supports modern protocols and data formats, has built-in constructs for event and stream processing, resiliency, and parallel execution.
+abstract: This session will explore how Ballerina is different, why it is different and how those differences give Ballerina an unfair advantage when it comes to writing resilient, performant and secure network services and applications.
 socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link><link rel="stylesheet" href="/css/ballerinacon-page.css"></link>
@@ -13,19 +14,21 @@ socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding:0;">
 <a href="https://con.ballerina.io/" target="_blank"><img class="cInlineLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/></a>
 </div>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
+<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-lA3KD3ostU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-</div>
+</div> -->
 
 <div class="clearfix"></div>
 
-<a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton cDownloadSlides" target="_blank" href="https://www.slideshare.net/ballerinaslides/ballerina-cloud-native-programming-language">Download Slides</a>
+<a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton cDownloadSlides" target="_blank" href="https://www.slideshare.net/ballerinaslides/ballerina-philosophy">Download Slides</a>
 
 <div class="clearfix"></div>
 
-Increasingly, developers and architects are disaggregating their architectures to create more scalable and agile applications. As this happens, everything is becoming a programmable endpoint. Ballerina is a new generation of programming language designed around this problem. In this talk, Paul will introduce the challenges and background of why Ballerina has been created, as well as demonstrating the core features of the language. If you haven't seen a CTO attempt a live demo before, you may find this amusing!
+Ballerina is a strongly typed, concurrent general purpose language optimized for integration and writing network services and applications. It combines fundamental concepts and tools of distributed systems with direct support for network services, distributed transactions, reliable messaging, stream processing, security, and workflows. It is intended for commercial adoption and provides familiarity for users of Java, C#, and JavaScript. While it looks like Java and other popular languages in some ways, it is very different from those in fundamental ways.
+
+This session will explore how Ballerina is different, why it is different and how those differences give Ballerina an unfair advantage when it comes to writing resilient, performant and secure network services and applications.
 
 ## Presenter
 
@@ -33,9 +36,9 @@ Increasingly, developers and architects are disaggregating their architectures t
     <tr>
         <td class="cWebinarPresenterPic"><img src="//con.ballerina.io/wp-content/themes/ballerinacon/images/speakers/paul.jpg"/></td>
         <td class="cWebinarPresenterBio">
-      <span class="cPresenterName">Paul Fremantle Ph.D.</span>
-      <span class="cPresenterTitle">CTO and Co-Founder, WSO2 </span>
-       <p>Paul is the CTO and Co-founder of WSO2. He has a long history of working in open source and middleware, including work on Apache Axis2, Synapse and WSO2 Carbon. Paul recently received his PhD from the University of Portsmouth for his thesis addressing how personal middleware can improve IoT security and privacy. He is a visiting lecturer at Oxford University, and has published a number of peer reviewed articles and has two patents. Paul previously worked at IBM where he was an STSM.</p></td>
+      <span class="cPresenterName">Sameera Jayasoma</span>
+      <span class="cPresenterTitle">Director - Platform Architecture, WSO2 </span>
+       <p>Sameera is the lead architect and developer of Ballerina language compiler and runtime, and he is also the third primary contributor of the Ballerina language specification. He is a member of WSO2’s architecture team that drives development and enhancement of overall WSO2 platform capabilities. He is also one of the lead architects behind the WSO2 Carbon, WSO2 Update Manager (WUM) projects. Sameera holds a first class honors degree in Computer Science and Engineering from the University of Moratuwa, Sri Lanka.</p></td>
     </tr>
 
 </table>
