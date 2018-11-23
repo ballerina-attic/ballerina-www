@@ -3,7 +3,7 @@ title: Ballerina Day London 2018
 author: Ballerina Day London 2018
 date: 15 November 2018
 status: Published
-abstract: Ballerina takes center stage at Ballerina Day to showcase how we make integration simple and agile.
+abstract: Ballerina took center stage at Ballerina Day to showcase how we make integration simple and agile.
 socialmediaimage: sm-ballerina-day-london.jpg
 ---
 <script src="/js/ballerina-form.js?2618"></script><link rel="stylesheet" href="/css/ballerina-day.css"></link>
@@ -15,7 +15,6 @@ socialmediaimage: sm-ballerina-day-london.jpg
         <td class="cEventDateContainer" style="border:none;">
             <span class="cEventDate" style="border:none;">November 15</span>
             <span class="cLocation" style="border:none;">Hilton London Bankside, 2-8 Great Suffolk St, London SE1 0UG London, UK</span>
-            <p style="color:#20b6b0;">Registration is free, but do sign up quickly as seating is limited. </p>
         </td>
         <td class="cEventURL" style="border:none;">
         <!--<a class="cEventRegistration cSmallButton" data-toggle="modal" data-target="#webinar_registration" target="_blank" style="float:right;">Register Now</a>-->
@@ -25,9 +24,7 @@ socialmediaimage: sm-ballerina-day-london.jpg
 
 Ballerina makes it easy to write cloud native applications while maintaining reliability, scalability, observability, and security. It is a compiled, transactional, statically and strongly typed programming language with textual and graphical syntaxes.
 
-Ballerina takes center stage at Ballerina Day to showcase how we make integration simple and agile. Featuring sessions on leveraging the cloud native programming language for building microservices in highly disaggregated architectures, stakeholders, contributors, and platform designers will present Ballerina’s core features and discuss support for your favorite orchestrators.
-
-Registration is free, but do sign up quickly as seating is limited!
+Ballerina took center stage at Ballerina Day to showcase how we make integration simple and agile. Featuring sessions on leveraging the cloud native programming language for building microservices in highly disaggregated architectures, stakeholders, contributors, and platform designers presented Ballerina’s core features and discussed support for your favorite orchestrators.
 
 ## Agenda
 
