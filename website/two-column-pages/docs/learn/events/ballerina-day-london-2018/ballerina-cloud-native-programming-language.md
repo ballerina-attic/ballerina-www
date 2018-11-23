@@ -1,7 +1,7 @@
 ---
 title: Ballerina: Ballerina - Cloud Native Programming Language
-author:
-date: 11 July 2018
+author: Paul Fremantle
+date: 15 November 2018
 status: Published
 abstract: Ballerina is a cloud-native programming language that makes it easy to work with remote endpoints, supports modern protocols and data formats, has built-in constructs for event and stream processing, resiliency, and parallel execution.
 socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
@@ -14,19 +14,19 @@ socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding:0;">
 <a href="https://con.ballerina.io/" target="_blank"><img class="cInlineLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/></a>
 </div>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
+<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-lA3KD3ostU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-</div>
+</div> --> 
 
 <div class="clearfix"></div>
 
-<a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton cDownloadSlides" target="_blank" href="https://www.slideshare.net/ballerinaslides/ballerina-cloud-native-programming-language">Download Slides</a>
+<a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton cDownloadSlides" target="_blank" href="https://www.slideshare.net/ballerinaslides/ballerina-cloud-native-programming-language-123579678">Download Slides</a>
 
 <div class="clearfix"></div>
 
-Increasingly, developers and architects are disaggregating their architectures to create more scalable and agile applications. As this happens, everything is becoming a programmable endpoint. Ballerina is a new generation of programming language designed around this problem. In this talk, Paul will introduce the challenges and background of why Ballerina has been created, as well as demonstrating the core features of the language. If you haven't seen a CTO attempt a live demo before, you may find this amusing!
+Increasingly, developers and architects are disaggregating their architectures to create more scalable and agile applications. As this happens, everything is becoming a programmable endpoint. Ballerina is a new programming language designed around this problem. In this talk, Paul will introduce the challenges and background of why Ballerina has been created, as well as demonstrate the core features of the language.
 
 ## Presenter
 
