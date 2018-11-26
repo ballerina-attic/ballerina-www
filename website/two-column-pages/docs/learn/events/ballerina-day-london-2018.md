@@ -35,6 +35,7 @@ Ballerina took center stage at Ballerina Day to showcase how we make integration
             <td class="cSession">
                 Registration & Continental Breakfast
             </td>
+            <td class="cSessionLink"></td>
         </tr>
         <tr>
             <td class="cTime">09:00–09:45</td>
@@ -46,7 +47,8 @@ Ballerina took center stage at Ballerina Day to showcase how we make integration
                 Paul Fremantle,<br/>
                 CTO and Co-Founder, WSO2
                 </div>
-            </td>
+             </td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/ballerina-cloud-native-programming-language/">Download Slides </a></td>
         </tr>
         <tr>
             <td class="cTime">09:45-10:30</td>
@@ -58,13 +60,15 @@ Ballerina took center stage at Ballerina Day to showcase how we make integration
                 Sameera Jayasoma, <br/>
 Director - Platform Architecture, WSO2
                 </div>
-            </td>
+             </td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/ballerina-philosophy/">Download Slides </a></td>
         </tr>
         <tr>
             <td class="cTime">10:30–11:00</td>
             <td class="cSession cBreak">
                 Break
             </td>
+            <td class="cSessionLink"></td>
         </tr>
         <tr>
             <td class="cTime">11:00-11:45</td>
@@ -77,6 +81,7 @@ Director - Platform Architecture, WSO2
 Director, WSO2
                 </div>
             </td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/writing-microservices/">Download Slides </a></td>
         </tr>
         <tr>
             <td class="cTime">11:45-12:30</td>
@@ -88,7 +93,8 @@ Director, WSO2
                 Kasun Indrasiri,<br/>
   Director - Integration Architecture, WSO2
                 </div>
-            </td>
+             </td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton" href="/learn/events/ballerina-day-london-2018/microservices-integration/">Download Slides </a></td>
         </tr>
         <tr>
             <td class="cTime">12:30–13:30</td>
@@ -97,6 +103,7 @@ Director, WSO2
                     Lunch
                 </div>
             </td>
+            <td class="cSessionLink"></td>
         </tr>
         <tr>
             <td class="cTime">13:30-14:15</td>
@@ -108,7 +115,8 @@ Director, WSO2
                 Afkham Azeez,<br/>
                 Senior Director - Platform Architecture, WSO2
                 </div>
-            </td>
+             </td>
+            <td class="cSessionLink"> <a class="cEventRegistration cSmallButton" href="/learn/events/ballerina-day-london-2018/service-resiliency-in-microservices/">Download Slides </a></td>
         </tr>
         <tr>
             <td class="cTime">14:15-15:00</td>
@@ -121,12 +129,14 @@ Director, WSO2
 Technical Lead, WSO2
                 </div>
             </td>
-        </tr>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton" href="/learn/events/ballerina-day-london-2018/data-integration/">Download Slides </a></td>
+         </tr>
         <tr>
             <td class="cTime">15:00–15:30</td>
             <td class="cSession cBreak">
                 Break
             </td>
+            <td class="cSessionLink"></td>
         </tr>
         <tr>
             <td class="cTime">15:30-16:15</td>
@@ -139,6 +149,7 @@ Technical Lead, WSO2
   Senior Director - Cloud Architecture, WSO2
                 </div>
             </td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/orchestrating-microservices-with-docker-and-kubernetes/">Download Slides </a></td>
         </tr>
         <tr>
             <td class="cTime">16:15-17:00</td>
@@ -151,12 +162,9 @@ Technical Lead, WSO2
 Director, WSO2
                 </div>
             </td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/ballerina-ecosystem/">Download Slides </a></td>
         </tr>
-
-
-
-
-    </tbody>
+</tbody>
 </table>
 
 
