@@ -4,7 +4,7 @@ author: Paul Fremantle
 date: 15 November 2018
 status: Published
 abstract: Ballerina is a cloud-native programming language that makes it easy to work with remote endpoints, supports modern protocols and data formats, has built-in constructs for event and stream processing, resiliency, and parallel execution.
-socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
+socialmediaimage: ballerinaday-london-18/paul.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link><link rel="stylesheet" href="/css/ballerinacon-page.css"></link>
 
@@ -12,7 +12,7 @@ socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
 <h1>Ballerina: Cloud Native Programming Language</h1>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding:0;">
-<a href="https://con.ballerina.io/" target="_blank"><img class="cInlineLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/></a>
+<a href="/learn/events/ballerina-day-london-2018/" target="_blank"><img class="cInlineLogo" src="/img/ballerinaday-london-logo.png"/></a>
 </div>
 <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
 <div class="embed-responsive embed-responsive-16by9">

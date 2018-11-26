@@ -4,15 +4,15 @@ author: Kasun Indrasiri
 date: 15 November 2018
 status: Published
 abstract: This session delves into the implementation techniques and standards for implementing microservices patterns and discusses how you can leverage Ballerina to realize those patterns.
-socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
+socialmediaimage: ballerinaday-london-18/kasun.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link><link rel="stylesheet" href="/css/ballerinacon-page.css"></link>
 
 <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9" style="padding:0;">
-<h1>Ballerina: Cloud Native Programming Language</h1>
+<h1>Microservices Integration</h1>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding:0;">
-<a href="https://con.ballerina.io/" target="_blank"><img class="cInlineLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/></a>
+<a href="/learn/events/ballerina-day-london-2018/" target="_blank"><img class="cInlineLogo" src="/img/ballerinaday-london-logo.png"/></a>
 </div>
 <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
 <div class="embed-responsive embed-responsive-16by9">
@@ -34,7 +34,7 @@ In this session, we will delve into the implementation techniques and standards 
 
 <table class="cWebinarPresenter">
     <tr>
-        <td class="cWebinarPresenterPic"><img src="//con.ballerina.io/wp-content/themes/ballerinacon/images/speakers/paul.jpg"/></td>
+        <td class="cWebinarPresenterPic"><img src="//wso2.cachefly.net/wso2/sites/all/images/wso2conus18/new/kasun-wso2conus18.png"/></td>
         <td class="cWebinarPresenterBio">
       <span class="cPresenterName">Kasun Indrasiri</span>
       <span class="cPresenterTitle">Director -  Integration Architecture, WSO2 </span>

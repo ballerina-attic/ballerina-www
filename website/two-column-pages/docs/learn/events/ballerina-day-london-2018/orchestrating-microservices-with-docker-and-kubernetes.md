@@ -4,15 +4,15 @@ author: Lakmal Warusawithana
 date: 15 November 2018
 status: Published
 abstract:  This session will explore how Ballerina helps to orchestrate microservices into Kubernetes without writing YAMLs and Dockerfiles.
-socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
+socialmediaimage: ballerinaday-london-18/lakmal.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link><link rel="stylesheet" href="/css/ballerinacon-page.css"></link>
 
 <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9" style="padding:0;">
-<h1>Ballerina: Cloud Native Programming Language</h1>
+<h1>Orchestrating Microservices with Docker and Kubernetes</h1>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding:0;">
-<a href="https://con.ballerina.io/" target="_blank"><img class="cInlineLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/></a>
+<a href="/learn/events/ballerina-day-london-2018/" target="_blank"><img class="cInlineLogo" src="/img/ballerinaday-london-logo.png"/></a>
 </div>
 <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
 <div class="embed-responsive embed-responsive-16by9">
@@ -34,7 +34,7 @@ Ballerina understands the architecture around it; the compiler is environment aw
 
 <table class="cWebinarPresenter">
     <tr>
-        <td class="cWebinarPresenterPic"><img src="//con.ballerina.io/wp-content/themes/ballerinacon/images/speakers/paul.jpg"/></td>
+        <td class="cWebinarPresenterPic"><img src="//wso2.cachefly.net/wso2/sites/all/images/wso2conus18/new/lakmal-warusawithana-wso2conus18.png"/></td>
         <td class="cWebinarPresenterBio">
       <span class="cPresenterName">Lakmal Warusawithana</span>
       <span class="cPresenterTitle">Senior Director - Cloud Architecture, WSO2 </span>
