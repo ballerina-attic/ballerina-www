@@ -14,11 +14,11 @@ socialmediaimage: ballerinaday-london-18/sameera.jpg
 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding:0;">
 <a href="/learn/events/ballerina-day-london-2018/" target="_blank"><img class="cInlineLogo" src="/img/ballerinaday-london-logo.png"/></a>
 </div>
-<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
 <div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-lA3KD3ostU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/a5pbhxO9x6c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-</div> -->
+</div>
 
 <div class="clearfix"></div>
 
