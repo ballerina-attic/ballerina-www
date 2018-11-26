@@ -12,7 +12,7 @@ socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-jo.jpg
 <h1>Ballerina Development Lifecycle and Tools</h1>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding:0;">
-<a href="https://con.ballerina.io/" target="_blank"><img class="cInlineLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/></a>
+<a href="https://con.ballerina.io/sanfrancisco/#Agenda" target="_blank"><img class="cInlineLogo" src="https://con.ballerina.io/sanfrancisco/files/bcon-logo.png"/></a>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
 <div class="embed-responsive embed-responsive-16by9">
