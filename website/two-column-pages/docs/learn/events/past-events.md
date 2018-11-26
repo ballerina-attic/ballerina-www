@@ -4,6 +4,20 @@
 
 <table class="cEventTable cOtherEventsList">
 <tr>
+    <td class="cEventDateContainer" ><span class="cEventDate">November 15, 2018</span>
+      <p class="cEventLocation"  style="border:none;">Hilton London Bankside, 2-8 Great Suffolk St, London SE1 0UG London, UK</p>
+    </td>
+    <td class="cEventDetail" ><a target="_blank" href="/learn/events/ballerina-day-london-2018/">
+    <h4>Ballerina Day London 2018</h4>
+    <p>Ballerina takes center stage at Ballerina Day to showcase how we make integration simple and agile.</p>
+    <p style="color:#20b6b0;">Registration is free, but do sign up quickly as seating is limited. </p>
+    </a>
+    </td>
+    <td class="cEventURL">
+    <a class="cEventRegistration" href="/learn/events/ballerina-day-london-2018/">View Slides</a>
+    </td>
+</tr>
+<tr>
     <td class="cEventDateContainer"  style="border:none;"><span class="cEventDate">August 11, 2018</span>08:15 am IST
       <p class="cEventLocation"  style="border:none;">Galle Face Hotel - Grand Ballroom, Colombo 3, Sri Lanka</p>
     </td>
@@ -71,7 +85,7 @@
   </tr>
     <tr>
       <td class="cEventDetail c2col" colspan="2">
-        <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png" style="padding-bottom:5px !important;"/>
+        <img class="cEventLogo" src="https://con.ballerina.io/sanfrancisco/files/bcon-logo.png" style="padding-bottom:5px !important;"/>
         <p>Featuring sessions on leveraging Ballerina for building integrations in highly disaggregated architectures, watch the videos to hear from language and platform designers about our path to 1.0 and commercial support for your favorite orchestrators.</p>
       </td>
         <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/sanfrancisco#Agenda" target="_blank">Watch Videos</a></td>

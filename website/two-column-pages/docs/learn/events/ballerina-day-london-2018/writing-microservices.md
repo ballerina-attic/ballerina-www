@@ -4,16 +4,17 @@ author: Anjana Fernando
 date: 15 November 2018
 status: Published
 abstract: This gives an in-depth overview of Ballerina’s language features: high-level network abstractions such as endpoints, services and resources, network-aware type system, error handling, and the concurrency model built on the sequence diagram metaphor.
-socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
+socialmediaimage: ballerinaday-london-18/ankjana.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link><link rel="stylesheet" href="/css/ballerinacon-page.css"></link>
 
 <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9" style="padding:0;">
-<h1>Ballerina: Cloud Native Programming Language</h1>
+<h1>Writing Microservices</h1>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="padding:0;">
-<a href="https://con.ballerina.io/" target="_blank"><img class="cInlineLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/></a>
-<!-- </div>
+<a href="/learn/events/ballerina-day-london-2018/" target="_blank"><img class="cInlineLogo" src="/img/ballerinaday-london-logo.png"/></a>
+</div>
+<!-- 
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cConVideoContainer">
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-lA3KD3ostU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -36,7 +37,7 @@ In this session, we will give you an in-depth overview of Ballerina’s language
 
 <table class="cWebinarPresenter">
     <tr>
-        <td class="cWebinarPresenterPic"><img src="//con.ballerina.io/wp-content/themes/ballerinacon/images/speakers/paul.jpg"/></td>
+        <td class="cWebinarPresenterPic"><img src="//wso2.cachefly.net/wso2/sites/all/images/wso2conus18/new/anjana-fernando-wso2conus18.png"/></td>
         <td class="cWebinarPresenterBio">
       <span class="cPresenterName">Anjana Fernando</span>
       <span class="cPresenterTitle">Director - Engineering, WSO2 </span>

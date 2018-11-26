@@ -3,22 +3,7 @@
 
 # Events
 
-<table class="cEventTable cOtherEventsList">
-<tr>
-    <td class="cEventDateContainer"  style="border:none !important;"><span class="cEventDate">November 15, 2018</span>
-      <p class="cEventLocation"  style="border:none;">Hilton London Bankside, 2-8 Great Suffolk St, London SE1 0UG London, UK</p>
-    </td>
-    <td class="cEventDetail"  style="border:none !important;"><a target="_blank" href="/learn/events/ballerina-day-london-2018/">
-    <h4>Ballerina Day London 2018</h4>
-    <p>Ballerina takes center stage at Ballerina Day to showcase how we make integration simple and agile.</p>
-    <p style="color:#20b6b0;">Registration is free, but do sign up quickly as seating is limited. </p>
-    </a>
-    </td>
-    <td class="cEventURL"  style="border:none !important;">
-    <a class="cEventRegistration" href="/learn/events/ballerina-day-london-2018/">Register Now</a>
-    </td>
-</tr>
-</table>
+
 
 <!-- ## Workshops -->
 
