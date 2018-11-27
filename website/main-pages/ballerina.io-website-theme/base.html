@@ -44,12 +44,10 @@
 
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-
         gtag('config', 'UA-92163714-2');
     </script>
 
@@ -123,6 +121,20 @@
     <!-- End Google Tag Manager (noscript) -->
 
     {% include "navigation.html" %} {{ page.content }} {% include "footer.html" %}
+
+   <script>
+        $(document).ready(function() {
+            var ConBanner = '<div class="row cBallerinaConBanner"><a target="_blank" href="https://con.ballerina.io/">' +
+            '<div class="container">JOIN <span>BALLERINACON</span> IN SEATTLE ON 10TH TO LEARN HOW WE MAKE INTEGRATION SIMPLE AND AGILE<span> CLICK TO REGISTER</span></div></a></div>';
+            $('#iBanner').append(ConBanner);
+            setTimeout(function() {
+                $('#iBanner').addClass('cShowBanner');
+                $('#iMainNavigation').addClass('cShowBanner');
+                $('.cMainParagraph').addClass('cShowBanner');
+//              }, 2000);
+            });
+        });
+    </script>
 
     <script src="/js/clipboard.js-2.0.0/clipboard.min.js"></script>
     <script src="/search/require.js"></script>

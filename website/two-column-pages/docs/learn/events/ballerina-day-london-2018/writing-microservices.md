@@ -18,11 +18,9 @@ socialmediaimage: ballerinaday-london-18/ankjana.jpg
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6tqbY3zRjMA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
-
+</div>
 <div class="clearfix"></div>
-
 <a class="cBallerina-io-Home-main-download-button cGuidesDownloadButton cDownloadSlides" target="_blank" href="https://www.slideshare.net/ballerinaslides/writing-microservices">Download Slides</a>
-
 <div class="clearfix"></div>
 
 With the massive adoption of microservices and serverless functions-based cloud native architectures, the need for cloud native programming languages is on the rise. Today, the apps we write increasingly integrate with programmable endpoints such as data, microservices, APIs, and serverless functions. Yet, with existing languages, developers have to take responsibility to solve the hard problems of integration such as security, resiliency, transactions, stream processing, workflows, protocol handling, data formats, and mediation.
