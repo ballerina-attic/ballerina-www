@@ -48,7 +48,7 @@ Ballerina took center stage at Ballerina Day to showcase how we make integration
                 CTO and Co-Founder, WSO2
                 </div>
              </td>
-            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/ballerina-cloud-native-programming-language/">Download Slides </a></td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/ballerina-cloud-native-programming-language/">Watch Video </a></td>
         </tr>
         <tr>
             <td class="cTime">09:45-10:30</td>
@@ -61,7 +61,7 @@ Ballerina took center stage at Ballerina Day to showcase how we make integration
 Director - Platform Architecture, WSO2
                 </div>
              </td>
-            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/ballerina-philosophy/">Download Slides </a></td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/ballerina-philosophy/">Watch Video </a></td>
         </tr>
         <tr>
             <td class="cTime">10:30–11:00</td>
@@ -81,7 +81,7 @@ Director - Platform Architecture, WSO2
 Director, WSO2
                 </div>
             </td>
-            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/writing-microservices/">Download Slides </a></td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/writing-microservices/">Watch Video </a></td>
         </tr>
         <tr>
             <td class="cTime">11:45-12:30</td>
@@ -94,7 +94,7 @@ Director, WSO2
   Director - Integration Architecture, WSO2
                 </div>
              </td>
-            <td class="cSessionLink"><a class="cEventRegistration cSmallButton" href="/learn/events/ballerina-day-london-2018/microservices-integration/">Download Slides </a></td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton" href="/learn/events/ballerina-day-london-2018/microservices-integration/">Watch Video</a></td>
         </tr>
         <tr>
             <td class="cTime">12:30–13:30</td>
@@ -116,7 +116,7 @@ Director, WSO2
                 Senior Director - Platform Architecture, WSO2
                 </div>
              </td>
-            <td class="cSessionLink"> <a class="cEventRegistration cSmallButton" href="/learn/events/ballerina-day-london-2018/service-resiliency-in-microservices/">Download Slides </a></td>
+            <td class="cSessionLink"> <a class="cEventRegistration cSmallButton" href="/learn/events/ballerina-day-london-2018/service-resiliency-in-microservices/">Watch Video</a></td>
         </tr>
         <tr>
             <td class="cTime">14:15-15:00</td>
@@ -129,7 +129,7 @@ Director, WSO2
 Technical Lead, WSO2
                 </div>
             </td>
-            <td class="cSessionLink"><a class="cEventRegistration cSmallButton" href="/learn/events/ballerina-day-london-2018/data-integration/">Download Slides </a></td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton" href="/learn/events/ballerina-day-london-2018/data-integration/">Watch Video</a></td>
          </tr>
         <tr>
             <td class="cTime">15:00–15:30</td>
@@ -149,7 +149,7 @@ Technical Lead, WSO2
   Senior Director - Cloud Architecture, WSO2
                 </div>
             </td>
-            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/orchestrating-microservices-with-docker-and-kubernetes/">Download Slides </a></td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/orchestrating-microservices-with-docker-and-kubernetes/">Watch Video</a></td>
         </tr>
         <tr>
             <td class="cTime">16:15-17:00</td>
@@ -162,7 +162,7 @@ Technical Lead, WSO2
 Director, WSO2
                 </div>
             </td>
-            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/ballerina-ecosystem/">Download Slides </a></td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/ballerina-ecosystem/">Watch Video</a></td>
         </tr>
 </tbody>
 </table>
