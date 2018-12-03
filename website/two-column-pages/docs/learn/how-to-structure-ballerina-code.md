@@ -37,12 +37,14 @@ public function main() {
     io:println("Hello, World!");
 }
 
-service<http:Service> hello bind { port: 9090 } {
-    sayHello (endpoint caller, http:Request req) {
+service hello on new http:Listener(9090) {
+    resource function sayHello (http:Caller caller, http:Request req) {
         http:Response res = new;
         res.setPayload("Hello, World!");
-        caller->respond(res) but { error e => log:printError(
-                                   "Error sending response", err = e) };
+        var respondResult = caller->respond(res);
+        if (respondResult is error) {
+            log:printError("Error sending response", err = respondResult);
+        }
     }
 }
 ```
@@ -117,10 +119,10 @@ You can have an explicit identifier by using the `as <identifier>` syntax.
 import ballerina/http;
 
 // The 'Service' object comes from the imported module.
-service<http:Service> hello bind { port:9090 } {
+service hello on new http:Listener(9090) {
 
     // The 'Request' object comes from the imported module.
-    sayHello (endpoint caller, http:Request req) {
+    resource function sayHello (http:Caller caller, http:Request req) {
         ...
     }
 }
@@ -130,10 +132,10 @@ Or you can override the default identifier:
 ```ballerina
 import ballerina/http as network;
 
-service<network:Service> hello bind { port:9090 } {
+service hello on new network:Listener(9090) {
 
     // The 'Request' object comes from the imported module.
-    sayHello (endpoint caller, network:Request req) {
+    resource function sayHello (network:Caller caller, network:Request req) {
         ...
     }
 }
@@ -163,7 +165,7 @@ A compiled module is the compiled representation of a single module of Ballerina
 Modules can only be created, versioned, and pushed into a repository as part of a *project*.
 
 ### Running Compiled Modules
-An entrypoint such as a `main()` or a `service<>` that is compiled as part of a named module is automatically linked into a `.balx`. You can run the compiled module `.balx`:
+An entrypoint such as a `main()` or a `service` that is compiled as part of a named module is automatically linked into a `.balx`. You can run the compiled module `.balx`:
 
 ```bash
 ballerina run module.balx
