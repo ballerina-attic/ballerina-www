@@ -4,7 +4,7 @@ author: Anjana Fernando
 date: 15 November 2018
 status: Published
 abstract: This gives an in-depth overview of Ballerina’s language features: high-level network abstractions such as endpoints, services and resources, network-aware type system, error handling, and the concurrency model built on the sequence diagram metaphor.
-socialmediaimage: ballerinaday-london-18/ankjana.jpg
+socialmediaimage: ballerinaday-london-18/anjana.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link><link rel="stylesheet" href="/css/ballerinacon-page.css"></link>
 

@@ -4,7 +4,7 @@ author: Anjana Fernando
 date: 15 November 2018
 status: Published
 abstract: This session explores how Ballerina is integrated with and supported by external tools and technologies.
-socialmediaimage: ballerinacon-sf-18/ballerina-con-sf-18-paul.jpg
+socialmediaimage: ballerinaday-london-18/anjana2.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link><link rel="stylesheet" href="/css/ballerinacon-page.css"></link>
 
