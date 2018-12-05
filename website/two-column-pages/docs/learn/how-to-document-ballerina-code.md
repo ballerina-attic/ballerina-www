@@ -81,8 +81,9 @@ A typical project structure of a Ballerina project is like this:
 /
   .gitignore
   Ballerina.toml       # Configuration that defines project intent
-  .ballerina/          # Internal cache management and contains project repository
-                       # Project repository is built module dependencies
+  .ballerina/          # Internal cache management and contains the project repository
+                       # Project repository contains compiled module binaries
+    module1.balo
 
   main.bal             # Part of the “unnamed” module, compiled into a main.balx
                        # You can have many files in the "unnamed" module, 
@@ -104,9 +105,8 @@ A typical project structure of a Ballerina project is like this:
 
   [resources/]         # Resources included with every module in the project
 
-  target/              # Compiled binaries and other artifacts end up here
+  target/              # Compiled executables and other artifacts end up here
       main.balx
-      module1.balo
       modules.can.include.dots.in.dir.name.bal
       Ballerina.lock   # Generated during build, used to rebuild identical binary
 ```
