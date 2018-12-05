@@ -23,9 +23,9 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 [Ballerina by Guide](/learn/by-guide/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
 
-### Tools, IDEs, and the Ballerina Composer
+### Tools and IDEs
 
-[Tools, IDEs, and the Ballerina Composer](/learn/tools-ides/) overviews the editing tools for code and diagrams. This includes language servers, editors, IDE, and a graphical visualization tool called the Ballerina Composer.
+[Tools and IDEs](/learn/tools-ides/) overviews the editing tools for code and diagrams. This includes language servers, editors, IDE, and a graphical visualization tool that is embedded in the Ballerina Visual Studio Code plugin.
 
 ### How to Structure Ballerina Code
 
