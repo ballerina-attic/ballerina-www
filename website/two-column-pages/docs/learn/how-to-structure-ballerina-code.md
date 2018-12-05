@@ -109,7 +109,7 @@ Your Ballerina source files can import modules:
 import [<org-name>]/<module-name> [as <identifier>];
 ```
 
-When you import a module, you can use its functions, annotations and other objects in your code. You can also reference the objects with a qualified identifier, followed by a colon `:`. For example, `<identifier>:<module-object>`.
+When you import a module, you can use its functions, annotations, and other objects in your code. You can also reference the objects with a qualified identifier, followed by a colon `:`. For example, `<identifier>:<module-object>`.
 
 Identifiers are either derived or explicit. The default identifier is either the module name, or if the module name has dots `.` included, then the last word after the last dot. For example, `import ballerina/http;` will have `http:` be the derived identifer. The module `import tyler/net.http.exception` would have `exception:` as the default identifier.
 
