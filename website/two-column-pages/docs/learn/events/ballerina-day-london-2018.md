@@ -129,7 +129,7 @@ Director, WSO2
 Technical Lead, WSO2
                 </div>
             </td>
-            <td class="cSessionLink"><a class="cEventRegistration cSmallButton" href="/learn/events/ballerina-day-london-2018/data-integration/">Download Slides</a></td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton" href="/learn/events/ballerina-day-london-2018/data-integration/">Watch Video</a></td>
          </tr>
         <tr>
             <td class="cTime">15:00–15:30</td>
@@ -149,7 +149,7 @@ Technical Lead, WSO2
   Senior Director - Cloud Architecture, WSO2
                 </div>
             </td>
-            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/orchestrating-microservices-with-docker-and-kubernetes/">Download Slides</a></td>
+            <td class="cSessionLink"><a class="cEventRegistration cSmallButton"  href="/learn/events/ballerina-day-london-2018/orchestrating-microservices-with-docker-and-kubernetes/">Watch Video</a></td>
         </tr>
         <tr>
             <td class="cTime">16:15-17:00</td>
