@@ -3,6 +3,8 @@
 Ballerina streaming is designed to process event streams in a streaming manner, detect complex event occurrences,
 and produce notifications in real-time.
 
+Note: Ballerina Streaming capabilities are shipped as the experimental feature in the latest release. Please use `--experimental` flag when compiling Ballerina files which have streaming constructs.
+
 For example, following scenarios are supported by Ballerina stream processing:
 
 * Data preprocessing
@@ -43,7 +45,7 @@ type <record name> record {
     ...
 };
 
-stream<record name> <stream name>;
+stream<record name> <stream name> = new;
 ```
 The following parameters are configured in a stream definition.
 
@@ -63,7 +65,7 @@ type Employee record {
     string status;
 };
 
-stream<Employee> employeeStream;
+stream<Employee> employeeStream = new;
 ```
 
 The code given above creates a stream named `employeeStream` that is constrained by the `Employee` type having 
@@ -115,7 +117,7 @@ more than one event to the `highTemperatureSensorStream` stream.
             group by type
             having totalCount > 1
         =>  (HighTemperature [] values) {
-                foreach value in values {
+                foreach var value in values {
                     highTemperatureSensorStream.publish(value);
                 }
             }
@@ -163,13 +165,13 @@ type roomTemperature record {
   float value;
 }
 
-stream<temperature> tempStream;
+stream<temperature> tempStream = new;
 
 
 from tempStream
 select roomNo, value
 => (roomTemperature[] temperatures) {
-    foreach temperature in temperatures {
+    foreach var temperature in temperatures {
         roomTempStream.publish(temperature);
     }
 }
@@ -378,7 +380,7 @@ from the `tempStream` stream, and inserts the results into the `highTempStream` 
 from tempStream where (roomNo >= 100 && roomNo < 210) && temp > 40
 select roomNo, temp
 => (RoomTemperature [] values) {
-    foreach value in values {
+    foreach var value in values {
         highTempStream.publish(value);
     }
 }
@@ -497,7 +499,7 @@ The following query calculates the average value for the `temp` attribute of the
 from tempStream window time(600000)
 select avg(temp) as avgTemp, roomNo, deviceID
 => (AvgTemperature [] values) {
-    foreach value in values {
+    foreach var value in values {
         avgTempStream.publish(value);
     }
 }
@@ -523,7 +525,7 @@ from pageVisitStream#window.time(5 sec)
 select userID, pageID, distinctCount(pageID) as distinctPages
 group by userID
 => (UserPageVisit [] visits) {
-    foreach visit in visits {
+    foreach var visit in visits {
         outputStream.publish(visit);
     }
 }
@@ -535,7 +537,7 @@ group by userID
 from tempStream
 select room, timestamp, maxForever(temperature) as maxTemp
 => (RoomTemperature [] roomTemps) {
-    foreach roomTemp in roomTemps {
+    foreach var roomTemp in roomTemps {
         maxTempStream.publish(roomTemp);
     }
 }
@@ -547,7 +549,7 @@ select room, timestamp, maxForever(temperature) as maxTemp
 from stockExchangeStream window lengthBatch(1000)
 select stdDev(price) as deviation, symbol
 => (SymbolDeviation[] deviations) {
-    foreach deviation in deviations {
+    foreach var deviation in deviations {
         priceDeviationStream.publish(deviation);
     }
 }
@@ -582,7 +584,7 @@ from tempStream window time(600000)
 select avg(temp) as avgTemp, roomNo, deviceID
 group by roomNo, deviceID
 => (AvgTemperature [] values) {
-    foreach value in values {
+    foreach var value in values {
         avgTempStream.publish(value);
     }
 }
@@ -620,7 +622,7 @@ select avg(temp) as avgTemp, roomNo
 group by roomNo
 having avgTemp > 30
 => (Alert [] values) {
-    foreach value in values {
+    foreach var value in values {
         alertStream.publish(value);
     }
 }
@@ -659,7 +661,7 @@ select avg(temp) as avgTemp, roomNo, deviceID
 group by roomNo, deviceID
 order by avgTemp, roomNo descending
 => (AvgTemperature [] values) {
-    foreach value in values {
+    foreach var value in values {
         avgTempStream.publish(value);
     }
 }
@@ -717,7 +719,7 @@ from tempStream where (temp > 30.0) window time(60000) as T
   on T.roomNo == R.roomNo
 select T.roomNo, R.deviceID, 'start' as action
 => (RegulatorAction [] values) {
-    foreach value in values {
+    foreach var value in values {
         regulatorActionStream.publish(value);
     }
 }
@@ -826,7 +828,7 @@ from every( e1 = tempStream )
     within 10 minute
 select e1.roomNo, e1.temp as initialTemp, e2.temp as finalTemp
 => (Alert [] alerts) {
-    foreach alert in alerts {
+    foreach var alert in alerts {
         alertStream.publish(alert);
     }
 }
@@ -890,15 +892,15 @@ type Regulator record {
     boolean isOn
 };
 
-stream<Temperature> tempStream;
-stream<Regulator> regulatorStream;
+stream<Temperature> tempStream = new;
+stream<Regulator> regulatorStream = new;
 
 from every( e1=regulatorStream) 
     followed by e2=tempStream where (e1.roomNo==roomNo) [1..] 
     followed by e3=regulatorStream where (e1.roomNo==roomNo)
 select e1.roomNo, e2[0].temp - e2[last].temp as tempDiff
 => (TemperatureDiff [] values) {
-    foreach value in values {
+    foreach var value in values {
         tempDiffStream.publish(value);
     }
 }
@@ -951,8 +953,8 @@ type RoomKey record {
     string action
 };
 
-stream<RegulatorState> regulatorStateChangeStream;
-stream<RoomKey> roomKeyStream;
+stream<RegulatorState> regulatorStateChangeStream = new;
+stream<RoomKey> roomKeyStream = new;
 
 from every( e1=regulatorStateChangeStream where (action == 'on')) 
       followed by e2=roomKeyStream where (e1.roomNo == roomNo && action == 'removed')
@@ -960,7 +962,7 @@ from every( e1=regulatorStateChangeStream where (action == 'on'))
 select e1.roomNo, e2 == null ? "none" : "stop" as action
     having action != 'none'
 => (RegulatorAction [] outputs) {
-    foreach output in outputs {
+    foreach var output in outputs {
         regulatorActionStream.publish(output);
     }
 }
@@ -983,15 +985,15 @@ type Temperature record {
     float temp
 };
 
-stream<RegulatorState> regulatorStateChangeStream;
-stream<Temperature> tempStream;
+stream<RegulatorState> regulatorStateChangeStream = new;
+stream<Temperature> tempStream = new;
 
 from e1=regulatorStateChangeStream where (action == 'start') 
     followed by  !tempStream where (e1.roomNo == roomNo && temp < 12) 
     && e2=regulatorStateChangeStream where (action == 'off')
 select e1.roomNo as roomNo
 => (Alert [] alerts) {
-    foreach alert in alerts {
+    foreach var alert in alerts {
         alertStream.publish(alert);
     }
 }
@@ -1014,8 +1016,8 @@ type Temperature record {
     float temp
 };
 
-stream<RegulatorState> regulatorStateChangeStream;
-stream<Temperature> tempStream;
+stream<RegulatorState> regulatorStateChangeStream = new;
+stream<Temperature> tempStream = new;
 
 from e1=regulatorStateChangeStream where (action == 'start')
         followed by !tempStream
@@ -1023,7 +1025,7 @@ from e1=regulatorStateChangeStream where (action == 'start')
         for 5 minutes
 select e1.roomNo as roomNo
 => (Alert [] alerts) {
-    foreach alert in alerts {
+    foreach var alert in alerts {
         alertStream.publish(alert);
     }
 }
@@ -1071,7 +1073,7 @@ This query generates an alert if the increase in the temperature between two con
 from every e1=tempStream, e2=tempStream where (e1.temp + 1 < temp)
 select e1.temp as initialTemp, e2.temp as finalTemp
 => (Alert [] alerts) {
-    foreach alert in alerts {
+    foreach var alert in alerts {
         alertStream.publish(alert);
     }
 }
@@ -1120,13 +1122,13 @@ type Temperature record {
     float temp
 };
 
-stream<Temperature> tempStream;
+stream<Temperature> tempStream = new;
 
 from every e1=tempStream, e2=tempStream where (e1.temp <= temp)[1..],
            e3=tempStream where (e2[e2.length-1].temp > temp)
 select e1.temp as initialTemp, e2[e2.length-1].temp as peakTemp
 =>(PeekTemperature [] values) {
-    foreach value in values {
+    foreach var value in values {
         peekTempStream.publish(value);
     }
 }
@@ -1173,14 +1175,14 @@ type Regulator record {
     boolean isOn
 };
 
-stream<Temperature> tempStream;
-stream<Humidity> humidStream;
-stream<Regulator> regulatorStream;
+stream<Temperature> tempStream = new;
+stream<Humidity> humidStream = new;
+stream<Regulator> regulatorStream = new;
 
 from every e1=regulatorStream, e2=tempStream && e3=humidStream
 select e2.temp, e3.humid
 => (Notification [] notifications) {
-    foreach notification in notifications {
+    foreach var notification in notifications {
         stateNotificationStream.publish(notification);
     }
 }
