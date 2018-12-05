@@ -90,7 +90,7 @@ $ ballerina run sample.balx:add
 ```
 
 ## Modules
-A *module* is a directory that contains Ballerina source code files and is part of a namespace. Modules facilitate collaboration, sharing, and reuse. Modules can include functions, connectors, constants, annotations, services, and objects. To share a module among programs, projects and users you need to push the module into a repository.
+A *module* is a directory that contains Ballerina source code files and is part of a namespace. Modules facilitate collaboration, sharing, and reuse. Modules can include functions, connectors, constants, annotations, services, and objects. To share a module among programs, projects, and users you need to push the module into a repository.
 
 Modules:
 
