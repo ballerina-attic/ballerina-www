@@ -56,7 +56,7 @@ Let's try this on VS Code.
 
 Open your service in VS Code. You can use the following command to do this on Linux or OSX.
 
-> **Tip**: To get the `code` command to work, you need to find the `Shell Command: Install 'code' command in PATH` command in the VSCode Command Palette.
+> **Tip**: To get the `code` command to work in OSX, you need to find the `Shell Command: Install 'code' command in PATH` command in the VSCode Command Palette.
 
 ```bash
 $ code /<folder_path>/hello_service.bal
