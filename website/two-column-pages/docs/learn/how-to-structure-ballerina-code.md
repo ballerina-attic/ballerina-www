@@ -58,7 +58,7 @@ $ ballerina build sample.bal
 # This generates 'sample.balx'
 ```
 
-You can use the ballerina `run` command to run the `main()` function or services of a Ballerina file.
+You can use the `ballerina run` command to run the `main()` function or services of a Ballerina file.
 ```bash
 # Run from any location
 $ ballerina run /local/ballerina/src/sample.bal
