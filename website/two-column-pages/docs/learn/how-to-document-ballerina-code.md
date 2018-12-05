@@ -126,7 +126,7 @@ $ mkdir myproject
 $ cd myproject
 $ ballerina init -i
 Create Ballerina.toml [yes/y, no/n]: (y) y
-Organization name: (natasha) y
+Organization name: (user) y
 Version: (0.0.1) 
 Ballerina source [service/s, main/m, finish/f]: (s)  
 Module for the service: (no module) math
