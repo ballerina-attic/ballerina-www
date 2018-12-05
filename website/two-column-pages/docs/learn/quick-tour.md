@@ -108,7 +108,7 @@ service<http:Service> hello bind listener {
 
 You can find a plugin for Ballerina in the VS Code marketplace. This helps read the `.bal` file using an ideal theme. 
 
-> **Tip:** You can use your [favourite editor to work on Ballerina code](https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md).
+> **Tip:** You can use your [favourite editor to work on Ballerina code](https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides.md).
 
 ### Annotations
 
