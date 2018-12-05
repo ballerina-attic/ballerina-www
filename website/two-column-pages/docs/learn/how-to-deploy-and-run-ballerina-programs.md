@@ -3,7 +3,7 @@
 ## Running Ballerina Programs and Services
 A Ballerina application can either be:
 
-1. A [`main()`](/learn/by-example/hello-world.html) function that runs as a terminating process.
+1. A [`public function`](/learn/by-example/functions-as-entry-points.html) including [`main()`](/learn/by-example/hello-world.html) function that runs as a terminating process.
 
 2. A [`service<>`](/learn/by-example/hello-world-service.html), which is a hosted non-terminating process.
 
@@ -16,10 +16,10 @@ Source files and modules can contain zero or more entrypoints, and the runtime e
 ### Running Standalone Source Code
 A single Ballerina source code file can be placed into any folder. 
 
-If the source file contains at least one entrypoint, it can be executed using the `run` command.
+If the source file contains at least one entrypoint, it can be executed using the `run` command. If the entrypoint is not a main function or a service, it should be specified.
     
 ```bash
-$ ballerina run foo.bal  
+$ ballerina run foo.bal[:entryfunction]
 ```
 
 You can compile a source file with an entrypoint into a linked binary that has a `.balx` extension.
@@ -50,10 +50,10 @@ Options for running programs with entrypoints in a project:
 ```bash
 $ ballerina run main.balx  
 $ ballerina run target/main.balx
-$ ballerina run [--sourceroot <path>] <module>
+$ ballerina run [--sourceroot <path>] <module>[:entryfunction]
 ```
 
-The `<module>` is the module name, which is the same as the name of the directory that holds the source files. 
+The `<module>` is the module name, which is the same as the name of the directory that holds the source files. `main()` is considered as the entry function by default.
 
 ## Configuring Your Ballerina Runtimes
 
@@ -219,14 +219,13 @@ import ballerinax/docker;
     name:"helloworld",
     tag:"v1.0"
 }
-service<http:Service> helloWorld bind {port:9090} {
-    sayHello (endpoint outboundEP, http:Request request) {
+service helloWorld on new http:Listener(9090) {
+    resource function sayHello (http:Caller caller, http:Request request) {
         http:Response response = new;
         response.setTextPayload("Hello, World! \n");
-        _ = outboundEP -> respond(response);
+        _ = caller -> respond(response);
     }
 }
-
 ```
 
 Now your code is ready to generate deployment artifacts. In this case it is a Docker image.
@@ -343,13 +342,13 @@ import ballerina/mysql;
 import ballerinax/kubernetes;
 
 // Create SQL endpoint to MySQL database
-endpoint mysql:Client employeeDB {
+mysql:Client employeeDB = new ({
     host:config:getAsString("db-host"),
     port:3306,
     name:config:getAsString("db"),
     username:config:getAsString("db-username"),
     password:config:getAsString("db-password")
-};
+});
 
 @kubernetes:Ingress {
     hostname:"ballerina.guides.io",
@@ -360,22 +359,21 @@ endpoint mysql:Client employeeDB {
     serviceType:"NodePort",
     name:"ballerina-guides-employee-database-service"
 }
-endpoint http:Listener listener {
-    port:9090,
+listener http:Listener ep = new (9090, config = {
     secureSocket:{
         keyStore:{
             path:"${ballerina.home}/bre/security/ballerinaKeystore.p12",
-            password:getAsString("key-store-password")
+            password:config:getAsString("key-store-password")
         },
         trustStore:{
             path:"${ballerina.home}/bre/security/ballerinaTruststore.p12",
-            password:getAsString("trust-store-password")
+            password:config:getAsString("trust-store-password")
         }
     }
-};
+});
 
 @kubernetes:ConfigMap {
-    ballerinaConf:"./conf/data-service.toml",
+    ballerinaConf:"./conf/data-service.toml"
 }
 @kubernetes:Deployment {
     image:"ballerina.guides.io/employee_database_service:v1.0",
@@ -386,7 +384,7 @@ endpoint http:Listener listener {
 @http:ServiceConfig {
     basePath:"/records"
 }
-service<http:Service> employee_data_service bind listener {
+service employee_data_service on ep {
 ```
 
 Sample content of `data-service.toml`:
