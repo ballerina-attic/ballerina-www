@@ -9,7 +9,7 @@ The `ballerina` tool requires you to organize your code in a specific way. This 
 * Ballerina progammers can either place their code into a single source code file or in a *project* directory.
 * A Ballerina *program* is a compiled and linked binary.
 * A *module* is a directory that contains Ballerina source code files.
-* A *repository* is versioned collection of compiled or source code *modules*.
+* A *repository* is a versioned collection of compiled or source code *modules*.
 * A *project* atomically manages a collection of *modules* and *programs*.
 
 ## Programs
@@ -58,7 +58,7 @@ $ ballerina build sample.bal
 # This generates 'sample.balx'
 ```
 
-You can use the ballerina `run` command to build and run the `main()` function or services of a Ballerina file.
+You can use the ballerina `run` command to run the `main()` function or services of a Ballerina file.
 ```bash
 # Run from any location
 $ ballerina run /local/ballerina/src/sample.bal
@@ -68,7 +68,7 @@ $ cd /local/ballerina/src
 $ ballerina run sample.bal
 ```
 
-You can use the following commands to build and run any public function in a Ballerina file:
+You can use the following commands to run any public function in a Ballerina file:
 ```bash
 # Run public function `add` from any location
 $ ballerina run /local/ballerina/src/sample.bal:add
@@ -90,7 +90,7 @@ $ ballerina run sample.balx:add
 ```
 
 ## Modules
-A *module* is a directory that contains Ballerina source code files and is part of a namespace. Modules facilitate collaboration, sharing, and reuse. Modules can include functions, connectors, constants, annotations, services, and objects. To share a module among programs, projects, and users, you need to push the module into a repository.
+A *module* is a directory that contains Ballerina source code files and is part of a namespace. Modules facilitate collaboration, sharing, and reuse. Modules can include functions, connectors, constants, annotations, services, and objects. To share a module among programs, projects and users you need to push the module into a repository.
 
 Modules:
 
@@ -109,9 +109,9 @@ Your Ballerina source files can import modules:
 import [<org-name>]/<module-name> [as <identifier>];
 ```
 
-When you import a module, you can use its functions, annotations, and other objects in your code. You can also reference the objects with a qualified identifier, followed by a colon `:`. For example, `<identifier>:<module-object>`.
+When you import a module, you can use its functions, annotations and other objects in your code. You can also reference the objects with a qualified identifier, followed by a colon `:`. For example, `<identifier>:<module-object>`.
 
-Identifiers are either derived or explicit. The default identifier is either the module name, or if the module name has dots `.` include, then the last word after the last dot. For example, `import ballerina/http;` will have `http:` be the derived identifer. The module `import tyler/net.http.exception` would have `exception:` as the default identifier.
+Identifiers are either derived or explicit. The default identifier is either the module name, or if the module name has dots `.` included, then the last word after the last dot. For example, `import ballerina/http;` will have `http:` be the derived identifer. The module `import tyler/net.http.exception` would have `exception:` as the default identifier.
 
 You can have an explicit identifier by using the `as <identifier>` syntax.
 
@@ -149,7 +149,7 @@ If your source file or module is a part of a project, then you can explicitly ma
 version = "3.0.1"
 ```
 
-If an import statement does not explicitly specify a version, then the compiler will use the `latest` module version from a repository, if one exists.
+If an import version is not specified in `Ballerina.toml`, the compiler will use the `latest` module version from a repository, if one exists.
 
 ```ballerina
 import tyler/http;
@@ -194,7 +194,7 @@ You can create a project from any folder:
 ballerina init [-i]
 ```
 
-The command will initialize a simple project with a module inside of it. If the folder where this command is run has Ballerina source files or subfolders, those will be placed into the new project.
+The init command will initialize a simple project with a module inside of it. If the folder where this command is run has Ballerina source files or subfolders, those will be placed into the new project.
 
 You can optionally run `init` in interactive mode where you can specify overrides for the default files and folders that are created. We will extend the `init` command in the future to be a general purpose template generator creating projects from templates defined by others than the Ballerina team.
 
@@ -209,8 +209,9 @@ The folders `.ballerina/`, `tests/`, and `resources/` are reserved folder names 
   .gitignore
   Ballerina.toml       # Configuration that defines project intent
   .ballerina/          # Internal cache management and contains project repository
-                       # Project repository is built or downloaded module dependencies
-
+                       # Project repository contains compiled module binaries
+    module1.balo
+    
   main.bal             # Part of the “unnamed” module, compiled into a main.balx
                        # You can have many files in the "unnamed" module, though unadvisable
 
@@ -226,7 +227,7 @@ The folders `.ballerina/`, `tests/`, and `resources/` are reserved folder names 
     [tests/]         
     [resources/]     
 
-  target/              # Compiled binaries and other artifacts end up here
+  target/              # Compiled executables and other artifacts end up here
       main.balx
       Ballerina.lock   # Generated during build, used to rebuild identical binary
 ```
@@ -281,7 +282,7 @@ There are four kinds of repositories:
 4. Ballerina Central. Located at [http://central.ballerina.io](http://central.ballerina.io), this centrally managed repository is a community hub to discover, download, and publish Ballerina modules.
 
 ### Repository Precedence
-When building a Ballerina program with a project, the build system will search repositories for any imported dependencies. Dependencies are searched in the system, then project, then home, then Ballerina Central repositories for the dependency. Once found, it will be installed into the project repository if not already present.
+When building a Ballerina program with a project, the build system will search repositories for any imported dependencies. Dependencies are searched in the system, then project, then home, then Ballerina Central repositories for the dependency. Once found, it will be used to resolve the dependencies of the Ballerina program.
 
 If a module is discovered at Ballerina Central, the build system will download the module's files before installing into the home repository for reuse.
 
@@ -290,7 +291,7 @@ When building a module in a project, that module is automatically installed into
 
 The org-name and the version of the module will be read from the manifest file `Ballerina.toml` inside the project.
 
-By default the sources will be built before installing the module to the home repository. The building of the sources before installing can be skipped by having the "--no-build" flag.
+By default the sources will be built before installing the module to the home repository. The building of the sources before installing can be skipped by having the `--no-build` flag.
 
 To install a single module in a project:
 ```bash
@@ -315,9 +316,9 @@ An organization is a logical name used for grouping modules together under a com
 
 All modules installed into a repository must have an organization name. Any installation or pushing of a module into a repository will fail without an organization name.
 
-Organization names can contain alphanumeric characters following identifier lexical rules similar to modules. None of the characters in an organization name have any semantic meaning.
+Organization names can contain lowercase alphanumeric characters and underscores. None of the characters in an organization name have any semantic meaning.
 
-The organization names `ballerina` and `ballerinax` are reserved for system use. Modules in the `ballerina` module are included within the system distribution and `ballerinax` are stored within Ballerina Central.
+The organization names `ballerina` and `ballerinax` are reserved for system use. Modules in `ballerina` and `ballerinax` are included within the system distribution.
 
 Remotely hosted repositories, such as Ballerina Central, can each have their own approach for assigning a user's organization name. At Ballerina Central, every account is assigned a personal organization name, which is chosen by a user when first creating their account or derived from the email address of the user.
 
@@ -330,14 +331,14 @@ You can install modules that exist in a remote repository into your home reposit
 ballerina pull <org-name>/<module-name>[:<version>]
 ```
 
-Projects that perform dependency analysis will automatically pull modules into the home repository.
+If a version of the module to be pulled is not provided, it will pull the latest version of the module from the remote repository. Projects that perform dependency analysis will automatically pull modules into the home repository.
 
 ### Pushing Modules Into Remote Repositories
 "Pushing" a module uploads the associated module files and installs the module into a remote repository, which is Ballerina Central.
 
 The org-name and the version of the module will be read from the manifest file `Ballerina.toml` inside the project.
 
-By default the sources will be built before pushing the module to Ballerina Central. The building of the sources before pushing can be skipped by having the "--no-build" flag.
+By default the sources will be built before pushing the module to Ballerina Central. The building of the sources before pushing can be skipped by having the `--no-build` flag.
                                                                                                 
 ```
 # Push a single module
@@ -347,6 +348,6 @@ ballerina push <module-name>
 ballerina push <module-name> --no-build
 ```
 
-Ballerina Central requires an account in order to push modules. Your account is represented by a CLI token that is installed into your local Ballerina configuration file, located at `~/.ballerina/Settings.toml`. The CLI token is automatically installed into this file the first time you perform a `ballerina push` as Ballerina redirects to an OAuth authorization screen, configures your account, and then copies your CLI key from Ballerina Central into your local CLI configuration.
+Ballerina Central requires an account in order to push modules. Your account is represented by a CLI token that is installed into your local Ballerina configuration file, located at `~/.ballerina/Settings.toml`. The CLI token is automatically installed into this file the first time you perform a `ballerina push` as Ballerina redirects to an OAuth authorization screen, configures your account, and then copies your CLI token from Ballerina Central into your local CLI configuration.
 
 Every push of the same module into Ballerina Central REQUIRES a new version, even for minor text updates. We enforce this policy to ensure that projects that make use of dependencies cannot experience accidental behavior drift across two versions of the same module given the same version. Essentially, there is no way to "update" a module for a specific version at Ballerina Central.
