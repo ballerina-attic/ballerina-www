@@ -81,8 +81,9 @@ A typical project structure of a Ballerina project is like this:
 /
   .gitignore
   Ballerina.toml       # Configuration that defines project intent
-  .ballerina/          # Internal cache management and contains project repository
-                       # Project repository is built or downloaded module dependencies
+  .ballerina/          # Internal cache management and contains the project repository
+                       # Project repository contains compiled module binaries
+    module1.balo
 
   main.bal             # Part of the “unnamed” module, compiled into a main.balx
                        # You can have many files in the "unnamed" module, 
@@ -104,11 +105,9 @@ A typical project structure of a Ballerina project is like this:
 
   [resources/]         # Resources included with every module in the project
 
-  target/              # Compiled binaries and other artifacts end up here
-      main.balx
-      module1.balo
-      modules.can.include.dots.in.dir.name.bal
-      Ballerina.lock # Generated during build, used to rebuild identical binary
+  target/              # Compiled executables and other artifacts end up here
+     main.balx
+     Ballerina.lock    # Generated during build, used to rebuild identical binary
 ```
 
 `ballerina doc` command will read the `Module.md` and append it in the generated HTML file.
@@ -125,13 +124,13 @@ First, let's create a new Ballerina project:
 $ mkdir myproject
 $ cd myproject
 $ ballerina init -i
-Create Ballerina.toml [yes/y, no/n]: (n) y
-Organization name: (nirmal) y
+Create Ballerina.toml [yes/y, no/n]: (y) y
+Organization name: (user) y
 Version: (0.0.1) 
-Ballerina source [service/s, main/m]: (s) s
-Module for the service : (no module) math
+Ballerina source [service/s, main/m, finish/f]: (s)  
+Module for the service: (no module) math
 Ballerina source [service/s, main/m, finish/f]: (f) s
-Module for the service : (no module) time
+Module for the service: (no module) time
 Ballerina source [service/s, main/m, finish/f]: (f) f
 
 Ballerina project initialized
