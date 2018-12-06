@@ -75,14 +75,9 @@ You can view your service in VS Code.
 // Module objects referenced with 'http:' in code
 import ballerina/http;
 
-# A service endpoint represents a listener.
-endpoint http:Listener listener {
-    port:9090
-};
-
 # A service is a network-accessible API
 # Advertised on '/hello', port comes from listener endpoint
-service<http:Service> hello bind listener {
+service hello on new http:Listener(9090) {
 
     # A resource is an invokable API method
     # Accessible at '/hello/sayHello
@@ -90,13 +85,13 @@ service<http:Service> hello bind listener {
 
     # + caller - Server Connector
     # + request - Request
-    sayHello (endpoint caller, http:Request request) {
+    resource function sayHello(http:Caller caller, http:Request request) {
 
         // Create object to carry data back to caller
         http:Response response = new;
 
-        // Objects and structs can have function calls
-        response.setTextPayload("Hello Ballerina!\n");
+        // Objects and records can have function calls
+        response.setTextPayload("Hello Ballerina!");
 
         // Send a response back to caller
         // Errors are ignored with '_'
@@ -142,8 +137,9 @@ $ curl http://localhost:9090 -X POST
 > **Tip**: To ensure that you have root access, run the cURL command using `sudo`.
 
 ## Use an Endpoint
+Ballerina endpoint is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. An endpoint can be used to configure parameters related to the network accessible service.
 
-Ballerina client endpoint is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. An endpoint can be used to configure parameters related to the network accessible service.
+There are two kinds of endpoints in Ballerina, inbound (or ingress) and outbound (or egress) endpoints, a client object is an outbound endpoint, which we would use to send messages to a network service.
 
 Ballerina Central stores numerous modules that can be used with your service. You can search for them using the `ballerina search` command. Use the following command to search for modules where the module name, description, or org name contains the word "twitter".
 
@@ -206,19 +202,19 @@ import ballerina/config;
 Add this code after the import statement.
 
 ```ballerina
-endpoint twitter:Client twitterClient {
+twitter:Client twitterClient = new({
    clientId: config:getAsString("consumerKey"),
    clientSecret: config:getAsString("consumerSecret"),
    accessToken: config:getAsString("accessToken"),
    accessTokenSecret: config:getAsString("accessTokenSecret")
-};
+});
 ```
 
-Here we are creating an endpoint to connect with the Twitter service. The above configuration is used to configure the connectivity to the Twitter service.
+Here we are creating an client object to connect with the Twitter service. The above configuration is used to configure the connectivity to the Twitter service.
 
 Now you have the Twitter endpoint.
 
-In the `sayHello` resource, add the following to get the payload as a string.
+In the `sayHello` resource function, add the following to get the payload as a string.
 
 ```ballerina
 string status = check request.getTextPayload();
@@ -230,42 +226,40 @@ Now, you can get the response from Twitter by calling the tweet function. Replac
 
 ```ballerina
 twitter:Status st = check twitterClient->tweet(status);
-response.setTextPayload("ID:" + <string>st.id + "\n");
+response.setTextPayload("ID:" + string.convert(st.id) + "\n");
 ```
 
 The completed source code should look similar to the following:
 ```ballerina
 import ballerina/config;
+// A system module containing protocol access constructs
+// Module objects referenced with 'http:' in code
 import ballerina/http;
 import wso2/twitter;
 
-endpoint twitter:Client twitterClient {
+twitter:Client twitterClient = new({
    clientId: config:getAsString("consumerKey"),
    clientSecret: config:getAsString("consumerSecret"),
    accessToken: config:getAsString("accessToken"),
    accessTokenSecret: config:getAsString("accessTokenSecret")
-};
-
-endpoint http:Listener listener {
-    port: 9090
-};
+});
 
 @http:ServiceConfig {
-    basePath: "/"
+   basePath: "/"
 }
-service<http:Service> hello bind listener {
-
+service hello on new http:Listener(9090) {
     @http:ResourceConfig {
+        methods: ["POST"],
         path: "/"
     }
-    sayHello (endpoint caller, http:Request request) {
+    resource function sayHello(http:Caller caller, http:Request request) returns error? {
         string status = check request.getTextPayload();
         twitter:Status st = check twitterClient->tweet(status);
-
         http:Response response = new;
-        response.setTextPayload("ID:" + <string>st.id + "\n");
+        response.setTextPayload("ID:" + string.convert(untaint st.id) + "\n");
 
-        _ = caller->respond(response);
+        _ = caller -> respond(response);
+        return ();
     }
 }
 ```
@@ -280,7 +274,7 @@ $ ballerina run --config twitter.toml hello_service.bal
 Now go to the terminal window and send a request containing the text for the tweet:
 
 ```bash
-$ curl -d "Ballerina" -X POST localhost:9090
+$ curl -d "Ballerina" -X POST localhost:9090/
 ```
 
 > **Tip**: To ensure that you have root access, run the cURL command using `sudo`.
@@ -314,9 +308,7 @@ Now, let’s add the annotations you need to run the service in Docker. These an
     ]
 }
 @docker:Expose {}
-endpoint http:Listener listener {
-    port: 9090
-};
+listener http:Listener cmdListener = new(9090);
 ```
 
 > **Note**: On Windows, make sure Docker runs with Linux containers and in the general settings, enable `Expose daemon on tcp://localhost:2375 without TLS`. For more details, see the [Docker README](https://github.com/ballerinax/docker/blob/master/samples/README.md).
