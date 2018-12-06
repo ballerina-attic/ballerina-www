@@ -331,7 +331,7 @@ You can install modules that exist in a remote repository into your home reposit
 ballerina pull <org-name>/<module-name>[:<version>]
 ```
 
-If a version of the module to be pulled is not provided, it will pull the latest version of the module from the remote repository. Projects that perform dependency analysis will automatically pull modules into the home repository.
+If a version is not specified for the module to be pulled, the latest version of the module will be pulled from the remote repository. Projects that perform dependency analysis will automatically pull modules into the home repository.
 
 ### Pushing Modules Into Remote Repositories
 "Pushing" a module uploads the associated module files and installs the module into a remote repository, which is Ballerina Central.
