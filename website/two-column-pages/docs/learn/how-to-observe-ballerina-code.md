@@ -38,9 +38,9 @@ Create a Service as shown below and save it as `hello_world_service.bal`.
 import ballerina/http;
 import ballerina/log;
 
-service<http:Service> hello bind { port:9090 } {
+service hello on new http:Listener(9090) {
     
-    sayHello (endpoint caller, http:Request req) {
+    resource function sayHello (http:Caller caller, http:Request req) {
         log:printInfo("This is a test Info log");
         log:printError("This is a test Error log");
         log:printWarn("This is a test Warn log");
@@ -72,12 +72,11 @@ This lets you to collect the distributed tracing information with Jaeger and met
 $ ballerina run --observe hello_world_service.bal
 
 ballerina: started publishing tracers to Jaeger on localhost:5775
-ballerina: initiating service(s) in 'ballerina-home/lib/balx/prometheus/reporter.balx'
-ballerina: started HTTP/WS endpoint 0.0.0.0:9797
+Initiating service(s) in 'ballerina-home/lib/balx/prometheus/reporter.balx'
+[ballerina/http] started HTTP/WS endpoint 0.0.0.0:9797
 ballerina: started Prometheus HTTP endpoint 0.0.0.0:9797
 Initiating service(s) in 'hello_world_service.bal'
-ballerina: started HTTP/WS endpoint 0.0.0.0:9090
-
+[ballerina/http] started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
 Redirect the standard output to a file if you want to monitor logs.
@@ -111,11 +110,11 @@ the path of the configuration file.
 $ ballerina run --config <path-to-conf>/ballerina.conf hello_world_service.bal
 
 ballerina: started publishing tracers to Jaeger on localhost:5775
-ballerina: initiating service(s) in 'ballerina-home/lib/balx/prometheus/reporter.balx'
-ballerina: started HTTP/WS endpoint 0.0.0.0:9797
+Initiating service(s) in 'ballerina-home/lib/balx/prometheus/reporter.balx'
+[ballerina/http] started HTTP/WS endpoint 0.0.0.0:9797
 ballerina: started Prometheus HTTP endpoint 0.0.0.0:9797
 Initiating service(s) in 'hello_world_service.bal'
-ballerina: started HTTP/WS endpoint 0.0.0.0:9090
+[ballerina/http] started HTTP/WS endpoint 0.0.0.0:9090
 ```
 
 Redirect the standard output to a file if you want to monitor logs.
@@ -449,20 +448,20 @@ Alternatively, Docker containers can be used to set up Elasticsearch and Kibana 
 
 ```bash
 # Elasticsearch Image
-$ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch:6.5.1
 # Kibana Image
-$ docker pull docker.elastic.co/kibana/kibana:6.2.4
+$ docker pull docker.elastic.co/kibana/kibana:6.5.1
 # Filebeat Image
-$ docker pull docker.elastic.co/beats/filebeat:6.2.4
+$ docker pull docker.elastic.co/beats/filebeat:6.5.1
 # Logstash Image
-$ docker pull docker.elastic.co/logstash/logstash:6.2.4
+$ docker pull docker.elastic.co/logstash/logstash:6.5.1
 ```
 
 **Step 2:** Start Elasticsearch and Kibana containers by executing the following commands.
 
 ```bash
-$ docker run -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearch docker.elastic.co/elasticsearch/elasticsearch:6.2.4
-$ docker run -p 5601:5601 -h kibana --name kibana --link elasticsearch:elasticsearch docker.elastic.co/kibana/kibana:6.2.4
+$ docker run -p 9200:9200 -p 9300:9300 -it -h elasticsearch --name elasticsearch docker.elastic.co/elasticsearch/elasticsearch:6.5.1
+$ docker run -p 5601:5601 -h kibana --name kibana --link elasticsearch:elasticsearch docker.elastic.co/kibana/kibana:6.5.1
 ```
 
 If you run on Linux you may have to increase the `vm.max_map_count` for the Elasticsearch container to start. 
@@ -501,7 +500,7 @@ A grok filter is used to structure the Ballerina logs and the output is specifie
 **Step 4:** Start the Logstash container by the following command.
 
 ```bash
-$ docker run -h logstash --name logstash --link elasticsearch:elasticsearch -it --rm -v /tmp/pipeline:/usr/share/logstash/pipeline/ -p 5044:5044 docker.elastic.co/logstash/logstash:6.2.4
+$ docker run -h logstash --name logstash --link elasticsearch:elasticsearch -it --rm -v /tmp/pipeline:/usr/share/logstash/pipeline/ -p 5044:5044 docker.elastic.co/logstash/logstash:6.5.1
 ```
 
 **Step 5:** Configure Filebeat to ship the Ballerina logs. Create a `filebeat.yml` file in the `/tmp/` directory and include the following content in the file.
@@ -520,7 +519,7 @@ output.logstash:
 The `-v` flag is used for bind mounting, where the container will read the file from the host machine. Provide the path to the ballerina.log file, to be bind mounted to the filebeat container.
 
 ```bash
-$ docker run -v /tmp/filebeat.yml:/usr/share/filebeat/filebeat.yml -v /<path-to-ballerina.log>/ballerina.log:/usr/share/filebeat/ballerina.log --link logstash:logstash docker.elastic.co/beats/filebeat:6.2.4
+$ docker run -v /tmp/filebeat.yml:/usr/share/filebeat/filebeat.yml -v /<path-to-ballerina.log>/ballerina.log:/usr/share/filebeat/ballerina.log --link logstash:logstash docker.elastic.co/beats/filebeat:6.5.1
 ```
 
 **Step 7:** Access Kibana to visualize the logs at <http://localhost:5601>. Add an index named `ballerina` and click on `Discover` to visualize the logs.
