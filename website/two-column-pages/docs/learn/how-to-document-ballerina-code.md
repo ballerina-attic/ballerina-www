@@ -106,8 +106,8 @@ A typical project structure of a Ballerina project is like this:
   [resources/]         # Resources included with every module in the project
 
   target/              # Compiled executables and other artifacts end up here
-      main.balx
-      Ballerina.lock   # Generated during build, used to rebuild identical binary
+     main.balx
+     Ballerina.lock    # Generated during build, used to rebuild identical binary
 ```
 
 `ballerina doc` command will read the `Module.md` and append it in the generated HTML file.
