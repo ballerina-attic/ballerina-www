@@ -33,7 +33,8 @@ In a standard Ballerina project, a module is mapped to a test suite. Unit and in
   .gitignore
   Ballerina.toml       # Configuration that defines project intent
   .ballerina/          # Internal cache management and contains project repository
-                       # Project repository is built or downloaded module dependencies
+                       # Project repository contains compiled module binaries
+    module1.balo
 
   main.bal             # Part of the “unnamed” module, compiled into a main.balx
                        # You can have many files in the "unnamed" module, though unadvisable
@@ -43,21 +44,17 @@ In a standard Ballerina project, a module is mapped to a test suite. Unit and in
     *.bal              # In this dir and recursively in subdirs except tests/ and resources/
     [tests/]           # Module-specific unit and integration tests
     [resources/]       # Module-specific resources
-      *.jar            # Optional, if module includes native Java libraries to link + embed 
     
   modules.can.include.dots.in.dir.name/
     Module.md
     *.bal
-    *.jar
     [tests/]         
     [resources/]     
-      *.jar            # Optional, if module includes native Java libraries to link + embed 
 
   [resources/]         # Resources included with every module in the project
 
-  target/              # Compiled binaries and other artifacts end up here
+  target/              # Compiled executables and other artifacts end up here
       main.balx
-      module1.balo
       modules.can.include.dots.in.dir.name.bal
 ```
 
@@ -68,7 +65,7 @@ The `ballerina test` command can be used to execute tests.
 Execute tests in a given Ballerina source file with the following command.
 
 ```
-ballerina test <balfile> 
+ballerina test <balfile_name> 
 ```
 
 Execute tests within the specified module with the following command.
@@ -371,93 +368,6 @@ function foo() {
 }
 ```
 
-<!-- ## Service Start/Stop Utility
-
-Testerina provides the functionality to start/stop all services of a developer preferred Ballerina module. To control service related functionality we can use the following inbuilt functions.
-
-#### test:startServices(string moduleName) (boolean isSuccessful)
-
-Starts all the services of module identified by ‘moduleName’. If it is successful returns true else returns false or throws an error. 
-
-```ballerina
-boolean isSuccessful = test:startServices(“abc.services”);
-```
-
-#### test:stopServices(string moduleName) 
-
-Stops all the services of module identified by ‘moduleName’.
-
-```ballerina
-test:stopServices(“abc.services”);
-```
-
-The following sample code illustrates how service start/stop can be used in a complete program.
-
-```ballerina
-import ballerina/http;
-import ballerina/io;
-import ballerina/test;
-
-boolean isHelloServiceStarted;
-
-// Before function to start the service
-function startMock () {
-    isHelloServiceStarted = test:startServices("mock");
-}
-
-// After function to stop the service
-function stopMock () {
-    test:stopServices("mock");
-}
-
-@test:Config{
-    before: "startMock",
-    after:"stopMock"
-}
-// This is the test function to test the service
-function testService () {
-    endpoint http:Client httpEndpoint {
-        url:"http://0.0.0.0:9092"
-    };
-
-    // Check whether the service is started
-    test:assertTrue(isHelloServiceStarted, msg = "Hello service failed to start");
-
-    // Send a GET request to the specified endpoint
-    var response = httpEndpoint->get("/hello");
-    match response {
-        http:Response resp => {
-            var jsonRes = resp.getJsonPayload();
-            json expected = {"Hello":"World"};
-            test:assertEquals(jsonRes, expected);
-        }
-        error err => test:assertFail(msg = "Failed to call the endpoint.");
-    }
-}
-
-// The service we are going to start and test
-endpoint http:Listener helloEP {
-    port: 9092
-};
-
-@http:ServiceConfig {
-    basePath: "/hello"
-}
-service<http:Service> HelloServiceMock bind helloEP {
-
-    @http:ResourceConfig {
-        methods:["GET"],
-        path:"/"
-    }
-    getEvents (endpoint caller, http:Request req) {
-        http:Response res = new;
-        json j = {"Hello":"World"};
-        res.setJsonPayload(j);
-        _ = caller->respond(res);
-    }
-}
-```
--->
 ## Service Skeleton Start/Stop Utility
 
 Testerina provides the functionality to start/stop service skeletons generated from Swagger definitions.
@@ -470,7 +380,7 @@ Start a service skeleton from a given Swagger definition in the given Ballerina 
 boolean isSuccessful =  test:startServiceSkeleton("petstore.service.skeleton", "/tmp/petstore.yaml");
 ```
 
-When the tests are executing service skeleton related Ballerina service definition will be generated and started. The host names and ports you have defined in the Swagger definition will be used when starting the services. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service.
+When the tests are executing service skeleton related to the Ballerina service definition will be generated and started. The host names and ports you have defined in the Swagger definition will be used when starting the services. You can then invoke this service skeleton using a HTTP client endpoint, just like a normal Ballerina service.
 
 #### test:stopServiceSkeleton (string moduleName) 
 
@@ -488,7 +398,7 @@ import ballerina/http;
 import ballerina/test;
 
 string uri = "http://0.0.0.0:9095/v1";
-boolean isServiceSkeletonStarted;
+boolean isServiceSkeletonStarted = false;
 
 function init() {
     // Starting the swagger based service
@@ -506,20 +416,17 @@ function clean() {
     after: "clean"
 }
 function testService() {
-    endpoint http:Client httpEndpoint {
-        url:uri
-    };
+    http:Client clientEndpoint = new(uri);
     test:assertTrue(isServiceSkeletonStarted, msg = "Service skeleton failed to start");
 
     // Send a GET request to the specified endpoint
     var response = httpEndpoint->get("/pets");
-    match response {
-               http:Response resp => {
-                    var strRes = resp.getTextPayload();
-                    string expected = "Sample listPets Response";
-                    test:assertEquals(strRes, expected);
-               }
-               error err => test:assertFail(msg = "Failed to call the endpoint: " + uri);
+    if (response is http:Response) {
+         var strRes = response.getTextPayload();
+         string expected = "Sample listPets Response";
+         test:assertEquals(strRes, expected);
+    } else {
+        test:assertFail(msg = "Failed to call the endpoint: " + uri);
     }
 }
 ```
@@ -548,12 +455,12 @@ import ballerina/io;
 
 // This is the mock function which will replace the real intAdd function.
 @test:Mock {
-    // Since we do not have a module declaration, `.` is the current module
+    // Since we do not have a module, `.` is the current module
     // We can include any module here e.g., `ballerina/io, foo/bar:0.0.1` etc.
     moduleName: ".",
     functionName: "intAdd"
 }
-// The mock function's signature should match with the actual function's signature.
+// The mock function signature should match the actual function signature.
 public function mockIntAdd(int a, int b) returns (int) {
     io:println("I'm the mock function!");
     return (a - b);
