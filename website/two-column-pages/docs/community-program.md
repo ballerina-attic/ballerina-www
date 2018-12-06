@@ -88,7 +88,7 @@ To check if the installation is done right, run the following command.
 
 This should print the version of Ballerina you have installed.
 
-``` Ballerina 0.982.0 ```
+``` Ballerina 0.990.0 ```
 
 ## Hello World with Ballerina
 
@@ -154,21 +154,15 @@ import ballerina/http;
 import ballerina/log;
 import ballerina/io;
 
-endpoint http:Client clientEndpoint {
-    url: "http://localhost:9090"
-};
+http:Client clientEndpoint = new("http://localhost:9090");
 
 public function main() {
     // Send a GET request to the Hello World service endpoint.
     var response = clientEndpoint->get("/hello/sayHello");
-
-    match response {
-        http:Response resp => {
-            io:println(resp.getTextPayload());
-        }
-        error err => {
-            log:printError(err.message, err = err);
-        }
+    if (response is http:Response) {
+        io:println(response.getTextPayload());
+    } else (response is error) {
+        log:printError("Get request failed", err = response);
     }
 }
 ```
@@ -193,20 +187,9 @@ You just invoked the Hello World service written in Ballerina programming langua
 
 
 
-## Run the Composer
-
-Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes.
-
-To start the Composer:
-
-1. In the command line, run
-``` composer ```
-2. In the Composer, click **File** and choose **Open Project**.
-3. Navigate to your folder where you ran `ballerina init` to create your first service and open it to view the project in the Composer.
-
 ## Create a New Module
 
-1. On the explorer pane, right click on the folder name that you opened as your project, and click on **New Folder**.
+1. Right click on the folder name that you opened as your project, and click on **New Folder**.
 2. Name the folder **calculator**. This means that you are going to implement a Ballerina module named calculator.
 3. Right click on the **calculator** folder and click on **New File**.
 4. Name the new file **lib.bal**.
@@ -243,7 +226,7 @@ Only add and subtract functions are used in the sample implementation. You can i
 ``` ballerina
 import ballerina/io;
 
-function main(string... args) {
+public function main() {
 
     int operation = 0;
     while (operation != 5) {
@@ -256,8 +239,14 @@ function main(string... args) {
         io:println("5. Exit");
 
         // read user's choice
-        string choice = io:readln("Enter choice 1 - 5: ");
-        operation = check <int>choice;
+        string val = io:readln("Enter choice 1 - 5: ");
+        var choice = int.convert(val);
+        if (choice is int) {
+            operation = choice;
+        } else (choice is error) {
+            io:println("Invalid choice \n");
+            continue;
+        }
 
         if (operation == 5) {
             break;
@@ -268,10 +257,23 @@ function main(string... args) {
 
         // Read two numbers from user to be used for calculator operations
         var input1 = io:readln("Enter first number: ");
-        float firstNumber = check <float>input1;
+        var num1 = float.convert(input1);
+        float firstNumber = 0;
+        if (num1 is float) {
+            firstNumber = num1;
+        } else {
+            io:println("Invalid first number \n");
+            continue;
+        }
         var input2 = io:readln("Enter second number: ");
-        float secondNumber = check <float>input2;
-
+        var num2 = float.convert(input2);
+        float secondNumber = 0;
+        if (num2 is float) {
+            secondNumber = num2;
+        } else {
+            io:println("Invalid second number \n");
+            continue;
+        }
         // Execute calculator operations based on user's choice
         if (operation == 1) {
             io:print("Add result: ");
@@ -281,7 +283,7 @@ function main(string... args) {
             io:println(subtract(firstNumber, secondNumber));
         } else {
             io:println("Invalid choice");
-        }   
+        }
     }
 }
 
@@ -309,14 +311,13 @@ This service only implements the add operation. You may extend this and implemen
 
 ``` ballerina
 import ballerina/http;
+import ballerina/log;
 
-endpoint http:Listener listener {
-    port:9090
-};
+listener http:Listener httpListener = new(9090);
 
 // Calculator REST service
 @http:ServiceConfig { basePath: "/calculator" }
-service<http:Service> Calculator bind listener {
+service Calculator on httpListener {
 
     // Resource that handles the HTTP POST requests that are directed to
     // the path `/operation` to execute a given calculate operation
@@ -328,41 +329,59 @@ service<http:Service> Calculator bind listener {
         methods: ["POST"],
         path: "/operation"
     }
-    executeOperation(endpoint client, http:Request req) {
-        json operationReq = check req.getJsonPayload();
-        string operation = operationReq.operation.toString();
+    resource function executeOperation(http:Caller caller, http:Request req) {
+        var operationReq = req.getJsonPayload();
+        http:Response errResp = new;
+        errResp.statusCode = 500;
+        if (operationReq is json) {
+            string operation = operationReq.operation.toString();
 
-        any result = 0.0;
-        // Pick first number for the calculate operation from the JSON request
-        float firstNumber = 0.0;
-        var input = operationReq.firstNumber;
-        match input {
-            int ivalue => firstNumber = <float> ivalue;
-            float fvalue => firstNumber = fvalue;
-            json other => {} //error
+            any result = 0.0;
+            // Pick first number for the calculate operation from the JSON request
+            float firstNumber = 0.0;
+            var input = float.convert(operationReq.firstNumber);
+            if (input is float) {
+                firstNumber = input;
+            } else {
+                errResp.setJsonPayload({"^error":"Invalid first number"});
+                var err = caller->respond(errResp);
+                handleResponseError(err);
+                return;
+            }
+
+            // Pick second number for the calculate operation from the JSON request
+            float secondNumber = 0.0;
+            input = float.convert(operationReq.secondNumber);
+            if (input is float) {
+                secondNumber = input;
+            } else {
+                errResp.setJsonPayload({"^error":"Invalid second number"});
+                var err = caller->respond(errResp);
+                handleResponseError(err);
+                return;
+            }
+
+            if(operation == "add" || operation == "+") {
+                result = add(firstNumber, secondNumber);
+            }
+
+            // Create response message.
+            json payload = { status: "Result of " + operation, result: <float>result };
+
+            // Send response to the client.
+            var err = caller->respond(untaint payload);
+            handleResponseError(err);
+        } else {
+            errResp.setJsonPayload({"^error":"Request payload should be a json."});
+            var err = caller->respond(errResp);
+            handleResponseError(err);
         }
+    }
+}
 
-        // Pick second number for the calculate operation from the JSON request
-        float secondNumber = 0.0;
-        input = operationReq.secondNumber;
-        match input {
-            int ivalue => secondNumber = <float> ivalue;
-            float fvalue => secondNumber = fvalue;
-            json other => {} //error
-        }
-
-        if(operation == "add" || operation == "+") {
-            result = add(firstNumber, secondNumber);
-        }
-
-        // Create response message.
-        json payload = { status: "Result of " + operation, result: 0.0 };
-        payload["result"] = check <float>result;
-        http:Response response;
-        response.setJsonPayload(untaint payload);
-
-        // Send response to the client.
-        _ = client->respond(response);
+function handleResponseError(error? err) {
+    if (err is error) {
+        log:printError("Respond failed", err = err);
     }
 }
 
@@ -379,7 +398,7 @@ Inside the calculator module, you now have both a main program that you previous
 When Ballerina is run for the calculator module, the main program is run, and the service is started.</li>
 <li>Open a new command line to invoke the service using an HTTP client program such as cURL.</li>
 <li>Invoke the service using an HTTP client.
-<code> curl -v -X POST -d '{"firstNumber": 10, "secondNumber":  200, "operation": "add"}' "http://localhost:9090/calculator/operation" -H "Content-Type:application/json" </code>
+<code> curl -v -X POST -d '{"firstNumber": 10.21, "secondNumber":  200.1, "operation": "add"}' "http://localhost:9090/calculator/operation" -H "Content-Type:application/json" </code>
 </li>
 </ol>
 
@@ -398,9 +417,7 @@ import ballerina/http;
 import ballerina/io;
 import ballerina/log;
 
-endpoint http:Client clientEndpoint {
-    url: "http://localhost:9090"
-};
+http:Client clientEndpoint = new("http://localhost:9090");
 
 public function main() {
 
@@ -411,23 +428,19 @@ public function main() {
     req.setJsonPayload(jsonMsg);
 
     var response = clientEndpoint->post("/calculator/operation", req);
-    match response {
-        http:Response resp => {
-            var msg = resp.getJsonPayload();
-            match msg {
-                json jsonPayload => {
-                    string resultMessage = "Addition result "
-                        + jsonMsg["firstNumber"].toString() + " + "
-                        + jsonMsg["secondNumber"].toString() + " : "
-                        + jsonPayload["result"].toString();
-                    io:println(resultMessage);
-                }
-                error err => {
-                    log:printError(err.message, err = err);
-                }
+    if (response is http:Response) {
+        var msg = response.getJsonPayload();
+        if (msg is json) {
+                string resultMessage = "Addition result "
+                    + jsonMsg["firstNumber"].toString() + " + "
+                    + jsonMsg["secondNumber"].toString() + " : "
+                    + msg["result"].toString();
+                io:println(resultMessage);
+            } else {
+                log:printError("Response is not json", err = msg);
             }
-        }
-        error err => { log:printError(err.message, err = err); }
+    } else {
+        log:printError("Invalid response", err = response);
     }
 }
 
@@ -468,6 +481,7 @@ You also need to have a Module.md file inside your module that describes the mod
 You can either create this on command line or using composer, right click on calculator folder select New File and name that to Module.md. Add some meaningful content to help document the module in this file.
 
 For example
+
 Example calculator module.
 
 ```
