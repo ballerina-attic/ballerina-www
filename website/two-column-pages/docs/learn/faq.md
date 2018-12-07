@@ -141,8 +141,8 @@ Absolutely. We encourage developers to make Ballerina language sites in their ow
 ### Will Testerina automatically generate service mocks?
 Yes, it generates mocks when Swagger is present.
 
-### What Ballerina connectors are currently available?
-The best place to see the latest set of connectors is browsing Ballerina Central at [central.ballerina.io](http://central.ballerina.io), or by using `ballerina search` on the command line.
+### Which Ballerina connectors are currently available?
+The best place to see the latest set of connectors is Ballerina Central at [central.ballerina.io](http://central.ballerina.io), or by using `ballerina search` on the command line.
 
 You can also write your own Ballerina connectors, maintain them locally, or push them into Ballerina Central.
 
