@@ -90,7 +90,7 @@ Even if your proposal is compatible with Ballerina 1.0 specification, it might n
 
 ### What is the roadmap for Ballerina?
 
-The roadmap is driven by separate teams working on aspects of the language and platform. The key themes that are driving development teams are 1.0 language lock, commercial supportability, runtime and platform enhancements, and developer / integration tooling that includes Central, ballerinax/* modules, Ballerina API gateway, Ballerina message broker, Ballerina transaction coordinator, and workflow. 
+The roadmap is driven by separate teams working on aspects of the language and platform. The key themes that are driving development teams are 1.0 language lock, commercial supportability, runtime and platform enhancements, and developer / integration tooling that includes Central, ballerinax/* modules, Ballerina API gateway, Ballerina transaction coordinator, and workflow. 
 
 1. The language
 * Language lock, stability
@@ -200,9 +200,9 @@ However, you can make your legacy libraries into microservices and then invoke t
 
 ### Will business designers be able to do graphical GUI development still? How can we keep the design to code alignment with Ballerina?
 
-Yes, it is entirely possible for business designers to use Ballerina Composer to use graphical constructs to create Ballerina services.
+Yes, it is entirely possible for business designers to use Ballerina IDE plugins to use graphical constructs to create Ballerina services.
 
-Ballerina’s syntax is structured to represent the core constructs of integration. By designing the keywords and the language layout using integration semantics, it is possible for IDEs and the Ballerina Composer to provide a graphical representation of the code that is identical to a sequence or interaction diagram in UML. This diagram does not require intermediate formats or translation. The Ballerina Composer can be used to generate new code in your Ballerina files through drag and drop, provide a visualization to others that document how your code interacts with other endpoints, and to provide dev tracing flows of interactions during debugging.
+Ballerina’s syntax is structured to represent the core constructs of integration. By designing the keywords and the language layout using integration semantics, it is possible for IDEs to provide a graphical representation of the code that is identical to a sequence or interaction diagram in UML. This diagram does not require intermediate formats or translation. The IDE plugins can be used to generate new code in your Ballerina files through drag and drop, provide a visualization to others that document how your code interacts with other endpoints, and to provide dev tracing flows of interactions during debugging.
 
 ### What forms of debugging does Ballerina support?
 
@@ -250,7 +250,7 @@ In Ballerina, functions can be defined with required parameters, defaultable par
 
 Ballerina also supports the use of function name as a function pointer. This makes it easy to understand code because there is a single function corresponding to a given function name and is more powerful than the use of function overloading.
 
-For more information on the function pointer syntax, see the [Funtion Pointer example](/learn/by-example/function-pointers.html).
+For more information on the function pointer syntax, see the [Function Pointer example](/learn/by-example/function-pointers.html).
 
 ### What compiler technology is used to build the compiler?
 
