@@ -39,3 +39,7 @@ You can test a Ballerina file or module using the following command:
 ```
 ./ballerina test [<ballerina-file>|<module-name>]
 ```
+
+## Compatibility
+
+Ballerina Language Specification supports a set of experimental features such as *_transactions_* syntax. In order to be compatible with the experimental features and for supporting language intelligence in VSCode Plugin, enable the `Allow Experimental` option in user settings.
