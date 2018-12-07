@@ -5,35 +5,31 @@ import ballerina/http;
 @http:ServiceConfig {
     basePath: "/"
 }
-service<http:Service> hello bind { port: 9090 } {
+service hello on new http:Listener(9090) {
 
     // Define a REST resource within the API
     @http:ResourceConfig {
         path: "/",
         methods: ["POST"]
     }
-    // Parameters include a reference to the caller endpoint
+    // Parameters include a reference to the caller
     // and the request data
-    hi (endpoint caller, http:Request request) {
-        // Create empty response
-        http:Response res;
+    resource function hi(http:Caller caller, http:Request request) {
+        // Create an empty response
+        http:Response res = new;
         // Try to retrieve parameters
         var payload = request.getTextPayload();
 
-        // Different handling depending on if we got proper string 
+        // Different handling depending on if we got proper string
         // or error
-        match payload {
-            string name => {
-                res.setTextPayload("Hello " + untaint name + "!\n");
-            }
-            error err => {
-                res.setTextPayload(untaint err.message);
-            }
+        if (payload is string) {
+            res.setTextPayload("Hello " + untaint payload + "!\n");
+        } else {
+            res.setTextPayload(untaint payload.reason());
         }
 
         // Return response, '->' signifies remote call
         // '_' means ignore the function return value
-        _ = caller->respond (res);
+        _ = caller->respond(res);
     }
-
 }

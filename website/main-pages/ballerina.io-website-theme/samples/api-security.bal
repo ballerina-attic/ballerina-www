@@ -11,17 +11,15 @@ http:AuthProvider jwtAuthProvider = {
     }
 };
 
-endpoint http:Client httpEndpoint {
-    url: "https://localhost:9090",
+http:Client httpEndpoint = new("https://localhost:9090", config = {
     auth: {
         scheme: http:BASIC_AUTH,
         username: "tom",
         password: "1234"
     }
-};
+});
 
-endpoint http:Listener secureListener {
-    port: 9090,
+listener http:Listener secureListener = new http:Listener(9090, config = {
     authProviders:[jwtAuthProvider],
     secureSocket: {
         keyStore: {
@@ -33,25 +31,30 @@ endpoint http:Listener secureListener {
             password: "ballerina"
         }
     }
-};
+});
 
 @http:ServiceConfig {
     authConfig: {
         authentication: { enabled: true }
     }
 }
-service<http:Service> echo bind secureListener {
+service echo on secureListener {
 
     @http:ResourceConfig {
         authConfig: {
             scopes: ["hello"]
         }
     }
-    hello(endpoint caller, http:Request req) {
-        http:Response res = check httpEndpoint->get(
-            "/secured/endpoint");
+    resource function hello(http:Caller caller, http:Request req) {
+        var res = httpEndpoint->get("/secured/endpoint");
 
-        _ = caller->respond(res);
+        if (res is http:Response) {
+            _ = caller->respond(res);
+        } else {
+            http:Response err = new;
+            err.statusCode = 500;
+            err.reasonPhrase = "Internal error occurred";
+            _ = caller->respond(err);
+        }
     }
-
 }

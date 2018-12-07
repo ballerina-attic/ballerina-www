@@ -1,39 +1,42 @@
 import ballerina/http;
 
-endpoint http:Client backendEP {
-    url: "http://b.content.wso2.com"
-};
+http:Client backendEP = new("http://ballerina.io/samples");
 
-service<http:Service> store bind { port: 9090 } {
+service store on new http:Listener(9090) {
 
-    bookDetails(endpoint caller, http:Request req) {
-        http:Response response = check backendEP->get(
-            "/sample.json");
+    resource function bookDetails(http:Caller caller, http:Request req) {
+        http:Response|error response = backendEP->get("/bookstore.json");
 
-        json bookStore = check response.getJsonPayload();
-        json filteredBooksJson = filterBooks(bookStore, 1900);
-        xml filteredBooksXml = check filteredBooksJson.toXML({});
+        if (response is http:Response) {
+            json bookStore = check response.getJsonPayload();
+            json filteredBooksJson = filterBooks(bookStore, 1900);
+            xml filteredBooksXml = check filteredBooksJson.toXML({});
 
-        response.setPayload(untaint filteredBooksXml);
+            response.setPayload(untaint filteredBooksXml);
 
-        _ = caller->respond(response);
+            _ = caller->respond(response);
+        } else {
+            http:Response resp = new;
+            resp.statusCode = 500;
+            _ = caller->respond(resp);
+        }
     }
-
 }
 
 function filterBooks(json bookStore, int yearParam) returns json {
-
-    json filteredBooks;
+    json filteredBooks = {};
     int index;
 
-    foreach book in bookStore.store.books {
-        int year = check <int>book.year;
-        if (year > yearParam) {
-            filteredBooks[index] = book;
-            index += 1;
+    foreach json book in bookStore.store.books {
+        int|error year = int.convert(book.year);
+
+        if (year is int) {
+            if (year > yearParam) {
+                filteredBooks[index] = book;
+                index += 1;
+            }
         }
     }
 
     return filteredBooks;
-
 }

@@ -1,8 +1,7 @@
 import ballerina/http;
 import ballerina/log;
 
-endpoint http:Client backendEP {
-    url: "http://localhost:8080",
+http:Client backendEP = new("http://localhost:8080", config = {
     circuitBreaker: {
         failureThreshold: 0.2,
         statusCodes: [400, 404, 500]
@@ -13,18 +12,22 @@ endpoint http:Client backendEP {
         count: 3,
         interval: 1000
     }
-};
+});
 
-service<http:Service> legacyEndpoint bind { port: 9090 } {
+service legacyEndpoint on new http:Listener(9090) {
 
     @http:ResourceConfig {
         path: "/"
     }
-    invokeEndpoint(endpoint caller, http:Request request) {
-        http:Response backendRes = check backendEP->forward(
-            "/hello", request);
+    resource function invokeEndpoint(http:Caller caller, http:Request request) {
+        http:Response|error backendRes = backendEP->forward("/hello", request);
 
-        _ = caller->respond(backendRes);
+        if (backendRes is http:Response) {
+            _ = caller->respond(backendRes);
+        } else {
+            http:Response err = new;
+            err.statusCode = 500;
+            _ = caller->respond(err);
+        }
     }
-
 }

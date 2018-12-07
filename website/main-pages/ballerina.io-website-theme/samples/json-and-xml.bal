@@ -1,7 +1,6 @@
 import ballerina/io;
 
 public function main (string... args) {
-
     // Create a JSON object out of other primitives
     int i = 4;
     json[] codes = [i, 8];
@@ -25,13 +24,17 @@ public function main (string... args) {
 
     // Convert the JSON object to XML using the default 
     // `attributePrefix` and the default `arrayEntryTag`.
-    xml x1 = check j.toXML({});
-    xml x2 = xml `<!--I am a comment-->`;
-    xml x3 = x1 + x2;
+    xml|error x1 = j.toXML({});
 
-    io:println("Produced XML:");
-    io:println(x3);
-    io:println("Value of an individual element:");
-    io:println(x3.selectDescendants("name").getTextValue());
+    if (x1 is xml) {
+        xml x2 = xml `<!--I am a comment-->`;
+        xml x3 = x1 + x2;
 
+        io:println("Produced XML:");
+        io:println(x3);
+        io:println("Value of an individual element:");
+        io:println(x3.selectDescendants("name").getTextValue());
+    } else {
+        io:println("Failed to convert to XML");
+    }
 }
