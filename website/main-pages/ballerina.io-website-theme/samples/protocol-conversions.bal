@@ -9,7 +9,7 @@ service UserProfile on grpcListener {
 
     int nextUserNo = 1;
 
-    resource function addUser(grpc:Caller caller, UserInfo userInfo) {
+    resource function addUser(grpc:Caller caller, UserInfo userInfo) returns error? {
         User user = {id:string.convert(self.nextUserNo), info: userInfo};
         json|error userJSON = json.convert(user);
 
@@ -20,7 +20,7 @@ service UserProfile on grpcListener {
                 "/test/add", untaint userJSON);
 
             if (backendRes is http:Response) {
-                _ = caller->send(backendRes.getPayloadAsString());
+                _ = caller->send(check backendRes.getPayloadAsString());
             } else {
                 _ = caller->send(backendRes.reason());
             }
@@ -28,6 +28,7 @@ service UserProfile on grpcListener {
         } else {
             _ = caller->send("Invalid JSON received");
         }
+        return;
     }
 
     resource function getUser(grpc:Caller caller, string id) returns error? {
@@ -55,5 +56,5 @@ type UserInfo record {
 
 type User record {
     string id;
-    UserInfo userinfo;
+    UserInfo info;
 };

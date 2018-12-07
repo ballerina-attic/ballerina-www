@@ -27,7 +27,7 @@ service hello on new http:Listener(9090) {
         path: "/",
         methods: ["GET"]
     }
-    resource function hi (http:Caller caller, http:Request request) {
+    resource function hi(http:Caller caller, http:Request request) {
         http:Response res;
         res.setTextPayload("Hello World!\n");
 
