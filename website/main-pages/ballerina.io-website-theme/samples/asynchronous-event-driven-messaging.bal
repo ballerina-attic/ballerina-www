@@ -12,18 +12,14 @@ listener kafka:SimpleConsumer consumer = new({
 });
 
 service kafkaService on consumer {
-
-    resource function onMessage(kafka:ConsumerAction consumerAction,
-        kafka:ConsumerRecord[] records) returns error? {
-        
-        foreach entry in records {
+    resource function onMessage(kafka:SimpleConsumer simpleConsumer,
+                        kafka:ConsumerRecord[] records) returns error? {
+        foreach var entry in records {
             byte[] serializedMsg = entry.value;
-            io:ByteChannel byteChannel = io:openFile("/some/Path",
-                io:APPEND);
-            int writtenBytes = check byteChannel.write(
-                serializedMsg, 0);
+            io:WritableByteChannel byteChannel = io:openWritableFile("/some/Path",
+                                                                    append = true);
+            int writtenBytes = check byteChannel.write(serializedMsg, 0);
         }
-
         return;
     }
 }
@@ -43,19 +39,16 @@ kafka:SimpleProducer kafkaProducer = new({
 
 service productAdminService on new http:Listener(9090) {
 
-    resource function updatePrice(http:Caller caller, http:Request request,
-        json reqPayload) {
+    resource function updatePrice(http:Caller caller, http:Request request) returns error? {
         json|error reqPayload = request.getJsonPayload();
 
         if (reqPayload is json) {
-            byte[] serializedMsg = reqPayload.toString().toByteArray(
-                "UTF-8");
-            kafkaProducer->send(serializedMsg, "product-price",
+            byte[] serializedMsg = reqPayload.toString().toByteArray("UTF-8");
+            var result = check kafkaProducer->send(serializedMsg, "product-price",
                 partition = 0);
 
             http:Response response = new;
             response.setJsonPayload({"Status":"Success"});
-
             _ = caller->respond(response);
         } else {
             http:Response errResp = new;
@@ -63,5 +56,6 @@ service productAdminService on new http:Listener(9090) {
             errResp.setPayload("Invalid JSON payload received");
             _ = caller->respond(errResp);
         }
+        return;
     }
 }
