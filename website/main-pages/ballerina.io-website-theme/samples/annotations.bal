@@ -28,8 +28,8 @@ service hello on new http:Listener(9090) {
         methods: ["GET"]
     }
     resource function hi(http:Caller caller, http:Request request) {
-        http:Response res;
-        res.setTextPayload("Hello World!\n");
+        http:Response res = new;
+        res.setPayload("Hello World!\n");
 
         _ = caller->respond(res);
     }

@@ -4,30 +4,26 @@ http:Client backendEP = new("http://ballerina.io/samples");
 
 service store on new http:Listener(9090) {
 
-    resource function bookDetails(http:Caller caller, http:Request req) {
-        http:Response|error response = backendEP->get("/bookstore.json");
+    resource function bookDetails(http:Caller caller, http:Request req) returns error? {
+        http:Response response = check backendEP->get("/bookstore.json");
 
-        if (response is http:Response) {
-            json bookStore = check response.getJsonPayload();
-            json filteredBooksJson = filterBooks(bookStore, 1900);
-            xml filteredBooksXml = check filteredBooksJson.toXML({});
+        json bookStore = check response.getJsonPayload();
+        json filteredBooksJson = filterBooks(bookStore, 1900);
+        xml filteredBooksXml = check filteredBooksJson.toXML({});
 
-            response.setPayload(untaint filteredBooksXml);
+        response.setPayload(untaint filteredBooksXml);
 
-            _ = caller->respond(response);
-        } else {
-            http:Response resp = new;
-            resp.statusCode = 500;
-            _ = caller->respond(resp);
-        }
+        _ = caller->respond(response);
+        return;
     }
 }
 
 function filterBooks(json bookStore, int yearParam) returns json {
     json filteredBooks = {};
-    int index;
+    int index = 0;
 
-    foreach json book in bookStore.store.books {
+    json[] books = <json[]>bookStore.store.book;
+    foreach json book in books {
         int|error year = int.convert(book.year);
 
         if (year is int) {

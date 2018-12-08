@@ -23,9 +23,9 @@ service hello on new http:Listener(9090) {
         // Different handling depending on if we got proper string
         // or error
         if (payload is string) {
-            res.setTextPayload("Hello " + untaint payload + "!\n");
+            res.setPayload("Hello " + untaint payload + "!\n");
         } else {
-            res.setTextPayload(untaint payload.reason());
+            res.setPayload(untaint <string>payload.detail().message);
         }
 
         // Return response, '->' signifies remote call

@@ -33,9 +33,8 @@ service travelAgencyService on new http:Listener(9090) {
             // Implement the business logic for the retrieved response
             if (inResAirline is http:Response && inResHotel is http:Response) {
                 http:Response outResponse = new;
-                outResponse.setJsonPayload({"Message":"Congratulations! " +
+                outResponse.setPayload({"Message":"Congratulations! " +
                     "Your journey is ready!!"});
-
                 _ = caller->respond(outResponse);
                 return;
             }
@@ -48,12 +47,12 @@ service travelAgencyService on new http:Listener(9090) {
             }
 
             http:Response errResponse = new;
-            errResponse.setJsonPayload(errMsg);
+            errResponse.setPayload(errMsg);
             _ = caller->respond(errResponse);
         } else {
             http:Response errResponse = new;
             errResponse.statusCode = 400;
-            errResponse.setTextPayload("Invalid JSON payload");
+            errResponse.setPayload("Invalid JSON payload");
             _ = caller->respond(errResponse);
         }
     }

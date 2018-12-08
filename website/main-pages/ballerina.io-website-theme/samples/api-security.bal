@@ -45,16 +45,9 @@ service echo on secureListener {
             scopes: ["hello"]
         }
     }
-    resource function hello(http:Caller caller, http:Request req) {
-        var res = httpEndpoint->get("/secured/endpoint");
-
-        if (res is http:Response) {
-            _ = caller->respond(res);
-        } else {
-            http:Response err = new;
-            err.statusCode = 500;
-            err.reasonPhrase = "Internal error occurred";
-            _ = caller->respond(err);
-        }
+    resource function hello(http:Caller caller, http:Request req) returns error? {
+        http:Response res = check httpEndpoint->get("/secured/endpoint");
+        _ = caller->respond(res);
+        return;
     }
 }

@@ -14,7 +14,7 @@ service orderMgt on new http:Listener(9090) {
         json? payload = ordersMap[orderId];
 
         http:Response response = new;
-        response.setJsonPayload(untaint payload);
+        response.setPayload(untaint payload);
 
         _ = caller->respond(response);
     }
@@ -34,8 +34,7 @@ service orderMgt on new http:Listener(9090) {
             json payload = { status: "Order Created.", orderId: orderId };
 
             http:Response response = new;
-
-            response.setJsonPayload(untaint payload);
+            response.setPayload(untaint payload);
             response.statusCode = 201;
             response.setHeader("Location",
                 "http://localhost:9090/ordermgt/order/" + orderId);
@@ -43,7 +42,7 @@ service orderMgt on new http:Listener(9090) {
             _ = caller->respond(response);
         } else {
             http:Response response = new;
-            response.statusCode = 500;
+            response.statusCode = 400;
             _ = caller->respond(response);
         }
     }
