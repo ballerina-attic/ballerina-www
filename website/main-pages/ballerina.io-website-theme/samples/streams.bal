@@ -21,17 +21,17 @@ function testAggregationQuery (stream<StatusCount> filteredCountStream,
         select status, count(status) as totalCount
         group by status
         having totalCount > 1
-        => (StatusCount [] status) {
-            filteredCountStream.publish(status);
+        => (StatusCount[] status) {
+            foreach var st in status {
+                filteredCountStream.publish(st);
+            }
         }
     }
-
 }
 
 public function main (string... args) {
-
-    stream<StatusCount> filteredCountStream;
-    stream<Teacher> teacherStream;
+    stream<StatusCount> filteredCountStream = new;
+    stream<Teacher> teacherStream = new;
 
     testAggregationQuery(filteredCountStream, teacherStream);
     filteredCountStream.subscribe(printStatusCount);
@@ -58,7 +58,6 @@ public function main (string... args) {
     teacherStream.publish(t3);   
 
     runtime:sleep(1000);
-
 }
 
 function printStatusCount (StatusCount s) {

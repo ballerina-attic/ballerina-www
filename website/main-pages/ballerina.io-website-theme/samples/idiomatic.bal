@@ -15,14 +15,14 @@ public function main(string... args) {
 function deleteFile(string filePath) returns error? {
 
     // Function parameters are effectively final.
-    // Below line will give a compiler error as
+    // Below line will give a compiler error as you
     // cannot assign a value to function argument
     // 'filePath'
     filePath = "./files/test.txt";
 
     boolean exists = isExists(filePath);
     if(!exists) {
-        error e = {message : "File Not found"};
+        error e = error("File Not found");
         return e;
     }
 

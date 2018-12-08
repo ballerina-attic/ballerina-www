@@ -2123,7 +2123,7 @@
             <div data-startLine="1" data-endLine="67" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        Ballerina provides first class support for streams. You can build streaming queries by using the user friendly syntax provided by Ballerina The queries include, projection, filtering, windows, stream joins and patterns.
+                        Ballerina provides first class support for streams. You can build streaming queries by using the user friendly syntax provided by Ballerina The queries include, projection, filtering, windows, stream joins and patterns. Please note that this is an experimental feature and is subject to extensive change in future releases.
                     </p>
                 </div>
             </div>
@@ -2161,6 +2161,11 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="transactions-text">
+            <div data-startLine="1" data-endLine="52" class="hTrigger cCodeDesription">
+                <div>
+                    <p>Please note that this is an experimental feature and is subject to extensive change in future releases. </p>
+                </div>
+            </div>
             <div data-startLine="20" data-endLine="20" class="hTrigger cCodeDesription">
                 <div>
                     <p>To improve the reliability of microservice-based applications, a series of invocations can be bound into a single unit of work called transaction. </p>
