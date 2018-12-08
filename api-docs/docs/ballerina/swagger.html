@@ -401,6 +401,18 @@
                                             
                                           
                                         <li>
+                                            <a href="#MultiResourceInformation">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    MultiResourceInformation
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
                                             <a href="#ParameterInformation">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
@@ -495,6 +507,7 @@
                                             </a>
                                         </li>
                                             
+                                             
                                              
                                              
                                              
@@ -723,6 +736,14 @@ service Hello bind helloEp {
                                              
                                                  
                                                      <tr>
+                                                         <td class="cSummary-table-name"><a href="#MultiResourceInformation">MultiResourceInformation</a></td>
+                                                         <td class="cSummary-table-desc">Model for multi swagger operation definition for ballerina resource.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#ParameterInformation">ParameterInformation</a></td>
                                                          <td class="cSummary-table-desc">Model for keeping Swagger parameter information.
 </td>
@@ -793,6 +814,8 @@ service Hello bind helloEp {
                                              
                                                  
                                              
+                                                 
+                                             
                                          </table>
                                          
                                         <!-- objects -->
@@ -831,6 +854,7 @@ service Hello bind helloEp {
                                               
                                               
                                               
+                                              
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">ClientConfig</td>
@@ -843,9 +867,18 @@ service Hello bind helloEp {
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">ClientEndpoint</td>
-                                                <td class="cSummary-table-attach">endpoint</td>
+                                                <td class="cSummary-table-attach">client</td>
                                                 <td class="cSummary-table-type"><a href="">-</a></td>
                                                 <td class="cSummary-table-desc"><p>Presence of this annotation will mark this endpoint to be used as a service endpoint for client generation</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">MultiResourceInfo</td>
+                                                <td class="cSummary-table-attach">resource</td>
+                                                <td class="cSummary-table-type"><a href="swagger.html#MultiResourceInformation">MultiResourceInformation</a></td>
+                                                <td class="cSummary-table-desc"><p>Annotation for multi Swagger operation information of a Ballerina resource.</p>
 </td>
                                             </tr>
                                               
@@ -1054,7 +1087,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">headers</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#ParameterInformation">swagger:ParameterInformation[]</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Additional information to be provided as headers</p>
 </td>
                                                     </tr>
@@ -1078,7 +1111,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">explode</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">false</td>
                                                         <td class="cAPI-table-desc"><p>Should property values of array or object generate separate parameters for each value of the array</p>
 </td>
                                                     </tr>
@@ -1086,7 +1119,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">allowReserved</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">false</td>
                                                         <td class="cAPI-table-desc"><p>Determines whether the parameter value SHOULD allow reserved characters</p>
 </td>
                                                     </tr>
@@ -1194,7 +1227,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">required</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">false</td>
                                                         <td class="cAPI-table-desc"><p>Is this a required header</p>
 </td>
                                                     </tr>
@@ -1202,7 +1235,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">discontinued</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">false</td>
                                                         <td class="cAPI-table-desc"><p>Is this header deprecated</p>
 </td>
                                                     </tr>
@@ -1282,6 +1315,48 @@ service Hello bind helloEp {
                                                 
                                                 <!-- Records -->
                                                 
+                                                <h2 id="MultiResourceInformation">
+                                                    <span class="fw-record sm-icon"></span> public type MultiResourceInformation
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Model for multi swagger operation definition for ballerina resource.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">resourceInformation</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;swagger:ResourceInformation&gt;</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>list of resource information</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
                                                 <h2 id="ParameterInformation">
                                                     <span class="fw-record sm-icon"></span> public type ParameterInformation
                                                 </h2>
@@ -1316,6 +1391,14 @@ service Hello bind helloEp {
                                                     </tr>
                                                     
                                                     <tr>
+                                                        <td class="cAPI-table-name">paramType</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Parameter type</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
                                                         <td class="cAPI-table-name">description</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
@@ -1326,7 +1409,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">required</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">false</td>
                                                         <td class="cAPI-table-desc"><p>Is this parameter MUST be present in the request</p>
 </td>
                                                     </tr>
@@ -1334,7 +1417,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">discontinued</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">false</td>
                                                         <td class="cAPI-table-desc"><p>Is this parameter deprecated</p>
 </td>
                                                     </tr>
@@ -1350,7 +1433,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">schema</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#Schema">swagger:Schema</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Parameter data type</p>
 </td>
                                                     </tr>
@@ -1392,7 +1475,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">tags</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Tags attched to this resource</p>
 </td>
                                                     </tr>
@@ -1416,7 +1499,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">externalDocs</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#DocumentationInformation">swagger:DocumentationInformation</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Additional documentation for this operation</p>
 </td>
                                                     </tr>
@@ -1424,7 +1507,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">parameters</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#ParameterInformation">swagger:ParameterInformation[]</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>A list of parameters that are applicable for this operation</p>
 </td>
                                                     </tr>
@@ -1490,7 +1573,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">headers</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#Header">swagger:Header[]</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Response headers</p>
 </td>
                                                     </tr>
@@ -1498,7 +1581,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">examples</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#Example">swagger:Example[]</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Examples for this response</p>
 </td>
                                                     </tr>
@@ -1548,7 +1631,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">isArray</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">false</td>
                                                         <td class="cAPI-table-desc"><p>Is this an array type schema</p>
 </td>
                                                     </tr>
@@ -1606,7 +1689,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">requirements</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Array of security requirements</p>
 </td>
                                                     </tr>
@@ -1680,7 +1763,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">contact</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#Contact">swagger:Contact</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Contact information for the exposed API</p>
 </td>
                                                     </tr>
@@ -1688,7 +1771,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">license</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#License">swagger:License</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>License information for the exposed API</p>
 </td>
                                                     </tr>
@@ -1696,7 +1779,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">externalDocs</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#DocumentationInformation">swagger:DocumentationInformation</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Additional external documentation</p>
 </td>
                                                     </tr>
@@ -1704,7 +1787,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">tags</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#Tag">swagger:Tag[]</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>A list of tags used by the specification with additional metadata</p>
 </td>
                                                     </tr>
@@ -1712,7 +1795,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">security</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#SecurityRequirement">swagger:SecurityRequirement[]</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Security requirements for this service</p>
 </td>
                                                     </tr>
@@ -1770,7 +1853,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">externalDocs</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#DocumentationInformation">swagger:DocumentationInformation</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Optional documentation on the tag</p>
 </td>
                                                     </tr>
@@ -1820,7 +1903,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">required</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">false</td>
                                                         <td class="cAPI-table-desc"><p>Determines if the request body is required in the request</p>
 </td>
                                                     </tr>
@@ -1836,7 +1919,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">examples</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#Example">swagger:Example[]</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Examples of the media type</p>
 </td>
                                                     </tr>
@@ -1844,7 +1927,7 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">schema</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#Schema">swagger:Schema</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>The schema defining the type used for the request body</p>
 </td>
                                                     </tr>
@@ -1852,13 +1935,28 @@ service Hello bind helloEp {
                                                     <tr>
                                                         <td class="cAPI-table-name">encoding</td>
                                                         <td class="cAPI-table-type"><a href="swagger.html#Encoding">swagger:Encoding[]</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Encoding and content type details</p>
 </td>
                                                     </tr>
                                                     
                                                 </table>
                                                  
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
                                                 <!-- Objects and its functions -->
                                                 
                                             </div>
@@ -2256,16 +2354,6 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="mime.html">ballerina/<span class="bold">mime</span>
                                    </a>
                                    
@@ -2307,6 +2395,16 @@ service Hello bind helloEp {
                                    <!--Package Name-->
                                    
                                    <a href="runtime.html">ballerina/<span class="bold">runtime</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
                                    </a>
                                    
                                 </li>
@@ -2571,16 +2669,6 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="mime.html">ballerina/<span class="bold">mime</span>
                                    </a>
                                    
@@ -2622,6 +2710,16 @@ service Hello bind helloEp {
                                    <!--Package Name-->
                                    
                                    <a href="runtime.html">ballerina/<span class="bold">runtime</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
                                    </a>
                                    
                                 </li>
