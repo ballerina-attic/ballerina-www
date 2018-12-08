@@ -1,6 +1,6 @@
 import ballerina/http;
 
-http:Client backendEP = new("http://ballerina.io/samples");
+http:Client backendEP = new("https://ballerina.io/samples");
 
 service store on new http:Listener(9090) {
 

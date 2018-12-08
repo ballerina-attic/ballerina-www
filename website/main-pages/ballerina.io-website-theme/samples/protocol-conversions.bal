@@ -3,7 +3,7 @@ import ballerina/http;
 
 listener grpc:Listener grpcListener = new(9090);
 
-http:Client backendEP = new("http://ballerina.io/samples");
+http:Client backendEP = new("https://ballerina.io/samples");
 
 service UserProfile on grpcListener {
 

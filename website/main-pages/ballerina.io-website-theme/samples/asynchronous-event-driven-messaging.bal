@@ -1,20 +1,20 @@
 // Consumer Example
 // --------------------------------------------------------
 
-import wso2/kafka;
 import ballerina/io;
+import wso2/kafka;
 
-endpoint kafka:SimpleConsumer consumer {
+listener kafka:SimpleConsumer consumer = new({
     bootstrapServers: "localhost:9092, localhost:9093",
     groupId: "inventorySystemd",
     topics: ["product-price"],
     pollingInterval:1000
-};
+});
 
-service<kafka:Consumer> kafkaService bind consumer {
+service kafkaService on consumer {
 
-    onMessage(kafka:ConsumerAction consumerAction, 
-        kafka:ConsumerRecord[] records) {
+    resource function onMessage(kafka:ConsumerAction consumerAction,
+        kafka:ConsumerRecord[] records) returns error? {
         
         foreach entry in records {
             byte[] serializedMsg = entry.value;
@@ -24,8 +24,8 @@ service<kafka:Consumer> kafkaService bind consumer {
                 serializedMsg, 0);
         }
 
+        return;
     }
-
 }
 
 // Producer Example
@@ -34,28 +34,34 @@ service<kafka:Consumer> kafkaService bind consumer {
 import ballerina/http;
 import wso2/kafka;
 
-endpoint kafka:SimpleProducer kafkaProducer {
+kafka:SimpleProducer kafkaProducer = new({
     bootstrapServers: "localhost:9092",
     clientID:"basic-producer",
     acks:"all",
     noRetries:3
-};
+});
 
-service<http:Service> productAdminService bind { port: 9090 } {
+service productAdminService on new http:Listener(9090) {
 
-    updatePrice (endpoint client, http:Request request, 
+    resource function updatePrice(http:Caller caller, http:Request request,
         json reqPayload) {
+        json|error reqPayload = request.getJsonPayload();
 
-        byte[] serializedMsg = reqPayload.toString().toByteArray(
-            "UTF-8");
-        kafkaProducer->send(serializedMsg, "product-price", 
-            partition = 0);
+        if (reqPayload is json) {
+            byte[] serializedMsg = reqPayload.toString().toByteArray(
+                "UTF-8");
+            kafkaProducer->send(serializedMsg, "product-price",
+                partition = 0);
 
-        http:Response response;
-        response.setJsonPayload({"Status":"Success"});
+            http:Response response = new;
+            response.setJsonPayload({"Status":"Success"});
 
-        _ = client->respond(response);
-    
+            _ = caller->respond(response);
+        } else {
+            http:Response errResp = new;
+            errResp.statusCode = 400;
+            errResp.setPayload("Invalid JSON payload received");
+            _ = caller->respond(errResp);
+        }
     }
-
 }
