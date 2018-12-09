@@ -25,7 +25,8 @@ $(document).ready(function() {
             { "name": "Salesforce-Twilio Integration", "desc": "", "url": "salesforce-twilio-integration", "git": "" },
             { "name": "Gmail-Google Sheets Integration", "desc": "", "url": "gmail-spreadsheet-integration", "git": "" },
             { "name": "SonarQube-GitHub Integration ", "desc": "", "url": "sonarqube-github-integration", "git": "" },
-	    { "name": "Honeycomb Integration ", "desc": "", "url": "ballerina-honeycomb", "git": "" }
+	    { "name": "Honeycomb Integration", "desc": "", "url": "ballerina-honeycomb", "git": "" },
+	    { "name": "Securing RESTful Services with LDAP", "desc": "", "url": "securing-restful-services-with-ldap", "git": "" }
 
         ],
         "Protocols and Standards": [
@@ -49,7 +50,7 @@ $(document).ready(function() {
         
 	"Cloud Native Deployment": [
             { "name": "Deployment with Azure Kubernetes Service", "desc": "", "url": "ballerina-aks-deployment", "git": "" },
-	    { "name": "Running with Istio", "desc": "", "url": "ballerina-with-istio", "git": "" }
+	     { "name": "Running with Istio", "desc": "", "url": "ballerina-with-istio", "git": "" }
         ]
     };
 
