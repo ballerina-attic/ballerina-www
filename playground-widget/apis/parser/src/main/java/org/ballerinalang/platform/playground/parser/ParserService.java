@@ -96,8 +96,9 @@ public class ParserService {
             BLangCompilationUnit compilationUnit = bLangPackage.get().getCompilationUnits().stream()
                     .findFirst()
                     .orElse(null);
-            JsonElement jsonAST = TextDocumentFormatUtil.generateJSON(compilationUnit, new HashMap<>());
-            FormattingSourceGen.build(jsonAST.getAsJsonObject(), null, "CompilationUnit");
+            JsonElement jsonAST = TextDocumentFormatUtil.generateJSON(compilationUnit, null,
+                        new HashMap<>());
+            FormattingSourceGen.build(jsonAST.getAsJsonObject(), "CompilationUnit");
             return jsonAST;
         }
         return null;
