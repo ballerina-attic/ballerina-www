@@ -2100,7 +2100,7 @@
             <div data-startLine="7" data-endLine="10" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        Annotations can extend Ballerina parser, compiler, and runtime behavior. For example, this annotation comes from `ballerinax/kubernetes` package and instructs the build process to generate a Docker image file and deployment artifacts.
+                        Annotations can extend Ballerina parser, compiler, and runtime behavior. For example, this annotation comes from <code>ballerinax/kubernetes</code> package and instructs the build process to generate a Docker image file and deployment artifacts.
                     </p>
                 </div>
             </div>
