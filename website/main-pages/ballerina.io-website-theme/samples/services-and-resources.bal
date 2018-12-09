@@ -10,7 +10,8 @@ service orderMgt on new http:Listener(9090) {
         produces: ["application/json"],
         path: "/order/{orderId}"
     }
-    resource function findOrder(http:Caller caller, http:Request req, string orderId) {
+    resource function findOrder(http:Caller caller, http:Request req,
+                                string orderId) {
         json? payload = ordersMap[orderId];
 
         http:Response response = new;

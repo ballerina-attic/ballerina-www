@@ -6,7 +6,7 @@ import wso2/kafka;
 
 listener kafka:SimpleConsumer consumer = new({
     bootstrapServers: "localhost:9092, localhost:9093",
-    groupId: "inventorySystemd",
+    groupId: "inventorySystem",
     topics: ["product-price"],
     pollingInterval:1000
 });
@@ -16,8 +16,8 @@ service kafkaService on consumer {
                         kafka:ConsumerRecord[] records) returns error? {
         foreach var entry in records {
             byte[] serializedMsg = entry.value;
-            io:WritableByteChannel byteChannel = io:openWritableFile("/some/Path",
-                                                                    append = true);
+            io:WritableByteChannel byteChannel =
+                        io:openWritableFile("/some/Path", append = true);
             int writtenBytes = check byteChannel.write(serializedMsg, 0);
         }
         return;
@@ -39,13 +39,14 @@ kafka:SimpleProducer kafkaProducer = new({
 
 service productAdminService on new http:Listener(9090) {
 
-    resource function updatePrice(http:Caller caller, http:Request request) returns error? {
+    resource function updatePrice(http:Caller caller, http:Request request)
+                                    returns error? {
         json|error reqPayload = request.getJsonPayload();
 
         if (reqPayload is json) {
             byte[] serializedMsg = reqPayload.toString().toByteArray("UTF-8");
-            var result = check kafkaProducer->send(serializedMsg, "product-price",
-                partition = 0);
+            var result = check kafkaProducer->send(serializedMsg,
+                                    "product-price", partition = 0);
 
             http:Response response = new;
             response.setJsonPayload({"Status":"Success"});

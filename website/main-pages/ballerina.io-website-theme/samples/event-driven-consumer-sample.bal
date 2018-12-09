@@ -3,7 +3,7 @@ import wso2/kafka;
 
 listener kafka:SimpleConsumer consumer = new({
     bootstrapServers: "localhost:9092, localhost:9093",
-    groupId: "inventorySystemd",
+    groupId: "inventorySystem",
     topics: ["product-price"],
     pollingInterval:1000
 });

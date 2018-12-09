@@ -2012,12 +2012,12 @@
         </div>
         <!-- first part end -->
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="api-constructs-text">
-            <div data-startLine="1" data-endLine="39" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="35" class="hTrigger cCodeDesription">
                 <div>
                     <p>Ballerina makes it easy to build APIs, provide and consume HTTP, WebSocket, gRPC, Protobuf, and other services. This example demonstrates a simple REST API built with Ballerina.</p>
                 </div>
             </div>
-            <div data-startLine="8" data-endLine="39" class="hTrigger cCodeDesription">
+            <div data-startLine="8" data-endLine="35" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Services, resources, endpoints, request and response objects are all native language constructs.
@@ -2027,32 +2027,32 @@
                     </p>
                 </div>
             </div>
-            <div data-startLine="25" data-endLine="32" class="hTrigger cCodeDesription">
+            <div data-startLine="25" data-endLine="29" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        Note how the "match" command in the code is used to handle a union-type return: if the return value is a string - normal processing happens. If our service did not get the string it expected - we use error-handling logic instead.
+                        Note how the type test (`is` check) is used to handle a union-type return: if the return value is a string, normal processing happens. If our service did not get the string it expected, we use error-handling logic instead.
                     </p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="asynchronous-text">
-            <div data-startLine="1" data-endLine="21" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="19" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Ballerina makes it easy to call functions and remote services asynchronously, wait for results when needed, check status and cancel asynchronous execution, fork and join threads, and pass data between threads.
                     </p>
                 </div>
             </div>
-            <div data-startLine="6" data-endLine="6" class="hTrigger cCodeDesription">
+            <div data-startLine="5" data-endLine="5" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        Asynchronous calls to functions and endpoints create a future&lt;type&gt; variable that can then be passed further to other calls is needed. Once the actual value is needed, the wait operator can be used to wait for the actual return.
+                        Asynchronous calls to functions and endpoints create a future&lt;type&gt; variable that can then be passed further to other calls if needed. Once the actual value is needed, the wait operator can be used to wait for the actual return.
                     </p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="workers-text">
-            <div data-startLine="3" data-endLine="31" class="hTrigger cCodeDesription">
+            <div data-startLine="3" data-endLine="29" class="hTrigger cCodeDesription">
                 <div>
                     <p>Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads </p>
                 </div>
@@ -2073,19 +2073,19 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="json-and-xml-text">
-            <div data-startLine="1" data-endLine="37" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="40" class="hTrigger cCodeDesription">
                 <div>
                     <p>JSON and XML are first class citizens in Ballerina.</p>
                 </div>
             </div>
-            <div data-startLine="7" data-endLine="19" class="hTrigger cCodeDesription">
+            <div data-startLine="7" data-endLine="18" class="hTrigger cCodeDesription">
                 <div>
                     <p>You can construct JSON and XML objects inline or from other variables, arrays, and values.</p>
                 </div>
             </div>
-            <div data-startLine="28" data-endLine="28" class="hTrigger cCodeDesription">
+            <div data-startLine="27" data-endLine="27" class="hTrigger cCodeDesription">
                 <div>
-                    <p>You can convert JSON to XML and XML to JSON, access individual elements, and use various functions.</p>
+                    <p>You can convert JSON to XML and XML to JSON, access individual elements, and make use of a variety of functions provided for manipulating JSON and XML.</p>
                 </div>
             </div>
         </div>
@@ -2100,34 +2100,34 @@
             <div data-startLine="7" data-endLine="10" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        Annotations can extend Ballerina parser, compiler, and runtime behavior. For example, this annotation comes from kubernetes package and instructs the build process to generate a Docker image file and deployment artifacts.
+                        Annotations can extend Ballerina parser, compiler, and runtime behavior. For example, this annotation comes from `ballerinax/kubernetes` package and instructs the build process to generate a Docker image file and deployment artifacts.
                     </p>
                 </div>
             </div>
             <div data-startLine="13" data-endLine="17" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        These annotations provide additional fields for the generated swagger/openapi definition.
+                        These annotations provide additional fields for the generated Swagger/OpenAPI definition.
                     </p>
                 </div>
             </div>
             <div data-startLine="20" data-endLine="22" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        These http annotations modify the way the HTTP service and resource are exposed.
+                        These HTTP annotations modify the way the HTTP service and resource are exposed.
                     </p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="streams-text">
-            <div data-startLine="1" data-endLine="67" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="66" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Ballerina provides first class support for streams. You can build streaming queries by using the user friendly syntax provided by Ballerina The queries include, projection, filtering, windows, stream joins and patterns. Please note that this is an experimental feature and is subject to extensive change in future releases.
                     </p>
                 </div>
             </div>
-            <div data-startLine="19" data-endLine="27" class="hTrigger cCodeDesription">
+            <div data-startLine="19" data-endLine="29" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Define the stream-processing query that will get evaluated over the incoming stream and create a new aggregation stream when the query condition is met.
@@ -2161,7 +2161,7 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="transactions-text">
-            <div data-startLine="1" data-endLine="52" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="50" class="hTrigger cCodeDesription">
                 <div>
                     <p>Please note that this is an experimental feature and is subject to extensive change in future releases. </p>
                 </div>
@@ -2171,7 +2171,7 @@
                     <p>To improve the reliability of microservice-based applications, a series of invocations can be bound into a single unit of work called transaction. </p>
                 </div>
             </div>
-            <div data-startLine="22" data-endLine="33" class="hTrigger cCodeDesription">
+            <div data-startLine="20" data-endLine="39" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                       Start a transaction block with four retry attempts and perform two database insert operations within the transaction
@@ -2180,22 +2180,22 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="taint-analysis-text">
-            <div data-startLine="1" data-endLine="44" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="42" class="hTrigger cCodeDesription">
                 <div>
                     <p>The Ballerina compiler identifies untrusted (tainted) data by observing how tainted data propagates through the program. If untrusted data is passed to a security sensitive parameter, a compiler error is generated.</p>
                 </div>
             </div>
             <div data-startLine="3" data-endLine="3" class="hTrigger cCodeDesription">
                 <div>
-                    <p>Sensitive parameters of the functions built-in-to ballerina are decorated with <code>@sensitive</code> annotation. This ensures that tainted data cannot pass into  the security sensitive parameter.</p>
+                    <p>Sensitive parameters of the functions built-in-to ballerina are decorated with the <code>@sensitive</code> annotation. This ensures that tainted data cannot be passed into the security sensitive parameter.</p>
                 </div>
             </div>
-            <div data-startLine="30" data-endLine="33" class="hTrigger cCodeDesription">
+            <div data-startLine="28" data-endLine="31" class="hTrigger cCodeDesription">
                 <div>
                     <p>The <code>@tainted</code> annotation denotes that the return value of the function should not be trusted (tainted).</p>
                 </div>
             </div>
-            <div data-startLine="35" data-endLine="38" class="hTrigger cCodeDesription">
+            <div data-startLine="33" data-endLine="36" class="hTrigger cCodeDesription">
                 <div>
                     <p>The <code>@untainted</code> annotation denotes that the return value of the function should be trusted (untainted).</p>
                 </div>
@@ -2273,9 +2273,9 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="services-and-resources-text">
-            <div data-startLine="1" data-endLine="44" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="50" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Ballerina provides first class support for services. Services represent collections of network accessible entry points. Resources represent one such entry point. How a resource is exposed over a network protocol depends on the listener that binds the service. Here, an anonymous listener is used to expose the service.</p>
+                    <p>Ballerina provides first class support for services. Services represent collections of network accessible entry points. Resources represent one such entry point. How a resource is exposed over a network protocol depends on the listener to which the service is bound. Here, an anonymous listener is used to expose the service.</p>
                 </div>
             </div>
             <div data-startLine="8" data-endLine="12" class="hTrigger cCodeDesription gray">
@@ -2285,96 +2285,96 @@
             </div>
             <div data-startLine="22" data-endLine="27" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>Similarly, the second resource is written to handle HTTP POST requests that are directed to the path <code>/order</code> to create a new order. This maps the request body entity to the <code>orderReq</code> JSON.</p>
+                    <p>Similarly, the second resource is written to handle HTTP POST requests that are directed to the path <code>/order</code> to create a new order.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="endpoints-text">
-            <div data-startLine="1" data-endLine="30" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="28" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina provides a set of endpoints to send and receive messages using different protocols.</p>
                 </div>
             </div>
-            <div data-startLine="5" data-endLine="9" class="hTrigger cCodeDesription gray">
+            <div data-startLine="5" data-endLine="8" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>The server endpoint listens to inbound HTTP requests. To configure the server endpoint, use configuration parameters such as Keep-Alive, timeout, request limits, etc.</p>
+                    <p>The server endpoint listens to inbound HTTP requests. To configure the server endpoint, use configuration parameters such as keep-alive, timeout, request limits, etc.</p>
                 </div>
             </div>
-            <div data-startLine="11" data-endLine="16" class="hTrigger cCodeDesription gray">
+            <div data-startLine="10" data-endLine="15" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The client endpoint talks to external endpoints over the network. Similar to the server endpoint, use configuration parameters to configure the client endpoint. Here we use a Twitter client endpoint to talk to the Twitter API.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="network-data-types-and-conversions-text">
-            <div data-startLine="1" data-endLine="39" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="38" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina provides first class support for network data types such as JSON and XML. This examples shows how easy it is to retrieve a JSON payload and then transform it based on the requirement. Finally, before sending the response, you can convert the transformed JSON payload to XML.
                     </p>
                 </div>
             </div>
-            <div data-startLine="15" data-endLine="15" class="hTrigger cCodeDesription gray">
+            <div data-startLine="12" data-endLine="12" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>To transform the JSON payload to XML, invoke the <code>toXML()</code> function.</p>
                 </div>
             </div>
-            <div data-startLine="24" data-endLine="39" class="hTrigger cCodeDesription gray">
+            <div data-startLine="21" data-endLine="38" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>This function shows how to traverse JSON and filter out specific sections, while forming a new JSON payload. In this case, it simply filters out books that are written after the <code>yearParam</code> value.</p>
+                    <p>This function shows how to traverse a JSON and filter out specific sections, while forming a new JSON payload. In this case, it simply filters out books that are written after the <code>yearParam</code> value.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="resilient-communication-text">
-            <div data-startLine="1" data-endLine="30" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="27" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina embraces the fact that networks can fail transiently. To defend against such failures, Ballerina provides network resilient features such as Timeout, Retry, Circuit Breaker, etc.. This example demonstrates how to use a combination of these features.</p>
                 </div>
             </div>
-            <div data-startLine="6" data-endLine="9" class="hTrigger cCodeDesription gray">
+            <div data-startLine="5" data-endLine="8" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Configuration options that are used to control the behavior of the Ballerina circuit breaker.</p>
                 </div>
             </div>
-            <div data-startLine="10" data-endLine="10" class="hTrigger cCodeDesription gray">
+            <div data-startLine="9" data-endLine="9" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Endpoint timeout is configured using <code>timeoutMillis</code>.</p>
                 </div>
             </div>
-            <div data-startLine="11" data-endLine="15" class="hTrigger cCodeDesription gray">
+            <div data-startLine="10" data-endLine="1" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Requests can be re-tried using the <code>retryConfig</code>.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="service-composition-text">
-            <div data-startLine="1" data-endLine="43" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="59" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Service composition is a common use case in integration that involves communicating with many back-ends before formulating the response. This example demonstrates service composition with a simple tour arrangement system that involves airline reservation and hotel reservation.</p>
                 </div>
             </div>
-            <div data-startLine="3" data-endLine="9" class="hTrigger cCodeDesription gray">
+            <div data-startLine="3" data-endLine="5" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Client endpoints used to communicate with the airline reservation and hotel reservation services.</p>
                 </div>
             </div>
-            <div data-startLine="27" data-endLine="28" class="hTrigger cCodeDesription gray">
+            <div data-startLine="25" data-endLine="26" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The first endpoint is invoked with an HTTP POST request. Once the response is received, it is stored in <code>inResAirline</code>.</p>
                 </div>
             </div>
-            <div data-startLine="32" data-endLine="33" class="hTrigger cCodeDesription gray">
+            <div data-startLine="30" data-endLine="31" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The second endpoint is also invoked with an HTTP POST request and the received response is stored in <code>inResHotel</code>.</p>
                 </div>
             </div>
-            <div data-startLine="40" data-endLine="40" class="hTrigger cCodeDesription gray">
+            <div data-startLine="38" data-endLine="38" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The response is sent back based on the received inbound responses.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="asynchronous-event-driven-messaging-text">
-            <div data-startLine="1" data-endLine="61" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="62" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina supports integrating with different message brokers. This example demonstrates how to produce and consume messages from a Kafka broker, and how to store the consumed data in a file.</p>
                 </div>
@@ -2384,31 +2384,31 @@
 					<p>This service is written to listen to <code>product-price</code> topic. Whenever, there is a message, it notifies the <code>onMessage</code> resource with the new message.</p>
                 </div>
             </div>
-			<div data-startLine="44" data-endLine="44" class="hTrigger cCodeDesription gray">
+			<div data-startLine="33" data-endLine="38" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Similar to consuming messages, it is possible to produce messages to topics as well, which is done with a kafka client endpoint.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="protocol-conversions-text">
-            <div data-startLine="1" data-endLine="48" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="64" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>This example demonstrates a simple protocol switch from gRPC to HTTP. The listener endpoint retrieves gRPC messages that are transformed to JSON messages before sending to the back-end.</p>
                 </div>
             </div>
-            <div data-startLine="17" data-endLine="19" class="hTrigger cCodeDesription gray">
+            <div data-startLine="14" data-endLine="15" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>User-defined data structures can be cast into common network data types such as JSON and XML. In this case, <code>UserInfo</code> is cast into JSON.</p>
+                    <p>User-defined data structures can be converted to common network data types such as JSON and XML. In this case, <code>User</code> is converted to JSON.</p>
                 </div>
             </div>
-            <div data-startLine="31" data-endLine="34" class="hTrigger cCodeDesription gray">
+            <div data-startLine="38" data-endLine="39" class="hTrigger cCodeDesription gray">
                 <div>
-                    <p>The retrieved JSON message is cast into a user-defined data structure to match it with the gRPC response before sending it back the gRPC response.</p>
+                    <p>The retrieved JSON message is converted to a user-defined data structure to match it with the gRPC response before sending it back to the caller.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="api-security-text">
-            <div data-startLine="1" data-endLine="57" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="54" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina provides security features such as OAuth2, Basic Auth, OCSP, etc. This sample demonstrates connecting to an endpoint with JWT.</p>
                 </div>
@@ -2418,12 +2418,12 @@
                     <p>JWT Auth provider is configured with relevant parameters.</p>
                 </div>
             </div>
-            <div data-startLine="16" data-endLine="20" class="hTrigger cCodeDesription gray">
+            <div data-startLine="14" data-endLine="20" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The client endpoint is configured to communicate with a back-end that is secured with Basic Auth.</p>
                 </div>
             </div>
-            <div data-startLine="25" data-endLine="25" class="hTrigger cCodeDesription gray">
+            <div data-startLine="23" data-endLine="23" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The configured JWT auth provider is used in the <code>secureListener</code> to make the endpoint aware of JWT.</p>
                 </div>
