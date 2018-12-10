@@ -50,7 +50,8 @@ $(document).ready(function() {
         
 	"Cloud Native Deployment": [
             { "name": "Deployment with Azure Kubernetes Service", "desc": "", "url": "ballerina-aks-deployment", "git": "" },
-	     { "name": "Running with Istio", "desc": "", "url": "ballerina-with-istio", "git": "" }
+	    { "name": "Running with Istio", "desc": "", "url": "ballerina-with-istio", "git": "" },
+	    { "name": "Deployment with GKE", "desc": "", "url": "ballerina-gke-deployment", "git": "" }
         ]
     };
 
