@@ -4,7 +4,7 @@ import axios from 'axios';
 import Loader from 'semantic-ui-react/dist/es/elements/Loader/Loader';
 import Dimmer from 'semantic-ui-react/dist/es/modules/Dimmer/Dimmer';
 import { PARSER_API_URL } from '../../utils';
-import { Diagram } from '@ballerina/diagram'
+import { Diagram, DiagramMode } from '@ballerina/diagram'
 
 import '@ballerina/font/build/font/font-ballerina.css';
 import '@ballerina/theme';
@@ -73,6 +73,7 @@ class DiagramView extends React.Component {
      */
     render() {
         const { model } = this.state;
+        const { width, height } = this.props.size;
         return (
         <div className="interaction-diagram ballerina-editor" style={{ ...this.props.size }} >
             {!model &&
@@ -81,10 +82,12 @@ class DiagramView extends React.Component {
                     </Dimmer>
                 }
             {model &&
-                <Diagram mode='action' 
-                    fitToWidth={true} 
-                    model={model} 
-                    { ...this.props.size } />
+                <Diagram mode='action'
+                    ast={model} 
+                    width={width}
+                    zoom={1}
+                    mode={DiagramMode.ACTION}
+                />
             }
         </div>
         );

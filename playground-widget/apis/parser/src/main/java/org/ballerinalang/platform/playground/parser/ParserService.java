@@ -90,6 +90,7 @@ public class ParserService {
     }
 
     private JsonElement getTreeForContent(String content) throws LSCompilerException, JSONGenerationException {
+        System.setProperty("experimental", "true");
         BallerinaFile ballerinaFile = LSCompiler.compileContent(content, CompilerPhase.CODE_ANALYZE);
         Optional<BLangPackage> bLangPackage = ballerinaFile.getBLangPackage();
         if (bLangPackage.isPresent() && bLangPackage.get().symbol != null) {
