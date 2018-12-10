@@ -2674,6 +2674,14 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cLanguageFeatures bbgfeatureSet5">
                         </div>
+                        <div class="clearfix"></div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cLanguageFeatures bbgfeatureSet6">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cLanguageFeatures bbgfeatureSet7">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cLanguageFeatures bbgfeatureSet8">
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
