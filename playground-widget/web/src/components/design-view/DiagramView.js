@@ -7,7 +7,7 @@ import { PARSER_API_URL } from '../../utils';
 import { Diagram, DiagramMode } from '@ballerina/diagram'
 
 import '@ballerina/font/build/font/font-ballerina.css';
-import '@ballerina/theme';
+import '@ballerina/theme/src/index';
 
 /**
  * Invoke parser service for the given content

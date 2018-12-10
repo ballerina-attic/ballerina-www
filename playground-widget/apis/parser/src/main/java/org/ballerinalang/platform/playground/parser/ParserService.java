@@ -22,12 +22,14 @@ import org.ballerinalang.compiler.CompilerPhase;
 import org.ballerinalang.langserver.compiler.LSCompiler;
 import org.ballerinalang.langserver.compiler.LSCompilerException;
 import org.ballerinalang.langserver.compiler.common.modal.BallerinaFile;
+import org.ballerinalang.langserver.compiler.common.modal.SymbolMetaInfo;
 import org.ballerinalang.langserver.compiler.format.JSONGenerationException;
 import org.ballerinalang.langserver.compiler.format.TextDocumentFormatUtil;
 import org.ballerinalang.langserver.formatting.FormattingSourceGen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.ballerinalang.compiler.tree.BLangCompilationUnit;
+import org.wso2.ballerinalang.compiler.tree.BLangNode;
 import org.wso2.ballerinalang.compiler.tree.BLangPackage;
 
 import javax.ws.rs.Consumes;
@@ -38,6 +40,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -93,12 +97,16 @@ public class ParserService {
         System.setProperty("experimental", "true");
         BallerinaFile ballerinaFile = LSCompiler.compileContent(content, CompilerPhase.CODE_ANALYZE);
         Optional<BLangPackage> bLangPackage = ballerinaFile.getBLangPackage();
+        SymbolFindVisitor symbolFindVisitor = new SymbolFindVisitor(ballerinaFile.getCompilerContext());
+
         if (bLangPackage.isPresent() && bLangPackage.get().symbol != null) {
+            symbolFindVisitor.visit(bLangPackage.get());
+            Map<BLangNode, List<SymbolMetaInfo>> symbolMetaInfoMap = symbolFindVisitor.getVisibleSymbolsMap();
             BLangCompilationUnit compilationUnit = bLangPackage.get().getCompilationUnits().stream()
                     .findFirst()
                     .orElse(null);
-            JsonElement jsonAST = TextDocumentFormatUtil.generateJSON(compilationUnit, null,
-                        new HashMap<>());
+            JsonElement jsonAST = TextDocumentFormatUtil.generateJSON(compilationUnit, new HashMap<>(),
+                    symbolMetaInfoMap);
             FormattingSourceGen.build(jsonAST.getAsJsonObject(), "CompilationUnit");
             return jsonAST;
         }

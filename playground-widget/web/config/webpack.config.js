@@ -173,7 +173,7 @@ const config = {
             },
             {
                 from: 'node_modules/@ballerina/font/build/font',
-                to: 'fonts',
+                to: '.',
             },
             {
                 from: 'public',
