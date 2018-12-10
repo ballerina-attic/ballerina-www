@@ -58,8 +58,8 @@ $(document).ready(function() {
                 data.splice(ltestIndex, 1);
             }
 
-            data.sort(function(a, b) {
-                return (new Date(a["release-date"])) < (new Date(b["release-date"]));
+	    data.sort(function(a, b) {
+	       return new Date(b["release-date"]) - new Date(a["release-date"]);
             });
             updateReleaseTable(data);
         });
