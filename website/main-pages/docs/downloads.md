@@ -44,7 +44,7 @@
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 cDownloadMiddle">
                 <a id="packMac" href="https://product-dist.ballerina.io/downloads/0.990.0/ballerina-macos-installer-x64-0.990.0.pkg" class="cDownload" data-download="downloads" data-pack="ballerina-macos-installer-x64-0.990.0.pkg">
                     <div>MacOS</div>
-                    <div class="cSize">Installer pkg <span id="packMacName">(104mb)</span></div>
+                    <div class="cSize">Installer pkg <span id="packMacName">(230mb)</span></div>
                 </a>
                 <ul class="cDiwnloadSubLinks">
                     <li><a id="packMacMd5" href="https://product-dist.ballerina.io/downloads/0.990.0/ballerina-macos-installer-x64-0.990.0.pkg.md5">md5</a></li>
