@@ -85,6 +85,7 @@ class DiagramView extends React.Component {
                 <Diagram mode='action'
                     ast={model} 
                     width={width}
+                    height={height}
                     zoom={1}
                     mode={DiagramMode.ACTION}
                 />
