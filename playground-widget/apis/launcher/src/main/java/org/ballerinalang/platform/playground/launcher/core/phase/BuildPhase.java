@@ -50,6 +50,7 @@ public class BuildPhase implements Phase {
         commandList.add("ballerina");
         commandList.add("build");
         commandList.add(runSession.getSourceFile().getFileName().toString());
+        commandList.add("--experimental");
         return commandList.toArray(new String[0]);
     }
 

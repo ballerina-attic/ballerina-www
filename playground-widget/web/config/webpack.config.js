@@ -16,43 +16,37 @@
  * under the License.
  *
  */
- const path = require('path');
- const fs = require('fs');
- const webpack = require('webpack');
- const ExtractTextPlugin = require('extract-text-webpack-plugin');
- const ProgressBarPlugin = require('progress-bar-webpack-plugin');
- const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
- const WriteFilePlugin = require('write-file-webpack-plugin');
- const CopyWebpackPlugin = require('copy-webpack-plugin');
- const HtmlWebpackPlugin = require('html-webpack-plugin');
- const CleanWebpackPlugin = require('clean-webpack-plugin');
- const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
- const GitRevisionPlugin = require('git-revision-webpack-plugin');
- const WebfontPlugin = require('webpack-webfont').default;
- 
- const isProductionBuild = process.env.NODE_ENV === 'production';
- const hashToUse = isProductionBuild ? 'git-revision-hash' : 'hash';
- const backendHost = 'playground.preprod.ballerina.io';
+const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+const GitRevisionPlugin = require('git-revision-webpack-plugin');
 
- const moduleRoot = path.resolve(__dirname, '../');
- const buildPath = path.resolve(__dirname, '../build');
- const composerWebRoot = path.join(__dirname, '../ballerina-lang/composer/modules/web');
- 
- const extractCSSBundle = new ExtractTextPlugin({ filename: `./[name].[${hashToUse}].css`, allChunks: true });
- const extractLessBundle = new ExtractTextPlugin({ filename: `./[name]-less.[${hashToUse}].css`, allChunks: true });
+const isProductionBuild = process.env.NODE_ENV === 'production';
+const hashToUse = isProductionBuild ? 'git-revision-hash' : 'hash';
+const backendHost = 'playground.preprod.ballerina.io';
 
- const isExternal = function(modulePath) {
-     return modulePath.includes('node_modules');
- };
- 
- // Keeps unicode codepoints of font-ballerina for each icon name
-const codepoints = {}
+const moduleRoot = path.resolve(__dirname, '../');
+const buildPath = path.resolve(__dirname, '../build');
 
- const config = {
-     target: 'web',
-     entry: {
-         'playground': './src/index.js',
-         'vendor': [
+const extractCSSBundle = new ExtractTextPlugin({ filename: `./[name].[${hashToUse}].css`, allChunks: true });
+const extractLessBundle = new ExtractTextPlugin({ filename: `./[name]-less.[${hashToUse}].css`, allChunks: true });
+
+const isExternal = function (modulePath) {
+    return modulePath.includes('node_modules');
+};
+
+const config = {
+    target: 'web',
+    entry: {
+        playground: './src/index.js',
+        vendor: [
             'react',
             'react-dom',
             'prop-types',
@@ -62,40 +56,38 @@ const codepoints = {}
             'axios',
             'react-monaco-editor',
             'babel-polyfill',
-            'react-dnd',
-            'react-dnd-html5-backend'
-         ]
-     },
-     output: {
-         filename: `[name].[${hashToUse}].js`,
-         chunkFilename: `[name].[${hashToUse}].js`,
-         path: buildPath,
-     },
-     module: {
-         rules: [{
-             test: /\.js$/,
-             exclude: isExternal,
-             use: [
-                 {
-                     loader: 'babel-loader',
-                     query: {
-                         presets: ['es2015', 'react'],
-                     },
-                 },
-                 'source-map-loader',
-             ],
-         },
-         {
-             test: /\.html$/,
-             exclude: isExternal,
-             use: [{
-                 loader: 'html-loader',
-             }],
-         },
-         {
-             test: /\.scss$/,
-             exclude: isExternal,
-             use: extractCSSBundle.extract({
+        ],
+    },
+    output: {
+        filename: `[name].[${hashToUse}].js`,
+        chunkFilename: `[name].[${hashToUse}].js`,
+        path: buildPath,
+    },
+    module: {
+        rules: [{
+            test: /\.js$/,
+            exclude: isExternal,
+            use: [
+                {
+                    loader: 'babel-loader',
+                    query: {
+                        presets: ['es2015', 'react'],
+                    },
+                },
+                'source-map-loader',
+            ],
+        },
+        {
+            test: /\.html$/,
+            exclude: isExternal,
+            use: [{
+                loader: 'html-loader',
+            }],
+        },
+        {
+            test: /\.scss$/,
+            exclude: isExternal,
+            use: extractCSSBundle.extract({
                 fallback: 'style-loader',
                 use: [{
                     loader: 'css-loader',
@@ -110,41 +102,40 @@ const codepoints = {}
                         sourceMap: true,
                     },
                 }],
-            })
-         },
-         {
-             test: /\.css$/,
-             use: extractCSSBundle.extract({
-                 fallback: 'style-loader',
-                 use: [{
-                     loader: 'css-loader',
-                     options: {
-                         url: false,
-                         sourceMap: isProductionBuild,
-                         minimize: isProductionBuild,
-                     },
-                 }],
-             }),
-         },
-         {
+            }),
+        },
+        {
+            test: /\.css$/,
+            use: extractCSSBundle.extract({
+                fallback: 'style-loader',
+                use: [{
+                    loader: 'css-loader',
+                    options: {
+                        url: false,
+                        sourceMap: isProductionBuild,
+                        minimize: isProductionBuild,
+                    },
+                }],
+            }),
+        },
+        {
             test: /\.(png|jpg|svg|cur|gif|eot|svg|ttf|woff|woff2)$/,
             use: ['url-loader'],
-         },
-         {
-             test: /\.jsx$/,
-             exclude: isExternal,
-             use: [
-                 {
-                     loader: 'babel-loader',
-                     query: {
-                         presets: ['es2015', 'react'],
-                     },
-                 },
-             ],
-         },
-         {
+        },
+        {
+            test: /\.jsx$/,
+            exclude: isExternal,
+            use: [
+                {
+                    loader: 'babel-loader',
+                    query: {
+                        presets: ['es2015', 'react'],
+                    },
+                },
+            ],
+        },
+        {
             test: /\.less$/,
-            exclude: /node_modules/,
             use: extractLessBundle.extract({
                 fallback: {
                     loader: 'style-loader',
@@ -163,130 +154,83 @@ const codepoints = {}
                 }],
             }),
         },
-         {
-            test: /\.bal$/,
-            use: 'raw-loader'
-          }
-         ],
-     },
-     plugins: [
-         new ProgressBarPlugin(),
-         new CleanWebpackPlugin([buildPath], { watch: true, root: moduleRoot }),
-         extractLessBundle,
-         extractCSSBundle,
-         new webpack.WatchIgnorePlugin([path.join(composerWebRoot, 'font/dist/')]),
-         new WebfontPlugin({
-            files: path.join(composerWebRoot, 'font/font-ballerina/icons/**/*.svg'),
-            cssTemplateFontPath: 'fonts/',
-            fontName: 'font-ballerina',
-            fontHeight: 1000,
-            normalize: true,
-            cssTemplateClassName: 'fw',
-            template: path.join(composerWebRoot, 'font/font-ballerina/template.css.njk'),
-            glyphTransformFn: (obj) => {
-                codepoints[obj.name] = obj.unicode;
-            },
-            dest: {
-                fontsDir: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
-                stylesDir: path.join(composerWebRoot, 'font/dist/font-ballerina/css'),
-                outputFilename: 'font-ballerina.css',
-            },
-            hash: new Date().getTime(),
-        }),
         {
-            apply: function(compiler) {
-                compiler.plugin('compile', function(compilation, callback) {
-                    fs.writeFile(
-                        path.join(composerWebRoot, 'font/dist/font-ballerina/codepoints.json'),
-                        JSON.stringify(codepoints),
-                        'utf8',
-                        callback
-                    );
-                });
-            }
+            test: /\.bal$/,
+            use: 'raw-loader',
         },
-         new WriteFilePlugin(),
-         new CopyWebpackPlugin([
+        ],
+    },
+    plugins: [
+        new ProgressBarPlugin(),
+        new CleanWebpackPlugin([buildPath], { watch: true, root: moduleRoot }),
+        extractLessBundle,
+        extractCSSBundle,
+        new WriteFilePlugin(),
+        new CopyWebpackPlugin([
             {
                 from: 'fonts',
                 to: 'fonts',
             },
             {
-                from: path.join(composerWebRoot, 'font/dist/font-ballerina/fonts'),
-                to: 'fonts',
+                from: 'node_modules/@ballerina/font/build/font',
+                to: '.',
             },
             {
-                from: 'public'
+                from: 'public',
             },
             {
                 from: 'images',
-                to: 'images'
+                to: 'images',
             },
             {
                 from: 'guides',
                 to: 'resources/guides',
-                ignore: [ '*.md',  '*LICENSE', '*.gitignore', '*.db', '*.conf', '*.balx', '*.sh']
+                ignore: ['*.md', '*LICENSE', '*.gitignore', '*.db', '*.conf', '*.balx', '*.sh'],
             },
-         ]),
-         new HtmlWebpackPlugin({
-            template: 'src/index.ejs'
+        ]),
+        new HtmlWebpackPlugin({
+            template: 'src/index.ejs',
         }),
         new webpack.DefinePlugin({
             BACKEND_HOST: JSON.stringify(backendHost),
         }),
         new webpack.HashedModuleIdsPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor'
+            name: 'vendor',
         }),
         new webpack.optimize.CommonsChunkPlugin({
-               name: 'manifest'
+            name: 'manifest',
         }),
         new MonacoWebpackPlugin({
-            features:['bracketMatching', 'iPadShowKeyboard'],
-            languages: []
+            features: ['bracketMatching', 'iPadShowKeyboard'],
+            languages: [],
         }),
         new GitRevisionPlugin({
             commithashCommand: 'log -n 1 --pretty=format:%H -- .',
         }),
-     ],
-     devServer: {
-         port: 3000,
-         contentBase: path.join(__dirname, buildPath)
-     },
-     node: { module: 'empty', net: 'empty', fs: 'empty' },
-     devtool: 'source-map',
-     resolve: {
+    ],
+    devServer: {
+        port: 3000,
+        contentBase: path.join(__dirname, buildPath),
+    },
+    node: { module: 'empty', net: 'empty', fs: 'empty' },
+    devtool: 'source-map',
+    resolve: {
         extensions: ['.js', '.json', '.jsx'],
         modules: ['./node_modules'],
         alias: {
             'samples/images': path.join(moduleRoot, '..', 'playground-examples', 'images'),
-            'samples': path.join(moduleRoot, 'guides', 'playground-hello-service'),
-            'composer': path.join(composerWebRoot, 'src'),
-            'scss': path.join(composerWebRoot, 'scss'),
-            'log': 'composer/core/log/log',
-            'event_channel': 'composer/core/event/channel',
-            'launch-manager': 'composer/plugins/debugger/LaunchManager',
-            'ballerina-grammar': 'composer/plugins/ballerina/utils/monarch-grammar',
-            'ballerina-config': 'composer/plugins/ballerina/utils/monaco-lang-config',
-            'Diagram': 'composer/plugins/ballerina/diagram/diagram',
-            'src/plugins': 'composer/plugins',
-            'plugins': 'composer/plugins',
-            'font-ballerina': path.join(composerWebRoot, 'font/dist/font-ballerina'),
-            'api-client':  'composer/api-client',
-            'images': path.join(composerWebRoot, 'public/images'),
-            'TreeBuilder': 'composer/plugins/ballerina/model/tree-builder',
-            'PackageScopedEnvironment': 'composer/plugins/ballerina/env/package-scoped-environment',
+            samples: path.join(moduleRoot, 'guides', 'playground-hello-service'),
             'monaco-editor': 'monaco-editor/esm/vs/editor/editor.api.js',
             '../../theme.config$': path.join(moduleRoot, 'src/styling/theme.config'),
-        }
-     },
- 
- };
+        },
+    },
+};
 
- if (isProductionBuild) {
-     // Add UglifyJsPlugin only when we build for production.
-     // uglyfying slows down webpack build so we avoid in when in development
-     config.plugins.push(new UglifyJsPlugin({
+if (isProductionBuild) {
+    // Add UglifyJsPlugin only when we build for production.
+    // uglyfying slows down webpack build so we avoid in when in development
+    config.plugins.push(new UglifyJsPlugin({
         sourceMap: true,
         parallel: true,
         uglifyOptions: {
@@ -294,7 +238,7 @@ const codepoints = {}
                 keep_fnames: true,
             },
             keep_fnames: true,
-        }
+        },
     }));
     config.plugins.push(new webpack.DefinePlugin({
         // React does some optimizations if NODE_ENV is set to 'production'
@@ -302,6 +246,6 @@ const codepoints = {}
             NODE_ENV: JSON.stringify('production'),
         },
     }));
- }
+}
 
- module.exports = config;
+module.exports = config;
