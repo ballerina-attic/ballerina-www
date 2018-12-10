@@ -2247,14 +2247,14 @@
                     <p>Functions can split their execution into multiple worker threads. Threads execute asynchronously but can exchange data and wait for data from other threads </p>
                 </div>
             </div>
-            <div data-startLine="8" data-endLine="13" class="hTrigger cCodeDesription">
+            <div data-startLine="8" data-endLine="12" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                      Calculate sum in a worker thread
                     </p>
                 </div>
             </div>
-            <div data-startLine="20" data-endLine="25" class="hTrigger cCodeDesription">
+            <div data-startLine="20" data-endLine="24" class="hTrigger cCodeDesription">
                 <div>
                     <p>
                         Calculate sum of squares in another thread
@@ -2344,7 +2344,7 @@
                     <p>Create 3 events and push them into the input stream.</p>
                 </div>
             </div>
-            <div data-startLine="64" data-endLine="67" class="hTrigger cCodeDesription">
+            <div data-startLine="63" data-endLine="66" class="hTrigger cCodeDesription">
                 <div>
                     <p>This function gets called each time there is an event in the output stream and prints that event to the console.</p>
                 </div>
@@ -2370,7 +2370,7 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="taint-analysis-text">
-            <div data-startLine="1" data-endLine="42" class="hTrigger cCodeDesription">
+            <div data-startLine="1" data-endLine="43" class="hTrigger cCodeDesription">
                 <div>
                     <p>The Ballerina compiler identifies untrusted (tainted) data by observing how tainted data propagates through the program. If untrusted data is passed to a security sensitive parameter, a compiler error is generated.</p>
                 </div>
@@ -2380,12 +2380,12 @@
                     <p>Sensitive parameters of the functions built-in-to ballerina are decorated with the <code>@sensitive</code> annotation. This ensures that tainted data cannot be passed into the security sensitive parameter.</p>
                 </div>
             </div>
-            <div data-startLine="28" data-endLine="31" class="hTrigger cCodeDesription">
+            <div data-startLine="29" data-endLine="32" class="hTrigger cCodeDesription">
                 <div>
                     <p>The <code>@tainted</code> annotation denotes that the return value of the function should not be trusted (tainted).</p>
                 </div>
             </div>
-            <div data-startLine="33" data-endLine="36" class="hTrigger cCodeDesription">
+            <div data-startLine="34" data-endLine="37" class="hTrigger cCodeDesription">
                 <div>
                     <p>The <code>@untainted</code> annotation denotes that the return value of the function should be trusted (untainted).</p>
                 </div>
@@ -2473,14 +2473,14 @@
                     <p>Here, the resource is written in a RESTful manner, and accepts GET requests with the path param <code>orderId</code>.</p>
                 </div>
             </div>
-            <div data-startLine="22" data-endLine="27" class="hTrigger cCodeDesription gray">
+            <div data-startLine="23" data-endLine="28" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Similarly, the second resource is written to handle HTTP POST requests that are directed to the path <code>/order</code> to create a new order.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="endpoints-text">
-            <div data-startLine="1" data-endLine="28" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="30" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina provides a set of endpoints to send and receive messages using different protocols.</p>
                 </div>
@@ -2497,7 +2497,7 @@
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="network-data-types-and-conversions-text">
-            <div data-startLine="1" data-endLine="38" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="40" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina provides first class support for network data types such as JSON and XML. This examples shows how easy it is to retrieve a JSON payload and then transform it based on the requirement. Finally, before sending the response, you can convert the transformed JSON payload to XML.
                     </p>
@@ -2508,14 +2508,14 @@
                     <p>To transform the JSON payload to XML, invoke the <code>toXML()</code> function.</p>
                 </div>
             </div>
-            <div data-startLine="21" data-endLine="38" class="hTrigger cCodeDesription gray">
+            <div data-startLine="23" data-endLine="40" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>This function shows how to traverse a JSON and filter out specific sections, while forming a new JSON payload. In this case, it simply filters out books that are written after the <code>yearParam</code> value.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="resilient-communication-text">
-            <div data-startLine="1" data-endLine="27" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="29" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Ballerina embraces the fact that networks can fail transiently. To defend against such failures, Ballerina provides network resilient features such as Timeout, Retry, Circuit Breaker, etc.. This example demonstrates how to use a combination of these features.</p>
                 </div>
@@ -2530,14 +2530,14 @@
                     <p>Endpoint timeout is configured using <code>timeoutMillis</code>.</p>
                 </div>
             </div>
-            <div data-startLine="10" data-endLine="1" class="hTrigger cCodeDesription gray">
+            <div data-startLine="10" data-endLine="14" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Requests can be re-tried using the <code>retryConfig</code>.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4 text-display hidden-xs hidden-sm code-block-text" id="service-composition-text">
-            <div data-startLine="1" data-endLine="59" class="hTrigger cCodeDesription gray">
+            <div data-startLine="1" data-endLine="62" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>Service composition is a common use case in integration that involves communicating with many back-ends before formulating the response. This example demonstrates service composition with a simple tour arrangement system that involves airline reservation and hotel reservation.</p>
                 </div>
@@ -2547,7 +2547,7 @@
                     <p>Client endpoints used to communicate with the airline reservation and hotel reservation services.</p>
                 </div>
             </div>
-            <div data-startLine="25" data-endLine="26" class="hTrigger cCodeDesription gray">
+            <div data-startLine="25" data-endLine="27" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The first endpoint is invoked with an HTTP POST request. Once the response is received, it is stored in <code>inResAirline</code>.</p>
                 </div>
@@ -2591,7 +2591,7 @@
                     <p>User-defined data structures can be converted to common network data types such as JSON and XML. In this case, <code>User</code> is converted to JSON.</p>
                 </div>
             </div>
-            <div data-startLine="38" data-endLine="39" class="hTrigger cCodeDesription gray">
+            <div data-startLine="37" data-endLine="38" class="hTrigger cCodeDesription gray">
                 <div>
                     <p>The retrieved JSON message is converted to a user-defined data structure to match it with the gRPC response before sending it back to the caller.</p>
                 </div>
