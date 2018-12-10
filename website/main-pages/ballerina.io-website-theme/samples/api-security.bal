@@ -45,7 +45,8 @@ service echo on secureListener {
             scopes: ["hello"]
         }
     }
-    resource function hello(http:Caller caller, http:Request req) returns error? {
+    resource function hello(http:Caller caller, http:Request req)
+                                returns error? {
         http:Response res = check httpEndpoint->get("/secured/endpoint");
         _ = caller->respond(res);
         return;

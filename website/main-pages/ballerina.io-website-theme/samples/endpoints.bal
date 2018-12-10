@@ -19,8 +19,10 @@ service passthrough on tweeter {
     @http:ResourceConfig {
         path: "/"
     }
-    resource function passthrough(http:Caller caller, http:Request req) returns error? {
-        twitter:Status twitterStatus = check twitterClient->tweet("Hello", "", "");
+    resource function passthrough(http:Caller caller, http:Request req)
+                                    returns error? {
+        twitter:Status twitterStatus = check twitterClient->tweet(
+                                            "Hello", "", "");
         _ = caller->respond("Tweet ID: " + <string> twitterStatus.id 
                  + ", Tweet: " + twitterStatus.text);
         return;

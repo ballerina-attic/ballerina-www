@@ -19,8 +19,10 @@ service legacyEndpoint on new http:Listener(9090) {
     @http:ResourceConfig {
         path: "/"
     }
-    resource function invokeEndpoint(http:Caller caller, http:Request request) returns error? {
-        http:Response backendRes = check backendEP->forward("/hello", request);
+    resource function invokeEndpoint(http:Caller caller,
+                            http:Request request) returns error? {
+        http:Response backendRes = check backendEP->forward("/hello",
+                                                            request);
         _ = caller->respond(backendRes);
         return;
     }

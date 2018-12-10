@@ -19,7 +19,8 @@ public function main(string... args) returns error? {
     secureOperation(check string.convert(taintedJson.name));
 
     // Untainted return value can be passed into sensitive parameter
-    string sanitizedData = sanitize(check string.convert(taintedJson.firstname));
+    string sanitizedData = sanitize(check string.convert(
+                                        taintedJson.firstname));
     secureOperation(sanitizedData);
 
     return;

@@ -1,31 +1,27 @@
 // Consumer Example
 // --------------------------------------------------------
 
-import wso2/kafka;
 import ballerina/io;
+import wso2/kafka;
 
-endpoint kafka:SimpleConsumer consumer {
+listener kafka:SimpleConsumer consumer = new({
     bootstrapServers: "localhost:9092, localhost:9093",
-    groupId: "inventorySystemd",
+    groupId: "inventorySystem",
     topics: ["product-price"],
     pollingInterval:1000
-};
+});
 
-service<kafka:Consumer> kafkaService bind consumer {
-
-    onMessage(kafka:ConsumerAction consumerAction, 
-        kafka:ConsumerRecord[] records) {
-        
-        foreach entry in records {
+service kafkaService on consumer {
+    resource function onMessage(kafka:SimpleConsumer simpleConsumer,
+                        kafka:ConsumerRecord[] records) returns error? {
+        foreach var entry in records {
             byte[] serializedMsg = entry.value;
-            io:ByteChannel byteChannel = io:openFile("/some/Path",
-                io:APPEND);
-            int writtenBytes = check byteChannel.write(
-                serializedMsg, 0);
+            io:WritableByteChannel byteChannel =
+                        io:openWritableFile("/some/Path", append = true);
+            int writtenBytes = check byteChannel.write(serializedMsg, 0);
         }
-
+        return;
     }
-
 }
 
 // Producer Example
@@ -34,28 +30,33 @@ service<kafka:Consumer> kafkaService bind consumer {
 import ballerina/http;
 import wso2/kafka;
 
-endpoint kafka:SimpleProducer kafkaProducer {
+kafka:SimpleProducer kafkaProducer = new({
     bootstrapServers: "localhost:9092",
     clientID:"basic-producer",
     acks:"all",
     noRetries:3
-};
+});
 
-service<http:Service> productAdminService bind { port: 9090 } {
+service productAdminService on new http:Listener(9090) {
 
-    updatePrice (endpoint client, http:Request request, 
-        json reqPayload) {
+    resource function updatePrice(http:Caller caller, http:Request request)
+                                    returns error? {
+        json|error reqPayload = request.getJsonPayload();
 
-        byte[] serializedMsg = reqPayload.toString().toByteArray(
-            "UTF-8");
-        kafkaProducer->send(serializedMsg, "product-price", 
-            partition = 0);
+        if (reqPayload is json) {
+            byte[] serializedMsg = reqPayload.toString().toByteArray("UTF-8");
+            var result = check kafkaProducer->send(serializedMsg,
+                                    "product-price", partition = 0);
 
-        http:Response response;
-        response.setJsonPayload({"Status":"Success"});
-
-        _ = client->respond(response);
-    
+            http:Response response = new;
+            response.setJsonPayload({"Status":"Success"});
+            _ = caller->respond(response);
+        } else {
+            http:Response errResp = new;
+            errResp.statusCode = 400;
+            errResp.setPayload("Invalid JSON payload received");
+            _ = caller->respond(errResp);
+        }
+        return;
     }
-
 }

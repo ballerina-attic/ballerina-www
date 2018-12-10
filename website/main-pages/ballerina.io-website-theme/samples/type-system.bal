@@ -29,5 +29,7 @@ type myObject object {
         self.p = p;
         self.q = q;
     }
-    function getX() returns (string) { return self.p; }
+    function getX() returns (string) {
+        return self.p;
+    }
 };
