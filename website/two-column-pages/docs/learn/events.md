@@ -69,19 +69,20 @@
 
 </table> -->
 
+## No upcoming events
 
-## Conferences
+<!-- ## Conferences -->
 
 
 <table class="cEventTable cConferencesList">
-    <tr>
+    <!-- <tr>
       <td class="cEventDetail c2col" colspan="2">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
       </td>
 
         <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=ballerina.io%2Flearn%2Fevents%2F&utm_medium=link&utm_campaign=ballerina_con_2018" target="_blank">Register Now</a>
         </td>
-    </tr>
+    </tr> -->
     <!-- <tr>
       <td class="cEventDetail c2col" colspan="2">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>

@@ -3,6 +3,7 @@
 # Past Events
 
 <table class="cEventTable cOtherEventsList">
+
 <tr>
     <td class="cEventDateContainer" ><span class="cEventDate">November 15, 2018</span>
       <p class="cEventLocation"  style="border:none;">Hilton London Bankside, 2-8 Great Suffolk St, London SE1 0UG London, UK</p>
@@ -72,6 +73,14 @@
 ## Past Conferences
 
 <table class="cEventTable cConferencesList">
+
+ <tr>
+      <td class="cEventDetail c2col" colspan="2">
+        <img class="cEventLogo" src="http://b.content.wso2.com/sites/all/images/ballerina-seatle.svg" style="padding-bottom:5px !important;"/>
+        <!-- <p>Featuring sessions on leveraging Ballerina for building integrations in highly disaggregated architectures, watch the videos to hear from language and platform designers about our path to 1.0 and commercial support for your favorite orchestrators.</p> -->
+      </td>
+        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/#Agenda" target="_blank">View Slides</a></td>
+    </tr>
   <tr>
       <td class="cEventDateContainer"><span class="cEventDate">September 9 - 14, 2018</span>
       <p class="cEventLocation">Sydney, Australia</p>
