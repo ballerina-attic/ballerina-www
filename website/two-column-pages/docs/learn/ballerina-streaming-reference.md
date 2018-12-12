@@ -522,7 +522,8 @@ Following are some inbuilt aggregation functions shipped with Ballerina, for mor
 
 ```ballerina
 from pageVisitStream window time(5000)
-select pageVisitStream.userID, pageVisitStream.pageID, distinctCount(pageVisitStream.pageID) as distinctPages
+select pageVisitStream.userID, pageVisitStream.pageID,
+        distinctCount(pageVisitStream.pageID) as distinctPages
 group by pageVisitStream.userID
 => (UserPageVisit [] visits) {
     foreach var visit in visits {
@@ -885,8 +886,6 @@ table<Item> itemStockTable = table {
 stream<OutOfStockAlert> oredrAlertStream = new;
 
 function initOutOfStockAlert() {
-    // Whenever an order event is published to `orderStream`, it is matched against the `itemStockTable` through
-    //the `queryItemTable` function. If there is a match, an alert event is published to `oredrAlertStream`.
     forever {
         from orderStream window lengthWindow(1) as itemOrder
         join queryItemTable(itemOrder.itemName, itemOrder.orderingAmount) as item
