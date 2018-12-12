@@ -347,7 +347,7 @@ Streaming queries support the following for query projections.
                 </tr>
             </table>
             e.g., This query converts Celsius to Fahrenheit, and identifies rooms of which the room number is between 10 and 15 as server rooms.
-            <pre>from tempStream<br>select tempStream.roomNo, tempStream.temp * 9/5 + 32 as temp, 'F' as scale, tempStream.roomNo > 10 && <br>       tempStream.roomNo < 15 as isServerRoom<br>=> (RoomFahrenheit [] events ) { <br/><br/>}</pre>
+            <pre>from tempStream<br>select tempStream.roomNo, tempStream.temp * 9/5 + 32 as temp, 'F' as scale,<br>       tempStream.roomNo > 10 && tempStream.roomNo < 15 as isServerRoom<br>=> (RoomFahrenheit [] events ) { <br/><br/>}</pre>
     </tr>
 </table>
 
