@@ -785,6 +785,137 @@ Following are the supported operations of a join clause.
     ```
 
 
+#### Table Operations
+Ballerina provides extensive support to deal with tables. It provides various types of operations such as create, insert, delete and etc.. with in-memory or external storage tables. You could refer below link to find more information on this.
+
+###### Purpose
+In Streaming context, a table is a stored version of a stream or a table of events. Ballerina provides support to interactively query the state of the stored events in the table when processing events which are arrived through a stream.
+We could perform operations such as add, delete, update and join with tables.
+
+###### Example - Add
+In below query events which arrive in `stockStream` are added into the table `itemStockTable` after projecting few attributes from the event.
+
+```ballerina
+//This is the record that holds item details in the stockTable.
+type Item record {
+    string name;
+    float price;
+    int stockAmount;
+    !...
+};
+
+//This is the record that holds stock details.
+type Stock record {
+    string name;
+    float price;
+    int stockAmount;
+    string manufactureName;
+    int manufactureId;
+    !...
+};
+
+// This is the input stream that uses `Stock` as the constraint type.
+stream<Stock> stockStream = new;
+
+// This is the table that holds the item stock data.
+table<Item> itemStockTable = table {
+    { name, price, stockAmount },
+    [
+        {"Book", 100.0, 10},
+        {"Pen", 20.0, 4}
+    ]
+};
+
+
+function initStockUpdate() {
+    forever {
+        from stockStream
+        select stockStream.name as name, stockStream.price, stockStream.stockAmount
+        => (Item[] items) {
+            foreach var item in items {
+                itemStockTable.add(item);
+            }
+        }
+    }
+}
+
+```
+
+
+###### Example - Join with Table
+In the following query, we are performing a join operation between the event stream and table. Whenever an order event is published to `orderStream`, it is matched against the `itemStockTable` through the `queryItemTable` function. If there is a match,
+an alert event is published to `oredrAlertStream`.
+
+```ballerina
+//This is the record that holds item details in the stockTable.
+type Item record {
+    string name;
+    float price;
+    int stockAmount;
+    !...
+};
+
+//This is the record that holds order events from customer.
+type Order record {
+    string itemName;
+    int orderingAmount;
+    !...
+};
+
+//This is the record that holds alert events.
+type OutOfStockAlert record {
+    string itemName;
+    int stockAmount;
+    !...
+};
+
+// This is the input stream that uses `Order` as the constraint type.
+stream<Order> orderStream = new;
+
+// This is the table that holds the item stock data.
+table<Item> itemStockTable = table {
+    { name, price, stockAmount },
+    [
+        {"Book", 100.0, 10},
+        {"Pen", 20.0, 4}
+    ]
+};
+
+// This is the output stream that contains the events/alerts that are generated based on streaming logic.
+stream<OutOfStockAlert> oredrAlertStream = new;
+
+function initOutOfStockAlert() {
+    // Whenever an order event is published to `orderStream`, it is matched against the `itemStockTable` through
+    //the `queryItemTable` function. If there is a match, an alert event is published to `oredrAlertStream`.
+    forever {
+        from orderStream window lengthWindow(1) as itemOrder
+        join queryItemTable(itemOrder.itemName, itemOrder.orderingAmount) as item
+        select item.name as itemName, item.stockAmount
+        => (OutOfStockAlert[] alerts) {
+            foreach var alert in alerts {
+                oredrAlertStream.publish(alert);
+            }
+        }
+    }
+}
+
+//`queryItemTable` function returns a table of items whose stock is not enough to satisfy the order.
+public function queryItemTable(string itemName, int orderingAmount)
+        returns table<Item> {
+    table<Item> result = table {
+        { name, price, stockAmount }, []
+    };
+    foreach var item in itemStockTable {
+        if (item.name == itemName && orderingAmount > item.stockAmount) {
+            var ret = result.add(item);
+        }
+    }
+    return result;
+}
+
+```
+
+
 ****
 
 Capabilities mentioned in below sections are not supported by the native Ballerina based
