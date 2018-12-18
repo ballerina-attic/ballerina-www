@@ -887,7 +887,7 @@ stream<OutOfStockAlert> oredrAlertStream = new;
 
 function initOutOfStockAlert() {
     forever {
-        from orderStream window lengthWindow(1) as itemOrder
+        from orderStream window length(1) as itemOrder
         join queryItemTable(itemOrder.itemName, itemOrder.orderingAmount) as item
         select item.name as itemName, item.stockAmount
         => (OutOfStockAlert[] alerts) {
