@@ -919,7 +919,7 @@ public function queryItemTable(string itemName, int orderingAmount)
 
 Capabilities mentioned in below sections are not supported by the native Ballerina based
 stream processing. They are only available when using Siddhi CEP engine for stream processing capabilities
-in Ballerina. If you wanted to enable Siddhi runtime based stream processing with Ballerina; then please use
+in Ballerina. If you want to enable Siddhi runtime-based stream processing with Ballerina; please use
 the compile time flag `--siddhiruntime`.
 
 
