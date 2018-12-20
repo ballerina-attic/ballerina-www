@@ -844,7 +844,7 @@ function initStockUpdate() {
 
 
 ###### Example - Join with Table
-In the following query, we are performing a join operation between the event stream and table. Whenever an order event is published to `orderStream`, it is matched against the `itemStockTable` through the `queryItemTable` function. If there is a match,
+In the following query, we perform a join operation between the event stream and table. Whenever an order event is published to `orderStream`, it is matched against the `itemStockTable` through the `queryItemTable` function. If there is a match,
 an alert event is published to `oredrAlertStream`.
 
 ```ballerina
