@@ -787,7 +787,7 @@ Following are the supported operations of a join clause.
 
 
 #### Table Operations
-Ballerina provides extensive support to deal with tables. It provides various types of operations such as create, insert, delete and etc.. with in-memory or external storage tables. You could refer below link to find more information on this.
+Ballerina provides extensive support to deal with tables. It provides various types of operations such as create, insert, delete, etc. with in-memory or external storage tables.
 
 ###### Purpose
 In Streaming context, a table is a stored version of a stream or a table of events. Ballerina provides support to interactively query the state of the stored events in the table when processing events which are arrived through a stream.
