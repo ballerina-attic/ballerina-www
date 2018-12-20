@@ -856,7 +856,7 @@ type Item record {
     !...
 };
 
-//This is the record that holds order events from customer.
+// This is the record that holds order events from the customer.
 type Order record {
     string itemName;
     int orderingAmount;
