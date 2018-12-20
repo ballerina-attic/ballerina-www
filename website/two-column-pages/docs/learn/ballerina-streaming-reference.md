@@ -794,7 +794,7 @@ In Streaming context, a table is a stored version of a stream or a table of even
 We could perform operations such as add, delete, update and join with tables.
 
 ###### Example - Add
-In below query events which arrive in `stockStream` are added into the table `itemStockTable` after projecting few attributes from the event.
+In the following example, query events that arrive in `stockStream` are added into the table `itemStockTable` after projecting a few attributes from the event.
 
 ```ballerina
 //This is the record that holds item details in the stockTable.
