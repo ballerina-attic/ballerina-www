@@ -787,14 +787,14 @@ Following are the supported operations of a join clause.
 
 
 #### Table Operations
-Ballerina provides extensive support to deal with tables. It provides various types of operations such as create, insert, delete and etc.. with in-memory or external storage tables. You could refer below link to find more information on this.
+Ballerina provides extensive support to deal with tables. It provides various types of operations such as create, insert, delete, etc. with in-memory or external storage tables.
 
 ###### Purpose
 In Streaming context, a table is a stored version of a stream or a table of events. Ballerina provides support to interactively query the state of the stored events in the table when processing events which are arrived through a stream.
 We could perform operations such as add, delete, update and join with tables.
 
 ###### Example - Add
-In below query events which arrive in `stockStream` are added into the table `itemStockTable` after projecting few attributes from the event.
+In the following example, query events that arrive in `stockStream` are added into the table `itemStockTable` after projecting a few attributes from the event.
 
 ```ballerina
 //This is the record that holds item details in the stockTable.
@@ -844,7 +844,7 @@ function initStockUpdate() {
 
 
 ###### Example - Join with Table
-In the following query, we are performing a join operation between the event stream and table. Whenever an order event is published to `orderStream`, it is matched against the `itemStockTable` through the `queryItemTable` function. If there is a match,
+In the following query, we perform a join operation between the event stream and table. Whenever an order event is published to `orderStream`, it is matched against the `itemStockTable` through the `queryItemTable` function. If there is a match,
 an alert event is published to `oredrAlertStream`.
 
 ```ballerina
@@ -856,7 +856,7 @@ type Item record {
     !...
 };
 
-//This is the record that holds order events from customer.
+// This is the record that holds order events from the customer.
 type Order record {
     string itemName;
     int orderingAmount;
@@ -917,9 +917,9 @@ public function queryItemTable(string itemName, int orderingAmount)
 
 ****
 
-Capabilities mentioned in below sections are not supported by the native Ballerina based
+Capabilities mentioned in below sections are not supported by the native Ballerina-based
 stream processing. They are only available when using Siddhi CEP engine for stream processing capabilities
-in Ballerina. If you wanted to enable Siddhi runtime based stream processing with Ballerina; then please use
+in Ballerina. If you want to enable Siddhi runtime-based stream processing with Ballerina; please use
 the compile time flag `--siddhiruntime`.
 
 
