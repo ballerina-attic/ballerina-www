@@ -144,7 +144,7 @@ func debug(msg string) {
     }
 }
 
-var docsPat = regexp.MustCompile("^\\s*(\\/\\/|#|@\\s*Description\\s*\\{\\s*value\\s*:\\s*\\\")")
+var docsPat = regexp.MustCompile("^\\s*(\\/\\/|@\\s*Description\\s*\\{\\s*value\\s*:\\s*\\\")")
 var docsEndPat = regexp.MustCompile("\\s*\\\"\\s*\\}\\s*")
 var dashPat = regexp.MustCompile("\\-+")
 
