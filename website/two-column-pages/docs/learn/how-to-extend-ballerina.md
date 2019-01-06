@@ -6,7 +6,7 @@ Developers and third parties can extend the behavior of Ballerina and collate th
 
 2. Add new annotations to Ballerina source files so that the compiler can act to alter binaries and generate artifacts.
 
-3. Collate and distribute new webhook callback services, that programmatically subscribe to accept content delivery requests on the occurrence of particular events.
+3. Collate and distribute new webhook callback services that programmatically subscribe to accept content delivery requests on the occurrence of particular events.
 
 ## Create Client Connectors
 
@@ -961,7 +961,7 @@ A webhook callback service type is introduced by implementing a new `listener` t
 `websub:Listener`. The implementation should define a mapping between an indicator in the content delivery requests 
 and the resources to which the requests need to be dispatched based on the value of the indicator.
  
-This indicator based on which the extension is done could be:
+This indicator, based on which the extension is done, could be:
 - A request header 
 - The payload - the value for a particular key in the JSON payload
 - A request header and the payload (combination of the above)
@@ -976,9 +976,9 @@ To create a webhook callback service type, you:
 
 2. Create a new `listener` wrapping the generic `websub:Listener`.
 
-3. Implement the `__init()` function, specifying the mapping between possible notifications and resources as `extensionConfig`.
+3. Implement the `__init()` function specifying the mapping between possible notifications and resources as `extensionConfig`.
 
-4. Implement the `__attach()`, `__start()` and `__stop()` functions, calling the same functions on the generic `websub:Listener`.
+4. Implement the `__attach()`, `__start()` and `__stop()` functions calling the same functions on the generic `websub:Listener`.
 
 5. Build the module and push it into a registry for usage by others.
 
@@ -986,7 +986,7 @@ To create a webhook callback service type, you:
 
 A GitHub webhook implementation is made available by WSO2 as the module `wso2/github`.
 
-This webhook can be used by anyone, by importing the `wso2/github` module.
+This webhook can be used by anyone by importing the `wso2/github` module.
 
 ```ballerina
 import ballerina/http;
@@ -1056,11 +1056,11 @@ public type WebhookListener object {
 For the GitHub webhook, the mapping between events and resources could be based either only on a header or on both a header and the payload.
 
 e.g.,
-- when the repository is starred, the content delivery request received would have the header `X-GitHub-Event` with the value set to "watch"
-- when an issue is opened, the content delivery request received would have the header `X-GitHub-Event` with the 
-value set to "issues", and the `json` payload would contain the value "opened" for the key "action"
+- when the repository is starred, the content delivery request received will have the header `X-GitHub-Event` with the value set to "watch".
+- when an issue is opened, the content delivery request received will have the header `X-GitHub-Event` with the 
+value set to "issues", and the `json` payload will contain the value "opened" for the key "action".
 
-The implementation of the `__init()` function, initializes the `websub:Listener`, specifying the mapping to the resources as the `extensionConfig`.
+The implementation of the `__init()` function initializes the `websub:Listener` specifying the mapping to the resources as the `extensionConfig`.
 ```ballerina
 const string TOPIC_HEADER = "X-GitHub-Event";
 
