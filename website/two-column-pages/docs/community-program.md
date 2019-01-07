@@ -161,7 +161,7 @@ public function main() {
     var response = clientEndpoint->get("/hello/sayHello");
     if (response is http:Response) {
         io:println(response.getTextPayload());
-    } else (response is error) {
+    } else {
         log:printError("Get request failed", err = response);
     }
 }
@@ -243,7 +243,7 @@ public function main() {
         var choice = int.convert(val);
         if (choice is int) {
             operation = choice;
-        } else (choice is error) {
+        } else {
             io:println("Invalid choice \n");
             continue;
         }
@@ -276,13 +276,17 @@ public function main() {
         }
         // Execute calculator operations based on user's choice
         if (operation == 1) {
-            io:print("Add result: ");
+            io:print("Addition result: ");
             io:println(add(firstNumber, secondNumber));
         } else if (operation == 2) {
-            io:print("Subtract result: ");
+            io:print("Subtraction result: ");
             io:println(subtract(firstNumber, secondNumber));
-        } else {
-            io:println("Invalid choice");
+        } else if (operation == 3) {
+            io:print("Multiplication result: ");
+            io:println(multiply(firstNumber, secondNumber));
+        } else if (operation == 4) {
+            io:print("Division result: ");
+            io:println(divide(firstNumber, secondNumber));
         }
     }
 }
