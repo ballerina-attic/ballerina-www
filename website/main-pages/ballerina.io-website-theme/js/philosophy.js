@@ -26,8 +26,8 @@ $(document).ready(function() {
             { "name": "Gmail-Google Sheets Integration", "desc": "", "url": "gmail-spreadsheet-integration", "git": "" },
             { "name": "SonarQube-GitHub Integration ", "desc": "", "url": "sonarqube-github-integration", "git": "" },
 	    { "name": "Honeycomb Integration", "desc": "", "url": "ballerina-honeycomb", "git": "" },
-	    { "name": "Securing RESTful Services with LDAP", "desc": "", "url": "securing-restful-services-with-ldap", "git": "" }
-
+	    { "name": "Securing RESTful Services with LDAP", "desc": "", "url": "securing-restful-services-with-ldap", "git": "" },
+	    { "name": "Message-Tracing with Stream-Processor", "desc": "", "url": "message-tracing-with-stream-processor", "git": "" }
         ],
         "Protocols and Standards": [
             { "name": "gRPC", "desc": "Exposing gRPC services from existing JSON and/or SOAP service", "url": "grpc-service", "git": "" },
