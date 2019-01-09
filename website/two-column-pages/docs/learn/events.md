@@ -41,19 +41,18 @@
 
 </table> -->
 
-<!-- ## Meetups -->
+## Meetups
 
-<!-- <table class="cEventTable cMeetupsList">
+<table class="cEventTable cMeetupsList">
  <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">September 10, 2018 </span>6:00 PM
-            <p class="cEventLocation">inovaBra habitat,
-                Av. Angélica, 2529 - 10° andar · São Paulo, Brazil</p>
+    <td class="cEventDateContainer"><span class="cEventDate">January 21, 2019 </span>6:30 PM to 8:30 PM
+            <p class="cEventLocation">1061 Budapest, Paulay Ede u. 12. Budapest</p>
         </td>
-        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/pt-BR/Cloud-Native-Sao-Paulo/events/253753781/"><h4> Cloud Native São Paulo - Meetup #6 - Aplicações Cloud Native</h4></a>
-            <p>Speakers: Edgar Silva and Roberto Monteiro</p>
-        </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/pt-BR/Cloud-Native-Sao-Paulo/events/253753781/" target="_blank">Register Now</a></td>
-    </tr> 
+        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/Microservices-Budapest-Meetup/events/257128863/"><h4> Microservices Meetup</h4></a>
+      </td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/Microservices-Budapest-Meetup/events/257128863/" target="_blank">Register Now</a></td>
+</tr>
+    <!-- </tr> 
         <td class="cEventDateContainer"><span class="cEventDate">November 7, 2018</span>6:30 PM to 9:00 PM
             <p class="cEventLocation">Entrepreneur First, L block, The Biscuit Factory<br>
 100 Clements Road · London, SE16 4DG</p>
@@ -63,15 +62,12 @@
           <p>Speaker: Kasun Indrasiri</p> 
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href=https://www.meetup.com/Cloud-Native-London/?_cookie-check=22IjcB8Q0g9inH5A" target="_blank">Register Now</a></td>
-    </tr>
+    </tr> -->
+</table> 
 
-    <tr> 
+<!-- ## No upcoming events -->
 
-</table> -->
-
-## No upcoming events
-
-<!-- ## Conferences -->
+## Conferences
 
 
 <table class="cEventTable cConferencesList">
@@ -79,33 +75,39 @@
       <td class="cEventDetail c2col" colspan="2">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
       </td>
-
-        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=ballerina.io%2Flearn%2Fevents%2F&utm_medium=link&utm_campaign=ballerina_con_2018" target="_blank">Register Now</a>
-        </td>
+       <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=ballerina.io%2Flearn%2Fevents%2F&utm_medium=link&utm_campaign=ballerina_con_2018" target="_blank">Register Now</a>
+      </td> 
     </tr> -->
     <!-- <tr>
       <td class="cEventDetail c2col" colspan="2">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
       </td>
-
-        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a>
+           <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a>
         </td>
     </tr> -->
     <!-- <tr>
-
         <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a></td>
     </tr>  -->
-     <!-- <tr>
-
-        <td class="cEventDateContainer"><span class="cEventDate">June 26 - 29, 2018</span>
-        <p class="cEventLocation">New York Marriott Marquis</p>
+     <tr>
+      <td class="cEventDateContainer"><span class="cEventDate">February 20 - 24, 2019</span>
+        <p class="cEventLocation">Oakland Convention Center</p>
         </td>
-        <td class="cEventDetail"><a target="_blank" href="https://qconnewyork.com/ny2018/presentation/ballerina-cloud-native-programming-language"><h4>QCon NY</h4></a>
-        <h4>Ballerina - Cloud Native Programming Language</h4>
+        <td class="cEventDetail"><a target="_blank" href="https://www.developerweek.com/conference/conference-schedule/"><h4>DEVELOPER WEEK</h4></a>
+        <h4>Ballerina: A Modern Programming Language Focused on Cloud Native Applications (PRO WORKSHOP)</h4>
         <p>Speaker: Sameera Jayasoma</p>
         </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://qconnewyork.com/ny2018/presentation/ballerina-cloud-native-programming-language" target="_blank">More Info</a></td>
-    </tr>  -->
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/conference/conference-schedule/" target="_blank">More Info</a></td>
+    </tr> 
+    <tr>
+      <td class="cEventDateContainer"><span class="cEventDate">February 20 - 24, 2019</span>
+        <p class="cEventLocation">Oakland Convention Center</p>
+        </td>
+        <td class="cEventDetail"><a target="_blank" href="https://www.developerweek.com/conference/conference-schedule/"><h4>DEVELOPER WEEK</h4></a>
+        <h4>Cloud Native Programing with Docker, Kubernetes and Ballerina (PRO WORKSHOP)</h4>
+        <p>Speaker: Lakmal Warusawithana</p>
+        </td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/conference/conference-schedule/" target="_blank">More Info</a></td>
+    </tr> 
     <!-- <tr>
         <td class="cEventDateContainer"><span class="cEventDate">August 1, 2018</span>
         <p class="cEventLocation">New York Marriott Marquis</p>
