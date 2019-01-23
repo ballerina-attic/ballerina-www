@@ -25,7 +25,7 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### Tools and IDEs
 
-[Tools and IDEs](/learn/tools-ides/) overviews the editing tools for code and diagrams. This includes language servers, editors, IDE, and a graphical visualization tool that is embedded in the Ballerina Visual Studio Code plugin.
+The [Tools and IDEs](/learn/tools-ides/) section introduces the language servers, editors, IDEs, and graphical visualization tools that are supported by Ballerina.
 
 ### How to Structure Ballerina Code
 
