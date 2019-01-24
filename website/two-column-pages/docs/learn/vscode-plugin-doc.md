@@ -1,0 +1,60 @@
+# The Visual Studio Code Plugin
+
+The Ballerina VS Code plugin provides the Ballerina development capabilities in VS Code. Click on the below links for instructions on how to download, install and use the features of the VS Code plugin.
+
+- [Downloading VS Code](#downloading-vs-code)
+- [Installing the plugin](#installing-the-plugin)
+- [Using the plugin](#using-the-plugin)
+
+## Downloading the VS Code editor
+
+Download the [Visual Studio Code editor](https://code.visualstudio.com/download).
+
+
+## Installing the plugin
+
+Use either of the below approaches to install the VS Code Ballerina plugin.
+
+- [Installing via the VS Code editor](#installing-via-the-vs-code-editor)
+- [Installing by downloading the plugin](#installing-by-downloading-the-plugin)
+
+### Installing via the VS Code editor
+
+1.Click **Extensions** on the left-most menu of the editor, search for the Ballerina plugin, and click **Install**.
+
+> **Tip**: Click **Reload** to reload the editor to apply the change.
+
+![Donwload the VS Code plugin from the market place](images/install-via-editor.gif)
+
+This downloads the plugin and installs it.
+
+### Installing by downloading the plugin
+
+1. Download the [Visual Studio Code Ballerina plugin](https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina).
+2. Follow either of the below approaches to install the plugin.
+- [Using the VS Code editor](#using-the-vs-code-editor)
+- [Using the Command Line](#using-the-command-line)
+
+#### Using the VS Code editor
+
+1. Click **View** in the top menu of the editor and click **Command Palette**.
+2. Click **Extensions: Install from VSIX...**, browse and select the VSIX file of the plugin you downloaded.
+![Install using the Command Palette of the editor.](images/command-palette.png)
+
+#### Using the Command Line
+In a new Command Line tab, execute the below command.
+```bash
+$ code --install-extension <BALLERINA-PLUGIN-HOME>
+```
+> **Tip**: In the above command, `<BALLERINA_PLUGIN-HOME>` refers to the path of the Ballerina plugin directory (i.e., the VSIX file) you downloaded.
+
+## Using the plugin
+
+Click on the below links to find information on the various capabilities that are fascilitated by the VS Code Ballerina plugin for the development process.
+
+- [Language intelligence](language-intelligence.md)
+- [Run and debug](run-and-debug.md)
+- [Run all tests](run-all-tests.md)
+- [Graphical Editor](graphical-editor.md)
+- [Documentation Viewer](documentation-viewer.md)
+

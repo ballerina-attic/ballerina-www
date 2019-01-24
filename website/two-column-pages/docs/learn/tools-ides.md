@@ -1,20 +1,18 @@
 # Tools and IDEs
 
-Ballerina provides several tools to help you create, document, and test your code. These tools can be various editors, IDEs and a graphical visualization tool that is embedded in the Ballerina Visual Studio Code plugin.
+Ballerina provides language servers, editors, IDEs, and graphical visualization tools to help you write, document, and test your code. The sections below introduce you to them. 
 
-These tools include the following.
-
-- [IDE plug-ins](#ide-plug-ins)
+- [Editor and IDE support](#editor-and-ide-support)
 - [Swagger to Ballerina code generator](#swagger-to-ballerina-code-generator)
 - [API documentation generator](#api-documentation-generator)
 - [Test framework](#test-framework)
 
-## IDE plug-ins
+## Editor and IDE support
 
-You can use plug-ins to write Ballerina code in your favorite IDE. There are several plug-ins available in Github. Click on the following links to learn how to use that IDE's plug-in. 
+You can use plugins to write Ballerina code in your favorite editor or IDE. Click on the below icons to learn about the plugins that are currently available. 
 
-* [Visual Studio Code (VS Code)](https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina)
-* [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/9520-ballerina)
+[![VS Code](images/vscode-logo.png)](vscode-plugin-doc.md) 
+[![IntelliJ](images/intellij-logo.png)](vscode-plugin-doc.md)
 
 ## Swagger to Ballerina code generator
 
