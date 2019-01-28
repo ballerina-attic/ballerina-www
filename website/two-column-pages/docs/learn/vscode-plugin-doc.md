@@ -38,8 +38,10 @@ This downloads the plugin and installs it.
 #### Using the VS Code editor
 
 1. Click **View** in the top menu of the editor and click **Command Palette**.
-2. Click **Extensions: Install from VSIX...**, browse and select the VSIX file of the plugin you downloaded.
-![Install using the Command Palette of the editor.](images/command-palette.png)
+2. In the search bar type "vsix" and click **Extensions: Install from VSIX...**.
+3. Browse and select the VSIX file of the plugin you downloaded.
+
+![Install using the Command Palette of the editor.](images/install-via-palette.gif)
 
 #### Using the Command Line
 In a new Command Line tab, execute the below command.
