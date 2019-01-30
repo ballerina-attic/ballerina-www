@@ -463,11 +463,13 @@ Following are some inbuilt windows shipped with Ballerina Streams.
 * length
 * lengthBatch
 * sort
-* cron
 * externalTime
 * externalTimeBatch
 * uniqueLength
 * delay
+* timeAccum
+* hopping
+* timeOrder
 
 
 #### Aggregate function
