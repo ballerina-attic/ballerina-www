@@ -471,7 +471,6 @@ Following are some inbuilt windows shipped with Ballerina Streams.
 * hopping
 * timeOrder
 
-
 #### Aggregate function
 
 Aggregate functions perform aggregate calculations in the query.
