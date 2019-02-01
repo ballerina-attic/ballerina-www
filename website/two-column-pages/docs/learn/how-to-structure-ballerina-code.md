@@ -31,18 +31,15 @@ The `sample.bal` file contains both a `main()` entry point and a `service`:
 ```ballerina
 import ballerina/http;
 import ballerina/io;
-import ballerina/log;
 
 public function main() {
     io:println("Hello, World!");
 }
 
-service<http:Service> hello bind { port: 9090 } {
-    sayHello (endpoint caller, http:Request req) {
-        http:Response res = new;
-        res.setPayload("Hello, World!");
-        caller->respond(res) but { error e => log:printError(
-                                   "Error sending response", err = e) };
+service hello on new http:Listener(9090) {
+    resource function sayHello(http:Caller caller, http:Request request) {
+        http:Response response = new;
+        _ = caller -> respond(response);
     }
 }
 ```
@@ -109,7 +106,7 @@ import [<org-name>]/<module-name> [as <identifier>];
 
 When you import a module, you can use its functions, annotations, and other objects in your code. You can also reference the objects with a qualified identifier, followed by a colon `:`. For example, `<identifier>:<module-object>`.
 
-Identifiers are either derived or explicit. The default identifier is either the module name, or if the module name has dots `.` include, then the last word after the last dot. For example, `import ballerina/http;` will have `http:` be the derived identifer. The module `import tyler/net.http.exception` would have `exception:` as the default identifier.
+Identifiers are either derived or explicit. The default identifier is either the module name, or if the module name has dots `.` include, then the last word after the last dot. For example, `import ballerina/http;` will have `http:` be the derived identifier. The module `import tyler/net.http.exception` would have `exception:` as the default identifier.
 
 You can have an explicit identifier by using the `as <identifier>` syntax.
 
@@ -117,10 +114,10 @@ You can have an explicit identifier by using the `as <identifier>` syntax.
 import ballerina/http;
 
 // The 'Service' object comes from the imported module.
-service<http:Service> hello bind { port:9090 } {
+service hello on new http:Listener(9090) {
 
     // The 'Request' object comes from the imported module.
-    sayHello (endpoint caller, http:Request req) {
+    resource function sayHello(http:Caller caller, http:Request request) {
         ...
     }
 }
@@ -130,10 +127,10 @@ Or you can override the default identifier:
 ```ballerina
 import ballerina/http as network;
 
-service<network:Service> hello bind { port:9090 } {
+service hello on new http:Listener(9090) {
 
     // The 'Request' object comes from the imported module.
-    sayHello (endpoint caller, network:Request req) {
+    resource function sayHello(http:Caller caller, network:Request request) {
         ...
     }
 }
@@ -147,7 +144,7 @@ If your source file or module is a part of a project, then you can explicitly ma
 version = "3.0.1"
 ```
 
-If an import statement does not explicitly specify a version, then the compiler will use the `latest` module version from a repository, if one exists.
+If the version of an imported module is not explicitly specified in `Ballerina.toml`, then the compiler will use the `latest` module version from a repository, if one exists.
 
 ```ballerina
 import tyler/http;
@@ -315,7 +312,7 @@ All modules installed into a repository must have an organization name. Any inst
 
 Organization names can contain alphanumeric characters following identifier lexical rules similar to modules. None of the characters in an organization name have any semantic meaning.
 
-The organization names `ballerina` and `ballerinax` are reserved for system use. Modules in the `ballerina` module are included within the system distribution and `ballerinax` are stored within Ballerina Central.
+The organization names `ballerina` and `ballerinax` are reserved for system use. Modules in the `ballerina` and `ballerinax` organizations are included within the system distribution.
 
 Remotely hosted repositories, such as Ballerina Central, can each have their own approach for assigning a user's organization name. At Ballerina Central, every account is assigned a personal organization name, which is chosen by a user when first creating their account or derived from the email address of the user.
 
