@@ -220,7 +220,7 @@ In the `sayHello` resource function, add the following to get the payload as a s
 string status = check request.getTextPayload();
 ```
 
-And then change the signature of `sayHello` function to add `returns error?` as `check` will return if error is encountered in call to `request.getTextPayload()`.
+And then change the signature of `sayHello` function to add `returns error?` as `check` will return if error value is encountered as the return value of  `request.getTextPayload()`.
 
 > **Tip**: The check keyword means that this may return an error but I do not want to handle it here - pass it further away (to the caller function, or if this is a top-level function - generate a runtime failure).
 
@@ -228,6 +228,7 @@ Now, you can get the response from Twitter by calling the tweet function. Replac
 
 ```ballerina
 twitter:Status st = check twitterClient->tweet(status);
+http:Response response = new;
 response.setTextPayload("ID:" + string.convert(st.id) + "\n");
 ```
 
@@ -311,6 +312,11 @@ Now, let’s add the annotations you need to run the service in Docker. These an
 }
 @docker:Expose {}
 listener http:Listener cmdListener = new(9090);
+
+@http:ServiceConfig {
+   basePath: "/"
+}
+service hello on cmdListener {
 ```
 
 > **Note**: On Windows, make sure Docker runs with Linux containers and in the general settings, enable `Expose daemon on tcp://localhost:2375 without TLS`. For more details, see the [Docker README](https://github.com/ballerinax/docker/blob/master/samples/README.md).
