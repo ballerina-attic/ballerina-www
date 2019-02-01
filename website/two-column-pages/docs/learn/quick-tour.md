@@ -220,6 +220,8 @@ In the `sayHello` resource function, add the following to get the payload as a s
 string status = check request.getTextPayload();
 ```
 
+And then change the signature of `sayHello` function to add `returns error?` as `check` will return if error is encountered in call to `request.getTextPayload()`.
+
 > **Tip**: The check keyword means that this may return an error but I do not want to handle it here - pass it further away (to the caller function, or if this is a top-level function - generate a runtime failure).
 
 Now, you can get the response from Twitter by calling the tweet function. Replace `response.setTextPayload("Hello Ballerina!\n");` in the `sayHello` resource with the following lines of code:
