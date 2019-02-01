@@ -1,6 +1,5 @@
 // circuit breaker example
-endpoint http:Client backendClientEP {
-    url: "http://localhost:8080",
+http:Client backendClientEP = new("http://localhost:8080", config = {
     circuitBreaker: {
         rollingWindow: {
             timeWindowMillis: 10000,
@@ -10,5 +9,6 @@ endpoint http:Client backendClientEP {
         failureThreshold: 0.2,
         resetTimeMillis: 10000,
         statusCodes: [400, 404, 500]
-    },    timeoutMillis: 2000
+    },
+    timeoutMillis: 2000
 };

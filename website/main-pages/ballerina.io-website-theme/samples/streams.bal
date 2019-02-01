@@ -13,27 +13,28 @@ type Teacher record {
     string school;
 };
 
-function testAggregationQuery (stream<StatusCount> filteredCountStream,
-    stream<Teacher> teacherStream) {
+stream<StatusCount> filteredCountStream = new;
+stream<Teacher> teacherStream = new;
+
+function testAggregationQuery () {
 
     forever {
-        from teacherStream where age > 18 window lengthBatch(3)
-        select status, count(status) as totalCount
-        group by status
+        from teacherStream where teacherStream.age > 18
+                window lengthBatch(3)
+        select teacherStream.status, count() as totalCount
+        group by teacherStream.status
         having totalCount > 1
-        => (StatusCount [] status) {
-            filteredCountStream.publish(status);
+        => (StatusCount[] statusCounts) {
+            foreach var st in statusCounts {
+                filteredCountStream.publish(st);
+            }
         }
     }
-
 }
 
 public function main (string... args) {
 
-    stream<StatusCount> filteredCountStream;
-    stream<Teacher> teacherStream;
-
-    testAggregationQuery(filteredCountStream, teacherStream);
+    testAggregationQuery();
     filteredCountStream.subscribe(printStatusCount);
 
     Teacher t1 = { name:"Jane",
@@ -55,10 +56,9 @@ public function main (string... args) {
 
     teacherStream.publish(t1);
     teacherStream.publish(t2);
-    teacherStream.publish(t3);   
+    teacherStream.publish(t3);
 
-    runtime:sleep(1000);
-
+    runtime:sleep(2000);
 }
 
 function printStatusCount (StatusCount s) {

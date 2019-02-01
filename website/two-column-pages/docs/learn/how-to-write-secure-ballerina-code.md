@@ -29,7 +29,7 @@ Ballerina standard library makes sure untrusted data cannot be used with securit
 Security sensitive functions and actions of Ballerina standard libraries are decorated with  `@sensitive` parameter annotation that denotes untrusted data (tainted data) should not be passed to the parameter. For example, `sqlQuery` parameter of `ballerina/sql`, `select` action.
 
 ```ballerina
-public native function select(@sensitive string sqlQuery, typedesc? recordType,
+public extern function select(@sensitive string sqlQuery, typedesc? recordType,
                               boolean loadToMemory = false, Param... parameters)
                              returns @tainted table|error;
 ```
@@ -45,10 +45,10 @@ type ResultStudent record {
 
 public function main (string... args) {
 
-    endpoint mysql:Client testDB {
+    mysql:Client testDB = new({
        host: "localhost",
        port: 3306
-    };
+    });
 
    // Construct student ID based on user input.
    string studentId = "S_" + args[0];
@@ -194,8 +194,7 @@ http:AuthProvider jwtAuthProvider = {
    }
 };
 
-endpoint http:Listener secureHelloWorldEp {
-   port:9091,
+listener http:Listener secureHelloWorldEp = new(9091, config={
    authProviders:[jwtAuthProvider],
    secureSocket: {
        keyStore: {
@@ -203,18 +202,18 @@ endpoint http:Listener secureHelloWorldEp {
            password: "ballerina"
        }
    }
-};
+});
 
 @http:ServiceConfig {
    basePath:"/hello"
 }
-service<http:Service> helloWorld bind secureHelloWorldEp {
+service helloWorld on secureHelloWorldEp {
 
    @http:ResourceConfig {
        methods:["GET"],
        path:"/"
    }
-   sayHello (endpoint caller, http:Request req) {
+   resource function sayHello (http:Caller caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
        _ = caller->respond(resp);
@@ -295,7 +294,7 @@ The `@http:ServiceConfig` annotation and the `@http:ResourceConfig` annotation h
       authentication:{enabled:false}
    }
 }
-service<http:Service> helloWorld bind secureHelloWorldEp {
+service helloWorld on secureHelloWorldEp {
 // ...
 ```
 
@@ -309,7 +308,7 @@ Furthermore, authentication can be disabled only for a particular resource by us
       authentication:{enabled:false}
    }
 }
-sayHello (endpoint caller, http:Request req) {
+resource function sayHello (http:Caller caller, http:Request req) {
 // ...
 ```
 
@@ -334,8 +333,7 @@ http:AuthProvider jwtAuthProvider = {
    }
 };
 
-endpoint http:Listener secureHelloWorldEp {
-   port:9091,
+listener http:Listener secureHelloWorldEp = new(9091, config={
    authProviders:[jwtAuthProvider],
    secureSocket: {
        keyStore: {
@@ -343,7 +341,7 @@ endpoint http:Listener secureHelloWorldEp {
            password: "ballerina"
        }
    }
-};
+});
 
 @http:ServiceConfig {
    basePath:"/hello",
@@ -351,13 +349,13 @@ endpoint http:Listener secureHelloWorldEp {
       scopes:["hello"]
    }
 }
-service<http:Service> helloWorld bind secureHelloWorldEp {
+service helloWorld on secureHelloWorldEp {
 
    @http:ResourceConfig {
        methods:["GET"],
        path:"/"
    }
-   sayHello (endpoint caller, http:Request req) {
+   resource function sayHello (http:Caller caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
        _ = caller->respond(resp);
@@ -448,7 +446,7 @@ Note that the scopes defined in `@http:ServiceConfig` can also be overridden in 
       scopes:["say-hello"]
    }
 }
-sayHello (endpoint caller, http:Request req) {
+resource function sayHello (http:Caller caller, http:Request req) {
 // ...
 ```
 
@@ -464,8 +462,7 @@ http:AuthProvider basicAuthProvider = {
    authStoreProvider:"config"
 };
 
-endpoint http:Listener secureHelloWorldEp {
-   port:9091,
+listener http:Listener secureHelloWorldEp = new(9091, config={
    authProviders:[basicAuthProvider],
    secureSocket: {
        keyStore: {
@@ -473,7 +470,7 @@ endpoint http:Listener secureHelloWorldEp {
            password: "ballerina"
        }
    }
-};
+});
 
 @http:ServiceConfig {
    basePath:"/hello",
@@ -481,13 +478,13 @@ endpoint http:Listener secureHelloWorldEp {
       scopes:["hello"]
    }
 }
-service<http:Service> helloWorld bind secureHelloWorldEp {
+service helloWorld on secureHelloWorldEp {
 
    @http:ResourceConfig {
        methods:["GET"],
        path:"/"
    }
-   sayHello (endpoint caller, http:Request req) {
+   resource function sayHello (http:Caller caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Hello, World!");
        _ = caller->respond(resp);
@@ -561,7 +558,7 @@ Ballerina client connectors can be configured to include authentication and auth
 
 #### JWT Based Client Authentication
 
-`http:Client` endpoint can be configured to include JWT token as follows:
+`http:Client` client object can be configured to include JWT token as follows:
 
 ```ballerina
 import ballerina/http;
@@ -579,8 +576,7 @@ http:AuthProvider jwtAuthProvider = {
    }
 };
 
-endpoint http:Listener secureHelloWorldEp {
-   port:9091,
+listener http:Listener secureHelloWorldEp = new(9091, config={
    authProviders:[jwtAuthProvider],
    secureSocket: {
        keyStore: {
@@ -588,18 +584,17 @@ endpoint http:Listener secureHelloWorldEp {
            password: "ballerina"
        }
    }
-};
+});
 
-endpoint http:Client downstreamServiceEP {
-   url: "https://localhost:9092",
-   auth: { scheme: http:JWT_AUTH },
+http:Client downstreamServiceEP = new("https://localhost:9092",
+   config = { auth: { scheme: http:JWT_AUTH },
    secureSocket: {
        trustStore: {
            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
            password: "ballerina"
        }
    }
-};
+});
 
 @http:ServiceConfig {
    basePath:"/hello",
@@ -607,16 +602,17 @@ endpoint http:Client downstreamServiceEP {
       scopes:["hello"]
    }
 }
-service<http:Service> helloWorld bind secureHelloWorldEp {
+service helloWorld on secureHelloWorldEp {
 
    @http:ResourceConfig {
        methods:["GET"],
        path:"/"
    }
-   sayHello (endpoint caller, http:Request req) {
+   resource function sayHello (http:Caller caller, http:Request req) returns error? {
        http:Response response = check downstreamServiceEP->get("/update-stats",
                                                          message = untaint req);
        _ = caller->respond(response);
+       return ();
    }
 }
 
@@ -636,8 +632,7 @@ http:AuthProvider downstreamJwtAuthProvider = {
    }
 };
 
-endpoint http:Listener secureUpdateServiceEp {
-   port:9092,
+listener http:Listener secureUpdateServiceEp = new(9092, config={
    authProviders:[downstreamJwtAuthProvider],
    secureSocket: {
        keyStore: {
@@ -645,18 +640,18 @@ endpoint http:Listener secureUpdateServiceEp {
            password: "ballerina"
        }
    }
-};
+});
 
 @http:ServiceConfig {
    basePath:"/update-stats"
 }
-service<http:Service> updateService bind secureUpdateServiceEp {
+service updateService on secureUpdateServiceEp {
 
    @http:ResourceConfig {
        methods:["GET"],
        path:"/"
    }
-   updateStats (endpoint caller, http:Request req) {
+   resource function updateStats (http:Caller caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Downstream Service Received JWT: " +
                            untaint req.getHeader("Authorization"));
@@ -722,8 +717,7 @@ http:AuthProvider basicAuthProvider = {
 
 };
 
-endpoint http:Listener secureHelloWorldEp {
-   port:9091,
+listener http:Listener secureHelloWorldEp = new(9091, config={
    authProviders:[basicAuthProvider],
    secureSocket: {
        keyStore: {
@@ -731,10 +725,9 @@ endpoint http:Listener secureHelloWorldEp {
            password: "ballerina"
        }
    }
-};
+});
 
-endpoint http:Client downstreamServiceEP {
-   url: "https://localhost:9092",
+http:Client downstreamServiceEP = new("https://localhost:9092", config={
    auth: { scheme: http:JWT_AUTH },
    secureSocket: {
        trustStore: {
@@ -742,7 +735,7 @@ endpoint http:Client downstreamServiceEP {
            password: "ballerina"
        }
    }
-};
+});
 
 @http:ServiceConfig {
    basePath:"/hello",
@@ -750,16 +743,17 @@ endpoint http:Client downstreamServiceEP {
       scopes:["hello"]
    }
 }
-service<http:Service> helloWorld bind secureHelloWorldEp {
+service helloWorld on secureHelloWorldEp {
 
    @http:ResourceConfig {
        methods:["GET"],
        path:"/"
    }
-   sayHello (endpoint caller, http:Request req) {
+   resource function sayHello (http:Caller caller, http:Request req) returns error? {
        http:Response response = check downstreamServiceEP->get("/update-stats",
                                                          message = untaint req);
        _ = caller->respond(response);
+       return ();
    }
 }
 
@@ -779,8 +773,7 @@ http:AuthProvider jwtAuthProvider = {
    }
 };
 
-endpoint http:Listener secureUpdateServiceEp {
-   port:9092,
+listener http:Listener secureUpdateServiceEp = new(9092, config={
    authProviders:[jwtAuthProvider],
    secureSocket: {
        keyStore: {
@@ -788,18 +781,18 @@ endpoint http:Listener secureUpdateServiceEp {
            password: "ballerina"
        }
    }
-};
+});
 
 @http:ServiceConfig {
    basePath:"/update-stats"
 }
-service<http:Service> updateService bind secureUpdateServiceEp {
+service updateService on secureUpdateServiceEp {
 
    @http:ResourceConfig {
        methods:["GET"],
        path:"/"
    }
-   updateStats (endpoint caller, http:Request req) {
+   resource function updateStats (http:Caller caller, http:Request req) {
        http:Response resp = new;
        resp.setTextPayload("Downstream Service Received JWT: " +
                            untaint req.getHeader("Authorization"));
@@ -845,11 +838,10 @@ kj_9tUurTgQAw46GyeGeWMENr-JDHSNs1ZV4fbdH_EUlM6Q==
 
 #### OAuth2 Based Client Authentication
 
-`http:Client` endpoint can be configured to include OAuth2 credentials. This can be done by providing access token and refresh token information:
+`http:Client` client object can be configured to include OAuth2 credentials. This can be done by providing access token and refresh token information:
 
 ```ballerina
-endpoint http:Client downstreamServiceEP {
-   url: "https://localhost:9092",
+http:Client downstreamServiceEP = new("https://localhost:9092", config={
    auth: {
       scheme: http:OAUTH2,
       accessToken: "34060588-dd4e-36a5-ad93-440cc77a1cfb",
@@ -864,16 +856,15 @@ endpoint http:Client downstreamServiceEP {
            password: "ballerina"
        }
    }
-};
+});
 ```
 
 #### Basic Authentication Based Client Authentication
 
-`http:Client` endpoint can be configured to include Basic Authentication credentials:
+`http:Client` client object can be configured to include Basic Authentication credentials:
 
 ```ballerina
-endpoint http:Client downstreamServiceEP {
-   url: "https://localhost:9092",
+http:Client downstreamServiceEP = new("https://localhost:9092", config={
    auth: {
       scheme: http:BASIC_AUTH,
       username: "downstreamServiceUser",
@@ -885,5 +876,5 @@ endpoint http:Client downstreamServiceEP {
            password: "ballerina"
        }
    }
-};
+});
 ```

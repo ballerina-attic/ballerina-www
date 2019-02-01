@@ -20,14 +20,14 @@ $(document).ready(function() {
             { "name": "Backend for Frontend", "desc": "Backend for Frontend", "url": "backend-for-frontend", "git": "" },
             { "name": "EIP-Message-Transformation", "desc": "EIP-Message-Transformation", "url": "eip-message-transformation", "git": "" }
         ],
-        "Integrating Ballerina With Other Technologies": [
-            { "name": "Running with Istio", "desc": "", "url": "ballerina-with-istio", "git": "" },
+        "Integrating Ballerina With Other Technologies": [            
             { "name": "Building an API Gateway", "desc": "Ballerina services with policies enforced by Ballerina API Gateway", "url": "api-gateway", "git": "" },
             { "name": "Salesforce-Twilio Integration", "desc": "", "url": "salesforce-twilio-integration", "git": "" },
             { "name": "Gmail-Google Sheets Integration", "desc": "", "url": "gmail-spreadsheet-integration", "git": "" },
             { "name": "SonarQube-GitHub Integration ", "desc": "", "url": "sonarqube-github-integration", "git": "" },
-	    { "name": "Honeycomb Integration ", "desc": "", "url": "ballerina-honeycomb", "git": "" }
-
+	    { "name": "Honeycomb Integration", "desc": "", "url": "ballerina-honeycomb", "git": "" },
+	    { "name": "Securing RESTful Services with LDAP", "desc": "", "url": "securing-restful-services-with-ldap", "git": "" },
+	    { "name": "Message Tracing with Stream Processor", "desc": "", "url": "message-tracing-with-stream-processor", "git": "" }
         ],
         "Protocols and Standards": [
             { "name": "gRPC", "desc": "Exposing gRPC services from existing JSON and/or SOAP service", "url": "grpc-service", "git": "" },
@@ -49,7 +49,9 @@ $(document).ready(function() {
         ],
         
 	"Cloud Native Deployment": [
-            { "name": "Deployment with Azure Kubernetes Service", "desc": "", "url": "ballerina-aks-deployment", "git": "" }
+            { "name": "Deployment with Azure Kubernetes Service", "desc": "", "url": "ballerina-aks-deployment", "git": "" },
+	    { "name": "Running with Istio", "desc": "", "url": "ballerina-with-istio", "git": "" },
+	    { "name": "Deployment with GKE", "desc": "", "url": "ballerina-gke-deployment", "git": "" }
         ]
     };
 

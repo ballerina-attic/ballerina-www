@@ -1,39 +1,55 @@
 import ballerina/grpc;
 import ballerina/http;
 
-endpoint grpc:Listener listener {
-    port:9090
-};
+listener grpc:Listener grpcListener = new(9090);
 
-endpoint http:Client backendEP {
-    url: "http://b.content.wso2.com"
-};
+http:Client backendEP = new("https://ballerina.io/samples");
 
-service UserProfile bind listener {
+service UserProfile on grpcListener {
 
     int nextUserNo = 1;
 
-    addUser(endpoint caller, UserInfo userInfo) {
-        User user = {id:<string>nextUserNo, info: userInfo};
-        json userJSON = check <json>user;
-        nextUserNo += 1;
-        
-        http:Response backendRes = check backendEP->post(
-            "/test/add", untaint userJSON);
+    resource function addUser(grpc:Caller caller, UserInfo userInfo)
+                                returns error? {
+        User user = {id:string.convert(self.nextUserNo), info: userInfo};
+        json|error userJSON = json.convert(user);
 
-        check caller->send(backendRes.getPayloadAsString());
+        if (userJSON is json) {
+            self.nextUserNo += 1;
+
+            http:Response|error backendRes = backendEP->post(
+                "/test/add", untaint userJSON);
+
+            if (backendRes is http:Response) {
+                _ = caller->send(check backendRes.getPayloadAsString());
+            } else {
+                _ = caller->send(backendRes.reason());
+            }
+
+        } else {
+            _ = caller->send("Invalid JSON received");
+        }
+        return;
     }
 
-    getUser(endpoint caller, string id) {
+    resource function getUser(grpc:Caller caller, string id)
+                                returns error? {
         http:Response backendRes = check backendEP->get(
             "/test/get?id=" + untaint id);
 
-        json userJson = check backendRes.getJsonPayload();
-        User user = check <User>userJson;
+        json|error userJson = backendRes.getJsonPayload();
+        User|error user = userJson is json ? User.convert(userJson)
+                                            : userJson;
 
-        check caller->send(user);
+        if (user is User) {
+            _ = caller->send(user);
+        } else {
+            _ = caller->send("Invalid user received "
+                                + "from the upstream server");
+        }
+
+        return;
     }
-
 }
 
 type UserInfo record {
@@ -44,5 +60,5 @@ type UserInfo record {
 
 type User record {
     string id;
-    UserInfo userinfo;
+    UserInfo info;
 };

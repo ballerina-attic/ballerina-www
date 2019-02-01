@@ -171,17 +171,17 @@
                                         </li>
                                         
                                         
-                                        
                                         <li>
-                                            <a href="#EndpointsSummary">
+                                            <a href="#ObjectsSummary">
                                                 <div class="construct-icon">
-                                                    <span class="fw-endpoint"> </span>
+                                                    <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    Endpoints
+                                                    Objects
                                                 </div>
                                             </a>
                                         </li>
+                                        
                                         
                                         
                                         
@@ -203,12 +203,12 @@
                                             
                                           
                                         <li>
-                                            <a href="#ListenerEndpointConfiguration">
+                                            <a href="#ListenerConfig">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    ListenerEndpointConfiguration
+                                                    ListenerConfig
                                                 </div>
                                             </a>
                                         </li>
@@ -217,13 +217,65 @@
                                         <li>
                                             <a href="#Listener">
                                                 <div class="construct-icon">
-                                                    <span class="fw-endpoint"> </span>
+                                                    <span class="fw-struct"> </span>
                                                 </div>
                                                 <div class="construct-name">
                                                     Listener
                                                 </div>
                                             </a>
                                         </li>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Listener-__init">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-constructor"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        __init
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Listener-__start">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        __start
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Listener-__stop">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        __stop
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#Listener-__attach">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        __attach
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
                                             
                                     </ul>
                                 </div>
@@ -437,14 +489,15 @@
                                                 <h2>Module overview</h2>
 <p>This module contains services that register listeners against a local folder and identify events that create, modify, and delete files.</p>
 <h2>Samples</h2>
-<p>The sample given below shows how an endpoint is used to listen to the local folder. The <code>onCreate()</code> resource method gets invoked when a file is created inside the <code>target/fs</code> folder. Use the <code>onDelete()</code> and <code>onModify()</code> methods to listen to the delete and modify events.</p>
+<p>The sample given below shows how a <code>Listener</code> is used to listen to the local folder. The <code>onCreate()</code> resource method gets invoked when a file is created inside the <code>target/fs</code> folder. Use the <code>onDelete()</code> and <code>onModify()</code> methods to listen to the delete and modify events.</p>
 <pre><code class="language-ballerina">import ballerina/file;
 
-endpoint file:Listener localFolder {
-    path:&quot;target/fs&quot;
-};
-service fileSystem bind localFolder {
-    onCreate (file:FileEvent m) {
+listener file:Listener localFolder = new ({
+    path: &quot;target/fs&quot;,
+    recursive: false
+});
+service fileSystem on localFolder {
+    resource function onCreate (file:FileEvent m) {
     }
 }
 </code></pre>
@@ -476,7 +529,7 @@ service fileSystem bind localFolder {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#ListenerEndpointConfiguration">ListenerEndpointConfiguration</a></td>
+                                                         <td class="cSummary-table-name"><a href="#ListenerConfig">ListenerConfig</a></td>
                                                          <td class="cSummary-table-desc">Represents configurations that required for directory listener.
 </td>
                                                      </tr>
@@ -488,12 +541,11 @@ service fileSystem bind localFolder {
                                          
                                         <!-- objects -->
                                         
-                                         <!-- endpoints -->
-                                         
-                                        <h3 id="EndpointsSummary"><span class="fw-endpoint sm-icon"></span> Endpoints</h3>
+                                        <h3 id="ObjectsSummary"> Objects</h3>
                                          <table class="cSummary-Table c2Col-Medium">
                                              <tr>
-                                                 <th class="cSummary-table-name">Endpoint</th>
+                                                 <th class="cSummary-table-name">Object</th>
+                                              
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
                                              
@@ -504,12 +556,15 @@ service fileSystem bind localFolder {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Listener">Listener</a></td>
-                                                        <td class="cSummary-table-desc"><p>Represents directory listener endpoint where used to listen to a directory in the local file system.</p>
+                                                     
+                                                         <td class="cSummary-table-desc"><p>Represents directory listener endpoint where used to listen to a directory in the local file system.</p>
 </td>
                                                      </tr>
                                                  
                                              
                                          </table>
+                                         
+                                         <!-- endpoints -->
                                          
                                          <!-- functions -->
                                          
@@ -584,8 +639,8 @@ service fileSystem bind localFolder {
                                                 
                                                 <!-- Records -->
                                                 
-                                                <h2 id="ListenerEndpointConfiguration">
-                                                    <span class="fw-record sm-icon"></span> public type ListenerEndpointConfiguration
+                                                <h2 id="ListenerConfig">
+                                                    <span class="fw-record sm-icon"></span> public type ListenerConfig
                                                 </h2>
                                                 
                                                 <p>
@@ -603,8 +658,8 @@ service fileSystem bind localFolder {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">path</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                        <td class="cAPI-table-default">null</td>
                                                         <td class="cAPI-table-desc"><p>Directory path which need to listen</p>
 </td>
                                                     </tr>
@@ -632,19 +687,160 @@ service fileSystem bind localFolder {
                                                 
                                                 <!-- Connectors and its actions -->
                                                 
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
                                                 <h2 id="Listener">
-                                                    <span class="fw-endpoint sm-icon"></span>Endpoint Listener
+                                                    <span class="fw-struct sm-icon"></span> public type Listener object
                                                 </h2>
                                                 
                                                 <p>
                                                     <span class="fw-right gray xs-icon"></span><p>Represents directory listener endpoint where used to listen to a directory in the local file system.</p>
 
                                                 </p>
-                                                   
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
+                                                  
+                                                <div class="function-wrapper">
+                                                    <ul>
+                                                        
+                                                        <li>
+                                                            <h2 id="Listener-__init">
+                                                                <span class="fw-constructor"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Listener&gt;
+                                                   </span> __init(file:ListenerConfig listenerConfig) 
+                                                            </h2>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">listenerConfig</td>
+                                                                    <td class="cAPI-table-type"><a href="file.html#ListenerConfig">file:ListenerConfig</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Listener-__start">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Listener&gt;
+                                                   </span> __start() returns (error?&lt;&gt;) 
+                                                            </h2>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?<></a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Listener-__stop">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Listener&gt;
+                                                   </span> __stop() returns (error?&lt;&gt;) 
+                                                            </h2>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?<></a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Listener-__attach">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Listener&gt;
+                                                   </span> __attach(service s, map annotationData) returns (error?&lt;&gt;) 
+                                                            </h2>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">s</td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#service">service</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">annotationData</td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?<></a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                                 
                                             </div>
                                                 
                                             </div>
@@ -981,16 +1177,6 @@ service fileSystem bind localFolder {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="mime.html">ballerina/<span class="bold">mime</span>
                                    </a>
                                    
@@ -1032,6 +1218,16 @@ service fileSystem bind localFolder {
                                    <!--Package Name-->
                                    
                                    <a href="runtime.html">ballerina/<span class="bold">runtime</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
                                    </a>
                                    
                                 </li>
@@ -1296,16 +1492,6 @@ service fileSystem bind localFolder {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="mime.html">ballerina/<span class="bold">mime</span>
                                    </a>
                                    
@@ -1347,6 +1533,16 @@ service fileSystem bind localFolder {
                                    <!--Package Name-->
                                    
                                    <a href="runtime.html">ballerina/<span class="bold">runtime</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
                                    </a>
                                    
                                 </li>

@@ -247,13 +247,6 @@
                             </li>
                         </ul>
                         
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -308,36 +301,12 @@
                                             
                                           
                                         <li>
-                                            <a href="#CallFailedException">
-                                                <div class="construct-icon">
-                                                    <span class="fw-record"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    CallFailedException
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
                                             <a href="#CallStackElement">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
                                                     CallStackElement
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
-                                            <a href="#IllegalStateException">
-                                                <div class="construct-icon">
-                                                    <span class="fw-record"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    IllegalStateException
                                                 </div>
                                             </a>
                                         </li>
@@ -356,36 +325,12 @@
                                             
                                           
                                         <li>
-                                            <a href="#NullReferenceException">
-                                                <div class="construct-icon">
-                                                    <span class="fw-record"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    NullReferenceException
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
                                             <a href="#UserPrincipal">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
                                                     UserPrincipal
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
-                                            <a href="#checkpoint">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    checkpoint
                                                 </div>
                                             </a>
                                         </li>
@@ -450,9 +395,28 @@
                                             </a>
                                         </li>
                                             
+                                          
+                                        <li>
+                                            <a href="#timeout">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    timeout
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
                                     </ul>
                                 </div>
                                 
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
                             </li>
                         </ul>
                         
@@ -614,28 +578,27 @@ runtime:sleep(5000);
 // retrieve the property ‘ballerina version’ from the runtime
 runtime:getProperty(&quot;ballerina.version&quot;);
 </code></pre>
-<p>The following sample shows how to create and throw and error and how to access the call stack for the error.</p>
+<p>The following sample shows how to access the call stack and how to trap an error.</p>
 <pre><code class="language-ballerina">import ballerina/runtime;
 import ballerina/io;
 
-// prints the current call stack
-io:println(runtime:getCallStack());
-
-function throwError1 () {
-    throwError2();
+public function main() {
+    // prints the current call stack
+    io:println(runtime:getCallStack());
+    var errorMessage = trap getError();
+    if (errorMessage is error) {
+        io:println(errorMessage.reason());
+    }
 }
 
-function throwError2 () {
-    // creates an error with a message
-    error e = { message: &quot;error 2 occured&quot; };
-    throw e;
+function getError() {
+    panicWithError();
 }
 
-try {
-    throwError1();
-} catch (error e) {
-    // prints the call stack frame for the error caught
-    io:println(runtime:getErrorCallStackFrame(e));
+function panicWithError() {
+    // creates an error with a reason
+    error e = error(&quot;error occured&quot;);
+    panic e;
 }
 </code></pre>
 
@@ -666,14 +629,6 @@ try {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#CallFailedException">CallFailedException</a></td>
-                                                         <td class="cSummary-table-desc">Representation of `CallFailedException`
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#CallStackElement">CallStackElement</a></td>
                                                          <td class="cSummary-table-desc">Representation of `CallStackElement`
 </td>
@@ -682,24 +637,8 @@ try {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#IllegalStateException">IllegalStateException</a></td>
-                                                         <td class="cSummary-table-desc">Representation of `IllegalStateException`
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#InvocationContext">InvocationContext</a></td>
                                                          <td class="cSummary-table-desc">Represents the InvocationContext.
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#NullReferenceException">NullReferenceException</a></td>
-                                                         <td class="cSummary-table-desc">Representation of `NullReferenceException`
 </td>
                                                      </tr>
                                                  
@@ -750,20 +689,6 @@ try {
                                                  
                                              
                                                  
-                                             
-                                                 
-                                             
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#checkpoint">checkpoint</a></td>
-                                                        <td class="cSummary-table-desc"><p>Check point the current state of the execution.</p>
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#getCallStack">getCallStack</a></td>
                                                         <td class="cSummary-table-desc"><p>Retrieves the Call Stack</p>
@@ -799,6 +724,14 @@ try {
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#sleep">sleep</a></td>
                                                         <td class="cSummary-table-desc"><p>Halts the current worker for a predefined amount of time.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#timeout">timeout</a></td>
+                                                        <td class="cSummary-table-desc"><p>Gives a timeout to the current worker for a predefined amount of time.</p>
 </td>
                                                      </tr>
                                                  
@@ -856,64 +789,6 @@ try {
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Relevant token for the schema.</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <h2 id="CallFailedException">
-                                                    <span class="fw-record sm-icon"></span> public type CallFailedException
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Representation of `CallFailedException`
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Field Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">message</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Error message</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">cause</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>optional <code>error</code> instance</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">causes</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#error">error[]?</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>optional array of <code>error</code> instances</p>
 </td>
                                                     </tr>
                                                     
@@ -1000,56 +875,6 @@ try {
                                                 
                                                 <!-- Records -->
                                                 
-                                                <h2 id="IllegalStateException">
-                                                    <span class="fw-record sm-icon"></span> public type IllegalStateException
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Representation of `IllegalStateException`
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Field Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">message</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>error message</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">cause</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>optional error cause</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
                                                 <h2 id="InvocationContext">
                                                     <span class="fw-record sm-icon"></span> public type InvocationContext
                                                 </h2>
@@ -1096,56 +921,6 @@ try {
                                                         <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Context attributes.</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <h2 id="NullReferenceException">
-                                                    <span class="fw-record sm-icon"></span> public type NullReferenceException
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Representation of `NullReferenceException`
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Field Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">message</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>error message</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">cause</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>optional error cause</p>
 </td>
                                                     </tr>
                                                     
@@ -1226,30 +1001,6 @@ try {
                                                 
                                                 <!-- Function -->
                                                 
-                                                <h2 id="checkpoint">
-                                                    <span class="fw-function sm-icon"> </span> public function checkpoint() 
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Check point the current state of the execution.</p>
-
-                                                </p>
-                                                   
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
                                                 <h2 id="getCallStack">
                                                     <span class="fw-function sm-icon"> </span> public function getCallStack() returns (CallStackElement[]) 
                                                 </h2>
@@ -1294,7 +1045,7 @@ try {
                                                 <!-- Function -->
                                                 
                                                 <h2 id="getErrorCallStackFrame">
-                                                    <span class="fw-function sm-icon"> </span> public function getErrorCallStackFrame(error? e) returns (CallStackElement) 
+                                                    <span class="fw-function sm-icon"> </span> public function getErrorCallStackFrame(error? e) returns (CallStackElement[]) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1331,9 +1082,9 @@ try {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="runtime.html#CallStackElement">CallStackElement</a></td>
+                                                        <td class="cAPI-table-type"><a href="runtime.html#CallStackElement">CallStackElement[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p><code>CallStackElement</code> instance</p>
+                                                        <td class="cAPI-table-desc"><p>Array of <code>CallStackElement</code> elements</p>
 </td>
                                                     </tr>
                                                     
@@ -1485,6 +1236,66 @@ try {
                                                     
                                                 </table>
                                                   
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="timeout">
+                                                    <span class="fw-function sm-icon"> </span> public function timeout(int millis) returns (future&lt;null&gt;) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Gives a timeout to the current worker for a predefined amount of time.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">millis</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Amount of time needed for the timeout in milliseconds</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#future">future<null></a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"></td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -1828,16 +1639,6 @@ try {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="mime.html">ballerina/<span class="bold">mime</span>
                                    </a>
                                    
@@ -1881,6 +1682,16 @@ try {
                                    <a>ballerina/<span class="bold">runtime</a>
                                    
                                    
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
+                                   </a>
                                    
                                 </li>
                              </ul>
@@ -2143,16 +1954,6 @@ try {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="mime.html">ballerina/<span class="bold">mime</span>
                                    </a>
                                    
@@ -2196,6 +1997,16 @@ try {
                                    <a>ballerina/<span class="bold">runtime</a>
                                    
                                    
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
+                                   </a>
                                    
                                 </li>
                              </ul>

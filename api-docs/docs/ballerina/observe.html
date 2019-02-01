@@ -233,13 +233,6 @@
                             </li>
                         </ul>
                         
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -425,12 +418,12 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Counter-new">
+                                                <a href="#Counter-__init">
                                                     <div class="construct-icon">
                                                         <span class="fw-constructor"> </span>
                                                     </div>
                                                     <div class="construct-name">
-                                                        new
+                                                        __init
                                                     </div>
                                                 </a>
                                             </li>
@@ -515,12 +508,12 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Gauge-new">
+                                                <a href="#Gauge-__init">
                                                     <div class="construct-icon">
                                                         <span class="fw-constructor"> </span>
                                                     </div>
                                                     <div class="construct-name">
-                                                        new
+                                                        __init
                                                     </div>
                                                 </a>
                                             </li>
@@ -700,6 +693,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -738,7 +738,7 @@
                                                 <h2>Module Overview</h2>
 <p>This module provides apis for observing Ballerina services.
 Ballerina supports Observability out of the box. This module provides user api's to make Ballerina Observability more flexible for the user.</p>
-<p>To observe ballerina code, the <code>--observe</code> flag should be given when starting the service. i.e. <code>ballerina run hello_world.bal --observe</code>.
+<p>To observe ballerina code, the <code>--observe</code> flag should be given when starting the service. i.e. <code>ballerina run --observe hello_world.bal</code>.
 For more information on Ballerina Observability visit <a href="https://ballerina.io/learn/how-to-observe-ballerina-code/">How to Observe Ballerina Services</a></p>
 <h2>Tracing</h2>
 <h3>Samples</h3>
@@ -770,7 +770,7 @@ Note: Make sure that all started spans are closed properly to ensure that all sp
 </code></pre>
 <h4>Attach a tag to a span</h4>
 <p>It is possible to add tags to span by using the <code>observe:addTagToSpan()</code> api by providing the span id and relevant tag key and tag value.</p>
-<pre><code class="language-ballerina">    _ = observe:addTagToSpan(spanId, &quot;Tag Key&quot;, &quot;Tag Value&quot;);
+<pre><code class="language-ballerina">    _ = observe:addTagToSpan(spanId = spanId, &quot;Tag Key&quot;, &quot;Tag Value&quot;);
 </code></pre>
 <h4>Attach a tag to a span in the system trace</h4>
 <p>When no spanId is provided or -1 is given, the defined tags are added to the current active span in the ootb system trace.</p>
@@ -805,9 +805,10 @@ then there will be an error returned. But if it's another counter instance, then
 be returned.</p>
 <pre><code class="language-ballerina">    map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
     observe:Counter counterWithTags = new (&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
-    counterWithTags.register() but {
-        error e =&gt; log:printError(&quot;Cannot register the counter&quot;, err = e)
-    };
+    var anyError = counterWithTags.register();
+    if anyError is error {
+        log:printError(&quot;Cannot register the counter&quot;, err = anyError);
+    }
     
 </code></pre>
 <h4>Unregister</h4>
@@ -815,9 +816,10 @@ be returned.</p>
 then further it'll not be included in metrics reporting.</p>
 <pre><code class="language-ballerina">    map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
     observe:Counter counterWithTags = new (&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
-    counterWithTags.register() but {
-        error e =&gt; log:printError(&quot;Cannot register the counter&quot;, err = e)
-    };
+    var anyError = counterWithTags.register();
+    if anyError is error {
+        log:printError(&quot;Cannot register the counter&quot;, err = anyError);
+    }
     counterWithTags.unregister();
     
 </code></pre>
@@ -883,9 +885,10 @@ then there will be an error returned. But if it's another gauge instance, then t
 be returned.</p>
 <pre><code class="language-ballerina">    map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
     observe:Gauge gaugeWithTags = new (&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
-    gaugeWithTags.register() but {
-        error e =&gt; log:printError(&quot;Cannot register the gauge.&quot;, err = e)
-    };
+    var anyError = gaugeWithTags.register();
+    if anyError is error {
+        log:printError(&quot;Cannot register the gauge&quot;, err = anyError);
+    }
     
 </code></pre>
 <h4>Unregister</h4>
@@ -893,9 +896,10 @@ be returned.</p>
 then further it'll not be included in metrics reporting.</p>
 <pre><code class="language-ballerina">     map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
      observe:Gauge gaugeWithTags = new (&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
-     gaugeWithTags.register() but {
-            error e =&gt; log:printError(&quot;Cannot register the gauge.&quot;, err = e)
-     };
+    var anyError = gaugeWithTags.register();
+    if anyError is error {
+        log:printError(&quot;Cannot register the gauge&quot;, err = anyError);
+    }
      gaugeWithTags.unregister();
     
 </code></pre>
@@ -943,21 +947,18 @@ If the statistics are disabled, then it'll be returning nil ().</p>
     gaugeWithTags.setValue(3.0);
     
     observe:Snapshot[]? summarySnapshot = gaugeWithTags.getSnapshot();
-    match summarySnapshot {
-        observe:Snapshot[] stats =&gt; {
-            io:println(stats);
-        }
-        () =&gt; {
-            io:println(&quot;No statistics available!&quot;);
-        }
-    } 
+    if summarySnapshot is observe:Snapshot[] {
+        io:println(summarySnapshot);
+    } else {
+        io:println(&quot;No statistics available!&quot;);
+    }
 </code></pre>
 <h3>Global Metrics Samples</h3>
 <h4>Get All Metrics</h4>
 <p>This method returns all the metrics that are registered in the global metrics registry. This method is mainly useful for
 metric reporters, where they can fetch all metrics, format those, and report.</p>
 <pre><code class="language-ballerina">     observe:Metric[] metrics = observe:getAllMetrics();
-     foreach metric in metrics {
+     foreach var metric in metrics {
         //do something.
      }
 </code></pre>
@@ -965,16 +966,12 @@ metric reporters, where they can fetch all metrics, format those, and report.</p
 <p>This method will lookup for the metric from the global metric registry and return it.</p>
 <pre><code class="language-ballerina">    map&lt;string&gt; tags = { &quot;method&quot;: &quot;GET&quot; };
     observe:Counter|observe:Gauge|() metric = observe:lookupMetric(&quot;MetricName&quot;, tags = tags);
-    match metric {
-        observe:Counter counter =&gt; {
-                counter.increment(amount=10);
-        }
-        observe:Gauge gauge =&gt; {
-                gauge.increment(amount = 10.0);
-        }
-        () =&gt; {
-               io:println(&quot;No Metric Found!&quot;);
-        }
+    if metric is observe:Counter {
+        metric.increment(amount = 10);
+    } else if metric is observe:Gauge {
+        metric.increment(amount = 10.0);
+    } else {
+        io:println(&quot;No Metric Found!&quot;);
     }
 </code></pre>
 
@@ -1459,7 +1456,7 @@ during the usage.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="addTagToSpan">
-                                                    <span class="fw-function sm-icon"> </span> public function addTagToSpan(string tagKey, string tagValue, int spanId) returns (error) 
+                                                    <span class="fw-function sm-icon"> </span> public function addTagToSpan(string tagKey, string tagValue, int spanId) returns (error?&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1512,7 +1509,7 @@ during the usage.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#error">error?<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>An error if an error occured while attaching tag to the span</p>
 </td>
@@ -1536,7 +1533,7 @@ during the usage.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="finishSpan">
-                                                    <span class="fw-function sm-icon"> </span> public function finishSpan(int spanId) returns (error) 
+                                                    <span class="fw-function sm-icon"> </span> public function finishSpan(int spanId) returns (error?&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1573,7 +1570,7 @@ during the usage.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#error">error?<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>An error if an error occured while finishing the span</p>
 </td>
@@ -1778,7 +1775,7 @@ during the usage.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="startSpan">
-                                                    <span class="fw-function sm-icon"> </span> public function startSpan(string spanName, map&lt;string&gt;? tags, int parentSpanId) returns (int | error) 
+                                                    <span class="fw-function sm-icon"> </span> public function startSpan(string spanName, map&lt;string&gt;? tags, int parentSpanId) returns (int | error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1831,7 +1828,7 @@ during the usage.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>SpanId of the started span</p>
 </td>
@@ -1909,11 +1906,11 @@ during the usage.</p>
                                                     <ul>
                                                         
                                                         <li>
-                                                            <h2 id="Counter-new">
+                                                            <h2 id="Counter-__init">
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Counter&gt;
-                                                   </span> new(string name, string? desc, map&lt;string&gt;? tags) 
+                                                   </span> __init(string name, string? desc, map&lt;string&gt;? tags) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1964,7 +1961,7 @@ will be used.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Counter&gt;
-                                                   </span> register() returns (error) 
+                                                   </span> register() returns (error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1983,7 +1980,7 @@ will be used.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Returns error if there is any metric registered already with the same name
 but different parameters or in a different kind.</p>
@@ -2167,11 +2164,11 @@ of the gauge during its usage.</p>
                                                     <ul>
                                                         
                                                         <li>
-                                                            <h2 id="Gauge-new">
+                                                            <h2 id="Gauge-__init">
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Gauge&gt;
-                                                   </span> new(string name, string? desc, map&lt;string&gt;? tags, observe:StatisticConfig[]? statisticConfig) 
+                                                   </span> __init(string name, string? desc, map&lt;string&gt;? tags, observe:StatisticConfig[]? statisticConfig) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2233,7 +2230,7 @@ calculation.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Gauge&gt;
-                                                   </span> register() returns (error) 
+                                                   </span> register() returns (error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2252,7 +2249,7 @@ calculation.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Returns error if there is any metric registered already with the same name
 but different parameters or in a different kind.</p>
@@ -2786,16 +2783,6 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="mime.html">ballerina/<span class="bold">mime</span>
                                    </a>
                                    
@@ -2838,6 +2825,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                    <!--Package Name-->
                                    
                                    <a href="runtime.html">ballerina/<span class="bold">runtime</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
                                    </a>
                                    
                                 </li>
@@ -3101,16 +3098,6 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="mime.html">ballerina/<span class="bold">mime</span>
                                    </a>
                                    
@@ -3153,6 +3140,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                    <!--Package Name-->
                                    
                                    <a href="runtime.html">ballerina/<span class="bold">runtime</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
                                    </a>
                                    
                                 </li>

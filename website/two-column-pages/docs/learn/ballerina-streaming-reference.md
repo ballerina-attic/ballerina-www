@@ -3,6 +3,8 @@
 Ballerina streaming is designed to process event streams in a streaming manner, detect complex event occurrences,
 and produce notifications in real-time.
 
+Note: Ballerina Streaming capabilities are shipped as the experimental feature in the latest release. Please use `--experimental` flag when compiling Ballerina files which have streaming constructs.
+
 For example, following scenarios are supported by Ballerina stream processing:
 
 * Data preprocessing
@@ -43,7 +45,7 @@ type <record name> record {
     ...
 };
 
-stream<record name> <stream name>;
+stream<record name> <stream name> = new;
 ```
 The following parameters are configured in a stream definition.
 
@@ -63,7 +65,7 @@ type Employee record {
     string status;
 };
 
-stream<Employee> employeeStream;
+stream<Employee> employeeStream = new;
 ```
 
 The code given above creates a stream named `employeeStream` that is constrained by the `Employee` type having 
@@ -109,13 +111,13 @@ more than one event to the `highTemperatureSensorStream` stream.
 ```ballerina
     forever {
         from sensorTemperatureStream
-            where temperature > 30
+            where sensorTemperatureStream.temperature > 30
             window lengthBatch (100)
-        select type, count(type) as totalCount
-            group by type
+        select sensorTemperatureStream.type, count() as totalCount
+            group by sensorTemperatureStream.type
             having totalCount > 1
         =>  (HighTemperature [] values) {
-                foreach value in values {
+                foreach var value in values {
                     highTemperatureSensorStream.publish(value);
                 }
             }
@@ -163,13 +165,13 @@ type roomTemperature record {
   float value;
 }
 
-stream<temperature> tempStream;
+stream<temperature> tempStream = new;
 
 
 from tempStream
-select roomNo, value
+select tempStream.roomNo, tempStream.value
 => (roomTemperature[] temperatures) {
-    foreach temperature in temperatures {
+    foreach var temperature in temperatures {
         roomTempStream.publish(temperature);
     }
 }
@@ -204,7 +206,7 @@ Streaming queries support the following for query projections.
         <td>This involves selecting only some of the attributes from the input stream to be inserted into an output stream.
             <br><br>
             e.g., The following query selects only the `roomNo` and `temp` attributes from the `tempStream` stream.
-            <pre style="align:left">from tempStream<br>select roomNo, temp<br>=> ( ) { <br/><br/>}</pre>
+            <pre style="align:left">from tempStream<br>select tempStream.roomNo, tempStream.temp<br>=> ( ) { <br/><br/>}</pre>
         </td>
     </tr>
     <tr>
@@ -222,7 +224,7 @@ Streaming queries support the following for query projections.
         <td>This selects attributes from the input streams and inserts them into the output stream with different names.
             <br><br>
             e.g., This query renames `roomNo` to `roomNumber` and `temp` to `temperature`.
-            <pre>from tempStream <br>select roomNo as roomNumber, temp as temperature<br>=> ( ) { <br/><br/>}</pre>
+            <pre>from tempStream <br>select tempStream.roomNo as roomNumber, tempStream.temp as temperature<br>=> ( ) { <br/><br/>}</pre>
         </td>
     </tr>
     <tr>
@@ -230,7 +232,7 @@ Streaming queries support the following for query projections.
         <td>This adds constant values by assigning it to an attribute using `as`.
             <br></br>
             e.g., This query specifies 'C' to be used as the constant value for the `scale` attribute.
-            <pre>from tempStream<br>select roomNo, temp, 'C' as scale<br>=> ( ) { <br/><br/>}</pre>
+            <pre>from tempStream<br>select tempStream.roomNo, tempStream.temp, 'C' as scale<br>=> ( ) { <br/><br/>}</pre>
         </td>
     </tr>
     <tr>
@@ -345,7 +347,7 @@ Streaming queries support the following for query projections.
                 </tr>
             </table>
             e.g., This query converts Celsius to Fahrenheit, and identifies rooms of which the room number is between 10 and 15 as server rooms.
-            <pre>from tempStream<br>select roomNo, temp * 9/5 + 32 as temp, 'F' as scale, roomNo > 10 && <br>       roomNo < 15 as isServerRoom<br>=> (RoomFahrenheit [] events ) { <br/><br/>}</pre>
+            <pre>from tempStream<br>select tempStream.roomNo, tempStream.temp * 9/5 + 32 as temp, 'F' as scale,<br>       tempStream.roomNo > 10 && tempStream.roomNo < 15 as isServerRoom<br>=> (RoomFahrenheit [] events ) { <br/><br/>}</pre>
     </tr>
 </table>
 
@@ -375,10 +377,10 @@ This query filters all the server rooms of which the room number is within the r
 from the `tempStream` stream, and inserts the results into the `highTempStream` stream.
 
 ```ballerina
-from tempStream where (roomNo >= 100 && roomNo < 210) && temp > 40
-select roomNo, temp
+from tempStream where (tempStream.roomNo >= 100 && tempStream.roomNo < 210) && tempStream.temp > 40
+select tempStream.roomNo, tempStream.temp
 => (RoomTemperature [] values) {
-    foreach value in values {
+    foreach var value in values {
         highTempStream.publish(value);
     }
 }
@@ -424,7 +426,7 @@ and inserts the results into the `maxTempStream` stream.
 
 ```ballerina
 from tempStream window length(10)
-select max(temp) as maxTemp
+select max(tempStream.temp) as maxTemp
 => ( ) {
 
 }
@@ -444,7 +446,7 @@ and inserts the results into the `maxTempStream` stream.
 
 ```ballerina
 from tempStream window lengthBatch(10)
-select max(temp) as maxTemp
+select max(tempStream.temp) as maxTemp
 => ( ) {
 
 }
@@ -461,11 +463,11 @@ Following are some inbuilt windows shipped with Ballerina Streams.
 * length
 * lengthBatch
 * sort
-* frequent
-* lossyFrequent
 * cron
 * externalTime
 * externalTimeBatch
+* uniqueLength
+* delay
 
 
 #### Aggregate function
@@ -495,9 +497,9 @@ The following query calculates the average value for the `temp` attribute of the
 
 ```ballerina
 from tempStream window time(600000)
-select avg(temp) as avgTemp, roomNo, deviceID
+select avg(tempStream.temp) as avgTemp, tempStream.roomNo, tempStream.deviceID
 => (AvgTemperature [] values) {
-    foreach value in values {
+    foreach var value in values {
         avgTempStream.publish(value);
     }
 }
@@ -519,11 +521,12 @@ Following are some inbuilt aggregation functions shipped with Ballerina, for mor
  *  The following query calculates the distinct count of page visits of each user.
 
 ```ballerina
-from pageVisitStream#window.time(5 sec)
-select userID, pageID, distinctCount(pageID) as distinctPages
-group by userID
+from pageVisitStream window time(5000)
+select pageVisitStream.userID, pageVisitStream.pageID,
+        distinctCount(pageVisitStream.pageID) as distinctPages
+group by pageVisitStream.userID
 => (UserPageVisit [] visits) {
-    foreach visit in visits {
+    foreach var visit in visits {
         outputStream.publish(visit);
     }
 }
@@ -533,9 +536,9 @@ group by userID
 
 ```ballerina
 from tempStream
-select room, timestamp, maxForever(temperature) as maxTemp
+select tempStream.room, tempStream.timestamp, maxForever(tempStream.temperature) as maxTemp
 => (RoomTemperature [] roomTemps) {
-    foreach roomTemp in roomTemps {
+    foreach var roomTemp in roomTemps {
         maxTempStream.publish(roomTemp);
     }
 }
@@ -545,9 +548,9 @@ select room, timestamp, maxForever(temperature) as maxTemp
 
 ```ballerina
 from stockExchangeStream window lengthBatch(1000)
-select stdDev(price) as deviation, symbol
+select stdDev(stockExchangeStream.price) as deviation, stockExchangeStream.symbol
 => (SymbolDeviation[] deviations) {
-    foreach deviation in deviations {
+    foreach var deviation in deviations {
         priceDeviationStream.publish(deviation);
     }
 }
@@ -579,10 +582,10 @@ for a sliding time window of 10 minutes.
 
 ```ballerina
 from tempStream window time(600000)
-select avg(temp) as avgTemp, roomNo, deviceID
-group by roomNo, deviceID
+select avg(tempStream.temp) as avgTemp, tempStream.roomNo, tempStream.deviceID
+group by tempStream.roomNo, tempStream.deviceID
 => (AvgTemperature [] values) {
-    foreach value in values {
+    foreach var value in values {
         avgTempStream.publish(value);
     }
 }
@@ -616,11 +619,11 @@ having <condition>
 The following query calculates the average temperature per room for the last 10 minutes, and alerts if it exceeds 30 degrees.
 ```ballerina
 from tempStream window time(600000)
-select avg(temp) as avgTemp, roomNo
-group by roomNo
+select avg(tempStream.temp) as avgTemp, tempStream.roomNo
+group by tempStream.roomNo
 having avgTemp > 30
 => (Alert [] values) {
-    foreach value in values {
+    foreach var value in values {
         alertStream.publish(value);
     }
 }
@@ -655,11 +658,11 @@ by ordering them in the ascending order of the room's avgTemp and then by the de
 
 ```ballerina
 from tempStream window timeBatch(600000)
-select avg(temp) as avgTemp, roomNo, deviceID
-group by roomNo, deviceID
+select avg(tempStream.temp) as avgTemp, tempStream.roomNo, tempStream.deviceID
+group by tempStream.roomNo, tempStream.deviceID
 order by avgTemp, roomNo descending
 => (AvgTemperature [] values) {
-    foreach value in values {
+    foreach var value in values {
         avgTempStream.publish(value);
     }
 }
@@ -712,12 +715,12 @@ Following is a streaming query that controls the temperature regulators if they 
 for all the rooms with a room temperature greater than 30 degrees.
 
 ```ballerina
-from tempStream where (temp > 30.0) window time(60000) as T
-  join regulatorStream where (isOn == false) window length(1) as R
+from tempStream where (tempStream.temp > 30.0) window time(60000) as T
+  join regulatorStream where (regulatorStream.isOn == false) window length(1) as R
   on T.roomNo == R.roomNo
 select T.roomNo, R.deviceID, 'start' as action
 => (RegulatorAction [] values) {
-    foreach value in values {
+    foreach var value in values {
         regulatorActionStream.publish(value);
     }
 }
@@ -783,6 +786,143 @@ Following are the supported operations of a join clause.
     ```
 
 
+#### Table Operations
+Ballerina provides extensive support to deal with tables. It provides various types of operations such as create, insert, delete, etc. with in-memory or external storage tables.
+
+###### Purpose
+In Streaming context, a table is a stored version of a stream or a table of events. Ballerina provides support to interactively query the state of the stored events in the table when processing events which are arrived through a stream.
+We could perform operations such as add, delete, update and join with tables.
+
+###### Example - Add
+In the following example, query events that arrive in `stockStream` are added into the table `itemStockTable` after projecting a few attributes from the event.
+
+```ballerina
+//This is the record that holds item details in the stockTable.
+type Item record {
+    string name;
+    float price;
+    int stockAmount;
+    !...
+};
+
+//This is the record that holds stock details.
+type Stock record {
+    string name;
+    float price;
+    int stockAmount;
+    string manufactureName;
+    int manufactureId;
+    !...
+};
+
+// This is the input stream that uses `Stock` as the constraint type.
+stream<Stock> stockStream = new;
+
+// This is the table that holds the item stock data.
+table<Item> itemStockTable = table {
+    { name, price, stockAmount },
+    [
+        {"Book", 100.0, 10},
+        {"Pen", 20.0, 4}
+    ]
+};
+
+
+function initStockUpdate() {
+    forever {
+        from stockStream
+        select stockStream.name as name, stockStream.price, stockStream.stockAmount
+        => (Item[] items) {
+            foreach var item in items {
+                itemStockTable.add(item);
+            }
+        }
+    }
+}
+
+```
+
+
+###### Example - Join with Table
+In the following query, we perform a join operation between the event stream and table. Whenever an order event is published to `orderStream`, it is matched against the `itemStockTable` through the `queryItemTable` function. If there is a match,
+an alert event is published to `oredrAlertStream`.
+
+```ballerina
+//This is the record that holds item details in the stockTable.
+type Item record {
+    string name;
+    float price;
+    int stockAmount;
+    !...
+};
+
+// This is the record that holds order events from the customer.
+type Order record {
+    string itemName;
+    int orderingAmount;
+    !...
+};
+
+//This is the record that holds alert events.
+type OutOfStockAlert record {
+    string itemName;
+    int stockAmount;
+    !...
+};
+
+// This is the input stream that uses `Order` as the constraint type.
+stream<Order> orderStream = new;
+
+// This is the table that holds the item stock data.
+table<Item> itemStockTable = table {
+    { name, price, stockAmount },
+    [
+        {"Book", 100.0, 10},
+        {"Pen", 20.0, 4}
+    ]
+};
+
+// This is the output stream that contains the events/alerts that are generated based on streaming logic.
+stream<OutOfStockAlert> oredrAlertStream = new;
+
+function initOutOfStockAlert() {
+    forever {
+        from orderStream window length(1) as itemOrder
+        join queryItemTable(itemOrder.itemName, itemOrder.orderingAmount) as item
+        select item.name as itemName, item.stockAmount
+        => (OutOfStockAlert[] alerts) {
+            foreach var alert in alerts {
+                oredrAlertStream.publish(alert);
+            }
+        }
+    }
+}
+
+//`queryItemTable` function returns a table of items whose stock is not enough to satisfy the order.
+public function queryItemTable(string itemName, int orderingAmount)
+        returns table<Item> {
+    table<Item> result = table {
+        { name, price, stockAmount }, []
+    };
+    foreach var item in itemStockTable {
+        if (item.name == itemName && orderingAmount > item.stockAmount) {
+            var ret = result.add(item);
+        }
+    }
+    return result;
+}
+
+```
+
+
+****
+
+Capabilities mentioned in below sections are not supported by the native Ballerina-based
+stream processing. They are only available when using Siddhi CEP engine for stream processing capabilities
+in Ballerina. If you want to enable Siddhi runtime-based stream processing with Ballerina; please use
+the compile time flag `--siddhiruntime`.
+
+
 #### Pattern
 
 This is a state machine implementation that allows you to detect patterns in the events that arrive over time.
@@ -826,7 +966,7 @@ from every( e1 = tempStream )
     within 10 minute
 select e1.roomNo, e1.temp as initialTemp, e2.temp as finalTemp
 => (Alert [] alerts) {
-    foreach alert in alerts {
+    foreach var alert in alerts {
         alertStream.publish(alert);
     }
 }
@@ -890,15 +1030,15 @@ type Regulator record {
     boolean isOn
 };
 
-stream<Temperature> tempStream;
-stream<Regulator> regulatorStream;
+stream<Temperature> tempStream = new;
+stream<Regulator> regulatorStream = new;
 
 from every( e1=regulatorStream) 
     followed by e2=tempStream where (e1.roomNo==roomNo) [1..] 
     followed by e3=regulatorStream where (e1.roomNo==roomNo)
 select e1.roomNo, e2[0].temp - e2[last].temp as tempDiff
 => (TemperatureDiff [] values) {
-    foreach value in values {
+    foreach var value in values {
         tempDiffStream.publish(value);
     }
 }
@@ -951,8 +1091,8 @@ type RoomKey record {
     string action
 };
 
-stream<RegulatorState> regulatorStateChangeStream;
-stream<RoomKey> roomKeyStream;
+stream<RegulatorState> regulatorStateChangeStream = new;
+stream<RoomKey> roomKeyStream = new;
 
 from every( e1=regulatorStateChangeStream where (action == 'on')) 
       followed by e2=roomKeyStream where (e1.roomNo == roomNo && action == 'removed')
@@ -960,7 +1100,7 @@ from every( e1=regulatorStateChangeStream where (action == 'on'))
 select e1.roomNo, e2 == null ? "none" : "stop" as action
     having action != 'none'
 => (RegulatorAction [] outputs) {
-    foreach output in outputs {
+    foreach var output in outputs {
         regulatorActionStream.publish(output);
     }
 }
@@ -983,15 +1123,15 @@ type Temperature record {
     float temp
 };
 
-stream<RegulatorState> regulatorStateChangeStream;
-stream<Temperature> tempStream;
+stream<RegulatorState> regulatorStateChangeStream = new;
+stream<Temperature> tempStream = new;
 
 from e1=regulatorStateChangeStream where (action == 'start') 
     followed by  !tempStream where (e1.roomNo == roomNo && temp < 12) 
     && e2=regulatorStateChangeStream where (action == 'off')
 select e1.roomNo as roomNo
 => (Alert [] alerts) {
-    foreach alert in alerts {
+    foreach var alert in alerts {
         alertStream.publish(alert);
     }
 }
@@ -1014,8 +1154,8 @@ type Temperature record {
     float temp
 };
 
-stream<RegulatorState> regulatorStateChangeStream;
-stream<Temperature> tempStream;
+stream<RegulatorState> regulatorStateChangeStream = new;
+stream<Temperature> tempStream = new;
 
 from e1=regulatorStateChangeStream where (action == 'start')
         followed by !tempStream
@@ -1023,7 +1163,7 @@ from e1=regulatorStateChangeStream where (action == 'start')
         for 5 minutes
 select e1.roomNo as roomNo
 => (Alert [] alerts) {
-    foreach alert in alerts {
+    foreach var alert in alerts {
         alertStream.publish(alert);
     }
 }
@@ -1071,7 +1211,7 @@ This query generates an alert if the increase in the temperature between two con
 from every e1=tempStream, e2=tempStream where (e1.temp + 1 < temp)
 select e1.temp as initialTemp, e2.temp as finalTemp
 => (Alert [] alerts) {
-    foreach alert in alerts {
+    foreach var alert in alerts {
         alertStream.publish(alert);
     }
 }
@@ -1120,13 +1260,13 @@ type Temperature record {
     float temp
 };
 
-stream<Temperature> tempStream;
+stream<Temperature> tempStream = new;
 
 from every e1=tempStream, e2=tempStream where (e1.temp <= temp)[1..],
            e3=tempStream where (e2[e2.length-1].temp > temp)
 select e1.temp as initialTemp, e2[e2.length-1].temp as peakTemp
 =>(PeekTemperature [] values) {
-    foreach value in values {
+    foreach var value in values {
         peekTempStream.publish(value);
     }
 }
@@ -1173,14 +1313,14 @@ type Regulator record {
     boolean isOn
 };
 
-stream<Temperature> tempStream;
-stream<Humidity> humidStream;
-stream<Regulator> regulatorStream;
+stream<Temperature> tempStream = new;
+stream<Humidity> humidStream = new;
+stream<Regulator> regulatorStream = new;
 
 from every e1=regulatorStream, e2=tempStream && e3=humidStream
 select e2.temp, e3.humid
 => (Notification [] notifications) {
-    foreach notification in notifications {
+    foreach var notification in notifications {
         stateNotificationStream.publish(notification);
     }
 }

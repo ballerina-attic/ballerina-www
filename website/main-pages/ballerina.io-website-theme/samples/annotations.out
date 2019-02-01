@@ -4,14 +4,12 @@ $ cat demo.swagger.yaml
 openapi: 3.0.1
 info:
   title: Hello World Service
-  version: 2.0.0
   description: Simple hello world service
-servers:
-- url: /hello
+  version: 2.0.0
 paths:
   /:
     get:
-      operationId: hi
+      operationId: operation1-hi
       responses:
         200:
           description: Successful

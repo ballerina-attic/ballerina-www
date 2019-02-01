@@ -1,19 +1,20 @@
-import wso2/kafka;
 import ballerina/io;
+import wso2/kafka;
 
-endpoint kafka:SimpleConsumer consumer {
+listener kafka:SimpleConsumer consumer = new({
     bootstrapServers: "localhost:9092, localhost:9093",
-    groupId: "inventorySystemd",
+    groupId: "inventorySystem",
     topics: ["product-price"],
     pollingInterval:1000
-};
+});
 
-service<kafka:Consumer> kafkaService bind consumer {
-    onMessage(kafka:ConsumerAction consumerAction, kafka:ConsumerRecord[] records) {
-        foreach entry in records {
+service kafkaService on consumer {
+    resource function onMessage(kafka:SimpleConsumer simpleConsumer, kafka:ConsumerRecord[] records) returns error? {
+        foreach var entry in records {
             byte[] serializedMsg = entry.value;
-            io:ByteChannel byteChannel = io:openFile("/some/Path", io:APPEND);
+            io:WritableByteChannel byteChannel = io:openWritableFile("/some/Path", append = true);
             int writtenBytes = check byteChannel.write(serializedMsg, 0);
         }
+        return;
     }
 }

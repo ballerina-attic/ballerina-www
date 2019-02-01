@@ -2,8 +2,7 @@ import ballerina/mysql;
 
 function secureOperation(@sensitive string secureParameter) { }
 
-public function main(string... args) {
-
+public function main(string... args) returns error? {
     // Pass input argument to security sensitive parameter
     secureOperation(args[0]);
 
@@ -11,20 +10,20 @@ public function main(string... args) {
         // After sanitizing the content untaint can be used
         secureOperation(untaint args[0]);
     } else {
-        error err = { message: "Error: ID should be an integer" };
-        throw err;
+        error err = error("Error: ID should be an integer");
+        panic err;
     }
 
     // Tainted return value cannot be passed into sensitive parameter
     json taintedJson = generateTaintedData();
-    secureOperation(check <string>taintedJson.name);
+    secureOperation(check string.convert(taintedJson.name));
 
     // Untainted return value can be passed into sensitive parameter
-    string sanitizedData = sanitize(check <string>taintedJson.firstname);
+    string sanitizedData = sanitize(check string.convert(
+                                        taintedJson.firstname));
     secureOperation(sanitizedData);
 
     return;
-
 }
 
 function generateTaintedData() returns @tainted json {
@@ -39,6 +38,6 @@ function sanitize(string input) returns @untainted string {
 
 function isInteger(string input) returns boolean {
     string regEx = "\\d+";
-    boolean isInt = check input.matches(regEx);
-    return isInt;
+    boolean|error isInt = input.matches(regEx);
+    return isInt is boolean ? isInt : false;
 }
