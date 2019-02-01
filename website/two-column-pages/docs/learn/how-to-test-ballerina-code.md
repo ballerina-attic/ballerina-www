@@ -358,7 +358,7 @@ import ballerina/test;
 
 @test:Config
 function foo() {
-    error|() e = trap bar(); // Expecting an exception thrown here
+    error? e = trap bar(); // Expecting `bar()` to panic
     if (e is error) {
         test:assertTrue(e.reason() == ""); // Some other assertions
     } else {
