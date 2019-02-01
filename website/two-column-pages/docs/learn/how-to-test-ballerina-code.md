@@ -358,12 +358,11 @@ import ballerina/test;
 
 @test:Config
 function foo() {
-    try {
-        bar(); // Expecting an exception thrown here
-        test:assertFail(msg = "Expected an exception");
-    }   
-    catch (error e) {
-        test:assertTrue(e != null); // Some other assertions
+    error|() e = trap bar(); // Expecting an exception thrown here
+    if (e is error) {
+        test:assertTrue(e.reason() == ""); // Some other assertions
+    } else {
+        test:assertFail(msg = "Expected an error");
     }
 }
 ```
