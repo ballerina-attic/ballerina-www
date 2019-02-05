@@ -23,7 +23,7 @@ To create a client connector, you:
 ### The Twilio Connector
 
 You can see the source code for this example at:
-[TODO: fix twilio connector]
+
 1. [Single file](https://github.com/wso2-ballerina/package-twilio/blob/master/guide/twilio_sample.bal) version (easier for reading).
 
 2. [Multiple files](https://github.com/wso2-ballerina/package-twilio/tree/master/twilio) version (split across files following good project structure).
