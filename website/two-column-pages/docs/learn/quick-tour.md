@@ -222,7 +222,8 @@ string status = check request.getTextPayload();
 
 Change the signature of the `sayHello` resource function to add `returns error?`, so that `check` will return the error value if `request.getTextPayload()` evaluates to `error`.
 
-> **Tip**: The check keyword means that this may return an error but I do not want to handle it here - pass it further away (to the caller function, or if this is a top-level function - generate a runtime failure).
+> **Tip**: The 'check' keyword means that the returned error may not be handled within the same function.
+Instead, it may be passed to the caller function. If it is a top-level function, then runtime failure will be generated.
 
 Now, you can get the response from Twitter by calling the tweet function. Replace `response.setTextPayload("Hello Ballerina!\n");` in the `sayHello` resource with the following lines of code:
 
@@ -319,7 +320,7 @@ listener http:Listener cmdListener = new(9090);
 service hello on cmdListener {
 ```
 
-> **Note**: On Windows, make sure Docker runs with Linux containers and in the general settings, enable `Expose daemon on tcp://localhost:2375 without TLS`. For more details, see the [Docker README](https://github.com/ballerinax/docker/blob/master/samples/README.md).
+> **Note**: On Windows, make sure Docker runs with Linux containers, and in the general settings, enable `Expose daemon on tcp://localhost:2375 without TLS`. For more information, see the [Docker README file](https://github.com/ballerinax/docker/blob/master/samples/README.md).
 
 Now your code is ready to generate the deployment artifacts. In this case it is a Docker image.
 
