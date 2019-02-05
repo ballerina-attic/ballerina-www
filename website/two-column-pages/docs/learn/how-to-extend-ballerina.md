@@ -256,40 +256,24 @@ An annotation is a Ballerina code snippet that can be attached to some Ballerina
 Annotations can be attached to:
 
 * Services
-* Resources
-* Functions
-* Connectors
-* Actions (of Connectors)
-* TypeMappers
-* Structs
-* Constants
+* Type definition
+* Function definition
+* Variable declaration
 * Annotations
-* Object
-* Record
-* Enum
-* Transformer
-* Endpoint
 
 Ballerina has built-in a set of annotations such as @http:ServiceConfig, @http:ResourceConfig. These annotations are part of the standard library and shipped with each distribution of Ballerina. You can view the definitions of these annotations by browsing the module's API reference.
 
 A Ballerina "builder extension" is Java code that the build process will load and execute after the compilation phase. Builder extensions can act on any annotation information, whether those in the system library or custom annotations provided by you. Builder extensions that you write can register callbacks that act on annotations attached to different objects:
 
-* `public abstract void init(DiagnosticLog var1)`
-* `public void process(PackageNode packageNode)`
-* `public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(ResourceNode resourceNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(ConnectorNode connectorNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(ActionNode actionNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(StructNode serviceNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(ObjectNode objectNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(RecordNode recordNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(EnumNode enumNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(FunctionNode functionNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(VariableNode variableNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(AnnotationNode annotationNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(TransformerNode transformerNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(EndpointNode endpointNode, List<AnnotationAttachmentNode> annotations)`
-* `public void codeGenerated(Path binaryPath)`
+*  `public void process(PackageNode packageNode)`
+*  `public void process(BLangTestablePackage packageNode)`
+*  `public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations)`
+*  `public void process(TypeDefinition typeDefinition, List<AnnotationAttachmentNode> annotations)`
+*  `public void process(FunctionNode functionNode, List<AnnotationAttachmentNode> annotations)`
+*  `public void process(SimpleVariableNode variableNode, List<AnnotationAttachmentNode> annotations)`
+*  `public void process(AnnotationNode annotationNode, List<AnnotationAttachmentNode> annotations)`
+*  `public void codeGenerated(PackageID packageID, Path binaryPath)`
+
 
 ### Create a Maven Project
 
