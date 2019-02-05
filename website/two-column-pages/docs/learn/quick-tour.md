@@ -220,7 +220,7 @@ In the `sayHello` resource function, add the following to get the payload as a s
 string status = check request.getTextPayload();
 ```
 
-And then change the signature of `sayHello` function to add `returns error?` as `check` will return if error value is encountered as the return value of  `request.getTextPayload()`.
+Change the signature of the `sayHello` resource function to add `returns error?`, so that `check` will return the error value if `request.getTextPayload()` evaluates to `error`.
 
 > **Tip**: The check keyword means that this may return an error but I do not want to handle it here - pass it further away (to the caller function, or if this is a top-level function - generate a runtime failure).
 
