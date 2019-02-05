@@ -68,25 +68,9 @@ $ cd /local/ballerina/src
 $ ballerina run sample.bal
 ```
 
-You can use the following commands to run any public function in a Ballerina file:
-```bash
-# Run public function `add` from any location
-$ ballerina run /local/ballerina/src/sample.bal:add
-
-# Run public function `add` from within the local directory
-$ cd /local/ballerina/src
-$ ballerina run sample.bal:add
-```
-
 You can use the following command to run the `main()` function or services in a generated `.balx` file:
 ```bash
 $ ballerina run sample.balx
-```
-
-You can use the following command to run a public function in a generated `.balx` file:
-```bash
-# Run public function `add`
-$ ballerina run sample.balx:add
 ```
 
 ## Modules
@@ -170,14 +154,6 @@ An entrypoint such as a `main()` or a `service` that is compiled as part of a na
 ```bash
 ballerina run module.balx
 ```
-
-If you want to invoke a public function in a `.balx`, you can use the ballerina `run` command and specify the function you want to invoke after the `.balx` as follows:
-
-```bash
-# Invoke the public function `add` in `sample.balx` 
-$ ballerina run sample.balx:add
-```
-
 
 ## Projects
 * A *project* is a directory that atomically manages a collection of *modules* and *programs*. It has:
