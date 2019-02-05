@@ -27,9 +27,9 @@ Ballerina standard library makes sure untrusted data cannot be used with securit
 
 ### Ensuring security of Ballerina standard libraries
 
-Security sensitive functions and actions of Ballerina standard libraries are decorated with  `@sensitive` parameter annotation that denotes untrusted data (tainted data) should not be passed to the parameter. 
+Security-sensitive functions and actions of Ballerina standard libraries are decorated with the `@sensitive` parameter annotation. This denotes that untrusted (tainted) data should not be passed to the parameter. 
 
-For example, the `sqlQuery` parameter of `ballerina/sql`, `select` remote function.
+For example, the `sqlQuery` parameter of the `ballerina/sql` `select` remote function is annotated as `@sensitive`.
 
 ```ballerina
 public remote function select(@sensitive string sqlQuery, typedesc? recordType, 
@@ -37,7 +37,7 @@ public remote function select(@sensitive string sqlQuery, typedesc? recordType,
                       returns @tainted table<record {}>|error;
 ```
 
-Consider the following example that constructs an SQL query with a tainted argument:
+The following example constructs an SQL query with a tainted argument:
 
 ```ballerina
 import ballerina/mysql;
@@ -79,15 +79,15 @@ var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent,
 
 Please note that it is required to import the `ballerina/sql` module to use `sql:Parameter`.
 
-Command-line arguments to Ballerina programs and inputs received through service resources are considered tainted. Additionally, return values of certain functions and actions are marked with the `@tainted` annotation to denote that the resulting value should be considered as untrusted data.
+Command-line arguments passed to Ballerina programs and inputs received through service resources are considered tainted. Additionally, return values of certain functions and actions are marked with the `@tainted` annotation to denote that the resulting value should be considered as untrusted data.
 
-For example, the `select` remote function of the SQL client connector highlighted above returns a `@tainted table<record {}>`, which means any value read from a database is considered untrusted.
+For example, the `select` remote function of the SQL client connector highlighted above returns a `@tainted table<record {}>`. This means that any value read from a database is considered as untrusted.
 
-If the return was not explicitly annotated, Ballerina will infer the tainted status of the return by analyzing how the tainted status of parameters affect the tainted status of the return.
+If the return type is not explicitly annotated, Ballerina will infer the tainted status of the return value. This is done by analyzing how the tainted status of parameters affect the same of the return value.
 
-### Securely using tainted data with security sensitive parameters
+### Securely using tainted data with security-sensitive parameters
 
-There can be certain situations where a tainted value must be passed into a security sensitive parameter. In such situations, it is essential to do proper data validation or data sanitization to make sure input does not result in a security threat. Once proper controls are in place, the `untaint` unary expression can be used to denote that the value is trusted:
+There can be certain situations where a tainted value must be passed into a security-sensitive parameter. In such situations, it is essential to do proper data validation or sanitization to make sure input does not result in a security threat. Once proper controls are in place, the `untaint` unary expression can be used to denote that the value is trusted:
 
 ```ballerina
 // Execute select query using the untrusted (tainted) student ID
@@ -99,7 +99,7 @@ if (isValid) {
 // ...
 ```
 
-Additionally, return values can be annotated with `@untainted` to denote that the return value should be trusted (even if the return value is derived from tainted data):
+Additionally, return values can be annotated as `@untainted`. This denotes that the return value should be trusted (even if the return value is derived from tainted data):
 
 ```ballerina
 // Execute the select query using the untrusted (tainted) student ID
@@ -316,7 +316,7 @@ resource function sayHello (http:Caller caller, http:Request req) {
 
 ### JWT Based Authorization
 
-Ballerina uses scope based authorization. The JWT can include scopes available for the user. The scopes can then be validated in the Ballerina service. For example, the following service will only allow invocations, if the "hello" scope is available for the user.
+Ballerina uses scope-based authorization. The JWT can include scopes that are available for the user. The scopes can then be validated in the Ballerina service. For example, the following service will only allow invocations, if the "hello" scope is available for the user.
 
 Note that the `authConfig` attribute of the `@http:ServiceConfig` annotation has been modified to enforce the authorization check.
 
@@ -390,7 +390,7 @@ CXzcJ1RzuyuFVz1a3YL3gWTsiliVmno7vKyRo8utirDRIPi0dPJPuWi2uMtJkqdkpzJQ
 Authorization failure
 ```
 
-A request with a correct scope attribute included will result in a successful invocation. An example of a JWT that has the correct scope attribute is as follows.
+A request with a correct "scope" attribute will result in a successful invocation. An example of a JWT that has the correct "scope" attribute is as follows.
 
 ```
 {
@@ -448,7 +448,7 @@ resource function sayHello (http:Caller caller, http:Request req) {
 
 ### Basic Authentication and Authorization
 
-Ballerina supports Basic Authentication for services. The `scheme` field of `http:AuthProvider` should be set to basic in order to enforce Basic Authentication. Since user information is provided using a configuration file, `authStoreProvider` should be set to `config`.
+Ballerina supports Basic Authentication for services. The `scheme` field of `http:AuthProvider` should be set to "basic" in order to enforce Basic Authentication. Since user information is provided using a configuration file, `authStoreProvider` should be set to `config`.
 
 ```ballerina
 import ballerina/http;
