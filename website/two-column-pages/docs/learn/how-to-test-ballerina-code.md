@@ -360,7 +360,7 @@ import ballerina/test;
 function foo() {
     error? e = trap bar(); // Expecting `bar()` to panic
     if (e is error) {
-        test:assertTrue(e.reason() == ""); // Some other assertions
+        test:assertEquals(e.reason(), "Invalid Operation", msg = "Invalid error reason"); // Some other assertions
     } else {
         test:assertFail(msg = "Expected an error");
     }
