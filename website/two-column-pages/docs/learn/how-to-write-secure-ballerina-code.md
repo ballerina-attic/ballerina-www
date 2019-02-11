@@ -105,7 +105,7 @@ Additionally, return values can be annotated as `@untainted`. This denotes that 
 // Execute the select query using the untrusted (tainted) student ID
 function sanitizeSortColumn (string columnName) returns @untainted string {
    string sanitizedSortColumn = columnName;
-   // Insert sanitization logic to ensure the return value is safe
+   // Insert sanitization logic to ensure that the return value is safe.
    return sanitizedSortColumn;
 }
 // ...
@@ -113,7 +113,7 @@ function sanitizeSortColumn (string columnName) returns @untainted string {
 
 ## Securing Passwords and Secrets
 
-Ballerina provides an API to access configuration values from different sources. Please refer the [Config](https://ballerina.io/learn/by-example/config-api.html) Ballerina by Example for details.
+Ballerina provides an API to access configuration values from different sources. Please refer the [Config Ballerina by Example](https://ballerina.io/learn/by-example/config-api.html) for details.
 
 Configuration values containing passwords or secrets should be encrypted. The Ballerina Config API will decrypt such configuration values when being accessed.
 
