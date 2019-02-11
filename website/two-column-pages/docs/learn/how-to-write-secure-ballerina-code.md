@@ -27,7 +27,7 @@ Ballerina standard library makes sure untrusted data cannot be used with securit
 
 ### Ensuring security of Ballerina standard libraries
 
-Security-sensitive functions and actions of Ballerina standard libraries are decorated with the `@sensitive` parameter annotation. This denotes that untrusted (tainted) data should not be passed to the parameter. 
+Security-sensitive functions and actions of Ballerina standard libraries are annotated with the `@sensitive` parameter annotation. This denotes that untrusted (tainted) data should not be passed to the parameter. 
 
 For example, the `sqlQuery` parameter of the `ballerina/sql` `select` remote function is annotated as `@sensitive`.
 
@@ -77,7 +77,7 @@ var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent,
                         paramId);
 ```
 
-Please note that it is required to import the `ballerina/sql` module to use `sql:Parameter`.
+You need to import the `ballerina/sql` module to use the `sql:Parameter` type.
 
 Command-line arguments passed to Ballerina programs and inputs received through service resources are considered tainted. Additionally, return values of certain functions and actions are marked with the `@tainted` annotation to denote that the resulting value should be considered as untrusted data.
 
@@ -87,7 +87,7 @@ If the return type is not explicitly annotated, Ballerina will infer the tainted
 
 ### Securely using tainted data with security-sensitive parameters
 
-There can be certain situations where a tainted value must be passed into a security-sensitive parameter. In such situations, it is essential to do proper data validation or sanitization to make sure input does not result in a security threat. Once proper controls are in place, the `untaint` unary expression can be used to denote that the value is trusted:
+There can be certain situations where a tainted value must be passed into a security-sensitive parameter. In such situations, it is essential to do a proper data validation or data sanitization to make sure the input does not result in a security threat. Once proper controls are in place, the `untaint` unary expression can be used to denote that the value is trusted:
 
 ```ballerina
 // Execute select query using the untrusted (tainted) student ID
@@ -113,7 +113,7 @@ function sanitizeSortColumn (string columnName) returns @untainted string {
 
 ## Securing Passwords and Secrets
 
-Ballerina provides an API to access configuration values from different sources. Please refer the [Config Ballerina by Example](https://ballerina.io/learn/by-example/config-api.html) for details.
+Ballerina provides an API to access configuration values from different sources. For more information, see [Config Ballerina by Example](https://ballerina.io/learn/by-example/config-api.html).
 
 Configuration values containing passwords or secrets should be encrypted. The Ballerina Config API will decrypt such configuration values when being accessed.
 
@@ -170,7 +170,7 @@ _Note: It is recommended to use HTTPS when enforcing authentication and authoriz
 
 ### JWT Based Authentication
 
-The security checks enforced by the `http:Listener` can be configured using `http:AuthProvider`.
+The security checks enforced by the `http:Listener` can be configured using the `http:AuthProvider` values.
 
 To configure JWT based authentication `scheme:"jwt"` should be used. JWT validation requires several additional `http:AuthProvider` configurations including:
 
@@ -448,7 +448,7 @@ resource function sayHello (http:Caller caller, http:Request req) {
 
 ### Basic Authentication and Authorization
 
-Ballerina supports Basic Authentication for services. The `scheme` field of `http:AuthProvider` should be set to "basic" in order to enforce Basic Authentication. Since user information is provided using a configuration file, `authStoreProvider` should be set to `config`.
+Ballerina supports Basic Authentication for services. The `scheme` field of the `http:AuthProvider` should be set to "basic" in order to enforce Basic Authentication. Since user information is provided using a configuration file, `authStoreProvider` should be set to `config`.
 
 ```ballerina
 import ballerina/http;
