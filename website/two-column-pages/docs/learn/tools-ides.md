@@ -1,6 +1,6 @@
 # Tools and IDEs
 
-Ballerina provides several tools to help you create, document, and test your code.
+Ballerina provides several tools to help you create, document and test your code.
 
 These tools include the following.
 
