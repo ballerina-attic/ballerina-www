@@ -222,7 +222,7 @@ string status = check request.getTextPayload();
 
 Change the signature of the `sayHello` resource function to add `returns error?`, so that `check` will return the error value if `request.getTextPayload()` evaluates to `error`.
 
-> **Tip**: The `check` keyword means that if the expression evaluates to an `error`, the returned error is not handled within the same function. For instance with the `resource function sayHello`, the function execution would stop and "500 Internal Server Error" would be set as the response, if the given expression evaluates to `error` where `check` is used.
+> **Tip**: The `check` keyword denotes that if the expression evaluates to `error`, then the returned error is not handled within the same function. For example, when `check` is used with the `sayHello` `resource` `function` and if the given expression evaluates to `error`, the function execution would stop and "500 Internal Server Error" would be set as the response.
 
 Now, you can get the response from Twitter by calling the tweet function. Replace `response.setTextPayload("Hello Ballerina!\n");` in the `sayHello` resource with the following lines of code:
 
