@@ -51,9 +51,11 @@ function main(string... args) {
 }
 ```
 
-In this example, the endpoint instantiates a `TwilioClient` object. Instantiating this requires the `TwilioConfiguration` record instance to provide the authentication details.
+In this example, a `TwilioClient` object is instantiated. Instantiating the client requires a `TwilioConfiguration` record to provide the authentication details.
 
-The Twilio connector then defines a custom function `getAccountDetails()`, which is called by the end user to interact with the endpoint. Also, you need to implement a `TwilioClient:init()` method, which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
+The Twilio connector defines a remote function `getAccountDetails()`, which is called by the end user to interact with the endpoint. 
+
+You need to implement the `TwilioClient.__init()` method, which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
 
 ### The Twilio:Client Object
 
