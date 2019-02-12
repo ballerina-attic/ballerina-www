@@ -222,7 +222,7 @@ string status = check request.getTextPayload();
 
 Change the signature of the `sayHello` resource function to add `returns error?`, so that `check` will return the error value if `request.getTextPayload()` evaluates to `error`.
 
-> **Tip**: The 'check' keyword means that the returned error may not be handled within the same function.
+> **Tip**: The `check` keyword means that if the expression evaluates to an `error`, the returned error is not handled within the same function.
 Instead, it may be passed to the caller function. If it is a top-level function, then runtime failure will be generated.
 
 Now, you can get the response from Twitter by calling the tweet function. Replace `response.setTextPayload("Hello Ballerina!\n");` in the `sayHello` resource with the following lines of code:
