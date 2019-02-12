@@ -87,7 +87,7 @@ If the return type is not explicitly annotated, Ballerina will infer the tainted
 
 ### Securely using tainted data with security-sensitive parameters
 
-There can be certain situations where a tainted value must be passed into a security-sensitive parameter. In such situations, it is essential to do a proper data validation or data sanitization to make sure the input does not result in a security threat. Once proper controls are in place, the `untaint` unary expression can be used to denote that the value is trusted:
+There can be certain situations where a tainted value must be passed into a security-sensitive parameter. In such situations, it is essential to do proper data validation or data sanitization to make sure the input does not result in a security threat. Once proper controls are in place, the `untaint` unary expression can be used to denote that the value is trusted:
 
 ```ballerina
 // Execute select query using the untrusted (tainted) student ID
