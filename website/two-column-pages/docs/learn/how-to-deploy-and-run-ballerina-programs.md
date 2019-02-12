@@ -373,13 +373,13 @@ listener http:Listener ep = new (9090, config = {
 });
 
 @kubernetes:ConfigMap {
-    ballerinaConf:"./conf/data-service.toml"
+    ballerinaConf:"conf/data-service.toml"
 }
 @kubernetes:Deployment {
     image:"ballerina.guides.io/employee_database_service:v1.0",
     name:"ballerina-guides-employee-database-service",
     copyFiles:[{target:"/ballerina/runtime/bre/lib",
-                source:"./conf/mysql-connector-java-8.0.11.jar"}]
+                source:"conf/mysql-connector-java-8.0.11.jar"}]
 }
 @http:ServiceConfig {
     basePath:"/records"
@@ -491,7 +491,7 @@ employee-data-service-ballerina-conf-config-map   1         2m
 ```
 This is the config-map created for the `ballerina.conf` file, as the `ballerinaConf:"./conf/data-service.toml"` attribute is used. At run time, it is an equivalent of:
 ```bash
-$ ballerina run <source>.balx --config ./conf/data-service.toml
+$ ballerina run --config ./conf/data-service.toml <source>.balx 
 ```
 The Kubernetes extension automatically passes the config file to the Ballerina program.
 
