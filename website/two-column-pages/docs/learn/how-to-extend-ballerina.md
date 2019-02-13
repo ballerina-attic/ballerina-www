@@ -40,7 +40,7 @@ The Twilio connector reuses the HTTP client connector and adds some additional p
 import ballerina/http;
 import wso2/twilio;
 
-function main(string... args) {
+public function main(string... args) {
     twilio:Client twilioClient = new({
         accountSId: "",
         authToken: ""
