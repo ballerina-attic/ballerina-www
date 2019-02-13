@@ -80,7 +80,7 @@ public type Client client object {
     ...
 ```
 
-A `client` endpoint is similar to an ordinary object. However, unlike in ordinary objects in `client` objects, the actions are performed on a remote network endpoint. Hence, the 'remote' keyword should be used in the method signature.
+A `client` object is similar to an ordinary object. However, unlike in ordinary objects in `client` objects, the actions are performed on a remote network endpoint. Hence, the 'remote' keyword should be used in the method signature.
 
 Similar to other objects, `client` objects take their configurations parameters such as API keys as the values of the `constructor` parameter.
 
