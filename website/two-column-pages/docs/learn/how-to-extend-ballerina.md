@@ -76,11 +76,7 @@ public type Client client object {
         self.accountSId = twilioConfig.accountSId;
         self.xAuthyKey = twilioConfig.xAuthyKey;
     }
-
-    # Initialize Twilio endpoint.
-    # + twilioConfig - Twilio configuraion
-
-    public function init(TwilioConfiguration twilioConfig);
+    
     ...
 ```
 
