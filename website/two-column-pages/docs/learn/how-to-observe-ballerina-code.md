@@ -422,7 +422,7 @@ the console. In order to monitor the logs, the Ballerina standard output needs t
 This can be done by running the Ballerina service as below.
 
 ```bash
-$ nohup ballerina run ballerinaservice.bal > ballerina.log &
+$ nohup ballerina run hello_world_service.bal > ballerina.log &
 ```
 
 You can view the logs with below command.

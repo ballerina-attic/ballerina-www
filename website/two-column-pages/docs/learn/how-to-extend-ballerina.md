@@ -14,13 +14,11 @@ To create a client connector, you:
 
 1. Create a Ballerina module in a Ballerina project.
 
-2. Create an object with an `init()` and `getCallerActions()` function.
+2. Create a `client` object representing the connector.
 
-3. Implement the `init()` function, which is called when the user instantiates an endpoint.
+3. Implement `public` `remote` functions to represent actions performed on remote endpoints.
 
-4. Implement the `getCallerActions()` function, which is called when the connection must be returned.
-
-5. Build the module and push it into a registry for usage by others.
+4. Build the module and push it into a registry for others to use it.
 
 ### The Twilio Connector
 
@@ -42,145 +40,118 @@ The Twilio connector reuses the HTTP client connector and adds some additional p
 import ballerina/http;
 import wso2/twilio;
 
-function main(string... args) {
-    endpoint TwilioClient twilioClient {
-        clientConfig: {
-            auth: {
-                scheme: http:BASIC_AUTH,
-                username: "",
-                password: ""
-            }
-        }
-    };
+public function main(string... args) {
+    twilio:Client twilioClient = new({
+        accountSId: "",
+        authToken: ""
+    });
 
-    Account account = check twilioClient->getAccountDetails();
+    twilio:Account account = check twilioClient->getAccountDetails();
     io:println(account);
 }
 ```
 
-In this example, the endpoint is going to instantiate a `TwilioClient` object. This object takes an input parameter defined as a `clientConfig` object. The `clientConfig` object includes an `auth` object, which is part of the `http:Client` connector, which is distributed as part of the standard library.
+In this example, a `TwilioClient` object is instantiated. Instantiating the client requires a `TwilioConfiguration` record to provide the authentication details.
 
-The Twilio connector then defines a custom function `getAccountDetails()`, which is called by the end user to interact with the endpoint. The module developer will also implement a `TwilioClient::init()` method, which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
+The Twilio connector defines a remote function `getAccountDetails()`, which is called by the end user to interact with the endpoint. 
 
-### The TwilioClient Object
+You need to implement the `TwilioClient.__init()` method, which will be called when the endpoint is instantiated. This method establishes the connection to Twilio.
 
-The connector is a data structure that is represented by an `object`.
+### The Twilio:Client Object
+
+The connector is a data structure that is represented by a `client` object.
 
 ```ballerina
-public type TwilioClient object {
+public type Client client object {
 
-    // Data structure that will hold config info and a connector
-    public TwilioConfiguration twilioConfig;
-    public TwilioConnector twilioConnector = new;
-
-    public function init(TwilioConfiguration config);
-    public function getCallerActions() returns TwilioConnector;
-};
-
-// Part of the TwilioClient object and passed as an input parameter to
-// the connector when it is instantiated
-public type TwilioConfiguration record {
-
-    // This type is a record defined in the http system library
-    http:ClientEndpointConfig clientConfig;
-};
-
-// The actual connector object, which also includes a reference to the
-// standard connector that is in the http system library
-public type TwilioConnector object {
     public string accountSId;
-    public http:Client client;
+    public string xAuthyKey;
+    public http:Client basicClient;
+    public http:Client authyClient;
 
-
-    public function getAccountDetails() returns (Account|error);
-};
+    public function __init(TwilioConfiguration twilioConfig) {
+        self.init(twilioConfig);
+        self.basicClient = new(TWILIO_API_BASE_URL, config = twilioConfig.basicClientConfig);
+        self.authyClient = new(AUTHY_API_BASE_URL, config = twilioConfig.authyClientConfig);
+        self.accountSId = twilioConfig.accountSId;
+        self.xAuthyKey = twilioConfig.xAuthyKey;
+    }
+    
+    ...
 ```
 
-### Implement the `init()` Function for the Connector
+A `client` object is similar to an ordinary object. However, unlike in ordinary objects in `client` objects, the actions are performed on a remote network endpoint. Hence, the 'remote' keyword should be used in the method signature.
 
-We now implement the method that will be called when an endpoint is instantiated. The function name is the object we created with `::init()` provided to reference that init method. The initialization method can accept a single parameter. When the end user calles the `endpoint` object, the record literals after the endpoint object will be mapped and passed in as the parameter to this method.
+Similar to other objects, `client` objects take their configurations parameters such as API keys as the values of the `constructor` parameter.
 
 ```ballerina
 
 // Constant
-@final string BASE_URL = "https://api.twilio.com/2010-04-01";
+final string BASE_URL = "https://api.twilio.com/2010-04-01";
 
-function TwilioClient::init(TwilioConfiguration config) {
+public type Client client object {
 
-    // Navigate our client object into the targets file of the http::Client object
-    config.clientConfig.url = BASE_URL;
-    string username;
-    string password;
+    public string accountSId;
+    public string xAuthyKey;
+    public http:Client basicClient;
+    public http:Client authyClient;
 
-    var usernameOrEmpty = config.clientConfig.auth.username;
-    match usernameOrEmpty {
-        string usernameString => username = usernameString;
-        () => {
-            error err;
-            err.message = "Username cannot be empty";
-            throw err;
-        }
+    public function __init(TwilioConfiguration twilioConfig) {
+        self.init(twilioConfig);
+        self.basicClient = new(TWILIO_API_BASE_URL, config = twilioConfig.basicClientConfig);
+        self.authyClient = new(AUTHY_API_BASE_URL, config = twilioConfig.authyClientConfig);
+        self.accountSId = twilioConfig.accountSId;
+        self.xAuthyKey = twilioConfig.xAuthyKey;
     }
 
-    var passwordOrEmpty = config.clientConfig.auth.password;
-    match passwordOrEmpty {
-        string passwordString => password = passwordString;
-        () => {
-            error err;
-            err.message = "Password cannot be empty";
-            throw err;
-        }
-    }
+    # Initialize the Twilio endpoint.
+    # + twilioConfig - The Twilio configuration
 
-    // We can reference the fields of the TwilioClient object
-    self.twilioConnector.accountSId = username;
+    public function init(TwilioConfiguration twilioConfig);
 
-    // Calling initialize of the embedded http client object
-    self.twilioConnector.client.init(config.clientConfig);
+    ..
 }
+
+public function Client.init(TwilioConfiguration twilioConfig) {
+    http:AuthConfig authConfig = {
+        scheme: http:BASIC_AUTH,
+        username: twilioConfig.accountSId,
+        password: twilioConfig.authToken
+    };
+    twilioConfig.basicClientConfig.auth = authConfig;
+}
+
 ```
 
-### Implement the `getCallerActions()` Function for the Connector
+### Implement Remote Functions For Endpoint Interaction
 
-The `getCallerActions()` function is called whenever the system needs to return an active connection to the end user developer for use in their code. We have already initialized the connection and it is saved within the TwilioClient object.
-
-```ballerina
-function TwilioClient::getCallerActions() returns TwilioConnector {
-    return self.twilioConnector;
-}
-```
-
-### Implement Custom Functions For Endpoint Interaction
-
-While the `TwilioClient` object implements `init()` and `getCallerActions()`, if you want to expose custom actions for your end users to use against the connector, these are defined in the `TwilioConnector` object, which was initialized and stored as a reference to the `TwilioClient` object. You can add as many or as few custom functions to this object.
+When you want to expose custom actions for your end users to use against the connector, define them in the `Twilio:Client` object as remote functions.
 
 In our example, we added a `getAccountDetails()` function that can be invoked as part of the endpoint by the end user:
 
 ```ballerina
 // Account is a custom object that represents Twilio data return values.
 // The -> represents making a non-blocking worker call over the network
-// twilioClient is the end user's endpoint that uses the TwilioClient connector
+// twilioClient is the end user's endpoint that uses the Twilio:Client connector
 // getAccountDetails() is our custom function
-Account account = check twilioClient->getAccountDetails();
+Twilio:Account account = check twilioClient->getAccountDetails();
 ```
 
 And within the module that includes your custom connector, we have these additional items that define the custom function:
 
 ```ballerina
 // Constants
-@final string ACCOUNTS_API = "/Accounts/";
-@final string RESPONSE_TYPE_JSON = ".json";
+final string TWILIO_ACCOUNTS_API = "/Accounts";
 
-function TwilioConnector::getAccountDetails() returns (Account|error) {
-    endpoint http:Client httpClient = self.client;
-    string requestPath = ACCOUNTS_API + self.accountSId + RESPONSE_TYPE_JSON;
-    var response = httpClient->get(requestPath);
+public remote function Client.getAccountDetails() returns Account|error {
+    string requestPath = TWILIO_ACCOUNTS_API + FORWARD_SLASH + self.accountSId + ACCOUNT_DETAILS;
+    var response = self.basicClient->get(requestPath);
     json jsonResponse = check parseResponseToJson(response);
     return mapJsonToAccount(jsonResponse);
 }
 ```
 
-And the `Account` record is also defined in the same file:
+The `Account` record is defined in the `twilio_types.bal` file:
 
 ```ballerina
 public type Account record {
@@ -256,8 +227,8 @@ import ballerinax/hello;
 @hello:Greeting{
   salutation: "Guten Tag!"
 }
-service<http:Service> helloWorld bind {port:9091} {
-   sayHello(endpoint outboundEP, http:Request request) {
+service helloWorld on new http:Listener(9091) {
+   resource function sayHello(http:Caller outboundEP, http:Request request) {
        http:Response response = new;
        response.setTextPayload("Hello, World from service helloWorld ! \n");
        _ = outboundEP->respond(response);
@@ -283,41 +254,26 @@ The source code and results for this example are on [GitHub](https://github.com/
 An annotation is a Ballerina code snippet that can be attached to some Ballerina code, and will hold some metadata related to that attached code. Annotations are not executable, but can be used to alter the behavior of some executable code.
 
 Annotations can be attached to:
+
 * Services
-* Resources
-* Functions
-* Connectors
-* Actions (of Connectors)
-* TypeMappers
-* Structs
-* Constants
+* Type definition
+* Function definition
+* Variable declaration
 * Annotations
-* Object
-* Record
-* Enum
-* Transformer
-* Endpoint
 
 Ballerina has built-in a set of annotations such as @http:ServiceConfig, @http:ResourceConfig. These annotations are part of the standard library and shipped with each distribution of Ballerina. You can view the definitions of these annotations by browsing the module's API reference.
 
 A Ballerina "builder extension" is Java code that the build process will load and execute after the compilation phase. Builder extensions can act on any annotation information, whether those in the system library or custom annotations provided by you. Builder extensions that you write can register callbacks that act on annotations attached to different objects:
 
-* `public abstract void init(DiagnosticLog var1)`
-* `public void process(PackageNode packageNode)`
-* `public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(ResourceNode resourceNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(ConnectorNode connectorNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(ActionNode actionNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(StructNode serviceNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(ObjectNode objectNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(RecordNode recordNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(EnumNode enumNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(FunctionNode functionNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(VariableNode variableNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(AnnotationNode annotationNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(TransformerNode transformerNode, List<AnnotationAttachmentNode> annotations)`
-* `public void process(EndpointNode endpointNode, List<AnnotationAttachmentNode> annotations)`
-* `public void codeGenerated(Path binaryPath)`
+*  `public void process(PackageNode packageNode)`
+*  `public void process(BLangTestablePackage packageNode)`
+*  `public void process(ServiceNode serviceNode, List<AnnotationAttachmentNode> annotations)`
+*  `public void process(TypeDefinition typeDefinition, List<AnnotationAttachmentNode> annotations)`
+*  `public void process(FunctionNode functionNode, List<AnnotationAttachmentNode> annotations)`
+*  `public void process(SimpleVariableNode variableNode, List<AnnotationAttachmentNode> annotations)`
+*  `public void process(AnnotationNode annotationNode, List<AnnotationAttachmentNode> annotations)`
+*  `public void codeGenerated(PackageID packageID, Path binaryPath)`
+
 
 ### Create a Maven Project
 
@@ -411,8 +367,19 @@ In the `pom.xml`, add Ballerina's repository information.
 </repositories>
 ```
 
+##### Remove Some Unnecessary Files
+
+Remove the archetype generated by the `App.java` and `AppTest.java` files as they are not needed.
+Then, add an XML file named `spotbugs-exclude.xml` together with the `pom.xml` and add the following.
 Make sure you are able to build the project.
 
+```xml
+<FindBugsFilter>
+
+</FindBugsFilter>
+```
+
+Then build it.
 ```bash
 mvn clean install
 ```
@@ -457,10 +424,6 @@ public annotation <service> Greeting HelloConfiguration;
 // You can replace the <> value with different objects this annotation may attach to
 ```
 
-##### Remove Some Unnecessary Files
-
-Remove the archetype generated `App.java` and `AppTest.java` files. They are not needed.
-
 ##### Define an Extension Provider
 
 Create `HelloExtensionProvider.java` class in `hello/src/main/java/org/ballerinax/hello` module. This class will implement `SystemPackageRepositoryProvider`.
@@ -492,44 +455,48 @@ public class HelloExtensionProvider implements SystemPackageRepositoryProvider {
 Configure bsc plugin in the `pom.xml`:
 
 ```xml
-<!-- For ballerina annotation processing -->
-<resources>
-   <resource>
-       <directory>src/main/resources</directory>
-       <excludes>
-           <exclude>ballerina/**</exclude>
-       </excludes>
-   </resource>
+<build>
+    <!-- For ballerina annotation processing -->
+    <resources>
+       <resource>
+           <directory>src/main/resources</directory>
+           <excludes>
+               <exclude>ballerina/**</exclude>
+           </excludes>
+       </resource>
 
-   <!-- copy ballerina annotation sources to the jar -->
-   <resource>
-       <directory>${project.build.directory}/../src/main/ballerina</directory>
-       <targetPath>META-INF/</targetPath>
-   </resource>
-</resources>
-<plugin>
-   <groupId>org.bsc.maven</groupId>
-   <artifactId>maven-processor-plugin</artifactId>
-   <version>2.2.4</version>
-   <configuration>
-       <processors>
-           <processor>org.ballerinalang.codegen.BallerinaAnnotationProcessor</processor>
-       </processors>
-       <options>
-           <nativeEntityProviderPackage>org.ballerinalang.net.generated.providers</nativeEntityProviderPackage>
-           <nativeEntityProviderClass>StandardNativeElementProvider</nativeEntityProviderClass>
-       </options>
-   </configuration>
-   <executions>
-       <execution>
-           <id>process</id>
-           <goals>
-               <goal>process</goal>
-           </goals>
-           <phase>generate-sources</phase>
-       </execution>
-   </executions>
-</plugin>
+       <!-- copy ballerina annotation sources to the jar -->
+       <resource>
+           <directory>${project.build.directory}/../src/main/ballerina</directory>
+           <targetPath>META-INF/</targetPath>
+       </resource>
+    </resources>
+    <plugins>
+        <plugin>
+           <groupId>org.bsc.maven</groupId>
+           <artifactId>maven-processor-plugin</artifactId>
+           <version>2.2.4</version>
+           <configuration>
+               <processors>
+                   <processor>org.ballerinalang.codegen.BallerinaAnnotationProcessor</processor>
+               </processors>
+               <options>
+                   <nativeEntityProviderPackage>org.ballerinalang.net.generated.providers</nativeEntityProviderPackage>
+                   <nativeEntityProviderClass>StandardNativeElementProvider</nativeEntityProviderClass>
+               </options>
+           </configuration>
+           <executions>
+               <execution>
+                   <id>process</id>
+                   <goals>
+                       <goal>process</goal>
+                   </goals>
+                   <phase>generate-sources</phase>
+               </execution>
+           </executions>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 Configure the Apache Maven shade plugin. This plugin manages the packaging of dependency .jar files. The Ballerina Tools distribution contains all the dependency .jar files we have used in the plugin. Since we are copying the final .jar file to Ballerina tools, we are excluding the Ballerina dependencies from the final .jar file.
@@ -745,16 +712,12 @@ Final folder structure will look like below.
         │       ├── Ballerina.toml
         │       └── hello
         │           └── annotation.bal
-        ├── java
-        │   └── ballerinax
-        │           └── hello
-        │               ├── HelloExtensionProvider.java
-        │               ├── HelloModel.java
-        │               └── HelloPlugin.java
-        └── resources
-            └── META-INF
-                └── services
-                    └── org.ballerinalang.compiler.plugins.CompilerPlugin
+        └── java
+            └── ballerinax
+                    └── hello
+                        ├── HelloExtensionProvider.java
+                        ├── HelloModel.java
+                        └── HelloPlugin.java
 
 ```
 
@@ -766,11 +729,11 @@ Build the project and verify that the JAR file is built. The JAR file will conta
 mvn clean install
 ```
 
-The resulting `target/hello-extension-1.0-SNAPSHOT.jar` will have the annotation definitions.
+The resulting `target/hello-extension-0.990.x.jar` will have the annotation definitions.
 
 Place the .jar file at `<ballerina_lang_home>/bre/lib` of your Ballerina distribution.
 
-Extract `target/hello-extension-0.980.0-ballerina-binary-repo.zip` file and copy the `repo/ballerinax` folder to `<ballerina_lang_home>/lib/repo/` folder. 
+Extract `target/hello-extension-0.990.x-ballerina-binary-repo.zip` file and copy the `repo/ballerinax` folder to `<ballerina_lang_home>/lib/repo/` folder.
 The final `<ballerina_lang_home>/lib/repo/` folder will  have two folders `ballerina` and `ballerinax`.
 
 You can now verify that the annotation is present even though we cannot react to it yet. Create a sample Ballerina file with your  annotation and make sure that Ballerina can compile the file without errors.
@@ -780,8 +743,8 @@ import ballerina/http;
 import ballerinax/hello;
 
 @hello:Greeting{salutation : "Guten Tag!"}
-service<http:Service> helloWorld bind {port:9091} {
-   sayHello(endpoint outboundEP, http:Request request) {
+service helloWorld on new http:Listener(9091) {
+   resource function sayHello(http:Caller outboundEP, http:Request request) {
        http:Response response = new;
        response.setTextPayload("Hello, World from service helloWorld ! \n");
        _ = outboundEP -> respond(response);
@@ -894,7 +857,7 @@ The annotation value is read and cached in a singleton model class. Upon receivi
 Create `HelloModel.java` in `hello/src/main/java/org/ballerinax/hello` module.
 
 ```java
-package ballerinax.hello;
+package org.ballerinax.hello;
 
 /**
  * Model class to store greeting value.
@@ -930,7 +893,7 @@ public class HelloModel {
 Create an file named `org.ballerinalang.compiler.plugins.CompilerPlugin` in `hello/src/main/resources/META-INF/services` directory. This file is read by the compiler and registers our `HelloPlugin.java` class as an extension. The events will be received by the registered classes. The file should contain the fully qualified Java class name of the builder extension.
 
 ```
-ballerinax.hello.HelloPlugin
+org.ballerinax.hello.HelloPlugin
 ```
 
 Rebuild the maven project and replace the jar file in `<ballerina_tools_home>/bre/lib` with the latest. You should now be able to compile the sample Ballerina file we created earlier. There should be a text file created with annotation value.

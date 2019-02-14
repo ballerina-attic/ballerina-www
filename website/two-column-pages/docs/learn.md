@@ -25,7 +25,7 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### Tools and IDEs
 
-[Tools and IDEs](/learn/tools-ides/) overviews the editing tools for code and diagrams. This includes language servers, editors, IDE, and a graphical visualization tool that is embedded in the Ballerina Visual Studio Code plugin.
+The [Tools and IDEs](/learn/tools-ides/) section introduces the language servers, editors, IDEs, and graphical visualization tools that are supported by Ballerina.
 
 ### How to Structure Ballerina Code
 
@@ -67,7 +67,7 @@ The [API Documentation](/learn/api-docs/) describes the native functions in Ball
 
 ### Language Specification
 
-The <a href="/res/Ballerina-Language-Specification-WD-2018-07-12.pdf" download="Ballerina-Language-Specification-WD-2018-07-12.pdf">Language Specification</a> is the document that defines Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.
+The <a href="/res/Ballerina-Language-Specification-v0.990-2019-01-16.pdf" download="Ballerina-Language-Specification-v0.990-2019-01-16.pdf">Language Specification</a> is the document that defines Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.
 
 ### Ballerina Streaming Guide
 

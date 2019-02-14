@@ -220,12 +220,15 @@ In the `sayHello` resource function, add the following to get the payload as a s
 string status = check request.getTextPayload();
 ```
 
-> **Tip**: The check keyword means that this may return an error but I do not want to handle it here - pass it further away (to the caller function, or if this is a top-level function - generate a runtime failure).
+Change the signature of the `sayHello` resource function to add `returns error?`, so that `check` will return the error value if `request.getTextPayload()` evaluates to `error`.
+
+> **Tip**: The `check` keyword denotes that if the expression evaluates to `error`, then the returned error is not handled within the same function. For example, when `check` is used with the `sayHello` `resource` `function` and if the given expression evaluates to `error`, the function execution would stop and "500 Internal Server Error" would be set as the response.
 
 Now, you can get the response from Twitter by calling the tweet function. Replace `response.setTextPayload("Hello Ballerina!\n");` in the `sayHello` resource with the following lines of code:
 
 ```ballerina
 twitter:Status st = check twitterClient->tweet(status);
+http:Response response = new;
 response.setTextPayload("ID:" + string.convert(st.id) + "\n");
 ```
 
@@ -309,9 +312,14 @@ Now, let’s add the annotations you need to run the service in Docker. These an
 }
 @docker:Expose {}
 listener http:Listener cmdListener = new(9090);
+
+@http:ServiceConfig {
+   basePath: "/"
+}
+service hello on cmdListener {
 ```
 
-> **Note**: On Windows, make sure Docker runs with Linux containers and in the general settings, enable `Expose daemon on tcp://localhost:2375 without TLS`. For more details, see the [Docker README](https://github.com/ballerinax/docker/blob/master/samples/README.md).
+> **Note**: On Windows, make sure Docker runs with Linux containers, and in the general settings, enable `Expose daemon on tcp://localhost:2375 without TLS`. For more information, see the [Docker README file](https://github.com/ballerinax/docker/blob/master/samples/README.md).
 
 Now your code is ready to generate the deployment artifacts. In this case it is a Docker image.
 

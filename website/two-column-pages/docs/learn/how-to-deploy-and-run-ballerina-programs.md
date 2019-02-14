@@ -59,7 +59,7 @@ The `<module>` is the module name, which is the same as the name of the director
 
 ### Ballerina Runtime Configuration Files
 
-A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure. The `ballerina/config` module provides an API for sourcing configuration parameters and using them within your source code. See [Config API Documentation](/learn/api-docs/ballerina/config/) for details.
+A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure. The `ballerina/config` module provides an API for sourcing configuration parameters and using them within your source code. See [Config API Documentation](/learn/api-docs/ballerina/config.html) for details.
 
 The configuration APIs accept a key and an optional default value. If a mapping does not exist for the specified key, the default value is returned as the configuration value. The default values of these optional configurations are the default values of the return types of the functions.
 
@@ -373,13 +373,13 @@ listener http:Listener ep = new (9090, config = {
 });
 
 @kubernetes:ConfigMap {
-    ballerinaConf:"./conf/data-service.toml"
+    ballerinaConf:"conf/data-service.toml"
 }
 @kubernetes:Deployment {
     image:"ballerina.guides.io/employee_database_service:v1.0",
     name:"ballerina-guides-employee-database-service",
     copyFiles:[{target:"/ballerina/runtime/bre/lib",
-                source:"./conf/mysql-connector-java-8.0.11.jar"}]
+                source:"conf/mysql-connector-java-8.0.11.jar"}]
 }
 @http:ServiceConfig {
     basePath:"/records"
@@ -491,7 +491,7 @@ employee-data-service-ballerina-conf-config-map   1         2m
 ```
 This is the config-map created for the `ballerina.conf` file, as the `ballerinaConf:"./conf/data-service.toml"` attribute is used. At run time, it is an equivalent of:
 ```bash
-$ ballerina run <source>.balx --config ./conf/data-service.toml
+$ ballerina run --config ./conf/data-service.toml <source>.balx 
 ```
 The Kubernetes extension automatically passes the config file to the Ballerina program.
 
