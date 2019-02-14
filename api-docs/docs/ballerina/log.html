@@ -205,6 +205,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -412,6 +419,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -489,15 +503,15 @@ log:printDebug(&quot;debug log&quot;);
 log:printTrace(&quot;trace log&quot;);
 </code></pre>
 <p>Suppose that the above code snippet resides in a module named <code>foo</code>. We can set the log level of <code>foo</code> to <code>DEBUG</code> in a configuration file by placing the following entry in it:</p>
-<pre><code class="language-toml">[foo]
+<pre><code class="language-toml">[&quot;&lt;org-name&gt;/foo&quot;]
 loglevel=&quot;DEBUG&quot;
 
 OR
 
-foo.loglevel=&quot;DEBUG&quot;
+&quot;&lt;org-name&gt;/foo.loglevel&quot;=&quot;DEBUG&quot;
 </code></pre>
 <p>The log level of <code>foo</code> can also be configured through the CLI as follows:</p>
-<pre><code class="language-bash">$ ballerina run foo -e foo.loglevel=DEBUG
+<pre><code class="language-bash">$ ballerina run -e \&quot;&lt;org-name&gt;/foo.loglevel\&quot;=DEBUG foo
 </code></pre>
 
                                             </div>
@@ -1028,6 +1042,16 @@ foo.loglevel=&quot;DEBUG&quot;
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="encoding.html">ballerina/<span class="bold">encoding</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="file.html">ballerina/<span class="bold">file</span>
                                    </a>
                                    
@@ -1150,6 +1174,16 @@ foo.loglevel=&quot;DEBUG&quot;
                                    <!--Package Name-->
                                    
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="privacy.html">ballerina/<span class="bold">privacy</span>
                                    </a>
                                    
                                 </li>
@@ -1343,6 +1377,16 @@ foo.loglevel=&quot;DEBUG&quot;
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="encoding.html">ballerina/<span class="bold">encoding</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="file.html">ballerina/<span class="bold">file</span>
                                    </a>
                                    
@@ -1465,6 +1509,16 @@ foo.loglevel=&quot;DEBUG&quot;
                                    <!--Package Name-->
                                    
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="privacy.html">ballerina/<span class="bold">privacy</span>
                                    </a>
                                    
                                 </li>
