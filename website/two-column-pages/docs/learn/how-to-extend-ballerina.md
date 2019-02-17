@@ -970,8 +970,8 @@ listener githubwebhook3:WebhookListener githubListener = new(8080);
     callback: "<CALLBACK_URL>", // only needs to be specified if not http(s)://<HOST>:<PORT>/<path>
     subscriptionClientConfig: {
         auth: {
-            scheme:http:OAUTH2,
-            accessToken:"<GH_ACCESS_TOKEN>"
+            scheme: http:OAUTH2,
+            accessToken: "<GH_ACCESS_TOKEN>"
         }
     }
 }
@@ -1019,8 +1019,9 @@ public type WebhookListener object {
 For the GitHub webhook, the mapping between events and resources could be based either only on a header or on both a header and the payload.
 
 e.g.,
-- when the repository is starred, the content delivery request received will have the header `X-GitHub-Event` with the value set to "watch".
-- when an issue is opened, the content delivery request received will have the header `X-GitHub-Event` with the 
+- When the repository is starred, the content delivery request received will have the header `X-GitHub-Event` with 
+the value set to "watch".
+- When an issue is opened, the content delivery request received will have the header `X-GitHub-Event` with the 
 value set to "issues", and the `json` payload will contain the value "opened" for the key "action".
 
 The implementation of the `__init()` function initializes the `websub:Listener` specifying the mapping to the resources as the `extensionConfig`.
@@ -1028,23 +1029,23 @@ The implementation of the `__init()` function initializes the `websub:Listener` 
 const string TOPIC_HEADER = "X-GitHub-Event";
 
 final map<(string, typedesc)> GITHUB_TOPIC_HEADER_RESOURCE_MAP = {
-    "ping" : ("onPing", PingEvent),
+    "ping": ("onPing", PingEvent),
     ...
-    "watch" : ("onWatch", WatchEvent)
+    "watch": ("onWatch", WatchEvent)
 };
 
 final map<map<map<(string, typedesc)>>> GITHUB_TOPIC_HEADER_AND_PAYLOAD_KEY_RESOURCE_MAP = {
-    "create" : {
-        "ref_type" : {
-            "repository" : ("onCreateRepository", CreateEvent)
+    "create": {
+        "ref_type": {
+            "repository": ("onCreateRepository", CreateEvent)
             ...
         }
     },
-    "issues" : {
-        "action" : {
-            "opened" : ("onIssuesOpened", IssuesEvent),
+    "issues": {
+        "action": {
+            "opened": ("onIssuesOpened", IssuesEvent),
             ...
-            "closed" : ("onIssuesClosed", IssuesEvent),
+            "closed": ("onIssuesClosed", IssuesEvent),
         }
     }
     ...
