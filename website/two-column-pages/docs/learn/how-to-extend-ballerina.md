@@ -1,10 +1,12 @@
 # How to Extend Ballerina
 
-Developers and third parties can extend the behavior of Ballerina and collate the customizations for use by others. There are two ways to customize the behavior of Ballerina:
+Developers and third parties can extend the behavior of Ballerina and collate the customizations for use by others. There are three ways to customize the behavior of Ballerina:
 
 1. Collate and distribute new client connectors to third party endpoints, such as databases, infrastructure and APIs.
 
 2. Add new annotations to Ballerina source files so that the compiler can act to alter binaries and generate artifacts.
+
+3. Collate and distribute new webhook callback services, that programmatically subscribe to accept content delivery requests on the occurrence of particular events.
 
 ## Create Client Connectors
 
@@ -915,3 +917,181 @@ Kubernetes
 1. The [Ballerina file defining the annotation](https://github.com/ballerinax/kubernetes/blob/master/kubernetes-extension/src/main/ballerina/ballerinax/kubernetes/annotation.bal).
 
 2. The [Java code with the builder extension](https://github.com/ballerinax/kubernetes/tree/master/kubernetes-extension/src/main/java/org/ballerinax/kubernetes).
+
+## Create Webhook Callback Services
+
+A webhook callback service type is introduced by implementing a new `listener` type wrapping the generic 
+`websub:Listener`. The implementation should define a mapping between an indicator (in the content delivery requests) 
+and the resources (to which the requests need to be dispatched based on the value of the indicator).
+ 
+This indicator, based on which the extension is done, could be:
+- A request header 
+- The payload - the value for a particular key in the JSON payload
+- A request header and the payload (combination of the above)
+ 
+The [ballerina/websub Module.md](stdlib/websub/src/main/ballerina/websub/Module.md) explains the extension points in detail.
+ 
+You can create and share your own webhook callback service types as Ballerina modules, which you push into a Ballerina registry (such as Ballerina Central).
+
+To create a webhook callback service type, you:
+
+1. Create a Ballerina module in a Ballerina project.
+
+2. Create a new `listener` wrapping the generic `websub:Listener`.
+
+3. Implement the `__init()` function specifying the mapping between possible notifications and resources as `extensionConfig`.
+
+4. Implement the `__attach()`, `__start()` and `__stop()` functions calling the same functions on the generic `websub:Listener`.
+
+5. Build the module and push it into a registry for usage by others.
+
+### The GitHub Webhook
+
+A GitHub webhook implementation is made available by WSO2 as the module `wso2/githubwebhook3`.
+
+This webhook can be used by anyone, by importing the `wso2/githubwebhook3` module.
+
+```ballerina
+import ballerina/http;
+import ballerina/io;
+import ballerina/websub;
+import wso2/githubwebhook3;
+
+// Initiate a new listener of type `githubwebhook3:WebhookListener`.
+listener githubwebhook3:WebhookListener githubListener = new(8080);
+
+// Attach a service accepting ping, issue opened and repository starred notifications.
+@websub:SubscriberServiceConfig {
+    path: "/webhook",
+    subscribeOnStartUp: true,
+    hub: githubwebhook3:HUB,
+    topic: "https://github.com/<GH_USERNAME>/<GH_REPO_NAME>/events/*.json", // subscribe to notifications for all events
+    secret: "<SECRET>",
+    callback: "<CALLBACK_URL>", // only needs to be specified if not http(s)://<HOST>:<PORT>/<path>
+    subscriptionClientConfig: {
+        auth: {
+            scheme:http:OAUTH2,
+            accessToken:"<GH_ACCESS_TOKEN>"
+        }
+    }
+}
+service githubWebhook on githubListener {
+
+    resource function onPing(websub:Notification notification, githubwebhook3:PingEvent event) {
+        io:println("[onPing] Webhook Registered: ", event);
+    }
+
+    resource function onIssuesOpened(websub:Notification notification, githubwebhook3:IssuesEvent event) {
+        io:println("[onIssuesOpened] Issue ID: ", event.issue.number);
+    }
+
+    resource function onWatch(websub:Notification notification, githubwebhook3:WatchEvent event) {
+        io:println("[onWatch] Repository starred by: ", event.sender);
+    }
+}
+```
+
+### The `WebhookListener` Object
+
+The `WebhookListener` object that is implemented as a `listener` for the GitHub webhook callback service.
+
+```ballerina
+public type WebhookListener object {
+
+    *AbstractListener;
+
+    public WebhookListenerConfiguration? webhookListenerConfig = ();
+
+    private websub:Listener websubListener;
+
+    public function __init(int port, WebhookListenerConfiguration? config = ());
+
+    public function __attach(service s, map<any> data) returns error?;
+
+    public function __start() returns error?;
+    
+    public function __stop() returns error?;
+};
+```
+
+### Implement the `__init()` function
+
+For the GitHub webhook, the mapping between events and resources could be based either only on a header or on both a header and the payload.
+
+e.g.,
+- when the repository is starred, the content delivery request received will have the header `X-GitHub-Event` with the value set to "watch".
+- when an issue is opened, the content delivery request received will have the header `X-GitHub-Event` with the 
+value set to "issues", and the `json` payload will contain the value "opened" for the key "action".
+
+The implementation of the `__init()` function initializes the `websub:Listener` specifying the mapping to the resources as the `extensionConfig`.
+```ballerina
+const string TOPIC_HEADER = "X-GitHub-Event";
+
+final map<(string, typedesc)> GITHUB_TOPIC_HEADER_RESOURCE_MAP = {
+    "ping" : ("onPing", PingEvent),
+    ...
+    "watch" : ("onWatch", WatchEvent)
+};
+
+final map<map<map<(string, typedesc)>>> GITHUB_TOPIC_HEADER_AND_PAYLOAD_KEY_RESOURCE_MAP = {
+    "create" : {
+        "ref_type" : {
+            "repository" : ("onCreateRepository", CreateEvent)
+            ...
+        }
+    },
+    "issues" : {
+        "action" : {
+            "opened" : ("onIssuesOpened", IssuesEvent),
+            ...
+            "closed" : ("onIssuesClosed", IssuesEvent),
+        }
+    }
+    ...
+};
+
+public type WebhookListenerConfiguration record {
+    string host?;
+    http:ServiceSecureSocket httpServiceSecureSocket?;
+    !...
+};
+
+function WebhookListener.__init(int port, WebhookListenerConfiguration? config = ()) {
+    self.webhookListenerConfig = config;
+    websub:ExtensionConfig extensionConfig = {
+        topicIdentifier: websub:TOPIC_ID_HEADER_AND_PAYLOAD,
+        topicHeader: TOPIC_HEADER,
+        headerResourceMap: GITHUB_TOPIC_HEADER_RESOURCE_MAP,
+        headerAndPayloadKeyResourceMap: GITHUB_TOPIC_HEADER_AND_PAYLOAD_KEY_RESOURCE_MAP
+    };
+    websub:SubscriberServiceEndpointConfiguration sseConfig = {
+        extensionConfig: extensionConfig
+    };
+    if (config is WebhookListenerConfiguration) {
+        string? specHost = config["host"];
+        if (specHost is string) {
+            sseConfig.host = specHost;
+        }
+        sseConfig.httpServiceSecureSocket = config["httpServiceSecureSocket"];
+    }
+    self.websubListener = new(port, config = sseConfig);
+}
+```
+
+### Implement the `__attach()`, `__start()` and `__stop()` functions
+
+The implementions of these functions only need to call the same functions on the wrapped `websub:Listener`.
+
+```ballerina
+function WebhookListener.__attach(service s, map<any> data) returns error? {
+    return self.websubListener.__attach(s, data);
+}
+
+function WebhookListener.__start() returns error? {
+    return self.websubListener.__start();
+}
+
+function WebhookListener.__stop() returns error? {
+    return self.websubListener.__stop();
+}
+```
