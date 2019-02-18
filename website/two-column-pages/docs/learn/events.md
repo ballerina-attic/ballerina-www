@@ -3,6 +3,18 @@
 
 # Events
 
+<table class="cEventTable cWorkshopList">
+<tr>
+    <td class="cEventDateContainer"><span class="cEventDate">February 26, 2019</span>7:00 pm
+    <p class="cEventLocation">War Memorial Opera House, San Francisco</p>
+</td>
+    <td class="cEventDetail"><a target="_blank" href="/learn/events/sensorium-2019"><h4>SENSORIUM</h4></a>
+   The Arts Community is as iconic in San Francisco as the Technology Community. Ballerina.io is proud to be the presenting sponsor of Sensorium 2019 because it brings these communities together. 
+  </p>
+    </td>
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/sensorium-2019">More Info</a></td>
+</tr>
+</table>
 
 
 <!-- ## Workshops -->
@@ -11,8 +23,7 @@
 <!-- <tr>
     <td class="cEventDateContainer"><span class="cEventDate">September 06, 2018</span>9:00 am
     <p class="cEventLocation">Broad Sanctuary, Westminster, London</p>
-
-    </td>
+</td>
     <td class="cEventDetail"><a target="_blank" href="https://2018.container.camp/uk/schedule/cloud-native-programming-with-docker-and-kubernetes/"><h4>Cloud Native Programming with Docker and Kubernetes</h4></a>
     <p>
     <b>Lakmal Warusawithana,</b> Senior Director – Cloud Architecture, WSO2</p>
@@ -41,9 +52,9 @@
 
 </table> -->
 
-## Meetups
+<!-- ## Meetups -->
 
-<table class="cEventTable cMeetupsList">
+<!-- <table class="cEventTable cMeetupsList">
  <tr>
     <td class="cEventDateContainer"><span class="cEventDate">January 21, 2019 </span>6:30 PM to 8:30 PM
             <p class="cEventLocation">1061 Budapest, Paulay Ede u. 12. Budapest</p>
@@ -52,18 +63,8 @@
       </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/Microservices-Budapest-Meetup/events/257128863/" target="_blank">Register Now</a></td>
 </tr>
-    <!-- </tr> 
-        <td class="cEventDateContainer"><span class="cEventDate">November 7, 2018</span>6:30 PM to 9:00 PM
-            <p class="cEventLocation">Entrepreneur First, L block, The Biscuit Factory<br>
-100 Clements Road · London, SE16 4DG</p>
-        </td>
-        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/Cloud-Native-London/?_cookie-check=22IjcB8Q0g9inH5A"><h4>Cloud Native London</h4></a>
-        <p>Cloud Native London is the official Cloud Native Computing Foundation (CNCF) Meetup group dedicated to building a strong, open, diverse developer community around the Cloud Native platform and technologies in London.</p>
-          <p>Speaker: Kasun Indrasiri</p> 
-        </td>
-        <td class="cEventURL"><a class="cEventRegistration" href=https://www.meetup.com/Cloud-Native-London/?_cookie-check=22IjcB8Q0g9inH5A" target="_blank">Register Now</a></td>
-    </tr> -->
-</table> 
+
+</table>  -->
 
 <!-- ## No upcoming events -->
 
