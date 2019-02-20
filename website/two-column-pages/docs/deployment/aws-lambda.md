@@ -8,7 +8,7 @@
 </tr>
 <tr>
 <td>0.990.3</td>
-<td>arn:aws:lambda:<region>:141896495686:layer:ballerina-0-990-3:4</td>
+<td>arn:aws:lambda:&#60;region&#62;:141896495686:layer:ballerina-0-990-3:4</td>
 </tr>
 </table>
 	
