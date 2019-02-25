@@ -46,13 +46,13 @@ This downloads the plugin and installs it.
 #### Using the Command Line
 In a new Command Line tab, execute the below command.
 ```bash
-$ code --install-extension <BALLERINA-PLUGIN-HOME>
+$ code --install-extension <BALLERINA-PLUGIN-DIRECTORY>
 ```
-> **Tip**: In the above command, `<BALLERINA_PLUGIN-HOME>` refers to the path of the Ballerina plugin directory (i.e., the VSIX file) you downloaded.
+> **Tip**: In the above command, `<BALLERINA_PLUGIN-DIRECTORY>` refers to the path of the Ballerina plugin directory (i.e., the VSIX file) you downloaded.
 
 ## Using the plugin
 
-Click on the below links to find information on the various capabilities that are fascilitated by the VS Code Ballerina plugin for the development process.
+Click on the below links to find information on the various capabilities that are facilitated by the VS Code Ballerina plugin for the development process.
 
 - [Language intelligence](language-intelligence.md)
 - [Run and debug](run-and-debug.md)

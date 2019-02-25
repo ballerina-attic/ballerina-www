@@ -101,7 +101,7 @@ Workspace symbols provide you all the symbols of the current project. These symb
 
 ![Workspace symbols](images/workspace-symbols.gif)
 
-Above are the lanugae intelligence features that are currently available in the Ballerina VS Code Plugin. 
+Above are the lanugage intelligence features that are currently available in the Ballerina VS Code Plugin. 
 
 ## What's next
 

@@ -1,11 +1,11 @@
 # Using the IntelliJ plugin features
 
-Click on the below links to find information on the various capabilities that are fascilitated by the IntelliJ Ballerina plugin for the development process.
+Click on the below links to find information on the various capabilities that are facilitated by the IntelliJ Ballerina plugin for the development process.
 
 - [Running Ballerina programs](#running-ballerina-programs)
 - [Debugging Ballerina programs](#debugging-ballerina-programs)
 - [Importing modules on the fly](#importing-modules-on-the-fly)
-- [Importing unambiguous modules automatically](#importing-unambiguous-modules-automatically)
+- [Importing unambiguous modules](#importing-unambiguous-modules)
 - [Finding usage](#finding-usage)
 - [Formatting Ballerina codes](#formatting-ballerina-codes)
 - [Viewing details of parameters](viewing-details-of-parametyers)
@@ -36,9 +36,9 @@ You can add import declarations to your Ballerina programs on the fly. When you 
 
 ![Import modules on the fly](images/import-modules-on-the-fly.gif)
 
-## Importing unambiguous modules automatically
+## Importing unambiguous modules 
 
-When you copy and paste Ballerina code to the Editor, this feature allows you to import unambiguous imports automatically. You can apply these imports by clicking on the module name and pressing **Alt + Enter** keys.
+When you copy and paste Ballerina code to the Editor, this feature allows you to import unambiguous imports. You can apply these imports by clicking on the module name and pressing **Alt + Enter** keys.
 
 >**Note:** This is disabled by default since this might cause issues if the file contains grammar mistakes. Follow the steps below to enable it.
 >1. Open the editor, click **IntelliJ IDEA** in the top menu, click **Preferences**, and then click **Languages and Frameworks**. 
