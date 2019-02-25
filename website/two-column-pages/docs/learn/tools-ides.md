@@ -14,6 +14,8 @@ You can use plugins to write Ballerina code in your favorite editor or IDE. Clic
 [![VS Code](images/vscode-logo.png)](vscode-plugin-doc.md) 
 [![IntelliJ](images/intellij-logo.png)](intellij-plugin-doc.md)
 
+The graphical visualization tool is embedded in the Visual Studio Code plug-in.
+
 ## Swagger to Ballerina code generator
 
 You can use existing Swagger files to generate connectors and services in Ballerina code. For details, see the [Swagger to Ballerina Code Generator](https://github.com/ballerina-platform/ballerina-lang/tree/master/misc/swagger-ballerina/modules/swagger-to-ballerina-generator).
@@ -30,7 +32,7 @@ You can generate docs for a Ballerina file or module using the following command
 
 ## Test framework
 
-When you write your code in any of the aforementioned IDEs, the syntax is checked for you as you write it. You can use the debug button to step through your program. Ballerina provides a testing framework called **Testerina** that you can use for your programs. You can check it out [here](https://github.com/ballerina-platform/ballerina-lang/tree/master/misc/testerina).
+Ballerina provides a testing framework called **Testerina** that you can use to test your programs. You can check it out [here](https://github.com/ballerina-platform/ballerina-lang/tree/master/misc/testerina).
 
 You can test a Ballerina file or module using the following command:
 

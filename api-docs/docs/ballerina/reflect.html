@@ -240,6 +240,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -300,18 +314,6 @@
                                                 </div>
                                                 <div class="construct-name">
                                                     anyStruct
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
-                                            <a href="#equals">
-                                                <div class="construct-icon">
-                                                    <span class="fw-function"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    equals
                                                 </div>
                                             </a>
                                         </li>
@@ -497,41 +499,6 @@
                                                 <h2>Module overview</h2>
 <p>This module provides utility methods for obtaining reflective information about the Ballerina runtime.</p>
 <h2>Samples</h2>
-<h3>Check whether two objects are equal</h3>
-<p>The <code>reflect:equals</code> function checks whether two objects in the Ballerina runtime, including arrays, are equal.</p>
-<p>The samples below show how to compare primitive types.</p>
-<pre><code class="language-ballerina">// Compare two strings.
-string s1 = &quot;a&quot;;
-string s2 = &quot;a&quot;;
-boolean equal = reflect:equals(s1,s2); // Returns `true`
-
-// Compare two string arrays.
-string[] s1 = [&quot;a&quot;, &quot;b&quot;];
-string[] s2 = [&quot;a&quot;, &quot;b&quot;];
-boolean equalArrays = reflect:equals(s1,s2);  // Returns `true`
-</code></pre>
-<p>The sample below shows how to compare complex types.</p>
-<pre><code class="language-ballerina">// Compare two JSON objects.
-json jObj1 = {   name:&quot;Target&quot;,
-                 location:{
-                              address1:&quot;19, sample road&quot;,
-                              postalCode: 6789
-                          },
-                 products:[{price: 40.50, isNew: true, name:&quot;apple&quot;},
-                           {name:&quot;orange&quot;, price: 30.50}],
-                 manager: ()
-             };
-json jObj2 = {   name:&quot;Target&quot;,
-                 location:{
-                              address1:&quot;19, sample road&quot;,
-                              postalCode: 6789
-                          },
-                 products:[{price: 40.50, isNew: true, name:&quot;apple&quot;},
-                           {name:&quot;orange&quot;, price: 30.50}],
-                 manager: ()
-             };
-boolean equalJsons = reflect:equals(jObj1,jObj2);
-</code></pre>
 <h3>Get service annotations</h3>
 <p>The sample below shows how to retrieve all the annotations of a service:</p>
 <pre><code class="language-ballerina">@http:ServiceConfig { basePath: &quot;/helloWorld&quot; }
@@ -590,8 +557,6 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                              
                                                  
                                              
-                                                 
-                                             
                                          </table>
                                          
                                         <!-- objects -->
@@ -611,15 +576,6 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                              
                                                  
                                              
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#equals">equals</a></td>
-                                                        <td class="cSummary-table-desc"><p>Check whether 2 values are deeply equal. Supports string, int, float, boolean, type, structs, maps, arrays, any,
-JSON. Any other type returns FALSE.</p>
-</td>
-                                                     </tr>
                                                  
                                              
                                                  
@@ -715,7 +671,7 @@ JSON. Any other type returns FALSE.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">value</td>
-                                                        <td class="cAPI-table-type"><a href="reflect.html#anyStruct">reflect:anyStruct</a></td>
+                                                        <td class="cAPI-table-type"><a href="reflect.html#$anonType$0">reflect:$anonType$0</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"></td>
                                                     </tr>
@@ -741,76 +697,6 @@ JSON. Any other type returns FALSE.</p>
                                                     <span class="fw-record sm-icon"></span> public type anyStruct
                                                 </h2>
                                                   
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <h2 id="equals">
-                                                    <span class="fw-function sm-icon"> </span> public function equals(any value1, any value2) returns (boolean) 
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Check whether 2 values are deeply equal. Supports string, int, float, boolean, type, structs, maps, arrays, any,
-JSON. Any other type returns FALSE.</p>
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Parameter Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">value1</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#any">any</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The first value for equality.</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">value2</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#any">any</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The second value for equality.</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <div class="cReturnTableHeader"></div>
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name"></th>
-                                                        <th class="cAPI-table-type">Return Type</th>
-                                                        <th class="cAPI-table-default"></th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>TRUE if values are deeply equal, else FALSE.</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
                                                 <!-- Objects and its functions -->
                                                 
                                             </div>
@@ -1332,6 +1218,16 @@ JSON. Any other type returns FALSE.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="encoding.html">ballerina/<span class="bold">encoding</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="file.html">ballerina/<span class="bold">file</span>
                                    </a>
                                    
@@ -1453,6 +1349,16 @@ JSON. Any other type returns FALSE.</p>
                                    <!--Package Name-->
                                    
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="privacy.html">ballerina/<span class="bold">privacy</span>
                                    </a>
                                    
                                 </li>
@@ -1647,6 +1553,16 @@ JSON. Any other type returns FALSE.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="encoding.html">ballerina/<span class="bold">encoding</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="file.html">ballerina/<span class="bold">file</span>
                                    </a>
                                    
@@ -1768,6 +1684,16 @@ JSON. Any other type returns FALSE.</p>
                                    <!--Package Name-->
                                    
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="privacy.html">ballerina/<span class="bold">privacy</span>
                                    </a>
                                    
                                 </li>

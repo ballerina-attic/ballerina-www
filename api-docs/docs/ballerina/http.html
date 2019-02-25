@@ -170,6 +170,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -550,6 +557,18 @@
                                                 </div>
                                                 <div class="construct-name">
                                                     Local
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#MutualSslHandshake">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    MutualSslHandshake
                                                 </div>
                                             </a>
                                         </li>
@@ -4936,6 +4955,9 @@
                                            
                                            
                                            
+                                           
+                                           
+                                           
                                              
                                              
                                              
@@ -5757,6 +5779,42 @@
                                             
                                           
                                         <li>
+                                            <a href="#PASSED">
+                                                <div class="construct-icon">
+                                                    <span class="fw-const"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    PASSED
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#FAILED">
+                                                <div class="construct-icon">
+                                                    <span class="fw-const"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    FAILED
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#NONE">
+                                                <div class="construct-icon">
+                                                    <span class="fw-const"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    NONE
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
                                             <a href="#BASIC_AUTH">
                                                 <div class="construct-icon">
                                                     <span class="fw-const"> </span>
@@ -6544,6 +6602,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -6596,10 +6661,16 @@
 <p><code>Listener</code> endpoints can be exposed via SSL. They support Mutual SSL, Hostname Verification, and Server Name Indication (SNI) and Application Layer Protocol Negotiation (ALPN). <code>Listener</code> endpoints also support Certificate Revocation List (CRL), Online Certificate Status Protocol (OCSP), OCSP Stapling, HTTP2, keep-alive, chunking, HTTP caching, and data compression/decompression.</p>
 <p>See <a href="https://ballerina.io/learn/by-example/mutual-ssl.html">Mutual SSL Example</a>.</p>
 <p>See <a href="https://ballerina.io/learn/by-example/caching.html">Caching Example</a>, <a href="https://ballerina.io/learn/by-example/http-disable-chunking.html">HTTP Disable Chunking Example</a>.</p>
-<h3>WebSockets</h3>
-<p>The module also provides support for WebSockets. There are two types of WebSocket endpoints: <code>WebSocketClient</code> and <code>WebSocketListener</code>. Both endpoints support all WebSocket frames. The <code>WebSocketClient</code> has a callback service.</p>
-<p>There are also two types of services for WebSocket: <code>WebSocketService</code> and <code>WebSocketClientService</code>. The callback service for <code>WebSocketClient</code> is always a <code>WebSocketClientService</code>. The WebSocket services have a fixed set of resources that do not have a resource config. The incoming messages are passed to these resources.</p>
-<p><strong>WebSocket upgrade</strong>: During a WebSocket upgrade, the initial message is an HTTP request. To intercept this request and make the upgrade explicitly with custom headers, the user must create an HTTP resource with WebSocket specific configurations as follows:</p>
+<h3>WebSocket</h3>
+<p>The module also provides support for WebSocket. There are two types of WebSocket endpoints: <code>WebSocketClient</code> and
+<code>WebSocketListener</code>. Both endpoints support all WebSocket frames. The <code>WebSocketClient</code> has a callback service.</p>
+<p>There are two types of services for WebSocket. The service of the server has the <code>WebSockerCaller</code> as the resource
+parameter, and the callback service of the client has <code>WebSocketClient</code> as the resource parameter. The WebSocket
+services have a fixed set of resources that do not have a resource config. The incoming messages are passed to these
+resources.</p>
+<p><strong>WebSocket upgrade</strong>: During a WebSocket upgrade, the initial message received is an HTTP request. To intercept this
+request and perform the upgrade explicitly with custom headers, the user must create an HTTP resource with
+WebSocket-specific configurations as follows:</p>
 <pre><code class="language-ballerina"> @http:ResourceConfig {
         webSocketUpgrade: {
             upgradePath: &quot;/{name}&quot;,
@@ -6610,14 +6681,17 @@
     }
 }
 </code></pre>
-<p>Here <code>upgradeService</code> is a <code>WebSocketService</code>.</p>
-<p><strong>onOpen resource</strong>: As soon as the WebSocket handshake is completed and the connection is established, the <code>onOpen</code> resource is dispatched. This resource is only available in the <code>WebSocketService</code>.</p>
-<p><strong>onText resource</strong>: Received Text messages are dispatched to this resource.</p>
-<p><strong>onBinary resource</strong>: Received Binary messages are dispatched to this resource.</p>
-<p><strong>onPing and onPong resources</strong>: Received ping and pong messages are dispatched to these resources respectively as a <code>blob</code></p>
-<p><strong>onIdleTimeout</strong>: This resource is dispatched when idle timeout is reached. idleTimeout has to be configured by the user in WebSocket service configuration.</p>
-<p><strong>onClose</strong>: This resource is dispatched when a close message is received.</p>
-<p><strong>onError</strong>: This resource is dispatched when an error occurs in the WebSocket connection. This will always be followed by a connection closure with an appropriate WebSocket close frame.</p>
+<p>The <code>upgradeService</code> is a server callback service.</p>
+<p><strong>onOpen resource</strong>: As soon as the WebSocket handshake is completed and the connection is established, the <code>onOpen</code>
+resource is dispatched. This resource is only available in the service of the server.</p>
+<p><strong>onText resource</strong>: The received text messages are dispatched to this resource.</p>
+<p><strong>onBinary resource</strong>: The received binary messages are dispatched to this resource.</p>
+<p><strong>onPing and onPong resources</strong>: The received ping and pong messages are dispatched to these resources respectively.</p>
+<p><strong>onIdleTimeout</strong>: This resource is dispatched when the idle timeout is reached. idleTimeout has to be configured by the
+user in either the WebSocket service or client configuration.</p>
+<p><strong>onClose</strong>: This resource is dispatched when a close frame with a statusCode and a reason is received.</p>
+<p><strong>onError</strong>: This resource is dispatched when an error occurs in the WebSocket connection. This will always be preceded
+by a connection closure with an appropriate close frame.</p>
 <p>See <a href="https://ballerina.io/learn/by-example/websocket-basic-sample.html">WebSocket Basic Example</a>,
 <a href="https://ballerina.io/learn/by-example/http-to-websocket-upgrade.html">HTTP to WebSocket Upgrade Example</a>,
 <a href="https://ballerina.io/learn/by-example/websocket-chat-application.html">WebSocket Chat Application</a>,
@@ -6897,6 +6971,14 @@ service helloWorld on helloWorldEP {
                                              
                                                  
                                                      <tr>
+                                                         <td class="cSummary-table-name"><a href="#MutualSslHandshake">MutualSslHandshake</a></td>
+                                                         <td class="cSummary-table-desc">A record for providing mutual ssl handshake results.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#Protocols">Protocols</a></td>
                                                          <td class="cSummary-table-desc">A record for configuring SSL/TLS protocol and version to be used.
 </td>
@@ -7026,7 +7108,7 @@ service helloWorld on helloWorldEP {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#WebSocketClientEndpointConfig">WebSocketClientEndpointConfig</a></td>
-                                                         <td class="cSummary-table-desc">Configuration struct for WebSocket client endpoint.
+                                                         <td class="cSummary-table-desc">Configuration for the WebSocket client endpoint.
 </td>
                                                      </tr>
                                                  
@@ -7034,9 +7116,21 @@ service helloWorld on helloWorldEP {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#WebSocketUpgradeConfig">WebSocketUpgradeConfig</a></td>
-                                                         <td class="cSummary-table-desc">Configures the HTTP to WebSocket upgrade.
+                                                         <td class="cSummary-table-desc">Resource configuration to upgrade from HTTP to WebSocket.
 </td>
                                                      </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
                                                  
                                              
                                                  
@@ -7400,6 +7494,8 @@ service helloWorld on helloWorldEP {
                                               
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
+                                             
+                                                 
                                              
                                                  
                                              
@@ -7999,6 +8095,18 @@ remote callers. The <code>Listener</code> is responsible for initializing the en
                                              
                                                  
                                              
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
                                          </table>
                                          
                                          <!-- endpoints -->
@@ -8009,6 +8117,8 @@ remote callers. The <code>Listener</code> is responsible for initializing the en
                                                  <th class="cSummary-table-name">Endpoint</th>
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
+                                             
+                                                 
                                              
                                                  
                                              
@@ -8526,6 +8636,18 @@ to provide retrying over HTTP requests.</p>
                                              
                                                  
                                              
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
                                          </table>
                                          
                                          <!-- functions -->
@@ -8538,6 +8660,8 @@ to provide retrying over HTTP requests.</p>
                                                  <th class="cSummary-table-name">Function</th>
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
+                                             
+                                                 
                                              
                                                  
                                              
@@ -9018,6 +9142,18 @@ HTTP remote function provider.</p>
                                              
                                                  
                                              
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
                                          </table>
                                          
                                          <!-- Type Definitions-->
@@ -9030,6 +9166,7 @@ HTTP remote function provider.</p>
                                                 <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             
+                                              
                                               
                                               
                                               
@@ -9201,11 +9338,40 @@ outbound request/response accept-encoding/content-encoding option
                                               
                                             
                                             <tr>
+                                                <td class="cSummary-table-name">MutualSslStatus</td>
+                                                <td class="cSummary-table-type">null | PASSED | FAILED</td>
+                                                <td class="cSummary-table-desc"><p>Defines the possible values for the mutual ssl status.</p>
+<p><code>passed</code>: Mutual SSL handshake is succesful.
+<code>failed</code>: Mutual SSL handshake has failed.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
                                                 <td class="cSummary-table-name">RedirectCode</td>
                                                 <td class="cSummary-table-type">REDIRECT_USE_PROXY_305 | REDIRECT_TEMPORARY_REDIRECT_307 | REDIRECT_SEE_OTHER_303 | REDIRECT_PERMANENT_REDIRECT_308 | REDIRECT_NOT_MODIFIED_304 | REDIRECT_MULTIPLE_CHOICES_300 | REDIRECT_MOVED_PERMANENTLY_301 | REDIRECT_FOUND_302</td>
                                                 <td class="cSummary-table-desc"><p>Defines the HTTP redirect codes as a type.</p>
 </td>
                                             </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">RequestMessage</td>
+                                                <td class="cSummary-table-type">xml | string | null | json | io:ReadableByteChannel | byte[] | Request | Entity[]</td>
+                                                <td class="cSummary-table-desc"><p>The types of messages that are accepted by HTTP <code>client</code> when sending out the outbound request.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">ResponseMessage</td>
+                                                <td class="cSummary-table-type">xml | string | null | json | io:ReadableByteChannel | byte[] | Response | Entity[]</td>
+                                                <td class="cSummary-table-desc"><p>The types of messages that are accepted by HTTP <code>listener</code> when sending out the outbound response.</p>
+</td>
+                                            </tr>
+                                              
+                                              
+                                              
                                               
                                               
                                               
@@ -9346,6 +9512,10 @@ outbound request/response accept-encoding/content-encoding option
                                                 <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             
+                                              
+                                              
+                                              
+                                              
                                               
                                               
                                               
@@ -9588,6 +9758,9 @@ outbound request/response accept-encoding/content-encoding option
                                               
                                               
                                               
+                                              
+                                              
+                                              
                                         </table>
                                         
                                      </div>
@@ -9691,7 +9864,7 @@ between 0 (exclusive) and 1 (inclusive).</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">scheme</td>
-                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$89,http.html#$anonType$90,http.html#$anonType$91">Basic|OAuth2|JWT</a></td>
+                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$92,http.html#$anonType$93,http.html#$anonType$94">Basic|OAuth2|JWT</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Scheme of the configuration (Basic, OAuth2, JWT etc.)</p>
 </td>
@@ -9779,7 +9952,7 @@ between 0 (exclusive) and 1 (inclusive).</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">credentialBearer</td>
-                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$92,http.html#$anonType$93">AUTH_HEADER_BEARER|POST_BODY_BEARER</a></td>
+                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$95,http.html#$anonType$96">AUTH_HEADER_BEARER|POST_BODY_BEARER</a></td>
                                                         <td class="cAPI-table-default">AUTH_HEADER_BEARER</td>
                                                         <td class="cAPI-table-desc"><p>How client authentication is sent to refresh access token (AuthHeaderBearer, PostBodyBearer)</p>
 </td>
@@ -10434,7 +10607,7 @@ the upstream service</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keepAlive</td>
-                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$139,http.html#$anonType$140,http.html#$anonType$141">AUTO|ALWAYS|NEVER</a></td>
+                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$142,http.html#$anonType$143,http.html#$anonType$144">AUTO|ALWAYS|NEVER</a></td>
                                                         <td class="cAPI-table-default">KEEPALIVE_AUTO</td>
                                                         <td class="cAPI-table-desc"><p>Specifies whether to reuse a connection for multiple requests</p>
 </td>
@@ -10787,7 +10960,7 @@ indicates that the number of connections are not restricted.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keepAlive</td>
-                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$139,http.html#$anonType$140,http.html#$anonType$141">AUTO|ALWAYS|NEVER</a></td>
+                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$142,http.html#$anonType$143,http.html#$anonType$144">AUTO|ALWAYS|NEVER</a></td>
                                                         <td class="cAPI-table-default">KEEPALIVE_AUTO</td>
                                                         <td class="cAPI-table-desc"><p>Specifies whether to reuse a connection for multiple requests</p>
 </td>
@@ -11535,7 +11708,7 @@ indicates that the number of connections are not restricted.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keepAlive</td>
-                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$139,http.html#$anonType$140,http.html#$anonType$141">AUTO|ALWAYS|NEVER</a></td>
+                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$142,http.html#$anonType$143,http.html#$anonType$144">AUTO|ALWAYS|NEVER</a></td>
                                                         <td class="cAPI-table-default">KEEPALIVE_AUTO</td>
                                                         <td class="cAPI-table-desc"><p>Specifies whether to keep the connection alive (or not) for multiple request/response pairs</p>
 </td>
@@ -11676,6 +11849,48 @@ indicates that the number of connections are not restricted.</p>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default">0</td>
                                                         <td class="cAPI-table-desc"><p>The local port</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="MutualSslHandshake">
+                                                    <span class="fw-record sm-icon"></span> public type MutualSslHandshake
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>A record for providing mutual ssl handshake results.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">status</td>
+                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$87,http.html#$anonType$88">passed|failed?</a></td>
+                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-desc"><p>Status of the handshake.</p>
 </td>
                                                     </tr>
                                                     
@@ -12287,7 +12502,7 @@ eg: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA</p
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keepAlive</td>
-                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$139,http.html#$anonType$140,http.html#$anonType$141">AUTO|ALWAYS|NEVER</a></td>
+                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$142,http.html#$anonType$143,http.html#$anonType$144">AUTO|ALWAYS|NEVER</a></td>
                                                         <td class="cAPI-table-default">KEEPALIVE_AUTO</td>
                                                         <td class="cAPI-table-desc"><p>Can be set to either <code>KEEPALIVE_AUTO</code>, which respects the <code>connection</code> header, or <code>KEEPALIVE_ALWAYS</code>,
 which always keeps the connection alive, or <code>KEEPALIVE_NEVER</code>, which always closes the connection</p>
@@ -12838,8 +13053,9 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA)</p>
                                                         <td class="cAPI-table-name">idleTimeoutInSeconds</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default">0</td>
-                                                        <td class="cAPI-table-desc"><p>Idle timeout for the client connection. This can be triggered by putting
-an <code>onIdleTimeout</code> resource in the WebSocket service.</p>
+                                                        <td class="cAPI-table-desc"><p>Idle timeout for the client connection. Upon timeout, <code>onIdleTimeout</code> resource (if defined)
+in the server service will be triggered. Note that this overrides the <code>timeoutMillis</code> config
+in the <code>http:Listener</code>.</p>
 </td>
                                                     </tr>
                                                     
@@ -12847,7 +13063,8 @@ an <code>onIdleTimeout</code> resource in the WebSocket service.</p>
                                                         <td class="cAPI-table-name">maxFrameSize</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default">0</td>
-                                                        <td class="cAPI-table-desc"><p>The maximum payload size of a WebSocket frame in bytes</p>
+                                                        <td class="cAPI-table-desc"><p>The maximum payload size of a WebSocket frame in bytes.
+If this is not set or is negative or zero, the default frame size will be used.</p>
 </td>
                                                     </tr>
                                                     
@@ -12873,7 +13090,7 @@ an <code>onIdleTimeout</code> resource in the WebSocket service.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Configuration struct for WebSocket client endpoint.
+                                                    <span class="fw-right gray xs-icon"></span>Configuration for the WebSocket client endpoint.
 
                                                 </p>
                                                  
@@ -12889,7 +13106,8 @@ an <code>onIdleTimeout</code> resource in the WebSocket service.</p>
                                                         <td class="cAPI-table-name">callbackService</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#service">service?</a></td>
                                                         <td class="cAPI-table-default">null</td>
-                                                        <td class="cAPI-table-desc"><p>The callback service for the client. Resources in this service gets called on receipt of messages from the server.</p>
+                                                        <td class="cAPI-table-desc"><p>The callback service for the client. Resources in this service gets called on receipt of messages
+from the server.</p>
 </td>
                                                     </tr>
                                                     
@@ -12913,7 +13131,8 @@ an <code>onIdleTimeout</code> resource in the WebSocket service.</p>
                                                         <td class="cAPI-table-name">idleTimeoutInSeconds</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default">-1</td>
-                                                        <td class="cAPI-table-desc"><p>Idle timeout of the client. Upon timeout, onIdleTimeout resource in the client service will be triggered (if there is one defined)</p>
+                                                        <td class="cAPI-table-desc"><p>Idle timeout of the client. Upon timeout, <code>onIdleTimeout</code> resource (if defined) in the client
+service will be triggered.</p>
 </td>
                                                     </tr>
                                                     
@@ -12921,7 +13140,8 @@ an <code>onIdleTimeout</code> resource in the WebSocket service.</p>
                                                         <td class="cAPI-table-name">readyOnConnect</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default">true</td>
-                                                        <td class="cAPI-table-desc"><p>true if the client is ready to recieve messages as soon as the connection is established. This is true by default. If changed to false the function ready() of the
+                                                        <td class="cAPI-table-desc"><p><code>true</code> if the client is ready to receive messages as soon as the connection is established.
+This is true by default. If changed to false the function ready() of the
 <code>WebSocketClient</code>needs to be called once to start receiving messages.</p>
 </td>
                                                     </tr>
@@ -12931,6 +13151,15 @@ an <code>onIdleTimeout</code> resource in the WebSocket service.</p>
                                                         <td class="cAPI-table-type"><a href="http.html#SecureSocket">http:SecureSocket?</a></td>
                                                         <td class="cAPI-table-default">null</td>
                                                         <td class="cAPI-table-desc"><p>SSL/TLS related options</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">maxFrameSize</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default">0</td>
+                                                        <td class="cAPI-table-desc"><p>The maximum payload size of a WebSocket frame in bytes.
+If this is not set or is negative  or zero the default frame size of 65536 will be used.</p>
 </td>
                                                     </tr>
                                                     
@@ -12956,7 +13185,7 @@ an <code>onIdleTimeout</code> resource in the WebSocket service.</p>
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Configures the HTTP to WebSocket upgrade.
+                                                    <span class="fw-right gray xs-icon"></span>Resource configuration to upgrade from HTTP to WebSocket.
 
                                                 </p>
                                                  
@@ -12980,7 +13209,7 @@ an <code>onIdleTimeout</code> resource in the WebSocket service.</p>
                                                         <td class="cAPI-table-name">upgradeService</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#service">service</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>WebSocket service which should be used after a successful upgrade</p>
+                                                        <td class="cAPI-table-desc"><p>Callback service for a successful upgrade</p>
 </td>
                                                     </tr>
                                                     
@@ -14317,7 +14546,7 @@ HTTP remote function provider.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">currentCircuitState</td>
-                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$94,http.html#$anonType$95,http.html#$anonType$96">OPEN|HALF_OPEN|CLOSED</a></td>
+                                                        <td class="cAPI-table-type"><a href="http.html#$anonType$97,http.html#$anonType$98,http.html#$anonType$99">OPEN|HALF_OPEN|CLOSED</a></td>
                                                         <td class="cAPI-table-default">CB_CLOSED_STATE</td>
                                                         <td class="cAPI-table-desc"><p>The current state the cicuit is in</p>
 </td>
@@ -15322,7 +15551,7 @@ until <code>resetTimeMillis</code> interval exceeds.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#$anonType$94">CircuitState</a></td>
+                                                                    <td class="cAPI-table-type"><a href="http.html#$anonType$97">CircuitState</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The current <code>CircuitState</code> of circuit breaker</p>
 </td>
@@ -17527,6 +17756,13 @@ If there are more than one header value for the specified header name, the first
                                                         <td class="cAPI-table-desc"><p>The cache-control directives for the request. This needs to be explicitly initialized if intending
 on utilizing HTTP caching.</p>
 </td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">mutualSslHandshake</td>
+                                                        <td class="cAPI-table-type"><a href="http.html#MutualSslHandshake">http:MutualSslHandshake?</a></td>
+                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-desc"></td>
                                                     </tr>
                                                     
                                                 </table>
@@ -28802,7 +29038,7 @@ When a <code>PushPromise</code> is rejected, there is no chance of fetching a pr
                                                         <td class="cAPI-table-name">negotiatedSubProtocol</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The subprotocols negoriated with the server</p>
+                                                        <td class="cAPI-table-desc"><p>The subprotocols that are negotiated with the client</p>
 </td>
                                                     </tr>
                                                     
@@ -28868,7 +29104,7 @@ When a <code>PushPromise</code> is rejected, there is no chance of fetching a pr
                                                                     <td class="cAPI-table-name">finalFrame</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                                     <td class="cAPI-table-default">true</td>
-                                                                    <td class="cAPI-table-desc"><p>True if this is a final frame of a (long) message</p>
+                                                                    <td class="cAPI-table-desc"><p>Set to <code>true</code> if this is a final frame of a (long) message</p>
 </td>
                                                                 </tr>
                                                                 
@@ -28928,7 +29164,7 @@ When a <code>PushPromise</code> is rejected, there is no chance of fetching a pr
                                                                     <td class="cAPI-table-name">finalFrame</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                                     <td class="cAPI-table-default">true</td>
-                                                                    <td class="cAPI-table-desc"><p>True if this is a final frame of a (long) message</p>
+                                                                    <td class="cAPI-table-desc"><p>Set to <code>true</code> if this is a final frame of a (long) message</p>
 </td>
                                                                 </tr>
                                                                 
@@ -29100,10 +29336,10 @@ When a <code>PushPromise</code> is rejected, there is no chance of fetching a pr
                                                                     <td class="cAPI-table-name">timeoutInSecs</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                                     <td class="cAPI-table-default">60</td>
-                                                                    <td class="cAPI-table-desc"><p>Time to waits for the close frame from the remote endpoint before closing the connection.
-If the timeout exceeds then the connection is terminated even though a close frame
-is not received from the remote endpoint. If the value &lt; 0 (eg: -1) the connection waits
-until a close frame is received. If WebSocket frame is received from the remote endpoint
+                                                                    <td class="cAPI-table-desc"><p>Time to wait for the close frame to be received from the remote endpoint before closing the
+connection. If the timeout exceeds, then the connection is terminated even though a close frame
+is not received from the remote endpoint. If the value &lt; 0 (e.g., -1), then the connection waits
+until a close frame is received. If WebSocket frame is received from the remote endpoint,
 within waiting period the connection is terminated immediately.</p>
 </td>
                                                                 </tr>
@@ -29178,7 +29414,7 @@ within waiting period the connection is terminated immediately.</p>
                                                         <td class="cAPI-table-name">negotiatedSubProtocol</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The subprotocols negoriated with the server</p>
+                                                        <td class="cAPI-table-desc"><p>The subprotocols that are negotiated with the server</p>
 </td>
                                                     </tr>
                                                     
@@ -29252,7 +29488,7 @@ within waiting period the connection is terminated immediately.</p>
                                                                     <td class="cAPI-table-name">finalFrame</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                                     <td class="cAPI-table-default">true</td>
-                                                                    <td class="cAPI-table-desc"><p>True if this is a final frame of a (long) message</p>
+                                                                    <td class="cAPI-table-desc"><p>Set to <code>true</code> if this is a final frame of a (long) message</p>
 </td>
                                                                 </tr>
                                                                 
@@ -29312,7 +29548,7 @@ within waiting period the connection is terminated immediately.</p>
                                                                     <td class="cAPI-table-name">finalFrame</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                                     <td class="cAPI-table-default">true</td>
-                                                                    <td class="cAPI-table-desc"><p>True if this is a final frame of a (long) message</p>
+                                                                    <td class="cAPI-table-desc"><p>Set to <code>true</code> if this is a final frame of a (long) message</p>
 </td>
                                                                 </tr>
                                                                 
@@ -29484,10 +29720,10 @@ within waiting period the connection is terminated immediately.</p>
                                                                     <td class="cAPI-table-name">timeoutInSecs</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                                     <td class="cAPI-table-default">60</td>
-                                                                    <td class="cAPI-table-desc"><p>Time to waits for the close frame from the remote endpoint before closing the connection.
-If the timeout exceeds then the connection is terminated even though a close frame
-is not received from the remote endpoint. If the value &lt; 0 (eg: -1) the connection waits
-until a close frame is received. If WebSocket frame is received from the remote endpoint
+                                                                    <td class="cAPI-table-desc"><p>Time to wait for the close frame to be received from the remote endpoint before closing the
+connection. If the timeout exceeds, then the connection is terminated even though a close frame
+is not received from the remote endpoint. If the value &lt; 0 (e.g., -1), then the connection waits
+until a close frame is received. If WebSocket frame is received from the remote endpoint,
 within waiting period the connection is terminated immediately.</p>
 </td>
                                                                 </tr>
@@ -29553,6 +29789,96 @@ WebSocketListener can be called only in upgrade or onOpen resources.</p>
                                                     </ul>
                                                 </div>
                                                  
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
                                                 <!-- Records -->
                                                 
                                                 <!-- Objects and its functions -->
@@ -31787,6 +32113,16 @@ WebSocketListener can be called only in upgrade or onOpen resources.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="encoding.html">ballerina/<span class="bold">encoding</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="file.html">ballerina/<span class="bold">file</span>
                                    </a>
                                    
@@ -31909,6 +32245,16 @@ WebSocketListener can be called only in upgrade or onOpen resources.</p>
                                    <!--Package Name-->
                                    
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="privacy.html">ballerina/<span class="bold">privacy</span>
                                    </a>
                                    
                                 </li>
@@ -32102,6 +32448,16 @@ WebSocketListener can be called only in upgrade or onOpen resources.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="encoding.html">ballerina/<span class="bold">encoding</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="file.html">ballerina/<span class="bold">file</span>
                                    </a>
                                    
@@ -32224,6 +32580,16 @@ WebSocketListener can be called only in upgrade or onOpen resources.</p>
                                    <!--Package Name-->
                                    
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="privacy.html">ballerina/<span class="bold">privacy</span>
                                    </a>
                                    
                                 </li>
