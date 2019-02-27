@@ -1080,7 +1080,7 @@ function WebhookListener.__init(int port, WebhookListenerConfiguration? config =
 
 ### Implement the `__attach()`, `__start()` and `__stop()` functions
 
-The implementations of these functions only need to call the same functions on the wrapped `websub:Listener`.
+The implementations of these functions only need to call the corresponding functions of the wrapped `websub:Listener`.
 
 ```ballerina
 function WebhookListener.__attach(service s, map<any> data) returns error? {
