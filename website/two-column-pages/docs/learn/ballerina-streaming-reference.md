@@ -476,104 +476,95 @@ Following are some inbuilt windows shipped with Ballerina Streams.
 
     `time(int windowTime)`
 
-    A sliding time window that holds events that arrived during the last `windowTime` period at a given time, and
-    gets updated for each event arrival and expiry.
+    A sliding time window gets updated on the arrival and expiry of each event. Thus, at a given time, it holds all the events that arrived during the last `windowTime` period.
 
 2.  timeBatch window
 
     `timeBatch(int windowTime)`
 
-    A batch (tumbling) time window that holds events that arrive during `windowTime` periods, and gets updated for
-    each `windowTime`.
+    A batch (tumbling) time window holds the events that arrive during the specified `windowTime` period. The `windowTime` is initiated by the arrival of the first event.
 
 3. timeLength window
 
     `timelength(int windowTime, int windowLength)`
 
-    A sliding time window that, at a given time holds the last `windowLength` events that arrived during last
-    `windowTime` period, and gets updated for every event arrival and expiry.
+    A sliding time length window holds the events that arrive during the specified `windowTime` period until the number of events specified as the `windowLength` is reached.
 
 4. length window
     `length(int windowLength)`
-
-    A sliding length window that holds the last `windowLength` events at a given time, and gets updated for each
-    arrival and expiry.
+    
+    A sliding length window gets updated on the arrival and expiry of each event. At a given time, it holds events until the  the number of events specified as the `windowLength` is reached.
 
 5. lengthBatch window
 
-    `lengthBatch(int windowLength)`
-
-    A batch (tumbling) length window that holds a number of events specified as the `windowLength`. The window is
-    updated each time a batch of events that equals the number specified as the `windowLength` arrives.
+    `lengthBatch(int windowLength)` 
+    
+    A batch (tumbling) length window gets updated each time a batch of events that equals the number specified as the `windowLength` arrives. Thus, at a given time, it holds the number of events specified as the `windowLength`.
 
 6. externalTime window
 
     `externalTime(timeStamp, int windowTime)`
 
-    A sliding time window based on external time. It holds events that arrived during the last `windowTime` period
-    from the external `timestamp`, and gets updated on every monotonically increasing `timestamp`. Here the
-    `timeStamp` should be an attribute of the record which is used as the constraint type of relevant input stream.
-    As the `timeStamp` parameter you should pass `<streamName>.<attiributeName>`.
+    A sliding time window is based on the external time. It holds the events that arrived during the last `windowTime` period
+    starting from the specified external `timestamp`, and gets updated every time when the `timestamp` increases monotonically. 
+    
+    Here, the `timeStamp` should be an attribute of the record, which is used as the constraint type of the relevant input stream. You should pass `<streamName>.<attiributeName>` as the `timeStamp` parameter. 
 
 7. externalTimeBatch window
 
     `externalTimeBatch(timeStamp, int windowTime, int? startTime, int? timeout)`
 
-    A batch (tumbling) time window based on external time, that holds events arrived during `windowTime` periods, and
-     gets updated for every `windowTime`. Here the `timeStamp` should be an attribute of the record which is used as
-     the constraint type of relevant input stream. As the `timeStamp` parameter you should pass `<streamName>
-     .<attiributeName>`. Parameters `startTime` and `timeout` are optional parameters. `startTime` can be used to
-     specify a user defined time to start the first batch. `timeout` is time to wait for arrival of new event, before
-      flushing and giving output for events belonging to a specific batch. Usually `timeout` is greater than
-      `windowTime`.
+    A batch (tumbling) time window is based on the external time. It gets updated and holds the events arrived during every specified `windowTime` periods. Here, the `timeStamp` should be an attribute of the record, which is used as
+     the constraint type of the relevant input stream. 
+     
+    You should pass `<streamName>.<attiributeName>` as the `timeStamp` parameter . The `startTime` and `timeout` are optional parameters. The `startTime` parameter specifies a user-defined time to start the first batch. The `timeout` parameter denotes the time to wait for arrival of a new event before flushing the output of the events belonging to a specific batch. Usually, the `timeout`value is greater than the `windowTime`.
 
 8. uniqueLength window
 
     `uniqueLength(uniqueAttribute, int windowLength)`
 
     A sliding length window that returns unique events within the `windowLength` based on the given `uniqueAttribute`
-    . Here the `uniqueAttribute` should be an attribute of the record which is used as the constraint type of
+    . Here, the `uniqueAttribute` should be an attribute of the record, which is used as the constraint type of the
     relevant input stream.
 
 9. delay window
 
     `delay(int delayTime)`
 
-    A delay window holds events for a specific time period(`delayTime`) that is regarded as a delay period before
+    A delay window holds events during a specific time period(`delayTime`) that is regarded as a delay period before
     processing them.
 
 10. sort window
 
     `sort(int windowLength, attributeName, string order)`
 
-    A sort sort window holds a batch of events that equal the number specified as the `windowLength` and sorts them
-    in the given `order` of given `attributeName`. Here the `attributeName` should be an attribute of the record
-    which is used as the constraint type of relevant input stream. You can have multiple `attributeName` fields
-    followed by it's `order`.
+    A sort window holds a batch of events that equals the number specified as the `windowLength` and sorts them
+    in the given `order` by the specified `attributeName`. 
+    
+    Here, the `attributeName` should be an attribute of the record, which is used as the constraint type of the relevant input stream. You can have multiple `attributeName` fields followed by its `order`.
 
 11. timeAccum window
 
     `timeAccum(int timePeriod)`
 
-    A sliding window that accumulates events until no more events arrive within the `timePeriod`, and only then
-    releases the accumulated events.
+    A sliding window that accumulates events until no more events arrive within the `timePeriod`, and releases the accumulated events only then.
 
 12. hopping window
 
     `hopping(int windowTime, int hoppingTime)`
 
-    A hopping window holds the events arrived within last `windowTime` and release them in every `hoppingTime` period.
+    A hopping window holds the events that arrived during the last `windowTime` and releases them in every `hoppingTime` period.
 
 13. timeOrder window
 
     `timeOrder(timestamp, int windowTime, boolean dropOlderEvents)`
 
-    A timeOrder window orders events that arrive out-of-order, using timestamp values provided by `timestamp`, and
-    bycomparing that `timestamp` value to system time. `windowTime` is the window duration. `dropOlderEvents` flag
-    determines whether to drop the events which has timestamp value less than the tail-time of current window.
-    Tail-time is the time, an amount of `windowTime` before the system time. Here the `timeStamp` should be an
-    attribute of the record which is used as the constraint type of relevant input stream. As the `timeStamp`
-    parameter you should pass `<streamName>.<attiributeName>`.
+    A timeOrder window orders events that arrive out-of-order based on the timestamp values provided by the `timestamp` by comparing the `timestamp` value with the system time. The `windowTime` is the window duration. 
+    
+    The`dropOlderEvents` flag determines whether to drop the events that have a timestamp value less than the tail-time of the current window.
+    
+    Tail-time is the ending (system) time of the `windowTime` period. Here, the `timeStamp` should be an
+    attribute of the record, which is used as the constraint type of the relevant input stream. You should pass `<streamName>.<attiributeName>`as the `timeStamp` parameter.
 
 
 #### Aggregate function
