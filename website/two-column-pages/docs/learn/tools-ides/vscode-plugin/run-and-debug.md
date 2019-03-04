@@ -7,17 +7,22 @@ Thus, you can run or debug your Ballerina programs easily via the VS Code Baller
 Follow the steps below to start a 
 debug session. 
 
-1. Click the **Debug** icon in the left menu or press the Control + Shift + D keys, to launch the Debugger view.
+1. Click the **Debug** icon in the left menu or press the **Control + Shift + D** keys, to launch the Debugger view.
 2. Add the debug points you require by clicking on the respective line numbers of the file.
 3. Click **No Configurations** and select **Add Configuration...**. 
 4. Click **Ballerina Debug**. This opens the *launch.json* file. You can edit this file to change the debug configuration options as required.
 5. Click on the name of the file that you want to debug.
-6. Click the **Start Debugging" icon.
+6. Click the **Start Debugging** icon.
 
 You view the output in the **DEBUG CONSOLE**.
 
-![Run and debug](images/run-and-debug.gif)
+![Run and debug](../../images/run-and-debug.gif)
 
 For more information on debugging your code using VS Code, go to [VS Code Documentation](https://code.visualstudio.com/docs/editor/debugging).
 
+## What's next?
+
+ - For information on the next capability of the VS Code Ballerina plugin, see [Run All Tests](run-all-tests.md).
+ - For information on the VS Code Ballerina plugin, see [The Visual Studio Code Plugin](../vscode-plugin.md).
+ - For information on the tools and IDEs that are supported by the VS Code Ballerina plugin, see [Tools and IDEs](../../tools-ides.md).
 
