@@ -26,15 +26,18 @@ Ballerina standard library makes sure untrusted data cannot be used with securit
 * Unvalidated Redirect (Open Redirect)
 
 ### Ensuring security of Ballerina standard libraries
-Security sensitive functions and actions of Ballerina standard libraries are decorated with  `@sensitive` parameter annotation that denotes untrusted data (tainted data) should not be passed to the parameter. For example, `sqlQuery` parameter of `ballerina/sql`, `select` action.
+
+Security-sensitive functions and actions of Ballerina standard libraries are annotated with the `@sensitive` parameter annotation. This denotes that untrusted (tainted) data should not be passed to the parameter. 
+
+For example, the `sqlQuery` parameter of the `ballerina/sql` `select` remote function is annotated as `@sensitive`.
 
 ```ballerina
-public extern function select(@sensitive string sqlQuery, typedesc? recordType,
-                              boolean loadToMemory = false, Param... parameters)
-                             returns @tainted table|error;
+public remote function select(@sensitive string sqlQuery, typedesc? recordType, 
+                              boolean loadToMemory = false, Param... parameters) 
+                      returns @tainted table<record {}>|error;
 ```
 
-Consider the following example that constructs a SQL query with a tainted argument:
+The following example constructs an SQL query with a tainted argument:
 
 ```ballerina
 import ballerina/mysql;
@@ -74,17 +77,17 @@ var dt = testDB->select("SELECT NAME FROM STUDENT WHERE ID = ?", ResultStudent,
                         paramId);
 ```
 
-Please note that it is required to import `ballerina/sql` module to use `sql:Parameter`.
+You need to import the `ballerina/sql` module to use the `sql:Parameter` type.
 
-Command-line arguments to Ballerina programs and inputs received through service resources are considered tainted. Additionally, return values of certain functions and actions are marked with `@tainted` annotation to denote that the resulting value should be considered as untrusted data.
+Command-line arguments passed to Ballerina programs and inputs received through service resources are considered tainted. Additionally, return values of certain functions and actions are marked with the `@tainted` annotation to denote that the resulting value should be considered as untrusted data.
 
-For example, the select action of the SQL client connector highlighted above returns a `@tainted table`, which means any value read from a database is considered untrusted.
+For example, the `select` remote function of the SQL client connector highlighted above returns a `@tainted table<record {}>`. This means that any value read from a database is considered as untrusted.
 
-If return was not explicitly annotated, Ballerina will infer the tainted status of the return by analyzing how tainted status of parameters affect tainted status of the return.
+If the return type is not explicitly annotated, Ballerina will infer the tainted status of the return value. This is done by analyzing how the tainted status of parameters affect the same of the return value.
 
-### Securely using tainted data with security sensitive parameters
+### Securely using tainted data with security-sensitive parameters
 
-There can be certain situations where a tainted value must be passed into a security sensitive parameter. In such situations, it is essential to do proper data validation or data sanitization to make sure input does not result in a security threat. Once proper controls are in place, `untaint` unary expression can be used to denote that the proceeding value is trusted:
+There can be certain situations where a tainted value must be passed into a security-sensitive parameter. In such situations, it is essential to do proper data validation or data sanitization to make sure the input does not result in a security threat. Once proper controls are in place, the `untaint` unary expression can be used to denote that the value is trusted:
 
 ```ballerina
 // Execute select query using the untrusted (tainted) student ID
@@ -96,13 +99,13 @@ if (isValid) {
 // ...
 ```
 
-Additionally, return values can be annotated with `@untainted` to denote that the return value should be trusted (even though return value is derived from tainted data):
+Additionally, return values can be annotated as `@untainted`. This denotes that the return value should be trusted (even if the return value is derived from tainted data):
 
 ```ballerina
-// Execute select query using the untrusted (tainted) student ID
+// Execute the select query using the untrusted (tainted) student ID
 function sanitizeSortColumn (string columnName) returns @untainted string {
    string sanitizedSortColumn = columnName;
-   // Sanitize logic to make sure return value is safe
+   // Insert sanitization logic to ensure that the return value is safe.
    return sanitizedSortColumn;
 }
 // ...
@@ -110,20 +113,20 @@ function sanitizeSortColumn (string columnName) returns @untainted string {
 
 ## Securing Passwords and Secrets
 
-Ballerina provides an API for accessing configuration values from different sources. Please refer to the [Config](https://ballerina.io/learn/by-example/config-api.html) Ballerina by Example for details.
+Ballerina provides an API to access configuration values from different sources. For more information, see [Config Ballerina by Example](https://ballerina.io/learn/by-example/config-api.html).
 
 Configuration values containing passwords or secrets should be encrypted. The Ballerina Config API will decrypt such configuration values when being accessed.
 
-Use the following command, in order to encrypt a configuration value:
+Use the following command to encrypt a configuration value:
 
-```
-ballerina encrypt
+```cmd
+$ ballerina encrypt
 ```
 
 The encrypt command will prompt for the plain-text value to be encrypted and an encryption secret.
 
-```
-ballerina encrypt
+```cmd
+$ ballerina encrypt
 Enter value:
 
 Enter secret:
@@ -134,7 +137,7 @@ Add the following to the runtime config:
 @encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
 
 Or add to the runtime command line:
--e<param>=@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
+-e <param>=@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
 ```
 
 Ballerina uses AES, CBC mode with PKCS#5 padding for encryption. The generated encrypted value should be used in place of the plain-text configuration value.
@@ -167,7 +170,7 @@ _Note: It is recommended to use HTTPS when enforcing authentication and authoriz
 
 ### JWT Based Authentication
 
-The security checks enforced by the `http:Listeneris` can be configured by using `http:AuthProvider`.
+The security checks enforced by the `http:Listener` can be configured using the `http:AuthProvider` values.
 
 To configure JWT based authentication `scheme:"jwt"` should be used. JWT validation requires several additional `http:AuthProvider` configurations including:
 
@@ -183,10 +186,10 @@ For demonstration purposes we use `ballerinaTruststore.p12` included with Baller
 import ballerina/http;
 
 http:AuthProvider jwtAuthProvider = {
-   scheme:"jwt",
-   issuer:"ballerina",
+   scheme: "jwt",
+   issuer: "ballerina",
    audience: "ballerina.io",
-   clockSkew:10,
+   clockSkew: 10,
    certificateAlias: "ballerina",
    trustStore: {
        path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
@@ -195,7 +198,7 @@ http:AuthProvider jwtAuthProvider = {
 };
 
 listener http:Listener secureHelloWorldEp = new(9091, config={
-   authProviders:[jwtAuthProvider],
+   authProviders: [jwtAuthProvider],
    secureSocket: {
        keyStore: {
            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
@@ -210,8 +213,8 @@ listener http:Listener secureHelloWorldEp = new(9091, config={
 service helloWorld on secureHelloWorldEp {
 
    @http:ResourceConfig {
-       methods:["GET"],
-       path:"/"
+       methods: ["GET"],
+       path: "/"
    }
    resource function sayHello (http:Caller caller, http:Request req) {
        http:Response resp = new;
@@ -230,14 +233,11 @@ curl -k -v https://localhost:9091/hello
 > Host: localhost:9091
 > User-Agent: curl/7.47.0
 > Accept: */*
-
+> 
 < HTTP/1.1 401 Unauthorized
 < content-type: text/plain
-< content-length: 38
-< server: ballerina/0.970.0-beta6-SNAPSHOT
-< date: Mon, 23 Apr 2018 11:00:31 +0530
-<
-request failed: Authentication failure
+< 
+Authentication failure
 ```
 
 Since we used JWT authentication scheme, it is now required to send a valid, signed JWT with the HTTP request. Once a request is made with a signed JWT, the service sends a successful response.
@@ -262,8 +262,6 @@ CXzcJ1RzuyuFVz1a3YL3gWTsiliVmno7vKyRo8utirDRIPi0dPJPuWi2uMtJkqdkpzJQ
 < HTTP/1.1 200 OK
 < content-type: text/plain
 < content-length: 13
-< server: ballerina/0.970.0-beta14-SNAPSHOT
-< date: Tue, 24 Apr 2018 20:11:02 +0530
 <
 Hello, World!
 ```
@@ -289,9 +287,11 @@ The `@http:ServiceConfig` annotation and the `@http:ResourceConfig` annotation h
 
 ```ballerina
 @http:ServiceConfig {
-   basePath:"/hello",
-   authConfig:{
-      authentication:{enabled:false}
+   basePath: "/hello",
+   authConfig: {
+      authentication: { 
+        enabled: false
+      }
    }
 }
 service helloWorld on secureHelloWorldEp {
@@ -302,10 +302,12 @@ Furthermore, authentication can be disabled only for a particular resource by us
 
 ```ballerina
 @http:ResourceConfig {
-   methods:["GET"],
-   path:"/",
+   methods: ["GET"],
+   path: "/",
    authConfig:{
-      authentication:{enabled:false}
+      authentication:{ 
+        enabled: false
+      }
    }
 }
 resource function sayHello (http:Caller caller, http:Request req) {
@@ -314,7 +316,7 @@ resource function sayHello (http:Caller caller, http:Request req) {
 
 ### JWT Based Authorization
 
-Ballerina uses scope based authorization. The JWT can include scopes available for the user. The scopes can then be validated in the Ballerina service. For example, the following service will only allow invocations, if 'hello' scope is available for the user.
+Ballerina uses scope-based authorization. The JWT can include scopes that are available for the user. The scopes can then be validated in the Ballerina service. For example, the following service will only allow invocations, if the "hello" scope is available for the user.
 
 Note that the `authConfig` attribute of the `@http:ServiceConfig` annotation has been modified to enforce the authorization check.
 
@@ -384,14 +386,11 @@ CXzcJ1RzuyuFVz1a3YL3gWTsiliVmno7vKyRo8utirDRIPi0dPJPuWi2uMtJkqdkpzJQ
 
 < HTTP/1.1 403 Forbidden
 < content-type: text/plain
-< content-length: 37
-< server: ballerina/0.970.0-beta14-SNAPSHOT
-< date: Tue, 24 Apr 2018 20:19:05 +0530
 <
-request failed: Authorization failure
+Authorization failure
 ```
 
-Request with correct scope attribute included will result in a successful invocation. An example of a JWT that has the correct scope attribute is as follows.
+A request with a correct "scope" attribute will result in a successful invocation. An example of a JWT that has the correct "scope" attribute is as follows.
 
 ```
 {
@@ -429,9 +428,6 @@ mAEcstgiHVw
 
 < HTTP/1.1 200 OK
 < content-type: text/plain
-< content-length: 13
-< server: ballerina/0.970.0-beta14-SNAPSHOT
-< date: Tue, 24 Apr 2018 20:22:08 +0530
 <
 Hello, World!
 ```
@@ -452,7 +448,7 @@ resource function sayHello (http:Caller caller, http:Request req) {
 
 ### Basic Authentication and Authorization
 
-Ballerina supports Basic Authentication for services. The `scheme` field of `http:AuthProvider` should be set to basic in order to enforce Basic Authentication. Since user information is provided using a configuration file `authStoreProvider` should be set to `config`.
+Ballerina supports Basic Authentication for services. The `scheme` field of the `http:AuthProvider` should be set to "basic" in order to enforce Basic Authentication. Since user information is provided using a configuration file, `authStoreProvider` should be set to `config`.
 
 ```ballerina
 import ballerina/http;
@@ -526,11 +522,8 @@ curl -k -v -u generalUser:password https://localhost:9091/hello
 
 < HTTP/1.1 401 Unauthorized
 < content-type: text/plain
-< content-length: 38
-< server: ballerina/0.970.0-beta6-SNAPSHOT
-< date: Mon, 23 Apr 2018 11:00:31 +0530
 <
-request failed: Authorization failure
+Authorization failure
 ```
 
 'Admin' user will be able to invoke the service:
@@ -545,9 +538,6 @@ curl -k -v -u admin:password https://localhost:9091/hello
 
 < HTTP/1.1 200 OK
 < content-type: text/plain
-< content-length: 13
-< server: ballerina/0.970.0-beta14-SNAPSHOT
-< date: Mon, 23 Apr 2018 11:00:31 +0530
 <
 Hello, World!
 ```
@@ -681,8 +671,6 @@ mAEcstgiHVw
 
 < HTTP/1.1 200 OK
 < content-type: text/plain
-< date: Wed, 20 Jun 2018 15:39:09 +0530
-< server: wso2-http-transport
 < content-length: 659
 <
 Downstream Service Received JWT: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.ey
@@ -822,8 +810,6 @@ curl -k -v -u admin:password https://localhost:9091/hello
 
 < HTTP/1.1 200 OK
 < content-type: text/plain
-< date: Wed, 20 Jun 2018 16:07:09 +0530
-< server: wso2-http-transport
 < content-length: 602
 <
 Downstream Service Received JWT: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.ey
@@ -841,7 +827,7 @@ kj_9tUurTgQAw46GyeGeWMENr-JDHSNs1ZV4fbdH_EUlM6Q==
 `http:Client` client object can be configured to include OAuth2 credentials. This can be done by providing access token and refresh token information:
 
 ```ballerina
-http:Client downstreamServiceEP = new("https://localhost:9092", config={
+http:Client downstreamServiceEP = new("https://localhost:9092", config = {
    auth: {
       scheme: http:OAUTH2,
       accessToken: "34060588-dd4e-36a5-ad93-440cc77a1cfb",
@@ -864,7 +850,7 @@ http:Client downstreamServiceEP = new("https://localhost:9092", config={
 `http:Client` client object can be configured to include Basic Authentication credentials:
 
 ```ballerina
-http:Client downstreamServiceEP = new("https://localhost:9092", config={
+http:Client downstreamServiceEP = new("https://localhost:9092", config = {
    auth: {
       scheme: http:BASIC_AUTH,
       username: "downstreamServiceUser",

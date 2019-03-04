@@ -461,7 +461,7 @@ func prepareExample(sourcePaths []string, example Example, currentExamplesList [
             // directory, it will be read first. then we don't need this check.What we do
             if strings.HasSuffix(sourcePath, descriptionFileExtn) {
                 descFileContent = sourceSegs[0].Docs;
-                example.Descs = descFileContent;
+	        example.Descs = markdown(descFileContent);
             } else {
                 example.Segs = append(example.Segs, sourceSegs)
             }

@@ -88,7 +88,7 @@ To check if the installation is done right, run the following command.
 
 This should print the version of Ballerina you have installed.
 
-``` Ballerina 0.990.0 ```
+``` Ballerina 0.990.3 ```
 
 ## Hello World with Ballerina
 
