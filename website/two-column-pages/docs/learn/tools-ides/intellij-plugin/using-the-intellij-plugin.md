@@ -73,3 +73,6 @@ Now, you have successfully created a new Ballerina file with a **main** function
 
  Next, for information on using the features of the IntelliJ Ballerina plugin, see [Using the IntelliJ plugin features](#using-interllij-plugin-features).
  
+
+
+ 

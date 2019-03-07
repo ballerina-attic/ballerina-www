@@ -11,8 +11,8 @@ Ballerina provides language servers, editors, IDEs, and graphical visualization 
 
 You can use plugins to write Ballerina code in your favorite editor or IDE. Click on the below icons to learn about the plugins that are currently available. 
 
-[![VS Code](images/vscode-logo.png)](vscode-plugin-doc.md) 
-[![IntelliJ](images/intellij-logo.png)](intellij-plugin-doc.md)
+[![VS Code](images/vscode-logo.png)](tools-ides/vscode-plugin) 
+[![IntelliJ](images/intellij-logo.png)](tools-ides/intellij-plugin)
 
 The graphical visualization tool is embedded in the Visual Studio Code plug-in.
 
