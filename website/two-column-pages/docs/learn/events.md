@@ -46,7 +46,7 @@
     <b>Anjana Fernando</b> Director - Engineering, WSO2 </p>
     <p>
    </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/cncf-webinar-series-intro-to-ballerina-a-cloud-native-programming-language/">Register Now</a></td>
+    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-cloud-native-programming-language/">Register Now</a></td>
 </tr>
 
 </table>
