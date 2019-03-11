@@ -3,7 +3,7 @@
 
 # Events
 
-<table class="cEventTable cWorkshopList">
+<!-- <table class="cEventTable cWorkshopList">
 <tr>
     <td class="cEventDateContainer"><span class="cEventDate">February 26, 2019</span>7:00 pm
     <p class="cEventLocation">War Memorial Opera House, San Francisco</p>
@@ -14,7 +14,7 @@
     </td>
     <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/sensorium-2019">More Info</a></td>
 </tr>
-</table>
+</table> -->
 
 
 <!-- ## Workshops -->
@@ -35,22 +35,21 @@
 </table>
 
 
-<!-- ## Webinars
+## Webinars
 
 <table class="cEventTable cWebinarList">
 
 <tr>
-    <td class="cEventDateContainer"><span class="cEventDate">October 30, 2018</span>10:00am -11:00am PDT </td>
-    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/cncf-webinar-series-intro-to-ballerina-a-cloud-native-programming-language/"><h4>CNCF Webinar Series: Intro to Ballerina - A Cloud Native Programming Language</h4></a>
+    <td class="cEventDateContainer"><span class="cEventDate">March 27, 2019</span>10:30 PM - 11:30 PM IST</td>
+    <td class="cEventDetail"><a target="_blank" href="/learn/events/webinars/ballerina-cloud-native-programming-language/"><h4>Ballerina - Cloud Native Programming Language</h4></a>
     <p>
-    <b>Paul Fremantle</b> CTO and Co-Founder, WSO2 </p>
+    <b>Anjana Fernando</b> Director - Engineering, WSO2 </p>
     <p>
-
-    </td>
+   </td>
     <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/cncf-webinar-series-intro-to-ballerina-a-cloud-native-programming-language/">Register Now</a></td>
 </tr>
 
-</table> -->
+</table>
 
 <!-- ## Meetups -->
 
@@ -68,27 +67,27 @@
 
 <!-- ## No upcoming events -->
 
-## Conferences
+<!-- ## Conferences -->
 
 
-<table class="cEventTable cConferencesList">
-    <!-- <tr>
+<!-- <table class="cEventTable cConferencesList"> 
+   <tr>
       <td class="cEventDetail c2col" colspan="2">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
       </td>
        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=ballerina.io%2Flearn%2Fevents%2F&utm_medium=link&utm_campaign=ballerina_con_2018" target="_blank">Register Now</a>
       </td> 
-    </tr> -->
-    <!-- <tr>
+    </tr> 
+    <tr>
       <td class="cEventDetail c2col" colspan="2">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
       </td>
            <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a>
         </td>
-    </tr> -->
+    </tr> 
     <!-- <tr>
         <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a></td>
-    </tr>  -->
+    </tr> 
      <tr>
       <td class="cEventDateContainer"><span class="cEventDate">February 20 - 24, 2019</span>
         <p class="cEventLocation">Oakland Convention Center</p>
@@ -108,7 +107,7 @@
         <p>Speaker: Lakmal Warusawithana</p>
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/conference/conference-schedule/" target="_blank">More Info</a></td>
-    </tr> 
+    </tr>  
     <!-- <tr>
         <td class="cEventDateContainer"><span class="cEventDate">August 1, 2018</span>
         <p class="cEventLocation">New York Marriott Marquis</p>
@@ -127,5 +126,5 @@
         <p>Speaker: Sanjiva Weerawarana </p>
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="http://bpm2018.web.cse.unsw.edu.au/keynotes.html" target="_blank">More Info</a></td>
-    </tr> -->
-</table>
+    </tr> 
+ </table> -->
