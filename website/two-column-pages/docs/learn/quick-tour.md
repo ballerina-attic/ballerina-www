@@ -54,7 +54,7 @@ Let's try this on VS Code.
 
 > **Note**: You need to have VS Code installed to try this. You can download it from [https://code.visualstudio.com/Download](https://code.visualstudio.com/Download).
 
-Open your service in VS Code. You can use the following command to do this on Linux or OSX.
+Open your service in VS Code. You can use the following command to do this on Linux or OSX. Replace '/<folder_path>/' by the actual folder path where the Ballerina project was initialized.
 
 ```bash
 $ code /<folder_path>/hello_service.bal
