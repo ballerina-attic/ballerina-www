@@ -946,7 +946,7 @@ Follow the steps below to create a webhook callback service type.
 
 ### The GitHub Webhook
 
-A GitHub webhook implementation is made available by WSO2 as the `wso2/githubwebhook3` module.
+A [GitHub webhook implementation](https://github.com/wso2-ballerina/module-github/tree/master/githubwebhook3) is made available by WSO2 as the `wso2/githubwebhook3` module.
 
 This webhook can be used by anyone by importing it.
 
