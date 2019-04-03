@@ -2,7 +2,7 @@
 
 Ballerina is excited to participate in the first Google Season of Docs program as a mentoring organization to foster open source collaboration on Ballerina documentation with technical writers. We are pleased to introduce the below project proposals to encourage you to participate and become a contributor in the Ballerina open source community.
 
-If you are interested in working on any of the below projects and if you need further information, please feel free to contact the mentors listed under each proposal below or write to us via ballerina-dev@googlegroups.com or via Slack. 
+If you are interested in working on any of the below projects and if you need further information, please feel free to contact the mentors listed under each proposal below or write to us via ballerina-dev@googlegroups.com or via [Slack](https://ballerina-platform.slack.com). 
 
 Happy documenting with Google Season of Docs!
 
@@ -27,7 +27,7 @@ The Ballerina programming language is enriched with a set of tools for users to 
 
 ### Skills Needed
 
-Ballerina, Visual Studio Code, Markdown
+Ballerina, Visual Studio Code (not mandatory), Markdown
 
 ### References
 
@@ -62,7 +62,7 @@ The Ballerina programming language specializes in integration by bringing in fun
 
 ### Skills Needed
 
-Ballerina, Visual Studio Code, Markdown, Enterprise Integration Patterns
+Ballerina, Visual Studio Code (not mandatory), Markdown, Enterprise Integration Patterns
 
 ### References
 
@@ -96,7 +96,7 @@ The Ballerina programming language specializes in integration by bringing in fun
 
 ### Skills Needed
 
-Ballerina, Visual Studio Code, Markdown, Enterprise Integration Patterns
+Ballerina, Visual Studio Code (not mandatory), Markdown, Enterprise Integration Patterns
 
 ### References
 
@@ -126,7 +126,7 @@ The Ballerina programming language is continuously improving in all aspects day 
 
 ### Skills Needed
 
-Ballerina, Visual Studio Code, Markdown
+Ballerina, Visual Studio Code (not mandatory), Markdown
 
 ### References
 
