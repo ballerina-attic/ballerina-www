@@ -70,7 +70,7 @@ Ballerina, Visual Studio Code (not mandatory), Markdown, Enterprise Integration 
 
 [2] - [The EIP Guide of WSO2 ESB](https://docs.wso2.com/display/IntegrationPatterns/Enterprise+Integration+Patterns+with+WSO2+ESB)
 
-[3] - [Enterprise Integration Patterns] (https://www.enterpriseintegrationpatterns.com/patterns/messaging)
+[3] - [Enterprise Integration Patterns](https://www.enterpriseintegrationpatterns.com/patterns/messaging)
 
 ### Possible Mentor/s
 
@@ -104,7 +104,7 @@ Ballerina, Visual Studio Code (not mandatory), Markdown, Enterprise Integration 
 
 [2] - [The EIP Guide of WSO2 ESB](https://docs.wso2.com/display/IntegrationPatterns/Enterprise+Integration+Patterns+with+WSO2+ESB)
 
-[3] - [Enterprise Integration Patterns] (https://www.enterpriseintegrationpatterns.com/patterns/messaging)
+[3] - [Enterprise Integration Patterns](https://www.enterpriseintegrationpatterns.com/patterns/messaging)
 
 ### Possible Mentor/s
 
