@@ -13,12 +13,13 @@ Happy documenting with Google Season of Docs!
 ### Description
 
 The Ballerina programming language is enriched with a set of tools for users to write, document, and test Ballerina code. This project aims at compiling a step-by-step guide to showcase the following capabilities of Ballerina Tools by selecting a real-world integration scenario (e.g., service orchestration).
-  * Diagram View (to demonstrate service and worker interactions)
-  * Run and Debug
-  * Network Logs Viewer
-  * Open API Tooling (API Designer and Service & client Generator)
-  * API Docs 
-  * Documentation View
+
+* Diagram View (to demonstrate service and worker interactions)
+* Run and Debug
+* Network Logs Viewer
+* Open API Tooling (API Designer and Service & client Generator)
+* API Docs 
+* Documentation View
 
 ### Deliverables
 
