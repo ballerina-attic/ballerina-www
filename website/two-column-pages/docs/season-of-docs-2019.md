@@ -1,6 +1,6 @@
 # Project Proposals for 2019
 
-Ballerina is excited to participate in the first Google Season of Docs program as a mentoring organization to foster open source collaboration on Ballerina documentation with technical writers. We are pleased to introduce the below project proposals to encourage you to participate and become a contributor in the Ballerina open source community.
+Ballerina is excited to participate in the first Google Season of Docs program as a mentoring organization to foster open source collaboration with technical writers on Ballerina documentation. We are pleased to introduce the below project proposals to encourage you to participate and become a contributor in the Ballerina open source community.
 
 If you are interested in working on any of the below projects and if you need further information, please feel free to contact the mentors listed under each proposal below or write to us via ballerina-dev@googlegroups.com or via [Slack](https://ballerina-platform.slack.com). 
 
@@ -13,17 +13,18 @@ Happy documenting with Google Season of Docs!
 ### Description
 
 The Ballerina programming language is enriched with a set of tools for users to write, document, and test Ballerina code. This project aims at compiling a step-by-step guide to showcase the following capabilities of Ballerina Tools by selecting a real-world integration scenario (e.g., service orchestration).
-  * Diagram View (to demonstrate service and worker interactions)
-  * Run and Debug
-  * Network Logs Viewer
-  * Open API Tooling (API Designer and Service & client Generator)
-  * API Docs 
-  * Documentation View
+
+  - Diagram View (to demonstrate service and worker interactions)
+  - Run and Debug
+  - Network Logs Viewer
+  - Open API Tooling (API Designer and Service & client Generator)
+  - API Docs 
+  - Documentation View
 
 ### Deliverables
 
-* A step-by-step guide, which will go to the Ballerina website showcasing the capabilities of the given set of Ballerina Tools based on a real-world integration use case.
-* A blog expressing your experience and the learning gathered throughout the project and through the engagement with the Ballerina community.
+- A step-by-step guide showcasing the capabilities of the given set of Ballerina Tools based on a real-world integration use case. This will be added to the Ballerina website.
+- A blog expressing your experience and the learning gathered throughout the project and through the engagement with the Ballerina community.
 
 ### Skills Needed
 
@@ -39,9 +40,9 @@ Ballerina, Visual Studio Code (not mandatory), Markdown
 
 ### Possible Mentor/s
 
-* Nadeeshan Gunasinghe (nadeeshaan@wso2.com)
-* Imesh Chandrasiri (imeshc@wso2.com
-* Praneesha Chandrasiri (praneesha@wso2.com)
+- Nadeeshan Gunasinghe (nadeeshaan@wso2.com)
+- Imesh Chandrasiri (imeshc@wso2.com
+- Praneesha Chandrasiri (praneesha@wso2.com)
 
 ***
 
@@ -49,16 +50,16 @@ Ballerina, Visual Studio Code (not mandatory), Markdown
 
 ### Description
 
-The Ballerina programming language specializes in integration by bringing in fundamental concepts, ideas, and tools of distributed system integration and offers a type-safe and concurrent environment to implement such enterprise integration applications. Implementation of commonly-used Enterprise Integration Patterns (EIPs) in Ballerina is a good way to demonstrate the advantages it has over traditional solutions. This project aims at implementing the EIPs in the following categories as per [2] in Ballerina, and documenting them in a Guide based on a demonstration of a use case.
+The Ballerina programming language specializes in integration by bringing in fundamental concepts, ideas, and tools of distributed system integration. It offers a type-safe and concurrent environment to implement such enterprise integration applications. Thus, implementation of commonly-used Enterprise Integration Patterns (EIPs) in Ballerina is a good way to demonstrate the advantages it has over traditional solutions. This project aims at implementing the EIPs in the following categories as per [2] in Ballerina, and documenting them in a Guide based on a demonstration of a use case.
 
-* Messaging Systems
-* Messaging Channels
-* Message Construction
+- Messaging Systems
+- Messaging Channels
+- Message Construction
 
 ### Deliverables
 
-* An Enterprise Integration Guide similar to [2] presenting the EIPs that are implemented in Ballerina in a structured manner.
-* A blog expressing your experience and the learning gathered throughout the project and through the engagement with the Ballerina community.
+- An Enterprise Integration Guide similar to [2] presenting the EIPs that are implemented in Ballerina, in a structured manner.
+- A blog expressing your experience and the learning gathered throughout the project and through the engagement with the Ballerina community.
 
 ### Skills Needed
 
@@ -74,8 +75,8 @@ Ballerina, Visual Studio Code (not mandatory), Markdown, Enterprise Integration 
 
 ### Possible Mentor/s
 
-* Manuri Perera (manurip@wso2.com)
-* Praneesha Chandrasiri (praneesha@wso2.com)
+- Manuri Perera (manurip@wso2.com)
+- Praneesha Chandrasiri (praneesha@wso2.com)
 
 ***
 
@@ -83,16 +84,16 @@ Ballerina, Visual Studio Code (not mandatory), Markdown, Enterprise Integration 
 
 ### Description
 
-The Ballerina programming language specializes in integration by bringing in fundamental concepts, ideas, and tools of distributed system integration and offers a type-safe and concurrent environment to implement such enterprise integration applications. Implementation of commonly-used Enterprise Integration Patterns (EIPs) in Ballerina is a good way to demonstrate the advantages it has over traditional solutions. This project aims at implementing the EIPs in the following categories as per [2] in Ballerina, and documenting them in a Guide based on a demonstration of a use case.
+The Ballerina programming language specializes in integration by bringing in fundamental concepts, ideas, and tools of distributed system integration. It offers a type-safe and concurrent environment to implement such enterprise integration applications. Thus, implementation of commonly-used Enterprise Integration Patterns (EIPs) in Ballerina is a good way to demonstrate the advantages it has over traditional solutions. This project aims at implementing the EIPs in the following categories as per [2] in Ballerina, and documenting them in a Guide based on a demonstration of a use case.
 
-* Message Routing
-* Message Transformation
-* Messaging Endpoints
+- Message Routing
+- Message Transformation
+- Messaging Endpoints
 
 ### Deliverables
 
-* An Enterprise Integration Guide similar to [2] presenting the EIPs that are implemented in Ballerina in a structured manner.
-* A blog expressing your experience and the learning gathered throughout the project and through the engagement with the Ballerina community.
+- An Enterprise Integration Guide similar to [2] presenting the EIPs that are implemented in Ballerina, in a structured manner.
+- A blog expressing your experience and the learning gathered throughout the project and through the engagement with the Ballerina community.
 
 ### Skills Needed
 
@@ -108,8 +109,8 @@ Ballerina, Visual Studio Code (not mandatory), Markdown, Enterprise Integration 
 
 ### Possible Mentor/s
 
-* Manuri Perera (manurip@wso2.com)
-* Praneesha Chandrasiri (praneesha@wso2.com)
+- Manuri Perera (manurip@wso2.com)
+- Praneesha Chandrasiri (praneesha@wso2.com)
 
 ***
 
@@ -117,12 +118,12 @@ Ballerina, Visual Studio Code (not mandatory), Markdown, Enterprise Integration 
 
 ### Description
 
-The Ballerina programming language is continuously improving in all aspects day by day including its documentation. Currently, the Ballerina website contains extensive documentation, which includes a Quick Tour[1], Ballerina By Examples[2], Ballerina by Guides[3], and other miscellaneous learning perspectives[5]. This project aims at identifying, proposing suggestions on ways in which Ballerina docs can be improved and enriched further, and addressing them. 
+The Ballerina programming language is continuously improving in all aspects day by day including its documentation. Currently, the Ballerina website contains extensive documentation, which includes a Quick Tour[1], Ballerina By Examples[2], Ballerina by Guides[3], and learning material on other miscellaneous perspectives[5]. This project aims at identifying, proposing suggestions on ways in which Ballerina docs can be improved and enriched further, and addressing them. 
 
 ### Deliverables
 
-* Come up with appropriate deliverables and get them approved by the mentors.
-* A blog expressing your experience and the learning gathered throughout the project and through the engagement with the Ballerina community.
+- Come up with appropriate deliverables and get them approved by the mentors.
+- A blog expressing your experience and the learning gathered throughout the project and through the engagement with the Ballerina community.
 
 ### Skills Needed
 
@@ -140,5 +141,5 @@ Ballerina, Visual Studio Code (not mandatory), Markdown
 
 ### Possible Mentor/s
 
-* Pubudu Fernando (pubuduf@wso2.com)
-* Praneesha Chandrasiri (praneesha@wso2.com)
+- Pubudu Fernando (pubuduf@wso2.com)
+- Praneesha Chandrasiri (praneesha@wso2.com)
