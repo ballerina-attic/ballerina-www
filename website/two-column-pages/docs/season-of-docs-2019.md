@@ -1,6 +1,5 @@
 ---
 title: Google Season of Docs 2019
-
 status: Published
 abstract: Ballerina is excited to participate in the first Google Season of Docs program as a mentoring organization to foster open source collaboration with technical writers on Ballerina documentation. We are pleased to introduce the below project proposals to encourage you to participate and become a contributor in the Ballerina open source community.
 socialmediaimage: sm-gsod-2019.jpg
