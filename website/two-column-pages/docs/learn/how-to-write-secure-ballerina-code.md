@@ -172,7 +172,7 @@ _Note: It is a must to use HTTPS when enforcing authentication and authorization
 
 The security checks enforced by the `http:Listener` can be configured using the `http:AuthProvider` values.
 
-To configure JWT based authentication `scheme:"jwt"` should be used. JWT validation requires several additional `http:AuthProvider` configurations including:
+To configure JWT based authentication `scheme:http:JWT_AUTH` should be used. JWT validation requires several additional `http:AuthProvider` configurations including:
 
 * `issuer` - The issuer of the JWT.
 * `audience` - The audience value for the current service.
@@ -452,7 +452,7 @@ resource function sayHello (http:Caller caller, http:Request req) {
 
 ### Basic Authentication and Authorization
 
-Ballerina supports Basic Authentication for services. The `scheme` field of the `http:AuthProvider` should be set to "basic" in order to enforce Basic Authentication. Since user information is provided using a configuration file, `authStoreProvider` should be set to `config`.
+Ballerina supports Basic Authentication for services. The `scheme` field of the `http:AuthProvider` should be set to `http:BASIC_AUTH` in order to enforce Basic Authentication. Since user information is provided using a configuration file, `authStoreProvider` should be set to `http:CONFIG_AUTH_STORE`.
 
 ```ballerina
 import ballerina/http;
@@ -690,7 +690,7 @@ BSwKw5ZoVJrCUiNG5XD0K4sgN9udVTi3EMKNMnVQaq399k6RYPAy3vIhByS6QZtRjOG8X93WJw-9GLi
 Hvcabuid80lnrs2-mAEcstgiHVw
 ```
 
-Even if the current service is configured to use Basic Authentication, Ballerina can be configured to internally generate a new JWT when calling external or downstream services. To do so, it is required to add JWT issuer configuration to the `basicAuthProvider`, and enable JWT token propagation using `propagateJwt` configuration:
+Even if the current service is configured to use Basic Authentication, Ballerina can be configured to internally generate a new JWT when calling external or downstream services. To do so, it is required to add JWT issuer configuration to the client who is calling to the downstream service as `inferredJwtIssuerConfig` configuration:
 
 ```ballerina
 import ballerina/http;
