@@ -46,7 +46,7 @@ type ResultStudent record {
     string name;
 };
 
-public function main (string... args) {
+public function main() {
 
     mysql:Client testDB = new({
        host: "localhost",
@@ -137,7 +137,7 @@ Add the following to the runtime config:
 @encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
 
 Or add to the runtime command line:
--e <param>=@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
+-e<param>=@encrypted:{pIQrB9YfCQK1eIWH5d6UaZXA3zr+60JxSBcpa2PY7a8=}
 ```
 
 Ballerina uses AES, CBC mode with PKCS#5 padding for encryption. The generated encrypted value should be used in place of the plain-text configuration value.
@@ -166,13 +166,13 @@ Ballerina HTTP services can be configured to enforce authentication and authoriz
 
 Ballerina supports JWT based authentication and and Basic Authentication. When Basic Authentication is used, user information can be provided through a configuration file.
 
-_Note: It is recommended to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
+_Note: It is a must to use HTTPS when enforcing authentication and authorization checks, to ensure the confidentiality of sensitive authentication data._
 
 ### JWT Based Authentication
 
 The security checks enforced by the `http:Listener` can be configured using the `http:AuthProvider` values.
 
-To configure JWT based authentication `scheme:"jwt"` should be used. JWT validation requires several additional `http:AuthProvider` configurations including:
+To configure JWT based authentication `scheme:http:JWT_AUTH` should be used. JWT validation requires several additional `http:AuthProvider` configurations including:
 
 * `issuer` - The issuer of the JWT.
 * `audience` - The audience value for the current service.
@@ -186,41 +186,43 @@ For demonstration purposes we use `ballerinaTruststore.p12` included with Baller
 import ballerina/http;
 
 http:AuthProvider jwtAuthProvider = {
-   scheme: "jwt",
-   issuer: "ballerina",
-   audience: "ballerina.io",
-   clockSkew: 10,
-   certificateAlias: "ballerina",
-   trustStore: {
-       path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
-       password: "ballerina"
-   }
+    scheme: http:JWT_AUTH,
+    config: {
+        issuer: "ballerina",
+        audience: ["ballerina.io"],
+        clockSkew: 10,
+        certificateAlias: "ballerina",
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
 };
 
-listener http:Listener secureHelloWorldEp = new(9091, config={
-   authProviders: [jwtAuthProvider],
-   secureSocket: {
-       keyStore: {
-           path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
-           password: "ballerina"
-       }
-   }
+listener http:Listener secureHelloWorldEp = new(9091, config = {
+    authProviders: [jwtAuthProvider],
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
 });
 
 @http:ServiceConfig {
-   basePath:"/hello"
+    basePath: "/hello"
 }
 service helloWorld on secureHelloWorldEp {
 
-   @http:ResourceConfig {
-       methods: ["GET"],
-       path: "/"
-   }
-   resource function sayHello (http:Caller caller, http:Request req) {
-       http:Response resp = new;
-       resp.setTextPayload("Hello, World!");
-       _ = caller->respond(resp);
-   }
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function sayHello(http:Caller caller, http:Request req) {
+        http:Response resp = new;
+        resp.setTextPayload("Hello, World!");
+        checkpanic caller->respond(resp);
+    }
 }
 ```
 
@@ -304,8 +306,8 @@ Furthermore, authentication can be disabled only for a particular resource by us
 @http:ResourceConfig {
    methods: ["GET"],
    path: "/",
-   authConfig:{
-      authentication:{ 
+   authConfig: {
+      authentication: { 
         enabled: false
       }
    }
@@ -324,44 +326,46 @@ Note that the `authConfig` attribute of the `@http:ServiceConfig` annotation has
 import ballerina/http;
 
 http:AuthProvider jwtAuthProvider = {
-   scheme:"jwt",
-   issuer:"ballerina",
-   audience: "ballerina.io",
-   clockSkew:10,
-   certificateAlias: "ballerina",
-   trustStore: {
-       path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
-       password: "ballerina"
-   }
+    scheme: http:JWT_AUTH,
+    config: {
+        issuer: "ballerina",
+        audience: ["ballerina.io"],
+        clockSkew: 10,
+        certificateAlias: "ballerina",
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
 };
 
-listener http:Listener secureHelloWorldEp = new(9091, config={
-   authProviders:[jwtAuthProvider],
-   secureSocket: {
-       keyStore: {
-           path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
-           password: "ballerina"
-       }
-   }
-});
+listener http:Listener secureHelloWorldEp = new(9091, config = {
+        authProviders: [jwtAuthProvider],
+        secureSocket: {
+            keyStore: {
+                path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+                password: "ballerina"
+            }
+        }
+    });
 
 @http:ServiceConfig {
-   basePath:"/hello",
-   authConfig:{
-      scopes:["hello"]
-   }
+    basePath: "/hello",
+    authConfig: {
+        scopes: ["hello"]
+    }
 }
 service helloWorld on secureHelloWorldEp {
 
-   @http:ResourceConfig {
-       methods:["GET"],
-       path:"/"
-   }
-   resource function sayHello (http:Caller caller, http:Request req) {
-       http:Response resp = new;
-       resp.setTextPayload("Hello, World!");
-       _ = caller->respond(resp);
-   }
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function sayHello(http:Caller caller, http:Request req) {
+        http:Response resp = new;
+        resp.setTextPayload("Hello, World!");
+        checkpanic caller->respond(resp);
+    }
 }
 ```
 
@@ -434,12 +438,12 @@ Hello, World!
 
 Note that the scopes defined in `@http:ServiceConfig` can also be overridden in `@http:ResourceConfig`.
 
-```
+```ballerina
 @http:ResourceConfig {
-   methods:["GET"],
-   path:"/",
-   authConfig:{
-      scopes:["say-hello"]
+   methods: ["GET"],
+   path: "/",
+   authConfig: {
+      scopes: ["say-hello"]
    }
 }
 resource function sayHello (http:Caller caller, http:Request req) {
@@ -448,43 +452,43 @@ resource function sayHello (http:Caller caller, http:Request req) {
 
 ### Basic Authentication and Authorization
 
-Ballerina supports Basic Authentication for services. The `scheme` field of the `http:AuthProvider` should be set to "basic" in order to enforce Basic Authentication. Since user information is provided using a configuration file, `authStoreProvider` should be set to `config`.
+Ballerina supports Basic Authentication for services. The `scheme` field of the `http:AuthProvider` should be set to `http:BASIC_AUTH` in order to enforce Basic Authentication. Since user information is provided using a configuration file, `authStoreProvider` should be set to `http:CONFIG_AUTH_STORE`.
 
 ```ballerina
 import ballerina/http;
 
 http:AuthProvider basicAuthProvider = {
-   scheme:"basic",
-   authStoreProvider:"config"
+    scheme: http:BASIC_AUTH,
+    authStoreProvider: http:CONFIG_AUTH_STORE
 };
 
-listener http:Listener secureHelloWorldEp = new(9091, config={
-   authProviders:[basicAuthProvider],
-   secureSocket: {
-       keyStore: {
-           path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
-           password: "ballerina"
-       }
-   }
-});
+listener http:Listener secureHelloWorldEp = new(9091, config = {
+        authProviders: [basicAuthProvider],
+        secureSocket: {
+            keyStore: {
+                path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+                password: "ballerina"
+            }
+        }
+    });
 
 @http:ServiceConfig {
-   basePath:"/hello",
-   authConfig:{
-      scopes:["hello"]
-   }
+    basePath: "/hello",
+    authConfig: {
+        scopes: ["hello"]
+    }
 }
 service helloWorld on secureHelloWorldEp {
 
-   @http:ResourceConfig {
-       methods:["GET"],
-       path:"/"
-   }
-   resource function sayHello (http:Caller caller, http:Request req) {
-       http:Response resp = new;
-       resp.setTextPayload("Hello, World!");
-       _ = caller->respond(resp);
-   }
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function sayHello(http:Caller caller, http:Request req) {
+        http:Response resp = new;
+        resp.setTextPayload("Hello, World!");
+        checkpanic caller->respond(resp);
+    }
 }
 ```
 
@@ -554,56 +558,57 @@ Ballerina client connectors can be configured to include authentication and auth
 import ballerina/http;
 
 http:AuthProvider jwtAuthProvider = {
-   scheme:"jwt",
-   propagateJwt: true,
-   issuer:"ballerina",
-   audience: "ballerina.io",
-   clockSkew:10,
-   certificateAlias: "ballerina",
-   trustStore: {
-       path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
-       password: "ballerina"
-   }
+    scheme: http:JWT_AUTH,
+    config: {
+        issuer: "ballerina",
+        audience: ["ballerina.io"],
+        clockSkew: 10,
+        certificateAlias: "ballerina",
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
 };
 
-listener http:Listener secureHelloWorldEp = new(9091, config={
-   authProviders:[jwtAuthProvider],
-   secureSocket: {
-       keyStore: {
-           path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
-           password: "ballerina"
-       }
-   }
-});
+listener http:Listener secureHelloWorldEp = new(9091, config = {
+        authProviders: [jwtAuthProvider],
+        secureSocket: {
+            keyStore: {
+                path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+                password: "ballerina"
+            }
+        }
+    });
 
-http:Client downstreamServiceEP = new("https://localhost:9092",
-   config = { auth: { scheme: http:JWT_AUTH },
-   secureSocket: {
-       trustStore: {
-           path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
-           password: "ballerina"
-       }
-   }
+http:Client downstreamServiceEP = new("https://localhost:9092", config = {
+    auth: {
+        scheme: http:JWT_AUTH
+    },
+    secureSocket: {
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
 });
 
 @http:ServiceConfig {
-   basePath:"/hello",
-   authConfig:{
-      scopes:["hello"]
-   }
+    basePath: "/hello",
+    authConfig: {
+        scopes: ["hello"]
+    }
 }
 service helloWorld on secureHelloWorldEp {
 
-   @http:ResourceConfig {
-       methods:["GET"],
-       path:"/"
-   }
-   resource function sayHello (http:Caller caller, http:Request req) returns error? {
-       http:Response response = check downstreamServiceEP->get("/update-stats",
-                                                         message = untaint req);
-       _ = caller->respond(response);
-       return ();
-   }
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function sayHello(http:Caller caller, http:Request req) returns error? {
+        http:Response response = check downstreamServiceEP->get("/update-stats", message = untaint req);
+        checkpanic caller->respond(response);
+    }
 }
 
 // ----------------------------------------------
@@ -611,42 +616,43 @@ service helloWorld on secureHelloWorldEp {
 // ----------------------------------------------
 
 http:AuthProvider downstreamJwtAuthProvider = {
-   scheme:"jwt",
-   issuer:"ballerina",
-   audience: "ballerina.io",
-   clockSkew:10,
-   certificateAlias: "ballerina",
-   trustStore: {
-       path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
-       password: "ballerina"
-   }
+    scheme: http:JWT_AUTH,
+    config: {
+        issuer: "ballerina",
+        audience: ["ballerina.io"],
+        clockSkew: 10,
+        certificateAlias: "ballerina",
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
 };
 
-listener http:Listener secureUpdateServiceEp = new(9092, config={
-   authProviders:[downstreamJwtAuthProvider],
-   secureSocket: {
-       keyStore: {
-           path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
-           password: "ballerina"
-       }
-   }
+listener http:Listener secureUpdateServiceEp = new(9092, config = {
+    authProviders: [downstreamJwtAuthProvider],
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
 });
 
 @http:ServiceConfig {
-   basePath:"/update-stats"
+    basePath: "/update-stats"
 }
 service updateService on secureUpdateServiceEp {
 
-   @http:ResourceConfig {
-       methods:["GET"],
-       path:"/"
-   }
-   resource function updateStats (http:Caller caller, http:Request req) {
-       http:Response resp = new;
-       resp.setTextPayload("Downstream Service Received JWT: " +
-                           untaint req.getHeader("Authorization"));
-       _ = caller->respond(resp);
-   }
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function updateStats(http:Caller caller, http:Request req) {
+        http:Response resp = new;
+        resp.setTextPayload("Downstream Service Received JWT: " + untaint req.getHeader("Authorization"));
+        checkpanic caller->respond(resp);
+    }
 }
 ```
 
@@ -684,65 +690,66 @@ BSwKw5ZoVJrCUiNG5XD0K4sgN9udVTi3EMKNMnVQaq399k6RYPAy3vIhByS6QZtRjOG8X93WJw-9GLi
 Hvcabuid80lnrs2-mAEcstgiHVw
 ```
 
-Even if the current service is configured to use Basic Authentication, Ballerina can be configured to internally generate a new JWT when calling external or downstream services. To do so, it is required to add JWT issuer configuration to the `basicAuthProvider`, and enable JWT token propagation using `propagateJwt` configuration:
+Even if the current service is configured to use Basic Authentication, Ballerina can be configured to internally generate a new JWT when calling external or downstream services. To do so, it is required to add JWT issuer configuration to the client who is calling to the downstream service as `inferredJwtIssuerConfig` configuration:
 
 ```ballerina
 import ballerina/http;
 
 http:AuthProvider basicAuthProvider = {
-   scheme:"basic",
-   authStoreProvider:"config",
-   propagateJwt: true,
-   issuer:"ballerina",
-   audience:"ballerina.io",
-   keyAlias:"ballerina",
-   keyPassword:"ballerina",
-   keyStore:
-   {
-      path:"${ballerina.home}/bre/security/ballerinaKeystore.p12",
-      password:"ballerina"
-   }
-
+    scheme: http:BASIC_AUTH,
+    authStoreProvider: http:CONFIG_AUTH_STORE
 };
 
-listener http:Listener secureHelloWorldEp = new(9091, config={
-   authProviders:[basicAuthProvider],
-   secureSocket: {
-       keyStore: {
-           path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
-           password: "ballerina"
-       }
-   }
+listener http:Listener secureHelloWorldEp = new(9091, config = {
+    authProviders: [basicAuthProvider],
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
 });
 
-http:Client downstreamServiceEP = new("https://localhost:9092", config={
-   auth: { scheme: http:JWT_AUTH },
-   secureSocket: {
-       trustStore: {
-           path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
-           password: "ballerina"
-       }
-   }
+http:Client downstreamServiceEP = new("https://localhost:9092", config = {
+    auth: {
+        scheme: http:JWT_AUTH,
+        config: {
+            inferredJwtIssuerConfig: {
+                issuer: "ballerina",
+                audience: ["ballerina.io"],
+                keyAlias: "ballerina",
+                keyPassword: "ballerina",
+                keyStore: {
+                    path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+                    password: "ballerina"
+                }
+            }
+        }
+    },
+    secureSocket: {
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
 });
 
 @http:ServiceConfig {
-   basePath:"/hello",
-   authConfig:{
-      scopes:["hello"]
-   }
+    basePath: "/hello",
+    authConfig: {
+        scopes: ["hello"]
+    }
 }
 service helloWorld on secureHelloWorldEp {
 
-   @http:ResourceConfig {
-       methods:["GET"],
-       path:"/"
-   }
-   resource function sayHello (http:Caller caller, http:Request req) returns error? {
-       http:Response response = check downstreamServiceEP->get("/update-stats",
-                                                         message = untaint req);
-       _ = caller->respond(response);
-       return ();
-   }
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function sayHello(http:Caller caller, http:Request req) returns error? {
+        http:Response response = check downstreamServiceEP->get("/update-stats", message = untaint req);
+        checkpanic caller->respond(response);
+    }
 }
 
 // ----------------------------------------------
@@ -750,42 +757,43 @@ service helloWorld on secureHelloWorldEp {
 // ----------------------------------------------
 
 http:AuthProvider jwtAuthProvider = {
-   scheme:"jwt",
-   issuer:"ballerina",
-   audience: "ballerina.io",
-   clockSkew:10,
-   certificateAlias: "ballerina",
-   trustStore: {
-       path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
-       password: "ballerina"
-   }
+    scheme: http:JWT_AUTH,
+    config: {
+        issuer: "ballerina",
+        audience: ["ballerina.io"],
+        clockSkew: 10,
+        certificateAlias: "ballerina",
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
 };
 
-listener http:Listener secureUpdateServiceEp = new(9092, config={
-   authProviders:[jwtAuthProvider],
-   secureSocket: {
-       keyStore: {
-           path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
-           password: "ballerina"
-       }
-   }
+listener http:Listener secureUpdateServiceEp = new(9092, config = {
+    authProviders: [jwtAuthProvider],
+    secureSocket: {
+        keyStore: {
+            path: "${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password: "ballerina"
+        }
+    }
 });
 
 @http:ServiceConfig {
-   basePath:"/update-stats"
+    basePath: "/update-stats"
 }
 service updateService on secureUpdateServiceEp {
 
-   @http:ResourceConfig {
-       methods:["GET"],
-       path:"/"
-   }
-   resource function updateStats (http:Caller caller, http:Request req) {
-       http:Response resp = new;
-       resp.setTextPayload("Downstream Service Received JWT: " +
-                           untaint req.getHeader("Authorization"));
-       _ = caller->respond(resp);
-   }
+    @http:ResourceConfig {
+        methods: ["GET"],
+        path: "/"
+    }
+    resource function updateStats(http:Caller caller, http:Request req) {
+        http:Response resp = new;
+        resp.setTextPayload("Downstream Service Received JWT: " + untaint req.getHeader("Authorization"));
+        checkpanic caller->respond(resp);
+    }
 }
 ```
 
@@ -828,20 +836,27 @@ kj_9tUurTgQAw46GyeGeWMENr-JDHSNs1ZV4fbdH_EUlM6Q==
 
 ```ballerina
 http:Client downstreamServiceEP = new("https://localhost:9092", config = {
-   auth: {
-      scheme: http:OAUTH2,
-      accessToken: "34060588-dd4e-36a5-ad93-440cc77a1cfb",
-      refreshToken: "15160398-ae07-71b1-aea1-411ece712e59",
-      refreshUrl: "https://ballerina.io/sample/refresh",
-      clientId: "rgfKVdnMQnJSSr_pKFTxj3apiwYa",
-      clientSecret: "BRebJ0aqfclQB9v7yZwhj0JfW0ga"
-   },
-   secureSocket: {
-       trustStore: {
-           path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
-           password: "ballerina"
-       }
-   }
+    auth: {
+        scheme: http:OAUTH2,
+        config: {
+            grantType: http:DIRECT_TOKEN,
+            config: {
+                accessToken: "34060588-dd4e-36a5-ad93-440cc77a1cfb",
+                refreshConfig: {
+                    refreshToken: "15160398-ae07-71b1-aea1-411ece712e59",
+                    refreshUrl: "https://ballerina.io/sample/refresh",
+                    clientId: "rgfKVdnMQnJSSr_pKFTxj3apiwYa",
+                    clientSecret: "BRebJ0aqfclQB9v7yZwhj0JfW0ga"
+                }
+            }
+        }
+    },
+    secureSocket: {
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
 });
 ```
 
@@ -851,16 +866,18 @@ http:Client downstreamServiceEP = new("https://localhost:9092", config = {
 
 ```ballerina
 http:Client downstreamServiceEP = new("https://localhost:9092", config = {
-   auth: {
-      scheme: http:BASIC_AUTH,
-      username: "downstreamServiceUser",
-      password: "password"
-   },
-   secureSocket: {
-       trustStore: {
-           path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
-           password: "ballerina"
-       }
-   }
+    auth: {
+        scheme: http:BASIC_AUTH,
+        config: {
+            username: "downstreamServiceUser",
+            password: "password"
+        }
+    },
+    secureSocket: {
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
 });
 ```
