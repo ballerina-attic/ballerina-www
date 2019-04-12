@@ -17,25 +17,27 @@
 </table> -->
 
 
-<!-- ## Workshops -->
+## Workshops
 
 <table class="cEventTable cWorkshopList">
-<!-- <tr>
-    <td class="cEventDateContainer"><span class="cEventDate">September 06, 2018</span>9:00 am
-    <p class="cEventLocation">Broad Sanctuary, Westminster, London</p>
+<tr>
+    <td class="cEventDateContainer"><span class="cEventDate">April 17, 2019</span>6:30 pm to 8:30 pm (EDT)
+    <p class="cEventLocation">Pivotal, 636 6th Avenue, 6th Floor, New York, NY 1001</p>
 </td>
-    <td class="cEventDetail"><a target="_blank" href="https://2018.container.camp/uk/schedule/cloud-native-programming-with-docker-and-kubernetes/"><h4>Cloud Native Programming with Docker and Kubernetes</h4></a>
+    <td class="cEventDetail"><a target="_blank" href="http://www.javasig.com/"><h4>Java SIG NY</h4></a>
+    <p>Ballerina Workshop</p>
     <p>
-    <b>Lakmal Warusawithana,</b> Senior Director – Cloud Architecture, WSO2</p>
+    <b>Nuwan Bandara,</b> Director - Solutions Architecture, WSO2</p>
+     <b>Sameera Jayasoma,</b> Director - Platform Architecture</p>
   </p>
     </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="https://2018.container.camp/uk/schedule/cloud-native-programming-with-docker-and-kubernetes/">Register Now</a></td>
-</tr> -->
+    <td class="cEventURL"><a class="cEventRegistration" href="http://www.javasig.com/">Register Now</a></td>
+</tr>
 
 </table>
 
 
-## Webinars
+<!-- ## Webinars
 
 <table class="cEventTable cWebinarList">
 
@@ -49,7 +51,7 @@
     <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-cloud-native-programming-language/">Register Now</a></td>
 </tr>
 
-</table>
+</table> -->
 
 <!-- ## Meetups -->
 
@@ -67,38 +69,69 @@
 
 <!-- ## No upcoming events -->
 
-<!-- ## Conferences -->
+## Conferences
 
 
-<!-- <table class="cEventTable cConferencesList"> 
-   <tr>
+<table class="cEventTable cConferencesList"> 
+ <!-- <tr>
       <td class="cEventDetail c2col" colspan="2">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
       </td>
        <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=ballerina.io%2Flearn%2Fevents%2F&utm_medium=link&utm_campaign=ballerina_con_2018" target="_blank">Register Now</a>
       </td> 
-    </tr> 
-    <tr>
+    </tr>  
+<tr>
       <td class="cEventDetail c2col" colspan="2">
         <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
       </td>
            <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a>
         </td>
     </tr> 
-    <!-- <tr>
+ <tr>
         <td class="cEventURL c2col" colspan="2"><a class="cEventRegistration" href="https://con.ballerina.io/?utm_source=bio&utm_medium=banner&utm_campaign=bio_top_banner" target="_blank">Register Now</a></td>
-    </tr> 
+    </tr>  -->
      <tr>
-      <td class="cEventDateContainer"><span class="cEventDate">February 20 - 24, 2019</span>
-        <p class="cEventLocation">Oakland Convention Center</p>
+      <td class="cEventDateContainer"><span class="cEventDate">May 13 - 15</span>
+        <p class="cEventLocation">Austin TX</p>
         </td>
-        <td class="cEventDetail"><a target="_blank" href="https://www.developerweek.com/conference/conference-schedule/"><h4>DEVELOPER WEEK</h4></a>
-        <h4>Ballerina: A Modern Programming Language Focused on Cloud Native Applications (PRO WORKSHOP)</h4>
-        <p>Speaker: Sameera Jayasoma</p>
+        <td class="cEventDetail"><a target="_blank" href="https://nordicapis.com/events/austin-api-summit-2019/"><h4>Austin API Summit 2019 </h4></a>
+        <!-- <h4>Ballerina: A Modern Programming Language Focused on Cloud Native Applications (PRO WORKSHOP)</h4> -->
+        <!-- <p>Speaker: Sameera Jayasoma</p> -->
         </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/conference/conference-schedule/" target="_blank">More Info</a></td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://nordicapis.com/events/austin-api-summit-2019/" target="_blank">Register Now</a></td>
     </tr> 
-    <tr>
+   <tr>
+      <td class="cEventDateContainer"><span class="cEventDate">May 20 – 23</span>
+        <p class="cEventLocation">Fira Gran Via, Barcelona, Spain </p>
+        </td>
+        <td class="cEventDetail"><a target="_blank" href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2019/"><h4>KubeCon + CloudNativeCon Europe 2019 </h4></a>
+        <!-- <h4>Ballerina: A Modern Programming Language Focused on Cloud Native Applications (PRO WORKSHOP)</h4> -->
+        <!-- <p>Speaker: Sameera Jayasoma</p> -->
+        </td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2019/" target="_blank">Register Now</a></td>
+    </tr> 
+<tr>
+      <td class="cEventDateContainer"><span class="cEventDate">May 30 – 31</span>
+        <p class="cEventLocation">Seattle,  Washington</p>
+        </td>
+        <td class="cEventDetail"><a target="_blank" href="https://www.developerweek.com/CloudSummit/"><h4>DeveloperWeek Seattle: Cloud Edition </h4></a>
+        <!-- <h4>Ballerina: A Modern Programming Language Focused on Cloud Native Applications (PRO WORKSHOP)</h4> -->
+        <!-- <p>Speaker: Sameera Jayasoma</p> -->
+        </td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/CloudSummit/" target="_blank">Register Now</a></td>
+    </tr> 
+    <!-- <tr>
+      <td class="cEventDateContainer"><span class="cEventDate">June 17–20</span>
+        <p class="cEventLocation">Brooklyn Expo Center, NY</p>
+        </td>
+        <td class="cEventDetail"><a target="_blank" href="https://www.developerweek.com/CloudSummit/"><h4>DeveloperWeek NYC </h4></a>
+        <h4>Ballerina: A Modern Programming Language Focused on Cloud Native Applications (PRO WORKSHOP)</h4> 
+        <!-- <p>Speaker: Sameera Jayasoma</p> 
+        </td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/CloudSummit/" target="_blank">More Info</a></td>
+    </tr>  -->
+
+<!-- <tr>
       <td class="cEventDateContainer"><span class="cEventDate">February 20 - 24, 2019</span>
         <p class="cEventLocation">Oakland Convention Center</p>
         </td>
@@ -108,7 +141,7 @@
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/conference/conference-schedule/" target="_blank">More Info</a></td>
     </tr>  
-    <!-- <tr>
+<tr>
         <td class="cEventDateContainer"><span class="cEventDate">August 1, 2018</span>
         <p class="cEventLocation">New York Marriott Marquis</p>
         </td>
@@ -116,8 +149,8 @@
         <p>Speaker: Tyler Jewell </p>
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.javasig.com/" target="_blank">More Info</a></td>
-    </tr>  -->
-   <!-- <tr>
+    </tr>  
+ <tr>
         <td class="cEventDateContainer"><span class="cEventDate">September 9 - 14, 2018</span>
         <p class="cEventLocation">Sydney, Australia</p>
         </td>
@@ -126,5 +159,5 @@
         <p>Speaker: Sanjiva Weerawarana </p>
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="http://bpm2018.web.cse.unsw.edu.au/keynotes.html" target="_blank">More Info</a></td>
-    </tr> 
- </table> -->
+    </tr>   -->
+ </table>
