@@ -18,9 +18,9 @@ You can use plug-ins to write Ballerina code in your favorite IDE. There are sev
 
 The graphical visualization tool is embedded in the Visual Studio Code plug-in.
 
-## Swagger to Ballerina code generator
+## OpenAPI/Swagger to Ballerina code generator
 
-You can use existing Swagger files to generate connectors and services in Ballerina code. For details, see the [Swagger to Ballerina Code Generator](https://github.com/ballerina-platform/ballerina-lang/tree/master/misc/swagger-ballerina/modules/swagger-to-ballerina-generator).
+You can use existing OpenAPI/Swagger files to generate connectors and services in Ballerina code. For details, see the [OpenAPI/Swagger to Ballerina Code Generator](https://github.com/ballerina-platform/ballerina-lang/tree/master/misc/swagger-ballerina/modules/ballerina-code-generator).
 
 ## API documentation generator
 
