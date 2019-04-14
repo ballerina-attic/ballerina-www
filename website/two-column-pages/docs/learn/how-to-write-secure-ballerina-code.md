@@ -514,7 +514,7 @@ ballerina run --config sample-users.toml basic_auth_sample.bal
 
 Since passwords are encrypted, the Config API will request for the decryption key. Use 'ballerina' as the decryption key in this sample.
 
-Also, the passwords can be hashed and provided with the configuration file as well. The following example file introduces three users with `sha256`, `sha384` and `sha512` hashing algorithms.
+Also, the passwords can be hashed and provided with the configuration file as well. The following example file introduces three users along with the passwords hashed with `sha256`, `sha384` and `sha512` hashing algorithms.
 
 **sample-users.toml**
 ```
@@ -850,7 +850,7 @@ kj_9tUurTgQAw46GyeGeWMENr-JDHSNs1ZV4fbdH_EUlM6Q==
 
 `http:Client` client object can be configured to include OAuth2 based client authentication with Password grant type and Client Credentials grant type. Also, with the Direct Token mode the credentials can be provided manually and after that refreshing is handled internally.
 
-1. Client Credentials Grant Type
+##### Client Credentials Grant Type
 ```ballerina
 http:Client downstreamServiceEP = new("https://localhost:9092", config = {
     auth: {
@@ -874,7 +874,7 @@ http:Client downstreamServiceEP = new("https://localhost:9092", config = {
 });
 ```
 
-2. Password Grant Type
+##### Password Grant Type
 ```ballerina
 http:Client downstreamServiceEP = new("https://localhost:9092", config = {
     auth: {
@@ -904,7 +904,7 @@ http:Client downstreamServiceEP = new("https://localhost:9092", config = {
 });
 ```
 
-3. Direct Token Mode
+##### Direct Token Mode
 ```ballerina
 http:Client downstreamServiceEP = new("https://localhost:9092", config = {
     auth: {
