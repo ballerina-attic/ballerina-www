@@ -514,7 +514,23 @@ ballerina run --config sample-users.toml basic_auth_sample.bal
 
 Since passwords are encrypted, the Config API will request for the decryption key. Use 'ballerina' as the decryption key in this sample.
 
-Once service is restarted with the configuration file in place, 'generalUser' will not be able to invoke the service due to authorization failure:
+Also, the passwords can be hashed and provided with the configuration file as well. The following example file introduces three users with `sha256`, `sha384` and `sha512` hashing algorithms.
+
+**sample-users.toml**
+```
+["b7a.users"]
+
+["b7a.users.userA"]
+password="@sha256:{cd2eb0837c9b4c962c22d2ff8b5441b7b45805887f051d39bf133b583baf6860}"
+
+["b7a.users.userB"]
+password="@sha384:{1249e15f035ed34786a328d9fdb2689ab24f7c7b253d1b7f66ed92a679d663dd502d7beda59973e8c91a728b929fc8cd}"
+
+["b7a.users.userC"]
+password="@sha512:{9057ff1aa9509b2a0af624d687461d2bbeb07e2f37d953b1ce4a9dc921a7f19c45dc35d7c5363b373792add57d0d7dc41596e1c585d6ef7844cdf8ae87af443f}"
+```
+
+Once service is restarted with the first configuration file in place, 'generalUser' will not be able to invoke the service due to authorization failure:
 
 ```
 curl -k -v -u generalUser:password https://localhost:9091/hello
@@ -832,8 +848,63 @@ kj_9tUurTgQAw46GyeGeWMENr-JDHSNs1ZV4fbdH_EUlM6Q==
 
 #### OAuth2 Based Client Authentication
 
-`http:Client` client object can be configured to include OAuth2 credentials. This can be done by providing access token and refresh token information:
+`http:Client` client object can be configured to include OAuth2 based client authentication with Password grant type and Client Credentials grant type. Also, with the Direct Token mode the credentials can be provided manually and after that refreshing is handled internally.
 
+1. Client Credentials Grant Type
+```ballerina
+http:Client downstreamServiceEP = new("https://localhost:9092", config = {
+    auth: {
+        scheme: http:OAUTH2,
+        config: {
+            grantType: http:CLIENT_CREDENTIALS_GRANT,
+            config: {
+                tokenUrl: "https://localhost:9196/oauth2/token/authorize",
+                clientId: "3MVG9YDQS5WtC11paU2WcQjBB3L5w4gz52uriT8ksZ3nUVjKvrfQMrU4uvZohTftxStwNEW4cfStBEGRxRL68",
+                clientSecret: "9205371918321623741",
+                scopes: ["token-scope1", "token-scope2"]
+            }
+        }
+    },
+    secureSocket: {
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
+});
+```
+
+2. Password Grant Type
+```ballerina
+http:Client downstreamServiceEP = new("https://localhost:9092", config = {
+    auth: {
+        scheme: http:OAUTH2,
+        config: {
+            grantType: http:PASSWORD_GRANT,
+            config: {
+                tokenUrl: "https://localhost:9196/oauth2/token/authorize",
+                username: "johndoe",
+                password: "A3ddj3w",
+                clientId: "3MVG9YDQS5WtC11paU2WcQjBB3L5w4gz52uriT8ksZ3nUVjKvrfQMrU4uvZohTftxStwNEW4cfStBEGRxRL68",
+                clientSecret: "9205371918321623741",
+                scopes: ["token-scope1", "token-scope2"],
+                refreshConfig: {
+                    refreshUrl: "https://localhost:9196/oauth2/token/refresh",
+                    scopes: ["token-scope1", "token-scope2"]
+                }
+            }
+        }
+    },
+    secureSocket: {
+        trustStore: {
+            path: "${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password: "ballerina"
+        }
+    }
+});
+```
+
+3. Direct Token Mode
 ```ballerina
 http:Client downstreamServiceEP = new("https://localhost:9092", config = {
     auth: {
