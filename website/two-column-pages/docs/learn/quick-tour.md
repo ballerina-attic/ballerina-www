@@ -85,7 +85,8 @@ service hello on new http:Listener(9090) {
 
     # + caller - Server Connector
     # + request - Request
-    resource function sayHello(http:Caller caller, http:Request request) {
+    # + return - error, if there is an issue
+    resource function sayHello(http:Caller caller, http:Request request) returns error? {
 
         // Create object to carry data back to caller
         http:Response response = new;
@@ -96,7 +97,7 @@ service hello on new http:Listener(9090) {
         // Send a response back to caller
         // Errors are ignored with '_'
         // -> indicates a synchronous network-bound call
-        _ = caller -> respond(response);
+        _ = check caller->respond(response);
     }
 }
 ```
@@ -261,7 +262,7 @@ service hello on new http:Listener(9090) {
         http:Response response = new;
         response.setTextPayload("ID:" + string.convert(untaint st.id) + "\n");
 
-        _ = caller -> respond(response);
+        _ = check caller->respond(response);
         return ();
     }
 }
