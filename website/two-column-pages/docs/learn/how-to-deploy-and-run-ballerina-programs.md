@@ -16,10 +16,10 @@ Source files and modules can contain zero or more entrypoints, and the runtime e
 ### Running Standalone Source Code
 A single Ballerina source code file can be placed into any folder. 
 
-If the source file contains at least one entrypoint, it can be executed using the `run` command. If the entrypoint is not a main function or a service, it should be specified.
+If the source file contains at least one entrypoint, it can be executed using the `run` command.
     
 ```bash
-$ ballerina run foo.bal[:entryfunction]
+$ ballerina run foo.bal
 ```
 
 You can compile a source file with an entrypoint into a linked binary that has a `.balx` extension.
@@ -50,10 +50,10 @@ Options for running programs with entrypoints in a project:
 ```bash
 $ ballerina run main.balx  
 $ ballerina run target/main.balx
-$ ballerina run [--sourceroot <path>] <module>[:entryfunction]
+$ ballerina run [--sourceroot <path>] <module>
 ```
 
-The `<module>` is the module name, which is the same as the name of the directory that holds the source files. `main()` is considered as the entry function by default.
+The `<module>` is the module name, which is the same as the name of the directory that holds the source files.
 
 ## Configuring Your Ballerina Runtimes
 
