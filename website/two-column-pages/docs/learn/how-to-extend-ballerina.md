@@ -230,10 +230,10 @@ import ballerinax/hello;
   salutation: "Guten Tag!"
 }
 service helloWorld on new http:Listener(9091) {
-   resource function sayHello(http:Caller outboundEP, http:Request request) {
+   resource function sayHello(http:Caller outboundEP, http:Request request) returns error? {
        http:Response response = new;
        response.setTextPayload("Hello, World from service helloWorld ! \n");
-       _ = outboundEP->respond(response);
+       check outboundEP->respond(response);
    }
 }
 ```
@@ -746,10 +746,10 @@ import ballerinax/hello;
 
 @hello:Greeting{salutation : "Guten Tag!"}
 service helloWorld on new http:Listener(9091) {
-   resource function sayHello(http:Caller outboundEP, http:Request request) {
+   resource function sayHello(http:Caller outboundEP, http:Request request) returns error? {
        http:Response response = new;
        response.setTextPayload("Hello, World from service helloWorld ! \n");
-       _ = outboundEP -> respond(response);
+       check outboundEP->respond(response);
    }
 }
 ```
@@ -970,7 +970,12 @@ listener githubwebhook3:WebhookListener githubListener = new(8080);
     subscriptionClientConfig: {
         auth: {
             scheme: http:OAUTH2,
-            accessToken: "<GH_ACCESS_TOKEN>"
+            config: {
+                grantType: http:DIRECT_TOKEN,
+                config: {
+                    accessToken: "<GH_ACCESS_TOKEN>"
+                }
+            }
         }
     }
 }
@@ -1053,7 +1058,6 @@ final map<map<map<(string, typedesc)>>> GITHUB_TOPIC_HEADER_AND_PAYLOAD_KEY_RESO
 public type WebhookListenerConfiguration record {
     string host?;
     http:ServiceSecureSocket httpServiceSecureSocket?;
-    !...
 };
 
 function WebhookListener.__init(int port, WebhookListenerConfiguration? config = ()) {
