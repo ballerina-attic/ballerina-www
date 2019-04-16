@@ -1,25 +1,35 @@
 any anything; 
 int integer = 0;
 float floatingPoint = 0.0;
-boolean b = true; 
-string hi = "hello"; 
-blob bl = hi.toBlob("UTF-8"); 
-json jsonNative = { a: "hello", b: 5 }; 
+boolean bool = true;
+string hi = "hello";
+byte[] byteArr = hi.toByteArray("UTF-8");
+
+json j = { a: "hello", b: 5 };
+
 xml x = xml `<ballerina>
                 <supports>XML natively</supports>
              </ballerina>`;
-string[] stringArray = ["hi", "there"]; 
+
+string[] stringArray = ["hi", "there"];
 int[][] arrayOfArrays = [[1,2],[3,4]];
-json | xml | string unionType; 
-(string, int) tuple = ("hello", 5); 
+json|xml|string unionType;
+(string, int) tuple = ("hello", 5);
 () n = (); // the empty tuple acts as "null"
-string | int stringOrInt = "this is a union type";
-int | () intOrNull = 5;
-var inferred = ("hello", 5); 
-map<boolean> myMap = {"ballerina": true}; 
-type myRecord { string a; int b; };
-type myObject object {   
-    public { string x; } private { string y; }
-    new (string xi, string yi) { x = xi; y = yi; }
-    function getX() returns (string) { return x; }
+string|error stringOrError = "this is a union type";
+int? optionalInt = 5; // an int value or no value
+map<boolean> myMap = { "ballerina": true };
+
+type myRecord record { string a; int b; };
+
+type myObject object {
+    public string p;
+    private int q;
+    function __init(string p, int q) {
+        self.p = p;
+        self.q = q;
+    }
+    function getX() returns (string) {
+        return self.p;
+    }
 };

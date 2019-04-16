@@ -3,14 +3,10 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Loader from 'semantic-ui-react/dist/es/elements/Loader/Loader';
 import Dimmer from 'semantic-ui-react/dist/es/modules/Dimmer/Dimmer';
-import TreeBuilder from 'TreeBuilder';
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
-import Diagram from 'Diagram';
-import PackageScopedEnvironment from 'PackageScopedEnvironment';
 import { PARSER_API_URL } from '../../utils';
-import 'scss/design-view.scss';
-import 'font-ballerina/css/font-ballerina.css';
+import { Diagram, DiagramMode } from '@ballerina/diagram'
+
+import '@ballerina/font/build/font/font-ballerina.css';
 
 /**
  * Invoke parser service for the given content
@@ -19,11 +15,6 @@ import 'font-ballerina/css/font-ballerina.css';
  */
 function parseContent(content) {
     const payload = {
-        fileName: 'untitled.bal',
-        filePath: 'temp',
-        includeTree: true,
-        includePackageInfo: true,
-        includeProgramDir: true,
         content,
     };
     return axios.post(PARSER_API_URL, payload,
@@ -60,21 +51,19 @@ class DiagramView extends React.Component {
      */
     getChildContext() {
         return {
-            environment: new PackageScopedEnvironment(),
             getDiagramContainer: () => {
                 return this.container;
             },
             getOverlayContainer: () => {
                 return this.container;
-            },
-            fitToWidth: true,
+            }
         };
     }
 
     componentDidMount() {
         parseContent(this.props.content)
             .then(({ model }) => {
-                this.setState({ model: TreeBuilder.build(model) });
+                this.setState({ model });
             })
     }
 
@@ -83,6 +72,7 @@ class DiagramView extends React.Component {
      */
     render() {
         const { model } = this.state;
+        const { width, height } = this.props.size;
         return (
         <div className="interaction-diagram ballerina-editor" style={{ ...this.props.size }} >
             {!model &&
@@ -91,10 +81,13 @@ class DiagramView extends React.Component {
                     </Dimmer>
                 }
             {model &&
-                <Diagram mode='action' 
-                    fitToWidth={true} 
-                    model={model} 
-                    { ...this.props.size } />
+                <Diagram mode='action'
+                    ast={model} 
+                    width={width}
+                    height={height}
+                    zoom={1}
+                    mode={DiagramMode.ACTION}
+                />
             }
         </div>
         );
@@ -111,10 +104,8 @@ DiagramView.propTypes = {
 
 
 DiagramView.childContextTypes = {
-    environment: PropTypes.instanceOf(PackageScopedEnvironment).isRequired,
     getDiagramContainer: PropTypes.func.isRequired,
-    getOverlayContainer: PropTypes.func.isRequired,
-    fitToWidth: PropTypes.bool
+    getOverlayContainer: PropTypes.func.isRequired
 };
 
-export default DragDropContext(HTML5Backend)(DiagramView);
+export default DiagramView;

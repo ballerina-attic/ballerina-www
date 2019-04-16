@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -226,6 +226,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -268,12 +275,12 @@
                                         
                                           
                                         <li>
-                                            <a href="#ClientEndpointConfiguration">
+                                            <a href="#ClientEndpointConfig">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    ClientEndpointConfiguration
+                                                    ClientEndpointConfig
                                                 </div>
                                             </a>
                                         </li>
@@ -354,23 +361,24 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-getProxyTable">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-action"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        getProxyTable
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                             
                                     </ul>
                                 </div>
                                 
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
                             </li>
                         </ul>
                         
@@ -477,7 +485,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/mysql</span> package </li>
+                            <li><span class="bold">ballerina/mysql</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -489,19 +497,19 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/mysql</span>  package 
+                                                <span class="bold">ballerina/mysql</span>  module 
                                             </h1>
                                             
                                             <div class="cAPIdocsDescription">
-                                                <h2>Package overview</h2>
-<p>This package provides the functionality required to access and manipulate data stored in a MySQL database.</p>
+                                                <h2>Module overview</h2>
+<p>This module provides the functionality required to access and manipulate data stored in a MySQL database.</p>
 <h3>Endpoint</h3>
-<p>To access a database, you must first create an <code>endpoint</code>, which is a virtual representation of the physical endpoint of the MySQL database that you are trying to connect to. Create an endpoint of the MySQL client type (i.e., <code>mysql:Client</code>) and provide the necessary connection parameters. This will create a pool of connections to the given MySQL database. A sample for creating an endpoint with MySQL client can be found below.</p>
+<p>To access a database, you must first create a <code>client</code> object. Create a client of the MySQL Client type (i.e., <code>mysql:Client</code>) and provide the necessary connection parameters. This will create a pool of connections to the given MySQL database. A sample for creating a MySQL client can be found below.</p>
 <h3>Database operations</h3>
-<p>Once the endpoint is created, database operations can be executed through that endpoint. This package provides support for creating tables and executing stored procedures. It also supports selecting, inserting, deleting, updating, and batch updating data. For more details on the supported actions refer to the <code>sql</code> package. Also the details of the SQL data types and query parameters relevant to these database operations can be found in the documentation of the <code>sql</code> package.</p>
+<p>Once the client is created, database operations can be executed through that client. This module provides support for creating tables and executing stored procedures. It also supports selecting, inserting, deleting, updating, and batch updating data. For more details on the supported remote functions refer to the <code>sql</code> module. Also the details of the SQL data types and query parameters relevant to these database operations can be found in the documentation of the <code>sql</code> module.</p>
 <h2>Samples</h2>
 <h3>Creating an endpoint</h3>
-<pre><code class="language-ballerina">endpoint mysql:Client testDB {
+<pre><code class="language-ballerina">mysql:Client testDB = new({
     host: &quot;localhost&quot;,
     port: 3306,
     name: &quot;testdb&quot;,
@@ -509,15 +517,15 @@
     password: &quot;root&quot;,
     poolOptions: { maximumPoolSize: 5 },
     dbOptions: { &quot;useSSL&quot;: false }
-};
+});
 </code></pre>
-<p>The full list of endpoint properties can be found in the <code>sql:PoolOptions</code> type.</p>
+<p>The full list of client properties can be found in the <code>sql:PoolOptions</code> type.</p>
 
                                             </div>
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -532,11 +540,9 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#ClientEndpointConfiguration">ClientEndpointConfiguration</a></td>
-                                                         <td class="cSummary-table-desc">
-    The Client endpoint configuration for mysql databases.
-
-    </td>
+                                                         <td class="cSummary-table-name"><a href="#ClientEndpointConfig">ClientEndpointConfig</a></td>
+                                                         <td class="cSummary-table-desc">The Client endpoint configuration for mysql databases.
+</td>
                                                      </tr>
                                                  
                                              
@@ -590,15 +596,13 @@
                                                 
                                                 <!-- Records -->
                                                 
-                                                <h2 id="ClientEndpointConfiguration">
-                                                    <span class="fw-record sm-icon"></span> public type ClientEndpointConfiguration
+                                                <h2 id="ClientEndpointConfig">
+                                                    <span class="fw-record sm-icon"></span> public type ClientEndpointConfig
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>
-    The Client endpoint configuration for mysql databases.
+                                                    <span class="fw-right gray xs-icon"></span>The Client endpoint configuration for mysql databases.
 
-    
                                                 </p>
                                                  
                                                 <table>
@@ -652,7 +656,7 @@
                                                     <tr>
                                                         <td class="cAPI-table-name">poolOptions</td>
                                                         <td class="cAPI-table-type"><a href="sql.html#PoolOptions">sql:PoolOptions</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Properties for the connection pool configuration. Refer <code>sql:PoolOptions</code> for more details</p>
 </td>
                                                     </tr>
@@ -660,7 +664,7 @@
                                                     <tr>
                                                         <td class="cAPI-table-name">dbOptions</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>A map of DB specific properties</p>
 </td>
                                                     </tr>
@@ -697,14 +701,12 @@
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> call(string sqlQuery, typedesc[]? recordType) returns (table[]|error?) 
+                                                   </span> call(string sqlQuery, typedesc[]? recordType, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns (table&lt;$anonType$0&gt;[] | null | error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span>
-        The call operation implementation for SQL connector to invoke stored procedures/functions.
+                                                                <span class="fw-right gray xs-icon"></span><p>The call operation implementation for MySQL Client to invoke stored procedures/functions.</p>
 
-        
                                                             </p>
                                                              
                                                             <table>
@@ -719,14 +721,24 @@
                                                                     <td class="cAPI-table-name">sqlQuery</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The SQL stored procedure to execute</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">recordType</td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#typedesc">typedesc[]?</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>Array of record types of the returned tables if there is any</p>
+</td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">parameters</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the procedure/function call. The number of parameters is variable</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -742,9 +754,11 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table[]</a>|<a href="builtin.html#error">error?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table<$anonType$0>[]</a> | <a href="builtin.html#error">null</a> | error<></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>A <code>table[]</code> if there are tables returned by the call remote function and else nil,
+<code>error</code> will be returned if there is any error</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -756,14 +770,12 @@
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> select(string sqlQuery, typedesc? recordType, boolean loadToMemory) returns (table|error) 
+                                                   </span> select(string sqlQuery, typedesc? recordType, boolean loadToMemory, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns (table&lt;$anonType$1&gt; | error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span>
-        The select operation implementation for SQL connector to select data from tables.
+                                                                <span class="fw-right gray xs-icon"></span><p>The select operation implementation for MySQL Client to select data from tables.</p>
 
-        
                                                             </p>
                                                              
                                                             <table>
@@ -778,21 +790,32 @@
                                                                     <td class="cAPI-table-name">sqlQuery</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>SQL query to execute</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">recordType</td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#typedesc">typedesc?</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>Type of the returned table</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">loadToMemory</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
+                                                                    <td class="cAPI-table-default">false</td>
+                                                                    <td class="cAPI-table-desc"><p>Indicates whether to load the retrieved data to memory or not</p>
+</td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">parameters</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the select query. The number of parameters is variable</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -808,9 +831,10 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table</a>|<a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table<$anonType$1></a> | <a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>A <code>table</code> returned by the sql query statement else <code>error</code> will be returned if there is any error</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -822,14 +846,12 @@
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> update(string sqlQuery) returns (int|error) 
+                                                   </span> update(string sqlQuery, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns (int | error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span>
-        The update operation implementation for SQL connector to update data and schema of the database.
+                                                                <span class="fw-right gray xs-icon"></span><p>The update operation implementation for MySQL Client to update data and schema of the database.</p>
 
-        
                                                             </p>
                                                              
                                                             <table>
@@ -844,7 +866,16 @@
                                                                     <td class="cAPI-table-name">sqlQuery</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>SQL statement to execute</p>
+</td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">parameters</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the update query. The number of parameters is variable</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -860,9 +891,10 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p><code>int</code> number of rows updated by the statement and else <code>error</code> will be returned if there is any error</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -874,14 +906,12 @@
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> batchUpdate(string sqlQuery) returns (int[]|error) 
+                                                   </span> batchUpdate(string sqlQuery, string|int|boolean|float|byte[][][]|sql:Parameter parameters) returns (int[] | error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span>
-        The batchUpdate operation implementation for SQL connector to batch data insert.
+                                                                <span class="fw-right gray xs-icon"></span><p>The batchUpdate operation implementation for MySQL Client to batch data insert.</p>
 
-        
                                                             </p>
                                                              
                                                             <table>
@@ -896,7 +926,17 @@
                                                                     <td class="cAPI-table-name">sqlQuery</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>SQL statement to execute</p>
+</td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">parameters</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>Variable number of parameter arrays each representing the set of parameters of belonging to each
+individual update</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -912,9 +952,17 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int[]</a>|<a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int[]</a> | <a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>An <code>int[]</code> - The elements in the array returned by the operation may be one of the following  or else
+an<code>error</code> will be returned if there is any error.
+A number greater than or equal to zero - indicates that the command was processed successfully
+and is an update count giving the number of rows
+A value of -2 - Indicates that the command was processed successfully but that the number of rows affected
+is unknown
+A value of -3 - Indicates that the command failed to execute successfully and occurs only if a driver
+continues to process commands after a command fails</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -926,15 +974,13 @@
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> updateWithGeneratedKeys(string sqlQuery, string[]? keyColumns) returns ((int,string[])|error) 
+                                                   </span> updateWithGeneratedKeys(string sqlQuery, string[]? keyColumns, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns ((int,string[]) | error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span>
-        The updateWithGeneratedKeys operation implementation for SQL connector which returns the auto
-        generated keys during the update action.
+                                                                <span class="fw-right gray xs-icon"></span><p>The updateWithGeneratedKeys operation implementation for MySQL Client which returns the auto
+generated keys during the update remote function.</p>
 
-        
                                                             </p>
                                                              
                                                             <table>
@@ -949,14 +995,24 @@
                                                                     <td class="cAPI-table-name">sqlQuery</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>SQL statement to execute</p>
+</td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">keyColumns</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]?</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>Names of auto generated columns for which the auto generated key values are returned</p>
+</td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">parameters</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the update query. The number of parameters is variable</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -972,69 +1028,12 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type">(<a href="primitive-types.html#int">int</a>,<a href="primitive-types.html#string">string[]</a>)|<a href="builtin.html#error">error</a></td>
+                                                                    <td class="cAPI-table-type">(<a href="primitive-types.html#int">int</a>,<a href="primitive-types.html#string">string[]</a>) | <a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-getProxyTable">
-                                                                <span class="fw-action sm-icon"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> getProxyTable(string tableName, typedesc recordType) returns (table|error) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span>
-        The getProxyTable operation implementation for SQL connector which acts as a proxy for a database
-        table that allows performing select/update operations over the actual database table.
-
-        
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">tableName</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">recordType</td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#typedesc">typedesc</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table</a>|<a href="builtin.html#error">error</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"></td>
+                                                                    <td class="cAPI-table-desc"><p>A <code>Tuple</code> will be returned and would represent updated row count during the query exectuion,
+aray of auto generated key values during the query execution, in order.
+Else <code>error</code> will be returned if there is any error.</p>
+</td>
                                                                 </tr>
                                                                 
                                                             </table>
@@ -1215,7 +1214,7 @@
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
@@ -1224,6 +1223,16 @@
                                    <!--Package Name-->
                                    
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
                                    </a>
                                    
                                 </li>
@@ -1264,6 +1273,16 @@
                                    <!--Package Name-->
                                    
                                    <a href="crypto.html">ballerina/<span class="bold">crypto</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="encoding.html">ballerina/<span class="bold">encoding</span>
                                    </a>
                                    
                                 </li>
@@ -1333,7 +1352,7 @@
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
+                                   <a href="jms.html">ballerina/<span class="bold">jms</span>
                                    </a>
                                    
                                 </li>
@@ -1343,7 +1362,7 @@
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="jms.html">ballerina/<span class="bold">jms</span>
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
                                    </a>
                                    
                                 </li>
@@ -1364,16 +1383,6 @@
                                    <!--Package Name-->
                                    
                                    <a href="math.html">ballerina/<span class="bold">math</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
                                    </a>
                                    
                                 </li>
@@ -1414,6 +1423,16 @@
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -1425,6 +1444,16 @@
                                    <!--Package Name-->
                                    
                                    <a href="runtime.html">ballerina/<span class="bold">runtime</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
                                    </a>
                                    
                                 </li>
@@ -1521,7 +1550,7 @@
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
                              <ul class="">
@@ -1529,6 +1558,16 @@
                                    <!--Package Name-->
                                    
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
                                    </a>
                                    
                                 </li>
@@ -1569,6 +1608,16 @@
                                    <!--Package Name-->
                                    
                                    <a href="crypto.html">ballerina/<span class="bold">crypto</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="encoding.html">ballerina/<span class="bold">encoding</span>
                                    </a>
                                    
                                 </li>
@@ -1638,7 +1687,7 @@
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
+                                   <a href="jms.html">ballerina/<span class="bold">jms</span>
                                    </a>
                                    
                                 </li>
@@ -1648,7 +1697,7 @@
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="jms.html">ballerina/<span class="bold">jms</span>
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
                                    </a>
                                    
                                 </li>
@@ -1669,16 +1718,6 @@
                                    <!--Package Name-->
                                    
                                    <a href="math.html">ballerina/<span class="bold">math</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
                                    </a>
                                    
                                 </li>
@@ -1719,6 +1758,16 @@
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -1730,6 +1779,16 @@
                                    <!--Package Name-->
                                    
                                    <a href="runtime.html">ballerina/<span class="bold">runtime</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
                                    </a>
                                    
                                 </li>
@@ -1843,9 +1902,6 @@
         });
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
-
-<!-- 0.980.0 -->
-
 </body>
 </html>
 

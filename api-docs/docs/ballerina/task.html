@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -282,6 +282,27 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -325,12 +346,12 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Appointment-new">
+                                                <a href="#Appointment-__init">
                                                     <div class="construct-icon">
                                                         <span class="fw-constructor"> </span>
                                                     </div>
                                                     <div class="construct-name">
-                                                        new
+                                                        __init
                                                     </div>
                                                 </a>
                                             </li>
@@ -376,12 +397,12 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Timer-new">
+                                                <a href="#Timer-__init">
                                                     <div class="construct-icon">
                                                         <span class="fw-constructor"> </span>
                                                     </div>
                                                     <div class="construct-name">
-                                                        new
+                                                        __init
                                                     </div>
                                                 </a>
                                             </li>
@@ -466,7 +487,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/task</span> package </li>
+                            <li><span class="bold">ballerina/task</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -478,12 +499,12 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/task</span>  package 
+                                                <span class="bold">ballerina/task</span>  module 
                                             </h1>
                                             
                                             <div class="cAPIdocsDescription">
-                                                <h2>Package overview</h2>
-<p>This package includes functions to manage task timers and task appointments.</p>
+                                                <h2>Module overview</h2>
+<p>This module includes functions to manage task timers and task appointments.</p>
 <h3>Task timers</h3>
 <p>Timers execute periodic tasks. The initial execution of a task happens after a specific time period from the task
 registration, which is denoted using <code>delay</code>. Use the <code>interval</code> to specify the frequency at which tasks execute.
@@ -523,10 +544,10 @@ equal to 10, an error is returned. If the count is equal to 20, the task is stop
 import ballerina/runtime;
 import ballerina/task;
 
-int count;
-task:Timer? timer;
+int count = 0;
+task:Timer? timer = ();
 
-function main(string... args) {
+public function main(string... args) {
     io:println(&quot;tasks sample is running&quot;);
     scheduleTimer(1000,1000);
     // Keep the program running for 100*1000 milliseconds.
@@ -554,21 +575,19 @@ function onError(error e) {
 function onTrigger() returns error? {
     count = count + 1;
     if(count == 10) {
-        error e = {message:&quot;Task cannot be performed when the count is 10&quot;};
+        error e = error(&quot;Task cannot be performed when the count is 10&quot;);
         //The ‘onError’ function is called when the error is returned.
         return e;
     }
 
     if(count == 20) {
-        match stopTask() {
-            error e =&gt; {
-                return e;
-            }
-            () =&gt; {}
+        var stopResult = stopTask();
+        if (stopResult is error) {
+            return stopResult;
         }
     }
     io:println(&quot;on trigger : count value is: &quot; + count);
-    return ();
+    return;
 }
 
 // Define the function to stop the task.
@@ -576,7 +595,7 @@ function stopTask() returns error? {
     io:println(&quot;Stopping task&quot;);
     timer.stop();
     count = -1;
-    return ();
+    return;
 }
 
 </code></pre>
@@ -589,10 +608,10 @@ error is returned. If the count is equal to 20, the task is stopped.</p>
 import ballerina/runtime;
 import ballerina/task;
 
-int count;
-task:Appointment? app;
+int count = 0;
+task:Appointment? app = ();
 
-function main(string... args) {
+public function main(string... args) {
     io:println(&quot;tasks sample is running&quot;);
     // To schedule the appointment with given cron expression.
     scheduleAppointment(&quot;0/05 * * * * ?&quot;);
@@ -614,7 +633,7 @@ function onTrigger() returns error? {
     io:println(&quot;tasks is triggered and the value of count is : &quot; + count);
 
     if(count == 10) {
-        error e = {message:&quot;Task appointment cannot be executed when the count is 10&quot;};
+        error e = error(&quot;Task appointment cannot be executed when the count is 10&quot;);
         // The ‘onError’ function is called when the error is returned.
         return e;
     }
@@ -644,7 +663,7 @@ function cancelAppointment() {
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -720,11 +739,11 @@ function cancelAppointment() {
                                                     <ul>
                                                         
                                                         <li>
-                                                            <h2 id="Appointment-new">
+                                                            <h2 id="Appointment-__init">
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Appointment&gt;
-                                                   </span> new(function () returns (error?) onTrigger, function (error) returns (())? onError, string scheduleCronExpression) 
+                                                   </span> __init(function () returns (error?) onTrigger, function (error) returns (())? onError, string scheduleCronExpression) 
                                                             </h2>
                                                              
                                                             <table>
@@ -811,11 +830,11 @@ function cancelAppointment() {
                                                     <ul>
                                                         
                                                         <li>
-                                                            <h2 id="Timer-new">
+                                                            <h2 id="Timer-__init">
                                                                 <span class="fw-constructor"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Timer&gt;
-                                                   </span> new(function () returns (error?) onTrigger, function (error) returns (())? onError, int interval, int delay) 
+                                                   </span> __init(function () returns (error?) onTrigger, function (error) returns (())? onError, int interval, int delay) 
                                                             </h2>
                                                              
                                                             <table>
@@ -1048,7 +1067,7 @@ function cancelAppointment() {
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
@@ -1057,6 +1076,16 @@ function cancelAppointment() {
                                    <!--Package Name-->
                                    
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
                                    </a>
                                    
                                 </li>
@@ -1097,6 +1126,16 @@ function cancelAppointment() {
                                    <!--Package Name-->
                                    
                                    <a href="crypto.html">ballerina/<span class="bold">crypto</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="encoding.html">ballerina/<span class="bold">encoding</span>
                                    </a>
                                    
                                 </li>
@@ -1166,7 +1205,7 @@ function cancelAppointment() {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
+                                   <a href="jms.html">ballerina/<span class="bold">jms</span>
                                    </a>
                                    
                                 </li>
@@ -1176,7 +1215,7 @@ function cancelAppointment() {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="jms.html">ballerina/<span class="bold">jms</span>
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
                                    </a>
                                    
                                 </li>
@@ -1197,16 +1236,6 @@ function cancelAppointment() {
                                    <!--Package Name-->
                                    
                                    <a href="math.html">ballerina/<span class="bold">math</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
                                    </a>
                                    
                                 </li>
@@ -1246,6 +1275,16 @@ function cancelAppointment() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -1257,6 +1296,16 @@ function cancelAppointment() {
                                    <!--Package Name-->
                                    
                                    <a href="runtime.html">ballerina/<span class="bold">runtime</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
                                    </a>
                                    
                                 </li>
@@ -1354,7 +1403,7 @@ function cancelAppointment() {
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
                              <ul class="">
@@ -1362,6 +1411,16 @@ function cancelAppointment() {
                                    <!--Package Name-->
                                    
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
                                    </a>
                                    
                                 </li>
@@ -1402,6 +1461,16 @@ function cancelAppointment() {
                                    <!--Package Name-->
                                    
                                    <a href="crypto.html">ballerina/<span class="bold">crypto</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="encoding.html">ballerina/<span class="bold">encoding</span>
                                    </a>
                                    
                                 </li>
@@ -1471,7 +1540,7 @@ function cancelAppointment() {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
+                                   <a href="jms.html">ballerina/<span class="bold">jms</span>
                                    </a>
                                    
                                 </li>
@@ -1481,7 +1550,7 @@ function cancelAppointment() {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="jms.html">ballerina/<span class="bold">jms</span>
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
                                    </a>
                                    
                                 </li>
@@ -1502,16 +1571,6 @@ function cancelAppointment() {
                                    <!--Package Name-->
                                    
                                    <a href="math.html">ballerina/<span class="bold">math</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
                                    </a>
                                    
                                 </li>
@@ -1551,6 +1610,16 @@ function cancelAppointment() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -1562,6 +1631,16 @@ function cancelAppointment() {
                                    <!--Package Name-->
                                    
                                    <a href="runtime.html">ballerina/<span class="bold">runtime</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
                                    </a>
                                    
                                 </li>
@@ -1676,9 +1755,6 @@ function cancelAppointment() {
         });
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
-
-<!-- 0.980.0 -->
-
 </body>
 </html>
 

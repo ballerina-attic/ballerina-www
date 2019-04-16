@@ -1,6 +1,6 @@
 # Learn Ballerina
 
-Ballerina is a simple programming language whose syntax and platform address the hard problems of integration. Ballerina is a general purpose, concurrent, transactional, statically and strongly typed programming language with both textual and graphical syntaxes. Its specialization is integration - it brings fundamental concepts, ideas and tools of distributed system integration into the language and offers a type safe, concurrent environment to implement such applications. These include distributed transactions, reliable messaging, stream processing, workflows and container management platforms.
+Ballerina is a simple programming language whose syntax and platform address the hard problems of integration. It is a general purpose, concurrent, transactional, statically and strongly typed programming language with both textual and graphical syntaxes. Its specialization is integration - it brings fundamental concepts, ideas and tools of distributed system integration into the language and offers a type safe, concurrent environment to implement such applications. These include distributed transactions, reliable messaging, stream processing, workflows and container management platforms.
 
 
 ## Installation
@@ -23,13 +23,13 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 [Ballerina by Guide](/learn/by-guide/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
 
-### Tools, IDEs, and the Ballerina Composer
+### Tools and IDEs
 
-[Tools, IDEs, and the Ballerina Composer](/learn/tools-ides-ballerina-composer/) overviews the editing tools for code and diagrams. This includes language servers, editors, IDE, and a graphical visualization tool called the Ballerina Composer.
+The [Tools and IDEs](/learn/tools-ides/) section introduces the language servers, editors, IDEs, and graphical visualization tools that are supported by Ballerina.
 
 ### How to Structure Ballerina Code
 
-[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, create, version, search, and install Ballerina packages with repositories that are local and remote.
+[How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, create, version, search, and install Ballerina modules with repositories that are local and remote.
 
 ### How to Test Ballerina Code
 
@@ -37,15 +37,15 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### How to Document Ballerina Code
 
-[How to Document Ballerina Code](/learn/how-to-document-ballerina-code/) provides guidelines on documenting your Ballerina programs and packages in order to generate API documentation.
+[How to Document Ballerina Code](/learn/how-to-document-ballerina-code/) provides guidelines on documenting your Ballerina programs and modules in order to generate API documentation.
 
 ### How to Write Secure Ballerina Services
 
 [How to Write Secure Ballerina Services](/learn/how-to-write-secure-ballerina-code/) provides guidelines on writing secure Ballerina services, while demonstrating different security features and controls available within Ballerina.
 
-### How to Publish Ballerina Packages
+### How to Publish Ballerina Modules
 
-[How to Publish Ballerina Packages](/learn/how-to-publish-packages/) provides settings and commands you need to share your local packages with the Ballerina community.
+[How to Publish Ballerina Modules](/learn/how-to-publish-modules/) provides settings and commands you need to share your local modules with the Ballerina community.
 
 ### How to Run and Deploy Ballerina Services
 
@@ -57,17 +57,17 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 ### How to Extend Ballerina
 
-[How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and package these customizations for use by others.
+[How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and collate these customizations for use by others.
 
 ## Reference Documentation
 
-### Package and API Documentation
+### Module and API Documentation
 
 The [API Documentation](/learn/api-docs/) describes the native functions in Ballerina that you can use in your programs.
 
 ### Language Specification
 
-The <a href="/res/Ballerina-Language-Specification-WD-2018-05-01.pdf" download="Ballerina-Language-Specification-WD-2018-05-01.pdf">Language Specification</a> is the document that defines Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.
+The <a href="https://ballerina.io/learn/language-specification/0.990/">Language Specification</a> is the document that defines Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.
 
 ### Ballerina Streaming Guide
 
@@ -79,39 +79,9 @@ The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides 
 
 ## Events
 
-### Conferences
+The [Events](/learn/events) page consists of upcoming webinars, meetups, and conferences about Ballerina.
 
-<table class="cEventTable">
-<tr>
-      <td class="cEventDetail c2col">
-        <img class="cEventLogo" src="https://con.ballerina.io/wp-content/themes/ballerinacon/images/bcon-logo.png"/>
-    </td>
-        <td class="cEventURL c2col"><a class="cEventRegistration" href="https://con.ballerina.io/register/" target="_blank">Register Now</a></td>
-    </tr>
-</table>
-
-<!-- ### Webinars
-
-<table class="cEventTable cWebinarList">
-<tr>
-    <td class="cEventDateContainer"><span class="cEventDate">July 11, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
-    <td class="cEventDetail"><h4>Ballerina Serverless with Kubeless</h4>
-    <p>
-    <b>Adnan Abdulhussein</b> Software Engineer, Bitnami</p>
-    <p>
-    <b>Dmitry Sotnikov</b> Vice President - Cloud, WSO2</p>
-    </td>
-    <td class="cEventURL"><a class="cEventRegistration" href="/learn/events/webinars/ballerina-serverless-with-kubeless/">Register Now</a></td>
-</tr>
-
-</table> -->
-
-### Past Event Recordings
-
-1. <a href="https://www.youtube.com/watch?v=67v7mjlSHWI" target="_blank">Ballerina: A Cloud Native Programming Language</a> - Ballerina introduction webinar by Paul Fremantle
-2. <a href="https://www.youtube.com/watch?v=JtwmHo5Ivwg" target="_blank">Ballerina - A new language for the networked world</a> - Ballerina language design session by Sanjiva Weerawarana at SummerSOC 2018
-3. <a href="https://www.youtube.com/watch?v=IqE44dGZqMw" target="_blank">Cloud Native Programming with Ballerina and Kubernetes</a> - Kasun Indrasiri at the Kubernetes Mountain View meetup demonstrating integration of Ballerina with Codefresh CI/CD
-4. <a href="https://ballerina.io/learn/events/webinars/ballerina-serverless-with-kubeless/" target="_blank">Ballerina Serverless with Kubeless</a> - Webinar by Adnan Abdulhussein and Dmitry Sotnikov
+Refer to the [Past Events](/learn/events/past-events) page to view videos and slides from conferences and webinars.
 
 ## Articles and Videos
 

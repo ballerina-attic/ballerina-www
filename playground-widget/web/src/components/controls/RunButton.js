@@ -95,7 +95,10 @@ class RunButton extends React.Component {
                                             break;
                                     case MSG_CODES.EXECUTION_STOPPED:
                                     case MSG_CODES.PROGRAM_TERMINATED:
-                                            this.appendToConsole('you can edit the code or curl and try again');
+                                            const msg = sample && sample.main 
+                                                        ? 'you can edit the code and try again'
+                                                        : 'you can edit the code or curl and try again';
+                                            this.appendToConsole(msg);
                                             this.runSession.close();
                                             this.resetSession();
                                             break;

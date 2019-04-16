@@ -7,9 +7,9 @@ $(document).ready(function() {
         return formatDate(date);
     });
     $.getJSON(archived_versions_json, function(data) {
-        data.sort(function(a, b) {
-            return (new Date(a["release-date"])) < (new Date(b["release-date"]));;
-        });
+	    data.sort(function(a, b) {
+	       return new Date(b["release-date"]) - new Date(a["release-date"]);
+            });
         updateReleaseTable(data);
     });
 });

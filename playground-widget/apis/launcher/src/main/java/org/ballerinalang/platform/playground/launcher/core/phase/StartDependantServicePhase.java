@@ -78,7 +78,7 @@ public class StartDependantServicePhase implements Phase {
                         .defaultCharset()));
                 String line = "";
                 while ((line = reader.readLine()) != null) {
-                    if (line.startsWith("ballerina: started HTTP/WS endpoint")) {
+                    if (line.startsWith(StartPhase.SERVICE_STARTED_MSG_PREFIX)) {
                         next.run();
                     }
                 }

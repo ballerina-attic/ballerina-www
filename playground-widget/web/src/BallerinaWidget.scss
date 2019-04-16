@@ -2,16 +2,21 @@ $default-text-size: 0.8em;
 $control-text-size: 1em;
 
 @font-face {
+    font-family: "Consolas";
+    src:
+      local("Consolas"),
+      url("fonts/Consolas.woff2") format("woff2"),
+      url("fonts/Consolas.woff") format("woff"),
+      url("fonts/Consolas.eot") format("embedded-opentype");
+}
+
+@font-face {
     font-family: "Calibre-Semibold";
     src:
-      url("../fonts/CalibreWeb-Semibold.woff2") format("woff2"),
-      url("../fonts/CalibreWeb-Semibold.woff") format("woff"),
-      url("../fonts/CalibreWeb-Semibold.eot") format("embedded-opentype");
-}
-@font-face {
-    font-family: "Monaco";
-    src:
-      url("../fonts/monaco-webfont.woff") format("woff2");
+      local("Calibre-Semibold"),
+      url("fonts/CalibreWeb-Semibold.woff2") format("woff2"),
+      url("fonts/CalibreWeb-Semibold.woff") format("woff"),
+      url("fonts/CalibreWeb-Semibold.eot") format("embedded-opentype");
 }
 
 @media only screen and (max-width: 569px) {
@@ -103,8 +108,22 @@ $control-text-size: 1em;
                         }
                         .sample-btn {
                             margin-left: 5px;
-                            top: 1px;
+                            top: 3px;
                             position: relative;
+                        }
+                        .github-icon {
+                            display: inline-block;
+                            padding: 0;
+                            margin-right: .75rem;
+                            opacity: 1;
+                            margin: 0 .25rem 0 0;
+                            width: 1.18em;
+                            height: 1em;
+                            text-decoration: inherit;
+                            text-align: center;
+                            &:hover {
+                                cursor: pointer;
+                            }
                         }
                     }
                     &.sample-image {

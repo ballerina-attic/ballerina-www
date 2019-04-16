@@ -19,7 +19,7 @@ import (
 
 var cacheDir = filepath.FromSlash("/tmp/gobyexample-cache")
 var pygmentizeBin = filepath.FromSlash("tools/ballerinaByExample/vendor/pygments/pygmentize")
-var githubBallerinaByExampleBaseURL = "https://github.com/ballerina-platform/ballerina-examples/tree/master"
+var githubBallerinaByExampleBaseURL = "https://github.com/ballerina-lang/ballerina/tree/master"
 var examplesDir = os.Args[1];
 var siteDir = os.Args[2];
 var dirPathWordSeparator = "-"
@@ -144,7 +144,7 @@ func debug(msg string) {
     }
 }
 
-var docsPat = regexp.MustCompile("^\\s*(\\/\\/|#|@\\s*Description\\s*\\{\\s*value\\s*:\\s*\\\")")
+var docsPat = regexp.MustCompile("^\\s*(\\/\\/|@\\s*Description\\s*\\{\\s*value\\s*:\\s*\\\")")
 var docsEndPat = regexp.MustCompile("\\s*\\\"\\s*\\}\\s*")
 var dashPat = regexp.MustCompile("\\-+")
 
@@ -461,7 +461,7 @@ func prepareExample(sourcePaths []string, example Example, currentExamplesList [
             // directory, it will be read first. then we don't need this check.What we do
             if strings.HasSuffix(sourcePath, descriptionFileExtn) {
                 descFileContent = sourceSegs[0].Docs;
-                example.Descs = descFileContent;
+	        example.Descs = markdown(descFileContent);
             } else {
                 example.Segs = append(example.Segs, sourceSegs)
             }

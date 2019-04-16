@@ -1,4 +1,4 @@
 for balSource in *.bal
 do
-    ballerina build $balSource
+    ballerina build $balSource --experimental
 done

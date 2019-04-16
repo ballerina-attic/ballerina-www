@@ -66,7 +66,7 @@ class Console extends React.Component {
      * @inheritDoc
      */
     render() {
-        const { curlVisible, sample: { noOfCurlExecutions = 0 } } = this.props;
+        const { curlVisible, sample: { noOfCurlExecutions = 0, main = false } } = this.props;
         const consoleAreaHeight = curlVisible ? 106 : 132;
         return (
             <div 
@@ -91,11 +91,15 @@ class Console extends React.Component {
                         if ((index - 1) >= 0 && (msgs[index - 1] === 'Compiling source' || msgs[index - 1] === 'Generating executable')) {
                             return (<span/>);
                         }
-                        if (msg === 'building...' && msgs.length > (index + 6)
-                                && msgs[index + 6].startsWith('build completed in')) {
+                        if (msg === 'building...' && msgs.length > (index + 5)
+                                && msgs[index + 5].startsWith('build completed in')) {
                             return (<span/>);
                         }
-                        if (msg.startsWith('build completed in')) {
+                        if (msg === 'building...' && msgs.length > (index + 1)
+                                && msgs[index + 1].startsWith('build completed in') && main) {
+                            return (<span/>);
+                        }
+                        if (msg.startsWith('build completed in') && !main) {
                             return (<div className="console-line">{'building...   ' 
                             + msg.replace('build completed in', 'deployed to kubernetes in')}</div>)
                         }
@@ -135,7 +139,8 @@ class Console extends React.Component {
 
 Console.propTypes = {
     sample: PropTypes.shape({
-        noOfCurlExecutions: PropTypes.number
+        noOfCurlExecutions: PropTypes.number,
+        main: PropTypes.bool,
     }).isRequired,
     onTryItClick: PropTypes.func,
     curlVisible: PropTypes.bool,

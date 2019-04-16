@@ -13,7 +13,7 @@
     <meta name="author" content="{{ config.site_author }}">{% endif %} {% if config.site_favicon %}
     <link rel="shortcut icon" href="{{ base_url }}/{{ config.site_favicon }}"> {% else %}
     <link rel="shortcut icon" href="/img/favicon.ico">{% endif %} {%- endblock %} {%- block htmltitle %}
-    <title>{% if page and page.title and not page.is_hompage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+    <title>{% if page and page.title and not page.is_hompage %}{{ page.title }} {% endif %}</title>
     {%- endblock %} {%- block styles %}
 
 
@@ -23,7 +23,7 @@
              {% if page and page.meta.abstract %}<meta property="og:description" content="{{ page.meta.abstract }}" />{% endif %}
              {% if page and page.meta.socialmediaimage %}<meta property="og:image" content="https://ballerina.io/img/{{ page.meta.socialmediaimage }}" />{% endif %}
 
-       
+
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@ballerinalang">
             <meta name="twitter:creator" content="@ballerinalang">
@@ -34,7 +34,7 @@
             <meta name="twitter:card" content="summary_large_image">
             <meta name="twitter:image:width" content="610">
 
-         
+
 
             <meta property='og:title' content="{{ page.title }}"/>
             {% if page and page.meta.socialmediaimage %}<meta property='og:image' content="https://ballerina.io/img/{{ page.meta.socialmediaimage }}"/>{% endif %}
@@ -50,10 +50,10 @@
     <script src="/js/handlebars-4.0.5/handlebars.js"></script>
     <script src="/js/release_notes/all_release_notes.js"></script>
     {% endif %}
-    
-   
-    
-    
+
+
+
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>
@@ -313,7 +313,7 @@
     <div class="cSocial-sidebar">
                  <ul class="cHorizontalList cSocialMedia" style="list-style: none; padding: 0; margin: 0;">
                      <li>
-                         <a target="_blank" rel="external nofollow" <a class="w-inline-block social-share-btn tw" href="https://twitter.com/intent/tweet?" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20 ' + encodeURIComponent(document.URL)); return false;">
+                         <a target="_blank" rel="external nofollow"  class="w-inline-block social-share-btn tw" href="https://twitter.com/intent/tweet?" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20 ' + encodeURIComponent(document.URL)); return false;">
                                  <img id="iFloating-Twitter-Share" src="https://ballerina.io/img/twitter.svg" alt="Twitter">
                              </a>
                      </li>
@@ -323,7 +323,7 @@
                          </a>
                      </li>
                      <li>
-                         <a target="_blank" rel="external nofollow" <a class="w-inline-block social-share-btn lnk" href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=&source=" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' + encodeURIComponent(document.title)); return false;">
+                         <a target="_blank" rel="external nofollow" class="w-inline-block social-share-btn lnk" href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=&source=" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' + encodeURIComponent(document.title)); return false;">
                                  <img id="iFloating-LinkedIn-Share" src="https://ballerina.io/img/linkedin.svg" alt="LinkedIn">
                              </a>
                      </li>

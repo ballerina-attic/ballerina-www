@@ -63,8 +63,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -280,7 +280,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">{{heading.value}}</span>{{#if heading.isPackageName}} package {{/if}}</li>
+                            <li><span class="bold">{{heading.value}}</span>{{#if heading.isPackageName}} module {{/if}}</li>
                         </ul>
                     </div>
                 </div>
@@ -292,7 +292,7 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">{{heading.value}}</span> {{#if heading.isPackageName}} package {{/if}}
+                                                <span class="bold">{{heading.value}}</span> {{#if heading.isPackageName}} module {{/if}}
                                             </h1>
                                             {{#if description}}
                                             <div class="cAPIdocsDescription">
@@ -301,7 +301,7 @@
                                             {{/if}}
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         {{#exists constructs "primitive"}}
                                          <h2 id="PrimitivesSummary">
@@ -875,7 +875,7 @@
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             {{#each links}}
@@ -895,7 +895,7 @@
                              </ul>
                              {{/each}}
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             {{#each links}}
                              <ul class="{{#if active}}active-package{{/if}}">

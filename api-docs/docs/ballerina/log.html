@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -106,6 +106,20 @@
                     </div>
                     <div class="cLectColStyle">
                         <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
                         
                         <ul class=" ">
                             <li>
@@ -405,6 +419,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -424,7 +445,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/log</span> package </li>
+                            <li><span class="bold">ballerina/log</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -436,14 +457,14 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/log</span>  package 
+                                                <span class="bold">ballerina/log</span>  module 
                                             </h1>
                                             
                                             <div class="cAPIdocsDescription">
-                                                <h2>Package Overview</h2>
-<p>This package provides a basic API for logging.</p>
+                                                <h2>Module Overview</h2>
+<p>This module provides a basic API for logging.</p>
 <h3>Loggers</h3>
-<p>Each package in Ballerina has its own dedicated logger. A log record contains the timestamp, log level, package name, and the log message. The <code>printError()</code> function takes an optional <code>error</code> record apart from the log message. A sample log record logged from the <code>foo</code> package would look as follows:</p>
+<p>Each module in Ballerina has its own dedicated logger. A log record contains the timestamp, log level, module name, and the log message. The <code>printError()</code> function takes an optional <code>error</code> record apart from the log message. A sample log record logged from the <code>foo</code> module would look as follows:</p>
 <pre><code class="language-bash">2018-04-09 11:33:21,300 ERROR [foo] - This is an error log.
 </code></pre>
 <h3>Log Output</h3>
@@ -452,21 +473,21 @@
 <pre><code class="language-bash">$ ballerina run program.bal 2&gt; b7a-user.log
 </code></pre>
 <h3>Log Levels</h3>
-<p>This package provides functions to log at the <code>WARN</code>, <code>ERROR</code>, <code>INFO</code>, <code>DEBUG</code>, and <code>TRACE</code> levels. By default, all log messages are logged to the console at the <code>INFO</code> level. In addition to these, there are two other levels named <code>OFF</code> and <code>ALL</code>. The <code>OFF</code> log level turns off logging, and the <code>ALL</code> log level allows all log levels. The log level can be configured through the Config API.</p>
-<p>The <code>b7a.log.level</code> configuration key can be used to configure the log level for the log API (i.e., for all the packages). The following can be provided in a configuration file.</p>
+<p>This module provides functions to log at the <code>WARN</code>, <code>ERROR</code>, <code>INFO</code>, <code>DEBUG</code>, and <code>TRACE</code> levels. By default, all log messages are logged to the console at the <code>INFO</code> level. In addition to these, there are two other levels named <code>OFF</code> and <code>ALL</code>. The <code>OFF</code> log level turns off logging, and the <code>ALL</code> log level allows all log levels. The log level can be configured through the Config API.</p>
+<p>The <code>b7a.log.level</code> configuration key can be used to configure the log level for the log API (i.e., for all the modules). The following can be provided in a configuration file.</p>
 <pre><code class="language-toml">b7a.log.level=&quot;&lt;LOG_LEVEL&gt;&quot;
 </code></pre>
 <p>The log level can also be configured through a CLI parameter as follows:</p>
 <pre><code class="language-bash">$ ballerina run program.bal -e b7a.log.level=&lt;LOG_LEVEL&gt;
 </code></pre>
-<p>Log levels can be configured for packages either through a configuration file as <code>&lt;PACKAGE_NAME&gt;.loglevel=&quot;&lt;LOG_LEVEL&gt;&quot;</code> or through a CLI parameter as <code>&lt;PACKAGE_NAME&gt;.loglevel=&lt;LOG_LEVEL&gt;</code>.</p>
+<p>Log levels can be configured for modules either through a configuration file as <code>&lt;MODULE_NAME&gt;.loglevel=&quot;&lt;LOG_LEVEL&gt;&quot;</code> or through a CLI parameter as <code>&lt;MODULE_NAME&gt;.loglevel=&lt;LOG_LEVEL&gt;</code>.</p>
 <h2>Sample</h2>
 <p>The following code snippet depicts the usage of all the functions in the log API.</p>
 <pre><code class="language-ballerina">// Logs the message at ERROR level
 log:printError(&quot;error log&quot;);
 
 // Logs the message at ERROR level, along with an error record
-error e = {message: &quot;error occurred&quot;};
+error e = error(&quot;error occurred&quot;);
 log:printError(&quot;error log with cause&quot;, err = e);
 
 // Logs the message at WARN level
@@ -481,23 +502,23 @@ log:printDebug(&quot;debug log&quot;);
 // Logs the message at TRACE level
 log:printTrace(&quot;trace log&quot;);
 </code></pre>
-<p>Suppose that the above code snippet resides in a package named <code>foo</code>. We can set the log level of <code>foo</code> to <code>DEBUG</code> in a configuration file by placing the following entry in it:</p>
-<pre><code class="language-toml">[foo]
+<p>Suppose that the above code snippet resides in a module named <code>foo</code>. We can set the log level of <code>foo</code> to <code>DEBUG</code> in a configuration file by placing the following entry in it:</p>
+<pre><code class="language-toml">[&quot;&lt;org-name&gt;/foo&quot;]
 loglevel=&quot;DEBUG&quot;
 
 OR
 
-foo.loglevel=&quot;DEBUG&quot;
+&quot;&lt;org-name&gt;/foo.loglevel&quot;=&quot;DEBUG&quot;
 </code></pre>
 <p>The log level of <code>foo</code> can also be configured through the CLI as follows:</p>
-<pre><code class="language-bash">$ ballerina run foo -e foo.loglevel=DEBUG
+<pre><code class="language-bash">$ ballerina run -e \&quot;&lt;org-name&gt;/foo.loglevel\&quot;=DEBUG foo
 </code></pre>
 
                                             </div>
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -576,7 +597,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                                 <!-- Function -->
                                                 
                                                 <h2 id="printDebug">
-                                                    <span class="fw-function sm-icon"> </span> public function printDebug(string msg) 
+                                                    <span class="fw-function sm-icon"> </span> public function printDebug(string|function () returns (string) msg) 
                                                 </h2>
                                                 
                                                 <p>
@@ -594,7 +615,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">msg</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|function () returns (<a href="primitive-types.html#string">string</a>)</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The message to be logged</p>
 </td>
@@ -618,7 +639,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                                 <!-- Function -->
                                                 
                                                 <h2 id="printError">
-                                                    <span class="fw-function sm-icon"> </span> public function printError(string msg, error? err) 
+                                                    <span class="fw-function sm-icon"> </span> public function printError(string|function () returns (string) msg, error? err) 
                                                 </h2>
                                                 
                                                 <p>
@@ -636,7 +657,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">msg</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|function () returns (<a href="primitive-types.html#string">string</a>)</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The message to be logged</p>
 </td>
@@ -668,7 +689,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                                 <!-- Function -->
                                                 
                                                 <h2 id="printInfo">
-                                                    <span class="fw-function sm-icon"> </span> public function printInfo(string msg) 
+                                                    <span class="fw-function sm-icon"> </span> public function printInfo(string|function () returns (string) msg) 
                                                 </h2>
                                                 
                                                 <p>
@@ -686,9 +707,9 @@ foo.loglevel=&quot;DEBUG&quot;
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">msg</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|function () returns (<a href="primitive-types.html#string">string</a>)</td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The message to be logged.</p>
+                                                        <td class="cAPI-table-desc"><p>The message to be logged</p>
 </td>
                                                     </tr>
                                                     
@@ -710,7 +731,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                                 <!-- Function -->
                                                 
                                                 <h2 id="printTrace">
-                                                    <span class="fw-function sm-icon"> </span> public function printTrace(string msg) 
+                                                    <span class="fw-function sm-icon"> </span> public function printTrace(string|function () returns (string) msg) 
                                                 </h2>
                                                 
                                                 <p>
@@ -728,7 +749,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">msg</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|function () returns (<a href="primitive-types.html#string">string</a>)</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The message to be logged</p>
 </td>
@@ -752,7 +773,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                                 <!-- Function -->
                                                 
                                                 <h2 id="printWarn">
-                                                    <span class="fw-function sm-icon"> </span> public function printWarn(string msg) 
+                                                    <span class="fw-function sm-icon"> </span> public function printWarn(string|function () returns (string) msg) 
                                                 </h2>
                                                 
                                                 <p>
@@ -770,7 +791,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">msg</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|function () returns (<a href="primitive-types.html#string">string</a>)</td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The message to be logged</p>
 </td>
@@ -953,7 +974,7 @@ foo.loglevel=&quot;DEBUG&quot;
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
@@ -962,6 +983,16 @@ foo.loglevel=&quot;DEBUG&quot;
                                    <!--Package Name-->
                                    
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
                                    </a>
                                    
                                 </li>
@@ -1002,6 +1033,16 @@ foo.loglevel=&quot;DEBUG&quot;
                                    <!--Package Name-->
                                    
                                    <a href="crypto.html">ballerina/<span class="bold">crypto</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="encoding.html">ballerina/<span class="bold">encoding</span>
                                    </a>
                                    
                                 </li>
@@ -1071,7 +1112,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
+                                   <a href="jms.html">ballerina/<span class="bold">jms</span>
                                    </a>
                                    
                                 </li>
@@ -1081,7 +1122,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="jms.html">ballerina/<span class="bold">jms</span>
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
                                    </a>
                                    
                                 </li>
@@ -1103,16 +1144,6 @@ foo.loglevel=&quot;DEBUG&quot;
                                    <!--Package Name-->
                                    
                                    <a href="math.html">ballerina/<span class="bold">math</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
                                    </a>
                                    
                                 </li>
@@ -1152,6 +1183,16 @@ foo.loglevel=&quot;DEBUG&quot;
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -1163,6 +1204,16 @@ foo.loglevel=&quot;DEBUG&quot;
                                    <!--Package Name-->
                                    
                                    <a href="runtime.html">ballerina/<span class="bold">runtime</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
                                    </a>
                                    
                                 </li>
@@ -1259,7 +1310,7 @@ foo.loglevel=&quot;DEBUG&quot;
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
                              <ul class="">
@@ -1267,6 +1318,16 @@ foo.loglevel=&quot;DEBUG&quot;
                                    <!--Package Name-->
                                    
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="bir.html">ballerina/<span class="bold">bir</span>
                                    </a>
                                    
                                 </li>
@@ -1307,6 +1368,16 @@ foo.loglevel=&quot;DEBUG&quot;
                                    <!--Package Name-->
                                    
                                    <a href="crypto.html">ballerina/<span class="bold">crypto</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="encoding.html">ballerina/<span class="bold">encoding</span>
                                    </a>
                                    
                                 </li>
@@ -1376,7 +1447,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
+                                   <a href="jms.html">ballerina/<span class="bold">jms</span>
                                    </a>
                                    
                                 </li>
@@ -1386,7 +1457,7 @@ foo.loglevel=&quot;DEBUG&quot;
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="jms.html">ballerina/<span class="bold">jms</span>
+                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
                                    </a>
                                    
                                 </li>
@@ -1408,16 +1479,6 @@ foo.loglevel=&quot;DEBUG&quot;
                                    <!--Package Name-->
                                    
                                    <a href="math.html">ballerina/<span class="bold">math</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="mb.html">ballerina/<span class="bold">mb</span>
                                    </a>
                                    
                                 </li>
@@ -1457,6 +1518,16 @@ foo.loglevel=&quot;DEBUG&quot;
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="reflect.html">ballerina/<span class="bold">reflect</span>
                                    </a>
                                    
@@ -1468,6 +1539,16 @@ foo.loglevel=&quot;DEBUG&quot;
                                    <!--Package Name-->
                                    
                                    <a href="runtime.html">ballerina/<span class="bold">runtime</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="socket.html">ballerina/<span class="bold">socket</span>
                                    </a>
                                    
                                 </li>
@@ -1581,9 +1662,6 @@ foo.loglevel=&quot;DEBUG&quot;
         });
     </script>
     <script type="text/javascript" src="/search/search.js"></script>
-
-<!-- 0.980.0 -->
-
 </body>
 </html>
 

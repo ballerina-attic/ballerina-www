@@ -64,7 +64,7 @@ if (typeof hljs === 'object') {
         return {
             "k": "package import as public private native service resource function object annotation parameter transformer worker endpoint " +
                 "bind xmlns returns version documentation deprecated new if else match foreach while next break fork join some all timeout " +
-                "try catch finally throw return transaction abort fail onretry retries onabort oncommit lengthof with in lock untaint start await but check",
+                "try catch finally throw return transaction abort fail onretry retries onabort oncommit lengthof with in lock untaint start wait but check",
             "i": {},
             "c": [{
                 "cN": "ballerinadoc",
@@ -199,7 +199,7 @@ $(document).ready(function() {
         '<a class="cBioFooterLink" href="https://github.com/ballerina-platform" target="_blank"><img src="/img/github.svg"/></a>' +
         '</li>' +
         '<li><a class="cBioFooterLink" href="https://stackoverflow.com/questions/tagged/ballerina" target="_blank"><img src="/img/stackoverflow.svg"/></a></li>' +
-        '<li><a class="cBioFooterLink" href="https://twitter.com/ballerinalang" target="_blank"><img src="/img/twitter.svg"/></a></li>' +
+        '<li><a class="cBioFooterLink" href="https://twitter.com/ballerinaplat" target="_blank"><img src="/img/twitter.svg"/></a></li>' +
         '<li><a class="cBioFooterLink" href="/open-source/slack/"><img src="/img/slack.svg"/></a></li>' +
         '</ul>' +
         '<div class="pdframe"></div>' +

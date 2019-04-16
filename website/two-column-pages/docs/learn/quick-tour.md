@@ -4,7 +4,7 @@ Now that you know a little bit [about Ballerina](/philosophy), let's take it for
 
 ## Install Ballerina
 
-1. Go to the [Download page](https://ballerina.io/downloads) and click **Download Ballerina**.
+1. Go to the [Download page](https://ballerina.io/downloads).
 1. Download Ballerina for your OS and follow the instructions given to set it up. For more information, see [Getting Started](/learn/getting-started).
 
 > **Note**: Throughout this documentation, `<ballerina_home>` refers to the directory in which you just installed Ballerina.
@@ -71,35 +71,33 @@ $ code <folder_path>\hello_service.bal
 You can view your service in VS Code.
 
 ```ballerina
-// A system package containing protocol access constructs
-// Package objects referenced with 'http:' in code
+// A system module containing protocol access constructs
+// Module objects referenced with 'http:' in code
 import ballerina/http;
-import ballerina/io;
 
-// A service endpoint represents a listener
-endpoint http:Listener listener {
-    port: 9090
-};
+# A service is a network-accessible API
+# Advertised on '/hello', port comes from listener endpoint
+service hello on new http:Listener(9090) {
 
-// A service is a network-accessible API
-// Advertised on '/hello', port comes from listener endpoint
-service<http:Service> hello bind listener {
+    # A resource is an invokable API method
+    # Accessible at '/hello/sayHello
+    # 'caller' is the client invoking this resource
 
-    // A resource is an invokable API method
-    // Accessible at '/hello/sayHello
-    // 'caller' is the client invoking this resource 
-    sayHello(endpoint caller, http:Request request) {
+    # + caller - Server Connector
+    # + request - Request
+    # + return - error, if there is an issue
+    resource function sayHello(http:Caller caller, http:Request request) returns error? {
 
         // Create object to carry data back to caller
         http:Response response = new;
 
-        // Objects and structs can have function calls
-        response.setTextPayload("Hello Ballerina!\n");
+        // Objects and records can have function calls
+        response.setTextPayload("Hello Ballerina!");
 
         // Send a response back to caller
         // Errors are ignored with '_'
         // -> indicates a synchronous network-bound call
-        _ = caller->respond(response);
+        _ = check caller->respond(response);
     }
 }
 ```
@@ -137,31 +135,34 @@ Now you can start the service again and call it by opening a new command line wi
 $ curl http://localhost:9090 -X POST
 ```
 
+> **Tip**: To ensure that you have root access, run the cURL command using `sudo`.
+
 ## Use an Endpoint
+Ballerina endpoint is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. An endpoint can be used to configure parameters related to the network accessible service.
 
-Ballerina client endpoint is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. An endpoint can be used to configure parameters related to the network accessible service.
+There are two kinds of endpoints in Ballerina, inbound (or ingress) and outbound (or egress) endpoints, a client object is an outbound endpoint, which we would use to send messages to a network service.
 
-Ballerina Central stores numerous packages that that can be used with your service. You can search for them using the `ballerina search` command. Use the following command to search for packages where the package name, description, or org name contain the word "twitter".
+Ballerina Central stores numerous modules that can be used with your service. You can search for them using the `ballerina search` command. Use the following command to search for modules where the module name, description, or org name contains the word "twitter".
 
 ```
 $ ballerina search twitter
 ```
 
-This results in a list of available packages. You can pull the one you want from Ballerina Central.
+This results in a list of available modules. You can pull the one you want from Ballerina Central.
 
 ```
 $ ballerina pull wso2/twitter
 ```
 
-You can use the `wso2/twitter` package to integrate with a Twitter endpoint.
+You can use the `wso2/twitter` module to integrate with a Twitter endpoint.
 
-In your `hello_service.bal` file, import the Twitter package.
+In your `hello_service.bal` file, import the Twitter module.
 
 ```ballerina
 import wso2/twitter;
 ```
 
-> **Note**: You can import the package and use it without using `ballerina pull`. `ballerina pull` ensures code completion.
+> **Note**: You can import the module and use it without using `ballerina pull`. `ballerina pull` ensures code completion.
 
 You can now use Ballerina to integrate with Twitter.
 
@@ -193,7 +194,7 @@ Now you can program Ballerina to send a tweet.
 
 ### Program Ballerina to Send a Tweet
 
-In your `hello_service.bal` file, import the `ballerina/config` package.
+In your `hello_service.bal` file, import the `ballerina/config` module.
 
 ```ballerina
 import ballerina/config;
@@ -202,66 +203,67 @@ import ballerina/config;
 Add this code after the import statement.
 
 ```ballerina
-endpoint twitter:Client twitter {
+twitter:Client twitterClient = new({
    clientId: config:getAsString("consumerKey"),
    clientSecret: config:getAsString("consumerSecret"),
    accessToken: config:getAsString("accessToken"),
    accessTokenSecret: config:getAsString("accessTokenSecret")
-};
+});
 ```
 
-Here we are creating an endpoint to connect with the Twitter service. The above configuration is used to configure the connectivity to the Twitter service.
+Here we are creating an client object to connect with the Twitter service. The above configuration is used to configure the connectivity to the Twitter service.
 
 Now you have the Twitter endpoint.
 
-In the `sayHello` resource, add the following to get the payload as a string.
+In the `sayHello` resource function, add the following to get the payload as a string.
 
 ```ballerina
 string status = check request.getTextPayload();
 ```
 
-> **Tip**: The check keyword means that this may return an error but I do not want to handle it here - pass it further away (to the caller function, or if this is a top-level function - generate a runtime failure).
+Change the signature of the `sayHello` resource function to add `returns error?`, so that `check` will return the error value if `request.getTextPayload()` evaluates to `error`.
 
-Now, we can get our response from Twitter by just calling its tweet action. Add this into the `sayHello` resource as well.
+> **Tip**: The `check` keyword denotes that if the expression evaluates to `error`, then the returned error is not handled within the same function. For example, when `check` is used with the `sayHello` `resource` `function` and if the given expression evaluates to `error`, the function execution would stop and "500 Internal Server Error" would be set as the response.
+
+Now, you can get the response from Twitter by calling the tweet function. Replace `response.setTextPayload("Hello Ballerina!\n");` in the `sayHello` resource with the following lines of code:
 
 ```ballerina
-twitter:Status st = check twitter->tweet(status);
-response.setTextPayload("ID:" + <string>st.id + "\n");
+twitter:Status st = check twitterClient->tweet(status);
+http:Response response = new;
+response.setTextPayload("ID:" + string.convert(st.id) + "\n");
 ```
 
 The completed source code should look similar to the following:
 ```ballerina
 import ballerina/config;
+// A system module containing protocol access constructs
+// Module objects referenced with 'http:' in code
 import ballerina/http;
 import wso2/twitter;
 
-endpoint twitter:Client twitterEP {
+twitter:Client twitterClient = new({
    clientId: config:getAsString("consumerKey"),
    clientSecret: config:getAsString("consumerSecret"),
    accessToken: config:getAsString("accessToken"),
    accessTokenSecret: config:getAsString("accessTokenSecret")
-};
-
-endpoint http:Listener listener {
-    port: 9090
-};
+});
 
 @http:ServiceConfig {
-    basePath: "/"
+   basePath: "/"
 }
-service<http:Service> hello bind listener {
-
+service hello on new http:Listener(9090) {
     @http:ResourceConfig {
+        methods: ["POST"],
         path: "/"
     }
-    sayHello (endpoint caller, http:Request request) {
+    resource function sayHello(http:Caller caller, http:Request request) returns error? {
         string status = check request.getTextPayload();
-        twitter:Status st = check twitterEP->tweet(status, "", "");
-
+        twitter:Status st = check twitterClient->tweet(status);
         http:Response response = new;
-        response.setTextPayload("ID:" + <string>st.id + "\n");
+        response.setTextPayload("ID:" + string.convert(untaint st.id) + "\n");
 
-        _ = caller->respond(response);
+        _ = check caller->respond(response);
+        return ();
     }
 }
 ```
@@ -276,8 +278,10 @@ $ ballerina run --config twitter.toml hello_service.bal
 Now go to the terminal window and send a request containing the text for the tweet:
 
 ```bash
-$ curl -d "Ballerina" -X POST localhost:9090
+$ curl -d "Ballerina" -X POST localhost:9090/
 ```
+
+> **Tip**: To ensure that you have root access, run the cURL command using `sudo`.
 
 You just tweeted using Ballerina!
 
@@ -287,7 +291,7 @@ Now that you have verified your service, let's go ahead and deploy this on Docke
 
 > **Tip**: This was tested on the community edition version of Docker Edge. You need to have Docker installed to use this. Also start/restart Docker prior to running your code. Windows users should enable **[Expose Daemon without TLS](https://github.com/ballerinax/docker/tree/master/samples#prerequisites)** option.
 
-Import the Docker package.
+Import the Docker module.
 
 ```ballerina
 import ballerinax/docker;
@@ -308,12 +312,15 @@ Now, let’s add the annotations you need to run the service in Docker. These an
     ]
 }
 @docker:Expose {}
-endpoint http:Listener listener {
-    port: 9090
-};
+listener http:Listener cmdListener = new(9090);
+
+@http:ServiceConfig {
+   basePath: "/"
+}
+service hello on cmdListener {
 ```
 
-> **Note**: On Windows, make sure Docker runs with Linux containers and in the general settings, enable `Expose daemon on tcp://localhost:2375 without TLS`. For more details, see the [Docker README](https://github.com/ballerinax/docker/blob/master/samples/README.md).
+> **Note**: On Windows, make sure Docker runs with Linux containers, and in the general settings, enable `Expose daemon on tcp://localhost:2375 without TLS`. For more information, see the [Docker README file](https://github.com/ballerinax/docker/blob/master/samples/README.md).
 
 Now your code is ready to generate the deployment artifacts. In this case it is a Docker image.
 
@@ -328,11 +335,12 @@ Compiling source
     hello_service.bal
 
 Generating executable
-    ./target/hello_service.balx
-	@docker 		 - complete 3/3
+    hello_service.balx
+        @docker                  - complete 3/3
 
-	Run following command to start docker container:
-	docker run -d registry.hub.docker.com/helloworld:v1.0
+        Run the following command to start a Docker container:
+        docker run -d -p 9090:9090 registry.hub.docker.com/helloworld:v1.0
+
 ```
 
 Run the following command to start the Docker container:
@@ -353,7 +361,7 @@ If Docker is running, you will see an output similar to the following.
 
 ```
 REPOSITORY                                      TAG                 IMAGE ID            CREATED              SIZE
-registry.hub.docker.com/helloballerina          v1.0                eb4f9888f72f        About a minute ago   127MB
+registry.hub.docker.com/helloworld              v1.0                eb4f9888f72f        About a minute ago   127MB
 ```
 
 Run the following to get details of the Docker container.
@@ -377,17 +385,17 @@ $ curl -d "Hello Ballerina" -X POST localhost:9090
 
 You have now posted a tweet using the Docker hosted service.
 
-## Push your Package to Ballerina Central
+## Push your Module to Ballerina Central
 
 For the `ballerina push` command to work, you need to copy and paste your Ballerina Central access token in `Settings.toml` in your home repository `<USER_HOME>/.ballerina/`.
 
 Register on Ballerina Central and visit the user dashboard at [https://central.ballerina.io/dashboard](https://central.ballerina.io/dashboard) to gain access to your user token.  
 
-When you push a package to Ballerina Central, the runtime validates organizations for the user against the `org-name` defined in your package’s `Ballerina.toml` file.
+When you push a module to Ballerina Central, the runtime validates organizations for the user against the `org-name` defined in your module’s `Ballerina.toml` file.
 
-Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the package into and set that as the `org-name` in `Ballerina.toml` inside the project directory.
+Therefore, when you have more than one organization in Ballerina Central, be sure to pick the organization name that you intend to push the module into and set that as the `org-name` in `Ballerina.toml` inside the project directory.
 
-You need to build the package prior to pushing the package to Ballerina Central. The `ballerina` build command compiles and creates an executable binary file (i.e., a .balx file).
+You need to build the module prior to pushing the module to Ballerina Central. The `ballerina` build command compiles and creates an executable binary file (i.e., a .balx file).
 
 For more information on the `ballerina build` command run the following.
 
@@ -397,21 +405,21 @@ $ ballerina help build
 
 > **Tip**: You can use `ballerina help <command-name>` for more information on any of the commands.
 
-By default, the output filename for a package is the package name suffixed with `.balx`. The default output replaces the `.bal` suffix with `.balx`.
+By default, the output filename for a module is the module name suffixed with `.balx`. The default output replaces the `.bal` suffix with `.balx`.
 
-Build your package.
-
-```bash
-$ ballerina build <package-name>
-```
-
-Once that is done, push your package to Ballerina Central.
+Build your module.
 
 ```bash
-$ ballerina push <package-name>
+$ ballerina build <module-name>
 ```
 
-For example, if you have a Ballerina package named `math`, the following command will push it to Ballerina Central.
+Once that is done, push your module to Ballerina Central.
+
+```bash
+$ ballerina push <module-name>
+```
+
+For example, if you have a Ballerina module named `math`, the following command will push it to Ballerina Central.
 
 ```bash
 $ ballerina push math
@@ -423,34 +431,9 @@ For more information on the `ballerina push` command run the following.
 $ ballerina help push
 ```
 
-## Run the Composer
-Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes with additional features like debugging, tracing, and tryIt. 
-
-### To start the Composer: 
-
-#### Linux
-
-In the command line, type `composer`.
-
-#### Windows
-
-Launch Ballerina Composer from start menu.
-
-#### Mac 
-
-Launch Ballerina Composer app from Applications.
-
-### To edit a Ballerina file in Composer:
-
-1. In the Composer, click **File** and choose **Open File**.
-
-2. Navigate to your service and open it to view this in the Composer.
-
-![Ballerina Composer](/img/docs-images/quick-tour-composer.png)
-
 ## Follow the Repo
 
-<div class="cGitButtonContainer"><p id="iGitStarText">"Star"</p> <p id="iGitWatchText">"Watch"</p></div>
+<div class="cGitButtonContainer"><p data-button="iGitStarText">"Star"</p> <p data-button="iGitWatchText">"Watch"</p></div>
 
 Star [GitHub repo](https://github.com/ballerina-platform/ballerina-lang)  and show appreciation to Ballerina maintainers for their work. Watch the repo to keep track of Ballerina issues.
 
@@ -459,4 +442,4 @@ Star [GitHub repo](https://github.com/ballerina-platform/ballerina-lang)  and sh
 Now that you have taken Ballerina around for a quick twirl, you can explore Ballerina more.
 
 * Go through [Ballerina by Example](/learn/by-example/) to learn Ballerina incrementally with commented examples that cover every nuance of the syntax.
-* See [Ballerina by Guide](/learn/by-guide/) for long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
+* See [Ballerina by Guide](/learn/by-guide/) for long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, modules, dependencies, coding, unit testing, deployment, and observability.
