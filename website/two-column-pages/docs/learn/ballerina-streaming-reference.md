@@ -154,12 +154,12 @@ type temperature record {
   int deviceID;
   int roomNo;
   float value;
-}
+};
 
 type roomTemperature record {
   int roomNo;
   float value;
-}
+};
 
 stream<temperature> tempStream;
 
@@ -854,16 +854,16 @@ The following streaming query calculates the temperature difference between two 
 
 ```ballerina
 type Temperature record {
-    int deviceID,
-    int roomNo,
-    float temp
+    int deviceID;
+    int roomNo;
+    float temp;
 };
 
 type Regulator record {
-    int deviceID,
-    int roomNo,
-    float tempSet,
-    boolean isOn
+    int deviceID;
+    int roomNo;
+    float tempSet;
+    boolean isOn;
 };
 
 stream<Temperature> tempStream;
@@ -913,16 +913,16 @@ Following streaming query, sends the `stop` control action to the regulator when
 ```ballerina
 
 type RegulatorState record {
-    int deviceID,
-    int roomNo,
-    float tempSet,
-    string action
+    int deviceID;
+    int roomNo;
+    float tempSet;
+    string action;
 };
 
 type RoomKey record {
-    int deviceID,
-    int roomNo,
-    string action
+    int deviceID;
+    int roomNo;
+    string action;
 };
 
 stream<RegulatorState> regulatorStateChangeStream;
@@ -943,16 +943,16 @@ This streaming query generates an alert if we have switch off the regulator befo
 ```ballerina
 
 type RegulatorState record {
-    int deviceID,
-    int roomNo,
-    float tempSet,
-    string action
+    int deviceID;
+    int roomNo;
+    float tempSet;
+    string action;
 };
 
 type Temperature record {
-    int deviceID,
-    int roomNo,
-    float temp
+    int deviceID;
+    int roomNo;
+    float temp;
 };
 
 stream<RegulatorState> regulatorStateChangeStream;
@@ -972,16 +972,16 @@ This streaming query generates an alert if the temperature does not reduce to 12
 ```ballerina
 
 type RegulatorState record {
-    int deviceID,
-    int roomNo,
-    float tempSet,
-    string action
+    int deviceID;
+    int roomNo;
+    float tempSet;
+    string action;
 };
 
 type Temperature record {
-    int deviceID,
-    int roomNo,
-    float temp
+    int deviceID;
+    int roomNo;
+    float temp;
 };
 
 stream<RegulatorState> regulatorStateChangeStream;
@@ -1081,9 +1081,9 @@ This streaming query identifies temperature peeks.
 ```ballerina
 
 type Temperature record {
-    int deviceID,
-    int roomNo,
-    float temp
+    int deviceID;
+    int roomNo;
+    float temp;
 };
 
 stream<Temperature> tempStream;
@@ -1123,18 +1123,18 @@ This streaming query notifies the state when a regulator event is immediately fo
 ```ballerina
 
 type Temperature record {
-    int deviceID,
-    float temp
+    int deviceID;
+    float temp;
 };
 
 type Humidity record {
-    int deviceID,
-    float humid
+    int deviceID;
+    float humid;
 };
 
 type Regulator record {
-    int deviceID,
-    boolean isOn
+    int deviceID;
+    boolean isOn;
 };
 
 stream<Temperature> tempStream;
