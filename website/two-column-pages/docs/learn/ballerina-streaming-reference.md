@@ -166,13 +166,17 @@ type roomTemperature record {
 };
 
 stream<temperature> tempStream = new;
+stream<roomTemperature> roomTempStream = new;
 
-
-from tempStream
-select tempStream.roomNo, tempStream.value
-=> (roomTemperature[] temperatures) {
-    foreach var value in temperatures {
-        roomTempStream.publish(value);
+public function initQuery() {
+    forever {
+        from tempStream
+        select tempStream.roomNo, tempStream.value
+        => (roomTemperature[] temperatures) {
+            foreach var value in temperatures {
+                roomTempStream.publish(value);
+            }
+        }
     }
 }
 ```
@@ -903,6 +907,9 @@ We could perform operations such as add, delete, update and join with tables.
 In the following example, query events that arrive in `stockStream` are added into the table `itemStockTable` after projecting a few attributes from the event.
 
 ```ballerina
+import ballerina/io;
+import ballerina/runtime;
+
 //This is the record that holds item details in the stockTable.
 type Item record {|
     string name;
@@ -931,19 +938,28 @@ table<Item> itemStockTable = table {
     ]
 };
 
+public function main() {
+    initQuery();
 
-function initStockUpdate() {
+    Stock d = {name : "FOO", price: 100.3, stockAmount: 2000, manufactureName: "BAR", manufactureId: 23};
+    stockStream.publish(d);
+
+    runtime:sleep(2000);
+
+    io:println(itemStockTable);
+}
+
+public function initQuery() {
     forever {
         from stockStream
-        select stockStream.name as name, stockStream.price, stockStream.stockAmount
+        select stockStream.name, stockStream.price, stockStream.stockAmount
         => (Item[] items) {
             foreach var item in items {
-                itemStockTable.add(item);
+                _ = checkpanic itemStockTable.add(item);
             }
         }
     }
 }
-
 ```
 
 
@@ -952,24 +968,27 @@ In the following query, we perform a join operation between the event stream and
 an alert event is published to `orderAlertStream`.
 
 ```ballerina
+import ballerina/io;
+import ballerina/runtime;
+
 //This is the record that holds item details in the stockTable.
-type Item record {|
+type Item record {
     string name;
     float price;
     int stockAmount;
-|};
+};
 
 // This is the record that holds order events from the customer.
-type Order record {|
+type Order record {
     string itemName;
     int orderingAmount;
-|};
+};
 
 //This is the record that holds alert events.
-type OutOfStockAlert record {|
+type OutOfStockAlert record {
     string itemName;
     int stockAmount;
-|};
+};
 
 // This is the input stream that uses `Order` as the constraint type.
 stream<Order> orderStream = new;
@@ -1013,6 +1032,22 @@ public function queryItemTable(string itemName, int orderingAmount)
     return result;
 }
 
+public function main() {
+
+    initOutOfStockAlert();
+
+    Order o1 = {itemName: "Book", orderingAmount: 20};
+    Order o2 = {itemName: "Pen", orderingAmount: 3};
+
+    orderAlertStream.subscribe(function(OutOfStockAlert alert) {
+            io:println("Aert: Stocks unavailable for: ", alert.itemName, " Available stocks: ", alert.stockAmount);
+    });
+
+    orderStream.publish(o1);
+    orderStream.publish(o2);
+
+    runtime:sleep(2000);
+}
 ```
 
 
@@ -1179,32 +1214,80 @@ Here the `!` pattern can be followed by either an `&&` clause or the effective p
 Following streaming query, sends the `stop` control action to the regulator when the key is removed from the hotel room.
 ```ballerina
 
+import ballerina/io;
+import ballerina/runtime;
+
+// Create a record type that represents the regulator state.
 type RegulatorState record {
-    int deviceID;
+    int deviceId;
     int roomNo;
     float tempSet;
-    string action;
+    string userAction;
 };
 
-type RoomKey record {
-    int deviceID;
+// Create a record type that represents the user actions on the hotel key.
+type RoomKeyAction record {
     int roomNo;
-    string action;
+    string userAction;
 };
 
 stream<RegulatorState> regulatorStateChangeStream = new;
-stream<RoomKey> roomKeyStream = new;
+stream<RoomKeyAction> roomKeyStream = new;
+stream<RoomKeyAction> regulatorActionStream = new;
 
-from every regulatorStateChangeStream where (action == 'on') as e1
-      followed by roomKeyStream where (e1.roomNo == roomNo && action == 'removed') as e2
-      || regulatorStateChangeStream where (e1.roomNo == roomNo && action == 'off') as e3
-select e1.roomNo, e2 == null ? "none" : "stop" as action
-    having action != 'none'
-=> (RegulatorAction [] outputs) {
-    foreach var output in outputs {
-        regulatorActionStream.publish(output);
+// Deploy the decision rules for the regulator's next action based on the current regulator state and the user action on
+// the hotel key. If the regulator was on before and is still on after the user has removed the hotel key from the
+// room, the `stop` control action is called.
+function deployRegulatorActionDecisionRules() {
+    forever {
+        from every regulatorStateChangeStream
+            where userAction == "on" as e1
+        followed by roomKeyStream
+            where e1.roomNo == roomNo && userAction == "removed" as e2
+        || regulatorStateChangeStream
+            where e1.roomNo == roomNo && userAction == "off" as e3
+        select e1.roomNo as roomNo,
+            e2 == null ? "none" : "stop" as userAction
+        having userAction != "none"
+        => (RoomKeyAction[] keyActions) {
+            foreach var keyAction in keyActions {
+                regulatorActionStream.publish(keyAction);
+            }
+        }
     }
 }
+
+public function main() {
+
+    // Deploys the streaming pattern rules that define how the regulator is controlled based on received events.
+    deployRegulatorActionDecisionRules();
+
+    // Sample events that represent the different regulator states.
+    RegulatorState regulatorState1 = { deviceId: 1, roomNo: 2, tempSet: 23.56, userAction: "on" };
+    RegulatorState regulatorState2 = { deviceId: 1, roomNo: 2, tempSet: 23.56, userAction: "off" };
+
+    // A sample event that represents the user action on the door of the room. 'removed' indicates that the owner has left the room.
+    RoomKeyAction roomKeyAction = { roomNo: 2, userAction: "removed" };
+
+    // The `RegulatorActionStream` subscribes to the `alertRoomAction` function. Whenever the
+    // 'RegulatorActionStream' stream receives a valid event, this function is called.
+    regulatorActionStream.subscribe(alertRoomAction);
+
+    // Publish/simulate the sample event that represents the regulator `switch on` event.
+    regulatorStateChangeStream.publish(regulatorState1);
+    runtime:sleep(200);
+
+    // Simulate the sample event that represents the door/room closed event.
+    roomKeyStream.publish(roomKeyAction);
+    runtime:sleep(3000);
+}
+
+function alertRoomAction(RoomKeyAction action) {
+    io:println("alertRoomAction function invoked for Room : " +
+            action.roomNo + " and the action : " +
+            action.userAction);
+}
+
 ```
 
 This streaming query generates an alert if we have switch off the regulator before the temperature reaches 12 degrees.
@@ -1354,23 +1437,91 @@ select <event reference>.<attribute name>, <event reference>.<attribute name>, .
 This streaming query identifies temperature peeks.
 
 ```ballerina
+import ballerina/runtime;
+import ballerina/io;
 
-type Temperature record {
+// Create a record type that represents the device temperature reading.
+type DeviceTempInfo record {
     int deviceID;
     int roomNo;
     float temp;
 };
 
-stream<Temperature> tempStream = new;
+// Create a record type that represents the initial temperature and the peak temperature.
+type TempDiffInfo record {
+    float initialTemp;
+    float peakTemp;
+};
 
-from every tempStream as e1, tempStream where (e1.temp <= temp)[1..] as e2,
-           tempStream where (e2[e2.length-1].temp > temp) as e3
-select e1.temp as initialTemp, e2[e2.length-1].temp as peakTemp
-=>(PeekTemperature [] values) {
-    foreach var value in values {
-        peekTempStream.publish(value);
+// The stream that gets the input temperature readings.
+stream<DeviceTempInfo> tempStream = new;
+
+// The output stream with peak temperature values.
+stream<TempDiffInfo> tempDiffInfoStream = new;
+
+// This is the function that contains the rules that detect the temperature peak values. The first event's temperature
+// should be greater than the temperature values that are returned with the next event, which is e2. The last
+// temperature value in e2 should be greater than the temperature value that is given in the event e3. This makes
+// the last value of e2, the peak temperature.
+function deployPeakTempDetectionRules() {
+    forever {
+        from every tempStream as e1, tempStream
+            where e1.temp <= temp [1..] as e2,
+        tempStream where e2[e2.length - 1].temp > temp as e3
+        select e1.temp as initialTemp,
+            e2[e2.length - 1].temp as peakTemp
+        => (TempDiffInfo[] tempDiffInfos) {
+        // If the sequence is matched, the data is pushed/published to the output stream.
+            foreach var tempDiffInfo in tempDiffInfos {
+                tempDiffInfoStream.publish(tempDiffInfo);
+            }
+        }
     }
 }
+
+public function main() {
+
+    // Deploy the streaming sequence rules.
+    deployPeakTempDetectionRules();
+
+    // Subscribe to the `printInitialAndPeakTemp` function. This prints the peak temperature values.
+    tempDiffInfoStream.subscribe(printInitalAndPeakTemp);
+
+    // Simulating the data that is being sent to the `tempStream` stream.
+    DeviceTempInfo t1 = { deviceID: 1, roomNo: 23, temp: 20.0 };
+    DeviceTempInfo t2 = { deviceID: 1, roomNo: 23, temp: 22.5 };
+    DeviceTempInfo t3 = { deviceID: 1, roomNo: 23, temp: 23.0 };
+    DeviceTempInfo t4 = { deviceID: 1, roomNo: 23, temp: 21.0 };
+    DeviceTempInfo t5 = { deviceID: 1, roomNo: 23, temp: 24.0 };
+    DeviceTempInfo t6 = { deviceID: 1, roomNo: 23, temp: 23.9 };
+
+    // Start simulating the events with the temperature readings.
+    tempStream.publish(t1);
+    runtime:sleep(200);
+
+    tempStream.publish(t2);
+    runtime:sleep(200);
+
+    tempStream.publish(t3);
+    runtime:sleep(200);
+
+    tempStream.publish(t4);
+    runtime:sleep(200);
+
+    tempStream.publish(t5);
+    runtime:sleep(200);
+
+    tempStream.publish(t6);
+    runtime:sleep(2000);
+}
+
+// The function that prints the peak temperature readings.
+function printInitalAndPeakTemp(TempDiffInfo tempDiff) {
+    io:println("printInitalAndPeakTemp function is invoked. " +
+                    "InitialTemp : " + tempDiff.initialTemp +
+                        " and Peak temp : " + tempDiff.peakTemp);
+}
+
 ```
 
 ##### Logical Sequence
