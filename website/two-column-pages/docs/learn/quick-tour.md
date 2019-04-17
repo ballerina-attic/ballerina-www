@@ -97,7 +97,7 @@ service hello on new http:Listener(9090) {
         // Send a response back to caller
         // Errors are ignored with '_'
         // -> indicates a synchronous network-bound call
-        _ = check caller->respond(response);
+        check caller->respond(response);
     }
 }
 ```
@@ -262,8 +262,7 @@ service hello on new http:Listener(9090) {
         http:Response response = new;
         response.setTextPayload("ID:" + string.convert(untaint st.id) + "\n");
 
-        _ = check caller->respond(response);
-        return ();
+        check caller->respond(response);
     }
 }
 ```

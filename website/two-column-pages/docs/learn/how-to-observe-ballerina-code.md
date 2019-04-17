@@ -40,14 +40,15 @@ import ballerina/log;
 
 service hello on new http:Listener(9090) {
     
-    resource function sayHello (http:Caller caller, http:Request req) {
+    resource function sayHello (http:Caller caller, http:Request req) returns error? {
         log:printInfo("This is a test Info log");
         log:printError("This is a test Error log");
         log:printWarn("This is a test Warn log");
         http:Response res = new;
         res.setPayload("Hello, World!");
-        _ = caller -> respond(res);
+        check caller->respond(res);
     }
+    
 }
 ```
 
