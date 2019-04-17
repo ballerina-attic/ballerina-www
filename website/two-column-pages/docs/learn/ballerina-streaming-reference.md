@@ -946,7 +946,10 @@ public function main() {
 
     runtime:sleep(2000);
 
-    io:println(itemStockTable);
+    io:println("Records in table after inserting new record: ");
+    while(itemStockTable.hasNext()) {
+        io:println(" ", itemStockTable.getNext());
+    }
 }
 
 public function initQuery() {
