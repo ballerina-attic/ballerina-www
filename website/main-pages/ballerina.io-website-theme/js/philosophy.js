@@ -32,7 +32,7 @@ $(document).ready(function() {
         "Protocols and Standards": [
             { "name": "gRPC", "desc": "Exposing gRPC services from existing JSON and/or SOAP service", "url": "grpc-service", "git": "" },
             { "name": "WebSockets", "desc": "Develop WebSocket service that handels JavaScrip WebSocket API calls", "url": "websocket-integration", "git": "" },
-            { "name": "Swagger / OpenAPI", "desc": "", "url": "open-api-based-service", "git": "" },
+            { "name": "OpenAPI", "desc": "", "url": "open-api-based-service", "git": "" },
             { "name": "Messaging with Kafka", "desc": "Pub-sub based asynchronous communication with Kafka", "url": "messaging-with-kafka", "git": "" },
             { "name": "Messaging with JMS", "desc": "Publish and subscribe to messages with a JMS broker", "url": "messaging-with-jms-queues", "git": "" }
         ],

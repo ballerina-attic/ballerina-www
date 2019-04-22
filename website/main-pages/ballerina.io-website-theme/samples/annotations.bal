@@ -1,5 +1,5 @@
 import ballerina/http;
-import ballerina/swagger;
+import ballerina/openapi;
 import ballerinax/kubernetes;
 
 // Generate Docker image and Kubernetes deployment artifacts
@@ -9,8 +9,8 @@ import ballerinax/kubernetes;
     name: "ballerina-demo"
 }
 
-// Generate swagger with: ballerina swagger export demo.bal
-@swagger:ServiceInfo {
+// Generate openapi with: ballerina openapi export demo.bal
+@openapi:ServiceInfo {
     title: "Hello World Service",
     serviceVersion: "2.0.0",
     description: "Simple hello world service"
