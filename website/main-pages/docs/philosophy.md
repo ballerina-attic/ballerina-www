@@ -1889,7 +1889,7 @@
       <div class="cPhil-title-boxes cPhil-title-boxes-white">
          <div class="cPhil-title-boxes-container cPhil-title-boxes-container-white">
             <h3>HETEROGENEOUS DATA HANDLING</h3>
-            <p>The Ballerina type system has rich built in support for JSON, XML, streams and tables, as well as direct support for ProtoBuf and gRPC. The result is clean, readable code for dealing with network payloads, SQL programming and stream processing. Data transformation logic isn’t encumbered with complex generated types, third-party library code or other obfuscation - simple clear readable code captures interactions with heterogenous data and transformation logic.</p>
+            <p>The Ballerina type system has rich built in support for JSON, XML, streams and tables, as well as direct support for ProtoBuf and gRPC. The result is clean, readable code for dealing with network payloads, SQL programming and stream processing. Data transformation logic isn’t encumbered with complex generated types, third-party library code or other obfuscation - simple clear readable code captures interactions with heterogeneous data and transformation logic.</p>
          </div>
       </div>
    </div>

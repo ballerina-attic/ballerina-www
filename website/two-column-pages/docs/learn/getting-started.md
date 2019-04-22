@@ -16,7 +16,7 @@ Ballerina binary distributions are available for the following supported operati
 - Red Hat Enterprise Linux 5.5 x64 and above
 - OS X 10.8.3 x64 and above
 
-If your operating system or architecture is not on the list, you can [install from source](https://github.com/ballerina-platform/ballerina-lang/blob/master/README.md#install-from-source) instead.
+If your operating system or architecture is not on the list, you can [install from source](https://github.com/ballerina-platform/ballerina-lang#install-from-source) instead.
 
 ## Installing Ballerina via installers
 
@@ -42,7 +42,7 @@ The installer should put the `C:\Program Files\Ballerina\<ballerina-directory>\b
 * If you downloaded the DEB file, use the following command, and specify the actual filename and location in the command:
 
 ```
-dpkg -i /<ballerina-home>/<ballerina-binary>.deb
+dpkg -i <ballerina-binary>.deb
 ```
 
 This installs the Ballerina distribution to `/usr/lib/ballerina`.

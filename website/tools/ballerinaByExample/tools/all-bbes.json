@@ -75,8 +75,8 @@
                 "url": "functional-iteration"
             },
             {
-                "name": "Functions as Entry Points",
-                "url": "functions-as-entry-points"
+                "name": "The Main Function",
+                "url": "the-main-function"
             }
         ]
     },
@@ -107,6 +107,14 @@
             {
                 "name": "Record Match",
                 "url": "record-match-statement"
+            },
+            {
+                "name": "Error Match",
+                "url": "error-match-statement"
+            },
+            {
+                "name": "Type Test Expression",
+                "url": "type-test-expression"
             },
             {
                 "name": "Type Guard",
@@ -173,10 +181,6 @@
             {
                 "name": "String Template Literal",
                 "url": "string-template"
-            },
-            {
-                "name": "Symbolic String Literal",
-                "url": "symbolic-string-literal"
             }
         ]
     },
@@ -215,8 +219,8 @@
                 "url": "object-initializer"
             },
             {
-                "name": "Member Functions",
-                "url": "object-member-functions"
+                "name": "Object Methods",
+                "url": "object-methods"
             },
             {
                 "name": "Object Assignability",
@@ -258,12 +262,8 @@
                 "url": "type-conversion"
             },
             {
-                "name": "Explicitly Typed Expressions",
-                "url": "explicitly-typed-expressions"
-            },
-            {
-                "name": "Type Assertion",
-                "url": "type-assertion"
+                "name": "Type Cast",
+                "url": "type-cast"
             },
             {
                 "name": "Nil Lifting",
@@ -342,12 +342,20 @@
                 "url": "record-type-binding-pattern"
             },
             {
+                "name": "Error Type Binding Pattern",
+                "url": "error-type-binding-pattern"
+            },
+            {
                 "name": "Tuple Destructure Binding Pattern",
                 "url": "tuple-destructure-binding-pattern"
             },
             {
                 "name": "Record Destructure Binding Pattern",
                 "url": "record-destructure-binding-pattern"
+            },
+            {
+                "name": "Error Destructure Binding Pattern",
+                "url": "error-destructure-binding-pattern"
             }
         ]
     },
@@ -368,8 +376,12 @@
                 "url": "check"
             },
             {
-                "name": "Panic ",
+                "name": "Panic",
                 "url": "panic"
+            },
+            {
+                "name": "Check Panic",
+                "url": "checkpanic"
             },
             {
                 "name": "Trap",
@@ -446,19 +458,19 @@
         "column": 3,
         "category": "Language concepts",
         "samples": [{
-                "name": "Date Time",
-                "url": "date-time"
+                "name": "Time",
+                "url": "time"
             },
             {
                 "name": "Caching",
                 "url": "cache"
             },
             {
-                "name": "Config ",
+                "name": "Config",
                 "url": "config-api"
             },
             {
-                "name": "Log ",
+                "name": "Log",
                 "url": "log-api"
             },
             {
@@ -466,16 +478,28 @@
                 "url": "math-functions"
             },
             {
-                "name": "String ",
+                "name": "String",
                 "url": "strings"
             },
             {
-                "name": "Task Timer",
-                "url": "task-timer"
+                "name": "File Path",
+                "url": "filepath"
             },
             {
-                "name": "Task Appointment",
-                "url": "task-appointment"
+                "name": "Task Scheduler Appointment",
+                "url": "task-scheduler-appointment"
+            },
+            {
+                "name": "Task Scheduler Timer",
+                "url": "task-scheduler-timer"
+            },
+            {
+                "name": "Task Service Appointment",
+                "url": "task-service-appointment"
+            },
+            {
+                "name": "Task Service Timer",
+                "url": "task-service-timer"
             }
         ]
     },
@@ -562,6 +586,10 @@
             {
                 "name": "Kubernetes Deployment",
                 "url": "kubernetes-deployment"
+            },
+            {
+                "name": "OpenShift Deployment",
+                "url": "openshift-deployment"
             },
             {
                 "name": "AWS Lambda Deployment",
@@ -853,7 +881,7 @@
         ]
     },
  	{
-        "title": "OpenApi",
+        "title": "OpenAPI",
         "column": 2,
         "category": "Working over the network",
         "samples": [{
@@ -861,11 +889,11 @@
                 "url": "client-generation"
             },
             {
-                "name": "Ballerina To OpenApi",
+                "name": "Ballerina To OpenAPI",
                 "url": "ballerina-to-openapi"
             },
             {
-                "name": "OpenApi To Ballerina",
+                "name": "OpenAPI To Ballerina",
                 "url": "openapi-to-ballerina"
             }
         ]
@@ -937,12 +965,61 @@
         ]
     },
     {
+        "title": "NATS",
+        "column": 3,
+        "category": "Working over the network",
+        "samples": [{
+            "name": "NATS Basic Example",
+            "url": "nats-basic-client"
+        }]
+    },
+    {
+        "title": "RabbitMQ",
+        "column": 3,
+        "category": "Working over the network",
+        "samples": [{
+            "name": "RabbitMQ Simple Producer",
+            "url": "rabbitmq-simple-producer"
+        },
+          {
+            "name": "RabbitMQ Simple Consumer",
+            "url": "rabbitmq-simple-consumer"
+          }]
+    },
+    {
+        "title": "ActiveMQ Artemis",
+        "column": 2,
+        "category": "Working over the network",
+        "samples": [
+            {
+                "name": "Artemis ANYCAST consumer",
+                "url": "artemis-anycast-session-consumer"
+            },
+            {
+                "name": "Artemis ANYCAST producer",
+                "url": "artemis-anycast-session-producer"
+            },
+            {
+                "name": "Artemis Simple MULTICAST Consumer",
+                "url": "artemis-multicast-consumer"
+            },
+            {
+                "name": "Artemis Simple MULTICAST Producer",
+                "url": "artemis-multicast-producer"
+            }
+        ]
+    },
+    {
         "title": "Socket",
         "column": 3,
         "category": "Working over the network",
         "samples": [{
                 "name": "TCP Socket Basic Example",
                 "url": "tcp-socket-listener-client"
+            },
+            {
+                "name": "UDP Client Socket Basic Example",
+                "url": "udp-socket-client"
             }
         ]
     },
@@ -1023,3 +1100,4 @@
         ]
     }
 ]
+

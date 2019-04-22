@@ -158,21 +158,25 @@ type temperature record {
   int deviceID;
   int roomNo;
   float value;
-}
+};
 
 type roomTemperature record {
   int roomNo;
   float value;
-}
+};
 
 stream<temperature> tempStream = new;
+stream<roomTemperature> roomTempStream = new;
 
-
-from tempStream
-select tempStream.roomNo, tempStream.value
-=> (roomTemperature[] temperatures) {
-    foreach var temperature in temperatures {
-        roomTempStream.publish(temperature);
+public function initQuery() {
+    forever {
+        from tempStream
+        select tempStream.roomNo, tempStream.value
+        => (roomTemperature[] temperatures) {
+            foreach var value in temperatures {
+                roomTempStream.publish(value);
+            }
+        }
     }
 }
 ```
@@ -903,23 +907,24 @@ We could perform operations such as add, delete, update and join with tables.
 In the following example, query events that arrive in `stockStream` are added into the table `itemStockTable` after projecting a few attributes from the event.
 
 ```ballerina
+import ballerina/io;
+import ballerina/runtime;
+
 //This is the record that holds item details in the stockTable.
-type Item record {
+type Item record {|
     string name;
     float price;
     int stockAmount;
-    !...
-};
+|};
 
 //This is the record that holds stock details.
-type Stock record {
+type Stock record {|
     string name;
     float price;
     int stockAmount;
     string manufactureName;
     int manufactureId;
-    !...
-};
+|};
 
 // This is the input stream that uses `Stock` as the constraint type.
 stream<Stock> stockStream = new;
@@ -933,47 +938,59 @@ table<Item> itemStockTable = table {
     ]
 };
 
+public function main() {
+    initQuery();
 
-function initStockUpdate() {
+    Stock d = {name : "FOO", price: 100.3, stockAmount: 2000, manufactureName: "BAR", manufactureId: 23};
+    stockStream.publish(d);
+
+    runtime:sleep(2000);
+
+    io:println("Records in table after inserting new record: ");
+    while(itemStockTable.hasNext()) {
+        io:println(" ", itemStockTable.getNext());
+    }
+}
+
+public function initQuery() {
     forever {
         from stockStream
-        select stockStream.name as name, stockStream.price, stockStream.stockAmount
+        select stockStream.name, stockStream.price, stockStream.stockAmount
         => (Item[] items) {
             foreach var item in items {
-                itemStockTable.add(item);
+                _ = checkpanic itemStockTable.add(item);
             }
         }
     }
 }
-
 ```
 
 
 ###### Example - Join with Table
 In the following query, we perform a join operation between the event stream and table. Whenever an order event is published to `orderStream`, it is matched against the `itemStockTable` through the `queryItemTable` function. If there is a match,
-an alert event is published to `oredrAlertStream`.
+an alert event is published to `orderAlertStream`.
 
 ```ballerina
+import ballerina/io;
+import ballerina/runtime;
+
 //This is the record that holds item details in the stockTable.
 type Item record {
     string name;
     float price;
     int stockAmount;
-    !...
 };
 
 // This is the record that holds order events from the customer.
 type Order record {
     string itemName;
     int orderingAmount;
-    !...
 };
 
 //This is the record that holds alert events.
 type OutOfStockAlert record {
     string itemName;
     int stockAmount;
-    !...
 };
 
 // This is the input stream that uses `Order` as the constraint type.
@@ -989,7 +1006,7 @@ table<Item> itemStockTable = table {
 };
 
 // This is the output stream that contains the events/alerts that are generated based on streaming logic.
-stream<OutOfStockAlert> oredrAlertStream = new;
+stream<OutOfStockAlert> orderAlertStream = new;
 
 function initOutOfStockAlert() {
     forever {
@@ -998,7 +1015,7 @@ function initOutOfStockAlert() {
         select item.name as itemName, item.stockAmount
         => (OutOfStockAlert[] alerts) {
             foreach var alert in alerts {
-                oredrAlertStream.publish(alert);
+                orderAlertStream.publish(alert);
             }
         }
     }
@@ -1018,6 +1035,22 @@ public function queryItemTable(string itemName, int orderingAmount)
     return result;
 }
 
+public function main() {
+
+    initOutOfStockAlert();
+
+    Order o1 = {itemName: "Book", orderingAmount: 20};
+    Order o2 = {itemName: "Pen", orderingAmount: 3};
+
+    orderAlertStream.subscribe(function(OutOfStockAlert alert) {
+            io:println("Aert: Stocks unavailable for: ", alert.itemName, " Available stocks: ", alert.stockAmount);
+    });
+
+    orderStream.publish(o1);
+    orderStream.publish(o2);
+
+    runtime:sleep(2000);
+}
 ```
 
 
@@ -1043,8 +1076,8 @@ Patterns allow you to identify trends in events over a time period.
 The following is the syntax for a pattern query:
 
 ```ballerina
-from (every)? <event reference>=<input stream> where <filter condition> followed by
-    (every)? <event reference>=<input stream where <filter condition> followed by
+from (every)? <input stream> where <filter condition> as <event reference> followed by
+     <input stream where <filter condition> as <event reference> followed by
     ...
     (within <time gap>)?
 select <event reference>.<attribute name>, <event reference>.<attribute name>, ...
@@ -1067,8 +1100,8 @@ as (`&&`, `||`, and `!`). These are described in detail further below in this do
 This query sends an alert if the temperature of a room increases by 5 degrees within 10 min.
 
 ```ballerina
-from every( e1 = tempStream ) 
-    followed by e2 = tempStream where (e1.roomNo == roomNo && (e1.temp + 5) <= temp)
+from every tempStream as e1
+    followed by tempStream where (e1.roomNo == roomNo && (e1.temp + 5) <= temp) as e2
     within 10 minute
 select e1.roomNo, e1.temp as initialTemp, e2.temp as finalTemp
 => (Alert [] alerts) {
@@ -1092,8 +1125,8 @@ The number of events matched per condition can be limited via condition postfixe
 Each matching condition can contain a collection of events with the minimum and maximum number of events to be matched as shown in the syntax below.
 
 ```ballerina
-from (every)? <event reference>=<input stream>
-        where <filter condition> ([<min count> .. <max count>])? followed by
+from (every)? <input stream>
+        where <filter condition> ([<min count> .. <max count>])? as <event reference> followed by
     ...
     (within <time gap>)?
 select <event reference>([event index])?.<attribute name>, ...
@@ -1124,24 +1157,24 @@ The following streaming query calculates the temperature difference between two 
 
 ```ballerina
 type Temperature record {
-    int deviceID,
-    int roomNo,
-    float temp
+    int deviceID;
+    int roomNo;
+    float temp;
 };
 
 type Regulator record {
-    int deviceID,
-    int roomNo,
-    float tempSet,
-    boolean isOn
+    int deviceID;
+    int roomNo;
+    float tempSet;
+    boolean isOn;
 };
 
 stream<Temperature> tempStream = new;
 stream<Regulator> regulatorStream = new;
 
-from every( e1=regulatorStream) 
-    followed by e2=tempStream where (e1.roomNo==roomNo) [1..] 
-    followed by e3=regulatorStream where (e1.roomNo==roomNo)
+from every regulatorStream as e1 
+    followed by tempStream where (e1.roomNo==roomNo) [1..] as e2
+    followed by regulatorStream where (e1.roomNo==roomNo) as e3
 select e1.roomNo, e2[0].temp - e2[last].temp as tempDiff
 => (TemperatureDiff [] values) {
     foreach var value in values {
@@ -1158,8 +1191,8 @@ Logical patterns match events that arrive in temporal order and correlate them w
 ###### Syntax
 
 ```ballerina
-from (every)? (!)? <event reference>=<input stream> where <filter condition>
-          ((&& | ||) <event reference>=<input stream> where <filter condition>)?
+from (every)? (!)? <input stream> where <filter condition> as <event reference>
+          ((&& | ||) <input stream> where <filter condition>)? as <event reference>
           (within <time gap>)? followed by
     ...
 select <event reference>([event index])?.<attribute name>, ...
@@ -1184,32 +1217,80 @@ Here the `!` pattern can be followed by either an `&&` clause or the effective p
 Following streaming query, sends the `stop` control action to the regulator when the key is removed from the hotel room.
 ```ballerina
 
+import ballerina/io;
+import ballerina/runtime;
+
+// Create a record type that represents the regulator state.
 type RegulatorState record {
-    int deviceID,
-    int roomNo,
-    float tempSet,
-    string action
+    int deviceId;
+    int roomNo;
+    float tempSet;
+    string userAction;
 };
 
-type RoomKey record {
-    int deviceID,
-    int roomNo,
-    string action
+// Create a record type that represents the user actions on the hotel key.
+type RoomKeyAction record {
+    int roomNo;
+    string userAction;
 };
 
 stream<RegulatorState> regulatorStateChangeStream = new;
-stream<RoomKey> roomKeyStream = new;
+stream<RoomKeyAction> roomKeyStream = new;
+stream<RoomKeyAction> regulatorActionStream = new;
 
-from every( e1=regulatorStateChangeStream where (action == 'on')) 
-      followed by e2=roomKeyStream where (e1.roomNo == roomNo && action == 'removed')
-      || e3=regulatorStateChangeStream where (e1.roomNo == roomNo && action == 'off')
-select e1.roomNo, e2 == null ? "none" : "stop" as action
-    having action != 'none'
-=> (RegulatorAction [] outputs) {
-    foreach var output in outputs {
-        regulatorActionStream.publish(output);
+// Deploy the decision rules for the regulator's next action based on the current regulator state and the user action on
+// the hotel key. If the regulator was on before and is still on after the user has removed the hotel key from the
+// room, the `stop` control action is called.
+function deployRegulatorActionDecisionRules() {
+    forever {
+        from every regulatorStateChangeStream
+            where userAction == "on" as e1
+        followed by roomKeyStream
+            where e1.roomNo == roomNo && userAction == "removed" as e2
+        || regulatorStateChangeStream
+            where e1.roomNo == roomNo && userAction == "off" as e3
+        select e1.roomNo as roomNo,
+            e2 == null ? "none" : "stop" as userAction
+        having userAction != "none"
+        => (RoomKeyAction[] keyActions) {
+            foreach var keyAction in keyActions {
+                regulatorActionStream.publish(keyAction);
+            }
+        }
     }
 }
+
+public function main() {
+
+    // Deploys the streaming pattern rules that define how the regulator is controlled based on received events.
+    deployRegulatorActionDecisionRules();
+
+    // Sample events that represent the different regulator states.
+    RegulatorState regulatorState1 = { deviceId: 1, roomNo: 2, tempSet: 23.56, userAction: "on" };
+    RegulatorState regulatorState2 = { deviceId: 1, roomNo: 2, tempSet: 23.56, userAction: "off" };
+
+    // A sample event that represents the user action on the door of the room. 'removed' indicates that the owner has left the room.
+    RoomKeyAction roomKeyAction = { roomNo: 2, userAction: "removed" };
+
+    // The `RegulatorActionStream` subscribes to the `alertRoomAction` function. Whenever the
+    // 'RegulatorActionStream' stream receives a valid event, this function is called.
+    regulatorActionStream.subscribe(alertRoomAction);
+
+    // Publish/simulate the sample event that represents the regulator `switch on` event.
+    regulatorStateChangeStream.publish(regulatorState1);
+    runtime:sleep(200);
+
+    // Simulate the sample event that represents the door/room closed event.
+    roomKeyStream.publish(roomKeyAction);
+    runtime:sleep(3000);
+}
+
+function alertRoomAction(RoomKeyAction action) {
+    io:println("alertRoomAction function invoked for Room : " +
+            action.roomNo + " and the action : " +
+            action.userAction);
+}
+
 ```
 
 This streaming query generates an alert if we have switch off the regulator before the temperature reaches 12 degrees.
@@ -1217,24 +1298,24 @@ This streaming query generates an alert if we have switch off the regulator befo
 ```ballerina
 
 type RegulatorState record {
-    int deviceID,
-    int roomNo,
-    float tempSet,
-    string action
+    int deviceID;
+    int roomNo;
+    float tempSet;
+    string action;
 };
 
 type Temperature record {
-    int deviceID,
-    int roomNo,
-    float temp
+    int deviceID;
+    int roomNo;
+    float temp;
 };
 
 stream<RegulatorState> regulatorStateChangeStream = new;
 stream<Temperature> tempStream = new;
 
-from e1=regulatorStateChangeStream where (action == 'start') 
+from regulatorStateChangeStream where (action == 'start') as e1
     followed by  !tempStream where (e1.roomNo == roomNo && temp < 12) 
-    && e2=regulatorStateChangeStream where (action == 'off')
+    && regulatorStateChangeStream where (action == 'off') as e2
 select e1.roomNo as roomNo
 => (Alert [] alerts) {
     foreach var alert in alerts {
@@ -1248,22 +1329,22 @@ This streaming query generates an alert if the temperature does not reduce to 12
 ```ballerina
 
 type RegulatorState record {
-    int deviceID,
-    int roomNo,
-    float tempSet,
-    string action
+    int deviceID;
+    int roomNo;
+    float tempSet;
+    string action;
 };
 
 type Temperature record {
-    int deviceID,
-    int roomNo,
-    float temp
+    int deviceID;
+    int roomNo;
+    float temp;
 };
 
 stream<RegulatorState> regulatorStateChangeStream = new;
 stream<Temperature> tempStream = new;
 
-from e1=regulatorStateChangeStream where (action == 'start')
+from regulatorStateChangeStream where (action == 'start') as e1
         followed by !tempStream
         where (e1.roomNo == roomNo && temp < 12)
         for 5 minutes
@@ -1291,8 +1372,8 @@ This allows you to detect a specified event sequence over a specified time perio
 The syntax for a sequence query is as follows:
 
 ```ballerina
-from (every)? <event reference>=<input stream> where <filter condition> ,
-    <event reference>=<input stream where <filter condition> ,
+from (every)? <input stream> where <filter condition> as <event reference>,
+    <input stream where <filter condition> as <event reference>,
     ...
     (within <time gap>)?
 select <event reference>.<attribute name>, <event reference>.<attribute name>, ...
@@ -1314,7 +1395,7 @@ select <event reference>.<attribute name>, <event reference>.<attribute name>, .
 This query generates an alert if the increase in the temperature between two consecutive temperature events exceeds one degree.
 
 ```ballerina
-from every e1=tempStream, e2=tempStream where (e1.temp + 1 < temp)
+from every tempStream as e1, tempStream where (e1.temp + 1 < temp) as e2
 select e1.temp as initialTemp, e2.temp as finalTemp
 => (Alert [] alerts) {
     foreach var alert in alerts {
@@ -1336,9 +1417,9 @@ The matching events can also be retrieved using event indexes, similar to how it
 Each matching condition in a sequence can contain a collection of events as shown below.
 
 ```ballerina
-from (every)? <event reference>=<input stream>
-        where <filter condition> ([0..]|[1..]|[0..1])?,
-        <event reference>=<input stream where <filter condition>([0..]|[1..]|[0..1])?,
+from (every)? <input stream>
+        where <filter condition> ([0..]|[1..]|[0..1])? as <event reference>,
+        <input stream where <filter condition>([0..]|[1..]|[0..1])? as <event reference>,
     ...
     (within <time gap>)?
 select <event reference>.<attribute name>, <event reference>.<attribute name>, ...
@@ -1359,23 +1440,91 @@ select <event reference>.<attribute name>, <event reference>.<attribute name>, .
 This streaming query identifies temperature peeks.
 
 ```ballerina
+import ballerina/runtime;
+import ballerina/io;
 
-type Temperature record {
-    int deviceID,
-    int roomNo,
-    float temp
+// Create a record type that represents the device temperature reading.
+type DeviceTempInfo record {
+    int deviceID;
+    int roomNo;
+    float temp;
 };
 
-stream<Temperature> tempStream = new;
+// Create a record type that represents the initial temperature and the peak temperature.
+type TempDiffInfo record {
+    float initialTemp;
+    float peakTemp;
+};
 
-from every e1=tempStream, e2=tempStream where (e1.temp <= temp)[1..],
-           e3=tempStream where (e2[e2.length-1].temp > temp)
-select e1.temp as initialTemp, e2[e2.length-1].temp as peakTemp
-=>(PeekTemperature [] values) {
-    foreach var value in values {
-        peekTempStream.publish(value);
+// The stream that gets the input temperature readings.
+stream<DeviceTempInfo> tempStream = new;
+
+// The output stream with peak temperature values.
+stream<TempDiffInfo> tempDiffInfoStream = new;
+
+// This is the function that contains the rules that detect the temperature peak values. The first event's temperature
+// should be greater than the temperature values that are returned with the next event, which is e2. The last
+// temperature value in e2 should be greater than the temperature value that is given in the event e3. This makes
+// the last value of e2, the peak temperature.
+function deployPeakTempDetectionRules() {
+    forever {
+        from every tempStream as e1, tempStream
+            where e1.temp <= temp [1..] as e2,
+        tempStream where e2[e2.length - 1].temp > temp as e3
+        select e1.temp as initialTemp,
+            e2[e2.length - 1].temp as peakTemp
+        => (TempDiffInfo[] tempDiffInfos) {
+        // If the sequence is matched, the data is pushed/published to the output stream.
+            foreach var tempDiffInfo in tempDiffInfos {
+                tempDiffInfoStream.publish(tempDiffInfo);
+            }
+        }
     }
 }
+
+public function main() {
+
+    // Deploy the streaming sequence rules.
+    deployPeakTempDetectionRules();
+
+    // Subscribe to the `printInitialAndPeakTemp` function. This prints the peak temperature values.
+    tempDiffInfoStream.subscribe(printInitalAndPeakTemp);
+
+    // Simulating the data that is being sent to the `tempStream` stream.
+    DeviceTempInfo t1 = { deviceID: 1, roomNo: 23, temp: 20.0 };
+    DeviceTempInfo t2 = { deviceID: 1, roomNo: 23, temp: 22.5 };
+    DeviceTempInfo t3 = { deviceID: 1, roomNo: 23, temp: 23.0 };
+    DeviceTempInfo t4 = { deviceID: 1, roomNo: 23, temp: 21.0 };
+    DeviceTempInfo t5 = { deviceID: 1, roomNo: 23, temp: 24.0 };
+    DeviceTempInfo t6 = { deviceID: 1, roomNo: 23, temp: 23.9 };
+
+    // Start simulating the events with the temperature readings.
+    tempStream.publish(t1);
+    runtime:sleep(200);
+
+    tempStream.publish(t2);
+    runtime:sleep(200);
+
+    tempStream.publish(t3);
+    runtime:sleep(200);
+
+    tempStream.publish(t4);
+    runtime:sleep(200);
+
+    tempStream.publish(t5);
+    runtime:sleep(200);
+
+    tempStream.publish(t6);
+    runtime:sleep(2000);
+}
+
+// The function that prints the peak temperature readings.
+function printInitalAndPeakTemp(TempDiffInfo tempDiff) {
+    io:println("printInitalAndPeakTemp function is invoked. " +
+                    "InitialTemp : " + tempDiff.initialTemp +
+                        " and Peak temp : " + tempDiff.peakTemp);
+}
+
 ```
 
 ##### Logical Sequence
@@ -1386,8 +1535,8 @@ Logical sequences identify logical relationships using `&&`, `||` and `!` on con
 The syntax for a logical sequence is as follows:
 
 ```ballerina
-from (every)? (!)? <event reference>=<input stream> where <filter condition>
-          ((&& | ||) <event reference>=<input stream> where <filter condition>)?
+from (every)? (!)? <input stream> where <filter condition> as <event reference>
+          ((&& | ||) <input stream> where <filter condition>)? as <event reference>
           (within <time gap>)?,
     ...
 select <event reference>([event index])?.<attribute name>, ...
@@ -1405,25 +1554,25 @@ This streaming query notifies the state when a regulator event is immediately fo
 ```ballerina
 
 type Temperature record {
-    int deviceID,
-    float temp
+    int deviceID;
+    float temp;
 };
 
 type Humidity record {
-    int deviceID,
-    float humid
+    int deviceID;
+    float humid;
 };
 
 type Regulator record {
-    int deviceID,
-    boolean isOn
+    int deviceID;
+    boolean isOn;
 };
 
 stream<Temperature> tempStream = new;
 stream<Humidity> humidStream = new;
 stream<Regulator> regulatorStream = new;
 
-from every e1=regulatorStream, e2=tempStream && e3=humidStream
+from every regulatorStream as e1, tempStream as e2 && humidStream as e3
 select e2.temp, e3.humid
 => (Notification [] notifications) {
     foreach var notification in notifications {
