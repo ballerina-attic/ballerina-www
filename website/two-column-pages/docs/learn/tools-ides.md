@@ -3,7 +3,7 @@
 Ballerina provides language servers, editors, IDEs, and graphical visualization tools to help you write, document, and test your code. The sections below introduce you to them. 
 
 - [Editor and IDE support](#editor-and-ide-support)
-- [Swagger to Ballerina code generator](#swagger-to-ballerina-code-generator)
+- [OpenAPI to Ballerina code generator](#openapi-to-ballerina-code-generator)
 - [API documentation generator](#api-documentation-generator)
 - [Test framework](#test-framework)
 
@@ -18,7 +18,7 @@ The graphical visualization tool is embedded in the Visual Studio Code plug-in.
 
 ## OpenAPI to Ballerina code generator
 
-You can use existing OpenAPI files to generate connectors and services in Ballerina code. For details, see the [OpenAPI to Ballerina Code Generator](https://ballerina.io/learn/by-guide/open-api-based-service/).
+You can use the existing OpenAPI/Swagger files to generate connectors and services in Ballerina code. For details, see the [OpenAPI to Ballerina Code Generator](https://ballerina.io/learn/by-guide/open-api-based-service/).
 
 ## API documentation generator
 
