@@ -18,7 +18,7 @@ The graphical visualization tool is embedded in the Visual Studio Code plug-in.
 
 ## OpenAPI to Ballerina code generator
 
-You can use existing OpenAPI/Swagger files to generate connectors and services in Ballerina code. For details, see the [OpenAPI to Ballerina Code Generator](https://ballerina.io/learn/by-guide/open-api-based-service/).
+You can use the existing OpenAPI/Swagger files to generate connectors and services using Ballerina code. For details, see the [OpenAPI to Ballerina Code Generator](https://ballerina.io/learn/by-guide/open-api-based-service/).
 
 ## API documentation generator
 
