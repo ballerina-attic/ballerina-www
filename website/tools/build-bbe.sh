@@ -7,23 +7,13 @@ rm target/dependencies/ballerina-examples -rf
 #git clone https://github.com/ballerina-platform/ballerina-examples target/dependencies/ballerina-examples
 #git clone --branch v0.982.0 https://github.com/ballerina-platform/ballerina-examples target/dependencies/ballerina-examples
 
-#get BBE from the language master branch uncomment after v0.991
-#rm ballerina-lang -rf
-#git clone https://github.com/ballerina-platform/ballerina-lang
-#git --git-dir=ballerina-lang/.git --work-tree=ballerina-lang/ checkout v0.991.0
-#mkdir -p target/dependencies/ballerina-examples/
-#mv ballerina-lang/examples target/dependencies/ballerina-examples/examples/
-#rm ballerina-lang -r
-
-##temp for 0.991.0
+#get BBE from the language master branch
 rm ballerina-lang -rf
 git clone https://github.com/ballerina-platform/ballerina-lang
-git remote add maryam https://github.com/MaryamZi/ballerina/
-git fetch maryam
-git checkout maryam/fix-991-examples -b maryams-branch
+git --git-dir=ballerina-lang/.git --work-tree=ballerina-lang/ checkout v0.991.0
+mkdir -p target/dependencies/ballerina-examples/
 mv ballerina-lang/examples target/dependencies/ballerina-examples/examples/
 rm ballerina-lang -r
-
 
 #get BBE from BallerinaX
 rm docker -rf
