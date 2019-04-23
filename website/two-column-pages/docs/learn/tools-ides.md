@@ -1,26 +1,24 @@
 # Tools and IDEs
 
-Ballerina provides several tools to help you create, document and test your code.
+Ballerina provides language servers, editors, IDEs, and graphical visualization tools to help you write, document, and test your code. The sections below introduce you to them. 
 
-These tools include the following.
-
-- [IDE plug-ins](#ide-plug-ins)
-- [Swagger to Ballerina code generator](#swagger-to-ballerina-code-generator)
+- [Editor and IDE support](#editor-and-ide-support)
+- [OpenAPI to Ballerina code generator](#openapi-to-ballerina-code-generator)
 - [API documentation generator](#api-documentation-generator)
 - [Test framework](#test-framework)
 
-## IDE plug-ins
+## Editor and IDE support
 
-You can use plug-ins to write Ballerina code in your favorite IDE. There are several plug-ins available in Github. Click on the following links to learn how to use that IDE's plug-in. 
+You can use plugins to write Ballerina code in your favorite editor or IDE. Click on the below icons to learn about the plugins that are currently available. 
 
-* [Visual Studio Code (VS Code)](https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina)
-* [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/9520-ballerina)
+[![VS Code](images/vscode-logo.png)](tools-ides/vscode-plugin) 
+[![IntelliJ](images/intellij-logo.png)](tools-ides/intellij-plugin)
 
 The graphical visualization tool is embedded in the Visual Studio Code plug-in.
 
-## OpenAPI/Swagger to Ballerina code generator
+## OpenAPI to Ballerina code generator
 
-You can use existing OpenAPI/Swagger files to generate connectors and services in Ballerina code. For details, see the [OpenAPI/Swagger to Ballerina Code Generator](https://ballerina.io/learn/by-guide/open-api-based-service/).
+You can use the existing OpenAPI/Swagger files to generate connectors and services in Ballerina code. For details, see the [OpenAPI to Ballerina Code Generator](https://ballerina.io/learn/by-guide/open-api-based-service/).
 
 ## API documentation generator
 

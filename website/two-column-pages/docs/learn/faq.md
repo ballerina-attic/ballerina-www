@@ -139,7 +139,7 @@ Other examples include the WSO2 Update Manager, which WSO2 customers use to acce
 Absolutely. We encourage developers to make Ballerina language sites in their own languages. You can issue pull requests and we’ll host the translated versions at ballerina.io.
 
 ### Will Testerina automatically generate service mocks?
-Yes, it generates mocks when Swagger is present.
+Yes, it generates mocks when OpenApi is present.
 
 ### Which Ballerina connectors are currently available?
 The best place to see the latest set of connectors is Ballerina Central at [central.ballerina.io](http://central.ballerina.io), or by using `ballerina search` on the command line.
