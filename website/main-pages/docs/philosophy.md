@@ -2213,7 +2213,7 @@
                         Services, resources, endpoints, request and response objects are all native language constructs.
                     </p>
                     <p>
-                        Ballerina’s built-in support for HTTP includes session-handling, Swagger generation, chunking, CORS, redirects, failover, load-balancing, circuit breaker pattern, return code, data format enforcement, error handling, and much more.
+                        Ballerina’s built-in support for HTTP includes session-handling, OpenApi generation, chunking, CORS, redirects, failover, load-balancing, circuit breaker pattern, return code, data format enforcement, error handling, and much more.
                     </p>
                 </div>
             </div>
@@ -2297,7 +2297,7 @@
             <div data-startLine="13" data-endLine="17" class="hTrigger cCodeDesription">
                 <div>
                     <p>
-                        These annotations provide additional fields for the generated Swagger/OpenAPI definition.
+                        These annotations provide additional fields for the generated OpenAPI definition.
                     </p>
                 </div>
             </div>

@@ -36,7 +36,7 @@
     </script>
     <!-- End Google Tag Manager -->
     <link rel="shortcut icon" href="/img/favicon.ico">
-    <title>Ballerina - ballerina/swagger API Docs</title>
+    <title>Ballerina - ballerina/openapi API Docs</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
@@ -293,7 +293,7 @@
                             <li>
                                 <!--Package Name-->
                                  
-                                <a class="cPackageList">ballerina/<span class="bold">swagger</span></a>  
+                                <a class="cPackageList">ballerina/<span class="bold">openapi</span></a>  
                                 <div class="constructs-wrapper">
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
@@ -593,7 +593,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/swagger</span> module </li>
+                            <li><span class="bold">ballerina/openapi</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -605,57 +605,57 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/swagger</span>  module 
+                                                <span class="bold">ballerina/openapi</span>  module 
                                             </h1>
                                             
                                             <div class="cAPIdocsDescription">
                                                 <h2>Module overview</h2>
 <p>This module provides the following code generation capabilities to Ballerina:</p>
 <ol>
-<li>Generate the Ballerina code for a given Swagger definition.</li>
+<li>Generate the Ballerina code for a given OpenApi definition.</li>
 <li>Generate the client stub for an existing Ballerina service at build time.</li>
-<li>Export the Swagger definition of a Ballerina service.</li>
+<li>Export the OpenApi definition of a Ballerina service.</li>
 </ol>
-<p>The <code>swagger</code> command in Ballerina is used for Swagger to Ballerina and Ballerina to Swagger code generation.
-Code generation from Swagger to Ballerina can produce <code>mock services</code> and <code>client stubs</code>.</p>
+<p>The <code>openapi</code> command in Ballerina is used for OpenApi to Ballerina and Ballerina to OpenApi code generation.
+Code generation from OpenApi to Ballerina can produce <code>mock services</code> and <code>client stubs</code>.</p>
 <p>For build time client stub generation, annotation support is provided.</p>
-<h3>Mock Service from Swagger</h3>
-<p><code>ballerina swagger mock &lt;swaggerfile&gt; [-m &lt;module-name&gt;|--module &lt;module-name&gt;] [-o &lt;path&gt;|--output&lt;path&gt;]</code></p>
-<p>Generates a Ballerina service for the Swagger file.</p>
+<h3>Mock Service from OpenApi</h3>
+<p><code>ballerina openapi gen-service &lt;openapifile&gt; [-m &lt;module-name&gt;|--module &lt;module-name&gt;] [-o &lt;path&gt;|--output&lt;path&gt;]</code></p>
+<p>Generates a Ballerina service for the OpenApi file.</p>
 <p>This generated service is a mock version of the actual service. Generated sources contain the service definition in <code>gen/</code> and the resource implementation file in the module root directory with the suffix <code>_impl</code>. The <code>_impl</code> file is not overwritten by code regeneration.</p>
-<h3>Client Stub from Swagger</h3>
-<p><code>ballerina swagger client &lt;swaggerfile&gt; [-m &lt;module-name&gt;|--module &lt;module-name&gt;] [-o &lt;path&gt;|--output&lt;path&gt;]</code></p>
-<p>Generates a Ballerina client stub for the service defined in a Swagger file.</p>
-<p>This client can be used in client applications to call the service defined in the Swagger file.</p>
-<h3>Service to Swagger Export</h3>
-<p><code>ballerina swagger export &lt;balfile&gt; [-o &lt;path&gt;|--output&lt;path&gt;] [-s &lt;servicename&gt;|--service &lt;servicename&gt;]</code></p>
+<h3>Client Stub from OpenApi</h3>
+<p><code>ballerina openapi gen-client &lt;openapifile&gt; [-m &lt;module-name&gt;|--module &lt;module-name&gt;] [-o &lt;path&gt;|--output&lt;path&gt;]</code></p>
+<p>Generates a Ballerina client stub for the service defined in a OpenApi file.</p>
+<p>This client can be used in client applications to call the service defined in the OpenApi file.</p>
+<h3>Service to OpenApi Export</h3>
+<p><code>ballerina openapi export &lt;balfile&gt; [-o &lt;path&gt;|--output&lt;path&gt;] [-s &lt;servicename&gt;|--service &lt;servicename&gt;]</code></p>
 <p>Export the Ballerina service to a definition of OpenApi Specification 3.0.
 For the export to work properly, the input Ballerina service should be defined using basic service and resource level HTTP annotations.</p>
 <h3>Client Stub for Service</h3>
 <p>Generates a Ballerina client stub to communicate with a Ballerina service.</p>
-<p>All endpoint(s) that are used for client stub generation should be marked with the <code>@swagger:ClientEndpoint</code> annotation. If not, there might be errors during client stub generation. Endpoints that are not marked with this annotation are not picked for client stub generation.
-The <code>@swagger:ClientConfig {generate: true}</code> annotation is used to enable or disable client stub generation per service.</p>
+<p>All endpoint(s) that are used for client stub generation should be marked with the <code>@openapi:ClientEndpoint</code> annotation. If not, there might be errors during client stub generation. Endpoints that are not marked with this annotation are not picked for client stub generation.
+The <code>@openapi:ClientConfig {generate: true}</code> annotation is used to enable or disable client stub generation per service.</p>
 <h2>Samples</h2>
-<h3>Mock Service From Swagger</h3>
-<p><code>ballerina swagger mock hello_service.yaml -p hello_service</code></p>
-<h3>Client Stub From Swagger</h3>
-<p><code>ballerina swagger client hello_service.yaml -p hello_client</code></p>
-<h3>Swagger From Service</h3>
-<p><code>ballerina swagger export hello_service.bal</code></p>
+<h3>Mock Service From OpenApi</h3>
+<p><code>ballerina openapi gen-service hello_service.yaml -p hello_service</code></p>
+<h3>Client Stub From OpenApi</h3>
+<p><code>ballerina openapi gen-client hello_service.yaml -p hello_client</code></p>
+<h3>OpenApi From Service</h3>
+<p><code>ballerina openapi export hello_service.bal</code></p>
 <h3>Client stub From Service</h3>
 <pre><code class="language-ballerina">import ballerina/io;
 import ballerina/http;
-import ballerina/swagger;
+import ballerina/openapi;
 import ballerina/log;
 
 // Define this endpoint as a selected endpoint for client generation.
-@swagger:ClientEndpoint
+@openapi:ClientEndpoint
 endpoint http:Listener helloEp {
     port: 9090
 };
 
 // Enable client code generation for this service.
-@swagger:ClientConfig {
+@openapi:ClientConfig {
     generate: true
 }
 @http:ServiceConfig {
@@ -703,7 +703,7 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Contact">Contact</a></td>
-                                                         <td class="cSummary-table-desc">Model for Swagger contact information.
+                                                         <td class="cSummary-table-desc">Model for OpenApi contact information.
 </td>
                                                      </tr>
                                                  
@@ -719,7 +719,7 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Encoding">Encoding</a></td>
-                                                         <td class="cSummary-table-desc">Model for additional Swagger content type definition.
+                                                         <td class="cSummary-table-desc">Model for additional OpenApi content type definition.
 </td>
                                                      </tr>
                                                  
@@ -727,7 +727,7 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Example">Example</a></td>
-                                                         <td class="cSummary-table-desc">Model for keeping Swagger example information.
+                                                         <td class="cSummary-table-desc">Model for keeping OpenApi example information.
 </td>
                                                      </tr>
                                                  
@@ -735,7 +735,7 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Header">Header</a></td>
-                                                         <td class="cSummary-table-desc">Model for keeping Swagger header definition information.
+                                                         <td class="cSummary-table-desc">Model for keeping OpenApi header definition information.
 </td>
                                                      </tr>
                                                  
@@ -751,7 +751,7 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#MultiResourceInformation">MultiResourceInformation</a></td>
-                                                         <td class="cSummary-table-desc">Model for multi swagger operation definition for ballerina resource.
+                                                         <td class="cSummary-table-desc">Model for multi OpenApi operation definition for ballerina resource.
 </td>
                                                      </tr>
                                                  
@@ -759,7 +759,7 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ParameterInformation">ParameterInformation</a></td>
-                                                         <td class="cSummary-table-desc">Model for keeping Swagger parameter information.
+                                                         <td class="cSummary-table-desc">Model for keeping OpenApi parameter information.
 </td>
                                                      </tr>
                                                  
@@ -767,7 +767,7 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ResourceInformation">ResourceInformation</a></td>
-                                                         <td class="cSummary-table-desc">Model for additional Swagger resource definition.
+                                                         <td class="cSummary-table-desc">Model for additional OpenApi resource definition.
 </td>
                                                      </tr>
                                                  
@@ -775,7 +775,7 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Response">Response</a></td>
-                                                         <td class="cSummary-table-desc">Model for keeping Swagger response information.
+                                                         <td class="cSummary-table-desc">Model for keeping OpenApi response information.
 </td>
                                                      </tr>
                                                  
@@ -783,7 +783,7 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Schema">Schema</a></td>
-                                                         <td class="cSummary-table-desc">Model for keeping additional Swagger schema information.
+                                                         <td class="cSummary-table-desc">Model for keeping additional OpenApi schema information.
 </td>
                                                      </tr>
                                                  
@@ -799,7 +799,7 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ServiceInformation">ServiceInformation</a></td>
-                                                         <td class="cSummary-table-desc">Model for additional Swagger information of a Ballerina service.
+                                                         <td class="cSummary-table-desc">Model for additional OpenApi information of a Ballerina service.
 </td>
                                                      </tr>
                                                  
@@ -807,7 +807,7 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Tag">Tag</a></td>
-                                                         <td class="cSummary-table-desc">Model for Swagger service tag definition.
+                                                         <td class="cSummary-table-desc">Model for OpenApi service tag definition.
 </td>
                                                      </tr>
                                                  
@@ -815,7 +815,7 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#requestBody">requestBody</a></td>
-                                                         <td class="cSummary-table-desc">Model for additional Swagger request body details.
+                                                         <td class="cSummary-table-desc">Model for additional OpenApi request body details.
 </td>
                                                      </tr>
                                                  
@@ -892,7 +892,7 @@ service Hello bind helloEp {
                                                 <td class="cSummary-table-name">MultiResourceInfo</td>
                                                 <td class="cSummary-table-attach">resource</td>
                                                 <td class="cSummary-table-type"><a href="swagger.html#MultiResourceInformation">MultiResourceInformation</a></td>
-                                                <td class="cSummary-table-desc"><p>Annotation for multi Swagger operation information of a Ballerina resource.</p>
+                                                <td class="cSummary-table-desc"><p>Annotation for multi OpenApi operation information of a Ballerina resource.</p>
 </td>
                                             </tr>
                                               
@@ -901,7 +901,7 @@ service Hello bind helloEp {
                                                 <td class="cSummary-table-name">ResourceInfo</td>
                                                 <td class="cSummary-table-attach">resource</td>
                                                 <td class="cSummary-table-type"><a href="swagger.html#ResourceInformation">ResourceInformation</a></td>
-                                                <td class="cSummary-table-desc"><p>Annotation for additional Swagger information of a Ballerina resource.</p>
+                                                <td class="cSummary-table-desc"><p>Annotation for additional OpenApi information of a Ballerina resource.</p>
 </td>
                                             </tr>
                                               
@@ -910,7 +910,7 @@ service Hello bind helloEp {
                                                 <td class="cSummary-table-name">ServiceInfo</td>
                                                 <td class="cSummary-table-attach">service</td>
                                                 <td class="cSummary-table-type"><a href="swagger.html#ServiceInformation">ServiceInformation</a></td>
-                                                <td class="cSummary-table-desc"><p>Annotation for additional Swagger information of a Ballerina service.</p>
+                                                <td class="cSummary-table-desc"><p>Annotation for additional OpenApi information of a Ballerina service.</p>
 </td>
                                             </tr>
                                               
@@ -978,7 +978,7 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Model for Swagger contact information.
+                                                    <span class="fw-right gray xs-icon"></span>Model for OpenApi contact information.
 
                                                 </p>
                                                  
@@ -1086,7 +1086,7 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Model for additional Swagger content type definition.
+                                                    <span class="fw-right gray xs-icon"></span>Model for additional OpenApi content type definition.
 
                                                 </p>
                                                  
@@ -1100,7 +1100,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">headers</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#ParameterInformation">swagger:ParameterInformation[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#ParameterInformation">openapi:ParameterInformation[]</a></td>
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Additional information to be provided as headers</p>
 </td>
@@ -1160,7 +1160,7 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Model for keeping Swagger example information.
+                                                    <span class="fw-right gray xs-icon"></span>Model for keeping OpenApi example information.
 
                                                 </p>
                                                  
@@ -1226,7 +1226,7 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Model for keeping Swagger header definition information.
+                                                    <span class="fw-right gray xs-icon"></span>Model for keeping OpenApi header definition information.
 
                                                 </p>
                                                  
@@ -1334,7 +1334,7 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Model for multi swagger operation definition for ballerina resource.
+                                                    <span class="fw-right gray xs-icon"></span>Model for multi OpenApi operation definition for ballerina resource.
 
                                                 </p>
                                                  
@@ -1348,7 +1348,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">resourceInformation</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;swagger:ResourceInformation&gt;</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;openapi:ResourceInformation&gt;</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>list of resource information</p>
 </td>
@@ -1376,7 +1376,7 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Model for keeping Swagger parameter information.
+                                                    <span class="fw-right gray xs-icon"></span>Model for keeping OpenApi parameter information.
 
                                                 </p>
                                                  
@@ -1446,7 +1446,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">schema</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#Schema">swagger:Schema</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#Schema">openapi:Schema</a></td>
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Parameter data type</p>
 </td>
@@ -1474,7 +1474,7 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Model for additional Swagger resource definition.
+                                                    <span class="fw-right gray xs-icon"></span>Model for additional OpenApi resource definition.
 
                                                 </p>
                                                  
@@ -1512,7 +1512,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">externalDocs</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#DocumentationInformation">swagger:DocumentationInformation</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#DocumentationInformation">openapi:DocumentationInformation</a></td>
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Additional documentation for this operation</p>
 </td>
@@ -1520,7 +1520,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">parameters</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#ParameterInformation">swagger:ParameterInformation[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#ParameterInformation">openapi:ParameterInformation[]</a></td>
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>A list of parameters that are applicable for this operation</p>
 </td>
@@ -1548,7 +1548,7 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Model for keeping Swagger response information.
+                                                    <span class="fw-right gray xs-icon"></span>Model for keeping OpenApi response information.
 
                                                 </p>
                                                  
@@ -1586,7 +1586,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">headers</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#Header">swagger:Header[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#Header">openapi:Header[]</a></td>
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Response headers</p>
 </td>
@@ -1594,7 +1594,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">examples</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#Example">swagger:Example[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#Example">openapi:Example[]</a></td>
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Examples for this response</p>
 </td>
@@ -1622,7 +1622,7 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Model for keeping additional Swagger schema information.
+                                                    <span class="fw-right gray xs-icon"></span>Model for keeping additional OpenApi schema information.
 
                                                 </p>
                                                  
@@ -1638,7 +1638,7 @@ service Hello bind helloEp {
                                                         <td class="cAPI-table-name">format</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Data format as specified by Swagger data type</p>
+                                                        <td class="cAPI-table-desc"><p>Data format as specified by OpenApi data type</p>
 </td>
                                                     </tr>
                                                     
@@ -1730,7 +1730,7 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Model for additional Swagger information of a Ballerina service.
+                                                    <span class="fw-right gray xs-icon"></span>Model for additional OpenApi information of a Ballerina service.
 
                                                 </p>
                                                  
@@ -1746,7 +1746,7 @@ service Hello bind helloEp {
                                                         <td class="cAPI-table-name">title</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Title of the Swagger definition</p>
+                                                        <td class="cAPI-table-desc"><p>Title of the OpenApi definition</p>
 </td>
                                                     </tr>
                                                     
@@ -1754,7 +1754,7 @@ service Hello bind helloEp {
                                                         <td class="cAPI-table-name">serviceVersion</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Version of the Swagger API</p>
+                                                        <td class="cAPI-table-desc"><p>Version of the OpenApi API</p>
 </td>
                                                     </tr>
                                                     
@@ -1776,7 +1776,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">contact</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#Contact">swagger:Contact</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#Contact">openapi:Contact</a></td>
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Contact information for the exposed API</p>
 </td>
@@ -1784,7 +1784,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">license</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#License">swagger:License</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#License">openapi:License</a></td>
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>License information for the exposed API</p>
 </td>
@@ -1792,7 +1792,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">externalDocs</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#DocumentationInformation">swagger:DocumentationInformation</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#DocumentationInformation">openapi:DocumentationInformation</a></td>
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Additional external documentation</p>
 </td>
@@ -1800,7 +1800,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">tags</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#Tag">swagger:Tag[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#Tag">openapi:Tag[]</a></td>
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>A list of tags used by the specification with additional metadata</p>
 </td>
@@ -1808,7 +1808,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">security</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#SecurityRequirement">swagger:SecurityRequirement[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#SecurityRequirement">openapi:SecurityRequirement[]</a></td>
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Security requirements for this service</p>
 </td>
@@ -1836,7 +1836,7 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Model for Swagger service tag definition.
+                                                    <span class="fw-right gray xs-icon"></span>Model for OpenApi service tag definition.
 
                                                 </p>
                                                  
@@ -1866,7 +1866,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">externalDocs</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#DocumentationInformation">swagger:DocumentationInformation</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#DocumentationInformation">openapi:DocumentationInformation</a></td>
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Optional documentation on the tag</p>
 </td>
@@ -1894,7 +1894,7 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Model for additional Swagger request body details.
+                                                    <span class="fw-right gray xs-icon"></span>Model for additional OpenApi request body details.
 
                                                 </p>
                                                  
@@ -1932,7 +1932,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">examples</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#Example">swagger:Example[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#Example">openapi:Example[]</a></td>
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Examples of the media type</p>
 </td>
@@ -1940,7 +1940,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">schema</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#Schema">swagger:Schema</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#Schema">openapi:Schema</a></td>
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>The schema defining the type used for the request body</p>
 </td>
@@ -1948,7 +1948,7 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">encoding</td>
-                                                        <td class="cAPI-table-type"><a href="swagger.html#Encoding">swagger:Encoding[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="swagger.html#Encoding">openapi:Encoding[]</a></td>
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Encoding and content type details</p>
 </td>
@@ -2468,7 +2468,7 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                     
-                                   <a>ballerina/<span class="bold">swagger</a>
+                                   <a>ballerina/<span class="bold">openapi</a>
                                    
                                    
                                    
@@ -2803,7 +2803,7 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                     
-                                   <a>ballerina/<span class="bold">swagger</a>
+                                   <a>ballerina/<span class="bold">openapi</a>
                                    
                                    
                                    
