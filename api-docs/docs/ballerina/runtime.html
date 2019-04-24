@@ -261,6 +261,41 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -303,12 +338,12 @@
                                         
                                           
                                         <li>
-                                            <a href="#AuthContext">
+                                            <a href="#AuthenticationContext">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    AuthContext
+                                                    AuthenticationContext
                                                 </div>
                                             </a>
                                         </li>
@@ -339,12 +374,12 @@
                                             
                                           
                                         <li>
-                                            <a href="#UserPrincipal">
+                                            <a href="#Principal">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    UserPrincipal
+                                                    Principal
                                                 </div>
                                             </a>
                                         </li>
@@ -537,7 +572,7 @@
 <h3>Invocation Context</h3>
 <p>The Invocation Context is a data holder that is created per request and preserved for a single request-response flow.
 The Invocation Context comprises of a unique ID, a <code>UserPrincipal</code> instance that includes user details and an
-<code>AuthContext</code> instance that has the authentication related details if available.</p>
+<code>AuthenticationContext</code> instance that has the authentication related details if available.</p>
 <h3>Errors</h3>
 <p>The runtime module includes the <code>NullReferenceException</code> and <code>IllegalStateException</code> error types. These two error
 types wrap the <code>error</code> type defined in the <code>ballerina/runtime</code> module. Furthermore, there are utility methods to
@@ -546,58 +581,68 @@ retrieve the current call stack and the particular call stack frame for an error
 and to look up properties from the runtime context.</p>
 <h3>Samples</h3>
 <p>The following sample shows how to access the Invocation Context, set data to it and access the same.</p>
-<pre><code class="language-ballerina">import ballerina/runtime;
-import ballerina/io;
+<pre><code class="language-ballerina">import ballerina/io;
+import ballerina/runtime;
 
-// set data to the Invocation Context
-// set the username ‘tom’ as the user name
-runtime:getInvocationContext().userPrincipal.username = &quot;tom&quot;;
-// set claims
-map claims = { email: &quot;tom@ballerina.com&quot;, org: &quot;wso2&quot; };
-runtime:getInvocationContext().userPrincipal.claims = claims;
-// set scopes
+// Set data to the Invocation Context.
+
+// Set the username as ‘tom’.
+runtime:getInvocationContext().principal.username = &quot;tom&quot;;
+
+// Set claims.
+map&lt;any&gt; claims = { email: &quot;tom@ballerina.com&quot;, org: &quot;wso2&quot; };
+runtime:getInvocationContext().principal.claims = claims;
+
+// Set scopes.
 string[] scopes = [&quot;email&quot;, &quot;profile&quot;];
-runtime:getInvocationContext().userPrincipal.scopes = scopes;
-// set auth scheme
-runtime:getInvocationContext().authContext.scheme = &quot;jwt&quot;;
-// set auth token
-runtime:getInvocationContext().authContext.authToken = &quot;abc.pqr.xyz&quot;;
+runtime:getInvocationContext().principal.scopes = scopes;
 
-// retrieve data from the invocation context
-// retrieve user name
-string userName = runtime:getInvocationContext().userPrincipal.username;
+// Set auth scheme.
+runtime:getInvocationContext().authenticationContext.scheme = &quot;jwt&quot;;
+
+// Set auth token.
+runtime:getInvocationContext().authenticationContext.authToken = &quot;abc.pqr.xyz&quot;;
+
+// Retrieve data from the invocation context.
+
+// Retrieve user name.
+string userName = runtime:getInvocationContext().principal.username;
 io:println(userName);
-// retrieve claims
-map retrievedClaims = &lt;map&gt;runtime:getInvocationContext().userPrincipal.claims;
+
+// Retrieve claims.
+map&lt;any&gt; retrievedClaims = runtime:getInvocationContext().principal.claims;
 io:println(retrievedClaims);
-// retrieve scopes
-string[] retrievedScopes = runtime:getInvocationContext().userPrincipal.scopes;
+
+// Retrieve scopes.
+string[] retrievedScopes = runtime:getInvocationContext().principal.scopes;
 io:println(retrievedScopes);
-// retrieve auth scheme
-string authScheme = runtime:getInvocationContext().authContext.scheme;
+
+// retrieve auth scheme.
+string authScheme = runtime:getInvocationContext().authenticationContext.scheme;
 io:println(authScheme);
-// retrieve auth token
-string token = runtime:getInvocationContext().authContext.authToken;
+
+// Retrieve auth token.
+string token = runtime:getInvocationContext().authenticationContext.authToken;
 io:println(token);
 </code></pre>
 <p>The following sample shows how to halt the current <code>worker</code> for a given time period.</p>
 <pre><code class="language-ballerina">import ballerina/runtime;
 
-// sleep the current worker for 5 seconds
+// Sleep the current worker for 5 seconds.
 runtime:sleep(5000);
 </code></pre>
 <p>The following sample shows how to access properties from the runtime.</p>
 <pre><code class="language-ballerina">import ballerina/runtime;
 
-// retrieve the property ‘ballerina version’ from the runtime
+// Retrieve the property ‘ballerina version’ from the runtime.
 runtime:getProperty(&quot;ballerina.version&quot;);
 </code></pre>
 <p>The following sample shows how to access the call stack and how to trap an error.</p>
-<pre><code class="language-ballerina">import ballerina/runtime;
-import ballerina/io;
+<pre><code class="language-ballerina">import ballerina/io;
+import ballerina/runtime;
 
 public function main() {
-    // prints the current call stack
+    // Print the current call stack.
     io:println(runtime:getCallStack());
     var errorMessage = trap getError();
     if (errorMessage is error) {
@@ -610,7 +655,7 @@ function getError() {
 }
 
 function panicWithError() {
-    // creates an error with a reason
+    // Create an error with a reason.
     error e = error(&quot;error occured&quot;);
     panic e;
 }
@@ -635,7 +680,7 @@ function panicWithError() {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#AuthContext">AuthContext</a></td>
+                                                         <td class="cSummary-table-name"><a href="#AuthenticationContext">AuthenticationContext</a></td>
                                                          <td class="cSummary-table-desc">Represents the AuthenticationContext, populated with authenticated information.
 </td>
                                                      </tr>
@@ -659,8 +704,8 @@ function panicWithError() {
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#UserPrincipal">UserPrincipal</a></td>
-                                                         <td class="cSummary-table-desc">Represents the UserPrincipal, populated with authenticated user information.
+                                                         <td class="cSummary-table-name"><a href="#Principal">Principal</a></td>
+                                                         <td class="cSummary-table-desc">Represents the Principal, populated with authenticated user information.
 </td>
                                                      </tr>
                                                  
@@ -773,8 +818,8 @@ function panicWithError() {
                                                 
                                                 <!-- Records -->
                                                 
-                                                <h2 id="AuthContext">
-                                                    <span class="fw-record sm-icon"></span> public type AuthContext
+                                                <h2 id="AuthenticationContext">
+                                                    <span class="fw-record sm-icon"></span> public type AuthenticationContext
                                                 </h2>
                                                 
                                                 <p>
@@ -915,16 +960,16 @@ function panicWithError() {
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">userPrincipal</td>
-                                                        <td class="cAPI-table-type"><a href="runtime.html#UserPrincipal">runtime:UserPrincipal</a></td>
+                                                        <td class="cAPI-table-name">principal</td>
+                                                        <td class="cAPI-table-type"><a href="runtime.html#Principal">runtime:Principal</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>User principal instance.</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">authContext</td>
-                                                        <td class="cAPI-table-type"><a href="runtime.html#AuthContext">runtime:AuthContext</a></td>
+                                                        <td class="cAPI-table-name">authenticationContext</td>
+                                                        <td class="cAPI-table-type"><a href="runtime.html#AuthenticationContext">runtime:AuthenticationContext</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Authentication context instance.</p>
 </td>
@@ -955,12 +1000,12 @@ function panicWithError() {
                                                 
                                                 <!-- Records -->
                                                 
-                                                <h2 id="UserPrincipal">
-                                                    <span class="fw-record sm-icon"></span> public type UserPrincipal
+                                                <h2 id="Principal">
+                                                    <span class="fw-record sm-icon"></span> public type Principal
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Represents the UserPrincipal, populated with authenticated user information.
+                                                    <span class="fw-right gray xs-icon"></span>Represents the Principal, populated with authenticated user information.
 
                                                 </p>
                                                  
@@ -1305,7 +1350,8 @@ function panicWithError() {
                                                         <td class="cAPI-table-name"></td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#future">future<null></a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Future to be invoked after the timeout</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -1493,6 +1539,16 @@ function panicWithError() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -1573,6 +1629,16 @@ function panicWithError() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -1633,7 +1699,7 @@ function panicWithError() {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -1683,6 +1749,16 @@ function panicWithError() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -1693,7 +1769,27 @@ function panicWithError() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -1754,16 +1850,6 @@ function panicWithError() {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="system.html">ballerina/<span class="bold">system</span>
                                    </a>
                                    
@@ -1805,6 +1891,16 @@ function panicWithError() {
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -1828,6 +1924,16 @@ function panicWithError() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -1908,6 +2014,16 @@ function panicWithError() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -1968,7 +2084,7 @@ function panicWithError() {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -2018,6 +2134,16 @@ function panicWithError() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -2028,7 +2154,27 @@ function panicWithError() {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -2089,16 +2235,6 @@ function panicWithError() {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="system.html">ballerina/<span class="bold">system</span>
                                    </a>
                                    
@@ -2140,6 +2276,16 @@ function panicWithError() {
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>

@@ -240,6 +240,27 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -714,6 +735,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -759,36 +794,35 @@ For more information on Ballerina Observability visit <a href="https://ballerina
 <h4>Start a root span &amp; attach a child span</h4>
 <p>The following code snippet show an example of how start a root span with no parent and start another span as a child of the first span.
 Note: Make sure that all started spans are closed properly to ensure that all spans are reported properly.</p>
-<pre><code class="language-ballerina">
-    int spanId = observe:startRootSpan(&quot;Parent Span&quot;);
-    
-    //Do Something
-    
-    int spanId2 = check observe:startSpan(&quot;Child Span&quot;, parentSpanId = spanId);
-    
-    // Do Something
-    
-    _ = observe:finishSpan(spanId2);
-    
-    // Do Something
-    
-    _ = observe:finishSpan(spanId);
+<pre><code class="language-ballerina">int spanId = observe:startRootSpan(&quot;Parent Span&quot;);
+
+// Do Something.
+
+int spanId2 = checkpanic observe:startSpan(&quot;Child Span&quot;, parentSpanId = spanId);
+
+// Do Something.
+
+var ret1 = observe:finishSpan(spanId2);
+
+// Do Something.
+
+var ret2 = observe:finishSpan(spanId);
 </code></pre>
 <h4>Start a span attached to a system trace</h4>
 <p>When no parentSpanId is given or a parentSpanId of -1 is given, a span is started as a child span to the current active span in the ootb system trace.</p>
-<pre><code class="language-ballerina">    int spanId = check observe:startSpan(&quot;Child Span&quot;);
-    
-    // Do Something
-    
-    _ = observe:finishSpan(spanId);
+<pre><code class="language-ballerina">int spanId = checkpanic observe:startSpan(&quot;Child Span&quot;);
+
+// Do Something.
+
+var ret = observe:finishSpan(spanId);
 </code></pre>
 <h4>Attach a tag to a span</h4>
 <p>It is possible to add tags to span by using the <code>observe:addTagToSpan()</code> api by providing the span id and relevant tag key and tag value.</p>
-<pre><code class="language-ballerina">    _ = observe:addTagToSpan(spanId = spanId, &quot;Tag Key&quot;, &quot;Tag Value&quot;);
+<pre><code class="language-ballerina">_ = observe:addTagToSpan(spanId = spanId, &quot;Tag Key&quot;, &quot;Tag Value&quot;);
 </code></pre>
 <h4>Attach a tag to a span in the system trace</h4>
 <p>When no spanId is provided or -1 is given, the defined tags are added to the current active span in the ootb system trace.</p>
-<pre><code class="language-ballerina">    _ = observe:addTagToSpan(&quot;Tag Key&quot;, &quot;Tag Value&quot;);
+<pre><code class="language-ballerina">var ret = observe:addTagToSpan(&quot;Tag Key&quot;, &quot;Tag Value&quot;);
 </code></pre>
 <h2>Metrics</h2>
 <p>There are mainly two kind of metrics instances supported; Counter and Gauge. A counter is a cumulative metric that
@@ -800,16 +834,15 @@ statistics configurations provided to the Gauge, it can also report the statisti
 <h4>Create</h4>
 <p>The following code snippets provides the information on how Counter instances can be created. Instantiating the counter
 will simply create an instance based on the params passed.</p>
-<pre><code class="language-ballerina">    //Create counter with simply by name.
-    observe:Counter simpleCounter = new (&quot;SimpleCounter&quot;); 
-    
-    //Create counter with description.
-    observe:Counter counterWithDesc = new (&quot;CounterWithDesc&quot;, desc = &quot;This is a sample counter description&quot;);
-    
-    //Create counter with tags.
-    map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Counter counterWithTags = new (&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
+<pre><code class="language-ballerina">// Create counter with simply by name.
+observe:Counter simpleCounter = new(&quot;SimpleCounter&quot;); 
 
+// Create counter with description.
+observe:Counter counterWithDesc = new(&quot;CounterWithDesc&quot;, desc = &quot;This is a sample counter description&quot;);
+
+// Create counter with tags.
+map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Counter counterWithTags = new(&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
 </code></pre>
 <h4>Register</h4>
 <p>The counter can registered with the global metrics registry, therefore it can be looked up later without having the
@@ -817,79 +850,74 @@ reference of the counter that was created. Also, only the registered counters wi
 such as Prometheus. In case, if there is already another non counter metric registered,
 then there will be an error returned. But if it's another counter instance, then the registered counter instance will
 be returned.</p>
-<pre><code class="language-ballerina">    map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Counter counterWithTags = new (&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
-    var anyError = counterWithTags.register();
-    if anyError is error {
-        log:printError(&quot;Cannot register the counter&quot;, err = anyError);
-    }
-    
+<pre><code class="language-ballerina">map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Counter counterWithTags = new(&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
+var anyError = counterWithTags.register();
+if anyError is error {
+    log:printError(&quot;Cannot register the counter&quot;, err = anyError);
+}
 </code></pre>
 <h4>Unregister</h4>
 <p>The counter can unregistered with the global metrics registry if it is already registered. If a metrics is unregistered,
 then further it'll not be included in metrics reporting.</p>
-<pre><code class="language-ballerina">    map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Counter counterWithTags = new (&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
-    var anyError = counterWithTags.register();
-    if anyError is error {
-        log:printError(&quot;Cannot register the counter&quot;, err = anyError);
-    }
-    counterWithTags.unregister();
+<pre><code class="language-ballerina">map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Counter counterWithTags = new(&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
+var anyError = counterWithTags.register();
+if anyError is error {
+    log:printError(&quot;Cannot register the counter&quot;, err = anyError);
+}
+counterWithTags.unregister();
     
 </code></pre>
 <h4>Increment</h4>
 <p>The counter can be incremented without passing any params (defaulted to 1), or by a specific amount.</p>
-<pre><code class="language-ballerina">    map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Counter counterWithTags = new (&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
-    //Increment by 1.
-    counterWithTags.increment(); 
-    //Increment by amount 10.
-    counterWithTags.increment(amount = 10);
-    
+<pre><code class="language-ballerina">map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Counter counterWithTags = new(&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
+// Increment by 1.
+counterWithTags.increment(); 
+// Increment by amount 10.
+counterWithTags.increment(amount = 10);
 </code></pre>
 <h4>Reset</h4>
 <p>The counter can be resetted to default amount = 0.</p>
-<pre><code class="language-ballerina">    map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Counter counterWithTags = new (&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
-    counterWithTags.reset(); 
-    
+<pre><code class="language-ballerina">map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Counter counterWithTags = new(&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
+counterWithTags.reset();
 </code></pre>
 <h4>Get Value</h4>
 <p>The current value can be retrieved by this operation.</p>
-<pre><code class="language-ballerina">    map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Counter counterWithTags = new (&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
-    int currentValue = counterWithTags.getValue(); 
-    
+<pre><code class="language-ballerina">map&lt;string&gt; counterTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Counter counterWithTags = new(&quot;CounterWithTags&quot;, desc = &quot;Some description&quot;, tags = counterTags);
+int currentValue = counterWithTags.getValue();
 </code></pre>
 <h3>Gauge Samples</h3>
 <h4>Create</h4>
 <p>The following code snippets provides the information on how Gauge instances can be created. Instantiating the gauge
 will simply create an instance based on the params passed.</p>
-<pre><code class="language-ballerina">    //Create gauge with simply by name. 
-    //Uses the default statistics configuration. 
-    observe:Gauge simpleGauge = new (&quot;SimpleGauge&quot;); 
-        
-    //Create gauge with description.
-    //Uses the default statistics configuration. 
-    observe:Gauge gaugeWithDesc = new (&quot;GaugeWithDesc&quot;, desc = &quot;This is a sample gauge description&quot;);
-        
-    //Create gauge with tags.
-    //Uses the default statistics configuration. 
-    map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Counter gaugeWithTags = new (&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
-        
-    //Create gauge with disabled statistics. 
-    observe:StatisticConfig[] statsConfigs = [];
-    observe:Gauge gaugeWithNoStats = new (&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, 
-                                        tags = gaugeTags, statisticConfig = statsConfigs);
-                                        
-    //Create gauge with statistics config. 
-    observe:StatisticConfig config = {timeWindow:30000, percentiles:[0.33, 0.5, 0.9, 0.99], buckets:3};
-    statsConfigs[0]=config; 
-        
-    observe:Gauge gaugeWithStats = new (&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, 
-                                        tags = gaugeTags, statisticConfig = statsConfigs);                                        
+<pre><code class="language-ballerina">// Create gauge with simply by name. 
+// Uses the default statistics configuration. 
+observe:Gauge simpleGauge = new(&quot;SimpleGauge&quot;); 
 
+// Create gauge with description.
+// Uses the default statistics configuration. 
+observe:Gauge gaugeWithDesc = new(&quot;GaugeWithDesc&quot;, desc = &quot;This is a sample gauge description&quot;);
+
+// Create gauge with tags.
+// Uses the default statistics configuration. 
+map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Counter gaugeWithTags = new(&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
+
+// Create gauge with disabled statistics. 
+observe:StatisticConfig[] statsConfigs = [];
+observe:Gauge gaugeWithNoStats = new(&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, 
+                                    tags = gaugeTags, statisticConfig = statsConfigs);
+
+// Create gauge with statistics config. 
+observe:StatisticConfig config = { timeWindow: 30000, percentiles: [0.33, 0.5, 0.9, 0.99], buckets: 3 };
+statsConfigs[0]=config; 
+
+observe:Gauge gaugeWithStats = new(&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, 
+                                   tags = gaugeTags, statisticConfig = statsConfigs);
 </code></pre>
 <h4>Register</h4>
 <p>The gauge can registered with the global metrics registry, therefore it can be looked up later without having the
@@ -897,96 +925,90 @@ reference of the gauge that was created. Also, only the registered counters will
 such as Prometheus. In case, if there is already another non gauge metric registered,
 then there will be an error returned. But if it's another gauge instance, then the registered gauge instance will
 be returned.</p>
-<pre><code class="language-ballerina">    map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Gauge gaugeWithTags = new (&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
-    var anyError = gaugeWithTags.register();
-    if anyError is error {
-        log:printError(&quot;Cannot register the gauge&quot;, err = anyError);
-    }
-    
+<pre><code class="language-ballerina">map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Gauge gaugeWithTags = new(&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
+var anyError = gaugeWithTags.register();
+if anyError is error {
+    log:printError(&quot;Cannot register the gauge&quot;, err = anyError);
+}
 </code></pre>
 <h4>Unregister</h4>
 <p>The gauge can unregistered with the global metrics registry if it is already registered. If a metrics is unregistered,
 then further it'll not be included in metrics reporting.</p>
-<pre><code class="language-ballerina">     map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
-     observe:Gauge gaugeWithTags = new (&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
-    var anyError = gaugeWithTags.register();
-    if anyError is error {
-        log:printError(&quot;Cannot register the gauge&quot;, err = anyError);
-    }
-     gaugeWithTags.unregister();
-    
+<pre><code class="language-ballerina">map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Gauge gaugeWithTags = new(&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
+var anyError = gaugeWithTags.register();
+if anyError is error {
+    log:printError(&quot;Cannot register the gauge&quot;, err = anyError);
+}
+gaugeWithTags.unregister();
 </code></pre>
 <h4>Increment</h4>
 <p>The gauge can be incremented without passing any params (defaulted to 1.0), or by a specific amount.</p>
-<pre><code class="language-ballerina">    map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Gauge gaugeWithTags = new (&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
-    //Increment by 1.
-    gaugeWithTags.increment(); 
-    //Increment by amount 10.
-    gaugeWithTags.increment(amount = 10.0);
-    
+<pre><code class="language-ballerina">map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Gauge gaugeWithTags = new(&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
+// Increment by 1.
+gaugeWithTags.increment(); 
+// Increment by amount 10.
+gaugeWithTags.increment(amount = 10.0);  
 </code></pre>
 <h4>Decrement</h4>
 <p>The gauge can be decremented without passing any params (defaulted to 1.0), or by a specific amount.</p>
-<pre><code class="language-ballerina">    map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Gauge gaugeWithTags = new (&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
-    //Increment by 1.
-    gaugeWithTags.decrement(); 
-    //Increment by amount 10.
-    gaugeWithTags.decrement(amount = 10.0);
-    
+<pre><code class="language-ballerina">map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Gauge gaugeWithTags = new(&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
+// Increment by 1.
+gaugeWithTags.decrement(); 
+// Increment by amount 10.
+gaugeWithTags.decrement(amount = 10.0);
 </code></pre>
 <h4>Set Value</h4>
 <p>This method sets the gauge's value with specific amount.</p>
-<pre><code class="language-ballerina">     map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
-     observe:Gauge gaugeWithTags = new (&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
-     gaugeWithTags.setValue(100.0);
-    
+<pre><code class="language-ballerina">map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Gauge gaugeWithTags = new(&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
+gaugeWithTags.setValue(100.0);
 </code></pre>
 <h4>Get Value.</h4>
 <p>The current value can be retrieved by this operation.</p>
-<pre><code class="language-ballerina">    map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Gauge gaugeWithTags = new (&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
-    float currentValue = gaugeWithTags.getValue(); 
-    
+<pre><code class="language-ballerina">map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Gauge gaugeWithTags = new(&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
+float currentValue = gaugeWithTags.getValue(); 
 </code></pre>
 <h4>Get Snapshot.</h4>
 <p>This method retrieves current snapshot of the statistics calculation based on the configurations passed to the gauge.
 If the statistics are disabled, then it'll be returning nil ().</p>
-<pre><code class="language-ballerina">    map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Gauge gaugeWithTags = new (&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
-    gaugeWithTags.setValue(1.0);
-    gaugeWithTags.setValue(2.0);
-    gaugeWithTags.setValue(3.0);
-    
-    observe:Snapshot[]? summarySnapshot = gaugeWithTags.getSnapshot();
-    if summarySnapshot is observe:Snapshot[] {
-        io:println(summarySnapshot);
-    } else {
-        io:println(&quot;No statistics available!&quot;);
-    }
+<pre><code class="language-ballerina">map&lt;string&gt; gaugeTags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Gauge gaugeWithTags = new(&quot;GaugeWithTags&quot;, desc = &quot;Some description&quot;, tags = gaugeTags);
+gaugeWithTags.setValue(1.0);
+gaugeWithTags.setValue(2.0);
+gaugeWithTags.setValue(3.0);
+
+observe:Snapshot[]? summarySnapshot = gaugeWithTags.getSnapshot();
+if summarySnapshot is observe:Snapshot[] {
+    io:println(summarySnapshot);
+} else {
+    io:println(&quot;No statistics available!&quot;);
+}
 </code></pre>
 <h3>Global Metrics Samples</h3>
 <h4>Get All Metrics</h4>
 <p>This method returns all the metrics that are registered in the global metrics registry. This method is mainly useful for
 metric reporters, where they can fetch all metrics, format those, and report.</p>
-<pre><code class="language-ballerina">     observe:Metric[] metrics = observe:getAllMetrics();
-     foreach var metric in metrics {
-        //do something.
-     }
+<pre><code class="language-ballerina">observe:Metric[] metrics = observe:getAllMetrics();
+foreach var metric in metrics {
+    // Do something.
+}
 </code></pre>
 <h4>Lookup Metric</h4>
 <p>This method will lookup for the metric from the global metric registry and return it.</p>
-<pre><code class="language-ballerina">    map&lt;string&gt; tags = { &quot;method&quot;: &quot;GET&quot; };
-    observe:Counter|observe:Gauge|() metric = observe:lookupMetric(&quot;MetricName&quot;, tags = tags);
-    if metric is observe:Counter {
-        metric.increment(amount = 10);
-    } else if metric is observe:Gauge {
-        metric.increment(amount = 10.0);
-    } else {
-        io:println(&quot;No Metric Found!&quot;);
-    }
+<pre><code class="language-ballerina">map&lt;string&gt; tags = { &quot;method&quot;: &quot;GET&quot; };
+observe:Counter|observe:Gauge|() metric = observe:lookupMetric(&quot;MetricName&quot;, tags = tags);
+if metric is observe:Counter {
+    metric.increment(amount = 10);
+} else if metric is observe:Gauge {
+    metric.increment(amount = 10.0);
+} else {
+    io:println(&quot;No Metric Found!&quot;);
+}
 </code></pre>
 
                                             </div>
@@ -1651,7 +1673,7 @@ during the usage.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="lookupMetric">
-                                                    <span class="fw-function sm-icon"> </span> public function lookupMetric(string name, map&lt;string&gt;? tags) returns (Counter | Gauge | null) 
+                                                    <span class="fw-function sm-icon"> </span> public function lookupMetric(string name, map&lt;string&gt;? tags) returns (Counter|Gauge) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1678,7 +1700,7 @@ during the usage.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">tags</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#map">map<string>?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>The key/value pair tags that associated with the metric that should be looked up.</p>
 </td>
                                                     </tr>
@@ -1696,7 +1718,7 @@ during the usage.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="observe.html#Counter">Counter</a> | <a href="observe.html#Gauge">Gauge</a> | null</td>
+                                                        <td class="cAPI-table-type"><a href="observe.html#Counter">Counter</a>|<a href="observe.html#Gauge">Gauge</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>The metric instance.</p>
 </td>
@@ -1747,7 +1769,7 @@ during the usage.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">tags</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#map">map<string>?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Tags to be associated to the span</p>
 </td>
                                                     </tr>
@@ -1789,7 +1811,7 @@ during the usage.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="startSpan">
-                                                    <span class="fw-function sm-icon"> </span> public function startSpan(string spanName, map&lt;string&gt;? tags, int parentSpanId) returns (int | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function startSpan(string spanName, map&lt;string&gt;? tags, int parentSpanId) returns (int|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1816,7 +1838,7 @@ during the usage.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">tags</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#map">map<string>?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Tags to be associated to the span</p>
 </td>
                                                     </tr>
@@ -1842,7 +1864,7 @@ during the usage.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>SpanId of the started span</p>
 </td>
@@ -1961,7 +1983,7 @@ will be used.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">tags</td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#map">map<string>?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>The key/value pair of Tags. If no tags are provided, the default nil value will be used.</p>
 </td>
                                                                 </tr>
@@ -2219,7 +2241,7 @@ will be used.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">tags</td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#map">map<string>?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>The key/value pair of Tags. If no tags are provided, the default nil value will be used.</p>
 </td>
                                                                 </tr>
@@ -2227,7 +2249,7 @@ will be used.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">statisticConfig</td>
                                                                     <td class="cAPI-table-type"><a href="observe.html#StatisticConfig">observe:StatisticConfig[]?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>Statistics configurations array is used for statistics calculation. In case if empty
 statistics configurations array is passed, then statistics calculation will be disabled.
 If nil () is passed, then default statistics configs will be used for the statitics
@@ -2637,6 +2659,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -2717,6 +2749,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -2777,7 +2819,7 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -2823,6 +2865,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 </li>
                              </ul>
                              
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
                              <ul class="active-package">
                                 <li>
                                    <!--Package Name-->
@@ -2838,7 +2890,27 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -2898,16 +2970,6 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="system.html">ballerina/<span class="bold">system</span>
                                    </a>
                                    
@@ -2949,6 +3011,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -2972,6 +3044,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -3052,6 +3134,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -3112,7 +3204,7 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -3158,6 +3250,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 </li>
                              </ul>
                              
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
                              <ul class="active-package">
                                 <li>
                                    <!--Package Name-->
@@ -3173,7 +3275,27 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -3233,16 +3355,6 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="system.html">ballerina/<span class="bold">system</span>
                                    </a>
                                    
@@ -3284,6 +3396,16 @@ If there is no statisticsConfigs provided, then it will be nil.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>

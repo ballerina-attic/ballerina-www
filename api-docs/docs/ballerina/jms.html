@@ -198,6 +198,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -1612,6 +1626,27 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -1674,8 +1709,8 @@ import ballerina/log;
 
 // Create a simple queue receiver.
 listener jms:SimpleQueueReceiver consumerEP = new({
-    initialContextFactory: &quot;bmbInitialContextFactory&quot;,
-    providerUrl: &quot;amqp://admin:admin@ballerina/default?brokerlist='tcp://localhost:5672'&quot;,
+    initialContextFactory: &quot;org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory&quot;,
+    providerUrl: &quot;tcp://localhost:61616&quot;,
     acknowledgementMode: &quot;AUTO_ACKNOWLEDGE&quot;,
     queueName: &quot;MyQueue&quot;
 });
@@ -1684,8 +1719,8 @@ listener jms:SimpleQueueReceiver consumerEP = new({
 service jmsListener on consumerEP {
 
     // The `OnMessage` resource gets invoked when a message is received.
-    var msg = message.getTextMessageContent();
     resource function onMessage(jms:QueueReceiverCaller consumer, jms:Message message) {
+        var msg = message.getTextMessageContent();
         if (msg is string) {
             log:printInfo(&quot;Message : &quot; + msg);
         } else {
@@ -1694,29 +1729,29 @@ service jmsListener on consumerEP {
     }
 }
 </code></pre>
-<h3>JMS Simple Queue Producer.</h3>
-<p>Following is a simple queue sender program that sends messages to a Ballerina Message Broker queue named <code>MyQueue</code>.</p>
+<h3>JMS Simple Topic publisher.</h3>
+<p>Following is a simple topic publisher program that sends messages to a Ballerina Message Broker topic named <code>MyTopic</code>.</p>
 <pre><code class="language-ballerina">import ballerina/jms;
 import ballerina/log;
 
 // Create a topic publisher.
 jms:SimpleTopicPublisher topicPublisher = new({
-    initialContextFactory: &quot;bmbInitialContextFactory&quot;,
-    providerUrl: &quot;amqp://admin:admin@ballerina/default?brokerlist='tcp://localhost:5672'&quot;,
+    initialContextFactory: &quot;org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory&quot;,
+    providerUrl: &quot;tcp://localhost:61616&quot;,
     acknowledgementMode: &quot;AUTO_ACKNOWLEDGE&quot;,
     topicPattern: &quot;BallerinaTopic&quot;
 });
 
 public function main(string... args) {
     // Create a text message.
-    var msg = topicPublisher.createTextMessage(&quot;Hello from Ballerina&quot;);
-    if (msg is error) {
-        log:printError(&quot;Error occurred while creating message&quot;, err = msg);
-    } else {
+    var msg = topicPublisher.session.createTextMessage(&quot;Hello from Ballerina&quot;);
+    if (msg is jms:Message) {
         var result = topicPublisher-&gt;send(msg);
         if (result is error) {
-            log:printError(&quot;Error occurred while sending message&quot;, err = result)
-        };
+            log:printError(&quot;Error occurred while sending message&quot;, err = result);
+        }
+    } else {
+        log:printError(&quot;Error occurred while creating message&quot;, err = msg);       
     }
 }
 </code></pre>
@@ -1727,21 +1762,18 @@ import ballerina/log;
 
 // Initialize a JMS connection with the provider.
 jms:Connection conn = new({
-        initialContextFactory: &quot;bmbInitialContextFactory&quot;,
-        providerUrl: &quot;amqp://admin:admin@ballerina/default?brokerlist='tcp://localhost:5672'&quot;
-    });
+    initialContextFactory: &quot;org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory&quot;,
+    providerUrl: &quot;tcp://localhost:61616&quot;
+});
 
 // Initialize a JMS session on top of the created connection.
 jms:Session jmsSession = new(conn, {
-        // An optional property that defaults to `AUTO_ACKNOWLEDGE`.
-        acknowledgementMode: &quot;AUTO_ACKNOWLEDGE&quot;
-    });
+    // An optional property that defaults to `AUTO_ACKNOWLEDGE`.
+    acknowledgementMode: &quot;AUTO_ACKNOWLEDGE&quot;
+});
 
 // Initialize a queue receiver using the created session.
-listener jms:QueueReceiver consumerEP = new({
-    session: jmsSession,
-    queueName: &quot;MyQueue&quot;
-});
+listener jms:QueueReceiver consumerEP = new(jmsSession, queueName = &quot;MyQueue&quot;);
 
 // Bind the created consumer to the listener service.
 service jmsListener on consumerEP {
@@ -1751,7 +1783,7 @@ service jmsListener on consumerEP {
         // Retrieve the text message.
         var msg = message.getTextMessageContent();
         if (msg is string) {
-            log:printInfo(&quot;Message : &quot; + message.getTextMessageContent());
+            log:printInfo(&quot;Message : &quot; + msg);
         } else {
             log:printError(&quot;Error occurred while reading message&quot;, err = msg);
         }
@@ -1765,19 +1797,16 @@ import ballerina/log;
 
 // Initialize a JMS connection with the provider.
 jms:Connection jmsConnection = new({
-        initialContextFactory: &quot;bmbInitialContextFactory&quot;,
-        providerUrl: &quot;amqp://admin:admin@ballerina/default?brokerlist='tcp://localhost:5672'&quot;
-    });
+    initialContextFactory: &quot;org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory&quot;,
+    providerUrl: &quot;tcp://localhost:61616&quot;
+});
 
 // Initialize a JMS session on top of the created connection.
 jms:Session jmsSession = new(jmsConnection, {
-        acknowledgementMode: &quot;AUTO_ACKNOWLEDGE&quot;
-    });
-
-jms:QueueSender queueSender = new({
-    session: jmsSession,
-    queueName: &quot;MyQueue&quot;
+    acknowledgementMode: &quot;AUTO_ACKNOWLEDGE&quot;
 });
+
+jms:QueueSender queueSender = new(jmsSession, queueName = &quot;MyQueue&quot;);
 
 public function main(string... args) {
     // Create a text message.
@@ -1787,7 +1816,7 @@ public function main(string... args) {
     } else {
         var result = queueSender-&gt;send(msg);
         if (result is error) {
-            log:printError(&quot;Error occurred while sending message&quot;, err = result)
+            log:printError(&quot;Error occurred while sending message&quot;, err = result);
         }
     }
 }
@@ -1798,21 +1827,18 @@ public function main(string... args) {
 import ballerina/log;
 
 jms:Connection conn = new({
-    initialContextFactory:&quot;bmbInitialContextFactory&quot;,
-    providerUrl:&quot;amqp://admin:admin@carbon/carbon?brokerlist='tcp://localhost:5672'&quot;
+    initialContextFactory: &quot;org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory&quot;,
+    providerUrl: &quot;tcp://localhost:61616&quot;
 });
 
 jms:Session jmsSession = new(conn, {
-    acknowledgementMode:&quot;AUTO_ACKNOWLEDGE&quot;
+    acknowledgementMode: &quot;AUTO_ACKNOWLEDGE&quot;
 });
 
-listener jms:TopicSubscriber subscriberEndpoint = new({
-    session:jmsSession,
-    topicPattern:&quot;BallerinaTopic&quot;
-});
+listener jms:TopicSubscriber subscriberEndpoint = new(jmsSession, topicPattern = &quot;MyTopic&quot;);
 
 service jmsListener on subscriberEndpoint {
-    onMessage(jms:TopicSubscriberCaller subscriber, jms:Message message) {
+    resource function onMessage(jms:TopicSubscriberCaller subscriber, jms:Message message) {
         var msg = message.getTextMessageContent();
         if (msg is string) {
             log:printInfo(&quot;Message : &quot; + msg);
@@ -1828,18 +1854,15 @@ service jmsListener on subscriberEndpoint {
 import ballerina/log;
 
 jms:Connection jmsConnection = new({
-    initialContextFactory:&quot;bmbInitialContextFactory&quot;,
-    providerUrl:&quot;amqp://admin:admin@carbon/carbon?brokerlist='tcp://localhost:5672'&quot;
+    initialContextFactory: &quot;org.apache.activemq.artemis.jndi.ActiveMQInitialContextFactory&quot;,
+    providerUrl: &quot;tcp://localhost:61616&quot;
 });
 
 jms:Session jmsSession = new(jmsConnection, {
-    acknowledgementMode:&quot;AUTO_ACKNOWLEDGE&quot;
+    acknowledgementMode: &quot;AUTO_ACKNOWLEDGE&quot;
 });
 
-jms:TopicPublisher topicPublisher = new({
-    session:jmsSession,
-    topicPattern:&quot;BallerinaTopic&quot;
-});
+jms:TopicPublisher topicPublisher = new(jmsSession, topicPattern = &quot;MyTopic&quot;);
 
 public function main(string... args) {
     var msg = jmsSession.createTextMessage(&quot;Hello from Ballerina&quot;);
@@ -1848,7 +1871,7 @@ public function main(string... args) {
     } else {
         var result = topicPublisher-&gt;send(msg);
         if (result is error) {
-            log:printError(&quot;Error occurred while sending message&quot;, err = result)
+            log:printError(&quot;Error occurred while sending message&quot;, err = result);
         }
     }
 }
@@ -2284,7 +2307,7 @@ application data being sent.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">username</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Username for the JMS connection</p>
 </td>
                                                     </tr>
@@ -2292,7 +2315,7 @@ application data being sent.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">password</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Password for the JMS connection</p>
 </td>
                                                     </tr>
@@ -2342,7 +2365,7 @@ application data being sent.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">session</td>
                                                         <td class="cAPI-table-type"><a href="jms.html#Session">jms:Session?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>JMS session used to create the consumer</p>
 </td>
                                                     </tr>
@@ -3164,7 +3187,7 @@ CLIENT_ACKNOWLEDGMENT.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;DurableTopicSubscriber&gt;
-                                                   </span> __attach(service serviceType, map data) returns (error?&lt;&gt;) 
+                                                   </span> __attach(service serviceType, string? name) returns (error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3189,10 +3212,10 @@ CLIENT_ACKNOWLEDGMENT.</p>
                                                                 </tr>
                                                                 
                                                                 <tr>
-                                                                    <td class="cAPI-table-name">data</td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Service annotations</p>
+                                                                    <td class="cAPI-table-name">name</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                                    <td class="cAPI-table-default">()</td>
+                                                                    <td class="cAPI-table-desc"><p>The name of the service</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3359,7 +3382,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getTextMessageContent() returns (string | error&lt;&gt;) 
+                                                   </span> getTextMessageContent() returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3378,7 +3401,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The string containing this message's data or a JMS error</p>
 </td>
@@ -3393,7 +3416,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getMapMessageContent() returns (map&lt;any&gt; | error&lt;&gt;) 
+                                                   </span> getMapMessageContent() returns (map&lt;any&gt;|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3412,7 +3435,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#map">map<any></a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#map">map<any></a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The string containing this message's data or a JMS error</p>
 </td>
@@ -3487,7 +3510,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getStringProperty(string key) returns (string | error&lt;&gt;) 
+                                                   </span> getStringProperty(string key) returns (string|error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3524,7 +3547,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error?<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The string property value, JMS error or nil if there is no property by this name</p>
 </td>
@@ -3599,7 +3622,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getIntProperty(string key) returns (int | error&lt;&gt;) 
+                                                   </span> getIntProperty(string key) returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3636,7 +3659,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The integer property value or JMS error</p>
 </td>
@@ -3711,7 +3734,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getBooleanProperty(string key) returns (boolean | error&lt;&gt;) 
+                                                   </span> getBooleanProperty(string key) returns (boolean|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3748,7 +3771,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The boolean property value or JMS error</p>
 </td>
@@ -3823,7 +3846,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getFloatProperty(string key) returns (float | error&lt;&gt;) 
+                                                   </span> getFloatProperty(string key) returns (float|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3860,7 +3883,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#float">float</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#float">float</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The float property value or JMS error</p>
 </td>
@@ -3875,7 +3898,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getMessageID() returns (string | error&lt;&gt;) 
+                                                   </span> getMessageID() returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3894,7 +3917,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The header value or JMS error</p>
 </td>
@@ -3909,7 +3932,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getTimestamp() returns (int | error&lt;&gt;) 
+                                                   </span> getTimestamp() returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3928,7 +3951,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The timestamp header value or JMS error</p>
 </td>
@@ -3995,7 +4018,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getDeliveryMode() returns (int | error&lt;&gt;) 
+                                                   </span> getDeliveryMode() returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4014,7 +4037,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The delivery mode header value or JMS error</p>
 </td>
@@ -4081,7 +4104,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getExpiration() returns (int | error&lt;&gt;) 
+                                                   </span> getExpiration() returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4100,7 +4123,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The expiration header value or JMS error</p>
 </td>
@@ -4167,7 +4190,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getType() returns (string | error&lt;&gt;) 
+                                                   </span> getType() returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4186,7 +4209,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The JMS message type header value or JMS error</p>
 </td>
@@ -4321,7 +4344,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getPriority() returns (int | error&lt;&gt;) 
+                                                   </span> getPriority() returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4340,7 +4363,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The JMS priority header value or error</p>
 </td>
@@ -4355,7 +4378,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getRedelivered() returns (boolean | error&lt;&gt;) 
+                                                   </span> getRedelivered() returns (boolean|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4374,7 +4397,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The JMS redelivered header value or JMS error</p>
 </td>
@@ -4441,7 +4464,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getCorrelationID() returns (string | error&lt;&gt;) 
+                                                   </span> getCorrelationID() returns (string|error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4460,7 +4483,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error?<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The JMS correlation ID header value or JMS error or nil if header is not set</p>
 </td>
@@ -4475,7 +4498,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Message&gt;
-                                                   </span> getReplyTo() returns (Destination | error&lt;&gt;) 
+                                                   </span> getReplyTo() returns (Destination|error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4494,7 +4517,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="jms.html#Destination">Destination</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Destination">Destination</a>|<a href="builtin.html#error">error?<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The JMS replyTo Destination or JMS error or nil if header is not set</p>
 </td>
@@ -4601,7 +4624,7 @@ application data being sent.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">session</td>
-                                                        <td class="cAPI-table-type"><a href="jms.html#Session">jms:Session?</a></td>
+                                                        <td class="cAPI-table-type"><a href="jms.html#Session">jms:Session</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Session of the queue receiver</p>
 </td>
@@ -4660,7 +4683,7 @@ application data being sent.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">queueName</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>Name of the queue</p>
 </td>
                                                                 </tr>
@@ -4677,7 +4700,7 @@ application data being sent.</p>
                                                                     <td class="cAPI-table-name">identifier</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Unique identifier for the reciever</p>
+                                                                    <td class="cAPI-table-desc"><p>Unique identifier for the receiver</p>
 </td>
                                                                 </tr>
                                                                 
@@ -4690,7 +4713,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;QueueReceiver&gt;
-                                                   </span> __attach(service serviceType, map data) returns (error?&lt;&gt;) 
+                                                   </span> __attach(service serviceType, string? name) returns (error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4710,15 +4733,15 @@ application data being sent.</p>
                                                                     <td class="cAPI-table-name">serviceType</td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#service">service</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Type descriptor of the service to bind to</p>
+                                                                    <td class="cAPI-table-desc"><p>The service instance</p>
 </td>
                                                                 </tr>
                                                                 
                                                                 <tr>
-                                                                    <td class="cAPI-table-name">data</td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Service annotations</p>
+                                                                    <td class="cAPI-table-name">name</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                                    <td class="cAPI-table-default">()</td>
+                                                                    <td class="cAPI-table-desc"><p>Name of the service</p>
 </td>
                                                                 </tr>
                                                                 
@@ -4754,7 +4777,7 @@ application data being sent.</p>
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Starts the endpoint. Function is ignored by the receiver endpoint</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Starts the endpoint</p>
 
                                                             </p>
                                                               
@@ -4873,25 +4896,7 @@ application data being sent.</p>
                                                     <span class="fw-right gray xs-icon"></span><p>Represents JMS session</p>
 
                                                 </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Field Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">config</td>
-                                                        <td class="cAPI-table-type"><a href="jms.html#SessionConfiguration">jms:SessionConfiguration</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Used to store configurations related to a JMS session</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
+                                                  
                                                 <div class="function-wrapper">
                                                     <ul>
                                                         
@@ -4939,7 +4944,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Session&gt;
-                                                   </span> createTextMessage(string content) returns (Message | error&lt;&gt;) 
+                                                   </span> createTextMessage(string content) returns (Message|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4976,7 +4981,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>a text message or error in case of errors</p>
 </td>
@@ -4991,7 +4996,7 @@ application data being sent.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Session&gt;
-                                                   </span> createMapMessage(map content) returns (Message | error&lt;&gt;) 
+                                                   </span> createMapMessage(map content) returns (Message|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5028,7 +5033,7 @@ application data being sent.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>a map message or error incase of errors</p>
 </td>
@@ -5098,7 +5103,7 @@ acknowledged in the session.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Session&gt;
-                                                   </span> createTemporaryQueue() returns (Destination | error&lt;&gt;) 
+                                                   </span> createTemporaryQueue() returns (Destination|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5117,7 +5122,7 @@ acknowledged in the session.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="jms.html#Destination">Destination</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Destination">Destination</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>JMS destination for a temporary queue or error if fails</p>
 </td>
@@ -5132,7 +5137,7 @@ acknowledged in the session.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Session&gt;
-                                                   </span> createTemporaryTopic() returns (Destination | error&lt;&gt;) 
+                                                   </span> createTemporaryTopic() returns (Destination|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5151,7 +5156,7 @@ acknowledged in the session.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="jms.html#Destination">Destination</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Destination">Destination</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>JMS destination for a temporary topic or error if fails</p>
 </td>
@@ -5166,7 +5171,7 @@ acknowledged in the session.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Session&gt;
-                                                   </span> createQueue(string queueName) returns (Destination | error&lt;&gt;) 
+                                                   </span> createQueue(string queueName) returns (Destination|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5203,7 +5208,7 @@ acknowledged in the session.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="jms.html#Destination">Destination</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Destination">Destination</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>JMS destination for a queue or error if fails</p>
 </td>
@@ -5218,7 +5223,7 @@ acknowledged in the session.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Session&gt;
-                                                   </span> createTopic(string topicName) returns (Destination | error&lt;&gt;) 
+                                                   </span> createTopic(string topicName) returns (Destination|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5255,7 +5260,7 @@ acknowledged in the session.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="jms.html#Destination">Destination</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Destination">Destination</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>JMS destination for a topic or error if fails</p>
 </td>
@@ -5310,7 +5315,7 @@ acknowledged in the session.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">session</td>
-                                                        <td class="cAPI-table-type"><a href="jms.html#Session">jms:Session?</a></td>
+                                                        <td class="cAPI-table-type"><a href="jms.html#Session">jms:Session</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Session of the topic subscriber</p>
 </td>
@@ -5361,7 +5366,7 @@ acknowledged in the session.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">topicPattern</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>Name or the pattern of the topic subscription</p>
 </td>
                                                                 </tr>
@@ -5383,7 +5388,7 @@ acknowledged in the session.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;TopicSubscriber&gt;
-                                                   </span> __attach(service serviceType, map data) returns (error?&lt;&gt;) 
+                                                   </span> __attach(service serviceType, string? name) returns (error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5403,15 +5408,15 @@ acknowledged in the session.</p>
                                                                     <td class="cAPI-table-name">serviceType</td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#service">service</a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Type descriptor of the service</p>
+                                                                    <td class="cAPI-table-desc"><p>The service instance</p>
 </td>
                                                                 </tr>
                                                                 
                                                                 <tr>
-                                                                    <td class="cAPI-table-name">data</td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Service annotations</p>
+                                                                    <td class="cAPI-table-name">name</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                                    <td class="cAPI-table-default">()</td>
+                                                                    <td class="cAPI-table-desc"><p>Name of the service</p>
 </td>
                                                                 </tr>
                                                                 
@@ -5623,7 +5628,7 @@ acknowledged in the session.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;DurableTopicSubscriberCaller&gt;
-                                                   </span> receive(int timeoutInMilliSeconds) returns (Message | error&lt;&gt;) 
+                                                   </span> receive(int timeoutInMilliSeconds) returns (Message|error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5660,7 +5665,7 @@ acknowledged in the session.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a>|<a href="builtin.html#error">error?<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Returns a message or nil if the timeout exceeds, returns an error upon JMS provider internal error</p>
 </td>
@@ -5708,7 +5713,7 @@ acknowledged in the session.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">queueReceiver</td>
                                                         <td class="cAPI-table-type"><a href="jms.html#QueueReceiver">jms:QueueReceiver?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>queue receiver endpoint</p>
 </td>
                                                     </tr>
@@ -5775,7 +5780,7 @@ acknowledged in the session.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;QueueReceiverCaller&gt;
-                                                   </span> receive(int timeoutInMilliSeconds) returns (Message | error&lt;&gt;) 
+                                                   </span> receive(int timeoutInMilliSeconds) returns (Message|error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5812,7 +5817,7 @@ acknowledged in the session.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a>|<a href="builtin.html#error">error?<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Returns a message or nil if the timeout exceeds, returns an error on JMS provider internal error</p>
 </td>
@@ -5827,7 +5832,7 @@ acknowledged in the session.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;QueueReceiverCaller&gt;
-                                                   </span> receiveFrom(jms:Destination destination, int timeoutInMilliSeconds) returns (Message | error&lt;&gt;) 
+                                                   </span> receiveFrom(jms:Destination destination, int timeoutInMilliSeconds) returns (Message|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5872,7 +5877,7 @@ acknowledged in the session.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Returns a message or () if the timeout exceeds, returns an error on JMS provider internal error</p>
 </td>
@@ -6240,7 +6245,7 @@ acknowledged in the session.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">topicSubscriber</td>
                                                         <td class="cAPI-table-type"><a href="jms.html#TopicSubscriber">jms:TopicSubscriber?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>JMS TopicSubscriber</p>
 </td>
                                                     </tr>
@@ -6307,7 +6312,7 @@ acknowledged in the session.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;TopicSubscriberCaller&gt;
-                                                   </span> receive(int timeoutInMilliSeconds) returns (Message | error&lt;&gt;) 
+                                                   </span> receive(int timeoutInMilliSeconds) returns (Message|error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -6344,7 +6349,7 @@ acknowledged in the session.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a>|<a href="builtin.html#error">error?<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Returns a message or nil if the timeout exceeds, returns an error on JMS provider internal error.</p>
 </td>
@@ -6359,7 +6364,7 @@ acknowledged in the session.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;TopicSubscriberCaller&gt;
-                                                   </span> receiveFrom(jms:Destination destination, int timeoutInMilliSeconds) returns (Message | error&lt;&gt;) 
+                                                   </span> receiveFrom(jms:Destination destination, int timeoutInMilliSeconds) returns (Message|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -6404,7 +6409,7 @@ acknowledged in the session.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="jms.html#Message">Message</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Returns a message or nil if the timeout exceeds, returns an error on JMS provider internal error</p>
 </td>
@@ -6656,6 +6661,16 @@ acknowledged in the session.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -6736,6 +6751,16 @@ acknowledged in the session.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -6797,7 +6822,7 @@ acknowledged in the session.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -6847,6 +6872,16 @@ acknowledged in the session.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -6857,7 +6892,27 @@ acknowledged in the session.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -6917,16 +6972,6 @@ acknowledged in the session.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="system.html">ballerina/<span class="bold">system</span>
                                    </a>
                                    
@@ -6968,6 +7013,16 @@ acknowledged in the session.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -6991,6 +7046,16 @@ acknowledged in the session.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -7071,6 +7136,16 @@ acknowledged in the session.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -7132,7 +7207,7 @@ acknowledged in the session.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -7182,6 +7257,16 @@ acknowledged in the session.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -7192,7 +7277,27 @@ acknowledged in the session.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -7252,16 +7357,6 @@ acknowledged in the session.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="system.html">ballerina/<span class="bold">system</span>
                                    </a>
                                    
@@ -7303,6 +7398,16 @@ acknowledged in the session.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>

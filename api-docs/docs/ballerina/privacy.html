@@ -247,6 +247,34 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -592,6 +620,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -625,6 +660,76 @@
                                             <h1 class="thin-text padding-bottom">
                                                 <span class="bold">ballerina/privacy</span>  module 
                                             </h1>
+                                            
+                                            <div class="cAPIdocsDescription">
+                                                <h2>Module overview</h2>
+<p>The privacy module acts as the foundation in making the Ballerina a privacy-aware programming
+language. The module provides the required utility functions
+that allow pseudonymization, de-pseudonymization, and deletion of
+Personally Identifiable Information (PII).</p>
+<p>A pseudonymized identifier will be issued by the <code>pseudonymize</code> function
+for a provided PII. The actual PII value will be stored in the selected
+pluggable <code>PII Store</code>. The issued identifier can be used to represent
+the particular PII in other locations. The <code>depseudonymize</code> function
+can be used to obtain the actual PII value and give the pseudonymized
+``
+identifier. PII can be deleted from the store using the <code>delete</code>
+function.</p>
+<h2>Samples</h2>
+<pre><code class="language-ballerina">import ballerina/h2;
+import ballerina/io;
+import ballerina/privacy;
+import ballerina/sql;
+
+h2:Client testDB = new({
+    path: &quot;./H2PIIStore/&quot;,
+    name: &quot;TestDBH2&quot;,
+    username: &quot;SA&quot;,
+    password: &quot;&quot;,
+    poolOptions: { maximumPoolSize: 1 }
+});
+
+final string TABLE_NAME = &quot;PII_STORE&quot;;
+final string ID_CLOUMN = &quot;id&quot;;
+final string PII_COLUMN = &quot;pii&quot;;
+
+public function main(string pii) returns error? {
+    // Creates the database structure in the H2 PII store.
+    var creationStatus = testDB-&gt;update(&quot;CREATE TABLE IF NOT EXISTS PII_STORE (ID VARCHAR(300) NOT NULL, PII VARCHAR(300) NOT NULL, PRIMARY KEY (ID))&quot;);
+    if (creationStatus is sql:UpdateResult) {
+        io:println(&quot;PII to be persisted: &quot; + pii);
+
+        // Creates a storage that uses an H2 database to persist Personally Identifiable Information (PII).
+        privacy:H2PiiStore piiStore = new(testDB, TABLE_NAME, ID_CLOUMN, PII_COLUMN);
+
+        // Store PII information in the storage and take a pseudonymized identifier (UUID) representing the stored data.
+        var pseudonymizedPii = privacy:pseudonymize(piiStore, pii);
+        if (pseudonymizedPii is string) {
+            io:println(&quot;Pseudonymized identifier: &quot; + pseudonymizedPii);
+
+            // Reads the PII by providing the pseudonymized identifier.
+            var depseudonymizedPii = privacy:depseudonymize(piiStore, pseudonymizedPii);
+            if (depseudonymizedPii is string) {
+                io:println(&quot;Deseudonymized value: &quot; + depseudonymizedPii);
+            } else {
+                return depseudonymizedPii;
+            }
+
+            // Deletes the PII by providing the pseudonymized identifier.
+            var deleteStatus = privacy:delete(piiStore, pseudonymizedPii);
+            if (deleteStatus is error) {
+                return deleteStatus;
+            }
+        } else {
+            return pseudonymizedPii;
+        }
+    } else {
+        return creationStatus;
+    }
+}
+</code></pre>
+
+                                            </div>
                                             
 
                                             <div class="summary-wrapper">
@@ -809,7 +914,7 @@
                                                 <!-- Function -->
                                                 
                                                 <h2 id="depseudonymize">
-                                                    <span class="fw-function sm-icon"> </span> public function depseudonymize(privacy:PiiStore store, string id) returns (string | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function depseudonymize(privacy:PiiStore store, string id) returns (string|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -854,7 +959,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>PII if retrieval was successful, error if retrieval failed</p>
 </td>
@@ -878,7 +983,7 @@
                                                 <!-- Function -->
                                                 
                                                 <h2 id="pseudonymize">
-                                                    <span class="fw-function sm-icon"> </span> public function pseudonymize(privacy:PiiStore store, string pii) returns (string | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function pseudonymize(privacy:PiiStore store, string pii) returns (string|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -923,7 +1028,7 @@
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>36 characters long UUID if storage operation was successful, error if storage operation failed</p>
 </td>
@@ -1070,7 +1175,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;H2PiiStore&gt;
-                                                   </span> pseudonymize(string pii) returns (string | error&lt;&gt;) 
+                                                   </span> pseudonymize(string pii) returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1107,7 +1212,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>36 characters long UUID if storage operation was successful, error if storage operation failed</p>
 </td>
@@ -1122,7 +1227,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;H2PiiStore&gt;
-                                                   </span> depseudonymize(string id) returns (string | error&lt;&gt;) 
+                                                   </span> depseudonymize(string id) returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1159,7 +1264,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>PII if retrieval was successful, error if retrieval failed</p>
 </td>
@@ -1355,7 +1460,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;MySqlPiiStore&gt;
-                                                   </span> pseudonymize(string pii) returns (string | error&lt;&gt;) 
+                                                   </span> pseudonymize(string pii) returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1392,7 +1497,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>36 characters long UUID if storage operation was successful, error if storage operation failed</p>
 </td>
@@ -1407,7 +1512,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;MySqlPiiStore&gt;
-                                                   </span> depseudonymize(string id) returns (string | error&lt;&gt;) 
+                                                   </span> depseudonymize(string id) returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1444,7 +1549,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>PII if retrieval was successful, error if retrieval failed</p>
 </td>
@@ -1541,7 +1646,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;PiiStore&gt;
-                                                   </span> pseudonymize(string pii) returns (string | error&lt;&gt;) 
+                                                   </span> pseudonymize(string pii) returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1578,7 +1683,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>36 characters long UUID if storage operation was successful, error if storage operation failed</p>
 </td>
@@ -1593,7 +1698,7 @@
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;PiiStore&gt;
-                                                   </span> depseudonymize(string id) returns (string | error&lt;&gt;) 
+                                                   </span> depseudonymize(string id) returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1630,7 +1735,7 @@
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>PII if retrieval was successful, error if retrieval failed</p>
 </td>
@@ -1870,6 +1975,16 @@
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -1950,6 +2065,16 @@
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -2010,7 +2135,7 @@
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -2060,7 +2185,27 @@
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
                                    </a>
                                    
                                 </li>
@@ -2073,6 +2218,16 @@
                                    <a>ballerina/<span class="bold">privacy</a>
                                    
                                    
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
+                                   </a>
                                    
                                 </li>
                              </ul>
@@ -2131,16 +2286,6 @@
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="system.html">ballerina/<span class="bold">system</span>
                                    </a>
                                    
@@ -2182,6 +2327,16 @@
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -2205,6 +2360,16 @@
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -2285,6 +2450,16 @@
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -2345,7 +2520,7 @@
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -2395,7 +2570,27 @@
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
                                    </a>
                                    
                                 </li>
@@ -2408,6 +2603,16 @@
                                    <a>ballerina/<span class="bold">privacy</a>
                                    
                                    
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
+                                   </a>
                                    
                                 </li>
                              </ul>
@@ -2466,16 +2671,6 @@
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="system.html">ballerina/<span class="bold">system</span>
                                    </a>
                                    
@@ -2517,6 +2712,16 @@
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>

@@ -163,6 +163,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -250,18 +264,6 @@
                                             
                                           
                                         <li>
-                                            <a href="#ConnectionThrottling">
-                                                <div class="construct-icon">
-                                                    <span class="fw-record"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    ConnectionThrottling
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
                                             <a href="#GrpcResourceConfig">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
@@ -286,24 +288,24 @@
                                             
                                           
                                         <li>
-                                            <a href="#KeyStore">
-                                                <div class="construct-icon">
-                                                    <span class="fw-record"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    KeyStore
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
                                             <a href="#Local">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
                                                     Local
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#PoolConfiguration">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    PoolConfiguration
                                                 </div>
                                             </a>
                                         </li>
@@ -412,18 +414,6 @@
                                                 </div>
                                                 <div class="construct-name">
                                                     ServiceSecureSocket
-                                                </div>
-                                            </a>
-                                        </li>
-                                            
-                                          
-                                        <li>
-                                            <a href="#TrustStore">
-                                                <div class="construct-icon">
-                                                    <span class="fw-record"> </span>
-                                                </div>
-                                                <div class="construct-name">
-                                                    TrustStore
                                                 </div>
                                             </a>
                                         </li>
@@ -1265,6 +1255,27 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -1343,14 +1354,14 @@ listener grpc:Listener ep = new(9090);
 // The gRPC service is attached to the server.
 service SamplegRPCService on ep {
    // A resource that accepts a string message.
-   resource function receiveMessage (grpc:Caller caller, string name) {
+   resource function receiveMessage(grpc:Caller caller, string name) {
        // Print the received message.
        io:println(&quot;Received message from : &quot; + name);
        // Send the response to the client.
        error? err = caller-&gt;send(&quot;Hi &quot; + name + &quot;! Greetings from gRPC service!&quot;);
 
        // After sending the response, call ‘complete()’ to indicate that the response was completely sent.
-       _ = caller-&gt;complete();
+       error? result = caller-&gt;complete();
    }
 }
 </code></pre>
@@ -1366,10 +1377,8 @@ headers.setEntry(&quot;id&quot;, &quot;newrequest1&quot;);
 var responseFromServer = SamplegRPCServiceBlockingEp-&gt;receiveMessage(&quot;Ballerina&quot;, headers = headers);
 if (responseFromServer is (string, grpc:Headers)) {
     // If a response is received, print the payload.
-    string result;
-    grpc:Headers resHeaders;
-    (result, resHeaders) = responseFromServer;
-    io:println(&quot;Response received : &quot; + responseFromServer[0]);
+    (string, grpc:Headers) (result, resHeaders) = responseFromServer;
+    io:println(&quot;Response received : &quot; + result);
 } else {
     // If an error is returned, print the error message.
     io:println(&quot;Error while connecting grpc end-point : &quot; + responseFromServer.reason() + &quot; - &quot;
@@ -1384,12 +1393,12 @@ listener grpc:Listener ep = new(9090);
 // The gRPC service is attached to the server.
 service ServerStreaming on ep {
    // Set the Streaming Annotation to ‘true’. It specifies that the resource is capable of sending multiple responses per request.
-   @grpc:ResourceConfig {streaming:true}
+   @grpc:ResourceConfig { streaming: true }
    resource function receiveMessage(grpc:Caller caller, string name) {
        string[] greets = [&quot;Hi&quot;, &quot;Welcome&quot;];
        io:println(&quot;HelloWorld&quot;);
        // Send multiple responses to the client.
-       foreach greet in greets {
+       foreach var greet in greets {
            error? err = caller-&gt;send(greet + &quot; &quot; + name + &quot;! Greetings from Ballerina service&quot;);
            // If an error is returned, print the error message. print response message otherwise.
            if (err is error) {
@@ -1400,14 +1409,14 @@ service ServerStreaming on ep {
            }
        }
        // Once the messages are sent to the server, call ‘complete()’ to indicate that the request was completely sent.
-       _ = caller-&gt;complete();
+       error? result = caller-&gt;complete();
    }
 }
 </code></pre>
 <p>The sample given below calls the above service using the auto-generated Ballerina client stub and listens to the multiple responses from the server.</p>
 <pre><code class="language-ballerina">// Keep track of the message that were completely received.
 boolean isCompleted = false;
-public function main (string... args) {
+public function main(string... args) {
    // Client endpoint configurations.
     ServerStreamingClient serverStreamingEp = new(&quot;http://localhost:9090&quot;);
 
@@ -1421,11 +1430,12 @@ public function main (string... args) {
         io:println(&quot;Connected successfully to service&quot;);
     }
    // Waits for the service to send the message.
-   while (!isCompleted) {}
+   while (!isCompleted) { }
 }
 
 // Define a listener service to receive the messages from the server.
 service ServerStreamingMessageListener = service {
+
    // This resource method is invoked when the service receives a message.
    resource function onMessage(string message) {
        io:println(&quot;Response received from server: &quot; + message);
@@ -1456,18 +1466,22 @@ listener grpc:Listener ep = new(9090);
     serverStreaming: true
 }
 service Chat bind ep {
+
    // This resource method is invoked when there is a connection request from a client.
    resource function onOpen(grpc:Caller caller) {
        
    }
+
    // This resource method is invoked when the client sends a request.
    resource function onMessage(grpc:Caller caller, string message) {
    
    }
+   
    // This resource method is invoked when the client returns an error while sending requests.
    resource function onError(grpc:Caller caller, error err) {
    
    }
+   
    // This resource method is invoked when the client has finished sending requests.
    resource function onComplete(grpc:Caller caller) {
    
@@ -1475,13 +1489,13 @@ service Chat bind ep {
 }
 </code></pre>
 <p>The sample given below calls the above service.</p>
-<pre><code class="language-ballerina">//Client endpoint configuration.
+<pre><code class="language-ballerina">// Client endpoint configuration.
 ChatClient chatEp = new(&quot;http://localhost:9090&quot;);
     
 grpc:StreamingClient ep;
 
 // Call the relevant service.
-var res = chatEp -&gt; chat(ChatMessageListener);
+var res = chatEp-&gt;chat(ChatMessageListener);
 if (res is error) {
     io:println(&quot;Error from Connector: &quot; + res.reason() + &quot; - &quot;
                                         + &lt;string&gt;res.detail().message);
@@ -1492,10 +1506,10 @@ if (res is error) {
 }
 
 // Send multiple messages to the service.
-error connErr = ep -&gt; send(“Hello”);
+error? connErr = ep-&gt;send(“Hello”);
 
 // After sending the message, call ‘complete()’ to indicate that the request was completely sent. 
-_ = ep -&gt; complete();
+error? result = ep-&gt;complete();
 
 </code></pre>
 
@@ -1526,14 +1540,6 @@ _ = ep -&gt; complete();
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#ConnectionThrottling">ConnectionThrottling</a></td>
-                                                         <td class="cSummary-table-desc">Provides configurations for throttling connections of the endpoint.
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#GrpcResourceConfig">GrpcResourceConfig</a></td>
                                                          <td class="cSummary-table-desc">Service resource configuration. Sets only for server streaming service.
 </td>
@@ -1550,16 +1556,16 @@ _ = ep -&gt; complete();
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#KeyStore">KeyStore</a></td>
-                                                         <td class="cSummary-table-desc">KeyStore record represents key store related options to be used for HTTP client/service invocation.
+                                                         <td class="cSummary-table-name"><a href="#Local">Local</a></td>
+                                                         <td class="cSummary-table-desc">Presents a read-only view of the local address.
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#Local">Local</a></td>
-                                                         <td class="cSummary-table-desc">Presents a read-only view of the local address.
+                                                         <td class="cSummary-table-name"><a href="#PoolConfiguration">PoolConfiguration</a></td>
+                                                         <td class="cSummary-table-desc">Configurations for managing gRPC client connection pool.
 </td>
                                                      </tr>
                                                  
@@ -1632,14 +1638,6 @@ _ = ep -&gt; complete();
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ServiceSecureSocket">ServiceSecureSocket</a></td>
                                                          <td class="cSummary-table-desc">Configures the SSL/TLS options to be used for HTTP service.
-</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#TrustStore">TrustStore</a></td>
-                                                         <td class="cSummary-table-desc">TrustStore record represents trust store related options to be used for HTTP client/service invocation.
 </td>
                                                      </tr>
                                                  
@@ -1737,10 +1735,6 @@ _ = ep -&gt; complete();
                                               
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
-                                             
-                                                 
-                                             
-                                                 
                                              
                                                  
                                              
@@ -1907,10 +1901,6 @@ service through this listener.</p>
                                                  
                                              
                                                  
-                                             
-                                                 
-                                             
-                                                 
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Caller">Caller</a></td>
                                                         <td class="cSummary-table-desc"><p>Provides the gRPC remote functions for interacting with caller.</p>
@@ -2033,8 +2023,6 @@ provides includes functions to send request/error messages.</p>
                                               
                                               
                                               
-                                              
-                                              
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">Chunking</td>
@@ -2111,8 +2099,6 @@ outbound request/response accept-encoding/content-encoding option
                                                 <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             
-                                              
-                                              
                                               
                                               
                                               
@@ -2266,23 +2252,23 @@ outbound request/response accept-encoding/content-encoding option
                                                     <tr>
                                                         <td class="cAPI-table-name">proxy</td>
                                                         <td class="cAPI-table-type"><a href="grpc.html#ProxyConfig">grpc:ProxyConfig?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Proxy server related options</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">connectionThrottling</td>
-                                                        <td class="cAPI-table-type"><a href="grpc.html#ConnectionThrottling">grpc:ConnectionThrottling?</a></td>
-                                                        <td class="cAPI-table-default"> {}</td>
-                                                        <td class="cAPI-table-desc"><p>Configurations for connection throttling</p>
+                                                        <td class="cAPI-table-name">poolConfig</td>
+                                                        <td class="cAPI-table-type"><a href="grpc.html#PoolConfiguration">grpc:PoolConfiguration?</a></td>
+                                                        <td class="cAPI-table-default">()</td>
+                                                        <td class="cAPI-table-desc"><p>Connection pool configuration</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">secureSocket</td>
                                                         <td class="cAPI-table-type"><a href="grpc.html#SecureSocket">grpc:SecureSocket?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>SSL/TLS related options</p>
 </td>
                                                     </tr>
@@ -2292,65 +2278,6 @@ outbound request/response accept-encoding/content-encoding option
                                                         <td class="cAPI-table-type"><a href="grpc.html#$anonType$20,grpc.html#$anonType$21,grpc.html#$anonType$22">AUTO|ALWAYS|NEVER</a></td>
                                                         <td class="cAPI-table-default">COMPRESSION_AUTO</td>
                                                         <td class="cAPI-table-desc"><p>Specifies the way of handling compression (<code>accept-encoding</code>) header</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <h2 id="ConnectionThrottling">
-                                                    <span class="fw-record sm-icon"></span> public type ConnectionThrottling
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>Provides configurations for throttling connections of the endpoint.
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Field Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">maxActiveConnections</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">-1</td>
-                                                        <td class="cAPI-table-desc"><p>Maximum number of active connections allowed for the endpoint. The default value, -1,
-indicates that the number of connections are not restricted.</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">waitTime</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">60000</td>
-                                                        <td class="cAPI-table-desc"><p>Maximum waiting time for a request to grab an idle connection from the client</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">maxActiveStreamsPerConnection</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">20000</td>
-                                                        <td class="cAPI-table-desc"><p>Maximum number of active streams allowed per an HTTP/2 connection</p>
 </td>
                                                     </tr>
                                                     
@@ -2512,56 +2439,6 @@ sets to true, if the service defines as bidirectional streaming.</p>
                                                 
                                                 <!-- Records -->
                                                 
-                                                <h2 id="KeyStore">
-                                                    <span class="fw-record sm-icon"></span> public type KeyStore
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>KeyStore record represents key store related options to be used for HTTP client/service invocation.
-
-                                                </p>
-                                                 
-                                                <table>
-                                                    <tr>
-                                                        <th class="cAPI-table-name">Field Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">path</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>File path to key store file</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">password</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Key store password</p>
-</td>
-                                                    </tr>
-                                                    
-                                                </table>
-                                                 
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
                                                 <h2 id="Local">
                                                     <span class="fw-record sm-icon"></span> public type Local
                                                 </h2>
@@ -2592,6 +2469,72 @@ sets to true, if the service defines as bidirectional streaming.</p>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default">0</td>
                                                         <td class="cAPI-table-desc"><p>The local port</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="PoolConfiguration">
+                                                    <span class="fw-record sm-icon"></span> public type PoolConfiguration
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Configurations for managing gRPC client connection pool.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">maxActiveConnections</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default">config:getAsInt(b7a.http.pool.maxActiveConnections, defaultValue&#x3D;-1)</td>
+                                                        <td class="cAPI-table-desc"><p>Max active connections per route(host:port). Default value is -1 which indicates unlimited.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">maxIdleConnections</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default">config:getAsInt(b7a.http.pool.maxIdleConnections, defaultValue&#x3D;1000)</td>
+                                                        <td class="cAPI-table-desc"><p>Maximum number of idle connections allowed per pool.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">waitTimeinMillis</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default">config:getAsInt(b7a.http.pool.waitTimeinMillis, defaultValue&#x3D;60000)</td>
+                                                        <td class="cAPI-table-desc"><p>Maximum amount of time, the client should wait for an idle connection before it sends an error when the pool is exhausted</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">maxActiveStreamsPerConnection</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default">config:getAsInt(b7a.http.pool.maxActiveStreamsPerConnection, defaultValue&#x3D;50)</td>
+                                                        <td class="cAPI-table-desc"><p>Maximum active streams per connection. This only applies to HTTP/2.</p>
 </td>
                                                     </tr>
                                                     
@@ -2858,16 +2801,16 @@ sets to true, if the service defines as bidirectional streaming.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">trustStore</td>
-                                                        <td class="cAPI-table-type"><a href="grpc.html#TrustStore">grpc:TrustStore?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-type"><a href="crypto.html#TrustStore">crypto:TrustStore?</a></td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Configurations associated with TrustStore</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keyStore</td>
-                                                        <td class="cAPI-table-type"><a href="grpc.html#KeyStore">grpc:KeyStore?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-type"><a href="crypto.html#KeyStore">crypto:KeyStore?</a></td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Configurations associated with KeyStore</p>
 </td>
                                                     </tr>
@@ -2907,7 +2850,7 @@ sets to true, if the service defines as bidirectional streaming.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">protocol</td>
                                                         <td class="cAPI-table-type"><a href="grpc.html#Protocols">grpc:Protocols?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>SSL/TLS protocol related options</p>
 </td>
                                                     </tr>
@@ -2915,7 +2858,7 @@ sets to true, if the service defines as bidirectional streaming.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">certValidation</td>
                                                         <td class="cAPI-table-type"><a href="grpc.html#ValidateCert">grpc:ValidateCert?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Certificate validation against CRL or OCSP related options</p>
 </td>
                                                     </tr>
@@ -3057,7 +3000,7 @@ which always keeps the connection alive, or <code>KEEPALIVE_NEVER</code>, which 
                                                     <tr>
                                                         <td class="cAPI-table-name">secureSocket</td>
                                                         <td class="cAPI-table-type"><a href="grpc.html#ServiceSecureSocket">grpc:ServiceSecureSocket?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>The SSL configurations for the client endpoint.</p>
 </td>
                                                     </tr>
@@ -3073,7 +3016,7 @@ which always keeps the connection alive, or <code>KEEPALIVE_NEVER</code>, which 
                                                     <tr>
                                                         <td class="cAPI-table-name">requestLimits</td>
                                                         <td class="cAPI-table-type"><a href="grpc.html#RequestLimits">grpc:RequestLimits?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Configures the parameters for request validation.</p>
 </td>
                                                     </tr>
@@ -3191,16 +3134,16 @@ change this limit appropriately. This will be applicable only for HTTP 1.1</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">trustStore</td>
-                                                        <td class="cAPI-table-type"><a href="grpc.html#TrustStore">grpc:TrustStore?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-type"><a href="crypto.html#TrustStore">crypto:TrustStore?</a></td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Configures the trust store to be used</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">keyStore</td>
-                                                        <td class="cAPI-table-type"><a href="grpc.html#KeyStore">grpc:KeyStore?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-type"><a href="crypto.html#KeyStore">crypto:KeyStore?</a></td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Configures the key store to be used</p>
 </td>
                                                     </tr>
@@ -3240,7 +3183,7 @@ change this limit appropriately. This will be applicable only for HTTP 1.1</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">protocol</td>
                                                         <td class="cAPI-table-type"><a href="grpc.html#Protocols">grpc:Protocols?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>SSL/TLS protocol related options</p>
 </td>
                                                     </tr>
@@ -3248,7 +3191,7 @@ change this limit appropriately. This will be applicable only for HTTP 1.1</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">certValidation</td>
                                                         <td class="cAPI-table-type"><a href="grpc.html#ValidateCert">grpc:ValidateCert?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Certificate validation against CRL or OCSP related options</p>
 </td>
                                                     </tr>
@@ -3256,7 +3199,7 @@ change this limit appropriately. This will be applicable only for HTTP 1.1</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">ciphers</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
-                                                        <td class="cAPI-table-default">[TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256]</td>
+                                                        <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>List of ciphers to be used (e.g.: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA)</p>
 </td>
@@ -3281,58 +3224,24 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA)</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">ocspStapling</td>
                                                         <td class="cAPI-table-type"><a href="grpc.html#ServiceOcspStapling">grpc:ServiceOcspStapling?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Enable/disable OCSP stapling</p>
 </td>
                                                     </tr>
                                                     
-                                                </table>
-                                                 
-                                                <!-- Objects and its functions -->
-                                                
-                                            </div>
-                                                
-                                            <div class="construct-wrapper">
-                                                <!--Primitive Types-->
-                                                
-                                                <!-- Function -->
-                                                
-                                                <!-- Struct-binded functions grouped together -->
-                                                
-                                                <!-- Connectors and its actions -->
-                                                
-                                                <!-- Records -->
-                                                
-                                                <h2 id="TrustStore">
-                                                    <span class="fw-record sm-icon"></span> public type TrustStore
-                                                </h2>
-                                                
-                                                <p>
-                                                    <span class="fw-right gray xs-icon"></span>TrustStore record represents trust store related options to be used for HTTP client/service invocation.
-
-                                                </p>
-                                                 
-                                                <table>
                                                     <tr>
-                                                        <th class="cAPI-table-name">Field Name</th>
-                                                        <th class="cAPI-table-type">Data Type</th>
-                                                        <th class="cAPI-table-default">Default Value</th>
-                                                        <th class="cAPI-table-desc">Description</th>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">path</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-name">handshakeTimeout</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>File path to trust store file</p>
+                                                        <td class="cAPI-table-desc"><p>SSL handshake time out</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">password</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-name">sessionTimeout</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Trust store password</p>
+                                                        <td class="cAPI-table-desc"><p>SSL session time out</p>
 </td>
                                                     </tr>
                                                     
@@ -3775,7 +3684,7 @@ service through this listener.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">config</td>
                                                                     <td class="cAPI-table-type"><a href="grpc.html#ServiceEndpointConfiguration">grpc:ServiceEndpointConfiguration?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>The ServiceEndpointConfiguration of the endpoint.</p>
 </td>
                                                                 </tr>
@@ -3857,7 +3766,7 @@ service through this listener.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Listener&gt;
-                                                   </span> __attach(service s, map annotationData) returns (error?&lt;&gt;) 
+                                                   </span> __attach(service s, string? name) returns (error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3882,10 +3791,10 @@ service through this listener.</p>
                                                                 </tr>
                                                                 
                                                                 <tr>
-                                                                    <td class="cAPI-table-name">annotationData</td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Annotations attached to the service.</p>
+                                                                    <td class="cAPI-table-name">name</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                                    <td class="cAPI-table-default">()</td>
+                                                                    <td class="cAPI-table-desc"><p>Name of the service.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3998,7 +3907,7 @@ service through this listener.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
                                                                     <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:Headers?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>Optional headers parameter. Passes header value if needed. Default sets to nil.</li>
 </ul>
@@ -4138,7 +4047,7 @@ service through this listener.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
                                                                     <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:Headers?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>Optional headers parameter. Passes header value if needed. Default sets to nil.</p>
 </td>
                                                                 </tr>
@@ -4202,7 +4111,7 @@ provides includes functions to send request/error messages.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> blockingExecute(string methodID, any payload, grpc:Headers? headers) returns ((any,Headers) | error&lt;&gt;) 
+                                                   </span> blockingExecute(string methodID, any payload, grpc:Headers? headers) returns ((any,Headers)|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4237,7 +4146,7 @@ provides includes functions to send request/error messages.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
                                                                     <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:Headers?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>Optional headers parameter. Passes header value if needed. Default sets to nil.</p>
 </td>
                                                                 </tr>
@@ -4255,7 +4164,7 @@ provides includes functions to send request/error messages.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type">(<a href="builtin.html#any">any</a>,<a href="grpc.html#Headers">Headers</a>) | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type">(<a href="builtin.html#any">any</a>,<a href="grpc.html#Headers">Headers</a>)|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Returns response message and headers if executes successfully, error otherwise.</p>
 </td>
@@ -4313,7 +4222,7 @@ provides includes functions to send request/error messages.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
                                                                     <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:Headers?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>Optional headers parameter. Passes header value if needed. Default sets to nil.</p>
 </td>
                                                                 </tr>
@@ -4346,7 +4255,7 @@ provides includes functions to send request/error messages.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> streamingExecute(string methodID, service listenerService, grpc:Headers? headers) returns (StreamingClient | error&lt;&gt;) 
+                                                   </span> streamingExecute(string methodID, service listenerService, grpc:Headers? headers) returns (StreamingClient|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4381,7 +4290,7 @@ provides includes functions to send request/error messages.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
                                                                     <td class="cAPI-table-type"><a href="grpc.html#Headers">grpc:Headers?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>Optional headers parameter. Passes header value if needed. Default sets to nil.</p>
 </td>
                                                                 </tr>
@@ -4399,7 +4308,7 @@ provides includes functions to send request/error messages.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="grpc.html#StreamingClient">StreamingClient</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="grpc.html#StreamingClient">StreamingClient</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Returns client connection if executes successfully, error otherwise.</p>
 </td>
@@ -5247,6 +5156,16 @@ provides includes functions to send request/error messages.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -5323,6 +5242,16 @@ provides includes functions to send request/error messages.</p>
                                 </li>
                              </ul>
                              
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
                              <ul class="active-package">
                                 <li>
                                    <!--Package Name-->
@@ -5388,7 +5317,7 @@ provides includes functions to send request/error messages.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -5438,6 +5367,16 @@ provides includes functions to send request/error messages.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -5448,7 +5387,27 @@ provides includes functions to send request/error messages.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -5508,16 +5467,6 @@ provides includes functions to send request/error messages.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="system.html">ballerina/<span class="bold">system</span>
                                    </a>
                                    
@@ -5559,6 +5508,16 @@ provides includes functions to send request/error messages.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -5582,6 +5541,16 @@ provides includes functions to send request/error messages.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -5658,6 +5627,16 @@ provides includes functions to send request/error messages.</p>
                                 </li>
                              </ul>
                              
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
                              <ul class="active-package">
                                 <li>
                                    <!--Package Name-->
@@ -5723,7 +5702,7 @@ provides includes functions to send request/error messages.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -5773,6 +5752,16 @@ provides includes functions to send request/error messages.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -5783,7 +5772,27 @@ provides includes functions to send request/error messages.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -5843,16 +5852,6 @@ provides includes functions to send request/error messages.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
                                    <a href="system.html">ballerina/<span class="bold">system</span>
                                    </a>
                                    
@@ -5894,6 +5893,16 @@ provides includes functions to send request/error messages.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
