@@ -268,27 +268,6 @@
                             </li>
                         </ul>
                         
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
-                            </li>
-                        </ul>
-                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -574,6 +553,62 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -612,6 +647,7 @@
                                                 <h2>Module overview</h2>
 <p>This module provides the following code generation capabilities to Ballerina:</p>
 <ol>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
 <li>Generate the Ballerina code for a given OpenApi definition.</li>
 <li>Generate the client stub for an existing Ballerina service at build time.</li>
 <li>Export the OpenApi definition of a Ballerina service.</li>
@@ -628,12 +664,31 @@ Code generation from OpenApi to Ballerina can produce <code>mock services</code>
 <p>Generates a Ballerina client stub for the service defined in a OpenApi file.</p>
 <p>This client can be used in client applications to call the service defined in the OpenApi file.</p>
 <h3>Service to OpenApi Export</h3>
+=======
+<li>Generate the Ballerina code for a given OpenAPI definition.</li>
+<li>Generate the client stub for an existing Ballerina service at build time.</li>
+<li>Export the OpenAPI definition of a Ballerina service.</li>
+</ol>
+<p>The <code>openapi</code> command in Ballerina is used for OpenAPI to Ballerina and Ballerina to OpenAPI code generation.
+Code generation from OpenAPI to Ballerina can produce <code>mock services</code> and <code>client stubs</code>.</p>
+<p>For build time client stub generation, annotation support is provided.</p>
+<h3>Mock Service from OpenAPI</h3>
+<p><code>ballerina openapi gen-service &lt;openapifile&gt; [-m &lt;module-name&gt;|--module &lt;module-name&gt;] [-o &lt;path&gt;|--output&lt;path&gt;]</code></p>
+<p>Generates a Ballerina service for the OpenAPI file.</p>
+<p>This generated service is a mock version of the actual service. Generated sources contain the service definition in <code>gen/</code> and the resource implementation file in the module root directory with the suffix <code>_impl</code>. The <code>_impl</code> file is not overwritten by code regeneration.</p>
+<h3>Client Stub from OpenAPI</h3>
+<p><code>ballerina openapi gen-client &lt;openapifile&gt; [-m &lt;module-name&gt;|--module &lt;module-name&gt;] [-o &lt;path&gt;|--output&lt;path&gt;]</code></p>
+<p>Generates a Ballerina client stub for the service defined in a OpenAPI file.</p>
+<p>This client can be used in client applications to call the service defined in the OpenAPI file.</p>
+<h3>Service to OpenAPI Export</h3>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 <p><code>ballerina openapi export &lt;balfile&gt; [-o &lt;path&gt;|--output&lt;path&gt;] [-s &lt;servicename&gt;|--service &lt;servicename&gt;]</code></p>
 <p>Export the Ballerina service to a definition of OpenApi Specification 3.0.
 For the export to work properly, the input Ballerina service should be defined using basic service and resource level HTTP annotations.</p>
 <h3>Client Stub for Service</h3>
 <p>Generates a Ballerina client stub to communicate with a Ballerina service.</p>
 <p>All endpoint(s) that are used for client stub generation should be marked with the <code>@openapi:ClientEndpoint</code> annotation. If not, there might be errors during client stub generation. Endpoints that are not marked with this annotation are not picked for client stub generation.
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
 The <code>@openapi:ClientConfig {generate: true}</code> annotation is used to enable or disable client stub generation per service.</p>
 <h2>Samples</h2>
 <h3>Mock Service From OpenApi</h3>
@@ -646,13 +701,30 @@ The <code>@openapi:ClientConfig {generate: true}</code> annotation is used to en
 <pre><code class="language-ballerina">import ballerina/io;
 import ballerina/http;
 import ballerina/openapi;
+=======
+The <code>@openapi:ClientConfig { generate: true }</code> annotation is used to enable or disable client stub generation per service.</p>
+<h2>Samples</h2>
+<h3>Mock Service From OpenAPI</h3>
+<p><code>ballerina openapi gen-service hello_service.yaml -p hello_service</code></p>
+<h3>Client Stub From OpenAPI</h3>
+<p><code>ballerina openapi gen-client hello_service.yaml -p hello_client</code></p>
+<h3>OpenAPI From Service</h3>
+<p><code>ballerina openapi export hello_service.bal</code></p>
+<h3>Client stub From Service</h3>
+<pre><code class="language-ballerina">import ballerina/http;
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 import ballerina/log;
+import ballerina/openapi;
 
 // Define this endpoint as a selected endpoint for client generation.
 @openapi:ClientEndpoint
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
 endpoint http:Listener helloEp {
     port: 9090
 };
+=======
+listener http:Listener helloEp = new(9090);
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
 // Enable client code generation for this service.
 @openapi:ClientConfig {
@@ -661,16 +733,18 @@ endpoint http:Listener helloEp {
 @http:ServiceConfig {
     basePath: &quot;/sample&quot;
 }
-service Hello bind helloEp {
-
+service Hello on helloEp {    
     @http:ResourceConfig {
         methods: [&quot;GET&quot;],
         path: &quot;/hello&quot;
     }
-    hello(endpoint caller, http:Request req) {
+    resource function hello(http:Caller caller, http:Request req) {
         http:Response res = new;
         res.setPayload(&quot;Hello&quot;);
-        caller-&gt;respond(res) but { error e =&gt; log:printError(&quot;Error when responding&quot;, err = e) };
+        var result = caller-&gt;respond(res);
+        if (result is error) {
+            log:printError(&quot;Error when responding&quot;, err = result);
+        }
     }
 }
 </code></pre>
@@ -703,7 +777,11 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Contact">Contact</a></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                          <td class="cSummary-table-desc">Model for OpenApi contact information.
+=======
+                                                         <td class="cSummary-table-desc">Model for OpenAPI contact information.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                      </tr>
                                                  
@@ -719,7 +797,11 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Encoding">Encoding</a></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                          <td class="cSummary-table-desc">Model for additional OpenApi content type definition.
+=======
+                                                         <td class="cSummary-table-desc">Model for additional OpenAPI content type definition.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                      </tr>
                                                  
@@ -727,7 +809,11 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Example">Example</a></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                          <td class="cSummary-table-desc">Model for keeping OpenApi example information.
+=======
+                                                         <td class="cSummary-table-desc">Model for keeping OpenAPI example information.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                      </tr>
                                                  
@@ -735,7 +821,11 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Header">Header</a></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                          <td class="cSummary-table-desc">Model for keeping OpenApi header definition information.
+=======
+                                                         <td class="cSummary-table-desc">Model for keeping OpenAPI header definition information.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                      </tr>
                                                  
@@ -751,7 +841,11 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#MultiResourceInformation">MultiResourceInformation</a></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                          <td class="cSummary-table-desc">Model for multi OpenApi operation definition for ballerina resource.
+=======
+                                                         <td class="cSummary-table-desc">Model for multi openapi operation definition for ballerina resource.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                      </tr>
                                                  
@@ -759,7 +853,11 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ParameterInformation">ParameterInformation</a></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                          <td class="cSummary-table-desc">Model for keeping OpenApi parameter information.
+=======
+                                                         <td class="cSummary-table-desc">Model for keeping OpenAPI parameter information.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                      </tr>
                                                  
@@ -767,7 +865,11 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ResourceInformation">ResourceInformation</a></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                          <td class="cSummary-table-desc">Model for additional OpenApi resource definition.
+=======
+                                                         <td class="cSummary-table-desc">Model for additional OpenAPI resource definition.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                      </tr>
                                                  
@@ -775,7 +877,11 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Response">Response</a></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                          <td class="cSummary-table-desc">Model for keeping OpenApi response information.
+=======
+                                                         <td class="cSummary-table-desc">Model for keeping OpenAPI response information.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                      </tr>
                                                  
@@ -783,7 +889,11 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Schema">Schema</a></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                          <td class="cSummary-table-desc">Model for keeping additional OpenApi schema information.
+=======
+                                                         <td class="cSummary-table-desc">Model for keeping additional OpenAPI schema information.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                      </tr>
                                                  
@@ -799,7 +909,11 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ServiceInformation">ServiceInformation</a></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                          <td class="cSummary-table-desc">Model for additional OpenApi information of a Ballerina service.
+=======
+                                                         <td class="cSummary-table-desc">Model for additional OpenAPI information of a Ballerina service.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                      </tr>
                                                  
@@ -807,7 +921,11 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Tag">Tag</a></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                          <td class="cSummary-table-desc">Model for OpenApi service tag definition.
+=======
+                                                         <td class="cSummary-table-desc">Model for OpenAPI service tag definition.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                      </tr>
                                                  
@@ -815,7 +933,11 @@ service Hello bind helloEp {
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#requestBody">requestBody</a></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                          <td class="cSummary-table-desc">Model for additional OpenApi request body details.
+=======
+                                                         <td class="cSummary-table-desc">Model for additional OpenAPI request body details.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                      </tr>
                                                  
@@ -873,7 +995,7 @@ service Hello bind helloEp {
                                             <tr>
                                                 <td class="cSummary-table-name">ClientConfig</td>
                                                 <td class="cSummary-table-attach">service</td>
-                                                <td class="cSummary-table-type"><a href="swagger.html#ClientInformation">ClientInformation</a></td>
+                                                <td class="cSummary-table-type"><a href="openapi.html#ClientInformation">ClientInformation</a></td>
                                                 <td class="cSummary-table-desc"><p>Annotation to configure client code generation.</p>
 </td>
                                             </tr>
@@ -891,8 +1013,13 @@ service Hello bind helloEp {
                                             <tr>
                                                 <td class="cSummary-table-name">MultiResourceInfo</td>
                                                 <td class="cSummary-table-attach">resource</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                 <td class="cSummary-table-type"><a href="swagger.html#MultiResourceInformation">MultiResourceInformation</a></td>
                                                 <td class="cSummary-table-desc"><p>Annotation for multi OpenApi operation information of a Ballerina resource.</p>
+=======
+                                                <td class="cSummary-table-type"><a href="openapi.html#MultiResourceInformation">MultiResourceInformation</a></td>
+                                                <td class="cSummary-table-desc"><p>Annotation for multi OpenAPI operation information of a Ballerina resource.</p>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                             </tr>
                                               
@@ -900,8 +1027,13 @@ service Hello bind helloEp {
                                             <tr>
                                                 <td class="cSummary-table-name">ResourceInfo</td>
                                                 <td class="cSummary-table-attach">resource</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                 <td class="cSummary-table-type"><a href="swagger.html#ResourceInformation">ResourceInformation</a></td>
                                                 <td class="cSummary-table-desc"><p>Annotation for additional OpenApi information of a Ballerina resource.</p>
+=======
+                                                <td class="cSummary-table-type"><a href="openapi.html#ResourceInformation">ResourceInformation</a></td>
+                                                <td class="cSummary-table-desc"><p>Annotation for additional OpenAPI information of a Ballerina resource.</p>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                             </tr>
                                               
@@ -909,8 +1041,13 @@ service Hello bind helloEp {
                                             <tr>
                                                 <td class="cSummary-table-name">ServiceInfo</td>
                                                 <td class="cSummary-table-attach">service</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                 <td class="cSummary-table-type"><a href="swagger.html#ServiceInformation">ServiceInformation</a></td>
                                                 <td class="cSummary-table-desc"><p>Annotation for additional OpenApi information of a Ballerina service.</p>
+=======
+                                                <td class="cSummary-table-type"><a href="openapi.html#ServiceInformation">ServiceInformation</a></td>
+                                                <td class="cSummary-table-desc"><p>Annotation for additional OpenAPI information of a Ballerina service.</p>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                             </tr>
                                               
@@ -978,7 +1115,11 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                     <span class="fw-right gray xs-icon"></span>Model for OpenApi contact information.
+=======
+                                                    <span class="fw-right gray xs-icon"></span>Model for OpenAPI contact information.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
                                                 </p>
                                                  
@@ -1086,7 +1227,11 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                     <span class="fw-right gray xs-icon"></span>Model for additional OpenApi content type definition.
+=======
+                                                    <span class="fw-right gray xs-icon"></span>Model for additional OpenAPI content type definition.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
                                                 </p>
                                                  
@@ -1100,7 +1245,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">headers</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#ParameterInformation">openapi:ParameterInformation[]</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#ParameterInformation">openapi:ParameterInformation[]</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Additional information to be provided as headers</p>
 </td>
@@ -1160,7 +1309,11 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                     <span class="fw-right gray xs-icon"></span>Model for keeping OpenApi example information.
+=======
+                                                    <span class="fw-right gray xs-icon"></span>Model for keeping OpenAPI example information.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
                                                 </p>
                                                  
@@ -1226,7 +1379,11 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                     <span class="fw-right gray xs-icon"></span>Model for keeping OpenApi header definition information.
+=======
+                                                    <span class="fw-right gray xs-icon"></span>Model for keeping OpenAPI header definition information.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
                                                 </p>
                                                  
@@ -1334,7 +1491,11 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                     <span class="fw-right gray xs-icon"></span>Model for multi OpenApi operation definition for ballerina resource.
+=======
+                                                    <span class="fw-right gray xs-icon"></span>Model for multi openapi operation definition for ballerina resource.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
                                                 </p>
                                                  
@@ -1376,7 +1537,11 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                     <span class="fw-right gray xs-icon"></span>Model for keeping OpenApi parameter information.
+=======
+                                                    <span class="fw-right gray xs-icon"></span>Model for keeping OpenAPI parameter information.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
                                                 </p>
                                                  
@@ -1446,7 +1611,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">schema</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#Schema">openapi:Schema</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#Schema">openapi:Schema</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Parameter data type</p>
 </td>
@@ -1474,7 +1643,11 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                     <span class="fw-right gray xs-icon"></span>Model for additional OpenApi resource definition.
+=======
+                                                    <span class="fw-right gray xs-icon"></span>Model for additional OpenAPI resource definition.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
                                                 </p>
                                                  
@@ -1512,7 +1685,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">externalDocs</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#DocumentationInformation">openapi:DocumentationInformation</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#DocumentationInformation">openapi:DocumentationInformation</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Additional documentation for this operation</p>
 </td>
@@ -1520,7 +1697,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">parameters</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#ParameterInformation">openapi:ParameterInformation[]</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#ParameterInformation">openapi:ParameterInformation[]</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>A list of parameters that are applicable for this operation</p>
 </td>
@@ -1548,7 +1729,11 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                     <span class="fw-right gray xs-icon"></span>Model for keeping OpenApi response information.
+=======
+                                                    <span class="fw-right gray xs-icon"></span>Model for keeping OpenAPI response information.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
                                                 </p>
                                                  
@@ -1586,7 +1771,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">headers</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#Header">openapi:Header[]</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#Header">openapi:Header[]</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Response headers</p>
 </td>
@@ -1594,7 +1783,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">examples</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#Example">openapi:Example[]</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#Example">openapi:Example[]</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Examples for this response</p>
 </td>
@@ -1622,7 +1815,11 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                     <span class="fw-right gray xs-icon"></span>Model for keeping additional OpenApi schema information.
+=======
+                                                    <span class="fw-right gray xs-icon"></span>Model for keeping additional OpenAPI schema information.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
                                                 </p>
                                                  
@@ -1638,7 +1835,11 @@ service Hello bind helloEp {
                                                         <td class="cAPI-table-name">format</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-desc"><p>Data format as specified by OpenApi data type</p>
+=======
+                                                        <td class="cAPI-table-desc"><p>Data format as specified by OpenAPI data type</p>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                     </tr>
                                                     
@@ -1730,7 +1931,11 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                     <span class="fw-right gray xs-icon"></span>Model for additional OpenApi information of a Ballerina service.
+=======
+                                                    <span class="fw-right gray xs-icon"></span>Model for additional OpenAPI information of a Ballerina service.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
                                                 </p>
                                                  
@@ -1746,7 +1951,11 @@ service Hello bind helloEp {
                                                         <td class="cAPI-table-name">title</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-desc"><p>Title of the OpenApi definition</p>
+=======
+                                                        <td class="cAPI-table-desc"><p>Title of the OpenAPI definition</p>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                     </tr>
                                                     
@@ -1754,7 +1963,11 @@ service Hello bind helloEp {
                                                         <td class="cAPI-table-name">serviceVersion</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-desc"><p>Version of the OpenApi API</p>
+=======
+                                                        <td class="cAPI-table-desc"><p>Version of the OpenAPI</p>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 </td>
                                                     </tr>
                                                     
@@ -1776,7 +1989,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">contact</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#Contact">openapi:Contact</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#Contact">openapi:Contact</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Contact information for the exposed API</p>
 </td>
@@ -1784,7 +2001,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">license</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#License">openapi:License</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#License">openapi:License</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>License information for the exposed API</p>
 </td>
@@ -1792,7 +2013,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">externalDocs</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#DocumentationInformation">openapi:DocumentationInformation</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#DocumentationInformation">openapi:DocumentationInformation</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Additional external documentation</p>
 </td>
@@ -1800,7 +2025,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">tags</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#Tag">openapi:Tag[]</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#Tag">openapi:Tag[]</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>A list of tags used by the specification with additional metadata</p>
 </td>
@@ -1808,7 +2037,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">security</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#SecurityRequirement">openapi:SecurityRequirement[]</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#SecurityRequirement">openapi:SecurityRequirement[]</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Security requirements for this service</p>
 </td>
@@ -1836,7 +2069,11 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                     <span class="fw-right gray xs-icon"></span>Model for OpenApi service tag definition.
+=======
+                                                    <span class="fw-right gray xs-icon"></span>Model for OpenAPI service tag definition.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
                                                 </p>
                                                  
@@ -1866,7 +2103,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">externalDocs</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#DocumentationInformation">openapi:DocumentationInformation</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#DocumentationInformation">openapi:DocumentationInformation</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>Optional documentation on the tag</p>
 </td>
@@ -1894,7 +2135,11 @@ service Hello bind helloEp {
                                                 </h2>
                                                 
                                                 <p>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                     <span class="fw-right gray xs-icon"></span>Model for additional OpenApi request body details.
+=======
+                                                    <span class="fw-right gray xs-icon"></span>Model for additional OpenAPI request body details.
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
 
                                                 </p>
                                                  
@@ -1932,7 +2177,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">examples</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#Example">openapi:Example[]</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#Example">openapi:Example[]</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Examples of the media type</p>
 </td>
@@ -1940,7 +2189,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">schema</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#Schema">openapi:Schema</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#Schema">openapi:Schema</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default"> {}</td>
                                                         <td class="cAPI-table-desc"><p>The schema defining the type used for the request body</p>
 </td>
@@ -1948,7 +2201,11 @@ service Hello bind helloEp {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">encoding</td>
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                                         <td class="cAPI-table-type"><a href="swagger.html#Encoding">openapi:Encoding[]</a></td>
+=======
+                                                        <td class="cAPI-table-type"><a href="openapi.html#Encoding">openapi:Encoding[]</a></td>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Encoding and content type details</p>
 </td>
@@ -2208,6 +2465,16 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -2288,6 +2555,16 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -2348,7 +2625,7 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -2398,7 +2675,7 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
                                    </a>
                                    
                                 </li>
@@ -2408,7 +2685,38 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="active-package">
+                                <li>
+                                   <!--Package Name-->
+                                    
+                                   <a>ballerina/<span class="bold">openapi</a>
+                                   
+                                   
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -2457,20 +2765,15 @@ service Hello bind helloEp {
                              <ul class="">
                                 <li>
                                    <!--Package Name-->
-                                   
-                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="active-package">
-                                <li>
-                                   <!--Package Name-->
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                     
                                    <a>ballerina/<span class="bold">openapi</a>
                                    
+=======
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                    
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
+                                   </a>
                                    
                                 </li>
                              </ul>
@@ -2520,6 +2823,16 @@ service Hello bind helloEp {
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -2543,6 +2856,16 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -2623,6 +2946,16 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -2683,7 +3016,7 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -2733,7 +3066,7 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
                                    </a>
                                    
                                 </li>
@@ -2743,7 +3076,38 @@ service Hello bind helloEp {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="observe.html">ballerina/<span class="bold">observe</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="active-package">
+                                <li>
+                                   <!--Package Name-->
+                                    
+                                   <a>ballerina/<span class="bold">openapi</a>
+                                   
+                                   
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -2792,20 +3156,15 @@ service Hello bind helloEp {
                              <ul class="">
                                 <li>
                                    <!--Package Name-->
-                                   
-                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="active-package">
-                                <li>
-                                   <!--Package Name-->
+<<<<<<< HEAD:api-docs/docs/ballerina/swagger.html
                                     
                                    <a>ballerina/<span class="bold">openapi</a>
                                    
+=======
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94:api-docs/docs/ballerina/openapi.html
                                    
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
+                                   </a>
                                    
                                 </li>
                              </ul>
@@ -2855,6 +3214,16 @@ service Hello bind helloEp {
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
