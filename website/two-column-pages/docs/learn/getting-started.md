@@ -63,19 +63,19 @@ This installs the Ballerina distribution to `/usr/lib64/ballerina`.
 
 Follow one of the steps below depending on your operating system to configure your system environment to run Ballerina:
 
-* If your operating system is Linux or Mac OS, set the PATH environment variable to point to the bin directory of the unzipped Ballerina distribution.
-* If your operating system is Windows, add a new environment variable specifying the following values:
-  * Variable name: PATH
-  * Variable value: The location of the bin directory of the unzipped Ballerina distribution. For example,  `C:\Program Files\Ballerina\ballerina-<version>\bin`
+- If your operating system is Linux or Mac OS, set the PATH environment variable to point to the bin directory of the unzipped Ballerina distribution.
+- If your operating system is Windows, add a new environment variable specifying the following values:
+  - Variable name: PATH
+  - Variable value: The location of the bin directory of the unzipped Ballerina distribution. For example,  `C:\Program Files\Ballerina\ballerina-<version>\bin`
   
 ## Uninstalling Ballerina
 
 To remove an existing Ballerina installation, go to the Ballerina installation location and delete the Ballerina directory.
 
 > **Note**:
-> * If you installed Ballerina via an installer, the installation location is usually `/Library/Ballerina` in Mac OS X, `/usr/lib/ballerina/` in Ubuntu and `C:\Program Files\Ballerina\` in Windows.
-> * If you have installed via RPM installer, you can use `rpm -e ballerina-<version>-1.x86_64` command.
-> * If you installed Ballerina using the Ballerina language ZIP file, be sure to remove the Ballerina PATH environment variable that you set in your system environment.
+> - If you installed Ballerina via an installer, the installation location is usually `/Library/Ballerina` in Mac OS X, `/usr/lib/ballerina/` in Ubuntu and `C:\Program Files\Ballerina\` in Windows.
+> - If you have installed via RPM installer, you can use `rpm -e ballerina-<version>-1.x86_64` command.
+> - If you installed Ballerina using the Ballerina language ZIP file, be sure to remove the Ballerina PATH environment variable that you set in your system environment.
 
 ## Getting help
 
