@@ -254,6 +254,41 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -503,6 +538,7 @@
 <p>The sample below shows how to retrieve all the annotations of a service:</p>
 <pre><code class="language-ballerina">@http:ServiceConfig { basePath: &quot;/helloWorld&quot; }
 service hello on new http:Listener(9090) {
+
     resource function hello(http:Caller caller, http:Request req) {
         http:Response res = new;
         res.setTextPayload(&quot;hello world&quot;);
@@ -510,9 +546,9 @@ service hello on new http:Listener(9090) {
     }
 }
 
-reflect:annotationData[] annotations= reflect:getServiceAnnotations(hello); 
-string annoName = annotations[0].name; //Eg. “ServiceConfig”
-string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
+reflect:annotationData[] annotations = reflect:getServiceAnnotations(hello); 
+string annoName = annotations[0].name; // E.g. “ServiceConfig”
+string annoPkg = annotations[0].moduleName; // E.g. “ballerina.http”
 
 </code></pre>
 
@@ -1158,6 +1194,16 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -1238,6 +1284,16 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -1298,7 +1354,7 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -1348,6 +1404,16 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -1358,7 +1424,27 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -1419,17 +1505,11 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                 <li>
                                    <!--Package Name-->
                                    
+<<<<<<< HEAD
                                    <a href="swagger.html">ballerina/<span class="bold">openapi</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
+=======
                                    <a href="system.html">ballerina/<span class="bold">system</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -1470,6 +1550,16 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -1493,6 +1583,16 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -1573,6 +1673,16 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -1633,7 +1743,7 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -1683,6 +1793,16 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -1693,7 +1813,27 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -1754,17 +1894,11 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                 <li>
                                    <!--Package Name-->
                                    
+<<<<<<< HEAD
                                    <a href="swagger.html">ballerina/<span class="bold">openapi</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
+=======
                                    <a href="system.html">ballerina/<span class="bold">system</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -1805,6 +1939,16 @@ string annoPkg = annotations[0].moduleName; //Eg/ “ballerina.http”
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
