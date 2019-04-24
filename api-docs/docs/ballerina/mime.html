@@ -226,6 +226,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -638,19 +652,6 @@
                                                     </div>
                                                     <div class="construct-name">
                                                         getText
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Entity-getBodyAsString">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        getBodyAsString
                                                     </div>
                                                 </a>
                                             </li>
@@ -1225,9 +1226,42 @@
                                             </a>
                                         </li>
                                             
+                                          
+                                        <li>
+                                            <a href="#MIME_ERROR_CODE">
+                                                <div class="construct-icon">
+                                                    <span class="fw-const"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    MIME_ERROR_CODE
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
                                     </ul>
                                 </div>
                                 
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
                             </li>
                         </ul>
                         
@@ -1391,50 +1425,52 @@ Content-Description: a complete map of the human genome
 <p>The module provides functions to set and get an entity body from different kinds of message types, such as XML, text, JSON, blob, and body parts. Headers can be modified through functions such as <code>addHeader()</code>, <code>setHeader()</code>, <code>removeHeader()</code>, etc.</p>
 <h2>Samples</h2>
 <h3>Handle multipart request</h3>
-<p>The sample service given below handles a multipart request. It extracts the body content from each part, converts it to to a <code>string</code>, and sends a response.</p>
+<p>The sample service given below handles a multipart request. It extracts the body content from each part, converts it to a <code>string</code>, and sends a response.</p>
 <pre><code class="language-ballerina">import ballerina/http;
 import ballerina/io;
 import ballerina/log;
 import ballerina/mime;
 
-@http:ServiceConfig {basePath:&quot;/test&quot;}
+@http:ServiceConfig {
+    basePath: &quot;/test&quot;
+}
 service test on new http:Listener(9090) {
 
-   @http:ResourceConfig {
-       methods:[&quot;POST&quot;],
-       path:&quot;/multipleparts&quot;
-   }
-   // The resource that handles multipart requests.
-   resource function multipartResource(http:Caller caller, http:Request request) {
-       http:Response response = new;
-       
+    @http:ResourceConfig {
+        methods: [&quot;POST&quot;],
+        path: &quot;/multipleparts&quot;
+    }
+    // The resource that handles multipart requests.
+    resource function multipartResource(http:Caller caller, http:Request request) {
+        http:Response response = new;
+
         // Get the body parts from the request.
         var bodyParts = request.getBodyParts();
         if (bodyParts is mime:Entity[]) {
             string content = &quot;&quot;;
-             // Iterate through each body part and handle the content.
+            // Iterate through each body part and handle the content.
             foreach var part in bodyParts {
                 content = content + &quot; -- &quot; + handleContent(part);
             }
             response.setPayload(untaint content);
-        } else if (bodyParts is error) {
-            // If there is an error while getting the body parts, set the response code as 500 and 
-            //set the error message as the response message.
+        } else {
+            // If there is an error while getting the body parts, set the response code as 500 and
+            // set the error message as the response message.
             response.statusCode = 500;
             response.setPayload(untaint bodyParts.reason());
         }
-          
+
         var result = caller-&gt;respond(response);
         if (result is error) {
             log:printError(&quot;Error in responding&quot;, err = result);
         }
-   }
+    }
 }
 
 // The function that handles the content based on the body part type.
-function handleContent(mime:Entity bodyPart) returns (string) {
-   var mediaType = mime:getMediaType(bodyPart.getContentType());
-   if (mediaType is mime:MediaType) {
+function handleContent(mime:Entity bodyPart) returns string {
+    var mediaType = mime:getMediaType(bodyPart.getContentType());
+    if (mediaType is mime:MediaType) {
         // Get the base type of the specific body part.
         string baseType = mediaType.getBaseType();
         // If the base type is ‘application/xml’ or ‘text/xml’, get the XML content from body part.
@@ -1442,7 +1478,7 @@ function handleContent(mime:Entity bodyPart) returns (string) {
             var payload = bodyPart.getXml();
             if (payload is xml) {
                 return payload.getTextValue();
-            } else if (payload is error) {
+            } else {
                 return &quot;Error in parsing xml payload&quot;;
             }
         } else if (mime:APPLICATION_JSON == baseType) {
@@ -1450,14 +1486,14 @@ function handleContent(mime:Entity bodyPart) returns (string) {
             var payload = bodyPart.getJson();
             if (payload is json) {
                 return payload.toString();
-            } else if (payload is error) {
+            } else {
                 return &quot;Error in parsing json payload&quot;;
             }
         }
-   } else if (mediaType is error) {
+    } else {
         return mediaType.reason();
-   }
-   return &quot;&quot;;
+    }
+    return &quot;&quot;;
 }
 </code></pre>
 <p>The sample request that is sent to the above service is shown below.</p>
@@ -1468,7 +1504,7 @@ function handleContent(mime:Entity bodyPart) returns (string) {
 <pre><code class="language-ballerina">// Create a JSON body part.
 mime:Entity bodyPart1 = new;
 // Set the JSON content.
-bodyPart1.setJson({&quot;bodyPart&quot;:&quot;jsonPart&quot;});
+bodyPart1.setJson({&quot;bodyPart&quot;: &quot;jsonPart&quot;});
 
 // Create another body part using an XML file.
 mime:Entity bodyPart2 = new;
@@ -1551,6 +1587,8 @@ and an entity(body part) inside of a multipart entity.</p>
                                                          <td class="cSummary-table-desc"><p>Describes the nature of the data in the body of a MIME entity.</p>
 </td>
                                                      </tr>
+                                                 
+                                             
                                                  
                                              
                                                  
@@ -1774,6 +1812,8 @@ and an entity(body part) inside of a multipart entity.</p>
                                              
                                                  
                                              
+                                                 
+                                             
                                          </table>
                                          
                                          <!-- Type Definitions-->
@@ -1792,7 +1832,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="base64DecodeBlob">
-                                                    <span class="fw-function sm-icon"> </span> public function base64DecodeBlob(byte[] valueToBeDecoded) returns (byte[] | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function base64DecodeBlob(byte[] valueToBeDecoded) returns (byte[]|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1829,7 +1869,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a> | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>A decoded <code>byte[]</code>. In case of errors, an <code>error</code> record is returned</p>
 </td>
@@ -1913,7 +1953,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="base64DecodeByteChannel">
-                                                    <span class="fw-function sm-icon"> </span> public function base64DecodeByteChannel(io:ReadableByteChannel valueToBeDecoded) returns (io:ReadableByteChannel | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function base64DecodeByteChannel(io:ReadableByteChannel valueToBeDecoded) returns (io:ReadableByteChannel|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1950,7 +1990,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a> | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>A decoded <code>io:ReadableByteChannel</code>. In case of errors, an <code>error</code> record is returned</p>
 </td>
@@ -1974,7 +2014,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="base64DecodeString">
-                                                    <span class="fw-function sm-icon"> </span> public function base64DecodeString(string valueToBeDecoded, string charset) returns (string | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function base64DecodeString(string valueToBeDecoded, string charset) returns (string|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2019,7 +2059,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>A decoded <code>string</code>. In case of errors, an <code>error</code> record is returned</p>
 </td>
@@ -2043,7 +2083,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="base64EncodeBlob">
-                                                    <span class="fw-function sm-icon"> </span> public function base64EncodeBlob(byte[] valueToBeEncoded) returns (byte[] | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function base64EncodeBlob(byte[] valueToBeEncoded) returns (byte[]|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2080,7 +2120,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a> | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>An encoded byte[]. In case of errors, an <code>error</code> record is returned</p>
 </td>
@@ -2164,7 +2204,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="base64EncodeByteChannel">
-                                                    <span class="fw-function sm-icon"> </span> public function base64EncodeByteChannel(io:ReadableByteChannel valueToBeEncoded) returns (io:ReadableByteChannel | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function base64EncodeByteChannel(io:ReadableByteChannel valueToBeEncoded) returns (io:ReadableByteChannel|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2201,7 +2241,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a> | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>An encoded <code>io:ReadableByteChannel</code>. In case of errors, an <code>error</code> record is returned</p>
 </td>
@@ -2225,7 +2265,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="base64EncodeString">
-                                                    <span class="fw-function sm-icon"> </span> public function base64EncodeString(string valueToBeEncoded, string charset) returns (string | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function base64EncodeString(string valueToBeEncoded, string charset) returns (string|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2270,7 +2310,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>An encoded <code>string</code>. In case of errors, an <code>error</code> record is returned</p>
 </td>
@@ -2423,7 +2463,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="getMediaType">
-                                                    <span class="fw-function sm-icon"> </span> public function getMediaType(string contentType) returns (MediaType | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function getMediaType(string contentType) returns (MediaType|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2460,7 +2500,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="mime.html#MediaType">MediaType</a> | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type"><a href="mime.html#MediaType">MediaType</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p><code>MediaType</code> object or an error in case of invalid content-type</p>
 </td>
@@ -2802,7 +2842,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> getContentLength() returns (int | error&lt;&gt;) 
+                                                   </span> getContentLength() returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2821,7 +2861,7 @@ and an entity(body part) inside of a multipart entity.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Content length as an <code>int</code></p>
 </td>
@@ -3024,7 +3064,7 @@ is used as the default value.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> getJson() returns (json | error&lt;&gt;) 
+                                                   </span> getJson() returns (json|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3043,7 +3083,7 @@ is used as the default value.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#json">json</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#json">json</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p><code>json</code> data extracted from the the entity body. An <code>error</code> record is returned in case of
 errors.</p>
@@ -3103,7 +3143,7 @@ is used as the default value.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> getXml() returns (xml | error&lt;&gt;) 
+                                                   </span> getXml() returns (xml|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3122,7 +3162,7 @@ is used as the default value.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#xml">xml</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#xml">xml</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p><code>xml</code> data extracted from the the entity body. An <code>error</code> record is returned in case of
 errors.</p>
@@ -3182,7 +3222,7 @@ is used as the default value.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> getText() returns (string | error&lt;&gt;) 
+                                                   </span> getText() returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3201,45 +3241,9 @@ is used as the default value.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p><code>string</code> data extracted from the the entity body or <code>error</code> in case of errors.</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Entity-getBodyAsString">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Entity&gt;
-                                                   </span> getBodyAsString() returns (string | error&lt;&gt;) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Given an entity, gets the entity body as a string. Content type is checked during entity body construction which
-makes this different from getText() method.</p>
-
-                                                            </p>
-                                                              
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Entity body as a <code>string</code> or <code>error</code> in case of errors occurred during
-construction of the string body.</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3296,7 +3300,7 @@ can be overridden by passing the content type as an optional parameter.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> getByteArray() returns (byte[] | error&lt;&gt;) 
+                                                   </span> getByteArray() returns (byte[]|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3316,7 +3320,7 @@ using getByteChannel() method instead.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p><code>byte[]</code> data extracted from the the entity body. An <code>error</code> record is returned in case of
 errors.</p>
@@ -3376,7 +3380,7 @@ can be overridden by passing the content-type as an optional parameter.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> getByteChannel() returns (io:ReadableByteChannel | error&lt;&gt;) 
+                                                   </span> getByteChannel() returns (io:ReadableByteChannel|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3395,7 +3399,7 @@ can be overridden by passing the content-type as an optional parameter.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>An <code>io:ReadableByteChannel</code>. An <code>error</code> record will be returned in case of errors</p>
 </td>
@@ -3410,7 +3414,7 @@ can be overridden by passing the content-type as an optional parameter.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> getBodyParts() returns (Entity[] | error&lt;&gt;) 
+                                                   </span> getBodyParts() returns (Entity[]|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3429,7 +3433,7 @@ can be overridden by passing the content-type as an optional parameter.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="mime.html#Entity">Entity[]</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="mime.html#Entity">Entity[]</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>An array of body parts(<code>Entity[]</code>) extracted from the entity body. An <code>error</code> record will be
 returned in case of errors.</p>
@@ -3445,7 +3449,7 @@ returned in case of errors.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Entity&gt;
-                                                   </span> getBodyPartsAsChannel() returns (io:ReadableByteChannel | error&lt;&gt;) 
+                                                   </span> getBodyPartsAsChannel() returns (io:ReadableByteChannel|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3464,7 +3468,7 @@ returned in case of errors.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Body parts as a byte channel</p>
 </td>
@@ -4407,6 +4411,21 @@ with the given header value.</p>
                                                 
                                             </div>
                                                 
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
                                             </div>
                                         </div>
                                       </div>
@@ -4580,6 +4599,16 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -4660,6 +4689,16 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -4720,7 +4759,7 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -4771,6 +4810,16 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -4781,7 +4830,27 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -4831,17 +4900,11 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
+<<<<<<< HEAD
                                    <a href="swagger.html">ballerina/<span class="bold">openapi</span>
+=======
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -4892,6 +4955,16 @@ with the given header value.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -4915,6 +4988,16 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -4995,6 +5078,16 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -5055,7 +5148,7 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -5106,6 +5199,16 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -5116,7 +5219,27 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -5166,17 +5289,11 @@ with the given header value.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
+<<<<<<< HEAD
                                    <a href="swagger.html">ballerina/<span class="bold">openapi</span>
+=======
+                                   <a href="streams.html">ballerina/<span class="bold">streams</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -5227,6 +5344,16 @@ with the given header value.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>

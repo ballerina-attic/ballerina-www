@@ -36,7 +36,7 @@
     </script>
     <!-- End Google Tag Manager -->
     <link rel="shortcut icon" href="/img/favicon.ico">
-    <title>Ballerina - ballerina/docker API Docs</title>
+    <title>Ballerina - ballerina/istio API Docs</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
@@ -114,11 +114,18 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
                                  
-                                <a class="cPackageList">ballerina/<span class="bold">docker</span></a>  
+                                <a class="cPackageList">ballerina/<span class="bold">istio</span></a>  
                                 <div class="constructs-wrapper">
                                     <!--Construct of Package-->
                                     <ul class="constructs-ul">
@@ -139,6 +146,17 @@
                                         
                                         
                                         
+                                        <li>
+                                            <a href="#TypeDefinitions">
+                                                <div class="construct-icon">
+                                                    <span class="fw-type"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Type Definitions
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
                                         
                                         
                                         <li>
@@ -156,65 +174,107 @@
                                         
                                           
                                         <li>
-                                            <a href="#DockerConfiguration">
+                                            <a href="#DestinationConfig">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    DockerConfiguration
+                                                    DestinationConfig
                                                 </div>
                                             </a>
                                         </li>
                                             
                                           
                                         <li>
-                                            <a href="#ExposeConfig">
+                                            <a href="#DestinationWeightConfig">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    ExposeConfig
+                                                    DestinationWeightConfig
                                                 </div>
                                             </a>
                                         </li>
                                             
                                           
                                         <li>
-                                            <a href="#FileConfig">
+                                            <a href="#GatewayConfig">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    FileConfig
+                                                    GatewayConfig
                                                 </div>
                                             </a>
                                         </li>
                                             
                                           
                                         <li>
-                                            <a href="#FileConfigs">
+                                            <a href="#HTTPRouteConfig">
                                                 <div class="construct-icon">
                                                     <span class="fw-record"> </span>
                                                 </div>
                                                 <div class="construct-name">
-                                                    FileConfigs
+                                                    HTTPRouteConfig
                                                 </div>
                                             </a>
                                         </li>
                                             
-                                             
+                                          
+                                        <li>
+                                            <a href="#PortConfig">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    PortConfig
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#ServerConfig">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    ServerConfig
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#TLSOptionConfig">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    TLSOptionConfig
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#VirtualServiceConfig">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    VirtualServiceConfig
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                           
+                                           
                                              
                                              
                                     </ul>
                                 </div>
                                 
-                            </li>
-                        </ul>
-                        
-                        <ul class=" ">
-                            <li>
-                                <!--Package Name-->
-                                  
                             </li>
                         </ul>
                         
@@ -258,7 +318,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerina/docker</span> module </li>
+                            <li><span class="bold">ballerina/istio</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -270,7 +330,7 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerina/docker</span>  module 
+                                                <span class="bold">ballerina/istio</span>  module 
                                             </h1>
                                             
 
@@ -290,33 +350,68 @@
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#DockerConfiguration">DockerConfiguration</a></td>
-                                                         <td class="cSummary-table-desc">Docker annotation configuration.
+                                                         <td class="cSummary-table-name"><a href="#DestinationConfig">DestinationConfig</a></td>
+                                                         <td class="cSummary-table-desc">Configuration to a network addressable service.
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#ExposeConfig">ExposeConfig</a></td>
-                                                         <td class="cSummary-table-desc">Expose ports for docker.</td>
-                                                     </tr>
-                                                 
-                                             
-                                                 
-                                                     <tr>
-                                                         <td class="cSummary-table-name"><a href="#FileConfig">FileConfig</a></td>
-                                                         <td class="cSummary-table-desc">External file type for docker.
+                                                         <td class="cSummary-table-name"><a href="#DestinationWeightConfig">DestinationWeightConfig</a></td>
+                                                         <td class="cSummary-table-desc">Configuration for weight for destination to traffic route.
 </td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
-                                                         <td class="cSummary-table-name"><a href="#FileConfigs">FileConfigs</a></td>
-                                                         <td class="cSummary-table-desc">External File configurations for docker.
+                                                         <td class="cSummary-table-name"><a href="#GatewayConfig">GatewayConfig</a></td>
+                                                         <td class="cSummary-table-desc">Istio gateway annotation configuration.
 </td>
                                                      </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#HTTPRouteConfig">HTTPRouteConfig</a></td>
+                                                         <td class="cSummary-table-desc">Configurations for conditions and actions for routing HTTP.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#PortConfig">PortConfig</a></td>
+                                                         <td class="cSummary-table-desc">Port of a service.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#ServerConfig">ServerConfig</a></td>
+                                                         <td class="cSummary-table-desc">Istio gateway server configuration to describe the properties of the proxy on a given load balancer.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#TLSOptionConfig">TLSOptionConfig</a></td>
+                                                         <td class="cSummary-table-desc">Istio gateway server tls option configurations.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#VirtualServiceConfig">VirtualServiceConfig</a></td>
+                                                         <td class="cSummary-table-desc">Virtual service configuration for @istio:VirtualService annotation.
+</td>
+                                                     </tr>
+                                                 
+                                             
                                                  
                                              
                                                  
@@ -335,6 +430,42 @@
                                          
                                          <!-- Type Definitions-->
                                          
+                                        <h3 id="TypeDefinitions">Type Definitions</h3>
+                                        <table class="cSummary-Table c3Col-Narrow">
+                                            <tr>
+                                                <th class="cSummary-table-name">Type</th>
+                                                <th class="cSummary-table-type">Values</th>
+                                                <th class="cSummary-table-desc">Description</th>
+                                            </tr>
+                                            
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">PortProtocol</td>
+                                                <td class="cSummary-table-type">TLS | TCP | MONGO | HTTPS | HTTP2 | HTTP | GRPC</td>
+                                                <td class="cSummary-table-desc"><p>Types of protocols of a port.</p>
+</td>
+                                            </tr>
+                                              
+                                            
+                                            <tr>
+                                                <td class="cSummary-table-name">TLSOptionMode</td>
+                                                <td class="cSummary-table-type">SIMPLE | PASSTHROUGH | MUTUAL</td>
+                                                <td class="cSummary-table-desc"><p>TLS mode enforced by the proxy.</p>
+</td>
+                                            </tr>
+                                              
+                                              
+                                              
+                                        </table>
+                                        
                                         <!-- Global Variables-->
                                         
                                          <!-- Annotations -->
@@ -352,30 +483,27 @@
                                               
                                               
                                               
+                                              
+                                              
+                                              
+                                              
+                                              
+                                              
                                             
                                             <tr>
-                                                <td class="cSummary-table-name">Config</td>
+                                                <td class="cSummary-table-name">Gateway</td>
                                                 <td class="cSummary-table-attach">service, listener</td>
-                                                <td class="cSummary-table-type"><a href="docker.html#DockerConfiguration">DockerConfiguration</a></td>
-                                                <td class="cSummary-table-desc"><p>@docker:Config annotation to configure docker artifact generation.</p>
+                                                <td class="cSummary-table-type"><a href="istio.html#GatewayConfig">GatewayConfig</a></td>
+                                                <td class="cSummary-table-desc"><p>@istio:Gateway annotation to generate istio gateways.</p>
 </td>
                                             </tr>
                                               
                                             
                                             <tr>
-                                                <td class="cSummary-table-name">CopyFiles</td>
+                                                <td class="cSummary-table-name">VirtualService</td>
                                                 <td class="cSummary-table-attach">service, listener</td>
-                                                <td class="cSummary-table-type"><a href="docker.html#FileConfigs">FileConfigs</a></td>
-                                                <td class="cSummary-table-desc"><p>@docker:CopyFile annotation to copy external files to docker image.</p>
-</td>
-                                            </tr>
-                                              
-                                            
-                                            <tr>
-                                                <td class="cSummary-table-name">Expose</td>
-                                                <td class="cSummary-table-attach">listener</td>
-                                                <td class="cSummary-table-type"><a href="docker.html#ExposeConfig">ExposeConfig</a></td>
-                                                <td class="cSummary-table-desc"><p>@docker:Expose annotation to expose ballerina ports.</p>
+                                                <td class="cSummary-table-type"><a href="istio.html#VirtualServiceConfig">VirtualServiceConfig</a></td>
+                                                <td class="cSummary-table-desc"><p>@istio:VirtualService annotation to generate istio virtual service.</p>
 </td>
                                             </tr>
                                               
@@ -396,12 +524,120 @@
                                                 
                                                 <!-- Records -->
                                                 
-                                                <h2 id="DockerConfiguration">
-                                                    <span class="fw-record sm-icon"></span> public type DockerConfiguration
+                                                <h2 id="DestinationConfig">
+                                                    <span class="fw-record sm-icon"></span> public type DestinationConfig
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Docker annotation configuration.
+                                                    <span class="fw-right gray xs-icon"></span>Configuration to a network addressable service.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">host</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Host of a service.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">subset</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Subset within the service.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">port</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The port on the host that is being addressed.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="DestinationWeightConfig">
+                                                    <span class="fw-record sm-icon"></span> public type DestinationWeightConfig
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Configuration for weight for destination to traffic route.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">destination</td>
+                                                        <td class="cAPI-table-type"><a href="istio.html#DestinationConfig">istio:DestinationConfig</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Destination to forward to.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">weight</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Weight for the destination.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="GatewayConfig">
+                                                    <span class="fw-record sm-icon"></span> public type GatewayConfig
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Istio gateway annotation configuration.
 
                                                 </p>
                                                  
@@ -417,95 +653,97 @@
                                                         <td class="cAPI-table-name">name</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Name of the docker image</p>
+                                                        <td class="cAPI-table-desc"><p>Name of the resource</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">registry</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-name">labels</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;string&gt;</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Docker registry url</p>
+                                                        <td class="cAPI-table-desc"><p>Map of labels for the resource</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">tag</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-name">annotations</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;string&gt;</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Docker image tag</p>
+                                                        <td class="cAPI-table-desc"><p>Map of annotations for resource</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">username</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-name">selector</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;string&gt;</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Docker registry username</p>
+                                                        <td class="cAPI-table-desc"><p>Specific set of pods/VMs on which this gateway configuration should be applied.</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">password</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-name">servers</td>
+                                                        <td class="cAPI-table-type"><a href="istio.html#ServerConfig">istio:ServerConfig?[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Docker registry password</p>
+                                                        <td class="cAPI-table-desc"><p>List of servers to pass.</p>
 </td>
                                                     </tr>
                                                     
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="HTTPRouteConfig">
+                                                    <span class="fw-record sm-icon"></span> public type HTTPRouteConfig
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Configurations for conditions and actions for routing HTTP.
+
+                                                </p>
+                                                 
+                                                <table>
                                                     <tr>
-                                                        <td class="cAPI-table-name">baseImage</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">route</td>
+                                                        <td class="cAPI-table-type"><a href="istio.html#DestinationWeightConfig">istio:DestinationWeightConfig[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Base image for Dockerfile</p>
+                                                        <td class="cAPI-table-desc"><p>Route destination.</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">push</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Enable pushing docker image to registry</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">buildImage</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Enable docker image build</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">enableDebug</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Enable ballerina debug</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">debugPort</td>
+                                                        <td class="cAPI-table-name">timeout</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Ballerina debug port</p>
+                                                        <td class="cAPI-table-desc"><p>Timeout for requests in seconds.</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">dockerHost</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-name">appendHeaders</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;string&gt;</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Docker host IP and docker PORT. ( e.g minikube IP and docker PORT)</p>
-</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td class="cAPI-table-name">dockerCertPath</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Docker certificate path</p>
+                                                        <td class="cAPI-table-desc"><p>Additional header to add before forwarding/directing.</p>
 </td>
                                                     </tr>
                                                     
@@ -526,14 +764,49 @@
                                                 
                                                 <!-- Records -->
                                                 
-                                                <h2 id="ExposeConfig">
-                                                    <span class="fw-record sm-icon"></span> public type ExposeConfig
+                                                <h2 id="PortConfig">
+                                                    <span class="fw-record sm-icon"></span> public type PortConfig
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>Expose ports for docker.
+                                                    <span class="fw-right gray xs-icon"></span>Port of a service.
+
                                                 </p>
-                                                  
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">number</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The port number.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">protocol</td>
+                                                        <td class="cAPI-table-type"><a href="istio.html#PortProtocol">HTTP|HTTPS|GRPC|HTTP2|MONGO|TCP|TLS</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The protocol exposed by the port.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">name</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Label for the port.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Objects and its functions -->
                                                 
                                             </div>
@@ -549,12 +822,12 @@
                                                 
                                                 <!-- Records -->
                                                 
-                                                <h2 id="FileConfig">
-                                                    <span class="fw-record sm-icon"></span> public type FileConfig
+                                                <h2 id="ServerConfig">
+                                                    <span class="fw-record sm-icon"></span> public type ServerConfig
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>External file type for docker.
+                                                    <span class="fw-right gray xs-icon"></span>Istio gateway server configuration to describe the properties of the proxy on a given load balancer.
 
                                                 </p>
                                                  
@@ -567,26 +840,108 @@
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">source</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-name">port</td>
+                                                        <td class="cAPI-table-type"><a href="istio.html#PortConfig">istio:PortConfig</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>source path of the file (in your machine)</p>
+                                                        <td class="cAPI-table-desc"><p>The port of the proxy.</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">target</td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-name">hosts</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>target path (inside container)</p>
+                                                        <td class="cAPI-table-desc"><p>List of hosts exposed by the gateway.</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">isBallerinaConf</td>
+                                                        <td class="cAPI-table-name">tls</td>
+                                                        <td class="cAPI-table-type"><a href="istio.html#TLSOptionConfig">istio:TLSOptionConfig</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>TLS options.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="TLSOptionConfig">
+                                                    <span class="fw-record sm-icon"></span> public type TLSOptionConfig
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Istio gateway server tls option configurations.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">httpsRedirect</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
+                                                        <td class="cAPI-table-default">false</td>
+                                                        <td class="cAPI-table-desc"><p>If set to true, the load balancer will send a 301 redirect for all http connections, asking the clients to use HTTPS.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">mode</td>
+                                                        <td class="cAPI-table-type"><a href="istio.html#TLSOptionMode">PASSTHROUGH|SIMPLE|MUTUAL</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Flag to specify ballerina config file</p>
+                                                        <td class="cAPI-table-desc"><p>Indicates whether connections to this port should be secured using TLS. The value of this field determines how TLS is enforced.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">serverCertificate</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>REQUIRED if mode is SIMPLE or MUTUAL. The path to the file holding the server-side TLS certificate to use.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">privateKey</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>REQUIRED if mode is SIMPLE or MUTUAL. The path to the file holding the server’s private key.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">caCertificates</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>REQUIRED if mode is MUTUAL. The path to a file containing certificate authority certificates to use in verifying a presented client side certificate.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">subjectAltNames</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>A list of alternate names to verify the subject identity in the certificate presented by the client.</p>
 </td>
                                                     </tr>
                                                     
@@ -607,12 +962,12 @@
                                                 
                                                 <!-- Records -->
                                                 
-                                                <h2 id="FileConfigs">
-                                                    <span class="fw-record sm-icon"></span> public type FileConfigs
+                                                <h2 id="VirtualServiceConfig">
+                                                    <span class="fw-record sm-icon"></span> public type VirtualServiceConfig
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span>External File configurations for docker.
+                                                    <span class="fw-right gray xs-icon"></span>Virtual service configuration for @istio:VirtualService annotation.
 
                                                 </p>
                                                  
@@ -625,15 +980,70 @@
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td class="cAPI-table-name">files</td>
-                                                        <td class="cAPI-table-type"><a href="docker.html#FileConfig">docker:FileConfig[]</a></td>
+                                                        <td class="cAPI-table-name">name</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Array of <a href="docker.html#FileConfig">FileConfig</a></p>
+                                                        <td class="cAPI-table-desc"><p>Name of the resource</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">labels</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;string&gt;</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Map of labels for the resource</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">annotations</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;string&gt;</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Map of annotations for resource</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">hosts</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Destination which traffic should be sent.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">gateways</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Names of the gateways which the service should listen to.</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">http</td>
+                                                        <td class="cAPI-table-type"><a href="istio.html#HTTPRouteConfig">istio:HTTPRouteConfig[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Route rules for HTTP traffic.</p>
 </td>
                                                     </tr>
                                                     
                                                 </table>
                                                  
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
                                                 <!-- Objects and its functions -->
                                                 
                                             </div>
@@ -862,23 +1272,23 @@
                                 </li>
                              </ul>
                              
-                             <ul class="active-package">
-                                <li>
-                                   <!--Package Name-->
-                                    
-                                   <a>ballerina/<span class="bold">docker</a>
-                                   
-                                   
-                                   
-                                </li>
-                             </ul>
-                             
                              <ul class="">
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="istio.html">ballerina/<span class="bold">istio</span>
+                                   <a href="docker.html">ballerina/<span class="bold">docker</span>
                                    </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="active-package">
+                                <li>
+                                   <!--Package Name-->
+                                    
+                                   <a>ballerina/<span class="bold">istio</a>
+                                   
+                                   
                                    
                                 </li>
                              </ul>
@@ -927,23 +1337,23 @@
                                 </li>
                              </ul>
                              
-                             <ul class="active-package">
-                                <li>
-                                   <!--Package Name-->
-                                    
-                                   <a>ballerina/<span class="bold">docker</a>
-                                   
-                                   
-                                   
-                                </li>
-                             </ul>
-                             
                              <ul class="">
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="istio.html">ballerina/<span class="bold">istio</span>
+                                   <a href="docker.html">ballerina/<span class="bold">docker</span>
                                    </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="active-package">
+                                <li>
+                                   <!--Package Name-->
+                                    
+                                   <a>ballerina/<span class="bold">istio</a>
+                                   
+                                   
                                    
                                 </li>
                              </ul>

@@ -275,6 +275,41 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -296,6 +331,17 @@
                                             </a>
                                         </li>
                                         
+                                        
+                                        <li>
+                                            <a href="#ObjectsSummary">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Objects
+                                                </div>
+                                            </a>
+                                        </li>
                                         
                                         
                                         <li>
@@ -375,6 +421,18 @@
                                             
                                           
                                         <li>
+                                            <a href="#UpdateResult">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    UpdateResult
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
                                             <a href="#close">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
@@ -384,6 +442,43 @@
                                                 </div>
                                             </a>
                                         </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#getGlobalPoolConfigContainer">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    getGlobalPoolConfigContainer
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
+                                            <a href="#GlobalPoolConfigContainer">
+                                                <div class="construct-icon">
+                                                    <span class="fw-struct"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    GlobalPoolConfigContainer
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#GlobalPoolConfigContainer-getGlobalPoolConfig">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-function"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        getGlobalPoolConfig
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
                                             
                                           
                                         <li>
@@ -448,19 +543,6 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#AbstractSQLClient-updateWithGeneratedKeys">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-action"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        updateWithGeneratedKeys
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
                                             
                                           
                                         <li>
@@ -521,19 +603,6 @@
                                                     </div>
                                                     <div class="construct-name">
                                                         batchUpdate
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
-                                                <a href="#Client-updateWithGeneratedKeys">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-action"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        updateWithGeneratedKeys
                                                     </div>
                                                 </a>
                                             </li>
@@ -1044,6 +1113,8 @@
 <p>The Direction type represents the direction of the parameter used in call operation. IN parameters are used to send values to stored procedures or pass parameters to other operations such as select, update, etc. This is the default direction of a parameter. The OUT parameters are used to get values from stored procedures. The INOUT parameters are used to send values to stored procedures and retrieve values from stored procedures.</p>
 <h3>Parameter</h3>
 <p>The Parameter type represents a parameter for the SQL operations when a variable needs to be passed into the sql statement given in the operation.</p>
+<h3>UpdateResult</h3>
+<p>The UpdateResult type represents the output of the <code>update</code> remote function.  It contains the updated row count and auto generated column values.</p>
 
                                             </div>
                                             
@@ -1081,8 +1152,21 @@
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#PoolOptions">PoolOptions</a></td>
                                                          <td class="cSummary-table-desc">Represents the properties which are used to configure DB connection pool.
+Default values of the fields can be set through the configuration API.
 </td>
                                                      </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#UpdateResult">UpdateResult</a></td>
+                                                         <td class="cSummary-table-desc">Result represents the output of the `update` remote function.
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                             
                                                  
                                              
                                                  
@@ -1165,6 +1249,110 @@
                                          
                                         <!-- objects -->
                                         
+                                        <h3 id="ObjectsSummary"> Objects</h3>
+                                         <table class="cSummary-Table c2Col-Medium">
+                                             <tr>
+                                                 <th class="cSummary-table-name">Object</th>
+                                              
+                                                 <th class="cSummary-table-desc">Description</th>
+                                             </tr>
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#GlobalPoolConfigContainer">GlobalPoolConfigContainer</a></td>
+                                                     
+                                                         <td class="cSummary-table-desc"></td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                         </table>
+                                         
                                          <!-- endpoints -->
                                          
                                         <h3 id="EndpointsSummary"><span class="fw-endpoint sm-icon"></span> Endpoints</h3>
@@ -1173,6 +1361,12 @@
                                                  <th class="cSummary-table-name">Endpoint</th>
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
+                                             
+                                                 
+                                             
+                                                 
+                                             
+                                                 
                                              
                                                  
                                              
@@ -1288,11 +1482,23 @@
                                                  
                                              
                                                  
+                                             
+                                                 
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#close">close</a></td>
                                                         <td class="cSummary-table-desc"><p>An internal function used by clients to shutdown the connection pool.</p>
 </td>
                                                      </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#getGlobalPoolConfigContainer">getGlobalPoolConfigContainer</a></td>
+                                                        <td class="cSummary-table-desc"><p>Retrieves the <code>final</code> <code>GlobalPoolConfigContainer</code> object.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
                                                  
                                              
                                                  
@@ -1381,6 +1587,9 @@
                                                 <th class="cSummary-table-desc">Description</th>
                                             </tr>
                                             
+                                              
+                                              
+                                              
                                               
                                               
                                               
@@ -1553,7 +1762,7 @@ REFCURSOR - Cursor value</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">value</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#any">any</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>Value of paramter passed into the SQL statement</p>
 </td>
                                                     </tr>
@@ -1598,6 +1807,7 @@ result row</p>
                                                 
                                                 <p>
                                                     <span class="fw-right gray xs-icon"></span>Represents the properties which are used to configure DB connection pool.
+Default values of the fields can be set through the configuration API.
 
                                                 </p>
                                                  
@@ -1612,83 +1822,154 @@ result row</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">connectionInitSql</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">config:getAsString(b7a.sql.connection.init.sql, defaultValue&#x3D;)</td>
                                                         <td class="cAPI-table-desc"><p>SQL statement that will be executed after every new connection creation before adding it
-to the pool</p>
+to the pool. Default value of this field can be set through the configuration API with the key
+&quot;b7a.sql.connection.init.sql&quot;</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">dataSourceClassName</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-default">config:getAsString(b7a.sql.datasource.class.name, defaultValue&#x3D;)</td>
                                                         <td class="cAPI-table-desc"><p>Name of the DataSource class provided by the JDBC driver. This is used on following scenarios.
 1. In JDBC client when DB specific properties are required (which are given with dbOptions)
-2. In any data client in which XA transactions enabled by isXA property and need to provide a custom XA implementation.</p>
+2. In any data client in which XA transactions enabled by isXA property and need to provide a
+custom XA implementation.
+Default value of this field can be set through the configuration API with the key
+&quot;b7a.sql.datasource.class.name&quot;</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">autoCommit</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default">true</td>
-                                                        <td class="cAPI-table-desc"><p>Auto-commit behavior of connections returned from the pool</p>
+                                                        <td class="cAPI-table-default">config:getAsBoolean(b7a.sql.connection.auto.commit, defaultValue&#x3D;true)</td>
+                                                        <td class="cAPI-table-desc"><p>Auto-commit behavior of connections returned from the pool.
+Default value of this field can be set through the configuration API with the key
+&quot;b7a.sql.connection.auto.commit&quot;</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">isXA</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
-                                                        <td class="cAPI-table-default">false</td>
-                                                        <td class="cAPI-table-desc"><p>Whether Connections are used for a distributed transaction</p>
+                                                        <td class="cAPI-table-default">config:getAsBoolean(b7a.sql.xa.enabled, defaultValue&#x3D;false)</td>
+                                                        <td class="cAPI-table-desc"><p>Whether Connections are used for a distributed transaction.
+Default value of this field can be set through the configuration API with the key &quot;b7a.sql.xa.enabled&quot;</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">maximumPoolSize</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">10</td>
-                                                        <td class="cAPI-table-desc"><p>Maximum size that the pool is allowed to reach, including both idle and in-use connections</p>
+                                                        <td class="cAPI-table-default">config:getAsInt(b7a.sql.max.pool.size, defaultValue&#x3D;15)</td>
+                                                        <td class="cAPI-table-desc"><p>Maximum size that the pool is allowed to reach, including both idle and in-use connections.
+Default value of this field can be set through the configuration API with the key
+&quot;b7a.sql.max.pool.size&quot;</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">connectionTimeout</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">30000</td>
-                                                        <td class="cAPI-table-desc"><p>Maximum number of milliseconds that a client will wait for a connection from the pool. Default is 30 seconds</p>
+                                                        <td class="cAPI-table-default">config:getAsInt(b7a.sql.connection.time.out, defaultValue&#x3D;30000)</td>
+                                                        <td class="cAPI-table-desc"><p>Maximum number of milliseconds that a client will wait for a connection from the pool.
+Default is 30 seconds.
+Default value of this field can be set through the configuration API with the key
+&quot;b7a.sql.connection.time.out&quot;</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">idleTimeout</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">600000</td>
-                                                        <td class="cAPI-table-desc"><p>Maximum amount of time that a connection is allowed to sit idle in the pool. Default is 10 minutes</p>
+                                                        <td class="cAPI-table-default">config:getAsInt(b7a.sql.connection.idle.time.out, defaultValue&#x3D;600000)</td>
+                                                        <td class="cAPI-table-desc"><p>Maximum amount of time that a connection is allowed to sit idle in the pool. Default is 10 minutes.
+Default value of this field can be set through the configuration API with the key
+&quot;b7a.sql.connection.idle.time.out&quot;</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">minimumIdle</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">-1</td>
-                                                        <td class="cAPI-table-desc"><p>Minimum number of idle connections that pool tries to maintain in the pool. Default is same as maximumPoolSize</p>
+                                                        <td class="cAPI-table-default">config:getAsInt(b7a.sql.connection.min.idle.count, defaultValue&#x3D;15)</td>
+                                                        <td class="cAPI-table-desc"><p>Minimum number of idle connections that pool tries to maintain in the pool. Default is same as
+maximumPoolSize.
+Default value of this field can be set through the configuration API with the key
+&quot;b7a.sql.connection.min.idle.count&quot;</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">maxLifetime</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">1800000</td>
-                                                        <td class="cAPI-table-desc"><p>Maximum lifetime of a connection in the pool. Default is 30 minutes</p>
+                                                        <td class="cAPI-table-default">config:getAsInt(b7a.sql.connection.max.life.time, defaultValue&#x3D;1800000)</td>
+                                                        <td class="cAPI-table-desc"><p>Maximum lifetime of a connection in the pool. Default is 30 minutes.
+Default value of this field can be set through the configuration API with the key
+&quot;b7a.sql.connection.max.life.time&quot;</p>
 </td>
                                                     </tr>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">validationTimeout</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
-                                                        <td class="cAPI-table-default">5000</td>
-                                                        <td class="cAPI-table-desc"><p>Maximum amount of time that a connection will be tested for aliveness. Default 5 seconds</p>
+                                                        <td class="cAPI-table-default">config:getAsInt(b7a.sql.validation.time.out, defaultValue&#x3D;5000)</td>
+                                                        <td class="cAPI-table-desc"><p>Maximum amount of time that a connection will be tested for aliveness. Default 5 seconds
+Default value of this field can be set through the configuration API with the key
+&quot;b7a.sql.validation.time.out&quot;</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="UpdateResult">
+                                                    <span class="fw-record sm-icon"></span> public type UpdateResult
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>Result represents the output of the `update` remote function.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">updatedRowCount</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The updated row count during the sql statement exectuion</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">generatedKeys</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;anydata&gt;</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>A map of auto generated key values during the sql statement execution</p>
 </td>
                                                     </tr>
                                                     
@@ -1704,7 +1985,7 @@ to the pool</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="close">
-                                                    <span class="fw-function sm-icon"> </span> public function close(sql:Client sqlClient) 
+                                                    <span class="fw-function sm-icon"> </span> public function close(sql:Client sqlClient) returns (error?&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1729,7 +2010,26 @@ to the pool</p>
                                                     </tr>
                                                     
                                                 </table>
-                                                  
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#error">error?<></a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Possible error during closing</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
                                                 <!-- Struct-binded functions grouped together -->
                                                 
                                                 <!-- Connectors and its actions -->
@@ -1738,6 +2038,102 @@ to the pool</p>
                                                 
                                                 <!-- Objects and its functions -->
                                                 
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="getGlobalPoolConfigContainer">
+                                                    <span class="fw-function sm-icon"> </span> public function getGlobalPoolConfigContainer() returns (GlobalPoolConfigContainer) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Retrieves the <code>final</code> <code>GlobalPoolConfigContainer</code> object.</p>
+
+                                                </p>
+                                                  
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type"><a href="sql.html#GlobalPoolConfigContainer">GlobalPoolConfigContainer</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The <code>final</code> <code>GlobalPoolConfigContainer</code> object</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                                <h2 id="GlobalPoolConfigContainer">
+                                                    <span class="fw-struct sm-icon"></span> public type GlobalPoolConfigContainer object
+                                                </h2>
+                                                  
+                                                <div class="function-wrapper">
+                                                    <ul>
+                                                        
+                                                        <li>
+                                                            <h2 id="GlobalPoolConfigContainer-getGlobalPoolConfig">
+                                                                <span class="fw-function"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;GlobalPoolConfigContainer&gt;
+                                                   </span> getGlobalPoolConfig() returns (PoolOptions) 
+                                                            </h2>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="sql.html#PoolOptions">PoolOptions</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"></td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                                 
                                             </div>
                                                 
                                             <div class="construct-wrapper">
@@ -1766,11 +2162,11 @@ to the pool</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;AbstractSQLClient&gt;
-                                                   </span> call(string sqlQuery, typedesc[]? recordType, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns (table&lt;$anonType$0&gt;[] | null | error&lt;&gt;) 
+                                                   </span> call(string sqlQuery, typedesc[]? recordType, string|int|boolean|float|decimal|byte[][]|sql:Parameter? parameters) returns (table&lt;$anonType$0&gt;[]|null|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The call operation implementation for SQL Client to invoke stored procedures/functions.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>The call remote function implementation for SQL Client to invoke stored procedures/functions.</p>
 
                                                             </p>
                                                              
@@ -1800,7 +2196,7 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#decimal">decimal</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The parameters to be passed to the procedure/function call. The number of parameters is variable</p>
 </td>
@@ -1819,7 +2215,7 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table<$anonType$0>[]</a> | <a href="builtin.html#error">null</a> | error<></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table<$anonType$0>[]</a>|<a href="builtin.html#error">null</a>|error<></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>A <code>table[]</code> if there are tables returned by the call remote function and else nil,
 <code>error</code> will be returned if there is any error</p>
@@ -1835,11 +2231,11 @@ to the pool</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;AbstractSQLClient&gt;
-                                                   </span> select(string sqlQuery, typedesc? recordType, boolean loadToMemory, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns (table&lt;$anonType$1&gt; | error&lt;&gt;) 
+                                                   </span> select(string sqlQuery, typedesc? recordType, boolean loadToMemory, string|int|boolean|float|decimal|byte[][]|sql:Parameter? parameters) returns (table&lt;$anonType$1&gt;|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The select operation implementation for SQL Client to select data from tables.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>The select remote function implementation for SQL Client to select data from tables.</p>
 
                                                             </p>
                                                              
@@ -1877,7 +2273,7 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#decimal">decimal</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The parameters to be passed to the select query. The number of parameters is variable</p>
 </td>
@@ -1896,7 +2292,7 @@ to the pool</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table<$anonType$1></a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table<$anonType$1></a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>A <code>table</code> returned by the sql query statement else <code>error</code> will be returned if there is any error</p>
 </td>
@@ -1911,140 +2307,11 @@ to the pool</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;AbstractSQLClient&gt;
-                                                   </span> update(string sqlQuery, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns (int | error&lt;&gt;) 
+                                                   </span> update(string sqlQuery, string[]? keyColumns, string|int|boolean|float|decimal|byte[][]|sql:Parameter? parameters) returns (UpdateResult|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The update operation implementation for SQL Client to update data and schema of the database.</p>
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">sqlQuery</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>SQL statement to execute</p>
-</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the update query. The number of parameters is variable</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p><code>int</code> number of rows updated by the statement and else <code>error</code> will be returned if there is any error</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="AbstractSQLClient-batchUpdate">
-                                                                <span class="fw-action sm-icon"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;AbstractSQLClient&gt;
-                                                   </span> batchUpdate(string sqlQuery, string|int|boolean|float|byte[][][]|sql:Parameter parameters) returns (int[] | error&lt;&gt;) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The batchUpdate operation implementation for SQL Client to batch data insert.</p>
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">sqlQuery</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>SQL statement to execute</p>
-</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Variable number of parameter arrays each representing the set of parameters of belonging to each
-individual update</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int[]</a> | <a href="builtin.html#error">error<></a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>An <code>int[]</code> - The elements in the array returned by the operation may be one of the following  or else
-an<code>error</code> will be returned if there is any error.
-A number greater than or equal to zero - indicates that the command was processed successfully
-and is an update count giving the number of rows
-A value of -2 - Indicates that the command was processed successfully but that the number of rows affected
-is unknown
-A value of -3 - Indicates that the command failed to execute successfully and occurs only if a driver
-continues to process commands after a command fails</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="AbstractSQLClient-updateWithGeneratedKeys">
-                                                                <span class="fw-action sm-icon"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;AbstractSQLClient&gt;
-                                                   </span> updateWithGeneratedKeys(string sqlQuery, string[]? keyColumns, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns ((int,string[]) | error&lt;&gt;) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The updateWithGeneratedKeys operation implementation for SQL Client which returns the auto
-generated keys during the <code>update</code> remote function.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>The update remote function implementation for SQL Client to update data and schema of the database.</p>
 
                                                             </p>
                                                              
@@ -2067,14 +2334,14 @@ generated keys during the <code>update</code> remote function.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">keyColumns</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]?</a></td>
-                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>Names of auto generated columns for which the auto generated key values are returned</p>
 </td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#decimal">decimal</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The parameters to be passed to the update query. The number of parameters is variable</p>
 </td>
@@ -2093,11 +2360,78 @@ generated keys during the <code>update</code> remote function.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type">(<a href="primitive-types.html#int">int</a>,<a href="primitive-types.html#string">string[]</a>) | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="sql.html#UpdateResult">UpdateResult</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>A <code>Tuple</code> will be returned and would represent updated row count during the query exectuion,
-aray of auto generated key values during the query execution, in order.
-Else <code>error</code> will be returned if there is any error.</p>
+                                                                    <td class="cAPI-table-desc"><p>A <code>sql:UpdateResult</code> with the updated row count and key column values,
+else <code>error</code> will be returned if there is any error</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="AbstractSQLClient-batchUpdate">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;AbstractSQLClient&gt;
+                                                   </span> batchUpdate(string sqlQuery, string|int|boolean|float|decimal|byte[][][]|sql:Parameter? parameters) returns (int[]|error&lt;&gt;) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>The batchUpdate remote function implementation for SQL Client to batch data insert.</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">sqlQuery</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>SQL statement to execute</p>
+</td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">parameters</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#decimal">decimal</a>|<a href="builtin.html#byte">byte[][][]</a>|<a href="sql.html#Parameter">sql:Parameter?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>Variable number of parameter arrays each representing the set of parameters of belonging to each
+individual update</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int[]</a>|<a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>An <code>int[]</code> - The elements in the array returned by the operation may be one of the following  or else
+an<code>error</code> will be returned if there is any error.
+A number greater than or equal to zero - indicates that the command was processed successfully
+and is an update count giving the number of rows
+A value of -2 - Indicates that the command was processed successfully but that the number of rows
+affected is unknown
+A value of -3 - Indicates that the command failed to execute successfully and occurs only if a driver
+continues to process commands after a command fails</p>
 </td>
                                                                 </tr>
                                                                 
@@ -2140,11 +2474,11 @@ Else <code>error</code> will be returned if there is any error.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> call(string sqlQuery, typedesc[]? recordType, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns (table&lt;$anonType$2&gt;[] | null | error&lt;&gt;) 
+                                                   </span> call(string sqlQuery, typedesc[]? recordType, string|int|boolean|float|decimal|byte[][]|sql:Parameter? parameters) returns (table&lt;$anonType$2&gt;[]|null|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The call operation implementation for SQL connector to invoke stored procedures/functions.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>The call remote function implementation for SQL connector to invoke stored procedures/functions.</p>
 
                                                             </p>
                                                              
@@ -2174,7 +2508,7 @@ Else <code>error</code> will be returned if there is any error.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#decimal">decimal</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The parameters to be passed to the procedure/function call. The number of parameters is variable</p>
 </td>
@@ -2193,7 +2527,7 @@ Else <code>error</code> will be returned if there is any error.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table<$anonType$2>[]</a> | <a href="builtin.html#error">null</a> | error<></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table<$anonType$2>[]</a>|<a href="builtin.html#error">null</a>|error<></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>A <code>table[]</code> if there are tables returned by the call remote function and else nil,
 <code>error</code> will be returned if there is any error</p>
@@ -2209,11 +2543,11 @@ Else <code>error</code> will be returned if there is any error.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> select(string sqlQuery, typedesc? recordType, boolean loadToMemory, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns (table&lt;$anonType$3&gt; | error&lt;&gt;) 
+                                                   </span> select(string sqlQuery, typedesc? recordType, boolean loadToMemory, string|int|boolean|float|decimal|byte[][]|sql:Parameter? parameters) returns (table&lt;$anonType$3&gt;|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The select operation implementation for SQL Client to select data from tables.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>The select remote function implementation for SQL Client to select data from tables.</p>
 
                                                             </p>
                                                              
@@ -2251,7 +2585,7 @@ Else <code>error</code> will be returned if there is any error.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#decimal">decimal</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The parameters to be passed to the select query. The number of parameters is variable</p>
 </td>
@@ -2270,7 +2604,7 @@ Else <code>error</code> will be returned if there is any error.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table<$anonType$3></a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table<$anonType$3></a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>A <code>table</code> returned by the sql query statement else <code>error</code> will be returned if there is any error</p>
 </td>
@@ -2285,140 +2619,11 @@ Else <code>error</code> will be returned if there is any error.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> update(string sqlQuery, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns (int | error&lt;&gt;) 
+                                                   </span> update(string sqlQuery, string[]? keyColumns, string|int|boolean|float|decimal|byte[][]|sql:Parameter? parameters) returns (UpdateResult|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The update operation implementation for SQL Client to update data and schema of the database.</p>
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">sqlQuery</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>SQL statement to execute</p>
-</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The parameters to be passed to the update query. The number of parameters is variable</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p><code>int</code> number of rows updated by the statement and else <code>error</code> will be returned if there is any error</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-batchUpdate">
-                                                                <span class="fw-action sm-icon"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> batchUpdate(string sqlQuery, string|int|boolean|float|byte[][][]|sql:Parameter parameters) returns (int[] | error&lt;&gt;) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The batchUpdate operation implementation for SQL Client to batch data insert.</p>
-
-                                                            </p>
-                                                             
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name">Parameter Name</th>
-                                                                    <th class="cAPI-table-type">Data Type</th>
-                                                                    <th class="cAPI-table-default">Default Value</th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">sqlQuery</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>SQL statement to execute</p>
-</td>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>Variable number of parameter arrays each representing the set of parameters of belonging to each
-individual update</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                             
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int[]</a> | <a href="builtin.html#error">error<></a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>An <code>int[]</code> - The elements in the array returned by the operation may be one of the following  or else
-an<code>error</code> will be returned if there is any error.
-A number greater than or equal to zero - indicates that the command was processed successfully
-and is an update count giving the number of rows
-A value of -2 - Indicates that the command was processed successfully but that the number of rows affected
-is unknown
-A value of -3 - Indicates that the command failed to execute successfully and occurs only if a driver
-continues to process commands after a command fails</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Client-updateWithGeneratedKeys">
-                                                                <span class="fw-action sm-icon"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Client&gt;
-                                                   </span> updateWithGeneratedKeys(string sqlQuery, string[]? keyColumns, string|int|boolean|float|byte[][]|sql:Parameter parameters) returns ((int,string[]) | error&lt;&gt;) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>The updateWithGeneratedKeys operation implementation for SQL Client which returns the auto
-generated keys during the <code>update</code> remote function.</p>
+                                                                <span class="fw-right gray xs-icon"></span><p>The update remote function implementation for SQL Client to update data and schema of the database.</p>
 
                                                             </p>
                                                              
@@ -2441,14 +2646,14 @@ generated keys during the <code>update</code> remote function.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">keyColumns</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]?</a></td>
-                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>Names of auto generated columns for which the auto generated key values are returned</p>
 </td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">parameters</td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter</a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#decimal">decimal</a>|<a href="builtin.html#byte">byte[][]</a>|<a href="sql.html#Parameter">sql:Parameter?</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The parameters to be passed to the update query. The number of parameters is variable</p>
 </td>
@@ -2467,11 +2672,78 @@ generated keys during the <code>update</code> remote function.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type">(<a href="primitive-types.html#int">int</a>,<a href="primitive-types.html#string">string[]</a>) | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="sql.html#UpdateResult">UpdateResult</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>A <code>Tuple</code> will be returned and would represent updated row count during the query exectuion,
-aray of auto generated key values during the query execution, in order.
-Else <code>error</code> will be returned if there is any error.</p>
+                                                                    <td class="cAPI-table-desc"><p>A <code>sql:UpdateResult</code> with the updated row count and key column values,
+else <code>error</code> will be returned if there is any error</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-batchUpdate">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> batchUpdate(string sqlQuery, string|int|boolean|float|decimal|byte[][][]|sql:Parameter? parameters) returns (int[]|error&lt;&gt;) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>The batchUpdate remote function implementation for SQL Client to batch data insert.</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">sqlQuery</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>SQL statement to execute</p>
+</td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">parameters</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="primitive-types.html#int">int</a>|<a href="primitive-types.html#boolean">boolean</a>|<a href="primitive-types.html#float">float</a>|<a href="builtin.html#decimal">decimal</a>|<a href="builtin.html#byte">byte[][][]</a>|<a href="sql.html#Parameter">sql:Parameter?</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>Variable number of parameter arrays each representing the set of parameters of belonging to each
+individual update</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int[]</a>|<a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>An <code>int[]</code> - The elements in the array returned by the operation may be one of the following  or else
+an<code>error</code> will be returned if there is any error.
+A number greater than or equal to zero - indicates that the command was processed successfully
+and is an update count giving the number of rows
+A value of -2 - Indicates that the command was processed successfully but that the number of rows affected
+is unknown
+A value of -3 - Indicates that the command failed to execute successfully and occurs only if a driver
+continues to process commands after a command fails</p>
 </td>
                                                                 </tr>
                                                                 
@@ -3186,6 +3458,16 @@ Else <code>error</code> will be returned if there is any error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -3266,6 +3548,16 @@ Else <code>error</code> will be returned if there is any error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -3326,7 +3618,7 @@ Else <code>error</code> will be returned if there is any error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -3376,6 +3668,16 @@ Else <code>error</code> will be returned if there is any error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -3386,7 +3688,27 @@ Else <code>error</code> will be returned if there is any error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -3447,17 +3769,11 @@ Else <code>error</code> will be returned if there is any error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+<<<<<<< HEAD
                                    <a href="swagger.html">ballerina/<span class="bold">openapi</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
+=======
                                    <a href="system.html">ballerina/<span class="bold">system</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -3498,6 +3814,16 @@ Else <code>error</code> will be returned if there is any error.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -3521,6 +3847,16 @@ Else <code>error</code> will be returned if there is any error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -3601,6 +3937,16 @@ Else <code>error</code> will be returned if there is any error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -3661,7 +4007,7 @@ Else <code>error</code> will be returned if there is any error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -3711,6 +4057,16 @@ Else <code>error</code> will be returned if there is any error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -3721,7 +4077,27 @@ Else <code>error</code> will be returned if there is any error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -3782,17 +4158,11 @@ Else <code>error</code> will be returned if there is any error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+<<<<<<< HEAD
                                    <a href="swagger.html">ballerina/<span class="bold">openapi</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
+=======
                                    <a href="system.html">ballerina/<span class="bold">system</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -3833,6 +4203,16 @@ Else <code>error</code> will be returned if there is any error.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
