@@ -16,7 +16,7 @@
 </tr>
 </table> -->
 
-
+<!-- 
 ## Workshops
 
 <table class="cEventTable cWorkshopList">
@@ -34,7 +34,7 @@
     <td class="cEventURL"><a class="cEventRegistration" href="http://www.javasig.com/">Register Now</a></td>
 </tr>
 
-</table>
+</table> -->
 
 
 <!-- ## Webinars
@@ -95,9 +95,16 @@
         <p class="cEventLocation">Austin TX</p>
         </td>
         <td class="cEventDetail"><a target="_blank" href="https://nordicapis.com/events/austin-api-summit-2019/"><h4>Austin API Summit 2019 </h4></a>
-        <!-- <h4>Ballerina: A Modern Programming Language Focused on Cloud Native Applications (PRO WORKSHOP)</h4> -->
-        <!-- <p>Speaker: Sameera Jayasoma</p> -->
-        </td>
+        <h5>The Reconstitution of Middleware with APIs </h5>
+<b>Asanka Abeysinghe,</b> Deputy CTO & VP, Architecture - CTO Office WSO2</p>
+<hr>
+<h5>Code First Approach for Decentralized API Management </h5>
+<b>Lakmal Warusawithana,</b> Senior Director Cloud Architecture WSO2</p>
+<hr>
+<h5>API Management Patterns in Highly Disaggregated Architectures</h5>
+<b>Anjana Fernando,</b> Director, WSO2</p>
+
+</td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://nordicapis.com/events/austin-api-summit-2019/" target="_blank">Register Now</a></td>
     </tr> 
    <tr>
@@ -114,13 +121,34 @@
       <td class="cEventDateContainer"><span class="cEventDate">May 30 – 31</span>
         <p class="cEventLocation">Seattle,  Washington</p>
         </td>
-        <td class="cEventDetail"><a target="_blank" href="https://www.developerweek.com/CloudSummit/"><h4>DeveloperWeek Seattle: Cloud Edition </h4></a>
-        <!-- <h4>Ballerina: A Modern Programming Language Focused on Cloud Native Applications (PRO WORKSHOP)</h4> -->
-        <!-- <p>Speaker: Sameera Jayasoma</p> -->
-        </td>
+        <td class="cEventDetail"><a target="_blank" href="https://www.developerweek.com/CloudSummit/"><h4>Writing Cloud-Native Application with Ballerina and Kubernetes </h4></a>
+               <h5>The Reconstitution of Middleware with APIs </h5>
+<b>Lakmal Warusawithana,</b> Senior Director Cloud Architecture WSO2</p>
+</td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/CloudSummit/" target="_blank">Register Now</a></td>
     </tr> 
-    <!-- <tr>
+
+<tr>
+      <td class="cEventDateContainer"><span class="cEventDate">June 17–20</span>
+        <p class="cEventLocation">Brooklyn, New York</p>
+        </td>
+        <td class="cEventDetail"><a target="_blank" href="https://www.developerweek.com/NYC/"><h4>DeveloperWeek New York 2019 </h4></a>
+               <h5>The Reconstitution of Middleware with APIs </h5>
+<b>Lakmal Warusawithana,</b> Senior Director Cloud Architecture WSO2</p>
+</td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/NYC/" target="_blank">Register Now</a></td>
+    </tr> 
+      <td class="cEventDateContainer"><span class="cEventDate">June 24–26</span>
+        <p class="cEventLocation">Santa Clara, CA</p>
+        </td>
+        <td class="cEventDetail"><a target="_blank" href="https://cloudexpo2019.sched.com"><h4>Cloud Expo 2019 </h4></a>
+               <h5>Cloud Native Programming with Docker, Kubernetes, and Ballerina</h5>
+<b>Lakmal Warusawithana,</b> Senior Director Cloud Architecture WSO2</p>
+</td>
+        <td class="cEventURL"><a class="cEventRegistration" href=https://cloudexpo2019.sched.com" target="_blank">Register Now</a></td>
+    </tr>
+
+<!-- <tr>
       <td class="cEventDateContainer"><span class="cEventDate">June 17–20</span>
         <p class="cEventLocation">Brooklyn Expo Center, NY</p>
         </td>
