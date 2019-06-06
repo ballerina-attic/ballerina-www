@@ -52,9 +52,11 @@ You just started Ballerina, created a project, started a service, invoked the se
 
 Let's try this on VS Code.
 
-> **Note**: You need to have VS Code installed to try this. You can download it from [https://code.visualstudio.com/Download](https://code.visualstudio.com/Download).
+> **Tip:** You can use your [favorite editor to work on Ballerina code](https://ballerina.io/learn/tools-ides/).
 
-Open your service in VS Code. You can use the following command to do this on Linux or OSX.
+1. Download and install [VS Code][#https://code.visualstudio.com/Download](https://code.visualstudio.com/Download).
+
+2. Execute the below commands based on your OS to open your service in VS Code. 
 
 ```bash
 $ code /<folder_path>/hello_service.bal
@@ -102,40 +104,7 @@ service hello on new http:Listener(9090) {
 }
 ```
 
-You can find a plugin for Ballerina in the VS Code marketplace. This helps read the `.bal` file using an ideal theme. 
-
-> **Tip:** You can use your [favourite editor to work on Ballerina code](https://github.com/ballerina-platform/ballerina-lang/blob/master/docs/tools-ides-ballerina-composer.md).
-
-### Annotations
-
-Check if annotations work by entering some text and seeing proposed suggestions.
-
-![VS Code Annotations](/img/docs-images/vscode_annotations.png)
-
-Add the following annotation before the service to ensure that it is at the root path. This overwrites the default base path, which is the service name.
-
-```ballerina
-@http:ServiceConfig {
-   basePath: "/"
-}
-```
-
-Make the resource available at the root as well and change methods to POST. Add the following code snippet inside the service, before the `sayHello` resource. 
-
-```ballerina
-@http:ResourceConfig {
-   methods: ["POST"],
-   path: "/"
-}
-```
-
-Now you can start the service again and call it by opening a new command line window and using the following cURL command.
-
-```bash
-$ curl http://localhost:9090 -X POST
-```
-
-> **Tip**: To ensure that you have root access, run the cURL command using `sudo`.
+You can find an extension for Ballerina in the VS Code marketplace. For instructions on installing and using it, see [The Visual Studio Code Extension](#https://ballerina.io/learn/tools-ides/vscode-plugin/).
 
 ## Use an Endpoint
 Ballerina endpoint is a component that interacts with a network accessible service. It aggregates one or more actions that can be executed on the network accessible service. An endpoint can be used to configure parameters related to the network accessible service.
