@@ -135,7 +135,7 @@
 
 
           <tr>
-                <td class="cEventDateContainer"><span class="cEventDate">August 19-21 </span>
+                <td class="cEventDateContainer"><span class="cEventDate">August 21-23 </span>
                   <p class="cEventLocation">San Diego, CA</p>
                   </td>
                   <td class="cEventDetail"><a target="_blank" href="https://ossna19.sched.com/event/PUOc?iframe=no"><h4>Open Source Summit 2019</h4></a>
@@ -144,6 +144,28 @@
              </td>
            <td class="cEventURL"><a class="cEventRegistration" href="https://ossna19.sched.com/event/PUOc?iframe=no" target="_blank">More Info</a></td> 
               </tr> 
+            <tr>
+                        <td class="cEventDateContainer"><span class="cEventDate">September 9-12 </span>
+                          <p class="cEventLocation">Las Vegas, NV</p>
+                          </td>
+                          <td class="cEventDetail"><a target="_blank" href="https://www.apachecon.com/acna19/schedule.html"><h4>APACHECON</h4></a>
+                              <!-- <h5>Microservices with Ballerina: A Open Source, Statically Typed, Cloud Native Programming Language</h5> -->
+                              <b>Anjana Fernando,</b> Director, WSO2</p>
+                     </td>
+                   <td class="cEventURL"><a class="cEventRegistration" href="https://www.apachecon.com/acna19/schedule.html" target="_blank">More Info</a></td> 
+                      </tr> 
+
+
+                      <tr>
+                            <td class="cEventDateContainer"><span class="cEventDate">October 8-10 </span>
+                              <p class="cEventLocation">San Jose, CA</p>
+                              </td>
+                              <td class="cEventDetail"><a target="_blank" href="https://apiworld.co/"><h4>API World 2019</h4></a>
+                                  <h5>PRO TALK: Efficient Microservices Deployment Pipelines</h5>
+                                  <b>Anjana Fernando,</b> Director, WSO2</p>
+                         </td>
+                       <td class="cEventURL"><a class="cEventRegistration" href="https://apiworld.co/" target="_blank">More Info</a></td> 
+                          </tr> 
     
 
 </table>
