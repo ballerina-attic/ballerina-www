@@ -102,7 +102,7 @@
         <td class="cEventDetail"><a target="_blank" href="https://www.developerweek.com/NYC/">
                 <h4>DeveloperWeek New York 2019 </h4>
             </a>
-            <h5>The Reconstitution of Middleware with APIs </h5>
+            <h5>PRO TALK: Microservice in Practice with Ballerina and Kubernetes</h5>
             <b>Lakmal Warusawithana,</b> Senior Director Cloud Architecture WSO2</p>
         </td>
         <td class="cEventURL"><a class="cEventRegistration" href="https://www.developerweek.com/NYC/"
