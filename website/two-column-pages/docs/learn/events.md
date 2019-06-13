@@ -170,16 +170,16 @@
 
 </table>
 
-## Meetups -->
+## Meetups
 
-<!-- <table class="cEventTable cMeetupsList">
+<table class="cEventTable cMeetupsList">
  <tr>
-    <td class="cEventDateContainer"><span class="cEventDate">January 21, 2019 </span>6:30 PM to 8:30 PM
-            <p class="cEventLocation">1061 Budapest, Paulay Ede u. 12. Budapest</p>
+    <td class="cEventDateContainer"><span class="cEventDate">June 26, 2019 </span>6:00 PM to 8:00 PM
+            <p class="cEventLocation">4 Van de Graaff Drive, Burlington, MA</p>
         </td>
-        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/Microservices-Budapest-Meetup/events/257128863/"><h4> Microservices Meetup</h4></a>
+        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/Burlington-Ballerina-Meetup-Group/events/261672776/"><h4>Introduction to Ballerina and Ballerina - OCI Module</h4></a>
       </td>
-        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/Microservices-Budapest-Meetup/events/257128863/" target="_blank">Register Now</a></td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/Burlington-Ballerina-Meetup-Group/events/261672776/" target="_blank">Register Now</a></td>
 </tr>
 
 </table> 
