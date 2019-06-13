@@ -169,3 +169,17 @@
     
 
 </table>
+
+## Meetups -->
+
+<!-- <table class="cEventTable cMeetupsList">
+ <tr>
+    <td class="cEventDateContainer"><span class="cEventDate">January 21, 2019 </span>6:30 PM to 8:30 PM
+            <p class="cEventLocation">1061 Budapest, Paulay Ede u. 12. Budapest</p>
+        </td>
+        <td class="cEventDetail"><a target="_blank" href="https://www.meetup.com/Microservices-Budapest-Meetup/events/257128863/"><h4> Microservices Meetup</h4></a>
+      </td>
+        <td class="cEventURL"><a class="cEventRegistration" href="https://www.meetup.com/Microservices-Budapest-Meetup/events/257128863/" target="_blank">Register Now</a></td>
+</tr>
+
+</table> 
