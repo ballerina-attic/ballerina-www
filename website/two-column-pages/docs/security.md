@@ -8,7 +8,7 @@ This is a private mailing list where only members of the WSO2 internal security 
 
 If you wish to send secure messages to [security@ballerina.io](mailto:security@ballerina.io), you may use the following key:
 
-security@wso2.com: 0168 DA26 2989 0DB9 4ACD  8367 E683 061E 2F85 C381 [pgp.mit.edu](https://pgp.surfnet.nl/pks/lookup?op=vindex&fingerprint=on&search=0xE683061E2F85C381)
+security@ballerina.io: 0168 DA26 2989 0DB9 4ACD  8367 E683 061E 2F85 C381 [pgp.mit.edu](https://pgp.surfnet.nl/pks/lookup?op=vindex&fingerprint=on&search=0xE683061E2F85C381)
 
 ## Vulnerability Information
 
