@@ -4,6 +4,7 @@ Click on the below links to find information on the various capabilities that ar
 
 - [Running Ballerina programs](#running-ballerina-programs)
 - [Debugging Ballerina programs](#debugging-ballerina-programs)
+- [Viewing the sequence diagram](#viewing-the-sequence-diagram)
 - [Importing modules on the fly](#importing-modules-on-the-fly)
 - [Importing unambiguous modules](#importing-unambiguous-modules)
 - [Finding usage](#finding-usage)
@@ -63,6 +64,14 @@ This starts the service and displays the output in the **Run** window. If you ha
 You can debug Ballerina main/service programs with a few clicks.
 
 ![Debug Ballerina programs](../../images/debug-ballerina-intellij.gif)
+
+## Viewing the sequence diagram
+
+The underlying language semantics of Ballerina were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of its flow including endpoints as well as synchronous and asynchronous calls.
+
+To view the sequence diagram of a Ballerina file, click the [design view icon](https://raw.githubusercontent.com/ballerina-platform/ballerina-lang/2fd0bdd4e7d081adf23901ed65eca32623d81889/tool-plugins/vscode/docs/show-diagram-icon.png) in the top right corner of the IDE window as shown in the below example.
+
+![HTTP circuit breaker sequence diagram](../../images/circuit-breaker-sequence-diagram.gif)
 
 ## Importing modules on the fly
 
