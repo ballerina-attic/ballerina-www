@@ -32,15 +32,15 @@ Follow the steps below to run the main function of a Ballerina file.
 
 1. Click the green color icon located near the main function.
 
-    ![Click the Run Application icon](../../images/run-application-icon.png)
+    ![Click the Run Application icon](../images/run-application-icon.png)
 
 2. Click the corresponding **Run *<FILE_NAME>*** command.
 
-    ![Click the Run command](../../images/select-run-command.png)
+    ![Click the Run command](../images/select-run-command.png)
 
 This executes the main function of the Ballerina file and displays the output in the **Run** window.
 
-![Output of running the main function](../../images/output-of-main-function.png)
+![Output of running the main function](../images/output-of-main-function.png)
 
 > **Tip:** Alternatively, you can right click on the name of the file and run the main method of it.
 
@@ -54,7 +54,7 @@ Follow the steps below to run a service of a Ballerina file.
 
 This starts the service and displays the output in the **Run** window. If you have multiple services in the Ballerina file, this starts all of them.
 
-![Output of running a service](../../images/output-of-ballerina-service.png)
+![Output of running a service](../images/output-of-ballerina-service.png)
 
 > **Tip:** Alternatively, you can right click on the name of the file and run the service(s) of it.
 
@@ -63,21 +63,21 @@ This starts the service and displays the output in the **Run** window. If you ha
 
 You can debug Ballerina main/service programs with a few clicks.
 
-![Debug Ballerina programs](../../images/debug-ballerina-intellij.gif)
+![Debug Ballerina programs](../images/debug-ballerina-intellij.gif)
 
 ## Viewing the sequence diagram
 
 The underlying language semantics of Ballerina were designed by modeling how independent parties communicate via structured interactions. Subsequently, every Ballerina program can be displayed as a sequence diagram of its flow including endpoints as well as synchronous and asynchronous calls.
 
-To view the sequence diagram of a Ballerina file, click the [design view icon](https://raw.githubusercontent.com/ballerina-platform/ballerina-lang/2fd0bdd4e7d081adf23901ed65eca32623d81889/tool-plugins/vscode/docs/show-diagram-icon.png) in the top right corner of the IDE window as shown in the below example.
+To view the sequence diagram of a Ballerina file, click the (![design view icon](https://raw.githubusercontent.com/ballerina-platform/ballerina-lang/2fd0bdd4e7d081adf23901ed65eca32623d81889/tool-plugins/vscode/docs/show-diagram-icon.png)) in the top right corner of the IDE window as shown in the below example.
 
-![HTTP circuit breaker sequence diagram](../../images/circuit-breaker-sequence-diagram.gif)
+![HTTP circuit breaker sequence diagram](../images/circuit-breaker-sequence-diagram.gif)
 
 ## Importing modules on the fly
 
 You can add import declarations to your Ballerina programs on the fly. When you select the module name from the lookup list, the module declaration will be added automatically.
 
-![Import modules on the fly](../../images/import-modules-on-the-fly.gif)
+![Import modules on the fly](../images/import-modules-on-the-fly.gif)
 
 ## Importing unambiguous modules 
 
@@ -89,43 +89,43 @@ When you copy and paste Ballerina code to the Editor, this feature allows you to
 >2. Click **Ballerina** and then click **Auto Import**.
 >3. Select the **Add unambiguous imports on the fly** checkbox and click **OK**.
 
-![Import unambiguous modules](../../images/import-unambiguous-modules.gif)
+![Import unambiguous modules](../images/import-unambiguous-modules.gif)
 
 ## Finding usage
 
 You can use the plugin to find the usage of variables, functions, etc.
 
-![Find usage](../../images/find-usage.gif)
+![Find usage](../images/find-usage.gif)
 
 ## Viewing definitions
 
 You can view the definition of variables, function invocations, etc. by pressing the **Ctrl** key whicle clicking on them.
 
-![Got to definition](../../images/go-to-definition-intellij.gif)
+![Got to definition](../images/go-to-definition-intellij.gif)
 
 ## Formatting Ballerina codes
 
 You can reformat the Ballerina codes by pressing the **Ctrl+Alt+L** keys.
 
-![Formatting Ballerina codes](../../images/format-code.gif)
+![Formatting Ballerina codes](../images/format-code.gif)
 
 ## Viewing details of parameters
 
 You can view the required parameters of a function, remote function, etc. by pressing the **Ctrl+P** keys.
 
-![Viewing details of parameters](../../images/parameter-information.gif)
+![Viewing details of parameters](../images/parameter-information.gif)
 
 ## Viewing documentation
 
 You can view the documentation of a function, remote function, etc. by pressing the **Ctrl+Q** keys or by hovering over the element while pressing the **Ctrl** key.
 
-![Viewing documentation](../../images/view-documentation.gif)
+![Viewing documentation](../images/view-documentation.gif)
 
 ## Adding annotation fields via suggestions
 
 You can add annothation fields to your code uisng the annotation field names that are suggested inside annotation attachments.
 
-![Adding annotation fields via suggestions](../../images/annotation-field-suggestion.gif)
+![Adding annotation fields via suggestions](../images/annotation-field-suggestion.gif)
 
 ## Using file templates
 
@@ -135,19 +135,19 @@ Three types of Ballerina file templates are available.
 2. **Ballerina Service** - contains a sample service
 3. **Empty File** - contains an empty file
 
-![Using file templates](../../images/file-templates.gif)
+![Using file templates](../images/file-templates.gif)
 
 ## Using code snippet templates
 
 Code snippet templates contain boilerplate codes and allows you to write your code efficiently. 
 
-![Using code snippet templates](../../images/code-snippet-templates.gif)
+![Using code snippet templates](../images/code-snippet-templates.gif)
 
 ## Checking spellings
 
 The spell-checker is enabled for all identifiers. You can rename all of the definitions and references as well.
 
-![Checking spellings](../../images/check-spellings.gif)
+![Checking spellings](../images/check-spellings.gif)
 
 ## Analyzing semantics
 
@@ -161,7 +161,7 @@ Follow the steps below to enable it.
 >**Tip:** If you are using Windows, click **File**, click **Settings**, and then click **anguages and Frameworks**.
 2. Click **Live Templates**, select **Ballerina**, and then click **Semantic Analyzer**.
 
-![Analyzing semantics](../../images/analyzing-semantics.gif)
+![Analyzing semantics](../images/analyzing-semantics.gif)
 
 ## Code folding
 
@@ -176,7 +176,7 @@ You expand/collapse the following Ballerina code segments using the icons in the
 - markdown documentation
 - multiline comments
  
-![Code folding](../../images/code-folding.gif)
+![Code folding](../images/code-folding.gif)
 
 ## What's next?
 
