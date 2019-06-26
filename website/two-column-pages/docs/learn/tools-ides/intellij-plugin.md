@@ -88,7 +88,7 @@ After obtaining the ZIP file using either of the above approaches, follow the st
 
 4. Click the **Installed** tab, click **Restart IDE**, and then click **Restart**.
 
-![Install using the Preferences option of the editor.](../images/install-via-editor-preferences.gif)
+![Install using the Preferences option of the editor.](../../images/install-via-editor-preferences.gif)
 
 ## Using the plugin
 
@@ -98,19 +98,20 @@ For information on using the IntelliJ Ballerina plugin to write Ballerina progra
 
 Click on the below links to find information on the various capabilities that are facilitated by the IntelliJ Ballerina plugin for the development process.
 
-- [Running Ballerina programs](intellij-plugin/using-intellij-plugin-features.md#running-ballerina-programs)
-- [Debugging Ballerina programs](intellij-plugin/using-intellij-plugin-features.md#debugging-ballerina-programs)
-- [Importing modules on the fly](intellij-plugin/using-intellij-plugin-features.md#importing-modules-on-the-fly)
-- [Importing unambiguous modules](intellij-plugin/using-intellij-plugin-features.md#importing-unambiguous-modules)
-- [Finding usage](intellij-plugin/using-intellij-plugin-features.md#finding-usage)
-- [Formatting Ballerina codes](intellij-plugin/using-intellij-plugin-features.md#formatting-ballerina-codes)
-- [Viewing details of parameters](intellij-plugin/using-intellij-plugin-features.md#viewing-details-of-parameters)
-- [Viewing documentation](intellij-plugin/using-intellij-plugin-features.md#viewing-documentation)
-- [Adding annotation fields via suggestions](intellij-plugin/using-intellij-plugin-features.md#adding-annotation-fields-via-suggestions)
-- [Using file templates](intellij-plugin/using-intellij-plugin-features.md#using-file-templates)
-- [Using code snippet templates](intellij-plugin/using-intellij-plugin-features.md#using-code-snippet-templates)
-- [Checking spellings](intellij-plugin/using-intellij-plugin-features.md#checking-spellings)
-- [Analyzing semantics](intellij-plugin/using-intellij-plugin-features.md#analyzing-semantics)
-- [Code Folding](intellij-plugin/using-intellij-plugin-features.md#code-folding)
+- [Running Ballerina programs](tools-ides/intellij-plugin/using-intellij-plugin-features#running-ballerina-programs)
+- [Debugging Ballerina programs](tools-ides/intellij-plugin/using-intellij-plugin-features#debugging-ballerina-programs)
+- [Viewing the sequence diagram](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-the-sequence-diagram)
+- [Importing modules on the fly](tools-ides/intellij-plugin/using-intellij-plugin-features#importing-modules-on-the-fly)
+- [Importing unambiguous modules](tools-ides/intellij-plugin/using-intellij-plugin-features#importing-unambiguous-modules)
+- [Finding usage](tools-ides/intellij-plugin/using-intellij-plugin-features.md#finding-usage)
+- [Formatting Ballerina codes](tools-ides/intellij-plugin/using-intellij-plugin-features#formatting-ballerina-codes)
+- [Viewing details of parameters](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-details-of-parameters)
+- [Viewing documentation](tools-ides/intellij-plugin/using-intellij-plugin-features#viewing-documentation)
+- [Adding annotation fields via suggestions](tools-ides/intellij-plugin/using-intellij-plugin-features#adding-annotation-fields-via-suggestions)
+- [Using file templates](tools-ides/intellij-plugin/using-intellij-plugin-features#using-file-templates)
+- [Using code snippet templates](tools-ides/intellij-plugin/using-intellij-plugin-features#using-code-snippet-templates)
+- [Checking spellings](tools-ides/intellij-plugin/using-intellij-plugin-features#checking-spellings)
+- [Analyzing semantics](tools-ides/intellij-plugin/using-intellij-plugin-features#analyzing-semantics)
+- [Code Folding](tools-ides/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\]intellij-plugin/using-intellij-plugin-features#code-folding)
 
 

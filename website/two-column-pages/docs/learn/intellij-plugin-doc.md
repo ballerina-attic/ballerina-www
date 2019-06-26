@@ -106,6 +106,7 @@ Click on the below links to find information on the various capabilities that ar
 
 - [Running Ballerina programs](using-intellij-plugin-features.md#running-ballerina-programs)
 - [Debugging Ballerina programs](using-intellij-plugin-features.md#debugging-ballerina-programs)
+- [Viewing the sequence diagram](using-intellij-plugin-features.md#viewing-the-sequence-diagram)
 - [Importing modules on the fly](using-intellij-plugin-features.md#importing-modules-on-the-fly)
 - [Importing unambiguous modules](using-intellij-plugin-features.md#importing-unambiguous-modules)
 - [Finding usage](using-intellij-plugin-features.md#finding-usage)
