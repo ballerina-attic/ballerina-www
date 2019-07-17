@@ -168,7 +168,7 @@ $(document).ready(function() {
         '<span class="icon-bar"></span>' +
         '<span class="icon-bar"></span>' +
         '</button>' +
-        '<p class="navbar-brand cTagLine" href="#">Cloud Native Programming Language' +
+        '<p class="navbar-brand cTagLine" href="#">A Programming Language for <br> Network Distributed Applications' +
         '<a class="cMobileLogo" href="." ><img src="/img/ballerina-logo.svg" alt="Ballerina"/></a>' +
         '</p>' +
         '</div>' +
