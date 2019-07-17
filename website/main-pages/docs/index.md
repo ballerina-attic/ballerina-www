@@ -2,7 +2,7 @@
          <div class="container">
                <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Left-col">
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-main-content-wraper">
-                   <div style="max-width:500px;"><p class="cHomeIntro">In the cloud, applications interact with their environment over the network. Ballerina is general-purpose programming language with features optimized for these network distributed applications. It is easy to write and modify and is suitable for application programmers.
+                   <div style="max-width:500px;"><p class="cHomeIntro">In the cloud, applications interact with their environment over the network. Ballerina is a general-purpose programming language with features optimized for these network distributed applications. It is easy to write and modify and is suitable for application programmers.
 </p></div>
                    <p><a class="cGreenLink" href="/philosophy">SEE WHY ></a></p>
                    <div class="cHomeButtonContainer">
