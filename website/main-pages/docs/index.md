@@ -16,13 +16,13 @@
                    </div>
                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-instructions cLeft-pading-none">
                    <p class="cHomeListItem"><span>Services:</span> First-class language constructs for providing and consuming services</p>
-                   <p class="cHomeListItem"><span>Sequence diagrams:</span> Language syntax directly captures semantics for concurrency, message passing and service interaction allowing a sequence diagram view of any program</p>
-                   <p class="cHomeListItem"><span>Structural typing:</span> Allows for looser coupling between distributed components and eliminates the friction of data binding</p>
+                   <p class="cHomeListItem"><span>Structural typing</span> Allows for looser coupling between distributed components and eliminates the friction of data binding</p>
+                   <p class="cHomeListItem"><span>Batteries included</span> Not just a language but a complete ecosystem, including a standard library, module repository, testing framework, and documentation system</p>
                   </div>
                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cBallerina-io-Home-main-instructions">
-                       <p class="cHomeListItem"><span>Metadata: </span> Extensible metadata enables easy integration of Ballerina programs with cloud platforms</p>
-                       <p class="cHomeListItem"><span>Batteries included:</span> Not just a language but a complete ecosystem, including a standard library, module repository, testing framework, and documentation system</p>
-                       <p class="cHomeListItem"><span>Familiar:</span> Designed to feel familiar to anybody with experience in popular C-family languages such as C/C++, C#, Java or JavaScript</p>
+                       <p class="cHomeListItem"><span>Sequence diagrams: </span> The structure of functions and programs allows them to be viewed as sequence diagrams showing the interactions between concurrently executing parts</p>
+                       <p class="cHomeListItem"><span>Metadata:</span> Extensible metadata enables easy integration of Ballerina programs with cloud platforms</p>
+                       <p class="cHomeListItem"><span>Familiar:</span>  Designed to feel familiar to anybody with experience in popular C-family languages such as C/C++, C#, Java or JavaScript</p>
                    </div>
                  </div>
                 <div class="col-xs-12 col-sm-16 col-md-6 col-lg-6 cBallerina-io-Home-Right-col cBallerina-io-Home-widget">
