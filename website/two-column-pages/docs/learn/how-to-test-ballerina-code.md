@@ -85,6 +85,11 @@ For more information on the `test` command, run the following.
 ```
 ballerina help test 
 ```
+Use the `--exclude-modules` flag with the `ballerina test` command to exclude a certain module(s) when running tests.
+
+```
+ballerina test --exclude-modules module1,module2 
+```
 
 ## Annotations 
 
