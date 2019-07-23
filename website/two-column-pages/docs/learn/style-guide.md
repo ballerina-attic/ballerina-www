@@ -242,8 +242,8 @@ Separate both statements and top level definitions by zero or one blank lines.
       };
       ```
 
-### [Top Level Definitions](learn/style-guide/definitions)
-### [Operators, Keywords and Types](learn/style-guide/operators_keywords_and_types)
-### [Statements](learn/style-guide/statements)
-### [Expressions](learn/style-guide/expressions)
-### [Annotations, Documentation and Comments](learn/style-guide/annotations_documentation_and_comments)
+### [Top Level Definitions](/learn/style-guide/definitions)
+### [Operators, Keywords and Types](/learn/style-guide/operators_keywords_and_types)
+### [Statements](/learn/style-guide/statements)
+### [Expressions](/learn/style-guide/expressions)
+### [Annotations, Documentation and Comments](/learn/style-guide/annotations_documentation_and_comments)
