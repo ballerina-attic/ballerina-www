@@ -223,7 +223,7 @@ You can build a single module contained within a project:
 ```bash
 ballerina build <module-name>
 ```
-Use the `--skiptests` flag with the `ballerina build` command to skip running the tests while building a Ballerina project or module.
+Use the `--skiptests` flag with the `ballerina build` command to skip running the tests during the build process.
 
 ```bash
 ballerina build --skiptests
