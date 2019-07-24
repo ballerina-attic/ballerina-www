@@ -223,6 +223,11 @@ You can build a single module contained within a project:
 ```bash
 ballerina build <module-name>
 ```
+Use the `--skiptests` flag with the `ballerina build` command to skip running the tests while building a Ballerina project or module.
+
+```bash
+ballerina build --skiptests
+```
 
 ### Version a Module
 Modules in a project are assigned their version from within the `Ballerina.toml` file:
