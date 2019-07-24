@@ -73,6 +73,10 @@ The <a href="https://ballerina.io/learn/language-specification/0.990/">Language 
 
 The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides detailed information on Ballerina Streaming concepts and its capabilities. This includes Ballerina streaming language syntax, explanations, and sample queries as well.
 
+### Ballerina Style Guide
+
+The [Ballerina Style Guide](/learn/style-guide/) provides guidelines to maintain a standard coding style among the Ballerina community.
+
 ### FAQ
 
 [Frequently Asked Questions](/learn/faq/) about Ballerina.
