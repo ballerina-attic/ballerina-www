@@ -149,6 +149,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -227,6 +234,18 @@
                                             
                                           
                                         <li>
+                                            <a href="#decodeBase64Url">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    decodeBase64Url
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
                                             <a href="#decodeHex">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
@@ -251,6 +270,18 @@
                                             
                                           
                                         <li>
+                                            <a href="#encodeBase64Url">
+                                                <div class="construct-icon">
+                                                    <span class="fw-function"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    encodeBase64Url
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
+                                          
+                                        <li>
                                             <a href="#encodeHex">
                                                 <div class="construct-icon">
                                                     <span class="fw-function"> </span>
@@ -264,6 +295,34 @@
                                     </ul>
                                 </div>
                                 
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
                             </li>
                         </ul>
                         
@@ -497,8 +556,8 @@
 <h3>Encoding byte array into a string</h3>
 <p>The <code>byteArrayToString</code> function can be used to encode a byte array into a string using a provided charset.</p>
 <h2>Samples</h2>
-<pre><code class="language-ballerina">import ballerina/io;
-import ballerina/encoding;
+<pre><code class="language-ballerina">import ballerina/encoding;
+import ballerina/io;
 
 public function main() returns error? {
      string charEncoding = &quot;UTF-8&quot;;
@@ -510,16 +569,16 @@ public function main() returns error? {
      string output = encoding:encodeHex(inputByteArr)
      io:println(&quot;Hex encoded string : &quot; + output);
 
-     // Hex encoded string, decoded back into a byte array
+     // Hex encoded string, decoded back into a byte array.
      inputByteArr = check encoding:decodeHex(output)
 
      output = encoding:encodeBase64(inputByteArr)
      io:println(&quot;Base64 encoded string : &quot; + output);
 
-     // Base64 encoded string, decoded back into a byte array
+     // Base64 encoded string, decoded back into a byte array.
      inputByteArr = check encoding:decodeBase64(output)
 
-     // Convert byte array into a string
+     // Convert byte array into a string.
      string finalString = encoding:byteArrayToString(inputByteArr);
 }
 </code></pre>
@@ -547,6 +606,10 @@ public function main() returns error? {
                                                          <td class="cSummary-table-desc">Error relevant to encoding operations.
 </td>
                                                      </tr>
+                                                 
+                                             
+                                                 
+                                             
                                                  
                                              
                                                  
@@ -596,6 +659,14 @@ public function main() returns error? {
                                              
                                                  
                                                      <tr>
+                                                         <td class="cSummary-table-name"><a href="#decodeBase64Url">decodeBase64Url</a></td>
+                                                        <td class="cSummary-table-desc"><p>Decode Base64 URL encoded <code>string</code> into byte array.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
                                                          <td class="cSummary-table-name"><a href="#decodeHex">decodeHex</a></td>
                                                         <td class="cSummary-table-desc"><p>Decode Hex encoded <code>string</code> into byte array.</p>
 </td>
@@ -606,6 +677,14 @@ public function main() returns error? {
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#encodeBase64">encodeBase64</a></td>
                                                         <td class="cSummary-table-desc"><p>Returns the Base64 encoded <code>string</code> value of the given byte array.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#encodeBase64Url">encodeBase64Url</a></td>
+                                                        <td class="cSummary-table-desc"><p>Returns the Base64 URL encoded <code>string</code> value of the given byte array.</p>
 </td>
                                                      </tr>
                                                  
@@ -747,7 +826,7 @@ public function main() returns error? {
                                                 <!-- Function -->
                                                 
                                                 <h2 id="decodeBase64">
-                                                    <span class="fw-function sm-icon"> </span> public function decodeBase64(string input) returns (byte[] | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function decodeBase64(string input) returns (byte[]|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -784,7 +863,7 @@ public function main() returns error? {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a> | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Decoded output or error if input is not a valid Base64 value</p>
 </td>
@@ -807,8 +886,69 @@ public function main() returns error? {
                                                 
                                                 <!-- Function -->
                                                 
+                                                <h2 id="decodeBase64Url">
+                                                    <span class="fw-function sm-icon"> </span> public function decodeBase64Url(string input) returns (byte[]|error&lt;&gt;) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Decode Base64 URL encoded <code>string</code> into byte array.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">input</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Value to be decoded</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a>|<a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Decoded output or error if input is not a valid Base64 URL encoded value</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
                                                 <h2 id="decodeHex">
-                                                    <span class="fw-function sm-icon"> </span> public function decodeHex(string input) returns (byte[] | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function decodeHex(string input) returns (byte[]|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -845,7 +985,7 @@ public function main() returns error? {
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a> | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Decoded output or error if input is not a valid Hex value</p>
 </td>
@@ -874,6 +1014,67 @@ public function main() returns error? {
                                                 
                                                 <p>
                                                     <span class="fw-right gray xs-icon"></span><p>Returns the Base64 encoded <code>string</code> value of the given byte array.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Parameter Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">input</td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Value to be encoded</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="cReturnTableHeader"></div>
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name"></th>
+                                                        <th class="cAPI-table-type">Return Type</th>
+                                                        <th class="cAPI-table-default"></th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name"></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>Encoded output</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <h2 id="encodeBase64Url">
+                                                    <span class="fw-function sm-icon"> </span> public function encodeBase64Url(byte[] input) returns (string) 
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Returns the Base64 URL encoded <code>string</code> value of the given byte array.</p>
 
                                                 </p>
                                                  
@@ -1158,6 +1359,16 @@ public function main() returns error? {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -1239,6 +1450,16 @@ public function main() returns error? {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -1299,7 +1520,7 @@ public function main() returns error? {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -1349,6 +1570,16 @@ public function main() returns error? {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -1359,7 +1590,27 @@ public function main() returns error? {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -1409,17 +1660,11 @@ public function main() returns error? {
                                 <li>
                                    <!--Package Name-->
                                    
+<<<<<<< HEAD
+                                   <a href="swagger.html">ballerina/<span class="bold">openapi</span>
+=======
                                    <a href="streams.html">ballerina/<span class="bold">streams</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -1470,6 +1715,16 @@ public function main() returns error? {
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -1493,6 +1748,16 @@ public function main() returns error? {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -1574,6 +1839,16 @@ public function main() returns error? {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -1634,7 +1909,7 @@ public function main() returns error? {
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -1684,6 +1959,16 @@ public function main() returns error? {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -1694,7 +1979,27 @@ public function main() returns error? {
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -1744,17 +2049,11 @@ public function main() returns error? {
                                 <li>
                                    <!--Package Name-->
                                    
+<<<<<<< HEAD
+                                   <a href="swagger.html">ballerina/<span class="bold">openapi</span>
+=======
                                    <a href="streams.html">ballerina/<span class="bold">streams</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -1805,6 +2104,16 @@ public function main() returns error? {
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>

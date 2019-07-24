@@ -191,6 +191,20 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -1563,6 +1577,27 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -1650,23 +1685,22 @@ if (writeResult is error) {
 </code></pre>
 <h3>Record channels</h3>
 <p>Ballerina also supports I/O for delimited records.</p>
-<pre><code class="language-ballerina">// Creating a `ReadableTextRecordChannel` from the `ReadableCharacterChannel`.
-// Records are separated using a new line, and
-// fields of a record are separated using a comma.
+<pre><code class="language-ballerina">// Create a `ReadableTextRecordChannel` from the `ReadableCharacterChannel`.
+// Records are separated using a new line, and fields of a record are separated using a comma.
 var readableRecordsChannel = new io:ReadableTextRecordChannel(readableCharChannel, fs = &quot;,&quot;, rs = &quot;\n&quot;);
 
-// Reading a few records.
+// Read few records.
 while (readableRecordsChannel.hasNext()) {
     var result = readableRecordsChannel.getNext();
     if (result is string[]) {
-        println(record); // Retrieved a record.
+        io:println(result); // Retrieved a record.
     } else {
         return result; // An IO error occurred when reading the records.
     }
 }
 </code></pre>
 <p>A <code>.CSV</code> file can be read and written directly into a <code>CSVChannel</code>, as shown in this code snippet.</p>
-<pre><code class="language-ballerina">// Creating a `ReadableCSVChannel` from the `ReadableCharacterChannel`.
+<pre><code class="language-ballerina">// Create a `ReadableCSVChannel` from the `ReadableCharacterChannel`.
 var readableCSVChannel = new io:ReadableCSVChannel(readableCharChannel);
 </code></pre>
 <p>Records of the <code>.CSV</code> file can read directly into a table of a matching type.</p>
@@ -1702,7 +1736,7 @@ if (tableResult is table&lt;Employee&gt;) {
     boolean isMarried;
 };
 
-//Serialize record into binary
+// Serialize record into binary.
 function serialize(Person p, io:WritableByteChannel byteChannel) {
     io:WritableDataChannel dc = new io:WritableDataChannel(byteChannel);
     var length = p.name.toByteArray(&quot;UTF-8&quot;).length();
@@ -1714,48 +1748,48 @@ function serialize(Person p, io:WritableByteChannel byteChannel) {
     var closeResult = dc.close();
 }
 
-//Deserialize record into binary
+// Deserialize record into binary.
 function deserialize(io:ReadableByteChannel byteChannel) returns Person {
     Person person = {};
     int nameLength = 0;
     string nameValue;
     io:ReadableDataChannel dc = new io:ReadableDataChannel(byteChannel);
-    //Read 32 bit singed integer
+    // Read 32 bit signed integer.
     var int32Result = dc.readInt32();
     if (int32Result is int) {
         nameLength = int32Result;
     } else if (int32Result is error) {
         log:printError(&quot;Error occurred while reading name length&quot;, err = int32Result);
     }
-    //Read UTF-8 encoded string represented through specified amount of bytes
+    // Read UTF-8 encoded string represented through specified amount of bytes.
     var strResult = dc.readString(nameLength, &quot;UTF-8&quot;);
     if (strResult is string) {
         person.name = strResult;
     } else if (strResult is error) {
         log:printError(&quot;Error occurred while reading name&quot;, err = strResult);
     }
-    //Read 16 bit signed integer
+    // Read 16 bit signed integer.
     var int16Result = dc.readInt16();
     if (int16Result is int) {
         person.age = int16Result;
     } else if (int16Result is error) {
         log:printError(&quot;Error occurred while reading age&quot;, err = int16Result);
     }
-    //Read 64 bit signed float
+    // Read 64 bit signed float.
     var float64Result = dc.readFloat64();
     if (float64Result is float) {
         person.income = float64Result;
     } else if (float64Result is error) {
         log:printError(&quot;Error occurred while reading income&quot;, err = float64Result);
     }
-    //Read boolean
+    // Read boolean.
     var boolResult = dc.readBool();
     if (boolResult is boolean) {
         person.isMarried = boolResult;
     } else if (boolResult is error) {
         log:printError(&quot;Error occurred while reading marital status&quot;, err = boolResult);
     }
-    //Finally close the data channel
+    // Finally close the data channel.
     var closeResult = dc.close();
     return person;
 }
@@ -2756,7 +2790,8 @@ separator and record separator.</p>
                                                         <td class="cAPI-table-name">values</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#any">any</a>|<a href="builtin.html#error">error[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>The value(s) to be printed.</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -2838,7 +2873,7 @@ separator and record separator.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="sprintf">
-                                                    <span class="fw-function sm-icon"> </span> public function sprintf(string format, any[] args) returns (string) 
+                                                    <span class="fw-function sm-icon"> </span> public function sprintf(string format, any|error[] args) returns (string) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2872,7 +2907,7 @@ These values will be converted to their string representation.)</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">args</td>
-                                                        <td class="cAPI-table-type"><a href="builtin.html#any">any[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="builtin.html#any">any</a>|<a href="builtin.html#error">error[]</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p>Arguments referenced by the format specifiers in the format string.</p>
 </td>
@@ -2939,7 +2974,7 @@ These values will be converted to their string representation.)</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableByteChannel&gt;
-                                                   </span> read(int nBytes) returns ((byte[],int) | error&lt;&gt;) 
+                                                   </span> read(int nBytes) returns ((byte[],int)|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -2979,7 +3014,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type">(<a href="builtin.html#byte">byte[]</a>,<a href="primitive-types.html#int">int</a>) | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type">(<a href="builtin.html#byte">byte[]</a>,<a href="primitive-types.html#int">int</a>)|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Content, the number of bytes read or an error</p>
 </td>
@@ -2994,7 +3029,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableByteChannel&gt;
-                                                   </span> base64Encode() returns (ReadableByteChannel | error&lt;&gt;) 
+                                                   </span> base64Encode() returns (ReadableByteChannel|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3013,7 +3048,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">ReadableByteChannel</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">ReadableByteChannel</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Return an encoded ReadableByteChannel or an error</p>
 </td>
@@ -3028,7 +3063,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableByteChannel&gt;
-                                                   </span> base64Decode() returns (ReadableByteChannel | error&lt;&gt;) 
+                                                   </span> base64Decode() returns (ReadableByteChannel|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3047,7 +3082,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">ReadableByteChannel</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">ReadableByteChannel</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Return a decoded ReadableByteChannel or an error</p>
 </td>
@@ -3209,7 +3244,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableCSVChannel&gt;
-                                                   </span> getNext() returns (string[] | error?&lt;&gt;) 
+                                                   </span> getNext() returns (string[]|error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3228,7 +3263,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a> | <a href="builtin.html#error">error?<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a>|<a href="builtin.html#error">error?<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>List of fields in the CSV or error</p>
 </td>
@@ -3277,7 +3312,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableCSVChannel&gt;
-                                                   </span> getTable(typedesc structType) returns (table&lt;$anonType$10&gt; | error&lt;&gt;) 
+                                                   </span> getTable(typedesc structType) returns (table&lt;$anonType$10&gt;|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3314,7 +3349,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table<$anonType$10></a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#table">table<$anonType$10></a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Table which represents CSV records or error</p>
 </td>
@@ -3399,7 +3434,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableCharacterChannel&gt;
-                                                   </span> read(int numberOfChars) returns (string | error&lt;&gt;) 
+                                                   </span> read(int numberOfChars) returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3436,7 +3471,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Content which is read or an error</p>
 </td>
@@ -3451,7 +3486,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableCharacterChannel&gt;
-                                                   </span> readJson() returns (json | error&lt;&gt;) 
+                                                   </span> readJson() returns (json|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3470,7 +3505,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#json">json</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#json">json</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Read json string or an error</p>
 </td>
@@ -3485,7 +3520,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableCharacterChannel&gt;
-                                                   </span> readXml() returns (xml | error&lt;&gt;) 
+                                                   </span> readXml() returns (xml|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3504,7 +3539,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#xml">xml</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#xml">xml</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Read xml or an error</p>
 </td>
@@ -3617,7 +3652,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableDataChannel&gt;
-                                                   </span> readInt16() returns (int | error&lt;&gt;) 
+                                                   </span> readInt16() returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3636,7 +3671,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>value of the integer which is read or an error</p>
 </td>
@@ -3651,7 +3686,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableDataChannel&gt;
-                                                   </span> readInt32() returns (int | error&lt;&gt;) 
+                                                   </span> readInt32() returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3670,7 +3705,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>value of the integer which is read or an error</p>
 </td>
@@ -3685,7 +3720,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableDataChannel&gt;
-                                                   </span> readInt64() returns (int | error&lt;&gt;) 
+                                                   </span> readInt64() returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3704,7 +3739,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>value of the integer which is read or an error</p>
 </td>
@@ -3719,7 +3754,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableDataChannel&gt;
-                                                   </span> readFloat32() returns (float | error&lt;&gt;) 
+                                                   </span> readFloat32() returns (float|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3738,7 +3773,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#float">float</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#float">float</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>value of the float which is read or an error</p>
 </td>
@@ -3753,7 +3788,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableDataChannel&gt;
-                                                   </span> readFloat64() returns (float | error&lt;&gt;) 
+                                                   </span> readFloat64() returns (float|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3772,7 +3807,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#float">float</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#float">float</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>value of the float which is read or an error</p>
 </td>
@@ -3787,7 +3822,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableDataChannel&gt;
-                                                   </span> readBool() returns (boolean | error&lt;&gt;) 
+                                                   </span> readBool() returns (boolean|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3806,7 +3841,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>boolean value which is read or an error</p>
 </td>
@@ -3821,7 +3856,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableDataChannel&gt;
-                                                   </span> readString(int nBytes, string encoding) returns (string | error&lt;&gt;) 
+                                                   </span> readString(int nBytes, string encoding) returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3866,7 +3901,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>value of the string or an error</p>
 </td>
@@ -3881,7 +3916,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableDataChannel&gt;
-                                                   </span> readVarInt() returns (int | error&lt;&gt;) 
+                                                   </span> readVarInt() returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -3900,7 +3935,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>value of the integer which is read or an error</p>
 </td>
@@ -4069,7 +4104,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;ReadableTextRecordChannel&gt;
-                                                   </span> getNext() returns (string[] | error&lt;&gt;) 
+                                                   </span> getNext() returns (string[]|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4088,7 +4123,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string[]</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Set of fields included in the record or an error</p>
 </td>
@@ -4208,7 +4243,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;StringReader&gt;
-                                                   </span> readJson() returns (json | error&lt;&gt;) 
+                                                   </span> readJson() returns (json|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4227,7 +4262,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#json">json</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#json">json</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>json or an error</p>
 </td>
@@ -4242,7 +4277,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;StringReader&gt;
-                                                   </span> readXml() returns (xml | error?&lt;&gt;) 
+                                                   </span> readXml() returns (xml|error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4261,7 +4296,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#xml">xml</a> | <a href="builtin.html#error">error?<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#xml">xml</a>|<a href="builtin.html#error">error?<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
@@ -4275,7 +4310,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;StringReader&gt;
-                                                   </span> readChar(int nCharacters) returns (string | error?&lt;&gt;) 
+                                                   </span> readChar(int nCharacters) returns (string|error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4312,7 +4347,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error?<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error?<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>string or an error</p>
 </td>
@@ -4391,7 +4426,7 @@ time.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;WritableByteChannel&gt;
-                                                   </span> write(byte[] content, int offset) returns (int | error&lt;&gt;) 
+                                                   </span> write(byte[] content, int offset) returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4436,7 +4471,7 @@ time.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Offset which should be kept when writing bytes.
 Number of bytes written or an error.</p>
@@ -4713,7 +4748,7 @@ Number of bytes written or an error.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;WritableCharacterChannel&gt;
-                                                   </span> write(string content, int startOffset) returns (int | error&lt;&gt;) 
+                                                   </span> write(string content, int startOffset) returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4758,7 +4793,7 @@ Number of bytes written or an error.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>Content length that written or an error.</p>
 </td>
@@ -6061,6 +6096,16 @@ Number of bytes written or an error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -6141,6 +6186,16 @@ Number of bytes written or an error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -6202,7 +6257,7 @@ Number of bytes written or an error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -6252,6 +6307,16 @@ Number of bytes written or an error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -6262,7 +6327,27 @@ Number of bytes written or an error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -6312,17 +6397,11 @@ Number of bytes written or an error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+<<<<<<< HEAD
+                                   <a href="swagger.html">ballerina/<span class="bold">openapi</span>
+=======
                                    <a href="streams.html">ballerina/<span class="bold">streams</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -6373,6 +6452,16 @@ Number of bytes written or an error.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -6396,6 +6485,16 @@ Number of bytes written or an error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -6476,6 +6575,16 @@ Number of bytes written or an error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -6537,7 +6646,7 @@ Number of bytes written or an error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -6587,6 +6696,16 @@ Number of bytes written or an error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -6597,7 +6716,27 @@ Number of bytes written or an error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -6647,17 +6786,11 @@ Number of bytes written or an error.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+<<<<<<< HEAD
+                                   <a href="swagger.html">ballerina/<span class="bold">openapi</span>
+=======
                                    <a href="streams.html">ballerina/<span class="bold">streams</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -6708,6 +6841,16 @@ Number of bytes written or an error.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>

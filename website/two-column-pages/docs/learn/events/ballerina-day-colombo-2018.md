@@ -325,7 +325,7 @@ The day kicked off with an introduction to Ballerina and its concepts. Afterward
                             <li>Testing framework</li>
                             <li>Package management</li>
                             <li>Documentation support</li>
-                            <li>Swagger / OpenAPI support</li>
+                            <li>OpenAPI support</li>
                         </ul>
                         </li>
                     </ul>

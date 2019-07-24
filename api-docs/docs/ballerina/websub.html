@@ -331,6 +331,41 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -984,19 +1019,6 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
-                                                <a href="#Notification-getPayloadAsString">
-                                                    <div class="construct-icon">
-                                                        <span class="fw-function"> </span>
-                                                    </div>
-                                                    <div class="construct-name">
-                                                        getPayloadAsString
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        
-                                        <ul class="construct-inner-items-ul">
-                                            <li>
                                                 <a href="#Notification-getByteChannel">
                                                     <div class="construct-icon">
                                                         <span class="fw-function"> </span>
@@ -1429,58 +1451,142 @@ on occurrence of events.</li>
 <li>Hub - A party that accepts subscription requests from subscribers and delivers content to the subscribers when the topic
 is updated by the topic's publisher.</li>
 </ul>
-<h4>Basic Flow with WebSub</h4>
+<h3>Basic flow with WebSub</h3>
 <ol>
 <li>
-<p>Subscriber discovers the topics it needs to subscribe to in order to receive updates/content and discovers the hub(s) where it can subscribe.</p>
+<p>The subscriber discovers from the publisher, the topic it needs to subscribe to and the hub(s) that deliver notifications on updates of the topic.</p>
 </li>
 <li>
-<p>Subscriber sends a subscription request to a hub, specifying the topic it needs to receive notifications for along
-with other subscription parameters, such as:</p>
+<p>The subscriber sends a subscription request to one or more discovered hub(s) specifying the discovered topic along
+with other subscription parameters such as:</p>
 <ul>
-<li>The callback URL where content is expected to be delivered</li>
-<li>(Optional) A lease seconds value indicating how long the subscriber wants the subscription to stay active</li>
-<li>(Optional) A secret to use for <a href="https://www.w3.org/TR/websub/#signing-content">authenticated content distribution</a></li>
+<li>The callback URL to which content is expected to be delivered.</li>
+<li>(Optional) The lease period (in seconds) the subscriber wants the subscription to stay active.</li>
+<li>(Optional) A secret to use for <a href="https://www.w3.org/TR/websub/#signing-content">authenticated content distribution</a>.</li>
 </ul>
 </li>
 <li>
-<p>The hub sends an intent verification request to the specified callback URL, and if the response indicates verification
+<p>The hub sends an intent verification request to the specified callback URL. If the response indicates
+verification
 (by echoing a challenge specified in the request) by the subscriber, the subscription is added for the topic at the
 hub.</p>
 </li>
 <li>
-<p>Publisher notifies the hub of updates to the topic, and the content to deliver is identified.</p>
+<p>The publisher notifies the hub of updates to the topic and the content to deliver is identified.</p>
 </li>
 <li>
 <p>The hub delivers the identified content to the subscribers of the topic.</p>
 </li>
 </ol>
-<h4>Features</h4>
+<h3>Features</h3>
+<h4>Subscriber</h4>
 <p>This module allows introducing a WebSub Subscriber Service with <code>onIntentVerification</code>, which accepts HTTP GET requests for intent verification, and <code>onNotification</code>, which accepts HTTP POST requests for notifications. The WebSub Subscriber Service provides the following capabilities:</p>
 <ul>
-<li>Subscription Requests are sent at service start time for the hub and topic, which are either specified as annotations or discovered based on the resource URL specified as an annotation.</li>
-<li>Auto Intent Verification against the topic specified as an annotation, or discovered based on the resource URL specified as an annotation, if <code>onIntentVerification</code> is not specified.</li>
-<li>Signature Validation for authenticated content distribution if a secret is specified for the subscription.</li>
+<li>When the service is started a subscription request is sent for a hub/topic combination, either specified as annotations or discovered based on the resource URL specified as an annotation.</li>
+<li>If <code>onIntentVerification</code> is not specified, intent verification will be done automatically against the topic specified as an annotation or discovered based on the resource URL specified as an annotation.</li>
+<li>If a secret is specified for the subscription, signature validation will be done for authenticated content distribution.</li>
 </ul>
-<p>A WebSub compliant hub based on the Ballerina Message Broker is also available for use as a remote hub or to be used by publishers who want to have their own internal hub. Ballerina's WebSub Hub honors specified lease periods and supports authenticated content distribution.</p>
+<h4>Hub</h4>
+<p>A WebSub compliant hub based on the Ballerina Message Broker is also available. This can be used as a remote hub or to be used by publishers who want to have their own internal hub. Ballerina's WebSub hub honors specified lease periods and supports authenticated content distribution.</p>
+<h5>Enabling Basic Auth support for the hub</h5>
+<p>The Ballerina WebSub Hub can be secured by enforcing authentication (Basic Authentication) and optionally authorization.
+<code>AuthProvider</code> and <code>authConfig</code> need to be specified for the hub listener and service respectively. If the
+<code>authStoreProvider</code> of the <code>AuthProvider</code> is set as &quot;http:CONFIG_AUTH_STORE&quot;, usernames and passwords for authentication and scopes for authorization would be read from a config toml file.
+A user can specify <code>AuthProvider</code> as follows and set it to the <code>hubListenerConfig</code> record passed when starting the hub.</p>
+<pre><code class="language-ballerina">http:AuthProvider basicAuthProvider = {
+    scheme: http:BASIC_AUTH,
+    authStoreProvider: http:CONFIG_AUTH_STORE
+};
+
+http:ServiceEndpointConfiguration hubListenerConfig = {
+    authProviders: [basicAuthProvider],
+    secureSocket: {
+        keyStore: {
+            path: &quot;${ballerina.home}/bre/security/ballerinaKeystore.p12&quot;,
+            password: &quot;ballerina&quot;
+        }
+    }
+};
+
+var val = websub:startHub(new http:Listener (9191, config =  hubListenerConfig));
+</code></pre>
+<p>In addition to the <code>AuthProvider</code> for listener, a user also has to specify the <code>authConfig</code> properties at service
+config level.</p>
+<p>It can be populated by providing <code>authConfig</code> via a toml formatted file under the <code>b7a.websub.hub.auth</code> alias.
+Recognized users can also be mentioned in the same file which permits auth providers to read.</p>
+<pre><code>[&quot;b7a.websub.hub.auth&quot;]
+enabled=true  // enables the authentication
+scopes=&quot;scope1&quot; // defines the scope of possible users
+
+[&quot;b7a.users&quot;]
+
+[&quot;b7a.users.tom&quot;]
+password=&quot;1234&quot;
+scopes=&quot;scope1&quot;
+</code></pre>
+<p>Once the hub is secured over basic auth, a subscriber should provide the relevant <code>auth</code> config in the
+<code>subscriptionClientConfig</code> field of the subscriber service annotation.</p>
+<pre><code class="language-ballerina">@websub:SubscriberServiceConfig {
+    path: &quot;/ordereventsubscriber&quot;,
+    subscriptionClientConfig: {
+        auth: {
+            scheme: http:BASIC_AUTH,
+            username: &quot;tom&quot;,
+            password: &quot;1234&quot;
+        }
+    }
+}
+</code></pre>
+<h5>Enabling data persistence for the hub</h5>
+<p>The Ballerina WebSub Hub supports persistence of topic and subscription data that needs to be restored when the hub is
+restarted.</p>
+<p>Users can introduce their own persistence implementation, by introducing an object type that is structurally
+equivalent to the <code>websub:HubPersistenceStore</code> abstract object. Alternatively, the H2-based
+<code>websub:H2HubPersistenceStore</code> object made available in the <code>ballerina/websub</code> module could be used to persist data.</p>
+<p>Persistence can be enabled by setting a suitable <code>websub:HubPersistenceStore</code> value for the <code>hubPersistenceStore</code> field
+in the <code>HubConfiguration</code> record, which is passed to the <code>websub:startHub()</code> function.</p>
+<pre><code class="language-ballerina">import ballerina/h2;
+import ballerina/http;
+import ballerina/websub;
+
+// Define an `h2:Client` to use with the `websub:H2HubPersistenceStore`.
+h2:Client h2Client = new({
+    path: &quot;./target/hubDB&quot;,
+    name: &quot;hubdb&quot;,
+    username: &quot;user1&quot;,
+    password: &quot;pass1&quot;
+});
+
+// Define a `websub:H2HubPersistenceStore` as a `websub:HubPersistenceStore`.
+websub:HubPersistenceStore hubPersistenceStore = new websub:H2HubPersistenceStore(h2Client);
+// Set the defined persistence store as the `hubPersistenceStore` in the `hubConfig` record.
+websub:HubConfiguration hubConfig = {
+    hubPersistenceStore: hubPersistenceStore
+};
+
+// Pass the `hubConfig` record when starting up the hub to enable persistence.
+var result = websub:startHub(new http:Listener(8080), hubConfiguration = hubConfig);
+</code></pre>
+<p>Any subscriptions added at the hub will now be available even when the hub is restarted.</p>
+<h4>Publisher</h4>
 <p>Ballerina WebSub publishers can use utility functions to add WebSub link headers indicating the hub and topic
 URLs, which facilitates WebSub discovery.</p>
 <p>A hub client endpoint is also made available to publishers and subscribers to perform the following:</p>
-<ol>
+<ul>
 <li>Publishers
 <ul>
 <li>Register a topic at the Hub</li>
-<li>Publish to the hub, indicating an update of the topic</li>
+<li>Publish to the hub indicating an update of the topic</li>
 </ul>
 </li>
 <li>Subscribers
 <ul>
-<li>Subscribe/Unsubscribe to topics at a hub</li>
+<li>Subscribe/Unsubscribe to/from topics at a hub</li>
 </ul>
 </li>
-</ol>
+</ul>
 <h2>Samples</h2>
-<p>This sample demonstrates a Subscriber Service with <code>subscribeOnStartUp</code> set to true, which will result in a
+<p>This sample demonstrates a Subscriber Service with <code>subscribeOnStartUp</code> set to true. This will result in a
 subscription request being sent to the specified hub for the specified topic, with the specified lease seconds value
 and the specified secret for authenticated content distribution.
 Since an <code>onIntentVerification</code> resource function is not included, intent verification for subscription and unsubscription
@@ -1502,19 +1608,18 @@ listener websub:Listener websubEP = new(8181);
 service websubSubscriber on websubEP {
 
     resource function onNotification(websub:Notification notification) {
-        var payload = notification.getPayloadAsString();
+        var payload = notification.getTextPayload();
         if (payload is string) {
             log:printInfo(&quot;WebSub Notification Received: &quot; + payload);
         } else {
             log:printError(&quot;Error retrieving payload as string&quot;, err = payload);
         }
     }
- 
 }
 </code></pre>
 <p>Explicit intent verification can be done by introducing an <code>onIntentVerification</code> resource function.</p>
-<pre><code class="language-ballerina">import ballerina/log;
-import ballerina/http;
+<pre><code class="language-ballerina">import ballerina/http;
+import ballerina/log;
 import ballerina/websub;
 
 listener websub:Listener websubEP = new(8181);
@@ -1531,7 +1636,7 @@ service websubSubscriber on websubEP {
 
     resource function onIntentVerification(websub:Caller caller, websub:IntentVerificationRequest request) {
         http:Response response = new;
-        // Insert logic to build subscription/unsubscription intent verification response
+        // Insert logic to build subscription/unsubscription intent verification response.
         var result = caller-&gt;respond(response);
         if (result is error) { 
             log:printError(&quot;Error responding to intent verification request&quot;, err = result); 
@@ -1539,14 +1644,13 @@ service websubSubscriber on websubEP {
     }
 
     resource function onNotification(websub:Notification notification) {
-        var payload = notification.getPayloadAsString();
+        var payload = notification.getTextPayload();
         if (payload is string) {
             log:printInfo(&quot;WebSub Notification Received: &quot; + payload);
         } else {
             log:printError(&quot;Error retrieving payload as string&quot;, err = payload);
         }
     }
-    
 }
 </code></pre>
 <p>Functions are made available on the <code>websub:IntentVerificationRequest</code> to build a subscription or unsubscription
@@ -1610,7 +1714,7 @@ public function main() {
     runtime:sleep(10000);
 
     log:printInfo(&quot;Publishing update to remote Hub&quot;);
-    var publishResponse = websubHubClientEP-&gt;publishUpdate(&quot;&lt;TOPIC_URL&gt;&quot;, {&quot;action&quot;: &quot;publish&quot;, &quot;mode&quot;: &quot;remote-hub&quot;});
+    var publishResponse = websubHubClientEP-&gt;publishUpdate(&quot;&lt;TOPIC_URL&gt;&quot;, { &quot;action&quot;: &quot;publish&quot;, &quot;mode&quot;: &quot;remote-hub&quot; });
     if (publishResponse is error) {
         log:printError(&quot;Error notifying hub: &quot; + &lt;string&gt;publishResponse.detail().message);
     } else {
@@ -1628,9 +1732,11 @@ websub:Client websubHubClientEP = new(&quot;&lt;HUB_URL&gt;&quot;);
 public function main() {
 
     // Send subscription request for a subscriber service.
-    websub:SubscriptionChangeRequest subscriptionRequest = { topic: &quot;&lt;TOPIC_URL&gt;&quot;, 
-                                                             callback: &quot;&lt;CALLBACK_URL&gt;&quot;,
-                                                             secret: &quot;&lt;SECRET&gt;&quot; };
+    websub:SubscriptionChangeRequest subscriptionRequest = {
+        topic: &quot;&lt;TOPIC_URL&gt;&quot;, 
+        callback: &quot;&lt;CALLBACK_URL&gt;&quot;,
+        secret: &quot;&lt;SECRET&gt;&quot;
+    };
 
     var subscriptionChangeResponse = websubHubClientEP-&gt;subscribe(subscriptionRequest);
     if (subscriptionChangeResponse is websub:SubscriptionChangeResponse) {
@@ -1641,8 +1747,10 @@ public function main() {
     }
 
     // Send unsubscription request for the subscriber service.
-    websub:SubscriptionChangeRequest unsubscriptionRequest = { topic: &quot;&lt;TOPIC_URL&gt;&quot;,
-                                                               callback: &quot;&lt;CALLBACK_URL&gt;&quot; };
+    websub:SubscriptionChangeRequest unsubscriptionRequest = {
+        topic: &quot;&lt;TOPIC_URL&gt;&quot;,
+        callback: &quot;&lt;CALLBACK_URL&gt;&quot;
+    };
 
     subscriptionChangeResponse = websubHubClientEP-&gt;unsubscribe(unsubscriptionRequest);
     if (subscriptionChangeResponse is websub:SubscriptionChangeResponse) {
@@ -1651,7 +1759,6 @@ public function main() {
     } else {
         log:printError(&quot;Error occurred with Unsubscription Request&quot;, err = subscriptionChangeResponse);
     }
-
 }
 </code></pre>
 <h2>Configuration Parameters</h2>
@@ -1696,29 +1803,29 @@ mapping between the expected notifications and the resources that requests need 
     topicIdentifier: websub:TOPIC_ID_HEADER,
     topicHeader: &quot;&lt;HEADER_TO_CONSIDER&gt;&quot;,
     headerResourceMap: {
-        &quot;issueOpened&quot; : (&quot;onIssueOpened&quot;, IssueOpenedEvent),
-        &quot;issueClosed&quot; : (&quot;onIssueClosed&quot;, IssueClosedEvent)
+        &quot;issueOpened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent),
+        &quot;issueClosed&quot;: (&quot;onIssueClosed&quot;, IssueClosedEvent)
     }
 };
 </code></pre>
-<p>The <code>&quot;issueOpened&quot; : (&quot;onIssueOpened&quot;, IssueOpenedEvent)</code> entry indicates that when the value of the
+<p>The <code>&quot;issueOpened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent)</code> entry indicates that when the value of the
 <code>&lt;HEADER_TO_CONSIDER&gt;</code> header is <code>issueOpened</code>, dispatching should happen to a resource named <code>onIssueOpened</code>.</p>
 <p>The first parameter of this resource will be the generic <code>websub:Notification</code> record, and the second parameter will
-be a custom <code>IssueOpenedEvent</code> record, mapping the JSON payload received when an issue is created.</p>
+be a custom <code>IssueOpenedEvent</code> record mapping the JSON payload received when an issue is created.</p>
 <p><strong>Based on the payload</strong></p>
 <p>Dispatching will be based on the value in the request payload of one of the map keys specified in the
 <code>payloadKeyResourceMap</code> map.</p>
 <pre><code class="language-ballerina">websub:ExtensionConfig extensionConfig = {
     topicIdentifier: websub:TOPIC_ID_PAYLOAD_KEY,
     payloadKeyResourceMap: {
-        &quot;&lt;PAYLOAD_KEY_TO_CONSIDER&gt;&quot; : {
-            &quot;issueOpened&quot; : (&quot;onIssueOpened&quot;, IssueOpenedEvent),
-            &quot;issueClosed&quot; : (&quot;onIssueClosed&quot;, IssueClosedEvent)
+        &quot;&lt;PAYLOAD_KEY_TO_CONSIDER&gt;&quot;: {
+            &quot;issueOpened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent),
+            &quot;issueClosed&quot;: (&quot;onIssueClosed&quot;, IssueClosedEvent)
         }
     }
 };
 </code></pre>
-<p>The <code>&quot;issueOpened&quot; : (&quot;onIssueOpened&quot;, IssueOpenedEvent)</code> entry indicates that when the value for the JSON payload
+<p>The <code>&quot;issueOpened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent)</code> entry indicates that when the value for the JSON payload
 key <code>&lt;PAYLOAD_KEY_TO_CONSIDER&gt;</code> is <code>issueOpened</code>, dispatching should happen to a resource named <code>onIssueOpened</code>.</p>
 <p>The first parameter of this resource will be the generic <code>websub:Notification</code> record, and the second parameter will
 be a custom <code>IssueOpenedEvent</code> record, mapping the JSON payload received when an issue is created.</p>
@@ -1731,18 +1838,101 @@ Also, you can introduce a <code>headerResourceMap</code> and/or a <code>payloadK
     headerAndPayloadKeyResourceMap: {
         &quot;issue&quot; : {
             &quot;&lt;PAYLOAD_KEY_TO_CONSIDER&gt;&quot; : {
-                &quot;opened&quot; : (&quot;onIssueOpened&quot;, IssueOpenedEvent),
-                &quot;closed&quot; : (&quot;onIssueClosed&quot;, IssueClosedEvent)
+                &quot;opened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent),
+                &quot;closed&quot;: (&quot;onIssueClosed&quot;, IssueClosedEvent)
             }
         }
     }
 };
 </code></pre>
-<p>The <code>&quot;opened&quot; : (&quot;onIssueOpened&quot;, IssueOpenedEvent)</code> entry indicates that when the value of the
+<p>The <code>&quot;opened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent)</code> entry indicates that when the value of the
 <code>&lt;HEADER_TO_CONSIDER&gt;</code> header is <code>issue</code> and the value of the <code>&lt;PAYLOAD_KEY_TO_CONSIDER&gt;</code> JSON payload key is <code>opened</code>,
 dispatching should happen to a resource named <code>onIssueOpened</code>.</p>
 <p>The first parameter of this resource will be the generic <code>websub:Notification</code> record and the second parameter will
 be a custom <code>IssueOpenedEvent</code> record, mapping the JSON payload received when an issue is created.</p>
+<h4>Sample Specific Subscriber Service</h4>
+<p>In order to introduce a specific subscriber service, a new Ballerina <code>listener</code> needs to be introduced. This <code>listener</code> should wrap the generic <code>ballerina/websub:Listener</code> and include the extension configuration described above.</p>
+<p>The following example is for a service provider that</p>
+<ul>
+<li>allows registering webhooks to receive notifications when an issue is opened or assigned</li>
+<li>includes a header named &quot;Event-Header&quot; in each content delivery request indicating what event the notification is
+for (e.g., &quot;onIssueOpened&quot; when an issue is opened and &quot;onIssueAssigned&quot; when an issue is assigned)</li>
+</ul>
+<pre><code class="language-ballerina">import ballerina/websub;
+
+// Introduce a record mapping the JSON payload received when an issue is opened.
+public type IssueOpenedEvent record {
+    int id;
+    string title;
+    string openedBy;
+}; 
+
+// Introduce a record mapping the JSON payload received when an issue is assigned.
+public type IssueAssignedEvent record {
+    int id;
+    string assignedTo;
+}; 
+
+// Introduce a new `listener` wrapping the generic `ballerina/websub:Listener` 
+public type WebhookListener object {
+
+    *AbstractListener;
+
+    private websub:Listener websubListener;
+
+    public function __init(int port) {
+        // Introduce the extension config, based on the mapping details.
+        websub:ExtensionConfig extensionConfig = {
+            topicIdentifier: websub:TOPIC_ID_HEADER,
+            topicHeader: &quot;Event-Header&quot;,
+            headerResourceMap: {
+                &quot;issueOpened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent),
+                &quot;issueAssigned&quot;: (&quot;onIssueAssigned&quot;, IssueAssignedEvent)
+            }
+        };
+        
+        // Set the extension config in the generic `websub:Listener` config.
+        websub:SubscriberServiceEndpointConfiguration sseConfig = {
+            extensionConfig: extensionConfig
+        };
+            
+        // Initialize the wrapped generic listener.
+        self.websubListener = new(port, config = sseConfig);
+    }
+
+    public function __attach(service s, string? name = ()) returns error?  {
+        return self.websubListener.__attach(s, name = name);
+    }
+
+    public function __start() returns error? {
+        return self.websubListener.__start();
+    }
+    
+    public function __stop() returns error? {
+        return self.websubListener.__stop();
+    }
+};
+</code></pre>
+<p>A service can now be introduced for the above service provider as follows.</p>
+<pre><code class="language-ballerina">import ballerina/io;
+import ballerina/log;
+import ballerina/websub;
+
+@websub:SubscriberServiceConfig {
+    path: &quot;/subscriber&quot;,
+    subscribeOnStartUp: false
+}
+service specificSubscriber on new WebhookListener(8080) {
+    resource function onIssueOpened(websub:Notification notification, IssueOpenedEvent issueOpened) {
+        log:printInfo(io:sprintf(&quot;Issue opened: ID: %s, Title: %s&quot;, issueOpened.id, issueOpened.title));
+    }
+    
+    resource function onIssueAssigned(websub:Notification notification, IssueAssignedEvent issueAssigned) {
+        log:printInfo(io:sprintf(&quot;Issue ID %s assigned to %s&quot;, issueAssigned.id, issueAssigned.assignedTo));
+    }
+}
+</code></pre>
+<p>For a step-by-step guide on introducing custom subscriber services, see the <a href="https://ballerina.io/learn/how-to-extend-ballerina/#create-webhook-callback-services">&quot;Create Webhook Callback Services&quot;</a> section of &quot;How to Extend Ballerina&quot;.</p>
 
                                             </div>
                                             
@@ -2361,7 +2551,7 @@ Notification requests to a Hub.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">topicHeader</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>The header to consider if required with dispatching for custom services</p>
 </td>
                                                     </tr>
@@ -2369,7 +2559,7 @@ Notification requests to a Hub.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">headerResourceMap</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;(string,typedesc)&gt;?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>The mapping between header value and resource details</p>
 </td>
                                                     </tr>
@@ -2377,7 +2567,7 @@ Notification requests to a Hub.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">payloadKeyResourceMap</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;map&lt;(string,typedesc)&gt;&gt;?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>The mapping between value for a particular JSON payload key and resource details</p>
 </td>
                                                     </tr>
@@ -2385,7 +2575,7 @@ Notification requests to a Hub.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">headerAndPayloadKeyResourceMap</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#map">map&lt;map&lt;map&lt;(string,typedesc)&gt;&gt;&gt;?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>The mapping between values for the header and a particular JSON payload key and resource details</p>
 </td>
                                                     </tr>
@@ -2527,7 +2717,7 @@ to the topic</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">cause</td>
                                                         <td class="cAPI-table-type"><a href="builtin.html#error">error?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>The cause of the <code>HubStartedUpError</code>, if available</p>
 </td>
                                                     </tr>
@@ -2686,7 +2876,7 @@ specified in the &quot;publish&quot; request to identify the payload</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name">endpoints</td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#Listener">websub:Listener[]</a></td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#Listener">websub:Listener?[]</a></td>
                                                         <td class="cAPI-table-default">[]</td>
                                                         <td class="cAPI-table-desc"><p>Array of endpoints the service would be attached to</p>
 </td>
@@ -2810,7 +3000,7 @@ specified</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">httpServiceSecureSocket</td>
                                                         <td class="cAPI-table-type"><a href="http.html#ServiceSecureSocket">http:ServiceSecureSocket?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>The SSL configurations for the service endpoint</p>
 </td>
                                                     </tr>
@@ -2818,7 +3008,7 @@ specified</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">extensionConfig</td>
                                                         <td class="cAPI-table-type"><a href="websub.html#ExtensionConfig">websub:ExtensionConfig?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>The extension configuration to introduce custom subscriber services (webhooks)</p>
 </td>
                                                     </tr>
@@ -3091,7 +3281,7 @@ specified</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="extractTopicAndHubUrls">
-                                                    <span class="fw-function sm-icon"> </span> public function extractTopicAndHubUrls(http:Response response) returns ((string,string[]) | error&lt;&gt;) 
+                                                    <span class="fw-function sm-icon"> </span> public function extractTopicAndHubUrls(http:Response response) returns ((string,string[])|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -3128,7 +3318,7 @@ specified</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type">(<a href="primitive-types.html#string">string</a>,<a href="primitive-types.html#string">string</a>[]) | <a href="builtin.html#error">error<></a></td>
+                                                        <td class="cAPI-table-type">(<a href="primitive-types.html#string">string</a>,<a href="primitive-types.html#string">string</a>[])|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p><code>(topic, hubs)</code> if parsing and extraction is successful, <code>error</code> if not</p>
 </td>
@@ -3152,7 +3342,7 @@ specified</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="startHub">
-                                                    <span class="fw-function sm-icon"> </span> public function startHub(http:Listener hubServiceListener, websub:HubConfiguration? hubConfiguration) returns (WebSubHub | HubStartedUpError) 
+                                                    <span class="fw-function sm-icon"> </span> public function startHub(http:Listener hubServiceListener, websub:HubConfiguration? hubConfiguration) returns (WebSubHub|HubStartedUpError) 
                                                 </h2>
                                                 
                                                 <p>
@@ -3179,7 +3369,7 @@ specified</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">hubConfiguration</td>
                                                         <td class="cAPI-table-type"><a href="websub.html#HubConfiguration">websub:HubConfiguration?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>The hub specific configuration</p>
 </td>
                                                     </tr>
@@ -3197,7 +3387,7 @@ specified</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="websub.html#WebSubHub">WebSubHub</a> | <a href="websub.html#HubStartedUpError">HubStartedUpError</a></td>
+                                                        <td class="cAPI-table-type"><a href="websub.html#WebSubHub">WebSubHub</a>|<a href="websub.html#HubStartedUpError">HubStartedUpError</a></td>
                                                         <td class="cAPI-table-default"></td>
                                                         <td class="cAPI-table-desc"><p><code>WebSubHub</code> The WebSubHub object representing the newly started up hub, or <code>HubStartedUpError</code> indicating
 that the hub is already started, and including the WebSubHub object representing the
@@ -3251,7 +3441,8 @@ already started up hub</p>
                                                         <td class="cAPI-table-name">subscriptionDbClient</td>
                                                         <td class="cAPI-table-type"><a href="h2.html#Client">h2:Client</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Database clint used to persist subscription data</p>
+</td>
                                                     </tr>
                                                     
                                                 </table>
@@ -3939,7 +4130,7 @@ is being done for subscription</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">config</td>
                                                         <td class="cAPI-table-type"><a href="websub.html#SubscriberServiceEndpointConfiguration">websub:SubscriberServiceEndpointConfiguration?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>The configuration for the endpoint</p>
 </td>
                                                     </tr>
@@ -3975,7 +4166,7 @@ is being done for subscription</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">config</td>
                                                                     <td class="cAPI-table-type"><a href="websub.html#SubscriberServiceEndpointConfiguration">websub:SubscriberServiceEndpointConfiguration?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
                                                                 
@@ -3988,7 +4179,7 @@ is being done for subscription</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Listener&gt;
-                                                   </span> __attach(service s, map data) returns (error?&lt;&gt;) 
+                                                   </span> __attach(service s, string? name) returns (error?&lt;&gt;) 
                                                             </h2>
                                                              
                                                             <table>
@@ -4007,9 +4198,9 @@ is being done for subscription</p>
                                                                 </tr>
                                                                 
                                                                 <tr>
-                                                                    <td class="cAPI-table-name">data</td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
-                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-name">name</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
                                                                 
@@ -4104,7 +4295,7 @@ is being done for subscription</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Notification&gt;
-                                                   </span> getEntity() returns (mime:Entity | error&lt;&gt;) 
+                                                   </span> getEntity() returns (mime:Entity|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4123,7 +4314,7 @@ is being done for subscription</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="mime.html#Entity">mime:Entity</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="mime.html#Entity">mime:Entity</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The <code>Entity</code> of the request. An <code>error</code> is returned, if entity construction fails</p>
 </td>
@@ -4365,7 +4556,7 @@ Ideally <code>hasHeader()</code> needs to be used to check the existence of head
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Notification&gt;
-                                                   </span> getJsonPayload() returns (json | error&lt;&gt;) 
+                                                   </span> getJsonPayload() returns (json|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4384,7 +4575,7 @@ Ideally <code>hasHeader()</code> needs to be used to check the existence of head
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#json">json</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#json">json</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The <code>json</code> payload or <code>error</code> in case of errors. If the content type is not JSON, an <code>error</code> is returned.</p>
 </td>
@@ -4399,7 +4590,7 @@ Ideally <code>hasHeader()</code> needs to be used to check the existence of head
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Notification&gt;
-                                                   </span> getXmlPayload() returns (xml | error&lt;&gt;) 
+                                                   </span> getXmlPayload() returns (xml|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4418,7 +4609,7 @@ Ideally <code>hasHeader()</code> needs to be used to check the existence of head
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#xml">xml</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#xml">xml</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The <code>xml</code> payload or <code>error</code> in case of errors. If the content type is not XML, an <code>error</code> is returned.</p>
 </td>
@@ -4433,7 +4624,7 @@ Ideally <code>hasHeader()</code> needs to be used to check the existence of head
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Notification&gt;
-                                                   </span> getTextPayload() returns (string | error&lt;&gt;) 
+                                                   </span> getTextPayload() returns (string|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4452,45 +4643,10 @@ Ideally <code>hasHeader()</code> needs to be used to check the existence of head
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The <code>text</code> payload or <code>error</code> in case of errors.
 If the content type is not of type text, an <code>error</code> is returned.</p>
-</td>
-                                                                </tr>
-                                                                
-                                                            </table>
-                                                            
-                                                        </li>
-                                                        
-                                                        <li>
-                                                            <h2 id="Notification-getPayloadAsString">
-                                                                <span class="fw-function"></span>
-                                                                <span class="thin-text light-gray">
-                                                   &lt;Notification&gt;
-                                                   </span> getPayloadAsString() returns (string | error&lt;&gt;) 
-                                                            </h2>
-                                                            
-                                                            <p>
-                                                                <span class="fw-right gray xs-icon"></span><p>Retrieves the content delivery request payload as a <code>string</code>. Content type is not checked during payload
-construction which makes this different from <code>getTextPayload()</code> function.</p>
-
-                                                            </p>
-                                                              
-                                                            <div class="cReturnTableHeader"></div>
-                                                            <table>
-                                                                <tr>
-                                                                    <th class="cAPI-table-name"></th>
-                                                                    <th class="cAPI-table-type">Return Type</th>
-                                                                    <th class="cAPI-table-default"></th>
-                                                                    <th class="cAPI-table-desc">Description</th>
-                                                                </tr>
-                                                                
-                                                                <tr>
-                                                                    <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a> | <a href="builtin.html#error">error<></a></td>
-                                                                    <td class="cAPI-table-default"></td>
-                                                                    <td class="cAPI-table-desc"><p>The string representation of the message payload or <code>error</code> in case of errors</p>
 </td>
                                                                 </tr>
                                                                 
@@ -4503,7 +4659,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Notification&gt;
-                                                   </span> getByteChannel() returns (io:ReadableByteChannel | error&lt;&gt;) 
+                                                   </span> getByteChannel() returns (io:ReadableByteChannel|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4522,7 +4678,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>A byte channel from which the message payload can be read or <code>error</code> in case of errors</p>
 </td>
@@ -4537,7 +4693,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Notification&gt;
-                                                   </span> getBinaryPayload() returns (byte[] | error&lt;&gt;) 
+                                                   </span> getBinaryPayload() returns (byte[]|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4556,7 +4712,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The byte[] representation of the message payload or <code>error</code> in case of errors</p>
 </td>
@@ -4571,7 +4727,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Notification&gt;
-                                                   </span> getFormParams() returns (map&lt;string&gt; | error&lt;&gt;) 
+                                                   </span> getFormParams() returns (map&lt;string&gt;|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -4590,7 +4746,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#map">map<string></a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#map">map<string></a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The map of form params or <code>error</code> in case of errors</p>
 </td>
@@ -4756,7 +4912,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <tr>
                                                                     <td class="cAPI-table-name">contentType</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>The content type header to set for the request delivering the payload</p>
 </td>
                                                                 </tr>
@@ -5005,7 +5161,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Caller&gt;
-                                                   </span> respond(http:Response|string|xml|json|byte[]|io:ReadableByteChannel|mime:Entity[]? message) returns (error?&lt;&gt;) 
+                                                   </span> respond(http:Response|string|xml|json|byte[]|io:ReadableByteChannel|mime:Entity[] message) returns (error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5023,7 +5179,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The response or any payload of type <code>string</code>, <code>xml</code>, <code>json</code>, <code>byte[]</code>,<code>io:ReadableByteChannel</code> or <code>mime:Entity[]</code></p>
 </td>
@@ -5057,7 +5213,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Caller&gt;
-                                                   </span> ok(http:Response|string|xml|json|byte[]|io:ReadableByteChannel|mime:Entity[]? message) returns (error?&lt;&gt;) 
+                                                   </span> ok(http:Response|string|xml|json|byte[]|io:ReadableByteChannel|mime:Entity[] message) returns (error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5075,7 +5231,7 @@ construction which makes this different from <code>getTextPayload()</code> funct
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
+                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]</a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>The response or any payload of type <code>string</code>, <code>xml</code>, <code>json</code>, <code>byte[]</code>, <code>io:ReadableByteChannel</code>
 or <code>mime:Entity[]</code></p>
@@ -5110,7 +5266,7 @@ or <code>mime:Entity[]</code></p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Caller&gt;
-                                                   </span> accepted(http:Response|string|xml|json|byte[]|io:ReadableByteChannel|mime:Entity[]? message) returns (error?&lt;&gt;) 
+                                                   </span> accepted(http:Response|string|xml|json|byte[]|io:ReadableByteChannel|mime:Entity[] message) returns (error?&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5128,8 +5284,8 @@ or <code>mime:Entity[]</code></p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name">message</td>
-                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-type"><a href="http.html#Response">http:Response</a>|<a href="primitive-types.html#string">string</a>|<a href="builtin.html#xml">xml</a>|<a href="primitive-types.html#json">json</a>|<a href="builtin.html#byte">byte[]</a>|<a href="io.html#ReadableByteChannel">io:ReadableByteChannel</a>|<a href="mime.html#Entity">mime:Entity[]</a></td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>The response or any payload of type <code>string</code>, <code>xml</code>, <code>json</code>, <code>byte[]</code>, <code>io:ReadableByteChannel</code>
 or <code>mime:Entity[]</code>. This message is optional.</p>
 </td>
@@ -5212,7 +5368,7 @@ Notification requests to a Hub.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> subscribe(websub:SubscriptionChangeRequest subscriptionRequest) returns (SubscriptionChangeResponse | error&lt;&gt;) 
+                                                   </span> subscribe(websub:SubscriptionChangeRequest subscriptionRequest) returns (SubscriptionChangeResponse|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5249,7 +5405,7 @@ Notification requests to a Hub.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeResponse">SubscriptionChangeResponse</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeResponse">SubscriptionChangeResponse</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p><code>SubscriptionChangeResponse</code> indicating subscription details, if the request was successful else
 <code>error</code> if an error occurred with the subscription request</p>
@@ -5265,7 +5421,7 @@ Notification requests to a Hub.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> unsubscribe(websub:SubscriptionChangeRequest unsubscriptionRequest) returns (SubscriptionChangeResponse | error&lt;&gt;) 
+                                                   </span> unsubscribe(websub:SubscriptionChangeRequest unsubscriptionRequest) returns (SubscriptionChangeResponse|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -5302,7 +5458,7 @@ Notification requests to a Hub.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeResponse">SubscriptionChangeResponse</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="websub.html#SubscriptionChangeResponse">SubscriptionChangeResponse</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p><code>SubscriptionChangeResponse</code> indicating unsubscription details, if the request was successful else
 <code>error</code> if an error occurred with the unsubscription request</p>
@@ -5458,7 +5614,7 @@ publish updates.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">contentType</td>
                                                                     <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>The type of the update content, to set as the <code>ContentType</code> header</p>
 </td>
                                                                 </tr>
@@ -5466,7 +5622,7 @@ publish updates.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#map">map<string>?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>The headers, if any, that need to be set</p>
 </td>
                                                                 </tr>
@@ -5527,7 +5683,7 @@ happen as such.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">headers</td>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#map">map<string>?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"><p>The headers, if any, that need to be set</p>
 </td>
                                                                 </tr>
@@ -5917,6 +6073,16 @@ happen as such.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -5997,6 +6163,16 @@ happen as such.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -6057,7 +6233,7 @@ happen as such.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -6107,6 +6283,16 @@ happen as such.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -6117,7 +6303,27 @@ happen as such.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -6167,17 +6373,11 @@ happen as such.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+<<<<<<< HEAD
+                                   <a href="swagger.html">ballerina/<span class="bold">openapi</span>
+=======
                                    <a href="streams.html">ballerina/<span class="bold">streams</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -6228,6 +6428,16 @@ happen as such.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -6252,6 +6462,16 @@ happen as such.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -6332,6 +6552,16 @@ happen as such.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -6392,7 +6622,7 @@ happen as such.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -6442,6 +6672,16 @@ happen as such.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -6452,7 +6692,27 @@ happen as such.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -6502,17 +6762,11 @@ happen as such.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+<<<<<<< HEAD
+                                   <a href="swagger.html">ballerina/<span class="bold">openapi</span>
+=======
                                    <a href="streams.html">ballerina/<span class="bold">streams</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -6563,6 +6817,16 @@ happen as such.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>

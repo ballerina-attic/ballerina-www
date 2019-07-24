@@ -268,6 +268,41 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -330,6 +365,18 @@
                                         
 
                                         
+                                          
+                                        <li>
+                                            <a href="#Address">
+                                                <div class="construct-icon">
+                                                    <span class="fw-record"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    Address
+                                                </div>
+                                            </a>
+                                        </li>
+                                            
                                           
                                         <li>
                                             <a href="#ClientConfig">
@@ -457,6 +504,19 @@
                                         
                                         <ul class="construct-inner-items-ul">
                                             <li>
+                                                <a href="#Client-read">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        read
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
                                                 <a href="#Client-close">
                                                     <div class="construct-icon">
                                                         <span class="fw-action"> </span>
@@ -489,6 +549,57 @@
                                                     </div>
                                                     <div class="construct-name">
                                                         shutdownWrite
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                            
+                                          
+                                        <li>
+                                            <a href="#UdpClient">
+                                                <div class="construct-icon">
+                                                    <span class="fw-endpoint"> </span>
+                                                </div>
+                                                <div class="construct-name">
+                                                    UdpClient
+                                                </div>
+                                            </a>
+                                        </li>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#UdpClient-sendTo">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        sendTo
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#UdpClient-receiveFrom">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        receiveFrom
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <ul class="construct-inner-items-ul">
+                                            <li>
+                                                <a href="#UdpClient-close">
+                                                    <div class="construct-icon">
+                                                        <span class="fw-action"> </span>
+                                                    </div>
+                                                    <div class="construct-name">
+                                                        close
                                                     </div>
                                                 </a>
                                             </li>
@@ -602,42 +713,58 @@
                                                 <h2>Module overview</h2>
 <p>This module provides an implementation for connecting to a remote socket server or acts as a server for an incoming socket request. The module facilitates two types of endpoints called <code>Client</code> and <code>Listener</code>.</p>
 <h2>Samples</h2>
-<h3>Listener endpoints</h3>
-<p>The sample given below shows how a listener is used to listen to the incoming socket request. The <code>onAccept(socket:Caller)</code> resource function gets invoked when a new client is connected. The new client is represented using the <code>socket:Caller</code>.
-<code>onReadReady(socket:Caller, byte[])</code> resource gets invoked once the remote client sends some data and <code>onClose(socket:Caller)</code> is invoked once the client is departs.</p>
-<pre><code class="language-ballerina">import ballerina/io;
+<h3>TCP Listener endpoints</h3>
+<p>The sample given below shows how a listener is used to listen to the incoming socket request. The <code>onConnect(socket:Caller)</code> resource function gets invoked when a new client is connected. The new client is represented using the <code>socket:Caller</code>.
+<code>onReadReady(socket:Caller)</code> resource gets invoked once the remote client sends some data.</p>
+<pre><code class="language-ballerina">import ballerina/log;
 import ballerina/socket;
 
-listener socket:Listener server = new ({ port:61598 });
+listener socket:Listener server = new(61598);
 
 service echoServer on server {
-    resource function onAccept (socket:Caller caller) {
-        io:println(&quot;Join: &quot;, caller.remotePort);
+    resource function onConnect(socket:Caller caller) {
+        log:printInfo(&quot;Join: &quot; + caller.remotePort);
     }
 
-    resource function onReadReady (socket:Caller caller, byte[] content) {
-        _ = caller-&gt;write(content);
-    }
-
-    resource function onClose(socket:Caller caller) {
-        io:println(&quot;Leave: &quot; + caller.remotePort);
+    resource function onReadReady(socket:Caller caller) {
+        var result = caller-&gt;read();
+        if (result is (byte[], int)) {
+            var (content, length) = result;
+            if (length &gt; 0) {
+                var writeResult = caller-&gt;write(content);
+                if (writeResult is int) {
+                    log:printInfo(&quot;Number of bytes written: &quot; + writeResult);
+                } else {
+                    log:printError(&quot;Unable to written the content&quot;, err = writeResult);
+                }
+            } else {
+                log:printInfo(&quot;Client close: &quot; + caller.remotePort);
+            }
+        } else {
+            log:printError(&quot;Unable to read the content&quot;, err = result);
+        }
     }
 
     resource function onError(socket:Caller caller, error er) {
-        io:println(er.reason());
+        log:printError(&quot;An error occured&quot;, err = er);
     }
 }
 </code></pre>
-<h3>Client endpoints</h3>
+<h3>TCP Client endpoints</h3>
 <p>Client endpoints are used to connect to and interact with a socket server. The client can only send the data to the server. Client's <code>callbackService</code> needs to retrieve the data from the server and do multiple requests/responses between client and the server.</p>
 <pre><code class="language-ballerina">import ballerina/io;
 import ballerina/socket;
 
 public function main() {
-    socket:Client socketClient = new({host: &quot;localhost&quot;, port: 9999, callbackService: ClientService});
+    socket:Client socketClient = new({ host: &quot;localhost&quot;, port: 61598, callbackService: ClientService });
     string msg = &quot;Hello Ballerina\n&quot;;
     byte[] c1 = msg.toByteArray(&quot;utf-8&quot;);
-    _ = socketClient-&gt;write(c1);
+    var writeResult = socketClient-&gt;write(c1);
+    if (writeResult is int) {
+        io:println(&quot;Number of bytes written: &quot; , writeResult);
+    } else {
+        io:println(&quot;Unable to written the content&quot;, writeResult.detail().message);
+    }
 }
 
 service ClientService = service {
@@ -646,19 +773,77 @@ service ClientService = service {
         io:println(&quot;connect: &quot;, caller.remotePort);
     }
     
-    resource function onReadReady (socket:Caller caller, byte[] content) {
-        io:println(&quot;client write&quot;);
-        _ = caller-&gt;write(content);
-    }
-    
-    resource function onClose(socket:Caller caller) {
-        io:println(&quot;Leave: &quot;, caller.remotePort);
+    resource function onReadReady(socket:Caller caller) {
+        var result = caller-&gt;read();
+        if (result is (byte[], int)) {
+            var (content, length) = result;
+            if (length &gt; 0) {
+                var str = getString(content);
+                if (str is string) {
+                    io:println(untaint str);
+                } else {
+                    io:println(str.reason());
+                }
+                var closeResult = caller-&gt;close();
+                if (closeResult is error) {
+                    io:println(closeResult.detail().message);
+                } else {
+                    io:println(&quot;Client connection closed successfully.&quot;);
+                }
+            } else {
+                io:println(&quot;Client close: &quot;, caller.remotePort);
+            }
+        } else {
+            io:println(result);
+        }
     }
     
     resource function onError(socket:Caller caller, error er) {
         io:println(er.reason());
     }
 };
+
+function getString(byte[] content) returns string | error {
+    io:ReadableByteChannel byteChannel = io:createReadableChannel(content);
+    io:ReadableCharacterChannel characterChannel = new io:ReadableCharacterChannel(byteChannel, &quot;UTF-8&quot;);
+    return characterChannel.read(50);
+}
+</code></pre>
+<h3>UDP Client endpoints</h3>
+<p>This is a Ballerina UDP client sample. <code>sendTo</code> and <code>receiveFrom</code> action available to interact with remote UDP host.</p>
+<pre><code class="language-ballerina">import ballerina/io;
+import ballerina/socket;
+
+public function main() {
+    socket:UdpClient socketClient = new;
+    string msg = &quot;Hello from UDP client&quot;;
+    byte[] c1 = msg.toByteArray(&quot;utf-8&quot;);
+    var sendResult =
+        socketClient-&gt;sendTo(c1, { host: &quot;localhost&quot;, port: 48826 });
+    if (sendResult is int) {
+        io:println(&quot;Number of bytes written: &quot;, sendResult);
+    } else {
+        panic sendResult;
+    }
+    var result = socketClient-&gt;receiveFrom();
+    if (result is (byte[], int, socket:Address)) {
+        var (content, length, address) = result;
+        io:ReadableByteChannel byteChannel = io:createReadableChannel(content);
+        io:ReadableCharacterChannel characterChannel = new io:ReadableCharacterChannel(byteChannel, &quot;UTF-8&quot;);
+        var str = characterChannel.read(60);
+        if (str is string) {
+            io:println(&quot;Received: &quot;, untaint str);
+        } else {
+            io:println(str.detail().message);
+        }
+    } else {
+        io:println(&quot;An error occured while receiving the data &quot;, result);
+    }
+    var closeResult = socketClient-&gt;close();
+    if (closeResult is error) {
+        io:println(&quot;An error occured while closing the connection &quot;, closeResult);
+    }
+}
 </code></pre>
 
                                             </div>
@@ -677,6 +862,14 @@ service ClientService = service {
                                                  <th class="cSummary-table-name">Record</th>
                                                  <th class="cSummary-table-desc">Description</th>
                                              </tr>
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#Address">Address</a></td>
+                                                         <td class="cSummary-table-desc">This represent the IP socket address.
+</td>
+                                                     </tr>
+                                                 
                                              
                                                  
                                                      <tr>
@@ -708,6 +901,8 @@ service ClientService = service {
                                              
                                                  
                                              
+                                                 
+                                             
                                          </table>
                                          
                                         <!-- objects -->
@@ -727,12 +922,16 @@ service ClientService = service {
                                                  
                                              
                                                  
+                                             
+                                                 
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Listener">Listener</a></td>
                                                      
                                                          <td class="cSummary-table-desc"><p>Represents service endpoint where socket server service registered and start.</p>
 </td>
                                                      </tr>
+                                                 
+                                             
                                                  
                                              
                                                  
@@ -759,9 +958,19 @@ service ClientService = service {
                                                  
                                              
                                                  
+                                             
+                                                 
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#Client">Client</a></td>
                                                         <td class="cSummary-table-desc"><p>Represents socket client and related remote functions.</p>
+</td>
+                                                     </tr>
+                                                 
+                                             
+                                                 
+                                                     <tr>
+                                                         <td class="cSummary-table-name"><a href="#UdpClient">UdpClient</a></td>
+                                                        <td class="cSummary-table-desc"><p>Represents UDP socket client and related remote functions.</p>
 </td>
                                                      </tr>
                                                  
@@ -787,6 +996,8 @@ service ClientService = service {
                                               
                                               
                                               
+                                              
+                                              
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">Caller</td>
@@ -806,6 +1017,56 @@ This has all the remote functions expose by socket:Client.</p>
                                       
                                       <div class="cConstructsWraperContainer"> 
                                             
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <!-- Records -->
+                                                
+                                                <h2 id="Address">
+                                                    <span class="fw-record sm-icon"></span> public type Address
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span>This represent the IP socket address.
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">host</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The hostname of the Socket Address</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">port</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default"></td>
+                                                        <td class="cAPI-table-desc"><p>The port number of the Socket Address</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
                                             <div class="construct-wrapper">
                                                 <!--Primitive Types-->
                                                 
@@ -895,7 +1156,7 @@ This has all the remote functions expose by socket:Client.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">interface</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>the interface that server with to bind</p>
 </td>
                                                     </tr>
@@ -999,7 +1260,7 @@ This has all the remote functions expose by socket:Client.</p>
                                                                 <tr>
                                                                     <td class="cAPI-table-name">config</td>
                                                                     <td class="cAPI-table-type"><a href="socket.html#ListenerConfig">socket:ListenerConfig?</a></td>
-                                                                    <td class="cAPI-table-default">null</td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
                                                                 
@@ -1068,7 +1329,7 @@ This has all the remote functions expose by socket:Client.</p>
                                                                 <span class="fw-function"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Listener&gt;
-                                                   </span> __attach(service s, map annotationData) returns (error?&lt;&gt;) 
+                                                   </span> __attach(service s, string? name) returns (error?&lt;&gt;) 
                                                             </h2>
                                                              
                                                             <table>
@@ -1087,9 +1348,9 @@ This has all the remote functions expose by socket:Client.</p>
                                                                 </tr>
                                                                 
                                                                 <tr>
-                                                                    <td class="cAPI-table-name">annotationData</td>
-                                                                    <td class="cAPI-table-type"><a href="builtin.html#map">map</a></td>
-                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-name">name</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                                    <td class="cAPI-table-default">()</td>
                                                                     <td class="cAPI-table-desc"></td>
                                                                 </tr>
                                                                 
@@ -1165,7 +1426,7 @@ This has all the remote functions expose by socket:Client.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">remoteAddress</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>the remote IP address string in textual presentation to which the socket is connected</p>
 </td>
                                                     </tr>
@@ -1173,7 +1434,7 @@ This has all the remote functions expose by socket:Client.</p>
                                                     <tr>
                                                         <td class="cAPI-table-name">localAddress</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
-                                                        <td class="cAPI-table-default">null</td>
+                                                        <td class="cAPI-table-default">()</td>
                                                         <td class="cAPI-table-desc"><p>the local IP address string in textual presentation to which the socket is bound</p>
 </td>
                                                     </tr>
@@ -1196,7 +1457,7 @@ This has all the remote functions expose by socket:Client.</p>
                                                                 <span class="fw-action sm-icon"></span>
                                                                 <span class="thin-text light-gray">
                                                    &lt;Client&gt;
-                                                   </span> write(byte[] content) returns (int | error&lt;&gt;) 
+                                                   </span> write(byte[] content) returns (int|error&lt;&gt;) 
                                                             </h2>
                                                             
                                                             <p>
@@ -1235,10 +1496,70 @@ This has all the remote functions expose by socket:Client.</p>
                                                                 
                                                                 <tr>
                                                                     <td class="cAPI-table-name"></td>
-                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a> | <a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><ul>
 <li>number of bytes got written or an error if encounters an error while writing</li>
+</ul>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="Client-read">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;Client&gt;
+                                                   </span> read(int length) returns ((byte[],int)|error&lt;&gt;) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Reads data from the client socket. If the data has the specified length, then wait until that number of bytes
+are received from the client. Else, return the data available in the OS buffer.
+In the case of the connection being closed by the client, then return either -1 or the data
+that is currently available in the buffer.
+Number of bytes returned will be &lt; 0 if the client closes the connection.</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">length</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                                    <td class="cAPI-table-default">-100</td>
+                                                                    <td class="cAPI-table-desc"><ul>
+<li>Positive integer. Represents the number of bytes which should be read</li>
+</ul>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type">(<a href="builtin.html#byte">byte[]</a>,<a href="primitive-types.html#int">int</a>)|<a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><ul>
+<li>Content as a byte array and the number of bytes read or an error if encounters an error while reading</li>
 </ul>
 </td>
                                                                 </tr>
@@ -1344,6 +1665,221 @@ This has all the remote functions expose by socket:Client.</p>
                                                                     <td class="cAPI-table-type"><a href="builtin.html#error">error?<></a></td>
                                                                     <td class="cAPI-table-default"></td>
                                                                     <td class="cAPI-table-desc"><p>an error if encounters an error while shutdown the write from socket or returns nil otherwise</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </div>
+                                                 
+                                                <!-- Records -->
+                                                
+                                                <!-- Objects and its functions -->
+                                                
+                                            </div>
+                                                
+                                            <div class="construct-wrapper">
+                                                <!--Primitive Types-->
+                                                
+                                                <!-- Function -->
+                                                
+                                                <!-- Struct-binded functions grouped together -->
+                                                
+                                                <!-- Connectors and its actions -->
+                                                
+                                                <h2 id="UdpClient">
+                                                    <span class="fw-endpoint sm-icon"></span>Endpoint UdpClient
+                                                </h2>
+                                                
+                                                <p>
+                                                    <span class="fw-right gray xs-icon"></span><p>Represents UDP socket client and related remote functions.</p>
+
+                                                </p>
+                                                 
+                                                <table>
+                                                    <tr>
+                                                        <th class="cAPI-table-name">Field Name</th>
+                                                        <th class="cAPI-table-type">Data Type</th>
+                                                        <th class="cAPI-table-default">Default Value</th>
+                                                        <th class="cAPI-table-desc">Description</th>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">localPort</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default">0</td>
+                                                        <td class="cAPI-table-desc"><p>the local port number to which this socket is bound</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">interface</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string?</a></td>
+                                                        <td class="cAPI-table-default">()</td>
+                                                        <td class="cAPI-table-desc"><p>network interface to bind to</p>
+</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td class="cAPI-table-name">id</td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                        <td class="cAPI-table-default">0</td>
+                                                        <td class="cAPI-table-desc"><p>a unique identifier to identify each client</p>
+</td>
+                                                    </tr>
+                                                    
+                                                </table>
+                                                 
+                                                <div class="function-wrapper">
+                                                    <ul>
+                                                        
+                                                        <li>
+                                                            <h2 id="UdpClient-sendTo">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;UdpClient&gt;
+                                                   </span> sendTo(byte[] content, socket:Address address) returns (int|error&lt;&gt;) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Send given data to the specified remote client.</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">content</td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#byte">byte[]</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>the content that wish to send to the client socket</p>
+</td>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">address</td>
+                                                                    <td class="cAPI-table-type"><a href="socket.html#Address">socket:Address</a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>the address of the remote client socket</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a>|<a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>number of bytes got written or an error if encounters an error while writing</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="UdpClient-receiveFrom">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;UdpClient&gt;
+                                                   </span> receiveFrom(int length) returns ((byte[],int,Address)|error&lt;&gt;) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Reads data from the remote client. If the data has the specified length, then wait until that number of bytes
+are received from the client. Else, return the data available in the OS buffer or wait until data receive.
+If the request length is lesser than the data in the buffer, then the rest will be discarded.</p>
+
+                                                            </p>
+                                                             
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name">Parameter Name</th>
+                                                                    <th class="cAPI-table-type">Data Type</th>
+                                                                    <th class="cAPI-table-default">Default Value</th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name">length</td>
+                                                                    <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
+                                                                    <td class="cAPI-table-default">-100</td>
+                                                                    <td class="cAPI-table-desc"><p>Positive integer. Represents the number of bytes which should be read</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                             
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type">(<a href="builtin.html#byte">byte[]</a>,<a href="primitive-types.html#int">int</a>,<a href="socket.html#Address">Address</a>)|<a href="builtin.html#error">error<></a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><p>Content as a byte array, the number of bytes read and the address of the sender
+or an error if encounters an error while reading</p>
+</td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                            
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <h2 id="UdpClient-close">
+                                                                <span class="fw-action sm-icon"></span>
+                                                                <span class="thin-text light-gray">
+                                                   &lt;UdpClient&gt;
+                                                   </span> close() returns (error?&lt;&gt;) 
+                                                            </h2>
+                                                            
+                                                            <p>
+                                                                <span class="fw-right gray xs-icon"></span><p>Closes the client socket connection.</p>
+
+                                                            </p>
+                                                              
+                                                            <div class="cReturnTableHeader"></div>
+                                                            <table>
+                                                                <tr>
+                                                                    <th class="cAPI-table-name"></th>
+                                                                    <th class="cAPI-table-type">Return Type</th>
+                                                                    <th class="cAPI-table-default"></th>
+                                                                    <th class="cAPI-table-desc">Description</th>
+                                                                </tr>
+                                                                
+                                                                <tr>
+                                                                    <td class="cAPI-table-name"></td>
+                                                                    <td class="cAPI-table-type"><a href="builtin.html#error">error?<></a></td>
+                                                                    <td class="cAPI-table-default"></td>
+                                                                    <td class="cAPI-table-desc"><ul>
+<li>an error if encounters an error while closing the connection or returns nil otherwise</li>
+</ul>
 </td>
                                                                 </tr>
                                                                 
@@ -1548,6 +2084,16 @@ This has all the remote functions expose by socket:Client.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -1628,6 +2174,16 @@ This has all the remote functions expose by socket:Client.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -1688,7 +2244,7 @@ This has all the remote functions expose by socket:Client.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -1738,6 +2294,16 @@ This has all the remote functions expose by socket:Client.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -1748,7 +2314,27 @@ This has all the remote functions expose by socket:Client.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -1809,17 +2395,11 @@ This has all the remote functions expose by socket:Client.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
+<<<<<<< HEAD
+                                   <a href="swagger.html">ballerina/<span class="bold">openapi</span>
+=======
                                    <a href="system.html">ballerina/<span class="bold">system</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -1860,6 +2440,16 @@ This has all the remote functions expose by socket:Client.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -1883,6 +2473,16 @@ This has all the remote functions expose by socket:Client.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -1963,6 +2563,16 @@ This has all the remote functions expose by socket:Client.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -2023,7 +2633,7 @@ This has all the remote functions expose by socket:Client.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -2073,6 +2683,16 @@ This has all the remote functions expose by socket:Client.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -2083,7 +2703,27 @@ This has all the remote functions expose by socket:Client.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -2144,17 +2784,11 @@ This has all the remote functions expose by socket:Client.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
+<<<<<<< HEAD
+                                   <a href="swagger.html">ballerina/<span class="bold">openapi</span>
+=======
                                    <a href="system.html">ballerina/<span class="bold">system</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -2195,6 +2829,16 @@ This has all the remote functions expose by socket:Client.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>

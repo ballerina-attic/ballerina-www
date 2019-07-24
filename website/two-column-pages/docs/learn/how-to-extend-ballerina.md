@@ -230,10 +230,10 @@ import ballerinax/hello;
   salutation: "Guten Tag!"
 }
 service helloWorld on new http:Listener(9091) {
-   resource function sayHello(http:Caller outboundEP, http:Request request) {
+   resource function sayHello(http:Caller outboundEP, http:Request request) returns error? {
        http:Response response = new;
        response.setTextPayload("Hello, World from service helloWorld ! \n");
-       _ = outboundEP->respond(response);
+       check outboundEP->respond(response);
    }
 }
 ```
@@ -746,10 +746,10 @@ import ballerinax/hello;
 
 @hello:Greeting{salutation : "Guten Tag!"}
 service helloWorld on new http:Listener(9091) {
-   resource function sayHello(http:Caller outboundEP, http:Request request) {
+   resource function sayHello(http:Caller outboundEP, http:Request request) returns error? {
        http:Response response = new;
        response.setTextPayload("Hello, World from service helloWorld ! \n");
-       _ = outboundEP -> respond(response);
+       check outboundEP->respond(response);
    }
 }
 ```
@@ -928,7 +928,7 @@ This indicator could be one of the following:
 - The payload - the value for a particular key in the JSON payload
 - A request header and the payload (combination of the above)
  
-The [ballerina/websub Module.md](stdlib/websub/src/main/ballerina/websub/Module.md) explains the extension points in detail.
+The [ballerina/websub Module.md](https://ballerina.io/learn/api-docs/ballerina/websub.html) explains the extension points in detail.
  
 You can create and share your own webhook callback service types as Ballerina modules, which you push into a Ballerina registry (such as Ballerina Central).
 
@@ -946,7 +946,7 @@ Follow the steps below to create a webhook callback service type.
 
 ### The GitHub Webhook
 
-A GitHub webhook implementation is made available by WSO2 as the `wso2/githubwebhook3` module.
+A [GitHub webhook implementation](https://github.com/wso2-ballerina/module-github/tree/master/githubwebhook3) is made available by WSO2 as the `wso2/githubwebhook3` module.
 
 This webhook can be used by anyone by importing it.
 
@@ -970,7 +970,12 @@ listener githubwebhook3:WebhookListener githubListener = new(8080);
     subscriptionClientConfig: {
         auth: {
             scheme: http:OAUTH2,
-            accessToken: "<GH_ACCESS_TOKEN>"
+            config: {
+                grantType: http:DIRECT_TOKEN,
+                config: {
+                    accessToken: "<GH_ACCESS_TOKEN>"
+                }
+            }
         }
     }
 }
@@ -1053,7 +1058,6 @@ final map<map<map<(string, typedesc)>>> GITHUB_TOPIC_HEADER_AND_PAYLOAD_KEY_RESO
 public type WebhookListenerConfiguration record {
     string host?;
     http:ServiceSecureSocket httpServiceSecureSocket?;
-    !...
 };
 
 function WebhookListener.__init(int port, WebhookListenerConfiguration? config = ()) {

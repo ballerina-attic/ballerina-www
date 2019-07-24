@@ -317,6 +317,34 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                         <ul class=" active-package">
                             <li>
                                 <!--Package Name-->
@@ -653,6 +681,13 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -718,51 +753,59 @@ string weekday = time:getWeekday(time); // Day of the week. E.g., “TUESDAY”.
 </code></pre>
 <h3>Creating a time/date record</h3>
 <pre><code class="language-ballerina">// Create a record of type ‘Time’ with time zone.
-time:TimeZone zoneIdValue = {id:&quot;America/Panama&quot;};
-time:Time time1 = {time: 1498488382000, zone: zoneIdValue};
+time:TimeZone zoneIdValue = { id: &quot;America/Panama&quot; };
+time:Time time1 = { time: 1498488382000, zone: zoneIdValue };
 
 // Create a record of type ‘Time’ with the time zone offset.
-time:TimeZone zoneOffsetValue = {id:&quot;-05:00&quot;};
-time:Time time2 = {time: 1498488382000, zone: zoneOffsetValue};
+time:TimeZone zoneOffsetValue = { id: &quot;-05:00&quot; };
+time:Time time2 = { time: 1498488382000, zone: zoneOffsetValue };
 
 // Create a record of type ‘Time’ without the time zone.
-time:TimeZone noZoneValue = {id:&quot;&quot;};
-time:Time time3 = {time: 1498488382000, zone: noZoneValue};
+time:TimeZone noZoneValue = { id: &quot;&quot; };
+time:Time time3 = { time: 1498488382000, zone: noZoneValue };
 
 // Create a record of type ‘Time’ with time and date. E.g., 2018-03-28T23:42:45.554-05:00
-time:Time dateTime = time:createTime(2018, 3, 28, 23, 42, 45, 554, &quot;America/Panama&quot;);
+time:Time|error dateTime = time:createTime(2018, 3, 28, 23, 42, 45, 554, &quot;America/Panama&quot;);
 </code></pre>
 <h3>Formatting a time/date to a string</h3>
-<pre><code class="language-ballerina">time:TimeZone zoneValue = {id:&quot;America/Panama&quot;};
-time:Time time = {time: 1498488382444, zone: zoneValue};
+<pre><code class="language-ballerina">time:TimeZone zoneValue = { id: &quot;America/Panama&quot; };
+time:Time time = { time: 1498488382444, zone: zoneValue };
 
 //Format a time to a string of a given pattern.
-string time1 = time:format(time, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;); //E.g., “2017-06-26T09:46:22.444-0500”.
+string|error time1 = time:format(time, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;); //E.g., “2017-06-26T09:46:22.444-0500”.
 
 //Format a time to a string of the RFC-1123 format.
-string time2 = time:format(time, time:TIME_FORMAT_RFC_1123); // E.g., &quot;Mon, 26 Jun 2017 09:46:22 -0500”
+string|error time2 = time:format(time, time:TIME_FORMAT_RFC_1123); // E.g., &quot;Mon, 26 Jun 2017 09:46:22 -0500”
 
 // Convert a time record to a string value.
 string time3 = time:toString(time); //”2017-06-26T09:46:22.444-05:00”
 </code></pre>
 <h3>Parsing a string to time/date</h3>
 <pre><code class="language-ballerina">// Parse a time string of a given format. 
-time:Time time1 = time:parse(&quot;2017-06-26T09:46:22.444-0500&quot;, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;); // The ‘Z’ stands for the time zone.
+time:Time|error time1 = time:parse(&quot;2017-06-26T09:46:22.444-0500&quot;, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;); // The ‘Z’ stands for the time zone.
 
 // Parse a time string of the RFC-1123 format.
-time:Time time2 = time:parse(&quot;Wed, 28 Mar 2018 11:56:23 +0530&quot;, time:TIME_FORMAT_RFC_1123);
+time:Time|error time2 = time:parse(&quot;Wed, 28 Mar 2018 11:56:23 +0530&quot;, time:TIME_FORMAT_RFC_1123);
 </code></pre>
 <h3>Setting time durations</h3>
 <pre><code class="language-ballerina">// Add a duration to a given time.
-time:Time time1 = time:parse(&quot;2017-06-26T09:46:22.444-0500&quot;, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;);
-time1 = time:addDuration(time1, 1, 1, 1, 1, 1, 1, 1); // Adds 1 year, 1 month, 1 day, 1 hour, 1 minute, 1 second, and 1 millisecond.
+time:Time|error time1 = time:parse(&quot;2017-06-26T09:46:22.444-0500&quot;, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;);
+if (time1 is time:Time) {
+    time1 = time:addDuration(time1, 1, 1, 1, 1, 1, 1, 1);
+    // Adds 1 year, 1 month, 1 day, 1 hour, 1 minute, 1 second, and 1 millisecond.
+}
 
 // Subtract a duration from a given time.
-time:Time time2 = time:parse(&quot;2016-03-01T09:46:22.444-0500&quot;, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;);
-time2 = time:subtractDuration(time2, 1, 1, 1, 1, 1, 1, 1);  // Subtracts 1 year, 1 month, 1 day, 1 hour, 1 minute, 1 second, and 1 millisecond.
+time:Time|error time2 = time:parse(&quot;2016-03-01T09:46:22.444-0500&quot;, &quot;yyyy-MM-dd'T'HH:mm:ss.SSSZ&quot;);
+if (time2 is time:Time) {
+    time2 = time:subtractDuration(time2, 1, 1, 1, 1, 1, 1, 1);
+    // Subtracts 1 year, 1 month, 1 day, 1 hour, 1 minute, 1 second, and 1 millisecond.
+}
 
 // Get the duration between two times.
-int diffInMillis = time1.time - time2.time;
+time:Time time3 = time:currentTime();
+time:Time time4 = time:currentTime();
+int diffInMillis = time3.time - time4.time;
 </code></pre>
 
                                             </div>
@@ -1054,7 +1097,8 @@ int diffInMillis = time1.time - time2.time;
                                             <tr>
                                                 <td class="cSummary-table-name">TimeFormat</td>
                                                 <td class="cSummary-table-type">RFC_1123</td>
-                                                <td class="cSummary-table-desc"></td>
+                                                <td class="cSummary-table-desc"><p>The time format defined by the RFC-1123.</p>
+</td>
                                             </tr>
                                               
                                               
@@ -1150,7 +1194,8 @@ int diffInMillis = time1.time - time2.time;
                                                         <td class="cAPI-table-name">id</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"></td>
+                                                        <td class="cAPI-table-desc"><p>Zone short ID or offset string</p>
+</td>
                                                     </tr>
                                                     
                                                     <tr>
@@ -1290,7 +1335,7 @@ int diffInMillis = time1.time - time2.time;
                                                 <!-- Function -->
                                                 
                                                 <h2 id="createTime">
-                                                    <span class="fw-function sm-icon"> </span> public function createTime(int year, int month, int date, int hour, int minute, int second, int milliSecond, string zoneId) returns (Time) 
+                                                    <span class="fw-function sm-icon"> </span> public function createTime(int year, int month, int date, int hour, int minute, int second, int milliSecond, string zoneId) returns (Time|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1383,9 +1428,9 @@ int diffInMillis = time1.time - time2.time;
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="time.html#Time">Time</a></td>
+                                                        <td class="cAPI-table-type"><a href="time.html#Time">Time</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Time object containing time and zone information</p>
+                                                        <td class="cAPI-table-desc"><p>Time object containing time and zone information or an <code>error</code> if failed to create the time</p>
 </td>
                                                     </tr>
                                                     
@@ -1450,7 +1495,7 @@ int diffInMillis = time1.time - time2.time;
                                                 <!-- Function -->
                                                 
                                                 <h2 id="format">
-                                                    <span class="fw-function sm-icon"> </span> public function format(time:Time time, string|RFC_1123 timeFormat) returns (string) 
+                                                    <span class="fw-function sm-icon"> </span> public function format(time:Time time, string|RFC_1123 timeFormat) returns (string|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -1495,9 +1540,9 @@ int diffInMillis = time1.time - time2.time;
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
+                                                        <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>The formatted string of the given time</p>
+                                                        <td class="cAPI-table-desc"><p>The formatted string of the given time or an <code>error</code> if failed to format the time</p>
 </td>
                                                     </tr>
                                                     
@@ -2177,7 +2222,7 @@ The milli-of-second, from 0 to 999.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="parse">
-                                                    <span class="fw-function sm-icon"> </span> public function parse(string data, string|RFC_1123 timeFormat) returns (Time) 
+                                                    <span class="fw-function sm-icon"> </span> public function parse(string data, string|RFC_1123 timeFormat) returns (Time|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2222,9 +2267,9 @@ The milli-of-second, from 0 to 999.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="time.html#Time">Time</a></td>
+                                                        <td class="cAPI-table-type"><a href="time.html#Time">Time</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Time object containing time and zone information</p>
+                                                        <td class="cAPI-table-desc"><p>Time object containing time and zone information or an <code>error</code> if failed to parse the given string</p>
 </td>
                                                     </tr>
                                                     
@@ -2424,7 +2469,7 @@ The milli-of-second, from 0 to 999.</p>
                                                 <!-- Function -->
                                                 
                                                 <h2 id="toTimeZone">
-                                                    <span class="fw-function sm-icon"> </span> public function toTimeZone(time:Time time, string zoneId) returns (Time) 
+                                                    <span class="fw-function sm-icon"> </span> public function toTimeZone(time:Time time, string zoneId) returns (Time|error&lt;&gt;) 
                                                 </h2>
                                                 
                                                 <p>
@@ -2469,9 +2514,10 @@ The milli-of-second, from 0 to 999.</p>
                                                     
                                                     <tr>
                                                         <td class="cAPI-table-name"></td>
-                                                        <td class="cAPI-table-type"><a href="time.html#Time">Time</a></td>
+                                                        <td class="cAPI-table-type"><a href="time.html#Time">Time</a>|<a href="builtin.html#error">error<></a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><p>Time object containing time and zone information after the conversion</p>
+                                                        <td class="cAPI-table-desc"><p>Time object containing time and zone information after the conversion
+or an <code>error</code> if failed to format the time</p>
 </td>
                                                     </tr>
                                                     
@@ -2690,6 +2736,16 @@ The milli-of-second, from 0 to 999.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -2770,6 +2826,16 @@ The milli-of-second, from 0 to 999.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -2830,7 +2896,7 @@ The milli-of-second, from 0 to 999.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -2880,6 +2946,16 @@ The milli-of-second, from 0 to 999.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -2890,7 +2966,27 @@ The milli-of-second, from 0 to 999.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -2940,17 +3036,11 @@ The milli-of-second, from 0 to 999.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+<<<<<<< HEAD
+                                   <a href="swagger.html">ballerina/<span class="bold">openapi</span>
+=======
                                    <a href="streams.html">ballerina/<span class="bold">streams</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -3002,6 +3092,16 @@ The milli-of-second, from 0 to 999.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
@@ -3025,6 +3125,16 @@ The milli-of-second, from 0 to 999.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="artemis.html">ballerina/<span class="bold">artemis</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="auth.html">ballerina/<span class="bold">auth</span>
                                    </a>
                                    
@@ -3105,6 +3215,16 @@ The milli-of-second, from 0 to 999.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="filepath.html">ballerina/<span class="bold">filepath</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="grpc.html">ballerina/<span class="bold">grpc</span>
                                    </a>
                                    
@@ -3165,7 +3285,7 @@ The milli-of-second, from 0 to 999.</p>
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="llvm.html">ballerina/<span class="bold">llvm</span>
+                                   <a href="jvm.html">ballerina/<span class="bold">jvm</span>
                                    </a>
                                    
                                 </li>
@@ -3215,6 +3335,16 @@ The milli-of-second, from 0 to 999.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="nats.html">ballerina/<span class="bold">nats</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="observe.html">ballerina/<span class="bold">observe</span>
                                    </a>
                                    
@@ -3225,7 +3355,27 @@ The milli-of-second, from 0 to 999.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+                                   <a href="openapi.html">ballerina/<span class="bold">openapi</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
                                    <a href="privacy.html">ballerina/<span class="bold">privacy</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="rabbitmq.html">ballerina/<span class="bold">rabbitmq</span>
                                    </a>
                                    
                                 </li>
@@ -3275,17 +3425,11 @@ The milli-of-second, from 0 to 999.</p>
                                 <li>
                                    <!--Package Name-->
                                    
+<<<<<<< HEAD
+                                   <a href="swagger.html">ballerina/<span class="bold">openapi</span>
+=======
                                    <a href="streams.html">ballerina/<span class="bold">streams</span>
-                                   </a>
-                                   
-                                </li>
-                             </ul>
-                             
-                             <ul class="">
-                                <li>
-                                   <!--Package Name-->
-                                   
-                                   <a href="swagger.html">ballerina/<span class="bold">swagger</span>
+>>>>>>> 94bf3648b61bbaf57173908d38b90ff3f3a32e94
                                    </a>
                                    
                                 </li>
@@ -3337,6 +3481,16 @@ The milli-of-second, from 0 to 999.</p>
                                    <!--Package Name-->
                                    
                                    <a href="transactions.html">ballerina/<span class="bold">transactions</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="utils.html">ballerina/<span class="bold">utils</span>
                                    </a>
                                    
                                 </li>
