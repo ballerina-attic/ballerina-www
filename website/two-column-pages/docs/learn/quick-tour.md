@@ -54,6 +54,8 @@ Let's try this on VS Code.
 
 > **Tip:** You can use your [favorite editor to work on Ballerina code](https://ballerina.io/learn/tools-ides/).
 
+Open your service in VS Code. You can use the following command to do this on Linux or OSX. Replace '/<folder_path>/' with the actual folder path in which the Ballerina project was initialized.
+=======
 1. Download and install [VS Code][#https://code.visualstudio.com/Download](https://code.visualstudio.com/Download).
 
 2. Execute the below commands based on your OS to open your service in VS Code. 
