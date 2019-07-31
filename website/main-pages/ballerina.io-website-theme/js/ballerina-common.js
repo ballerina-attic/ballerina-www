@@ -175,6 +175,7 @@ $(document).ready(function() {
         '<div id="navbar" class="collapse navbar-collapse">' +
         '<ul class="nav navbar-nav cTopNav">' +
         '<li class="active toctree-l1" id="learnli"><a class="cBioTopLink" href="/learn">Learn</a></li>' +
+        '<li class="toctree-l1" id="philosophyli"><a class="cBioTopLink" href="/philosophy">Philosophy</a></li>' +
         '<li class="toctree-l1"><a class="cBioTopLink" href="https://central.ballerina.io/" target="_blank">Central</a></li>' +
         '<li class="toctree-l1" id="openli"><a class="cBioTopLink" href="/community">Community</a></li>' +
         '<li class="toctree-l1" id="helpli"><a class="cBioTopLink" href="/help">Help </a></li>' +
@@ -238,10 +239,13 @@ $(document).ready(function() {
 
 
 
-    var version =    '<select name="versions" id="versions" class="select-css">' +
-    '<option value="http://alpha.ballerina.io/">Aplpha</option>' +
+    var version =    '<div class="cVersionContainer"><lable class="cVlable">Version</lable>' +
+    '<select name="versions" id="versions" class="select-css">' +
+    '<option value="http://v1_0_alpha.ballerina.io">Alpha</option>' +
     '<option value="http://ballerina.io">Master</option>' +
-    '</select>';
+    '</select>'+
+    '</div>';
+
    
     $('.cBallerina-io-Logo-row .container').append(version);
 
