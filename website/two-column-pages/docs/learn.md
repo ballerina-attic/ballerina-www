@@ -19,9 +19,6 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 [Ballerina by Example](/learn/by-example/) teaches you the Ballerina language incrementally with commented examples that cover every nuance of the syntax.
 
-### Ballerina by Guide
-
-[Ballerina by Guide](/learn/by-guide/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
 
 ### Tools and IDEs
 
