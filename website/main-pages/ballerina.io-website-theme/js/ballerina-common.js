@@ -237,6 +237,19 @@ $(document).ready(function() {
         '<p>In the creation of Ballerina, we were inspired by so many technologies. Thank you to all that have come before us (and forgive us if we missed one): Java, Go, C, C++, Rust, Haskell, Kotlin, Dart, TypeScript, JavaScript, Flow, Swift, Elm, RelaxNG, NPM, Crates, Maven, Gradle, Kubernetes, Docker, Envoy, Markdown, GitHub and WSO2.</p></div>' +
         '</div>';
 
+
+
+    var version =    '<div class="cVersionContainer"><lable class="cVlable">Version</lable>' +
+    '<select name="versions" id="versions" class="select-css">' +
+    '<option value="http://v1_0_alpha.ballerina.io">Alpha</option>' +
+    '<option value="http://ballerina.io">Master</option>' +
+    '</select>'+
+    '</div>';
+
+   
+    $('.cBallerina-io-Logo-row .container').append(version);
+
+
     $('#iMainNavigation').append(menu);
     $('#iBallerinaFooter').append(footer);
 
@@ -390,6 +403,12 @@ $(document).ready(function() {
         if ($menuDropWindow.hasClass('cShowcSearchTopMenu')) {
             $searchInput.focus();
         }
+
+
+
+
+
+        
     });
 
     $(document).mouseup(function(e) {
@@ -518,4 +537,15 @@ $(function() {
     } else if (pathname.indexOf("help") != -1) {
         $("#helpli").addClass("cActive");
     }
+});
+
+
+
+
+
+$(document).ready(function() {
+ var urlmenu = document.getElementById( 'versions' );
+ urlmenu.onchange = function() {
+       window.open( this.options[ this.selectedIndex ].value );
+  }
 });

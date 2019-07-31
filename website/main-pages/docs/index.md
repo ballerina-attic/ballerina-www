@@ -41,3 +41,4 @@
                </div>
       </div>
 </div>
+<style>.cVersionContainer {display:none;}</style>
