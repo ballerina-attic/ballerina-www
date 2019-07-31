@@ -9,9 +9,11 @@ A Ballerina application can either be:
 
 Both of these are considered "entrypoints" for program execution. 
 
-These applications can be structured into a single program file or a Ballerina package. A collection of packages or source files can be managed together with versioning and dependency management as part of a Ballerina project. 
+These applications can be structured into a single program file or a Ballerina module. A collection of modules can be
+managed together with versioning and dependency management as part of a Ballerina project. 
 
-Source files and packages can contain zero or more entrypoints, and the runtime engine has precedence and sequence rules for choosing which entrypoint to execute.
+Source files and modules can contain zero or more entrypoints, and the runtime engine has precedence and sequence rules
+for choosing which entrypoint to execute.
 
 ### Running Standalone Source Code
 A single Ballerina source code file can be placed into any folder. 
@@ -22,35 +24,36 @@ If the source file contains at least one entrypoint, it can be executed using th
 $ ballerina run foo.bal  
 ```
 
-You can compile a source file with an entrypoint into a linked binary that has a `.balx` extension.
+You can compile a source file with an entrypoint into a linked binary that has a `.jar` extension.
     
 ```bash
-$ ballerina build a/b/c/foo.bal [-o outputfilename.balx]
+$ ballerina build a/b/c/foo.bal [-o outputfilename.jar]
 ```  
 
-And you can run `.balx` files directly:
+And you can run `.jar` files directly:
 ```bash
-$ ballerina run filename.balx
+$ ballerina run filename.jar
 ```
 
 ### Running a Project
-A project is a folder that manages source files and packages as part of a common versioning, dependency management, build, and execution. You can build and run items collectively or individually as packages. See [How To Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) for in-depth structuring of projects.
+A project is a folder that manages modules as part of a common versioning, dependency management, build, and execution.
+You can build and run items collectively or individually as packages.
+See [How To Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) for in-depth structuring of projects.
 
-Build all source files and packages of a project:
+Build all modules of a project:
 ```bash    
 $ ballerina build
 ```
 
-Build a single package in a project:
+Build a module in a project:
 ```bash
-$ ballerina build <package-name>
+$ ballerina build <module-name>
 ```
 
 Options for running programs with entrypoints in a project:  
 ```bash
-$ ballerina run main.balx  
-$ ballerina run target/main.balx
-$ ballerina [-projectroot <path>] run <package>
+$ ballerina run main.jar  
+$ ballerina run target/main.jar
 ```
 
 The `<package>` is the package name, which is the same as the name of the directory that holds the source files. 
@@ -59,7 +62,8 @@ The `<package>` is the package name, which is the same as the name of the direct
 
 ### Ballerina Runtime Configuration Files
 
-A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure. The `ballerina/config` package provides an API for sourcing configuration parameters and using them within your source code. See [Config API Documentation](/learn/api-docs/ballerina/config/) for details.
+A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure.
+The `ballerina/config` package provides an API for sourcing configuration parameters and using them within your source code. See [Config API Documentation](/learn/api-docs/ballerina/config/) for details.
 
 The configuration APIs accept a key and an optional default value. If a mapping does not exist for the specified key, the default value is returned as the configuration value. The default values of these optional configurations are the default values of the return types of the functions.
 
@@ -73,7 +77,7 @@ Consider the following example, which reads a Ballerina config value and prints 
 import ballerina/io;
 import ballerina/config;
 
-function main(string... args) {
+public function main(string... args) {
   string name = config:getAsString("hello.user.name");
   io:println("Hello, " + name + " !");
 }
@@ -81,7 +85,7 @@ function main(string... args) {
 
 The config key is `hello.user.name`. To pass a value to this config from the CLI, we can run the following command. The `-e` argument passes the key and value to the program.
 ```bash
-$ ballerina run main.bal -e hello.user.name=Ballerina
+$ ballerina run -e hello.user.name=Ballerina main.bal 
 Hello, Ballerina !
 ```
 
@@ -90,13 +94,15 @@ The value can be passed as an environment variable as well. Here as the value we
 
 ```bash
 $ export NAME=Ballerina
-$ ballerina run main.bal -e hello.user.name=@env:{NAME}
+$ ballerina run -e hello.user.name=@env:{NAME} main.bal 
 Hello, Ballerina !
 ```
 
 #### Sourcing Configuration Values
 
-The value can be passed as a config file as well. A configuration file should conform to the [TOML](https://github.com/toml-lang/toml) format. Ballerina only supports the following features of TOML: value types (string, int, float, and boolean), tables, and nested tables. Given below is a sample `ballerina.conf`:
+The value can be passed as a config file as well. A configuration file should conform to the 
+[TOML](https://github.com/toml-lang/toml) format. Ballerina only supports the following features of TOML: value types 
+(string, int, float, and boolean), tables, and nested tables. Given below is a sample `ballerina.conf`:
 
 ```toml
 [hello.user]
@@ -124,7 +130,6 @@ Hello, Ballerina !
 $ ballerina run main.bal --config /Users/Test/Desktop/ballerina.conf
 Hello, Ballerina !
 ```
-
 
 #### Configure Secrets as Configuration Items
 Ballerina provides support for encrypting sensitive data such as passwords and allows access to them securely through the configuration API in the code.
@@ -219,11 +224,13 @@ import ballerinax/docker;
     name:"helloworld",
     tag:"v1.0"
 }
-service<http:Service> helloWorld bind {port:9090} {
-    sayHello (endpoint outboundEP, http:Request request) {
-        http:Response response = new;
-        response.setTextPayload("Hello, World! \n");
-        _ = outboundEP -> respond(response);
+service helloWorld on new http:Listener(9090) {
+    resource function sayHello(http:Caller caller, http:Request req) {
+        var result = caller->respond("Hello, World!");
+        // Logs the `error` in case of a failure.
+        if (result is error) {
+            log:printError("Error sending response", err = result);
+        }
     }
 }
 
@@ -339,17 +346,15 @@ Full example can be found at [Database Interaction Guide](https://ballerina.io/l
 ```ballerina
 import ballerina/config;
 import ballerina/http; 
-import ballerina/mysql; 
+import ballerina/jdbc; 
 import ballerinax/kubernetes;
 
 // Create SQL endpoint to MySQL database
-endpoint mysql:Client employeeDB {
-    host:config:getAsString("db-host"),
-    port:3306,
-    name:config:getAsString("db"),
+jdbc:Client testDB = new({
+    url:config:getAsString("db-url"),
     username:config:getAsString("db-username"),
     password:config:getAsString("db-password")
-};
+});
 
 @kubernetes:ConfigMap {
     ballerinaConf:"./conf/data-service.toml",
@@ -373,8 +378,7 @@ endpoint mysql:Client employeeDB {
                 source:"./conf/mysql-connector-java-8.0.11.jar"}]
 }
 
-endpoint http:Listener listener {
-    port:9090,
+http:ServiceEndpointConfiguration ePConfig = {
     secureSocket:{
         keyStore:{
             path:"${ballerina.home}/bre/security/ballerinaKeystore.p12",
@@ -387,18 +391,20 @@ endpoint http:Listener listener {
     }
 };
 
+listener http:Listener employeeEP = new(9090, ePConfig);
+
 @http:ServiceConfig {
     basePath:"/records"
 }
-service<http:Service> employee_data_service bind listener {
+service employee_data_service on employeeEP {
+}
 ```
 
 Sample content of `data-service.toml`:
 
 ```toml
 # Ballerina database config file
-db-host = "mysql-server"
-db = "EMPLOYEE_RECORDS"
+db-url = "jdbc:mysql://mysql-server:3306/EMPLOYEE_RECORDS"
 db-username = "root"
 db-password = "root"
 key-store-password = "abc123"
