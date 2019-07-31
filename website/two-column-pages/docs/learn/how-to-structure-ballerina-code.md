@@ -1,4 +1,4 @@
-# How to Structure Ballerina Code and Manage Modules
+# How to Structure Ballerina Code
 This document demonstrates the development of a Ballerina project and shows how to use the `Ballerina Tool` to fetch, 
 build, and install Ballerina modules. These commands work with repositories that are both local and remote.
 
