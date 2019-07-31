@@ -41,7 +41,7 @@ $ ballerina run /<folder_path>/sample_service-executable.jar
 You get the following output.
 
 ```bash
-[ballerina/http] started HTTP/WS endpoint 0.0.0.0:9090
+[ballerina/http] started HTTP/WS listener 0.0.0.0:9090
 ```
 
 This means your service is up and running. You can invoke the service using an HTTP client. In this case, we use cURL.
@@ -231,7 +231,7 @@ $ ballerina run /<folder_path>/sample_service-executable.jar
 As before, you should get the following output.
 
 ```bash
-[ballerina/http] started HTTP/WS endpoint 0.0.0.0:9090
+[ballerina/http] started HTTP/WS listener 0.0.0.0:9090
 ```
 
 This means your service is up and running. You can invoke the new service by running the below cURL command.
