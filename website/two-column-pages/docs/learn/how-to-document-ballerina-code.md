@@ -120,45 +120,41 @@ Please check [HTTP module documentation](https://ballerina.io/learn/api-docs/bal
 Ballerina provides a `doc` command which can be executed against a given Ballerina project. This command will result in generating the Ballerina documentation as HTML files, for all the modules in the project.
 
 First, let's create a new Ballerina project:
-```bash
+```
 $ mkdir myproject
-$ cd myproject
-$ ballerina init -i
-Create Ballerina.toml [yes/y, no/n]: (y) y
-Organization name: (user) y
-Version: (0.0.1) 
-Ballerina source [service/s, main/m, finish/f]: (s)  
-Module for the service: (no module) math
-Ballerina source [service/s, main/m, finish/f]: (f) s
-Module for the service: (no module) time
-Ballerina source [service/s, main/m, finish/f]: (f) f
+$ cd myproject/
+$ ballerina init
+Ballerina project initialised
 
-Ballerina project initialized
+Next:
+    Use `ballerina create` to create a ballerina module.
+$ ballerina create math -t service
+Created new ballerina module at 'src/math'
+$ ballerina create time -t service
+Created new ballerina module at 'src/time'
+
 ```
 Now, let's generate documentation of the project:
-```bash
+```
 $ ballerina doc
 ```
 Output:
-```bash
+```
 docerina: API documentation generation for sources - [math, time]
-docerina: HTML file written: /private/tmp/myproject/target/api-docs/math.html
-docerina: HTML file written: /private/tmp/myproject/target/api-docs/time.html
 docerina: HTML file written: /private/tmp/myproject/target/api-docs/index.html
-docerina: HTML file written: /private/tmp/myproject/target/api-docs/module-list.html
+docerina: HTML file written: /private/tmp/myproject/target/api-docs/math/index.html
+docerina: HTML file written: /private/tmp/myproject/target/api-docs/time/index.html
 ```
 
-`target/api-docs/html` folder would contain following files;
+`target/api-docs/` folder would contain following;
 ```bash
-$ ls target/api-docs/html/
-docerina-theme    index.html    math.html   module-list.html   time.html
+$ ls target/api-docs/
+index.html  math  time ...
 ```
 
-* `index.html`  - contains an index to the ballerina project documentation
-* `math.html` - contains the content of the module named `math`
-* `time.html` - contains the content of the module named `time`
-* `module-list.html` - contains the module list, which will be useful to find out the list of modules.
-* `docerina-theme` - folder contains basic styles shipped by default with the pack.
+* `index.html`  - contains an index page of all the modules in the Ballerina project 
+* `math` - contains the documentation of the module named `math`
+* `time` - contains the documentation of the module named `time`
 
 If you want to generate documentation for a selected Ballerina module, then you can execute the following command from the ballerina project root directory:
 
@@ -166,9 +162,4 @@ If you want to generate documentation for a selected Ballerina module, then you 
 $ ballerina doc <module_name>
 ```
 
-If you have custom Handlebars templates, you can pass them via the `doc` command:
-
-```bash
-$ ballerina doc -t <path_to_templates> <module_name>
-```
 For other options, please run `ballerina doc --help`.
