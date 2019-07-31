@@ -90,6 +90,7 @@ You can view your service in VS Code.
 // A system module containing protocol access constructs
 // Module objects referenced with 'http:' in code
 import ballerina/http;
+import ballerina/io;
 
 # A service is a network-accessible API
 # Advertised on '/hello', port comes from listener endpoint
@@ -97,16 +98,18 @@ service hello on new http:Listener(9090) {
 
     # A resource is an invokable API method
     # Accessible at '/hello/sayHello
-    # 'caller' is the client invoking this resource
+    # 'caller' is the client invoking this resource 
 
     # + caller - Server Connector
     # + request - Request
     resource function sayHello(http:Caller caller, http:Request request) {
 
         // Send a response back to caller
-        // Errors are ignored with '_'
         // -> indicates a synchronous network-bound call
-        check caller->respond("Hello Ballerina!");
+        error? result = caller->respond("Hello Ballerina!");
+        if (result is error) {
+            io:println("Error in responding", result);
+        }
     }
 }
 ```
@@ -131,7 +134,7 @@ As the next step, let's tweak the service a bit to get sunrise/sunset time detai
 
 > **Note**: returning `error?` allows you to use `check` key word to avoid handling errors explicitly. This is only done to keep the code simple. But in real production code you may have to explicitly handle those errors. 
 
-Following is the sample code with the aforementioned changes
+Following is the sample code with the aforementioned changes:
 
 ```ballerina
 # A service is a network-accessible API
@@ -203,7 +206,10 @@ service sunriseSunset on new http:Listener(9090) {
             suset: check sunrisePayload.results.sunset
         };
 
-        var result = check caller->respond(resPayload);  
+        error? result = caller->respond(resPayload);
+        if (result is error) {
+            io:println("Error in responding", result);
+        }
     }
 }
 ```
