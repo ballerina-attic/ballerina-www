@@ -1,4 +1,4 @@
-# How to Structure Ballerina Code
+# How to Structure Ballerina Code and Manage Modules
 This document demonstrates the development of a Ballerina project and shows how to use the `Ballerina Tool` to fetch, 
 build, and install Ballerina modules. These commands work with repositories that are both local and remote.
 
@@ -240,8 +240,10 @@ module when it is built.
 ```
 
 ### Build a Project
-Building a project will build all projects and source files found in the project's root folder. Building a project runs 
-through phases including dependency resolution, compilation, artifact generation, and unit test execution.
+A project should be build if it is required to generate the executable JAR files from the modules in the project. The
+executable JAR files will be generated only if there are entry points (main method or a service) in the module.Building
+a project will build all modules found in the project's root folder. Building a project runs through phases including
+dependency resolution, compilation, artifact generation, and unit test execution.
 
 ```bash
 ballerina build
@@ -257,6 +259,28 @@ Use the `--skip-tests` flag with the `ballerina build` command to skip running t
 
 ```bash
 ballerina build --skip-tests
+```
+
+
+### Compile a Project
+A project should be compiled if it is required to generate the libraries (i.e BALOs) from the modules in the project.
+Compiling a project will compile all modules found in the project's root folder. Building a project runs through phases
+including dependency resolution, compilation, artifact generation, and unit test execution.
+
+```bash
+ballerina compile
+```
+
+### Compile a Module
+You can build a single module contained within a project:
+
+```bash
+ballerina compile <module-name>
+```
+Use the `--skip-tests` flag with the `ballerina compile` command to skip running the tests during the compile process.
+
+```bash
+ballerina compile --skip-tests
 ```
 
 ### Version a Module
@@ -290,6 +314,7 @@ ballerina.
 
 * BALO files fetched from central.
 * BIR files generated during the compile.
+* JAR file generated during the compile
 
 Here the balo cache will be common across any version of ballerina and BIR and JAR cache will be ballerina version specific.  
 
@@ -306,6 +331,8 @@ The BIR files of the other dependencies will be kept inside the target directory
 
 #### JAR Cache
 
+The JAR files generated during the build will be kept inside the target directory when building a Ballerina project. The
+JAR file will be generated only if there is an entry point (main funtion or service) within the module.
 
 
 ## Module Repository - Ballerina Central
