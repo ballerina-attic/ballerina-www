@@ -58,7 +58,7 @@ service hello on new http:Listener(9090) {
 ```
 
 ### Build and Run Programs
-To generate an executable `.balx`, you can build a Ballerina program that contains a `main()` function or services:
+To generate an executable `.jar`, you can build a Ballerina program that contains a `main()` function or services:
 ```bash
 $ cd /local/ballerina/src
 $ ballerina build sample.bal
@@ -66,7 +66,7 @@ $ ballerina build sample.bal
 # This generates 'sample.jar'
 ```
 
-You can use the following command to run the `main()` function or services in a generated `.balx` file:
+You can use the following command to run the `main()` function or services in a generated `.jar` file:
 ```bash
 $ ballerina run sample.jar
 ```
