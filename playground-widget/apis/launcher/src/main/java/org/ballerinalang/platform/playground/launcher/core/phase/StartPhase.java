@@ -42,6 +42,8 @@ public class StartPhase implements Phase {
 
     private static final String JAVA_HOME = "JAVA_HOME";
 
+    public static final String SERVICE_STARTED_MSG_PREFIX = "[ballerina/http] started HTTP/WS endpoint";
+
     private static final Logger logger = LoggerFactory.getLogger(StartPhase.class);
 
     /**
@@ -86,9 +88,10 @@ public class StartPhase implements Phase {
                 String line = "";
                 while ((line = reader.readLine()) != null) {
                     if (line.startsWith("ballerina: initiating service(s) in")
-                            || line.startsWith("ballerina: deploying service(s) in")) {
+                            || line.startsWith("ballerina: deploying service(s) in")
+                            || line.startsWith("Initiating service(s)")) {
                         continue;
-                    } else if (line.startsWith("ballerina: started HTTP/WS endpoint")) {
+                    } else if (line.startsWith(SERVICE_STARTED_MSG_PREFIX)) {
                         updateHostAndPort(runSession, line);
                         String serviceURL = "http://playground.localhost/";
                         runSession.pushMessageToClient(Constants.DATA_MSG, Constants.OUTPUT,
@@ -156,7 +159,7 @@ public class StartPhase implements Phase {
      */
     private void updateHostAndPort(RunSession runSession, String line) {
         String hostPort = StringUtils.substringAfterLast(line,
-                "ballerina: started HTTP/WS endpoint").trim();
+                SERVICE_STARTED_MSG_PREFIX).trim();
         String host = StringUtils.substringBeforeLast(hostPort, ":");
         String port = StringUtils.substringAfterLast(hostPort, ":");
         if (StringUtils.isNotBlank(host)) {

@@ -13,7 +13,7 @@
     <meta name="author" content="{{ config.site_author }}">{% endif %} {% if config.site_favicon %}
     <link rel="shortcut icon" href="{{ base_url }}/{{ config.site_favicon }}"> {% else %}
     <link rel="shortcut icon" href="/img/favicon.ico">{% endif %} {%- endblock %} {%- block htmltitle %}
-    <title>{% if page and page.title and not page.is_hompage %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+    <title>{% if page and page.title and not page.is_hompage %}{{ page.title }} {% endif %}</title>
     {%- endblock %} {%- block styles %}
 
 
@@ -23,7 +23,7 @@
              {% if page and page.meta.abstract %}<meta property="og:description" content="{{ page.meta.abstract }}" />{% endif %}
              {% if page and page.meta.socialmediaimage %}<meta property="og:image" content="https://ballerina.io/img/{{ page.meta.socialmediaimage }}" />{% endif %}
 
-       
+
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@ballerinalang">
             <meta name="twitter:creator" content="@ballerinalang">
@@ -34,7 +34,7 @@
             <meta name="twitter:card" content="summary_large_image">
             <meta name="twitter:image:width" content="610">
 
-         
+
 
             <meta property='og:title' content="{{ page.title }}"/>
             {% if page and page.meta.socialmediaimage %}<meta property='og:image' content="https://ballerina.io/img/{{ page.meta.socialmediaimage }}"/>{% endif %}
@@ -50,10 +50,10 @@
     <script src="/js/handlebars-4.0.5/handlebars.js"></script>
     <script src="/js/release_notes/all_release_notes.js"></script>
     {% endif %}
-    
-   
-    
-    
+
+
+
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-92163714-2"></script>

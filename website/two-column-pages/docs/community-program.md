@@ -11,10 +11,10 @@ The quick tour includes:
 - Hello World with Ballerina
 - Hello World Client
 - Run the Composer
-- Create a New Package
+- Create a New Module
 - Create a Calculator Service
 - Create a Client for Calculator Service
-- Push your Package to Ballerina Central
+- Push your Module to Ballerina Central
 - Follow the Repo
 
 <ol>
@@ -88,7 +88,7 @@ To check if the installation is done right, run the following command.
 
 This should print the version of Ballerina you have installed.
 
-``` Ballerina 0.980.0 ```
+``` Ballerina 0.990.3 ```
 
 ## Hello World with Ballerina
 
@@ -106,7 +106,7 @@ This automatically creates a typical Hello World service for you.
 <li>Start the service using the `ballerina run` command.
 ballerina run hello_service.bal
 You get the following output.
-<code> ballerina: initiating service(s) in 'hello_service.bal'
+<code> Initiating service(s) in 'hello_service.bal'
 ballerina: started HTTP/WS endpoint 0.0.0.0:9090 </code>
 </li>
 <li>Open a new command line to invoke the service using a HTTP client program such as cURL.</li>
@@ -154,19 +154,15 @@ import ballerina/http;
 import ballerina/log;
 import ballerina/io;
 
-endpoint http:Client clientEndpoint {
-    url: "http://localhost:9090"
-};
+http:Client clientEndpoint = new("http://localhost:9090");
 
-function main(string... args) {
+public function main() {
     // Send a GET request to the Hello World service endpoint.
     var response = clientEndpoint->get("/hello/sayHello");
-
-    match response {
-        http:Response resp => {
-            io:println(resp.getTextPayload());
-        }
-        error err => { log:printError(err.message, err = err); }
+    if (response is http:Response) {
+        io:println(response.getTextPayload());
+    } else {
+        log:printError("Get request failed", err = response);
     }
 }
 ```
@@ -191,25 +187,10 @@ You just invoked the Hello World service written in Ballerina programming langua
 
 
 
-## Run the Composer
+## Create a New Module
 
-Ballerina Composer is the integrated development environment (IDE) built from scratch along with the Ballerina platform. It can be used to develop Ballerina programs in source and visual editing modes.
-
-To start the Composer:
-
-1. In the command line, run
-``` composer ```
-2. Access the Composer.
-You will be directed to the Composer, with a browser window of your default Web browser being automatically opened by the Composer.
-If this was not automatically done, access the Composer with a browser window using the URL
-[http://localhost:9091](http://localhost:9091)
-3. In the Composer, click **File** and choose **Open Project**.
-4. Navigate to your folder where you ran `ballerina init` to create your first service and open it to view the project in the Composer.
-
-## Create a New Package
-
-1. On the explorer pane, right click on the folder name that you opened as your project, and click on **New Folder**.
-2. Name the folder **calculator**. This means that you are going to implement a Ballerina package named calculator.
+1. Right click on the folder name that you opened as your project, and click on **New Folder**.
+2. Name the folder **calculator**. This means that you are going to implement a Ballerina module named calculator.
 3. Right click on the **calculator** folder and click on **New File**.
 4. Name the new file **lib.bal**.
 5. Double click on the **lib.bal** file to open the file. We will have the implementation of the calculator functions of add, subtract, multiply and divide in this lib.bal file.
@@ -245,10 +226,10 @@ Only add and subtract functions are used in the sample implementation. You can i
 ``` ballerina
 import ballerina/io;
 
-function main(string... args) {
+public function main() {
 
     int operation = 0;
-    while ( operation != 5) {
+    while (operation != 5) {
         // print options menu to choose from
         io:println("Select operation.");
         io:println("1. Add");
@@ -258,29 +239,55 @@ function main(string... args) {
         io:println("5. Exit");
 
         // read user's choice
-        string choice = io:readln("Enter choice 1 - 5: ");
-        operation = check <int>choice;
+        string val = io:readln("Enter choice 1 - 5: ");
+        var choice = int.convert(val);
+        if (choice is int) {
+            operation = choice;
+        } else {
+            io:println("Invalid choice \n");
+            continue;
+        }
 
         if (operation == 5) {
             break;
+        } else if (operation < 1 || operation > 5) {
+            io:println("Invalid choice \n");
+            continue;
         }
 
         // Read two numbers from user to be used for calculator operations
         var input1 = io:readln("Enter first number: ");
-        float firstNumber = check <float>input1;
-        var input2 = io:readln("Enter second number: ");
-        float secondNumber = check <float>input2;
-
-        // Execute calculator operations based on user's choice
-        if(operation == 1) {
-            io:print("Add result: ");
-            io:println(add(firstNumber, secondNumber));
-        } else if(operation == 2) {
-            io:print("Subtract result: ");
-            io:println(subtract(firstNumber, secondNumber));
+        var num1 = float.convert(input1);
+        float firstNumber = 0;
+        if (num1 is float) {
+            firstNumber = num1;
         } else {
-            io:println("Invalid choice");
-        }   
+            io:println("Invalid first number \n");
+            continue;
+        }
+        var input2 = io:readln("Enter second number: ");
+        var num2 = float.convert(input2);
+        float secondNumber = 0;
+        if (num2 is float) {
+            secondNumber = num2;
+        } else {
+            io:println("Invalid second number \n");
+            continue;
+        }
+        // Execute calculator operations based on user's choice
+        if (operation == 1) {
+            io:print("Addition result: ");
+            io:println(add(firstNumber, secondNumber));
+        } else if (operation == 2) {
+            io:print("Subtraction result: ");
+            io:println(subtract(firstNumber, secondNumber));
+        } else if (operation == 3) {
+            io:print("Multiplication result: ");
+            io:println(multiply(firstNumber, secondNumber));
+        } else if (operation == 4) {
+            io:print("Division result: ");
+            io:println(divide(firstNumber, secondNumber));
+        }
     }
 }
 
@@ -291,7 +298,7 @@ function main(string... args) {
   
 <code> ballerina run calculator </code>
 
-This will run the calculator package’s main program interactively until you choose to quit with 5 as input.</li>
+This will run the calculator module’s main program interactively until you choose to quit with 5 as input.</li>
 <li>Enter 1 as input, then enter two numbers to add and see the result. You may also test the subtract option.</li>
 <li>Quit the main program by entering 5 as input.</li>
 </ol>
@@ -307,16 +314,14 @@ This service only implements the add operation. You may extend this and implemen
 4. Copy the following code and paste it into the **service.bal** file and save it.
 
 ``` ballerina
-
 import ballerina/http;
+import ballerina/log;
 
-endpoint http:Listener listener {
-    port:9090
-};
+listener http:Listener httpListener = new(9090);
 
 // Calculator REST service
 @http:ServiceConfig { basePath: "/calculator" }
-service<http:Service> Calculator bind listener {
+service Calculator on httpListener {
 
     // Resource that handles the HTTP POST requests that are directed to
     // the path `/operation` to execute a given calculate operation
@@ -328,41 +333,59 @@ service<http:Service> Calculator bind listener {
         methods: ["POST"],
         path: "/operation"
     }
-    executeOperation(endpoint client, http:Request req) {
-        json operationReq = check req.getJsonPayload();
-        string operation = operationReq.operation.toString();
+    resource function executeOperation(http:Caller caller, http:Request req) {
+        var operationReq = req.getJsonPayload();
+        http:Response errResp = new;
+        errResp.statusCode = 500;
+        if (operationReq is json) {
+            string operation = operationReq.operation.toString();
 
-        any result = 0.0;
-        // Pick first number for the calculate operation from the JSON request
-        float firstNumber = 0;
-        var input = operationReq.firstNumber;
-        match input {
-            int ivalue => firstNumber = ivalue;
-            float fvalue => firstNumber = fvalue;
-            json other => {} //error
+            any result = 0.0;
+            // Pick first number for the calculate operation from the JSON request
+            float firstNumber = 0.0;
+            var input = float.convert(operationReq.firstNumber);
+            if (input is float) {
+                firstNumber = input;
+            } else {
+                errResp.setJsonPayload({"^error":"Invalid first number"});
+                var err = caller->respond(errResp);
+                handleResponseError(err);
+                return;
+            }
+
+            // Pick second number for the calculate operation from the JSON request
+            float secondNumber = 0.0;
+            input = float.convert(operationReq.secondNumber);
+            if (input is float) {
+                secondNumber = input;
+            } else {
+                errResp.setJsonPayload({"^error":"Invalid second number"});
+                var err = caller->respond(errResp);
+                handleResponseError(err);
+                return;
+            }
+
+            if(operation == "add" || operation == "+") {
+                result = add(firstNumber, secondNumber);
+            }
+
+            // Create response message.
+            json payload = { status: "Result of " + operation, result: <float>result };
+
+            // Send response to the client.
+            var err = caller->respond(untaint payload);
+            handleResponseError(err);
+        } else {
+            errResp.setJsonPayload({"^error":"Request payload should be a json."});
+            var err = caller->respond(errResp);
+            handleResponseError(err);
         }
+    }
+}
 
-        // Pick second number for the calculate operation from the JSON request
-        float secondNumber = 0;
-        input = operationReq.secondNumber;
-        match input {
-            int ivalue => secondNumber = ivalue;
-            float fvalue => secondNumber = fvalue;
-            json other => {} //error
-        }
-
-        if(operation == "add" || operation == "+") {
-            result = add(firstNumber, secondNumber);
-        }
-
-        // Create response message.
-        json payload = { status: "Result of " + operation, result: 0.0 };
-        payload["result"] = check <float>result;
-        http:Response response;
-        response.setJsonPayload(untaint payload);
-
-        // Send response to the client.
-        _ = client->respond(response);
+function handleResponseError(error? err) {
+    if (err is error) {
+        log:printError("Respond failed", err = err);
     }
 }
 
@@ -375,35 +398,32 @@ service<http:Service> Calculator bind listener {
 <li>Run the service on the command line using the following command:
   
 <code> ballerina run calculator </code>
-Inside the calculator package, you now have both a main program that you previously wrote and the service that you just wrote.
-When Ballerina is run for the calculator package, the main program is run, and the service is started.</li>
+Inside the calculator module, you now have both a main program that you previously wrote and the service that you just wrote.
+When Ballerina is run for the calculator module, the main program is run, and the service is started.</li>
 <li>Open a new command line to invoke the service using an HTTP client program such as cURL.</li>
 <li>Invoke the service using an HTTP client.
-<code> curl -v -X POST -d '{"firstNumber": 10, "secondNumber":  200, "operation": "add"}' "http://localhost:9090/calculator/operation" -H "Content-Type:application/json" </code>
+<code> curl -v -X POST -d '{"firstNumber": 10.21, "secondNumber":  200.1, "operation": "add"}' "http://localhost:9090/calculator/operation" -H "Content-Type:application/json" </code>
 </li>
 </ol>
 
 ## Create a Client for Calculator Service
 
-1. Right click on the package folder, that is the root folder that contains the **calculator** folder and click on **New File**.
+1. Right click on the module folder, that is the root folder that contains the **calculator** folder and click on **New File**.
 2. Name the new file **client.bal**.
 3. Double click on the **client.bal** file.
 We will have the implementation a REST client to invoke calculator service in this file.
 The client sends a JSON request that provides the input to calculate on and the operation (in this case, we execute the add operation) to execute to calculator service, receives the result and prints that.
 4. Copy the following code and paste it into the **client.bal** file and save it.
-5. Before going ahead, delete **main.bal** from the package folder if it still exists.
+5. Before going ahead, delete **main.bal** from the module folder if it still exists.
 
 ``` ballerina
-
 import ballerina/http;
 import ballerina/io;
 import ballerina/log;
 
-endpoint http:Client clientEndpoint {
-    url: "http://localhost:9090"
-};
+http:Client clientEndpoint = new("http://localhost:9090");
 
-function main(string... args) {
+public function main() {
 
     http:Request req = new;
 
@@ -412,22 +432,19 @@ function main(string... args) {
     req.setJsonPayload(jsonMsg);
 
     var response = clientEndpoint->post("/calculator/operation", req);
-    match response {
-        http:Response resp => {
-            var msg = resp.getJsonPayload();
-            match msg {
-                json jsonPayload => {
-                    string resultMessage = "Addition result " + jsonMsg["firstNumber"].toString() +
-                        " + " + jsonMsg["secondNumber"].toString() + " : " +
-                        jsonPayload["result"].toString();
-                    io:println(resultMessage);
-                }
-                error err => {
-                    log:printError(err.message, err = err);
-                }
+    if (response is http:Response) {
+        var msg = response.getJsonPayload();
+        if (msg is json) {
+                string resultMessage = "Addition result "
+                    + jsonMsg["firstNumber"].toString() + " + "
+                    + jsonMsg["secondNumber"].toString() + " : "
+                    + msg["result"].toString();
+                io:println(resultMessage);
+            } else {
+                log:printError("Response is not json", err = msg);
             }
-        }
-        error err => { log:printError(err.message, err = err); }
+    } else {
+        log:printError("Invalid response", err = response);
     }
 }
 
@@ -444,30 +461,32 @@ This will invoke the service, and print the result
 </li>
 </ol>
 
-## Push your Package to Ballerina Central
+## Push your Module to Ballerina Central
 
-Visit [https://central.ballerina.io/](https://central.ballerina.io/) and sign up. You can click **Sign U** action on the top right corner of the website and use an existing Google account or a GitHub account of yours to sign up.
+Visit [https://central.ballerina.io/](https://central.ballerina.io/) and sign up. You can click **Sign Up** action on the top right corner of the website and use an existing Google account or a GitHub account of yours to sign up.
 
 Once you sign up, you will be asked to create an organization for you on [https://central.ballerina.io/create-organization](https://central.ballerina.io/create-organization). You may use your name or another name of your choice as the organization name.
 
-Once you create an organization, you will be taken to your dashboard [https://central.ballerina.io/dashboard](https://central.ballerina.io/dashboard). There you can find your Ballerina token to access the Ballerina Central site from your computer to push packages. The `ballerina push` command uploads your package into Ballerina Central so that you can share your package with other developers.
+Once you create an organization, you will be taken to your dashboard [https://central.ballerina.io/dashboard](https://central.ballerina.io/dashboard). There you can find your Ballerina token to access the Ballerina Central site from your computer to push modules. The `ballerina push` command uploads your module into Ballerina Central so that you can share your module with other developers.
 
 For the `ballerina push` command to work, you need to copy and paste your Ballerina Central access token into `Settings.toml` in your home repository `<USER_HOME>/.ballerina/`. To do this, click on the copy button in front of the text box displaying the token on your Ballerina Central dashboard. Then go to your user home on a command line and go into the .ballerina folder and paste the token you copied into a file with the name Settings.toml. Since you are a new user, there would not be such file in there already, so you will have to create on in there.
 
-When you push a package to Ballerina Central, the runtime validates organization name you have on Ballerina Cantal for the user against the `org-name` defined in your project’s `Ballerina.toml` file. You need to add organization name into this file.
-To do this, go to the folder where you created your calculator package. Then create a file with the name Ballerina.toml and add in there the following. Note that this file in not within the calculator folder, but rather outside that at the same level of calculator folder (which is also referred to as Ballerina project home) You may also use the composer to create a new file, name that Ballerina.toml and add the following content using composer.
+When you push a module to Ballerina Central, the runtime validates organization name you have on Ballerina Cantal for the user against the `org-name` defined in your project’s `Ballerina.toml` file. You need to add organization name into this file.
+To do this, go to the folder where you created your calculator module. Then create a file with the name Ballerina.toml and add in there the following. Note that this file in not within the calculator folder, but rather outside that at the same level of calculator folder (which is also referred to as Ballerina project home) You may also use the composer to create a new file, name that Ballerina.toml and add the following content using composer.
 
 ```
 [project]
 org-name = "sami"
 version = "0.1.0"
-
 ```
 
-You also need to have a Package.md file inside your package that describes the package before you push the package into Ballerina Central.
-You can either create this on command line or using composer, right click on calculator folder select New File and name that to Package.md. Add some meaningful content to help document the package in this file.
+You also need to have a Module.md file inside your module that describes the module before you push the module into Ballerina Central.
+
+You can either create this on command line or using composer, right click on calculator folder select New File and name that to Module.md. Add some meaningful content to help document the module in this file.
+
 For example
-Example calculator package.
+
+Example calculator module.
 
 ```
 Contains basic arithmetic operations
@@ -477,22 +496,18 @@ sample REST service with JSON input/output to
 invoke calculator as a service
 ```
 
-Next, you need to do a build of the package before bushing the package into Ballerina Central.
-
-``` ballerina build calculator ```
-
-Now you can push the package to Ballerina Central
+Now you can push the module to Ballerina Central. The `push` command will do a build of the module before pushing the module to Ballerina Central.
 
 ``` ballerina push calculator ```
 
-You will get a confirmation message similar to
+You will get a confirmation message similar to the following.
 
 ``` <org-name>/calculator:0.1.0 [project repo -> central] ```
 
-Now you can go to your dashboard on Ballerina Central and view the package
-[https://central.ballerina.io/manage-organization#packages](https://central.ballerina.io/manage-organization#packages)
+Now you can go to your dashboard on Ballerina Central and view the module
+[https://central.ballerina.io/manage-organization#modules](https://central.ballerina.io/manage-organization#modules)
 
-You may also go to the package landing page directly to view the package details. Make sure to replace <org-name> with your organization name in the following URL
+You may also go to the module landing page directly to view the module details. Make sure to replace <org-name> with your organization name in the following URL
 [https://central.ballerina.io/<org-name>/calculator](https://central.ballerina.io/<org-name>/calculator)
 
 ## Follow the Repo

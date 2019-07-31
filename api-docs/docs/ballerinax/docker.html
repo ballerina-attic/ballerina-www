@@ -36,7 +36,7 @@
     </script>
     <!-- End Google Tag Manager -->
     <link rel="shortcut icon" href="/img/favicon.ico">
-    <title>Ballerina - ballerinax/docker API Docs</title>
+    <title>Ballerina - ballerina/docker API Docs</title>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme -->
@@ -57,8 +57,8 @@
     <link rel="stylesheet" href="/css/ballerina-io-api.css">
     <script type="text/javascript">
         $(document).ready(function() {
-            // $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/package-list.html");
-             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/package-list.html");
+            $("#iBallerinaXtoc").load("/learn/api-docs/ballerinax/module-list.html");
+             $("#iBallerinaPACKAGEStoc").load("/learn/api-docs/ballerina/module-list.html");
 
             if (typeof hljs === 'object') {
                 $('code.language-ballerina').addClass('ballerina');
@@ -106,6 +106,13 @@
                     </div>
                     <div class="cLectColStyle">
                         <div class="cBallerina-io-docs-Title">TABLE OF CONTENTS</div>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
                         
                         <ul class=" active-package">
                             <li>
@@ -211,6 +218,27 @@
                             </li>
                         </ul>
                         
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
+                        <ul class=" ">
+                            <li>
+                                <!--Package Name-->
+                                  
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -230,7 +258,7 @@
                                 <a href="/learn/api-docs/">API Docs</a>
                             </li>
                             <li>»</li>
-                            <li><span class="bold">ballerinax/docker</span> package </li>
+                            <li><span class="bold">ballerinax/docker</span> module </li>
                         </ul>
                     </div>
                 </div>
@@ -242,12 +270,12 @@
                                     <div id="content" class="nano">
                                         <div class="nano-content">
                                             <h1 class="thin-text padding-bottom">
-                                                <span class="bold">ballerinax/docker</span>  package 
+                                                <span class="bold">ballerinax/docker</span>  module 
                                             </h1>
                                             
 
                                             <div class="summary-wrapper">
-                                                <h2 class="cPageSubHeading">Package Detail</h2>
+                                                <h2 class="cPageSubHeading">Module Detail</h2>
                                         <!--Primitive Types-->
                                         
                                          
@@ -263,7 +291,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#DockerConfiguration">DockerConfiguration</a></td>
-                                                         <td class="cSummary-table-desc"><p>Docker annotation configuration</p>
+                                                         <td class="cSummary-table-desc">Docker annotation configuration.
 </td>
                                                      </tr>
                                                  
@@ -271,15 +299,14 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#ExposeConfig">ExposeConfig</a></td>
-                                                         <td class="cSummary-table-desc"><p>Expose ports for docker</p>
-</td>
+                                                         <td class="cSummary-table-desc">Expose ports for docker.</td>
                                                      </tr>
                                                  
                                              
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#FileConfig">FileConfig</a></td>
-                                                         <td class="cSummary-table-desc"><p>External file type for docker</p>
+                                                         <td class="cSummary-table-desc">External file type for docker.
 </td>
                                                      </tr>
                                                  
@@ -287,7 +314,7 @@
                                                  
                                                      <tr>
                                                          <td class="cSummary-table-name"><a href="#FileConfigs">FileConfigs</a></td>
-                                                         <td class="cSummary-table-desc"><p>External File configurations for docker</p>
+                                                         <td class="cSummary-table-desc">External File configurations for docker.
 </td>
                                                      </tr>
                                                  
@@ -328,27 +355,27 @@
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">Config</td>
-                                                <td class="cSummary-table-attach">endpoint, service</td>
+                                                <td class="cSummary-table-attach">service, listener</td>
                                                 <td class="cSummary-table-type"><a href="docker.html#DockerConfiguration">DockerConfiguration</a></td>
-                                                <td class="cSummary-table-desc"><p>@docker:Config annotation to configure docker artifact generation</p>
+                                                <td class="cSummary-table-desc"><p>@docker:Config annotation to configure docker artifact generation.</p>
 </td>
                                             </tr>
                                               
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">CopyFiles</td>
-                                                <td class="cSummary-table-attach">endpoint, service</td>
+                                                <td class="cSummary-table-attach">service, listener</td>
                                                 <td class="cSummary-table-type"><a href="docker.html#FileConfigs">FileConfigs</a></td>
-                                                <td class="cSummary-table-desc"><p>@docker:CopyFile annotation to copy external files to docker image</p>
+                                                <td class="cSummary-table-desc"><p>@docker:CopyFile annotation to copy external files to docker image.</p>
 </td>
                                             </tr>
                                               
                                             
                                             <tr>
                                                 <td class="cSummary-table-name">Expose</td>
-                                                <td class="cSummary-table-attach">endpoint</td>
+                                                <td class="cSummary-table-attach">listener</td>
                                                 <td class="cSummary-table-type"><a href="docker.html#ExposeConfig">ExposeConfig</a></td>
-                                                <td class="cSummary-table-desc"><p>@docker:Expose annotation to expose ballerina ports</p>
+                                                <td class="cSummary-table-desc"><p>@docker:Expose annotation to expose ballerina ports.</p>
 </td>
                                             </tr>
                                               
@@ -374,7 +401,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Docker annotation configuration</p>
+                                                    <span class="fw-right gray xs-icon"></span>Docker annotation configuration.
 
                                                 </p>
                                                  
@@ -390,9 +417,7 @@
                                                         <td class="cAPI-table-name">name</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Name of the docker image</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Name of the docker image</p>
 </td>
                                                     </tr>
                                                     
@@ -400,9 +425,7 @@
                                                         <td class="cAPI-table-name">registry</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker registry url</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker registry url</p>
 </td>
                                                     </tr>
                                                     
@@ -410,9 +433,7 @@
                                                         <td class="cAPI-table-name">tag</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker image tag</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker image tag</p>
 </td>
                                                     </tr>
                                                     
@@ -420,9 +441,7 @@
                                                         <td class="cAPI-table-name">username</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker registry username</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker registry username</p>
 </td>
                                                     </tr>
                                                     
@@ -430,9 +449,7 @@
                                                         <td class="cAPI-table-name">password</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker registry password</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker registry password</p>
 </td>
                                                     </tr>
                                                     
@@ -440,9 +457,7 @@
                                                         <td class="cAPI-table-name">baseImage</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Base image for Dockerfile</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Base image for Dockerfile</p>
 </td>
                                                     </tr>
                                                     
@@ -450,9 +465,7 @@
                                                         <td class="cAPI-table-name">push</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Enable pushing docker image to registry</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Enable pushing docker image to registry</p>
 </td>
                                                     </tr>
                                                     
@@ -460,9 +473,7 @@
                                                         <td class="cAPI-table-name">buildImage</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Enable docker image build</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Enable docker image build</p>
 </td>
                                                     </tr>
                                                     
@@ -470,9 +481,7 @@
                                                         <td class="cAPI-table-name">enableDebug</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Enable ballerina debug</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Enable ballerina debug</p>
 </td>
                                                     </tr>
                                                     
@@ -480,9 +489,7 @@
                                                         <td class="cAPI-table-name">debugPort</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#int">int</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Ballerina debug port</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Ballerina debug port</p>
 </td>
                                                     </tr>
                                                     
@@ -490,9 +497,7 @@
                                                         <td class="cAPI-table-name">dockerHost</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker host IP and docker PORT. ( e.g minikube IP and docker PORT)</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker host IP and docker PORT. ( e.g minikube IP and docker PORT)</p>
 </td>
                                                     </tr>
                                                     
@@ -500,9 +505,7 @@
                                                         <td class="cAPI-table-name">dockerCertPath</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Docker certificate path</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Docker certificate path</p>
 </td>
                                                     </tr>
                                                     
@@ -528,8 +531,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>Expose ports for docker</p>
-
+                                                    <span class="fw-right gray xs-icon"></span>Expose ports for docker.
                                                 </p>
                                                   
                                                 <!-- Objects and its functions -->
@@ -552,7 +554,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>External file type for docker</p>
+                                                    <span class="fw-right gray xs-icon"></span>External file type for docker.
 
                                                 </p>
                                                  
@@ -568,9 +570,7 @@
                                                         <td class="cAPI-table-name">source</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>source path of the file (in your machine)</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>source path of the file (in your machine)</p>
 </td>
                                                     </tr>
                                                     
@@ -578,9 +578,7 @@
                                                         <td class="cAPI-table-name">target</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#string">string</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>target path (inside container)</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>target path (inside container)</p>
 </td>
                                                     </tr>
                                                     
@@ -588,9 +586,7 @@
                                                         <td class="cAPI-table-name">isBallerinaConf</td>
                                                         <td class="cAPI-table-type"><a href="primitive-types.html#boolean">boolean</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Flag to specify ballerina config file</li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Flag to specify ballerina config file</p>
 </td>
                                                     </tr>
                                                     
@@ -616,7 +612,7 @@
                                                 </h2>
                                                 
                                                 <p>
-                                                    <span class="fw-right gray xs-icon"></span><p>External File configurations for docker</p>
+                                                    <span class="fw-right gray xs-icon"></span>External File configurations for docker.
 
                                                 </p>
                                                  
@@ -632,9 +628,7 @@
                                                         <td class="cAPI-table-name">files</td>
                                                         <td class="cAPI-table-type"><a href="docker.html#FileConfig">docker:FileConfig[]</a></td>
                                                         <td class="cAPI-table-default"></td>
-                                                        <td class="cAPI-table-desc"><ul>
-<li>Array of <a href="docker.html#FileConfig">FileConfig</a></li>
-</ul>
+                                                        <td class="cAPI-table-desc"><p>Array of <a href="docker.html#FileConfig">FileConfig</a></p>
 </td>
                                                     </tr>
                                                     
@@ -854,15 +848,25 @@
                 <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cBlallerina-io-docs-right-nav-container">
                     <div class="cLectColStyle cLeftColTop">
-                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-packages cOpenMenu">BALLERINA MODULES</div>
 
                         <div class="cCollaps-Menu cOpenMenu" id="iBallerinaPACKAGEStoc">
                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="awslambda.html">ballerina/<span class="bold">awslambda</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
                              <ul class="active-package">
                                 <li>
                                    <!--Package Name-->
                                     
-                                   <a>ballerinax/<span class="bold">docker</a>
+                                   <a>ballerina/<span class="bold">docker</a>
                                    
                                    
                                    
@@ -873,21 +877,61 @@
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="kubernetes.html">ballerinax/<span class="bold">kubernetes</span>
+                                   <a href="istio.html">ballerina/<span class="bold">istio</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="kubernetes.html">ballerina/<span class="bold">kubernetes</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="openshift.html">ballerina/<span class="bold">openshift</span>
                                    </a>
                                    
                                 </li>
                              </ul>
                              
                         </div>
-                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX PACKAGES</div>
+                        <div class="cBallerina-io-docs-Title cBallerina-io-x cOpenMenu">BALLERINAX MODULES</div>
                         <div class="cCollaps-Menu-second cOpenMenu" id="iBallerinaXtoc">
                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="awslambda.html">ballerina/<span class="bold">awslambda</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
                              <ul class="active-package">
                                 <li>
                                    <!--Package Name-->
                                     
-                                   <a>ballerinax/<span class="bold">docker</a>
+                                   <a>ballerina/<span class="bold">docker</a>
                                    
                                    
                                    
@@ -898,7 +942,37 @@
                                 <li>
                                    <!--Package Name-->
                                    
-                                   <a href="kubernetes.html">ballerinax/<span class="bold">kubernetes</span>
+                                   <a href="istio.html">ballerina/<span class="bold">istio</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="jdbc.html">ballerina/<span class="bold">jdbc</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="kubernetes.html">ballerina/<span class="bold">kubernetes</span>
+                                   </a>
+                                   
+                                </li>
+                             </ul>
+                             
+                             <ul class="">
+                                <li>
+                                   <!--Package Name-->
+                                   
+                                   <a href="openshift.html">ballerina/<span class="bold">openshift</span>
                                    </a>
                                    
                                 </li>

@@ -3,17 +3,15 @@
 ## Running Ballerina Programs and Services
 A Ballerina application can either be:
 
-1. A `main()` function that runs as a terminating process.
+1. A [`public function`](/learn/by-example/functions-as-entry-points.html) including [`main()`](/learn/by-example/hello-world.html) function that runs as a terminating process.
 
-2. A `service<>`, which is a hosted non-terminating process.
+2. A [`service<>`](/learn/by-example/hello-world-service.html), which is a hosted non-terminating process.
 
 Both of these are considered "entrypoints" for program execution. 
 
-These applications can be structured into a single program file or a Ballerina module. A collection of modules can be
-managed together with versioning and dependency management as part of a Ballerina project. 
+These applications can be structured into a single program file or a Ballerina module. A collection of modules or source files can be managed together with versioning and dependency management as part of a Ballerina project. 
 
-Source files and modules can contain zero or more entrypoints, and the runtime engine has precedence and sequence rules
-for choosing which entrypoint to execute.
+Source files and modules can contain zero or more entrypoints, and the runtime engine has precedence and sequence rules for choosing which entrypoint to execute.
 
 ### Running Standalone Source Code
 A single Ballerina source code file can be placed into any folder. 
@@ -21,49 +19,47 @@ A single Ballerina source code file can be placed into any folder.
 If the source file contains at least one entrypoint, it can be executed using the `run` command.
     
 ```bash
-$ ballerina run foo.bal  
+$ ballerina run foo.bal
 ```
 
-You can compile a source file with an entrypoint into a linked binary that has a `.jar` extension.
+You can compile a source file with an entrypoint into a linked binary that has a `.balx` extension.
     
 ```bash
-$ ballerina build a/b/c/foo.bal [-o outputfilename.jar]
+$ ballerina build a/b/c/foo.bal [-o outputfilename.balx]
 ```  
 
-And you can run `.jar` files directly:
+And you can run `.balx` files directly:
 ```bash
-$ ballerina run filename.jar
+$ ballerina run filename.balx
 ```
 
 ### Running a Project
-A project is a folder that manages modules as part of a common versioning, dependency management, build, and execution.
-You can build and run items collectively or individually as packages.
-See [How To Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) for in-depth structuring of projects.
+A project is a folder that manages source files and modules as part of a common versioning, dependency management, build, and execution. You can build and run items collectively or individually as modules. See [How To Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) for in-depth structuring of projects.
 
-Build all modules of a project:
+Build all source files and modules of a project:
 ```bash    
 $ ballerina build
 ```
 
-Build a module in a project:
+Build a single modules in a project:
 ```bash
 $ ballerina build <module-name>
 ```
 
 Options for running programs with entrypoints in a project:  
 ```bash
-$ ballerina run main.jar  
-$ ballerina run target/main.jar
+$ ballerina run main.balx  
+$ ballerina run target/main.balx
+$ ballerina run [--sourceroot <path>] <module>
 ```
 
-The `<package>` is the package name, which is the same as the name of the directory that holds the source files. 
+The `<module>` is the module name, which is the same as the name of the directory that holds the source files.
 
 ## Configuring Your Ballerina Runtimes
 
 ### Ballerina Runtime Configuration Files
 
-A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure.
-The `ballerina/config` package provides an API for sourcing configuration parameters and using them within your source code. See [Config API Documentation](/learn/api-docs/ballerina/config/) for details.
+A Ballerina runtime can be configured using configuration parameters, which are arbitrary key/value pairs with structure. The `ballerina/config` module provides an API for sourcing configuration parameters and using them within your source code. See [Config API Documentation](/learn/api-docs/ballerina/config.html) for details.
 
 The configuration APIs accept a key and an optional default value. If a mapping does not exist for the specified key, the default value is returned as the configuration value. The default values of these optional configurations are the default values of the return types of the functions.
 
@@ -77,7 +73,7 @@ Consider the following example, which reads a Ballerina config value and prints 
 import ballerina/io;
 import ballerina/config;
 
-public function main(string... args) {
+public function main() {
   string name = config:getAsString("hello.user.name");
   io:println("Hello, " + name + " !");
 }
@@ -85,7 +81,7 @@ public function main(string... args) {
 
 The config key is `hello.user.name`. To pass a value to this config from the CLI, we can run the following command. The `-e` argument passes the key and value to the program.
 ```bash
-$ ballerina run -e hello.user.name=Ballerina main.bal 
+$ ballerina run -e hello.user.name=Ballerina main.bal
 Hello, Ballerina !
 ```
 
@@ -94,15 +90,13 @@ The value can be passed as an environment variable as well. Here as the value we
 
 ```bash
 $ export NAME=Ballerina
-$ ballerina run -e hello.user.name=@env:{NAME} main.bal 
+$ ballerina run -e hello.user.name=@env:{NAME} main.bal
 Hello, Ballerina !
 ```
 
 #### Sourcing Configuration Values
 
-The value can be passed as a config file as well. A configuration file should conform to the 
-[TOML](https://github.com/toml-lang/toml) format. Ballerina only supports the following features of TOML: value types 
-(string, int, float, and boolean), tables, and nested tables. Given below is a sample `ballerina.conf`:
+The value can be passed as a config file as well. A configuration file should conform to the [TOML](https://github.com/toml-lang/toml) format. Ballerina only supports the following features of TOML: value types (string, int, float, and boolean), tables, and nested tables. Given below is a sample `ballerina.conf`:
 
 ```toml
 [hello.user]
@@ -118,18 +112,19 @@ Hello, Ballerina !
 ```
 To explicitly specify a configuration file, use either the `--config` or the `-c` flag. The path to the configuration file can be either an absolute or a relative path. 
 ```bash
-$ ballerina run main.bal -c ../../ballerina.conf
+$ ballerina run -c ../../ballerina.conf main.bal
 Hello, Ballerina !
 
-$ ballerina run main.bal --config ../../ballerina.conf
+$ ballerina run --config ../../ballerina.conf main.bal
 Hello, Ballerina !
 
-$ ballerina run main.bal -c /Users/Test/Desktop/ballerina.conf
+$ ballerina run -c /Users/Test/Desktop/ballerina.conf main.bal
 Hello, Ballerina !
 
-$ ballerina run main.bal --config /Users/Test/Desktop/ballerina.conf
+$ ballerina run --config /Users/Test/Desktop/ballerina.conf main.bal
 Hello, Ballerina !
 ```
+
 
 #### Configure Secrets as Configuration Items
 Ballerina provides support for encrypting sensitive data such as passwords and allows access to them securely through the configuration API in the code.
@@ -160,7 +155,7 @@ name="@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}"
 or (Enter secret `12345` when prompted.):
 
 ```bash
-$ ballerina run main.bal -e  hello.user.name="@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=}"
+$ ballerina run -e hello.user.name=@encrypted:{FeSTxZriX6WcdgP+Hl3dERi7DoCIXcDLo7gS+T2rt3M=} main.bal
 ballerina: enter secret for config value decryption:
 
 Hello, Ballerina !
@@ -202,7 +197,7 @@ It is possible for third parties and the ecosystem to create their own annotatio
 ### How to Enable Deployment
 A developer enables deployment artifact generation by adding annotations to their Ballerina code: 
 
-1.  Import the relevant extension package in the code.
+1.  Import the relevant extension module in the code.
 2.  Add relevant annotations within the code. 
 3.  Build the Ballerina project.
 
@@ -225,15 +220,12 @@ import ballerinax/docker;
     tag:"v1.0"
 }
 service helloWorld on new http:Listener(9090) {
-    resource function sayHello(http:Caller caller, http:Request req) {
-        var result = caller->respond("Hello, World!");
-        // Logs the `error` in case of a failure.
-        if (result is error) {
-            log:printError("Error sending response", err = result);
-        }
+    resource function sayHello (http:Caller caller, http:Request request) {
+        http:Response response = new;
+        response.setTextPayload("Hello, World! \n");
+        _ = caller -> respond(response);
     }
 }
-
 ```
 
 Now your code is ready to generate deployment artifacts. In this case it is a Docker image.
@@ -346,65 +338,61 @@ Full example can be found at [Database Interaction Guide](https://ballerina.io/l
 ```ballerina
 import ballerina/config;
 import ballerina/http; 
-import ballerina/jdbc; 
+import ballerina/mysql; 
 import ballerinax/kubernetes;
 
 // Create SQL endpoint to MySQL database
-jdbc:Client testDB = new({
-    url:config:getAsString("db-url"),
+mysql:Client employeeDB = new ({
+    host:config:getAsString("db-host"),
+    port:3306,
+    name:config:getAsString("db"),
     username:config:getAsString("db-username"),
     password:config:getAsString("db-password")
 });
-
-@kubernetes:ConfigMap {
-    ballerinaConf:"./conf/data-service.toml",
-}
 
 @kubernetes:Ingress {
     hostname:"ballerina.guides.io",
     name:"ballerina-guides-employee-database-service",
     path:"/"
 }
-
 @kubernetes:Service {
     serviceType:"NodePort",
     name:"ballerina-guides-employee-database-service"
 }
+listener http:Listener ep = new (9090, config = {
+    secureSocket:{
+        keyStore:{
+            path:"${ballerina.home}/bre/security/ballerinaKeystore.p12",
+            password:config:getAsString("key-store-password")
+        },
+        trustStore:{
+            path:"${ballerina.home}/bre/security/ballerinaTruststore.p12",
+            password:config:getAsString("trust-store-password")
+        }
+    }
+});
 
+@kubernetes:ConfigMap {
+    ballerinaConf:"conf/data-service.toml"
+}
 @kubernetes:Deployment {
     image:"ballerina.guides.io/employee_database_service:v1.0",
     name:"ballerina-guides-employee-database-service",
     copyFiles:[{target:"/ballerina/runtime/bre/lib",
-                source:"./conf/mysql-connector-java-8.0.11.jar"}]
+                source:"conf/mysql-connector-java-8.0.11.jar"}]
 }
-
-http:ServiceEndpointConfiguration ePConfig = {
-    secureSocket:{
-        keyStore:{
-            path:"${ballerina.home}/bre/security/ballerinaKeystore.p12",
-            password:getAsString("key-store-password")
-        },
-        trustStore:{
-            path:"${ballerina.home}/bre/security/ballerinaTruststore.p12",
-            password:getAsString("trust-store-password")
-        }
-    }
-};
-
-listener http:Listener employeeEP = new(9090, ePConfig);
-
 @http:ServiceConfig {
     basePath:"/records"
 }
-service employee_data_service on employeeEP {
-}
+service employee_data_service on ep {
 ```
 
 Sample content of `data-service.toml`:
 
 ```toml
 # Ballerina database config file
-db-url = "jdbc:mysql://mysql-server:3306/EMPLOYEE_RECORDS"
+db-host = "mysql-server"
+db = "EMPLOYEE_RECORDS"
 db-username = "root"
 db-password = "root"
 key-store-password = "abc123"
@@ -503,7 +491,7 @@ employee-data-service-ballerina-conf-config-map   1         2m
 ```
 This is the config-map created for the `ballerina.conf` file, as the `ballerinaConf:"./conf/data-service.toml"` attribute is used. At run time, it is an equivalent of:
 ```bash
-$ ballerina run <source>.balx --config ./conf/data-service.toml
+$ ballerina run --config ./conf/data-service.toml <source>.balx 
 ```
 The Kubernetes extension automatically passes the config file to the Ballerina program.
 

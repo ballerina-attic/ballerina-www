@@ -1,17 +1,15 @@
-$ ballerina swagger export demo.bal
-successfully generated swagger definition for input file - demo.bal
-$ cat demo.swagger.yaml
+$ ballerina openapi export demo.bal
+The successfully-generated OpenAPI definition of the `demo.bal` input file.
+$ cat demo.openapi.yaml
 openapi: 3.0.1
 info:
   title: Hello World Service
-  version: 2.0.0
   description: Simple hello world service
-servers:
-- url: /hello
+  version: 2.0.0
 paths:
   /:
     get:
-      operationId: hi
+      operationId: operation1-hi
       responses:
         200:
           description: Successful

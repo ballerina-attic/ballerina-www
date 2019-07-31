@@ -1,23 +1,30 @@
 ---
 title: Continuous Delivery for Cloud Native Applications with Kubernetes, Ballerina, and Codefresh
 author:
-date: 15 August 2018
+date: 14 August 2018
 status: Published
-abstract: Automating the process of shipping small batches of software to production allows you to deliver features frequently with less risk and receive continuous and fast results.
-socialmediaimage: sm-webinar-codefresh-ballerina.jpg
+abstract: We will introduce Cloudfresh and how it works with Ballerina to build continuous delivery for cloud native applications.
+socialmediaimage: sm-webinar-codefresh-ballerina-new.jpg
 ---
 <script src="/js/ballerina-form.js?03"></script><link rel="stylesheet" href="/css/webinar-page.css"></link>
 
 # Continuous Delivery for Cloud Native Applications <br/>with Kubernetes, Ballerina, and Codefresh
 
-<table class="cEventTable">
+<script src="https://fast.wistia.com/embed/medias/jk1spxia15.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_jk1spxia15 videoFoam=true" style="height:100%;position:relative;width:100%"><div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/jk1spxia15/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" onload="this.parentNode.style.opacity=1;" /></div></div></div></div>
+
+
+<div class="clearfix"></div>
+
+---
+
+<!-- <table class="cEventTable">
     <tr>
-        <td class="cEventDateContainer"><span class="cEventDate">August 15, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
+        <td class="cEventDateContainer"><span class="cEventDate">August 14, 2018</span>9:00 am PDT (5:00 pm in UK)</td>
         <td class="cEventURL"><a class="cEventRegistration" data-toggle="modal" data-target="#webinar_registration" target="_blank" id="iRegisterNow">Register Now</a></td>
     </tr>
-</table>
+</table> -->
 
-<a href="https://kubeless.io/" target="_blank"><img class="cInlineLogo" src="/img/codefresh-logo-300x145.png"/></a>
+<a href="https://codefresh.io/" target="_blank"><img class="cInlineLogo" src="/img/codefresh-logo-300x145.png"/></a>
 
 One of the key advantages of cloud native applications is that they allow you to build software applications in such a way that they can be released to production at any time. Shipping small batches of software to production constantly, through automation, allows you to deliver features frequently, at less risk, and receive continuous and fast results.
 
