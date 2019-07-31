@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>API Docs - Client : Message</title>
+    <script src="../../html-template-resources/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../html-template-resources/semantic.min.css">
+    <link rel="stylesheet" href="../../html-template-resources/styles/css/styles.css">
+    <link rel="stylesheet" href="../../html-template-resources/styles/css/font.css">
+    <script src="../../html-template-resources/semantic.min.js"></script>
+    <script src="../../vs/monaco.js"></script>
+
+    <!-- BIO THEME START -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="/css/ballerina-io.css">
+<link rel="stylesheet" href="/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<!-- BIO THEME END -->
+</head>
+
+
+<body class="cBallerina-io">
+    <div class="row cBallerina-io-top-row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
+        <div class="cTopLine"></div>
+    </div>
+</div>
+<div class="row cBallerina-io-Nav" id="iMainNavigation">
+</div>
+<div class="clearfix"></div>
+    <div class="navi-wrapper">
+        <div class="navi-wrapper-content">
+            <a href="../../index.html">
+    <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
+</a>
+<div class="version">v0.991.0</div>
+
+            <div class="primary-list">
+                <h3>Clients</h3>
+                <ul>
+                    
+                        <li >
+                            <a href="DurableTopicSubscriberCaller.html">DurableTopicSubscriberCaller</a> 
+                        </li>
+                    
+                        <li class="active active-item">
+                            <a href="Message.html">Message</a> 
+                        </li>
+                    
+                        <li >
+                            <a href="QueueReceiverCaller.html">QueueReceiverCaller</a> 
+                        </li>
+                    
+                        <li >
+                            <a href="QueueSender.html">QueueSender</a> 
+                        </li>
+                    
+                        <li >
+                            <a href="TopicPublisher.html">TopicPublisher</a> 
+                        </li>
+                    
+                        <li >
+                            <a href="TopicSubscriberCaller.html">TopicSubscriberCaller</a> 
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="ui divider"></div>
+            <div class="primary-list module">
+    <a href="../../java.jms/index.html">
+        <h3>java.jms</h3>
+    </a>
+    <ul>
+        
+        <li>
+            <a data="records" href="../../java.jms/index.html#records">Records</a>
+        </li>
+        
+        
+            <li>
+                <a  data="objects" href="../../java.jms/index.html#objects">Objects</a>
+            </li>
+        
+        
+            <li>
+                <a data="clients" href="../../java.jms/index.html#clients">Clients</a>
+            </li>
+        
+        
+            <li>
+                <a data="listeners" href="../../java.jms/index.html#listeners">Listeners</a>
+            </li>
+        
+        
+        
+            <li>
+                <a data="constants" href="../../java.jms/index.html#constants">Constants</a>
+            </li>
+        
+        
+        
+            <li>
+                <a data="types" href="../../java.jms/index.html#types">Types</a>
+            </li>
+        
+        
+    </ul>
+    <div class="ui divider"></div>
+</div>
+
+            <div class="primary-list module-list">
+    <h3>All Modules</h3>
+    <ul>
+        
+        <li>
+            <a href="../../artemis/index.html">artemis</a>
+        </li>
+        
+        <li>
+            <a href="../../auth/index.html">auth</a>
+        </li>
+        
+        <li>
+            <a href="../../bir/index.html">bir</a>
+        </li>
+        
+        <li>
+            <a href="../../cache/index.html">cache</a>
+        </li>
+        
+        <li>
+            <a href="../../config/index.html">config</a>
+        </li>
+        
+        <li>
+            <a href="../../crypto/index.html">crypto</a>
+        </li>
+        
+        <li>
+            <a href="../../encoding/index.html">encoding</a>
+        </li>
+        
+        <li>
+            <a href="../../file/index.html">file</a>
+        </li>
+        
+        <li>
+            <a href="../../filepath/index.html">filepath</a>
+        </li>
+        
+        <li>
+            <a href="../../grpc/index.html">grpc</a>
+        </li>
+        
+        <li>
+            <a href="../../http/index.html">http</a>
+        </li>
+        
+        <li>
+            <a href="../../internal/index.html">internal</a>
+        </li>
+        
+        <li>
+            <a href="../../io/index.html">io</a>
+        </li>
+        
+        <li>
+            <a href="../../java/index.html">java</a>
+        </li>
+        
+        <li>
+            <a href="../../java.jdbc/index.html">java.jdbc</a>
+        </li>
+        
+        <li>
+            <a href="../../java.jms/index.html">java.jms</a>
+        </li>
+        
+        <li>
+            <a href="../../jvm/index.html">jvm</a>
+        </li>
+        
+        <li>
+            <a href="../../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.array/index.html">lang.array</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.decimal/index.html">lang.decimal</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.error/index.html">lang.error</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.float/index.html">lang.float</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.future/index.html">lang.future</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.int/index.html">lang.int</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.map/index.html">lang.map</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.object/index.html">lang.object</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.stream/index.html">lang.stream</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.string/index.html">lang.string</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.table/index.html">lang.table</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.typedesc/index.html">lang.typedesc</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.value/index.html">lang.value</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.xml/index.html">lang.xml</a>
+        </li>
+        
+        <li>
+            <a href="../../ldap/index.html">ldap</a>
+        </li>
+        
+        <li>
+            <a href="../../log/index.html">log</a>
+        </li>
+        
+        <li>
+            <a href="../../math/index.html">math</a>
+        </li>
+        
+        <li>
+            <a href="../../mime/index.html">mime</a>
+        </li>
+        
+        <li>
+            <a href="../../nats/index.html">nats</a>
+        </li>
+        
+        <li>
+            <a href="../../oauth2/index.html">oauth2</a>
+        </li>
+        
+        <li>
+            <a href="../../observe/index.html">observe</a>
+        </li>
+        
+        <li>
+            <a href="../../openapi/index.html">openapi</a>
+        </li>
+        
+        <li>
+            <a href="../../rabbitmq/index.html">rabbitmq</a>
+        </li>
+        
+        <li>
+            <a href="../../reflect/index.html">reflect</a>
+        </li>
+        
+        <li>
+            <a href="../../runtime/index.html">runtime</a>
+        </li>
+        
+        <li>
+            <a href="../../socket/index.html">socket</a>
+        </li>
+        
+        <li>
+            <a href="../../streams/index.html">streams</a>
+        </li>
+        
+        <li>
+            <a href="../../system/index.html">system</a>
+        </li>
+        
+        <li>
+            <a href="../../task/index.html">task</a>
+        </li>
+        
+        <li>
+            <a href="../../test/index.html">test</a>
+        </li>
+        
+        <li>
+            <a href="../../time/index.html">time</a>
+        </li>
+        
+        <li>
+            <a href="../../transactions/index.html">transactions</a>
+        </li>
+        
+        <li>
+            <a href="../../utils/index.html">utils</a>
+        </li>
+        
+        <li>
+            <a href="../../websub/index.html">websub</a>
+        </li>
+        
+        <li>
+            <a href="../../xslt/index.html">xslt</a>
+        </li>
+        
+    </ul>
+    <div class="ui divider"></div>
+</div>
+        </div>
+    </div>
+
+    <div class="ui vertical sidebar menu">
+        <div class="navi-wrapper-sidebar">
+            <div class="navi-wrapper-content">
+                <a href="../../index.html">
+    <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
+</a>
+<div class="version">v0.991.0</div>
+
+                <div class="primary-list">
+                    <h3>Clients</h3>
+                    <ul>
+                        
+                            <li >
+                                <a href="DurableTopicSubscriberCaller.html">DurableTopicSubscriberCaller</a>
+                            </li>
+                        
+                            <li class="active active-item">
+                                <a href="Message.html">Message</a>
+                            </li>
+                        
+                            <li >
+                                <a href="QueueReceiverCaller.html">QueueReceiverCaller</a>
+                            </li>
+                        
+                            <li >
+                                <a href="QueueSender.html">QueueSender</a>
+                            </li>
+                        
+                            <li >
+                                <a href="TopicPublisher.html">TopicPublisher</a>
+                            </li>
+                        
+                            <li >
+                                <a href="TopicSubscriberCaller.html">TopicSubscriberCaller</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+                <div class="ui divider"></div>
+                <div class="primary-list module">
+    <a href="../../java.jms/index.html">
+        <h3>java.jms</h3>
+    </a>
+    <ul>
+        
+        <li>
+            <a data="records" href="../../java.jms/index.html#records">Records</a>
+        </li>
+        
+        
+            <li>
+                <a  data="objects" href="../../java.jms/index.html#objects">Objects</a>
+            </li>
+        
+        
+            <li>
+                <a data="clients" href="../../java.jms/index.html#clients">Clients</a>
+            </li>
+        
+        
+            <li>
+                <a data="listeners" href="../../java.jms/index.html#listeners">Listeners</a>
+            </li>
+        
+        
+        
+            <li>
+                <a data="constants" href="../../java.jms/index.html#constants">Constants</a>
+            </li>
+        
+        
+        
+            <li>
+                <a data="types" href="../../java.jms/index.html#types">Types</a>
+            </li>
+        
+        
+    </ul>
+    <div class="ui divider"></div>
+</div>
+
+                <div class="primary-list module-list">
+    <h3>All Modules</h3>
+    <ul>
+        
+        <li>
+            <a href="../../artemis/index.html">artemis</a>
+        </li>
+        
+        <li>
+            <a href="../../auth/index.html">auth</a>
+        </li>
+        
+        <li>
+            <a href="../../bir/index.html">bir</a>
+        </li>
+        
+        <li>
+            <a href="../../cache/index.html">cache</a>
+        </li>
+        
+        <li>
+            <a href="../../config/index.html">config</a>
+        </li>
+        
+        <li>
+            <a href="../../crypto/index.html">crypto</a>
+        </li>
+        
+        <li>
+            <a href="../../encoding/index.html">encoding</a>
+        </li>
+        
+        <li>
+            <a href="../../file/index.html">file</a>
+        </li>
+        
+        <li>
+            <a href="../../filepath/index.html">filepath</a>
+        </li>
+        
+        <li>
+            <a href="../../grpc/index.html">grpc</a>
+        </li>
+        
+        <li>
+            <a href="../../http/index.html">http</a>
+        </li>
+        
+        <li>
+            <a href="../../internal/index.html">internal</a>
+        </li>
+        
+        <li>
+            <a href="../../io/index.html">io</a>
+        </li>
+        
+        <li>
+            <a href="../../java/index.html">java</a>
+        </li>
+        
+        <li>
+            <a href="../../java.jdbc/index.html">java.jdbc</a>
+        </li>
+        
+        <li>
+            <a href="../../java.jms/index.html">java.jms</a>
+        </li>
+        
+        <li>
+            <a href="../../jvm/index.html">jvm</a>
+        </li>
+        
+        <li>
+            <a href="../../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.array/index.html">lang.array</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.decimal/index.html">lang.decimal</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.error/index.html">lang.error</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.float/index.html">lang.float</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.future/index.html">lang.future</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.int/index.html">lang.int</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.map/index.html">lang.map</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.object/index.html">lang.object</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.stream/index.html">lang.stream</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.string/index.html">lang.string</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.table/index.html">lang.table</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.typedesc/index.html">lang.typedesc</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.value/index.html">lang.value</a>
+        </li>
+        
+        <li>
+            <a href="../../lang.xml/index.html">lang.xml</a>
+        </li>
+        
+        <li>
+            <a href="../../ldap/index.html">ldap</a>
+        </li>
+        
+        <li>
+            <a href="../../log/index.html">log</a>
+        </li>
+        
+        <li>
+            <a href="../../math/index.html">math</a>
+        </li>
+        
+        <li>
+            <a href="../../mime/index.html">mime</a>
+        </li>
+        
+        <li>
+            <a href="../../nats/index.html">nats</a>
+        </li>
+        
+        <li>
+            <a href="../../oauth2/index.html">oauth2</a>
+        </li>
+        
+        <li>
+            <a href="../../observe/index.html">observe</a>
+        </li>
+        
+        <li>
+            <a href="../../openapi/index.html">openapi</a>
+        </li>
+        
+        <li>
+            <a href="../../rabbitmq/index.html">rabbitmq</a>
+        </li>
+        
+        <li>
+            <a href="../../reflect/index.html">reflect</a>
+        </li>
+        
+        <li>
+            <a href="../../runtime/index.html">runtime</a>
+        </li>
+        
+        <li>
+            <a href="../../socket/index.html">socket</a>
+        </li>
+        
+        <li>
+            <a href="../../streams/index.html">streams</a>
+        </li>
+        
+        <li>
+            <a href="../../system/index.html">system</a>
+        </li>
+        
+        <li>
+            <a href="../../task/index.html">task</a>
+        </li>
+        
+        <li>
+            <a href="../../test/index.html">test</a>
+        </li>
+        
+        <li>
+            <a href="../../time/index.html">time</a>
+        </li>
+        
+        <li>
+            <a href="../../transactions/index.html">transactions</a>
+        </li>
+        
+        <li>
+            <a href="../../utils/index.html">utils</a>
+        </li>
+        
+        <li>
+            <a href="../../websub/index.html">websub</a>
+        </li>
+        
+        <li>
+            <a href="../../xslt/index.html">xslt</a>
+        </li>
+        
+    </ul>
+    <div class="ui divider"></div>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper pusher">
+        <div>
+    <a class="toc item"> 
+        <img src="../../html-template-resources/images/menu.svg">
+    </a>
+</div>
+        <div class="main-wrapper">
+            <h1>
+                <a class="breadcrumb-home" href="../../index.html">
+    <img class="breadcrumb-home-icon" src="../../html-template-resources/images/home.svg">
+</a>
+                <span class="title-type">Clients - </span> 
+                <a href="../../java.jms/index.html">java.jms</a> : 
+                <span class="clients">Message</span> </h1>
+            <p><p>Represent the JMS message used to send and receive content from the a JMS provider.</p>
+<p>Most message-oriented middleware (MOM) products treat messages as lightweight entities that consist of a header
+and a body. The header contains fields used for message routing and identification; the body contains the
+application data being sent.</p>
+</p>
+
+            <div class="constants">
+                <div class="method-sum">
+                    
+                        
+                            <h2>Constructor</h2>
+<h3 >__init</h3><p>(<a href="../../java.jms/objects/Session.html">Session</a> session, <a href="../../java.jms/types.html#MessageType">MessageType</a> msgType)</p>
+<div class="data-wrapper">
+    
+        <div class="params-listing">
+            <ul>
+                <li> <b>session</b><span class="type">  <a href="../../java.jms/objects/Session.html">Session</a></span> </li>
+                <li>
+                    <p>The session from which the message would be created</p>
+
+                </li>
+            </ul>
+        </div>
+    
+        <div class="params-listing">
+            <ul>
+                <li> <b>msgType</b><span class="type">  <a href="../../java.jms/types.html#MessageType">MessageType</a></span> </li>
+                <li>
+                    <p>The type of the message</p>
+
+                </li>
+            </ul>
+        </div>
+    
+</div>
+                        
+                    
+
+                    
+                        <h2>Remote Methods</h2>
+                        <div class="method-list">
+                            
+                                
+<a href="#acknowledge">
+    <div class="param-sum">
+        <div class="param-name">
+        acknowledge 
+        </div>
+        <div class="param-details"> <p>Acknowledges the reception of this message. This is used when the consumer has chosen CLIENT_ACKNOWLEDGE as its
+acknowledgment mode.</p>
+ </div>
+    </div>
+</a>
+                            
+                        </div>
+                    
+
+                    
+                        <h2>Methods</h2>
+                        <div class="method-list">
+                            
+                                
+<a href="#setPayload">
+    <div class="param-sum">
+        <div class="param-name">
+        setPayload 
+        </div>
+        <div class="param-details"> <p>Sets the payload/body of the message.
+If the <code>MessageType</code> is <code>TEXT_MESSAGE</code>, an attempt would be made to convert the data to string type and the
+body/content of the <code>Message</code> would be replaced.
+If the <code>MessageType</code> is <code>MAP_MESSAGE</code>, then only <code>map</code> type content is allowed and the data would be replaced.
+Otherwise, an error is returned.
+If the <code>MessageType</code> is <code>BYTES_MESSAGE</code> or <code>STREAM_MESSAGE</code>, this method can be called multiple times to populate
+the message without replacing the content. If the content is of types <code>map</code>, <code>xml</code>, or <code>json</code>, they will be
+converted to string.
+The data types <code>json</code>, <code>xml</code>, and <code>map</code> are converted to <code>string</code> before sending except for the <code>MAP_MESSAGE</code>
+type, which functions as described above.</p>
+ </div>
+    </div>
+</a>
+                            
+                                
+<a href="#getPayload">
+    <div class="param-sum">
+        <div class="param-name">
+        getPayload 
+        </div>
+        <div class="param-details"> <p>Returns the payload of the message.
+If the <code>MessageType</code> is  <code>TEXT_MESSAGE</code>, returns string data or attempts to convert the message to the given
+optional <code>DataType</code>. If the  <code>bytesLength</code> parameter is set it is ignored.
+If the <code>MessageType</code> is <code>MAP_MESSAGE</code>, then a <code>map</code> is returned regardless of the <code>DataType</code> and <code>bytesLength</code>.
+If the <code>MessageType</code> is <code>BYTES_MESSAGE</code> or <code>STREAM_MESSAGE</code>, the <code>DataType</code> has to be mentioned as it cannot
+be deduced. This method can be called multiple times to receive the available data. If the <code>DataType</code> is <code>BYTES</code>,
+then the <code>bytesLength</code> has to be specified. Otherwise the number of bytes to be read cannot be deduced.</p>
+ </div>
+    </div>
+</a>
+                            
+                                
+<a href="#setProperty">
+    <div class="param-sum">
+        <div class="param-name">
+        setProperty 
+        </div>
+        <div class="param-details"> <p>Sets a JMS transport property to the <code>Message</code>. The <code>json</code> and <code>xml</code> values are converted to <code>string</code> properties.</p>
+ </div>
+    </div>
+</a>
+                            
+                                
+<a href="#getProperty">
+    <div class="param-sum">
+        <div class="param-name">
+        getProperty 
+        </div>
+        <div class="param-details"> <p>Retrieves the JMS transport property from the <code>Message</code> for the given name.</p>
+ </div>
+    </div>
+</a>
+                            
+                                
+<a href="#getPropertyNames">
+    <div class="param-sum">
+        <div class="param-name">
+        getPropertyNames 
+        </div>
+        <div class="param-details"> <p>Returns an <code>string[]</code> of all the property names.</p>
+ </div>
+    </div>
+</a>
+                            
+                                
+<a href="#setCustomHeaders">
+    <div class="param-sum">
+        <div class="param-name">
+        setCustomHeaders 
+        </div>
+        <div class="param-details"> <p>Sets the <code>CustomHeaders</code> to the <code>Message</code>.</p>
+ </div>
+    </div>
+</a>
+                            
+                                
+<a href="#getCustomHeaders">
+    <div class="param-sum">
+        <div class="param-name">
+        getCustomHeaders 
+        </div>
+        <div class="param-details"> <p>Returns the <code>CustomHeaders</code> of the <code>Message</code></p>
+ </div>
+    </div>
+</a>
+                            
+                                
+<a href="#getHeaders">
+    <div class="param-sum">
+        <div class="param-name">
+        getHeaders 
+        </div>
+        <div class="param-details"> <p>Returns the <code>Headers</code> of the <code>Message</code></p>
+ </div>
+    </div>
+</a>
+                            
+                                
+<a href="#getType">
+    <div class="param-sum">
+        <div class="param-name">
+        getType 
+        </div>
+        <div class="param-details"> <p>Returns the <code>MessageType</code> of the <code>Message</code></p>
+ </div>
+    </div>
+</a>
+                            
+                        </div>
+                    
+                
+                    
+                </div>
+
+                
+                    
+                        <div class="method-content">
+    <div class="main-method-title here" id="acknowledge">
+             <a class="url-link" href="#acknowledge">
+                <img class="url-link-img" src="../../html-template-resources/images/link.svg">
+            </a>
+            <h2> acknowledge </h2>
+        
+        <span class="method-types">
+            <p>()</p>
+            <b> returns </b><a href="../../lang.annotations/errors.html#error">error</a>? 
+        </span>
+        
+    </div>
+    <p><p>Acknowledges the reception of this message. This is used when the consumer has chosen CLIENT_ACKNOWLEDGE as its
+acknowledgment mode.</p>
+</p>
+     
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../lang.annotations/errors.html#error">error</a>?</span>)</li>
+                <li><p>If an error occurred while acknowledging the message</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                    
+                
+
+                
+                    
+                        <div class="method-content">
+    <div class="main-method-title here" id="setPayload">
+             <a class="url-link" href="#setPayload">
+                <img class="url-link-img" src="../../html-template-resources/images/link.svg">
+            </a>
+            <h2> setPayload </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../../java.jms/types.html#MessageContent">MessageContent</a> content)</p>
+            <b> returns </b><a href="../../lang.annotations/errors.html#error">error</a>? 
+        </span>
+        
+    </div>
+    <p><p>Sets the payload/body of the message.
+If the <code>MessageType</code> is <code>TEXT_MESSAGE</code>, an attempt would be made to convert the data to string type and the
+body/content of the <code>Message</code> would be replaced.
+If the <code>MessageType</code> is <code>MAP_MESSAGE</code>, then only <code>map</code> type content is allowed and the data would be replaced.
+Otherwise, an error is returned.
+If the <code>MessageType</code> is <code>BYTES_MESSAGE</code> or <code>STREAM_MESSAGE</code>, this method can be called multiple times to populate
+the message without replacing the content. If the content is of types <code>map</code>, <code>xml</code>, or <code>json</code>, they will be
+converted to string.
+The data types <code>json</code>, <code>xml</code>, and <code>map</code> are converted to <code>string</code> before sending except for the <code>MAP_MESSAGE</code>
+type, which functions as described above.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> content<span class="type">  <a href="../../java.jms/types.html#MessageContent">MessageContent</a> </span></li>
+                    <li>
+                        <p><p>the content of the message</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../lang.annotations/errors.html#error">error</a>?</span>)</li>
+                <li><p>if an error occurred while setting the payload or on content mismatch</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                    
+                        <div class="method-content">
+    <div class="main-method-title here" id="getPayload">
+             <a class="url-link" href="#getPayload">
+                <img class="url-link-img" src="../../html-template-resources/images/link.svg">
+            </a>
+            <h2> getPayload </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../../java.jms/types.html#DataType">DataType</a>? dataType, <a href="../../lang.annotations/UNKOWN/int.html">int</a>? bytesLength)</p>
+            <b> returns </b><a href="../../java.jms/types.html#MessageContent">MessageContent</a> | <a href="../../lang.annotations/errors.html#error">error</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns the payload of the message.
+If the <code>MessageType</code> is  <code>TEXT_MESSAGE</code>, returns string data or attempts to convert the message to the given
+optional <code>DataType</code>. If the  <code>bytesLength</code> parameter is set it is ignored.
+If the <code>MessageType</code> is <code>MAP_MESSAGE</code>, then a <code>map</code> is returned regardless of the <code>DataType</code> and <code>bytesLength</code>.
+If the <code>MessageType</code> is <code>BYTES_MESSAGE</code> or <code>STREAM_MESSAGE</code>, the <code>DataType</code> has to be mentioned as it cannot
+be deduced. This method can be called multiple times to receive the available data. If the <code>DataType</code> is <code>BYTES</code>,
+then the <code>bytesLength</code> has to be specified. Otherwise the number of bytes to be read cannot be deduced.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> dataType<span class="type">  <a href="../../java.jms/types.html#DataType">DataType</a>? </span>- ()</li>
+                    <li>
+                        <p><p>this is optional for <code>TEXT_MESSAGE</code> and <code>MAP_MESSAGE</code> types and mandatory for <code>BYTES_MESSAGE</code> and
+<code>STREAM_MESSAGE</code> types to deduce the data to be returned.</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> bytesLength<span class="type">  <a href="../../lang.annotations/UNKOWN/int.html">int</a>? </span>- ()</li>
+                    <li>
+                        <p><p>this is optional and is ignored for other dataTypes except for <code>BYTES</code> dataType in
+a <code>BYTES_MESSAGE</code> or <code>STREAM_MESSAGE</code></p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../java.jms/types.html#MessageContent">MessageContent</a> | <a href="../../lang.annotations/errors.html#error">error</a></span>)</li>
+                <li><p>If an error occurred when retrieving the payload from the <code>Message</code> or if the required parameters are
+not set</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                    
+                        <div class="method-content">
+    <div class="main-method-title here" id="setProperty">
+             <a class="url-link" href="#setProperty">
+                <img class="url-link-img" src="../../html-template-resources/images/link.svg">
+            </a>
+            <h2> setProperty </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../../lang.annotations/UNKOWN/string.html">string</a> key, <a href="../../lang.annotations/UNKOWN/string.html">string</a> | <a href="../../lang.annotations/UNKOWN/int.html">int</a> | <a href="../../lang.annotations/UNKOWN/float.html">float</a> | <a href="../../lang.annotations/UNKOWN/boolean.html">boolean</a> | <a href="../../lang.annotations/UNKOWN/byte.html">byte</a> | <a href="../../lang.annotations/UNKOWN/json.html">json</a> | <a href="../../lang.annotations/UNKOWN/xml.html">xml</a> value)</p>
+            <b> returns </b><a href="../../lang.annotations/errors.html#error">error</a>? 
+        </span>
+        
+    </div>
+    <p><p>Sets a JMS transport property to the <code>Message</code>. The <code>json</code> and <code>xml</code> values are converted to <code>string</code> properties.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> key<span class="type">  <a href="../../lang.annotations/UNKOWN/string.html">string</a> </span></li>
+                    <li>
+                        <p><p>The unique property name.</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> value<span class="type">  <a href="../../lang.annotations/UNKOWN/string.html">string</a> | <a href="../../lang.annotations/UNKOWN/int.html">int</a> | <a href="../../lang.annotations/UNKOWN/float.html">float</a> | <a href="../../lang.annotations/UNKOWN/boolean.html">boolean</a> | <a href="../../lang.annotations/UNKOWN/byte.html">byte</a> | <a href="../../lang.annotations/UNKOWN/json.html">json</a> | <a href="../../lang.annotations/UNKOWN/xml.html">xml</a> </span></li>
+                    <li>
+                        <p><p>The property value.</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../lang.annotations/errors.html#error">error</a>?</span>)</li>
+                <li><p>If an error occurred while setting the property.</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                    
+                        <div class="method-content">
+    <div class="main-method-title here" id="getProperty">
+             <a class="url-link" href="#getProperty">
+                <img class="url-link-img" src="../../html-template-resources/images/link.svg">
+            </a>
+            <h2> getProperty </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../../lang.annotations/UNKOWN/string.html">string</a> key)</p>
+            <b> returns </b><a href="../../lang.annotations/UNKOWN/string.html">string</a> | <a href="../../lang.annotations/UNKOWN/int.html">int</a> | <a href="../../lang.annotations/UNKOWN/float.html">float</a> | <a href="../../lang.annotations/UNKOWN/boolean.html">boolean</a> | <a href="../../lang.annotations/UNKOWN/byte.html">byte</a> | <a href="../../lang.annotations/UNKOWN/().html">()</a> | <a href="../../lang.annotations/errors.html#error">error</a> 
+        </span>
+        
+    </div>
+    <p><p>Retrieves the JMS transport property from the <code>Message</code> for the given name.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> key<span class="type">  <a href="../../lang.annotations/UNKOWN/string.html">string</a> </span></li>
+                    <li>
+                        <p><p>The property name</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../lang.annotations/UNKOWN/string.html">string</a> | <a href="../../lang.annotations/UNKOWN/int.html">int</a> | <a href="../../lang.annotations/UNKOWN/float.html">float</a> | <a href="../../lang.annotations/UNKOWN/boolean.html">boolean</a> | <a href="../../lang.annotations/UNKOWN/byte.html">byte</a> | <a href="../../lang.annotations/UNKOWN/().html">()</a> | <a href="../../lang.annotations/errors.html#error">error</a></span>)</li>
+                <li><p>The respective property, <code>nil</code> if not found, or the <code>error</code> if  an error occurred when retrieving
+the property.</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                    
+                        <div class="method-content">
+    <div class="main-method-title here" id="getPropertyNames">
+             <a class="url-link" href="#getPropertyNames">
+                <img class="url-link-img" src="../../html-template-resources/images/link.svg">
+            </a>
+            <h2> getPropertyNames </h2>
+        
+        <span class="method-types">
+            <p>()</p>
+            <b> returns </b><a href="../../lang.annotations/UNKOWN/string.html">string</a>[]? 
+        </span>
+        
+    </div>
+    <p><p>Returns an <code>string[]</code> of all the property names.</p>
+</p>
+     
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../lang.annotations/UNKOWN/string.html">string</a>[]?</span>)</li>
+                <li><p>an array of all the names of property values.</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                    
+                        <div class="method-content">
+    <div class="main-method-title here" id="setCustomHeaders">
+             <a class="url-link" href="#setCustomHeaders">
+                <img class="url-link-img" src="../../html-template-resources/images/link.svg">
+            </a>
+            <h2> setCustomHeaders </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../../java.jms/records/CustomHeaders.html">CustomHeaders</a> headers)</p>
+            <b> returns </b><a href="../../lang.annotations/errors.html#error">error</a>? 
+        </span>
+        
+    </div>
+    <p><p>Sets the <code>CustomHeaders</code> to the <code>Message</code>.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> headers<span class="type">  <a href="../../java.jms/records/CustomHeaders.html">CustomHeaders</a> </span></li>
+                    <li>
+                        <p><p>The <code>CustomHeaders</code> record to be set</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../lang.annotations/errors.html#error">error</a>?</span>)</li>
+                <li><p>If an error occurred while setting the <code>CustomHeaders</code></p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                    
+                        <div class="method-content">
+    <div class="main-method-title here" id="getCustomHeaders">
+             <a class="url-link" href="#getCustomHeaders">
+                <img class="url-link-img" src="../../html-template-resources/images/link.svg">
+            </a>
+            <h2> getCustomHeaders </h2>
+        
+        <span class="method-types">
+            <p>()</p>
+            <b> returns </b><a href="../../java.jms/records/CustomHeaders.html">CustomHeaders</a> | <a href="../../lang.annotations/errors.html#error">error</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns the <code>CustomHeaders</code> of the <code>Message</code></p>
+</p>
+     
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../java.jms/records/CustomHeaders.html">CustomHeaders</a> | <a href="../../lang.annotations/errors.html#error">error</a></span>)</li>
+                <li><p>If an error occurred while retrieving the <code>CustomHeaders</code></p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                    
+                        <div class="method-content">
+    <div class="main-method-title here" id="getHeaders">
+             <a class="url-link" href="#getHeaders">
+                <img class="url-link-img" src="../../html-template-resources/images/link.svg">
+            </a>
+            <h2> getHeaders </h2>
+        
+        <span class="method-types">
+            <p>()</p>
+            <b> returns </b><a href="../../java.jms/records/Headers.html">Headers</a> | <a href="../../lang.annotations/errors.html#error">error</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns the <code>Headers</code> of the <code>Message</code></p>
+</p>
+     
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../java.jms/records/Headers.html">Headers</a> | <a href="../../lang.annotations/errors.html#error">error</a></span>)</li>
+                <li><p>The <code>Headers</code> or the <code>error</code> if an error occurred while setting the <code>Headers</code></p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                    
+                        <div class="method-content">
+    <div class="main-method-title here" id="getType">
+             <a class="url-link" href="#getType">
+                <img class="url-link-img" src="../../html-template-resources/images/link.svg">
+            </a>
+            <h2> getType </h2>
+        
+        <span class="method-types">
+            <p>()</p>
+            <b> returns </b><a href="../../java.jms/types.html#MessageType">MessageType</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns the <code>MessageType</code> of the <code>Message</code></p>
+</p>
+     
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../../java.jms/types.html#MessageType">MessageType</a></span>)</li>
+                <li><p>the <code>MessageType</code> of the <code>Message</code></p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document)
+    .ready(function() {
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+
+let mainNavLinks = document.querySelectorAll(".primary-list.module ul li a");
+let mainSections = document.querySelectorAll(".main-wrapper section.method-content");
+
+let lastId;
+let cur = [];
+
+let contentWrapper = document.querySelector(".content-wrapper");
+contentWrapper.addEventListener("scroll", event => {
+  let fromTop = contentWrapper.scrollTop;
+
+  mainNavLinks.forEach(link => {
+    let section = document.querySelector("#" + link.attributes.getNamedItem("data").textContent);
+
+    if (
+      section.offsetTop <= fromTop &&
+      section.offsetTop + section.offsetHeight > fromTop
+    ) {
+      link.classList.add("current");
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+</script>
+

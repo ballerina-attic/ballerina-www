@@ -4,7 +4,7 @@
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cBallerina-io-Home-main-content-wraper">
                    <div style="max-width:500px;"><p class="cHomeIntro">In the cloud, applications interact with their environment over the network. Ballerina is a general-purpose programming language with features optimized for these network distributed applications. It is easy to write and modify and is suitable for application programmers.
 </p></div>
-                   <p><a class="cGreenLink" href="/philosophy">SEE WHY ></a></p>
+                   <!-- <p><a class="cGreenLink" href="/philosophy">SEE WHY ></a></p> -->
                    <div class="cHomeButtonContainer">
                    <a class="cBallerina-io-Home-main-download-button" href="downloads">Download Ballerina
                    <p>Distributions available for </br>Linux, OS X, and Windows</p>
