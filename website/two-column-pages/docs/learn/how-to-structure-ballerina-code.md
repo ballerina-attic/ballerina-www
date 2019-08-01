@@ -177,7 +177,7 @@ Projects are managed atomically. Therefore, dependency management, compilation, 
 collectively across the source code files and modules defined within a project.
 
 ### Create a Project
-You can create a project using the `new` command:
+You can create a project using the `ballerina new` command:
 
 ```bash
 ballerina new <project-name>
