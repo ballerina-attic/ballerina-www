@@ -353,7 +353,7 @@ The organization names `ballerina` and `ballerinax` are reserved for system use.
 `ballerinax` are included within the system distribution.
 
 At Ballerina Central, every account is assigned a personal organization name, which is chosen by a 
-user when first creating their account or derived from the email address of the user.
+user when creating their account initially or is derived from the email address of the user.
 
 When pushing a module from a local computer into Ballerina Central, the user's organization name in the Ballerina 
 Central MUST match the `<org-name>` assigned in the Ballerina.toml. If the names do not match, then the push operation 
