@@ -222,7 +222,7 @@ All set. Once again, let's build the module by running the below command.
 $ ballerina build
 ```
 
-Now you can ran the service by running the following command. 
+Now, you can run the service by running the following command. 
 
 ```bash
 $ ballerina run /<folder_path>/sample_service-executable.jar
