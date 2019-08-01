@@ -386,7 +386,7 @@ ballerina push <module-name>
 ### Configure Ballerina Central Access
 
 Ballerina Central requires an account in order to push modules. Your account is represented by a CLI token that is 
-installed into your local Ballerina configuration file, located at `~/.ballerina/Settings.toml`. The CLI token is 
+installed into your local Ballerina configuration file, i.e., `~/.ballerina/Settings.toml`. The CLI token is 
 automatically installed into this file the first time you perform a `ballerina push` as Ballerina redirects to an 
 OAuth authorization screen, configures your account, and then copies your CLI token from Ballerina Central into your 
 local CLI configuration. To get your token, register on Ballerina Central and visit the 
