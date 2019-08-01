@@ -199,7 +199,7 @@ service sunriseSunset on new http:Listener(9090) {
         http:Response sunriseResp = check sunriseApi->get("/json?lat=51.5074&lng=0.1278");
 
         json sunrisePayload = check sunriseResp.getJsonPayload();
-        // Creates the response payload
+        // Creates the response payload.
         json resPayload = {
             city: "London",
             sunrise: check sunrisePayload.results.sunrise,
