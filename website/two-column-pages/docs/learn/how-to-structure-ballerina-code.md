@@ -393,6 +393,6 @@ local CLI configuration. To get your token, register on Ballerina Central and vi
 [Ballerina Central Dashboard](https://central.ballerina.io/dashboard).
 
 Every push of the same module into Ballerina Central REQUIRES a new version, even for minor text updates. We enforce 
-this policy to ensure that projects that make use of dependencies cannot experience accidental behavior drift across 
+This policy is enforced to ensure that projects, which make use of dependencies cannot experience accidental behavior drift across 
 two versions of the same module given the same version. Essentially, there is no way to "update" a module for a specific 
 version in Ballerina Central.
