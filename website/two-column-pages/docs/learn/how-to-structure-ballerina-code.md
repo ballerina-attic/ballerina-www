@@ -370,7 +370,7 @@ ballerina pull <org-name>/<module-name>[:<version>]
 ```
 
 If a version is not specified for the module to be pulled, the latest version of the module will be pulled from the 
-Ballerina Central. Projects that perform dependency analysis will automatically pull modules into the BALO cache in home
+Ballerina Central. Projects that perform dependency analysis will automatically pull modules into the BALO cache in the home
 directory.
 
 ### Pushing Modules
