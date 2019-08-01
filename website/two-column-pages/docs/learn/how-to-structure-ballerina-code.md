@@ -209,7 +209,7 @@ module when it is built.
 /
     project-name/
         .gitignore
-        Balleirna.lock             # Generated during build, used to rebuild identical binary
+        Balleirna.lock             # Generated during the build and used to rebuild identical binary
         Ballerina.toml             # Configuration that defines project intent
         
         src/
