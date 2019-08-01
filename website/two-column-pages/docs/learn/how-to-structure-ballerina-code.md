@@ -241,7 +241,7 @@ module when it is built.
 
 ### Build a Project
 A project should be built if it is required to generate the executable JAR files from the modules in the project. The
-executable JAR files will be generated only if there are entry points (main method or a service) in the module.Building
+executable JAR files will be generated only if there are entry points (main method or a service) in the module. Building
 a project will build all modules found in the project's root folder. Building a project runs through phases including
 dependency resolution, compilation, artifact generation, and unit test execution.
 
