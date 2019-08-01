@@ -361,7 +361,7 @@ will fail. This enforcement may seem arbitrary. However, it is a simple way to e
 across remote and local development environments.
 
 ### Pulling Remote Modules
-You can install modules that exist in Ballerina Central into your BALO cache in home directory through "pulling". 
+You can install modules that exist in Ballerina Central into your BALO cache in the home directory via "pulling" them. 
 Pulling a module discovers and downloads the module source and binaries from Ballerina Central and installs them into the 
 BALO cache. 
 
