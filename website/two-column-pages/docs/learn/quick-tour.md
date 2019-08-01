@@ -58,7 +58,7 @@ You get the following response.
 Hello Ballerina!
 ```
 
-You just started Ballerina, created a project, started a service, invoked the service you created, and received a response. Now, let's see how we can make this hello service a bit more interesting. Before that let's setup the editor.
+You just started Ballerina, created a project, started a service, invoked the service you created, and received a response. Now, let's see how we can make this hello service a bit more interesting. Before that, let's set up the editor.
 
 ## Set up the Editor
 
