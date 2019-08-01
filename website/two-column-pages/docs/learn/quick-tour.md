@@ -26,7 +26,7 @@ $ ballerina create sample_service -t service
 
 This automatically creates a typical Hello World service for you in your directory. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
 
-In order to run the service first you need to build the project using the following command.
+In order to run the service, you need to build the project using the following command.
 
 ```bash
 $ ballerina build
