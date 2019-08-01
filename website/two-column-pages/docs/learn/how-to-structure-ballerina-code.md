@@ -74,7 +74,7 @@ $ ballerina run sample.jar
 ## Modules
 A *module* is a directory that contains Ballerina source code files and is part of a namespace. Modules facilitate 
 collaboration, sharing, and reuse. Modules can include functions, clients, constants, annotations, services, and 
-objects. To share a module among programs, projects, and users you need to push the module into a repository.
+objects. To share a module among programs, projects, and users, you need to push the module into a repository.
 
 Modules:
 
