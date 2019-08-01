@@ -99,7 +99,7 @@ reference the objects with a qualified identifier followed by a colon `:`. For e
 
 Identifiers are either derived or explicit. The default identifier is either the module name or if the module 
 name has dots `.` included, then the last word after the last dot. For example, `import ballerina/http;` will 
-have `http:` be the derived identifer. The module `import ballerinax/java.jdbc` would have `jdbc:` as the 
+have `http:`as the derived identifer and the module `import ballerinax/java.jdbc` would have `jdbc:` as the 
 default identifier.
 
 You can have an explicit identifier by using the `as <identifier>` syntax.
