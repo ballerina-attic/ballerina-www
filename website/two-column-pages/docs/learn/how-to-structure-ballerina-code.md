@@ -132,7 +132,7 @@ service hello on new network:Listener(9090) {
 
 ### Module Version Dependency
 If your source file or module is a part of a project, then you can explicitly manage version dependencies of imported 
-modules within the project by defining it in `Ballerina.toml`:
+modules within the project by defining it in the `Ballerina.toml` file:
 
 ```toml
 [dependencies]
