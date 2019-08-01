@@ -199,7 +199,7 @@ ballerina create <module-name>
 ```
 
 The folders `tests/` and `resources/` are reserved folder names within the module. The `tests/` folder contains 
-unit test files and `resources/` folder contains the resources for the module which will be available at runtime. Any 
+unit test files of the module and the `resources/` folder contains the resources of the module that will be available at runtime. Any 
 additional subdirectories within the module have no semantic meaning and can be used by the developer for organizing 
 files. The module subdirectories can have as many Ballerina source files and all will be included within the 
 module when it is built. 
