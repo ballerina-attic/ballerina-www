@@ -5,7 +5,7 @@ build, and install Ballerina modules. These commands work with repositories that
 Ballerina Central is a globally hosted module management system that is used to discover, download, and publish modules.
 
 The `Ballerina Tool` requires you to organize your code in a specific way. This document explains the simplest way to 
-get up and running with a Ballerina installation.
+get it up and running with a Ballerina installation.
 
 ## Overview
 * Ballerina progammers can either place their code into a single source code file or in a *project* directory.
