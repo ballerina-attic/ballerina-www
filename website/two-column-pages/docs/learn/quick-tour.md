@@ -248,7 +248,7 @@ Star [GitHub repo](https://github.com/ballerina-platform/ballerina-lang) and sho
 
 ## What's Next
 
-Now that you have taken Ballerina around for a quick tour, you can explore Ballerina more.
+Now, that you have taken Ballerina around for a quick tour, you can explore Ballerina more.
 
 * Go through [Ballerina by Example](/learn/by-example/) to learn Ballerina incrementally with commented examples that cover every nuance of the syntax.
 * See [Ballerina by Guide](/learn/by-guide/) for long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, modules, dependencies, coding, unit testing, deployment, and observability.
