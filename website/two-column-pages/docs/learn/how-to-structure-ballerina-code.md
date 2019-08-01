@@ -173,7 +173,7 @@ ballerina run module.jar
   * A `src` folder with module source code
   * A `tests` folder for integration tests
 
-Projects are atomically managed, so dependency management, compilation, unit tests, and artifact generation are done 
+Projects are managed atomically. Therefore, dependency management, compilation, unit tests, and artifact generation are done 
 collectively across the source code files and modules defined within a project.
 
 ### Create a Project
