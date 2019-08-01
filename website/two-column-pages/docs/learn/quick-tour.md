@@ -1,6 +1,6 @@
 # Quick Tour
 
-Now that you know a little bit `Ballerina`, let's take it for a spin! 
+Now that you know a little bit of `Ballerina`, let's take it for a spin! 
 
 ## Install Ballerina
 
