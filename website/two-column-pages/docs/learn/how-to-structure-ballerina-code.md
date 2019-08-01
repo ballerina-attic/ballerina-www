@@ -321,7 +321,7 @@ Here, the BALO cache will be common across any version of Ballerina and the BIR 
 #### BALO Cache
 
 BALO cache is responsible for keeping BALOs of dependent modules. There is a BALO cache inside the Ballerina 
-distribution which contains the BALOs of libraries that will get packed into the distribution. There is another cache 
+distribution, which contains the BALOs of libraries that will get packed into the distribution. There is another cache 
 at the user's home repository which is used to cache the BALOs fetched from central. 
 
 #### BIR Cache
