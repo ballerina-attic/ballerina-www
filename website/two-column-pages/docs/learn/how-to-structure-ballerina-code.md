@@ -183,7 +183,7 @@ You can create a project using the `ballerina new` command:
 ballerina new <project-name>
 ```
 
-The `new` command i will create a project directory with the given name. Ballerina project cannot reside in another 
+The `new` command will create a project directory with the given name. A Ballerina project cannot reside in another 
 ballerina project. If you run ballerina new inside a ballerina project directory or in a subpath of a ballerina project
 it will give an error.
 
