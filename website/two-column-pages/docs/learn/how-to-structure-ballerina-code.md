@@ -263,7 +263,7 @@ ballerina build --skip-tests
 
 
 ### Compile a Project
-A project should be compiled if it is required to generate the libraries (i.e BALOs) from the modules in the project.
+A project should be compiled if it is required to generate the libraries (i.e., BALOs) from the modules in the project.
 Compiling a project will compile all modules found in the project's root folder. Building a project runs through phases
 including dependency resolution, compilation, artifact generation, and unit test execution.
 
