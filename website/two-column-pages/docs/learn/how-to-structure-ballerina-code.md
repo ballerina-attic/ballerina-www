@@ -356,7 +356,7 @@ At Ballerina Central, every account is assigned a personal organization name, wh
 user when creating their account initially or is derived from the email address of the user.
 
 When pushing a module from a local computer into Ballerina Central, the user's organization name in the Ballerina 
-Central MUST match the `<org-name>` assigned in the Ballerina.toml. If the names do not match, then the push operation 
+Central MUST match the `<org-name>` assigned in the `Ballerina.toml` file. If the names do not match, then the push operation 
 will fail. This enforcement may seem arbitrary, however, it is a simple way to ensure organization naming consistency 
 across remote and local development environments.
 
