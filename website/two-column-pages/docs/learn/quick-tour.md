@@ -214,7 +214,7 @@ service sunriseSunset on new http:Listener(9090) {
 }
 ```
 
-Now, before we build the module let's change sample_service.bal to sunrise_sunset_service.bal.
+Now, before we build the module, let's change the `sample_service.bal` to `sunrise_sunset_service.bal`.
 
 All set. Once again let's build the module by running the below command.
 
