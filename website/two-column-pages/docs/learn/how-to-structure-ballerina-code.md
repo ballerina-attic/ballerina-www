@@ -310,7 +310,7 @@ org-name = “tyler”
 ### Caches
 
 Ballerina will maintain several caches to speed up the compile and build process. Following artifacts will be cached by 
-ballerina.
+Ballerina.
 
 * BALO files fetched from central.
 * BIR files generated during the compile.
