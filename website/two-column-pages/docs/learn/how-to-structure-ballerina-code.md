@@ -9,7 +9,7 @@ get up and running with a Ballerina installation.
 
 ## Overview
 * Ballerina progammers can either place their code into a single source code file or in a *project* directory.
-* A Ballerina program in a single source code file should have a `.bal` extension and an entry point (either a main 
+* A Ballerina program residing in a single source code file should have a `.bal` extension and an entry point (i.e., either a main 
   method or a service).
 * A Ballerina *program* is a compiled and linked binary.
 * A *module* is a directory that contains Ballerina source code files.
