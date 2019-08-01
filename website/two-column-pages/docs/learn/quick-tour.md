@@ -18,7 +18,7 @@ Start your project by navigating to a directory of your choice and running the f
 $ ballerina new quick-start
 ```
 
-You see a response confirming that your project is created and directing you to create a new module withing the project. In order to create the new module, change the working directory to the newly created project folder. Afterwards, run the following command with the module name `sample_service` and the template name `service`
+You see a response confirming that your project is created and directing you to create a new module within the project. In order to create the new module, change the working directory to the newly created project folder. Afterwards, run the following command with the module name `sample_service` and the template name `service`
 
 ```bash
 $ ballerina create sample_service -t service
