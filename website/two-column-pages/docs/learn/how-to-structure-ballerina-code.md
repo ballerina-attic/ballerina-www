@@ -210,7 +210,7 @@ module when it is built.
     project-name/
         .gitignore
         Balleirna.lock             # Generated during the build and used to rebuild identical binary
-        Ballerina.toml             # Configuration that defines project intent
+        Ballerina.toml             # Configuration, which  defines project intent
         
         src/
             module1/               # The source in this directory will be named “<org-name>/module1”
