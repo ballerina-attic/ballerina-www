@@ -184,7 +184,7 @@ ballerina new <project-name>
 ```
 
 The `new` command will create a project directory with the given name. A Ballerina project cannot reside in another 
-ballerina project. If you run ballerina new inside a ballerina project directory or in a subpath of a ballerina project
+ballerina project. If you run `ballerina new` from inside a Ballerina project directory or from inside a sub directory of a Ballerina project,
 it will give an error.
 
 It will create the `Ballerina.toml` file, `src` folder, and a `tests` folder.
