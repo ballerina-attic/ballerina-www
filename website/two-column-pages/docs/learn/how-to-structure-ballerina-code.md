@@ -84,7 +84,7 @@ Modules:
 <li>Are referenced by `<org-name>/<module-name>` where `<org-name>` is a namespace from within a repository.</li>
 </ol>
 
-Module names can contain alphanumeric characters including dots `.`. Dots in a module name have no meaning other 
+Module names can contain alphanumeric characters including dots `.`. Dots in a module name has no meaning other 
 than the last segment after the final dot being used as a default alias within your source code.
 
 ### Importing Modules
