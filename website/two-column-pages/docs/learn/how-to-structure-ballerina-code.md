@@ -139,7 +139,7 @@ modules within the project by defining it in the `Ballerina.toml` file:
 "wso2/twitter" = "2.3.4"
 "wso2/github" = { path = "path/to/github.balo", version = "1.2.3"}
 ```
-Often you would want to depend on a module of another project which you haven’t pushed to the central. This can be 
+Often, you would want to depend on a module of another project, which you have not pushed to the central. This can be 
 achieved using a path dependency as shown above with the `wso2/github` dependency.
 
 If an import version is not specified in `Ballerina.toml`, the compiler will use the `latest` module version from a 
