@@ -19,7 +19,7 @@ get it up and running with a Ballerina installation.
 ## Programs
 A *program* is a runtime executable ending with a `.jar` extension. A *program* is the transitive closure of one 
 Ballerina module without including `ballerina/*` modules, since those are dynamically linked within Ballerina's runtime 
-engine during execution. A *module* that is a *program* compiles into a file with a `.jar` extension, otherwise it is 
+engine during execution. A *module*, which is a *program* compiles into a file with a `.jar` extension. Otherwise, it is 
 treated as a to-be-linked library that ends with a `.balo` extension.
 
 To generate an executable `.jar` file, the program's module must contain either a `main()` function (a process entry point) or 
