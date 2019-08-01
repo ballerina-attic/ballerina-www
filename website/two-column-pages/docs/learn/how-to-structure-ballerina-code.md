@@ -377,7 +377,7 @@ directory.
 "Pushing" a module uploads the associated module files and installs the module into Ballerina Central.
 
 The org-name and the version of the module will be read from the manifest file `Ballerina.toml` inside the project.
-It is required to build the module before pushing to Ballerina Central.
+It is required to build the module before pushing it to Ballerina Central.
                                                                                                 
 ```
 # Push a single module
