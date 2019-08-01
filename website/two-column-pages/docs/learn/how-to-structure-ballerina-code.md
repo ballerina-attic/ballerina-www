@@ -336,7 +336,7 @@ JAR file will be generated only if there is an entry point (main funtion or serv
 
 
 ## Module Repository - Ballerina Central
-A repository is a collection of compiled Ballerina modules. A repository helps organize modules used by multiple 
+A repository is a collection of compiled Ballerina modules. A repository helps to organize modules used by multiple 
 programs by managing their versions and assets in a central location. Ballerina central, located at the 
 [http://central.ballerina.io](http://central.ballerina.io) is the only module repository for Ballerina developers.
 
