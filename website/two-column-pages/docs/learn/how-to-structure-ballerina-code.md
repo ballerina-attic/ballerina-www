@@ -357,7 +357,7 @@ user when creating their account initially or is derived from the email address 
 
 When pushing a module from a local computer into Ballerina Central, the user's organization name in the Ballerina 
 Central MUST match the `<org-name>` assigned in the `Ballerina.toml` file. If the names do not match, then the push operation 
-will fail. This enforcement may seem arbitrary, however, it is a simple way to ensure organization naming consistency 
+will fail. This enforcement may seem arbitrary. However, it is a simple way to ensure organization naming consistency 
 across remote and local development environments.
 
 ### Pulling Remote Modules
