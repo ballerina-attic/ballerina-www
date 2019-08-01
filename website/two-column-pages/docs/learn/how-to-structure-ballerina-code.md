@@ -170,7 +170,7 @@ ballerina run module.jar
 ## Projects
 * A *project* is a directory, which atomically manages a collection of *modules*. It has:
   * A user-managed manifest file, `Ballerina.toml`
-  * A `src` folder with module source code
+  * An `src` folder with module source code
   * A `tests` folder for integration tests
 
 Projects are managed atomically. Therefore, dependency management, compilation, unit tests, and artifact generation are done 
