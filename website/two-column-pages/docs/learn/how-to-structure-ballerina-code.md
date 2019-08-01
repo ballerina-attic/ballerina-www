@@ -187,7 +187,7 @@ The `new` command will create a project directory with the given name. A Balleri
 ballerina project. If you run ballerina new inside a ballerina project directory or in a subpath of a ballerina project
 it will give an error.
 
-It will create `Ballerina.toml` file, `src` folder and a `tests` folder.
+It will create the `Ballerina.toml` file, `src` folder, and a `tests` folder.
 
 ### Create a Module
 Once the project is initialized, a module can be created inside the project using the `create` command. 
