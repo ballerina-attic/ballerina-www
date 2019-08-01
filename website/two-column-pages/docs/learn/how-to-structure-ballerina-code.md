@@ -326,7 +326,7 @@ at the user's home repository, which is used to cache the BALOs fetched from Cen
 
 #### BIR Cache
 
-BIR files of the standard library that gets pack in to a distribution are generated during the distribution build time. 
+BIR files of the standard library that gets packed into a distribution are generated during the distribution build time. 
 The BIR files of the other dependencies will be kept inside the target directory when compiling a Ballerina project. 
 
 #### JAR Cache
