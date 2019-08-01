@@ -316,7 +316,7 @@ Ballerina.
 * BIR files generated during the compilation.
 * JAR file generated during the compilation
 
-Here the balo cache will be common across any version of ballerina and BIR and JAR cache will be ballerina version specific.  
+Here, the BALO cache will be common across any version of Ballerina and the BIR and JAR caches will be specific to the Ballerina version.  
 
 #### BALO Cache
 
