@@ -81,7 +81,7 @@ Modules:
 <ol>
 <li>May or may not have a version</li>
 <li>However, modules cannot be pushed into a registry for sharing without a version</li>
-<li>Are referenced by `<org-name>/<module-name>` where `<org-name>` is a namespace from within a repository.</li>
+<li>Are referenced by  <code>&lt;org-name&gt;/&lt;module-name&gt;</code> where <code>&lt;org-name&gt;</code> is a namespace from within a repository.</li>
 </ol>
 
 Module names can contain alphanumeric characters including dots `.`. Dots in a module name has no meaning other 
