@@ -16,6 +16,8 @@ This section focuses on enabling Ballerina service observability with some of it
 Ballerina logs can be fed to any external log monitoring system like [Elastic Stack] to perform log monitoring and 
 analysis.
 
+NOTE: The Grafana dashboard will not be available for the Alpha release.
+
 ### Prerequisites
 
 Make sure you have already installed [Docker](https://www.docker.com/) to setup external products such as Jaeger,
@@ -72,12 +74,10 @@ This lets you to collect the distributed tracing information with Jaeger and met
 ```bash
 $ ballerina run --observe hello_world_service.bal
 
+[ballerina/http] started HTTP/WS listener 0.0.0.0:9797
+ballerina: started Prometheus HTTP listener 0.0.0.0:9797
 ballerina: started publishing tracers to Jaeger on localhost:5775
-Initiating service(s) in 'ballerina-home/lib/balx/prometheus/reporter.balx'
-[ballerina/http] started HTTP/WS endpoint 0.0.0.0:9797
-ballerina: started Prometheus HTTP endpoint 0.0.0.0:9797
-Initiating service(s) in 'hello_world_service.bal'
-[ballerina/http] started HTTP/WS endpoint 0.0.0.0:9090
+[ballerina/http] started HTTP/WS listener 0.0.0.0:9090
 ```
 
 Redirect the standard output to a file if you want to monitor logs.
@@ -110,12 +110,10 @@ the path of the configuration file.
 ```bash
 $ ballerina run --config <path-to-conf>/ballerina.conf hello_world_service.bal
 
+[ballerina/http] started HTTP/WS listener 0.0.0.0:9797
+ballerina: started Prometheus HTTP listener 0.0.0.0:9797
 ballerina: started publishing tracers to Jaeger on localhost:5775
-Initiating service(s) in 'ballerina-home/lib/balx/prometheus/reporter.balx'
-[ballerina/http] started HTTP/WS endpoint 0.0.0.0:9797
-ballerina: started Prometheus HTTP endpoint 0.0.0.0:9797
-Initiating service(s) in 'hello_world_service.bal'
-[ballerina/http] started HTTP/WS endpoint 0.0.0.0:9090
+[ballerina/http] started HTTP/WS listener 0.0.0.0:9090
 ```
 
 Redirect the standard output to a file if you want to monitor logs.
