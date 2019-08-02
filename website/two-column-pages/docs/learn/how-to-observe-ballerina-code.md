@@ -16,7 +16,8 @@ This section focuses on enabling Ballerina service observability with some of it
 Ballerina logs can be fed to any external log monitoring system like [Elastic Stack] to perform log monitoring and 
 analysis.
 
-NOTE: The Grafana dashboard will not be available for the Alpha release.
+NOTE: The Grafana dashboard will not be available for the Alpha release, as the dashboard is updated only for GA releases.
+Look forward for the updated dashboard with the upcoming Ballerina 1.0 release.
 
 ### Prerequisites
 
