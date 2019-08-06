@@ -12,10 +12,10 @@ Now that you know a little bit of `Ballerina`, let's take it for a spin!
 ## Start a Project, Run a Service, and Invoke It
 
 Start your project by navigating to a directory of your choice and running the following command with the project name 
-`quick-start`.
+`quick-tour`.
 
 ```bash
-$ ballerina new quick-start
+$ ballerina new quick-tour
 ```
 
 You see a response confirming that your project is created and directing you to create a new module within the project. In order to create the new module, change the working directory to the newly created project folder. Afterwards, run the following command with the module name `sample_service` and the template name `service`
@@ -66,8 +66,6 @@ Let's try this on VS Code.
 
 > **Tip:** You can use your [favorite editor to work on Ballerina code](https://ballerina.io/learn/tools-ides/).
 
-Open your service in VS Code. You can use the following command to do this on Linux or OSX. Replace '/<folder_path>/' with the actual folder path in which the Ballerina project was initialized.
-=======
 1. Download and install [VS Code][#https://code.visualstudio.com/Download](https://code.visualstudio.com/Download).
 
 2. Execute the below commands based on your OS to open your service in VS Code. 
