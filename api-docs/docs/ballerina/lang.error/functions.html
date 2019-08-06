@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list">
                 <h3>Functions</h3>
@@ -104,10 +111,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -164,15 +167,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -327,7 +330,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 <div class="primary-list">
                     <h3>Functions</h3>
@@ -387,10 +390,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -447,15 +446,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -625,21 +624,24 @@
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#detail">detail</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>Returns the error's detail record as an immutable mapping.</p>
+</td>
                             </tr>
                         </tbody>
                     
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#reason">reason</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>Returns the error's reason string.</p>
+</td>
                             </tr>
                         </tbody>
                     
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#stackTrace">stackTrace</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>Returns an object representing the stack trace of the error.</p>
+</td>
                             </tr>
                         </tbody>
                     
@@ -661,7 +663,8 @@
         </span>
         
     </div>
-    <p></p>
+    <p><p>Returns the error's detail record as an immutable mapping.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -670,7 +673,8 @@
                 <ul>
                     <li> e<span class="type">  <a href="../lang.error/errors.html#$anonType$1">$anonType$1</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the error value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -683,7 +687,8 @@
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.error/records/RecordType.html">RecordType</a></span>)</li>
-                <li></li>
+                <li><p>error detail value</p>
+</li>
             </ul>
         </div>
         
@@ -703,7 +708,8 @@
         </span>
         
     </div>
-    <p></p>
+    <p><p>Returns the error's reason string.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -712,7 +718,8 @@
                 <ul>
                     <li> e<span class="type">  <a href="../lang.error/errors.html#$anonType$0">$anonType$0</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the error value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -725,7 +732,8 @@
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../null/UNKOWN/null.html">null</a></span>)</li>
-                <li></li>
+                <li><p>error reason</p>
+</li>
             </ul>
         </div>
         
@@ -745,7 +753,8 @@
         </span>
         
     </div>
-    <p></p>
+    <p><p>Returns an object representing the stack trace of the error.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -754,7 +763,8 @@
                 <ul>
                     <li> e<span class="type">  <a href="../lang.annotations/errors.html#error">error</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the error value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -767,7 +777,8 @@
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.error/objects/CallStack.html">CallStack</a></span>)</li>
-                <li></li>
+                <li><p>stack trace of the error value</p>
+</li>
             </ul>
         </div>
         

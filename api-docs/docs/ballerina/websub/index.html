@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list module">
     <a href="../websub/index.html">
@@ -99,10 +106,6 @@
             <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -161,15 +164,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -324,7 +327,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 
                 <div class="primary-list module">
@@ -380,10 +383,6 @@
                 <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -442,15 +441,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -666,13 +665,12 @@ hub.</p>
 The <code>AuthProvider</code> and <code>authConfig</code> need to be specified for the hub listener and service respectively. If the
 <code>authStoreProvider</code> of the <code>AuthProvider</code> is set as &quot;http:CONFIG_AUTH_STORE&quot;, usernames and passwords for authentication and scopes for authorization would be read from a config TOML file.
 A user can specify <code>AuthProvider</code> as follows and set it to the <code>hubListenerConfig</code> record, which is passed when starting the hub.</p>
-<pre><code class="language-ballerina">http:AuthProvider basicAuthProvider = {
-    scheme: http:BASIC_AUTH,
-    authStoreProvider: http:CONFIG_AUTH_STORE
-};
+<pre><code class="language-ballerina">http:BasicAuthHandler basicAuthHandler = new(new auth:InboundBasicAuthProvider());
 
 http:ServiceEndpointConfiguration hubListenerConfig = {
-    authProviders: [basicAuthProvider],
+    auth: {
+        authHandlers: [basicAuthHandler]
+    },
     secureSocket: {
         keyStore: {
             path: &quot;${ballerina.home}/bre/security/ballerinaKeystore.p12&quot;,
@@ -681,31 +679,36 @@ http:ServiceEndpointConfiguration hubListenerConfig = {
     }
 };
 
-var val = websub:startHub(new http:Listener (9191, config =  hubListenerConfig));
+var val = websub:startHub(new http:Listener(9191, hubListenerConfig));
 </code></pre>
-<p>In addition to the <code>AuthProvider</code> for the listener, a user also has to specify the <code>authConfig</code> properties at the service
+<p>In addition to the <code>BasicAuthHandler</code> for the listener, a user also has to specify the <code>authConfig</code> properties at the service
 config level.</p>
 <p>It can be populated by providing the <code>authConfig</code> via a TOML file under the <code>b7a.websub.hub.auth</code> alias.
 Recognized users can also be mentioned in the same file, which permits the auth providers to read it.</p>
-<pre><code>[&quot;b7a.websub.hub.auth&quot;]
-enabled=true  // enables the authentication
-scopes=&quot;scope1&quot; // defines the scope of possible users
+<pre><code>[b7a.websub.hub.auth]
+enabled=true  # enables the authentication
+scopes=&quot;scope1&quot; # defines the scope of possible users
 
-[&quot;b7a.users&quot;]
+[b7a.users]
 
-[&quot;b7a.users.tom&quot;]
+[b7a.users.tom]
 password=&quot;1234&quot;
 scopes=&quot;scope1&quot;
 </code></pre>
 <p>Once the hub is secured using basic auth, a subscriber should provide the relevant <code>auth</code> config in the
-<code>subscriptionClientConfig</code> field of the subscriber service annotation.</p>
-<pre><code class="language-ballerina">@websub:SubscriberServiceConfig {
+<code>hubClientConfig</code> field of the subscriber service annotation.</p>
+<pre><code class="language-ballerina">auth:OutboundBasicAuthProvider basicAuthProvider = new({
+    username: &quot;tom&quot;,
+    password: &quot;1234&quot;
+});
+
+http:BasicAuthHandler basicAuthHandler = new(basicAuthProvider);
+
+@websub:SubscriberServiceConfig {
     path: &quot;/ordereventsubscriber&quot;,
-    subscriptionClientConfig: {
+    hubClientConfig: {
         auth: {
-            scheme: http:BASIC_AUTH,
-            username: &quot;tom&quot;,
-            password: &quot;1234&quot;
+            authHandler: basicAuthHandler
         }
     }
 }
@@ -714,33 +717,10 @@ scopes=&quot;scope1&quot;
 <p>The Ballerina WebSub Hub supports persistence of topic and subscription data that needs to be restored when the hub is
 restarted.</p>
 <p>Users can introduce their own persistence implementation, by introducing an object type that is structurally
-equivalent to the <code>websub:HubPersistenceStore</code> abstract object. Alternatively, the H2-based
-<code>websub:H2HubPersistenceStore</code> object made available in the <code>ballerina/websub</code> module could be used to persist data.</p>
+equivalent to the <code>websub:HubPersistenceStore</code> abstract object.</p>
 <p>Persistence can be enabled by setting a suitable <code>websub:HubPersistenceStore</code> value for the <code>hubPersistenceStore</code> field
 in the <code>HubConfiguration</code> record, which is passed to the <code>websub:startHub()</code> function.</p>
-<pre><code class="language-ballerina">import ballerina/h2;
-import ballerina/http;
-import ballerina/websub;
-
-// Define an `h2:Client` to use with the `websub:H2HubPersistenceStore`.
-h2:Client h2Client = new({
-    path: &quot;./target/hubDB&quot;,
-    name: &quot;hubdb&quot;,
-    username: &quot;user1&quot;,
-    password: &quot;pass1&quot;
-});
-
-// Define a `websub:H2HubPersistenceStore` as a `websub:HubPersistenceStore`.
-websub:HubPersistenceStore hubPersistenceStore = new websub:H2HubPersistenceStore(h2Client);
-// Set the defined persistence store as the `hubPersistenceStore` in the `hubConfig` record.
-websub:HubConfiguration hubConfig = {
-    hubPersistenceStore: hubPersistenceStore
-};
-
-// Pass the `hubConfig` record when starting up the hub to enable persistence.
-var result = websub:startHub(new http:Listener(8080), hubConfiguration = hubConfig);
-</code></pre>
-<p>Any subscriptions added at the hub will now be available even when the hub is restarted.</p>
+<p>Any subscriptions added at the hub will be available even after the hub is restarted.</p>
 <h4>Publisher</h4>
 <p>Ballerina WebSub publishers can use utility functions to add WebSub link headers indicating the hub and topic
 URLs, which facilitates WebSub discovery.</p>
@@ -773,8 +753,7 @@ listener websub:Listener websubEP = new(8181);
 @websub:SubscriberServiceConfig {
     path: &quot;/websub&quot;,
     subscribeOnStartUp: true,
-    topic: &quot;&lt;TOPIC_URL&gt;&quot;,
-    hub: &quot;&lt;HUB_URL&gt;&quot;,
+    target: [&quot;&lt;HUB_URL&gt;&quot;, &quot;&lt;TOPIC_URL&gt;&quot;],
     leaseSeconds: 3600,
     secret: &quot;&lt;SECRET&gt;&quot;
 }
@@ -785,7 +764,7 @@ service websubSubscriber on websubEP {
         if (payload is string) {
             log:printInfo(&quot;WebSub Notification Received: &quot; + payload);
         } else {
-            log:printError(&quot;Error retrieving payload as string&quot;, err = payload);
+            log:printError(&quot;Error retrieving payload as string&quot;, payload);
         }
     }
 }
@@ -800,8 +779,7 @@ listener websub:Listener websubEP = new(8181);
 @websub:SubscriberServiceConfig {
     path: &quot;/websub&quot;,
     subscribeOnStartUp: true,
-    topic: &quot;&lt;TOPIC_URL&gt;&quot;,
-    hub: &quot;&lt;HUB_URL&gt;&quot;,
+    target: [&quot;&lt;HUB_URL&gt;&quot;, &quot;&lt;TOPIC_URL&gt;&quot;],
     leaseSeconds: 3600,
     secret: &quot;&lt;SECRET&gt;&quot;
 }
@@ -812,7 +790,7 @@ service websubSubscriber on websubEP {
         // Insert logic to build subscription/unsubscription intent verification response.
         var result = caller-&gt;respond(response);
         if (result is error) { 
-            log:printError(&quot;Error responding to intent verification request&quot;, err = result); 
+            log:printError(&quot;Error responding to intent verification request&quot;, result);
         }
     }
 
@@ -821,7 +799,7 @@ service websubSubscriber on websubEP {
         if (payload is string) {
             log:printInfo(&quot;WebSub Notification Received: &quot; + payload);
         } else {
-            log:printError(&quot;Error retrieving payload as string&quot;, err = payload);
+            log:printError(&quot;Error retrieving payload as string&quot;, payload);
         }
     }
 }
@@ -846,7 +824,7 @@ public function main() {
 
     var registrationResponse = webSubHub.registerTopic(&quot;&lt;TOPIC_URL&gt;&quot;);
     if (registrationResponse is error) {
-        log:printError(&quot;Error occurred registering topic: &quot; + &lt;string&gt;registrationResponse.detail().message);
+        log:printError(&quot;Error occurred registering topic: &quot; + &lt;string&gt;registrationResponse.detail()?.message);
     } else {
         log:printInfo(&quot;Topic registration successful!&quot;);
     }
@@ -857,7 +835,7 @@ public function main() {
     log:printInfo(&quot;Publishing update to internal Hub&quot;);
     var publishResponse = webSubHub.publishUpdate(&quot;&lt;TOPIC_URL&gt;&quot;, {&quot;action&quot;: &quot;publish&quot;, &quot;mode&quot;: &quot;internal-hub&quot;});
     if (publishResponse is error) {
-        log:printError(&quot;Error notifying hub: &quot; + &lt;string&gt;publishResponse.detail().message);
+        log:printError(&quot;Error notifying hub: &quot; + &lt;string&gt;publishResponse.detail()?.message);
     } else {
         log:printInfo(&quot;Update notification successful!&quot;);
     }
@@ -878,7 +856,7 @@ public function main() {
 
     var registrationResponse = websubHubClientEP-&gt;registerTopic(&quot;&lt;TOPIC_URL&gt;&quot;);
     if (registrationResponse is error) {
-        log:printError(&quot;Error occurred registering topic: &quot; + &lt;string&gt;registrationResponse.detail().message);
+        log:printError(&quot;Error occurred registering topic: &quot; + &lt;string&gt;registrationResponse.detail()?.message);
     } else {
         log:printInfo(&quot;Topic registration successful!&quot;);
     }
@@ -889,7 +867,7 @@ public function main() {
     log:printInfo(&quot;Publishing update to remote Hub&quot;);
     var publishResponse = websubHubClientEP-&gt;publishUpdate(&quot;&lt;TOPIC_URL&gt;&quot;, { &quot;action&quot;: &quot;publish&quot;, &quot;mode&quot;: &quot;remote-hub&quot; });
     if (publishResponse is error) {
-        log:printError(&quot;Error notifying hub: &quot; + &lt;string&gt;publishResponse.detail().message);
+        log:printError(&quot;Error notifying hub: &quot; + &lt;string&gt;publishResponse.detail()?.message);
     } else {
         log:printInfo(&quot;Update notification successful!&quot;);
     }
@@ -976,12 +954,12 @@ mapping between the expected notifications and the resources that requests need 
     topicIdentifier: websub:TOPIC_ID_HEADER,
     topicHeader: &quot;&lt;HEADER_TO_CONSIDER&gt;&quot;,
     headerResourceMap: {
-        &quot;issueOpened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent),
-        &quot;issueClosed&quot;: (&quot;onIssueClosed&quot;, IssueClosedEvent)
+        &quot;issueOpened&quot;: [&quot;onIssueOpened&quot;, IssueOpenedEvent],
+        &quot;issueClosed&quot;: [&quot;onIssueClosed&quot;, IssueClosedEvent]
     }
 };
 </code></pre>
-<p>The <code>&quot;issueOpened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent)</code> entry indicates that when the value of the
+<p>The <code>&quot;issueOpened&quot;: [&quot;onIssueOpened&quot;, IssueOpenedEvent]</code> entry indicates that when the value of the
 <code>&lt;HEADER_TO_CONSIDER&gt;</code> header is <code>issueOpened</code>, dispatching should happen to a resource named <code>onIssueOpened</code>.</p>
 <p>The first parameter of this resource will be the generic <code>websub:Notification</code> record, and the second parameter will
 be a custom <code>IssueOpenedEvent</code> record mapping the JSON payload received when an issue is created.</p>
@@ -992,13 +970,13 @@ be a custom <code>IssueOpenedEvent</code> record mapping the JSON payload receiv
     topicIdentifier: websub:TOPIC_ID_PAYLOAD_KEY,
     payloadKeyResourceMap: {
         &quot;&lt;PAYLOAD_KEY_TO_CONSIDER&gt;&quot;: {
-            &quot;issueOpened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent),
-            &quot;issueClosed&quot;: (&quot;onIssueClosed&quot;, IssueClosedEvent)
+            &quot;issueOpened&quot;: [&quot;onIssueOpened&quot;, IssueOpenedEvent],
+            &quot;issueClosed&quot;: [&quot;onIssueClosed&quot;, IssueClosedEvent]
         }
     }
 };
 </code></pre>
-<p>The <code>&quot;issueOpened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent)</code> entry indicates that when the value for the JSON payload
+<p>The <code>&quot;issueOpened&quot;: [&quot;onIssueOpened&quot;, IssueOpenedEvent]</code> entry indicates that when the value for the JSON payload
 key <code>&lt;PAYLOAD_KEY_TO_CONSIDER&gt;</code> is <code>issueOpened</code>, dispatching should happen to a resource named <code>onIssueOpened</code>.</p>
 <p>The first parameter of this resource will be the generic <code>websub:Notification</code> record, and the second parameter will
 be a custom <code>IssueOpenedEvent</code> record, mapping the JSON payload received when an issue is created.</p>
@@ -1011,14 +989,14 @@ Also, you can introduce a <code>headerResourceMap</code> and/or a <code>payloadK
     headerAndPayloadKeyResourceMap: {
         &quot;issue&quot; : {
             &quot;&lt;PAYLOAD_KEY_TO_CONSIDER&gt;&quot; : {
-                &quot;opened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent),
-                &quot;closed&quot;: (&quot;onIssueClosed&quot;, IssueClosedEvent)
+                &quot;opened&quot;: [&quot;onIssueOpened&quot;, IssueOpenedEvent],
+                &quot;closed&quot;: [&quot;onIssueClosed&quot;, IssueClosedEvent]
             }
         }
     }
 };
 </code></pre>
-<p>The <code>&quot;opened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent)</code> entry indicates that when the value of the
+<p>The <code>&quot;opened&quot;: [&quot;onIssueOpened&quot;, IssueOpenedEvent]</code> entry indicates that when the value of the
 <code>&lt;HEADER_TO_CONSIDER&gt;</code> header is <code>issue</code> and the value of the <code>&lt;PAYLOAD_KEY_TO_CONSIDER&gt;</code> JSON payload key is <code>opened</code>,
 dispatching should happen to a resource named <code>onIssueOpened</code>.</p>
 <p>The first parameter of this resource will be the generic <code>websub:Notification</code> record and the second parameter will
@@ -1031,7 +1009,8 @@ be a custom <code>IssueOpenedEvent</code> record, mapping the JSON payload recei
 <li>includes a header named &quot;Event-Header&quot; in each content delivery request indicating what event the notification is
 for (e.g., &quot;onIssueOpened&quot; when an issue is opened and &quot;onIssueAssigned&quot; when an issue is assigned)</li>
 </ul>
-<pre><code class="language-ballerina">import ballerina/websub;
+<pre><code class="language-ballerina">import ballerina/lang.'object as objects;
+import ballerina/websub;
 
 // Introduce a record mapping the JSON payload received when an issue is opened.
 public type IssueOpenedEvent record {
@@ -1049,7 +1028,7 @@ public type IssueAssignedEvent record {
 // Introduce a new `listener` wrapping the generic `ballerina/websub:Listener` 
 public type WebhookListener object {
 
-    *AbstractListener;
+    *objects:AbstractListener;
 
     private websub:Listener websubListener;
 
@@ -1059,8 +1038,8 @@ public type WebhookListener object {
             topicIdentifier: websub:TOPIC_ID_HEADER,
             topicHeader: &quot;Event-Header&quot;,
             headerResourceMap: {
-                &quot;issueOpened&quot;: (&quot;onIssueOpened&quot;, IssueOpenedEvent),
-                &quot;issueAssigned&quot;: (&quot;onIssueAssigned&quot;, IssueAssignedEvent)
+                &quot;issueOpened&quot;: [&quot;onIssueOpened&quot;, IssueOpenedEvent],
+                &quot;issueAssigned&quot;: [&quot;onIssueAssigned&quot;, IssueAssignedEvent]
             }
         };
         
@@ -1070,11 +1049,11 @@ public type WebhookListener object {
         };
             
         // Initialize the wrapped generic listener.
-        self.websubListener = new(port, config = sseConfig);
+        self.websubListener = new(port, sseConfig);
     }
 
     public function __attach(service s, string? name = ()) returns error?  {
-        return self.websubListener.__attach(s, name = name);
+        return self.websubListener.__attach(s, name);
     }
 
     public function __start() returns error? {
@@ -1434,6 +1413,15 @@ the JSON payload of the request.</p>
                 <h2> Annotations </h2>
                 </div>
                 <table>
+                    
+                        <tr>
+                            <td class="module-title truncate annotations" id="SpecificSubscriber"><a
+                                    class="annotations" href="annotations.html#SpecificSubscriber">SpecificSubscriber</a></td>
+                            <td class="module-desc"><p>Annotation to declare that the service represents a specific webhook.
+Generic WebSub Subscriber service validation is not done for
+service variables annotated as <code>@websub:SpecificSubscriber</code>.</p>
+</td>
+                        </tr>
                     
                         <tr>
                             <td class="module-title truncate annotations" id="SubscriberServiceConfig"><a

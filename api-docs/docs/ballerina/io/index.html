@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list module">
     <a href="../io/index.html">
@@ -87,10 +94,6 @@
             <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -149,15 +152,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -312,7 +315,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 
                 <div class="primary-list module">
@@ -356,10 +359,6 @@
                 <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -418,15 +417,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -600,41 +599,45 @@ writing, respectively.</p>
 <h3>Byte channels</h3>
 <p>The most primitive channel is the <code>ByteChannel</code> which reads and writes 8-bit bytes.</p>
 <pre><code class="language-ballerina">// Open a file in read mode.
-io:ReadableByteChannel readableByteChannel = io:openReadableFile(&quot;some/file.txt&quot;);
+io:ReadableByteChannel | io:Error readableByteChannel = io:openReadableFile(&quot;some/file.txt&quot;);
 
 // Here is how 100 bytes are read from the channel.
-(byte[], int)|error result = readableByteChannel.read(100);
+if (readableByteChannel is io:ReadableByteChannel) {
+    [byte[], int] | io:Error result = readableByteChannel.read(100);
+}
 
 // Open a file in write mode.
-io:WritableByteChannel writableByteChannel = io:openWritableFile(&quot;some/file.txt&quot;);
+io:WritableByteChannel | io:Error writableByteChannel = io:openWritableFile(&quot;some/file.txt&quot;);
 
 // Write some content to the beginning of the file.
-string someContent = &quot;some content&quot;;
-byte[] content = someContent.toByteArray(&quot;UTF-8&quot;);
-int|error result = writableByteChannel.write(content, 0);
+if (writableByteChannel is io:WritableByteChannel) {
+    string someContent = &quot;some cont&quot;;
+    byte[] content = someContent.toBytes();
+    int | io:Error writeResult = writableByteChannel.write(content, 0);
+}
 
 </code></pre>
 <h3>Character channels</h3>
 <p>The <code>CharacterChannel</code> is used to read and write characters. The charset encoding is specified when creating the
 <code>CharacterChannel</code>.</p>
 <pre><code class="language-ballerina">// Create a `ReadableCharacterChannel` from the `ReadableByteChannel`.
-var readableCharChannel = new io:ReadableCharacterChannel(readableByteChannel, &quot;UTF-8&quot;);
+io:ReadableCharacterChannel | io:Error readableCharChannel = new io:ReadableCharacterChannel(readableByteChannel, &quot;UTF-8&quot;);
 </code></pre>
 <p>If a <code>ReadableCharacterChannel</code> points to a JSON or XML source, it can be read and then written, directly into a variable of
 the respective type.</p>
 <pre><code class="language-ballerina">// Reading a JSON.
-json|error result = readableCharChannel.readJson();
+json | io:Error result = readableCharChannel.readJson();
 </code></pre>
 <pre><code class="language-ballerina">// Reading an XML.
-var result = readableCharChannel.readXml();
+xml | io:Error result = readableCharChannel.readXml();
 </code></pre>
 <pre><code class="language-ballerina">// Create a `WritableCharacterChannel` from the `WritableByteChannel`.
-var writableCharChannel = new io:WritableCharacterChannel(writableByteChannel, &quot;UTF-8&quot;);
+io:WritableCharacterChannel | io:Error writableCharChannel = new io:WritableCharacterChannel(writableByteChannel, &quot;UTF-8&quot;);
 </code></pre>
 <pre><code class="language-ballerina">// Writing a JSON.
-json content = {fname:&quot;Jhon&quot;, lname:&quot;Doe&quot;, age:40};
+json content = {fname: &quot;Jhon&quot;, lname: &quot;Doe&quot;, age: 40};
 var writeResult = writableCharChannel.writeJson(content);
-if (writeResult is error) {
+if (writeResult is io:Error) {
     return writeResult;
 } else {
     io:println(&quot;JSON content written successfully.&quot;);
@@ -670,17 +673,14 @@ type Employee record {
 
 // Now read the CSV file as a table of Employees and compute total salary.
 float total = 0.0;
-var tableResult = csv.getTable(Employee);
+var tableResult = readableCSVChannel.getTable(Employee);
 if (tableResult is table&lt;Employee&gt;) {
     foreach var x in tableResult {
       total = total + x.salary;
     }
     return total;
-} else if (tableResult is error) {
-    return tableResult; //Return the error back to the caller
 } else {
-    error e = error(IO_ERROR_CODE, { message : &quot;Record channel not initialized properly&quot; });
-    return e;
+    return tableResult; //Return the error back to the caller
 }
 </code></pre>
 <h3>Data Channels</h3>
@@ -696,7 +696,7 @@ if (tableResult is table&lt;Employee&gt;) {
 // Serialize record into binary.
 function serialize(Person p, io:WritableByteChannel byteChannel) {
     io:WritableDataChannel dc = new io:WritableDataChannel(byteChannel);
-    var length = p.name.toByteArray(&quot;UTF-8&quot;).length();
+    var length = p.name.toBytes().length();
     var lengthResult = dc.writeInt32(length);
     var nameResult = dc.writeString(p.name, &quot;UTF-8&quot;);
     var ageResult = dc.writeInt16(p.age);
@@ -707,7 +707,7 @@ function serialize(Person p, io:WritableByteChannel byteChannel) {
 
 // Deserialize record into binary.
 function deserialize(io:ReadableByteChannel byteChannel) returns Person {
-    Person person = {};
+    Person person = {name: &quot;&quot;, age: 0, income: 0.0, isMarried: false};
     int nameLength = 0;
     string nameValue;
     io:ReadableDataChannel dc = new io:ReadableDataChannel(byteChannel);
@@ -715,36 +715,36 @@ function deserialize(io:ReadableByteChannel byteChannel) returns Person {
     var int32Result = dc.readInt32();
     if (int32Result is int) {
         nameLength = int32Result;
-    } else if (int32Result is error) {
-        log:printError(&quot;Error occurred while reading name length&quot;, err = int32Result);
+    } else {
+        log:printError(&quot;Error occurred while reading name length&quot;, int32Result);
     }
     // Read UTF-8 encoded string represented through specified amount of bytes.
     var strResult = dc.readString(nameLength, &quot;UTF-8&quot;);
     if (strResult is string) {
         person.name = strResult;
-    } else if (strResult is error) {
-        log:printError(&quot;Error occurred while reading name&quot;, err = strResult);
+    } else {
+        log:printError(&quot;Error occurred while reading name&quot;, strResult);
     }
     // Read 16 bit signed integer.
     var int16Result = dc.readInt16();
     if (int16Result is int) {
         person.age = int16Result;
-    } else if (int16Result is error) {
-        log:printError(&quot;Error occurred while reading age&quot;, err = int16Result);
+    } else {
+        log:printError(&quot;Error occurred while reading age&quot;, int16Result);
     }
     // Read 64 bit signed float.
     var float64Result = dc.readFloat64();
     if (float64Result is float) {
         person.income = float64Result;
-    } else if (float64Result is error) {
-        log:printError(&quot;Error occurred while reading income&quot;, err = float64Result);
+    } else {
+        log:printError(&quot;Error occurred while reading income&quot;, float64Result);
     }
     // Read boolean.
     var boolResult = dc.readBool();
     if (boolResult is boolean) {
         person.isMarried = boolResult;
-    } else if (boolResult is error) {
-        log:printError(&quot;Error occurred while reading marital status&quot;, err = boolResult);
+    } else {
+        log:printError(&quot;Error occurred while reading marital status&quot;, boolResult);
     }
     // Finally close the data channel.
     var closeResult = dc.close();

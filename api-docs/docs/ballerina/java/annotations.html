@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list">
                 <h3>Annotations</h3>
@@ -104,10 +111,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -164,15 +167,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -327,7 +330,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 <div class="primary-list">
                     <h3>Annotations</h3>
@@ -387,10 +390,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -447,15 +446,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -627,7 +626,16 @@
                                 <li>
                                     <b>Constructor</b><span class="type"> <a href="../java/records/ConstructorData.html">ConstructorData</a></span> .external</li>
                                 <li>
-                                    
+                                    <p>The <code>Constructor</code> annotation describes a Java constructor that provides an implementation of a Ballerina function
+whose body is marked as <code>external</code>. If the Ballerina function body is marked as <code>external</code>, it means that the
+implementation of the function is not provided in the Ballerina source module.</p>
+<p>The following code snippet shows an example usage of this annotation. Here, the <code>newJavaLinkedList</code> Ballerina function's
+implementation is provided by the default constructor of the <code>java.util.UUID.LinkedList</code> class.</p>
+<p>import ballerina/java;</p>
+<p>function newJavaLinkedList() returns handle = @java:Constructor {
+class: &quot;java.util.LinkedList&quot;
+} external;</p>
+
                                 </li>
                             </ul>
                         </div>
@@ -637,7 +645,9 @@
                                 <li>
                                     <b>FieldGet</b><span class="type"> <a href="../java/records/FieldData.html">FieldData</a></span> .external</li>
                                 <li>
-                                    
+                                    <p>The <code>FieldGet</code> annotation describes a Java Field access that provides an implementation of a Ballerina function
+whose body is marked as <code>external</code>.</p>
+
                                 </li>
                             </ul>
                         </div>
@@ -647,7 +657,9 @@
                                 <li>
                                     <b>FieldSet</b><span class="type"> <a href="../java/records/FieldData.html">FieldData</a></span> .external</li>
                                 <li>
-                                    
+                                    <p>The <code>FieldSet</code> annotation describes a Java Field mutate that provides an implementation of a Ballerina function
+whose body is marked as <code>external</code>.</p>
+
                                 </li>
                             </ul>
                         </div>
@@ -657,7 +669,19 @@
                                 <li>
                                     <b>Method</b><span class="type"> <a href="../java/records/MethodData.html">MethodData</a></span> .external</li>
                                 <li>
-                                    
+                                    <p>The <code>Method</code> annotation describes a Java method that provides an implementation of a Ballerina function
+whose body is marked as <code>external</code>. If the Ballerina function body is marked as <code>external</code>, it means that the
+implementation of the function is not provided in the Ballerina source module.</p>
+<p>The following code snippet shows an example usage of this annotation. Here, the <code>getUUID</code> Ballerina function's
+implementation is provided by the <code>java.util.UUID.randomUUID</code> static method.</p>
+<p>import ballerina/java;</p>
+<p>function getUUID() returns handle = @java:Method {
+name: &quot;randomUUID&quot;,
+class: &quot;java.util.UUID&quot;
+} external;</p>
+<p>The <code>name</code> field is optional. If it is not provided, the name of the Java method is inferred
+from the Ballerina function.</p>
+
                                 </li>
                             </ul>
                         </div>

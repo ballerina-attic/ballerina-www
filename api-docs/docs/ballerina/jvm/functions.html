@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list">
                 <h3>Functions</h3>
@@ -52,6 +59,10 @@
                     
                         <li >
                             <a href="#getFieldMethodFromAnnotTag">getFieldMethodFromAnnotTag</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#getJArrayTypeFromTypeName">getJArrayTypeFromTypeName</a>
                         </li>
                     
                         <li >
@@ -116,10 +127,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -176,15 +183,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -339,7 +346,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 <div class="primary-list">
                     <h3>Functions</h3>
@@ -347,6 +354,10 @@
                         
                             <li >
                                 <a href="#getFieldMethodFromAnnotTag">getFieldMethodFromAnnotTag</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#getJArrayTypeFromTypeName">getJArrayTypeFromTypeName</a>
                             </li>
                         
                             <li >
@@ -411,10 +422,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -471,15 +478,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -655,6 +662,13 @@
                     
                         <tbody>
                             <tr>
+                                <td width="30%" ><a class="functions" href="#getJArrayTypeFromTypeName">getJArrayTypeFromTypeName</a></td>
+                                <td width="70%"></td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
                                 <td width="30%" ><a class="functions" href="#getJTypeFromTypeName">getJTypeFromTypeName</a></td>
                                 <td width="70%"></td>
                             </tr>
@@ -729,6 +743,57 @@
 </div>
                             
                                 <div class="method-content">
+    <div class="main-method-title here" id="getJArrayTypeFromTypeName">
+             <a class="url-link" href="#getJArrayTypeFromTypeName">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> getJArrayTypeFromTypeName </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.annotations/UNKOWN/string.html">string</a> typeName, <a href="../lang.annotations/UNKOWN/byte.html">byte</a> dimensions)</p>
+            <b> returns </b><a href="../jvm/records/ArrayType.html">ArrayType</a> 
+        </span>
+        
+    </div>
+    <p></p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> typeName<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
+                    <li>
+                        <p></p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> dimensions<span class="type">  <a href="../lang.annotations/UNKOWN/byte.html">byte</a> </span></li>
+                    <li>
+                        <p></p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../jvm/records/ArrayType.html">ArrayType</a></span>)</li>
+                <li></li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
     <div class="main-method-title here" id="getJTypeFromTypeName">
              <a class="url-link" href="#getJTypeFromTypeName">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
@@ -737,7 +802,7 @@
         
         <span class="method-types">
             <p>(<a href="../lang.annotations/UNKOWN/string.html">string</a> typeName)</p>
-            <b> returns </b><a href="../jvm/types.html#JType">JType</a> 
+            <b> returns </b><a href="../jvm/types.html#PrimitiveType">PrimitiveType</a> | <a href="../jvm/records/RefType.html">RefType</a> 
         </span>
         
     </div>
@@ -762,7 +827,7 @@
         
         <div class="returns-listing">
             <ul>
-                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../jvm/types.html#JType">JType</a></span>)</li>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../jvm/types.html#PrimitiveType">PrimitiveType</a> | <a href="../jvm/records/RefType.html">RefType</a></span>)</li>
                 <li></li>
             </ul>
         </div>

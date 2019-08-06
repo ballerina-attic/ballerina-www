@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list module">
     <a href="../lang.string/index.html">
@@ -75,10 +82,6 @@
             <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -137,15 +140,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -300,7 +303,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 
                 <div class="primary-list module">
@@ -332,10 +335,6 @@
                 <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -394,15 +393,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -566,7 +565,9 @@
     <img class="breadcrumb-home-icon" src="../html-template-resources/images/home.svg">
 </a>
                     Module : <span class="modules">lang.string</span></h1>
-                    
+                    <h2>Module Overview</h2>
+<p>This module provides lang library string operations defined by the language specification 2019R2.</p>
+
 
             
 
@@ -612,7 +613,7 @@
                         <tr>
                             <td class="module-title truncate functions" id="codePointCompare"><a
                                     class="functions" href="functions.html#codePointCompare">codePointCompare</a></td>
-                            <td class="module-desc"><p>Lexicographically compare strings using their Unicode code points
+                            <td class="module-desc"><p>Lexicographically compare strings using their Unicode code points.
 This will allow strings to be ordered in a consistent and well-defined way,
 but the ordering will not typically be consistent with cultural expectations
 for sorted order.</p>
@@ -629,7 +630,8 @@ for sorted order.</p>
                         <tr>
                             <td class="module-title truncate functions" id="endsWith"><a
                                     class="functions" href="functions.html#endsWith">endsWith</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns true if <code>str</code> end with <code>substr</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
@@ -651,14 +653,15 @@ or is a surrogate (i.e. in the range 0xD800 or 0xDFFF inclusive).</p>
                         <tr>
                             <td class="module-title truncate functions" id="getCodePoint"><a
                                     class="functions" href="functions.html#getCodePoint">getCodePoint</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns the unicode codepoint at index <code>i</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="indexOf"><a
                                     class="functions" href="functions.html#indexOf">indexOf</a></td>
                             <td class="module-desc"><p>Returns the index of the first occurrence of <code>substr</code> in the part of the <code>str</code> starting at <code>startIndex</code>
-or nil if it does not occur</p>
+or nil if it does not occur.</p>
 </td>
                         </tr>
                     
@@ -673,31 +676,35 @@ The iterator will return the substrings of length 1 in order.</p>
                         <tr>
                             <td class="module-title truncate functions" id="join"><a
                                     class="functions" href="functions.html#join">join</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns a new string composed of <code>strs</code> elements joined together with <code>separator</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="length"><a
                                     class="functions" href="functions.html#length">length</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns the length of the string.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="startsWith"><a
                                     class="functions" href="functions.html#startsWith">startsWith</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns true if <code>str</code> starts with <code>substr</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="substring"><a
                                     class="functions" href="functions.html#substring">substring</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns a string that is a substring of this string.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="toBytes"><a
                                     class="functions" href="functions.html#toBytes">toBytes</a></td>
-                            <td class="module-desc"><p>Represents <code>str</code> as an array of bytes using UTF-8</p>
+                            <td class="module-desc"><p>Represents <code>str</code> as an array of bytes using UTF-8.</p>
 </td>
                         </tr>
                     
@@ -711,24 +718,21 @@ The iterator will return the substrings of length 1 in order.</p>
                         <tr>
                             <td class="module-title truncate functions" id="toLowerAscii"><a
                                     class="functions" href="functions.html#toLowerAscii">toLowerAscii</a></td>
-                            <td class="module-desc"><p>Standard lib (not lang lib) should have a Unicode module (or set of modules)
-to deal with Unicode properly. These will need to be updated as each
-new Unicode version is released.
-Return A-Z into a-z and leave other characters unchanged</p>
+                            <td class="module-desc"><p>Return A-Z into a-z and leave other characters unchanged.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="toUpperAscii"><a
                                     class="functions" href="functions.html#toUpperAscii">toUpperAscii</a></td>
-                            <td class="module-desc"><p>Return a-z into A-Z and leave other characters unchanged</p>
+                            <td class="module-desc"><p>Return a-z into A-Z and leave other characters unchanged.</p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="trim"><a
                                     class="functions" href="functions.html#trim">trim</a></td>
-                            <td class="module-desc"><p>Remove ASCII white space characters (0x9...0xD, 0x20) from start and end of <code>str</code></p>
+                            <td class="module-desc"><p>Remove ASCII white space characters (0x9...0xD, 0x20) from start and end of <code>str</code>.</p>
 </td>
                         </tr>
                     

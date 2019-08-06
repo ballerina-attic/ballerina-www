@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list">
                 <h3>Functions</h3>
@@ -228,10 +235,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -288,15 +291,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -451,7 +454,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 <div class="primary-list">
                     <h3>Functions</h3>
@@ -635,10 +638,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -695,15 +694,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -898,7 +897,7 @@ New children will be appended at the end of the existing children.</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#createComment">createComment</a></td>
-                                <td width="70%"><p>Creates a comment with the specified content.</p>
+                                <td width="70%"><p>Creates a comment with the specified <code>content</code>.</p>
 </td>
                             </tr>
                         </tbody>
@@ -915,7 +914,7 @@ The attributes are empty initially</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#createProcessingInstruction">createProcessingInstruction</a></td>
-                                <td width="70%"><p>Creates a processing instruction with the specified target and content.</p>
+                                <td width="70%"><p>Creates a processing instruction with the specified <code>target</code> and <code>content</code>.</p>
 </td>
                             </tr>
                         </tbody>
@@ -931,14 +930,19 @@ The attributes are empty initially</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#filter">filter</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>For xml sequence returns a new xml sequence constructed from children of <code>x</code> for which <code>func</code> returns true.
+For xml element returns a new xml sequence constructed from <code>x</code> if <code>x</code> applied to <code>funct</code> returns true, else
+returns an empty sequence.</p>
+</td>
                             </tr>
                         </tbody>
                     
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#forEach">forEach</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>For xml sequence apply the <code>func</code> to children of <code>item</code>.
+For xml element apply the <code>func</code> to <code>item</code>.</p>
+</td>
                             </tr>
                         </tbody>
                     
@@ -1089,7 +1093,9 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#map">map</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>For xml sequence returns the result of applying function <code>func</code> to each member of sequence <code>item</code>.
+For xml element returns the result of applying function <code>funct</code> to <code>item</code>.</p>
+</td>
                             </tr>
                         </tbody>
                     
@@ -1147,7 +1153,8 @@ Panics if <code>isElement(elem)</code> is not true.</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#setName">setName</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>Change the name of element <code>elmem</code> to <code>xName</code>.</p>
+</td>
                             </tr>
                         </tbody>
                     
@@ -1236,7 +1243,8 @@ New children will be appended at the end of the existing children.</p>
                 <ul>
                     <li> xs<span class="type">  <a href="../lang.annotations/UNKOWN/xml.html">xml</a> | <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml or string items to concat</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1249,7 +1257,8 @@ New children will be appended at the end of the existing children.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/xml.html">xml</a></span>)</li>
-                <li></li>
+                <li><p>xml sequence containing <code>xs</code></p>
+</li>
             </ul>
         </div>
         
@@ -1314,7 +1323,7 @@ New children will be appended at the end of the existing children.</p>
         </span>
         
     </div>
-    <p><p>Creates a comment with the specified content.</p>
+    <p><p>Creates a comment with the specified <code>content</code>.</p>
 </p>
      
         <div class="data-wrapper">
@@ -1324,7 +1333,8 @@ New children will be appended at the end of the existing children.</p>
                 <ul>
                     <li> content<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>comment content</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1337,7 +1347,8 @@ New children will be appended at the end of the existing children.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/Comment.html">Comment</a></span>)</li>
-                <li></li>
+                <li><p>xml comment element</p>
+</li>
             </ul>
         </div>
         
@@ -1368,7 +1379,8 @@ The attributes are empty initially</p>
                 <ul>
                     <li> name<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>element name</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1377,7 +1389,8 @@ The attributes are empty initially</p>
                 <ul>
                     <li> children<span class="type">  <a href="../lang.annotations/UNKOWN/xml.html">xml</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>children of element</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1390,7 +1403,8 @@ The attributes are empty initially</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/Element.html">Element</a></span>)</li>
-                <li></li>
+                <li><p>new xml element</p>
+</li>
             </ul>
         </div>
         
@@ -1410,7 +1424,7 @@ The attributes are empty initially</p>
         </span>
         
     </div>
-    <p><p>Creates a processing instruction with the specified target and content.</p>
+    <p><p>Creates a processing instruction with the specified <code>target</code> and <code>content</code>.</p>
 </p>
      
         <div class="data-wrapper">
@@ -1420,7 +1434,8 @@ The attributes are empty initially</p>
                 <ul>
                     <li> target<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>target potion of xml processing instruction</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1429,7 +1444,8 @@ The attributes are empty initially</p>
                 <ul>
                     <li> content<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>content potion of xml processing instruction</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1442,7 +1458,8 @@ The attributes are empty initially</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/ProcessingInstruction.html">ProcessingInstruction</a></span>)</li>
-                <li></li>
+                <li><p>new xml processing instruction element</p>
+</li>
             </ul>
         </div>
         
@@ -1507,7 +1524,10 @@ The attributes are empty initially</p>
         </span>
         
     </div>
-    <p></p>
+    <p><p>For xml sequence returns a new xml sequence constructed from children of <code>x</code> for which <code>func</code> returns true.
+For xml element returns a new xml sequence constructed from <code>x</code> if <code>x</code> applied to <code>funct</code> returns true, else
+returns an empty sequence.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -1516,7 +1536,8 @@ The attributes are empty initially</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/xml.html">xml</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1525,7 +1546,8 @@ The attributes are empty initially</p>
                 <ul>
                     <li> func<span class="type">  <code> <span>function(</span><a href="../lang.annotations/UNKOWN/xml.html">xml</a> | <a href="../lang.annotations/UNKOWN/string.html">string</a><span>) </span><span>returns (</span><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a><span>)</span> </code> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>a predicate to apply to each child to determine if it should be included</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1538,7 +1560,8 @@ The attributes are empty initially</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/xml.html">xml</a></span>)</li>
-                <li></li>
+                <li><p>new xml sequence containing filtered children</p>
+</li>
             </ul>
         </div>
         
@@ -1553,7 +1576,9 @@ The attributes are empty initially</p>
             <h2> forEach </h2>
         
     </div>
-    <p></p>
+    <p><p>For xml sequence apply the <code>func</code> to children of <code>item</code>.
+For xml element apply the <code>func</code> to <code>item</code>.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -1562,7 +1587,8 @@ The attributes are empty initially</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/xml.html">xml</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the xml value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1571,7 +1597,8 @@ The attributes are empty initially</p>
                 <ul>
                     <li> func<span class="type">  <code> <span>function(</span><a href="../lang.annotations/UNKOWN/xml.html">xml</a> | <a href="../lang.annotations/UNKOWN/string.html">string</a><span>) </span><span>returns (</span><a href="../lang.annotations/UNKOWN/().html">()</a><span>)</span> </code> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>a function to apply to each child or <code>item</code></p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1605,7 +1632,8 @@ The attributes are empty initially</p>
                 <ul>
                     <li> s<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>string representation of xml</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1618,7 +1646,8 @@ The attributes are empty initially</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/xml.html">xml</a> | <a href="../lang.annotations/errors.html#error">error</a></span>)</li>
-                <li></li>
+                <li><p>parsed xml value or error</p>
+</li>
             </ul>
         </div>
         
@@ -1652,7 +1681,8 @@ There is no setAttributes function.</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/Element.html">Element</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml element</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1665,7 +1695,8 @@ There is no setAttributes function.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/map.html">map</a></span>)</li>
-                <li></li>
+                <li><p>attributes of <code>x</code></p>
+</li>
             </ul>
         </div>
         
@@ -1696,7 +1727,8 @@ Panics if <code>isElement(elem)</code> is not true.</p>
                 <ul>
                     <li> elem<span class="type">  <a href="../lang.annotations/UNKOWN/Element.html">Element</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml element</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1709,7 +1741,8 @@ Panics if <code>isElement(elem)</code> is not true.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/xml.html">xml</a></span>)</li>
-                <li></li>
+                <li><p>children of <code>elem</code></p>
+</li>
             </ul>
         </div>
         
@@ -1739,7 +1772,8 @@ Panics if <code>isElement(elem)</code> is not true.</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/Text.html">Text</a> | <a href="../lang.annotations/UNKOWN/ProcessingInstruction.html">ProcessingInstruction</a> | <a href="../lang.annotations/UNKOWN/Comment.html">Comment</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml item</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1752,7 +1786,8 @@ Panics if <code>isElement(elem)</code> is not true.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a></span>)</li>
-                <li></li>
+                <li><p>content of <code>x</code></p>
+</li>
             </ul>
         </div>
         
@@ -1873,7 +1908,8 @@ Returns an empty string if the XML is not a singleton.</p>
                 <ul>
                     <li> elem<span class="type">  <a href="../lang.annotations/UNKOWN/Element.html">Element</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml element</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1886,7 +1922,8 @@ Returns an empty string if the XML is not a singleton.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a></span>)</li>
-                <li></li>
+                <li><p>element name</p>
+</li>
             </ul>
         </div>
         
@@ -1916,7 +1953,8 @@ Returns an empty string if the XML is not a singleton.</p>
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/ProcessingInstruction.html">ProcessingInstruction</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml processing instruction item</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1929,7 +1967,8 @@ Returns an empty string if the XML is not a singleton.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a></span>)</li>
-                <li></li>
+                <li><p>target potion of <code>x</code></p>
+</li>
             </ul>
         </div>
         
@@ -2006,7 +2045,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/xml.html">xml</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2019,7 +2059,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a></span>)</li>
-                <li></li>
+                <li><p>true if <code>x</code> is a xml comment item</p>
+</li>
             </ul>
         </div>
         
@@ -2049,7 +2090,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/xml.html">xml</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2062,7 +2104,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a></span>)</li>
-                <li></li>
+                <li><p>true if <code>x</code> is an xml element item</p>
+</li>
             </ul>
         </div>
         
@@ -2137,7 +2180,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/xml.html">xml</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2150,7 +2194,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a></span>)</li>
-                <li></li>
+                <li><p>true if <code>x</code> is a xml processing instruction</p>
+</li>
             </ul>
         </div>
         
@@ -2225,7 +2270,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/xml.html">xml</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml value</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2238,7 +2284,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a></span>)</li>
-                <li></li>
+                <li><p>true if <code>x</code> is a sequence containing any charactor items</p>
+</li>
             </ul>
         </div>
         
@@ -2268,7 +2315,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/xml.html">xml</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml item to iterate</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2281,7 +2329,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.xml/objects/$anonType$4.html">$anonType$4</a></span>)</li>
-                <li></li>
+                <li><p>iterator object</p>
+</li>
             </ul>
         </div>
         
@@ -2311,7 +2360,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
                 <ul>
                     <li> x<span class="type">  <a href="../lang.annotations/UNKOWN/xml.html">xml</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml item</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2324,7 +2374,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/int.html">int</a></span>)</li>
-                <li></li>
+                <li><p>number of XML items in <code>x</code></p>
+</li>
             </ul>
         </div>
         
@@ -2344,7 +2395,9 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
         </span>
         
     </div>
-    <p></p>
+    <p><p>For xml sequence returns the result of applying function <code>func</code> to each member of sequence <code>item</code>.
+For xml element returns the result of applying function <code>funct</code> to <code>item</code>.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -2362,7 +2415,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
                 <ul>
                     <li> func<span class="type">  <code> <span>function(</span><a href="../lang.annotations/UNKOWN/xml.html">xml</a> | <a href="../lang.annotations/UNKOWN/string.html">string</a><span>) </span><span>returns (</span><a href="../lang.annotations/UNKOWN/xml.html">xml</a> | <a href="../lang.annotations/UNKOWN/string.html">string</a><span>)</span> </code> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>a function to apply to each child or <code>item</code></p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2375,7 +2429,8 @@ the XML is a text item, then the text is returned. Otherwise, an empty string is
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/xml.html">xml</a></span>)</li>
-                <li></li>
+                <li><p>new xml value containing result of applying function <code>func</code> to each child or <code>item</code></p>
+</li>
             </ul>
         </div>
         
@@ -2633,7 +2688,8 @@ Panics if <code>isElement(elem)</code> is not true.</p>
                 <ul>
                     <li> elem<span class="type">  <a href="../lang.annotations/UNKOWN/Element.html">Element</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml element</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2642,7 +2698,8 @@ Panics if <code>isElement(elem)</code> is not true.</p>
                 <ul>
                     <li> children<span class="type">  <a href="../lang.annotations/UNKOWN/xml.html">xml</a> | <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml or string to set as children</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2661,7 +2718,8 @@ Panics if <code>isElement(elem)</code> is not true.</p>
             <h2> setName </h2>
         
     </div>
-    <p></p>
+    <p><p>Change the name of element <code>elmem</code> to <code>xName</code>.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -2670,7 +2728,8 @@ Panics if <code>isElement(elem)</code> is not true.</p>
                 <ul>
                     <li> elem<span class="type">  <a href="../lang.annotations/UNKOWN/Element.html">Element</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>xml element</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -2679,7 +2738,8 @@ Panics if <code>isElement(elem)</code> is not true.</p>
                 <ul>
                     <li> xName<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>new name</p>
+</p>
                     </li>
                 </ul>
             </div>

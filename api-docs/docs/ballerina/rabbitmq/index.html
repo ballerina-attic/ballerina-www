@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list module">
     <a href="../rabbitmq/index.html">
@@ -99,10 +106,6 @@
             <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -161,15 +164,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -324,7 +327,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 
                 <div class="primary-list module">
@@ -380,10 +383,6 @@
                 <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -442,15 +441,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -615,40 +614,96 @@
 </a>
                     Module : <span class="modules">rabbitmq</span></h1>
                     <h2>Module overview</h2>
-<p>'ballerina/rabbitmq' provides the capability to connect with a RabbitMQ server and perform the following</p>
-<ul>
-<li>Point to point communication (Queues)</li>
-<li>Pub/Sub (Topics)</li>
-</ul>
+<p><a href="https://www.rabbitmq.com/">RabbitMQ</a> is one of the most popular open-source enterprise messaging systems, modeled on the Advanced Message Queuing Protocol (AMQP) standard. This guide covers Ballerina RabbitMQ module and its public API. This module contains functionality to support messaging with RabbitMQ broker (AMQP 0-9-1).</p>
 <h2>Samples</h2>
 <h3>RabbitMQ Producer</h3>
 <p>Following program will produce a message to a RabbitMQ server</p>
-<pre><code class="language-ballerina">import ballerina/rabbitmq;
-import ballerina/log;
+<pre><code class="language-ballerina">import ballerina/io;
+import ballerina/rabbitmq;
 
 public function main() {
-     rabbitmq:Channel chann = new({ host: &quot;localhost&quot;, port: 5672 });
-     var sendResult = chann-&gt;basicPublish(&quot;Hello from ballerina&quot;, &quot;testingDemo&quot;, exchange = &quot;&quot;);
-     if (sendResult is error) {
-          log:printError(&quot;An error occurred while sending the message&quot;);
-     } else {
-          log:printInfo(&quot;The message was sent successfully&quot;);
-     }
+    // Creates a ballerina RabbitMQ connection that allows re-usability if necessary.
+    rabbitmq:Connection connection = new({ host: &quot;localhost&quot;, port: 5672 });
+
+    // Creates multiple ballerina RabbitMQ channels.
+    rabbitmq:Channel newChannel1 = new(connection);
+    rabbitmq:Channel newChannel2 = new(connection);
+
+    // Declares the queue, MyQueue1.
+    var queueResult1 = newChannel1-&gt;queueDeclare({ queueName: &quot;MyQueue1&quot; });
+    if (queueResult1 is rabbitmq:Error) {
+        io:println(&quot;An error occurred while creating the MyQueue1 queue.&quot;);
+    }
+
+    // Declares the queue, MyQueue2.
+    var queueResult2 = newChannel2-&gt;queueDeclare({ queueName: &quot;MyQueue2&quot; });
+    if (queueResult2 is rabbitmq:Error) {
+        io:println(&quot;An error occurred while creating the MyQueue2 queue.&quot;);
+    }
+
+    // Publishing messages to an exchange using a routing key.
+    // Publishes the message using newChannel1 and the routing key named MyQueue1.
+    worker w1 {
+        var sendResult = newChannel1-&gt;basicPublish(&quot;Hello from Ballerina&quot;, &quot;MyQueue1&quot;);
+        if (sendResult is rabbitmq:Error) {
+            io:println(&quot;An error occurred while sending the message to
+                     MyQueue1 using newChannel1.&quot;);
+        }
+    }
+
+    // Publishing messages to the same routing key using a different channel.
+    // Publishes the message using newChannel2 and the same routing key named MyQueue1.
+    worker w2 {
+        var sendResult = newChannel2-&gt;basicPublish(&quot;Hello from Ballerina&quot;, &quot;MyQueue1&quot;);
+        if (sendResult is rabbitmq:Error) {
+            io:println(&quot;An error occurred while sending the message to
+                    MyQueue1 using newChannel2.&quot;);
+        }
+    }
+
+    // Publishing messages to different routing keys using the same channel.
+    // Publishes the message using newChannel1 to a different routing key named MyQueue2.
+    worker w3 {
+        var sendResult = newChannel1-&gt;basicPublish(&quot;Hello from Ballerina&quot;, &quot;MyQueue2&quot;);
+        if (sendResult is rabbitmq:Error) {
+            io:println(&quot;An error occurred while sending the message to
+                    MyQueue2 using newChannel1.&quot;);
+        }
+    }
+    _ = wait {w1, w2, w3};
 }
 </code></pre>
 <h3>RabbitMQ Subscriber</h3>
 <p>Following program will consume a message from a RabbitMQ server</p>
-<pre><code class="language-ballerina">import ballerina/rabbitmq;
-import ballerina/log;
+<pre><code class="language-ballerina">import ballerina/log;
+import ballerina/rabbitmq;
 
-listener rabbitmq:ChannelListener chann = new({ host: &quot;localhost&quot;, port: 5672 });
+// Creates a ballerina RabbitMQ connection that allows re-usability if necessary.
+rabbitmq:Connection connection = new({ host: &quot;localhost&quot;, port: 5672 });
 
+listener rabbitmq:Listener channelListener= new(connection);
+
+// The consumer service listens to the &quot;MyQueue&quot; queue.
+// The `ackMode` is by default rabbitmq:AUTO_ACK where messages are acknowledged
+// immediately after consuming.
 @rabbitmq:ServiceConfig {
-        queueName: &quot;testingDemo&quot;
+    queueConfig: {
+        queueName: &quot;MyQueue&quot;
+    }
 }
-service testSimpleConsumer on chann {
-    resource function onMessage(string message) {
-            log:printInfo(&quot;The message received: &quot; + message);
+// Attaches the service to the listener.
+service rabbitmqConsumer on channelListener {
+
+    // Gets triggered when a message is received by the queue.
+    resource function onMessage(rabbitmq:Message message) {
+
+        // Retrieves the text content of the message.
+        var messageContent = message.getTextContent();
+        if (messageContent is string) {
+            log:printInfo(&quot;The message received: &quot; + messageContent);
+        } else {
+            log:printError(&quot;Error occurred while retrieving the message content.&quot;);
+        }
     }
 }
 </code></pre>

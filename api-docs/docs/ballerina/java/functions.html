@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,14 +51,38 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list">
                 <h3>Functions</h3>
                 <ul>
                     
                         <li >
-                            <a href="#toJString">toJString</a>
+                            <a href="#createNull">createNull</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#fromString">fromString</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#getArrayElement">getArrayElement</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#getArrayLength">getArrayLength</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#isNull">isNull</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#setArrayElement">setArrayElement</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#toString">toString</a>
                         </li>
                     
                 </ul>
@@ -90,10 +121,6 @@
             <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -152,15 +179,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -315,14 +342,38 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 <div class="primary-list">
                     <h3>Functions</h3>
                     <ul>
                         
                             <li >
-                                <a href="#toJString">toJString</a>
+                                <a href="#createNull">createNull</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#fromString">fromString</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#getArrayElement">getArrayElement</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#getArrayLength">getArrayLength</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#isNull">isNull</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#setArrayElement">setArrayElement</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#toString">toString</a>
                             </li>
                         
                     </ul>
@@ -361,10 +412,6 @@
                 <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -423,15 +470,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -600,8 +647,61 @@
                     
                         <tbody>
                             <tr>
-                                <td width="30%" ><a class="functions" href="#toJString">toJString</a></td>
-                                <td width="70%"></td>
+                                <td width="30%" ><a class="functions" href="#createNull">createNull</a></td>
+                                <td width="70%"><p>Returns a <code>handle</code> that refers to Java null.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#fromString">fromString</a></td>
+                                <td width="70%"><p>Returns a <code>handle</code> that refers to the Java string representation of the Ballerina <code>string</code>.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#getArrayElement">getArrayElement</a></td>
+                                <td width="70%"><p>Returns a <code>handle</code> that refers to the element at the specified index in the given Java array.</p>
+<p>This function panics with a <code>JavaNullReferenceError</code> error if the <code>handle</code> refers to Java null.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#getArrayLength">getArrayLength</a></td>
+                                <td width="70%"><p>Returns the length of the given Java array.</p>
+<p>This function panics with a <code>JavaNullReferenceError</code> error if the <code>handle</code> refers to Java null.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#isNull">isNull</a></td>
+                                <td width="70%"><p>Returns <code>true</code> if this handle refers to Java null.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#setArrayElement">setArrayElement</a></td>
+                                <td width="70%"><p>Replaces the element at the specified index in the given Java array with the specified element.</p>
+<p>This function panics with a <code>JavaNullReferenceError</code> error if the <code>handle</code> refers to Java null.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#toString">toString</a></td>
+                                <td width="70%"><p>Returns a Ballerina <code>string</code> representation of the Java object referred by the <code>handle</code>.</p>
+<p>If the <code>handle</code> refers to Java null, then this function returns a <code>nil</code> value.</p>
+</td>
                             </tr>
                         </tbody>
                     
@@ -611,11 +711,41 @@
                         <div>
                             
                                 <div class="method-content">
-    <div class="main-method-title here" id="toJString">
-             <a class="url-link" href="#toJString">
+    <div class="main-method-title here" id="createNull">
+             <a class="url-link" href="#createNull">
                 <img class="url-link-img" src="../html-template-resources/images/link.svg">
             </a>
-            <h2> toJString </h2>
+            <h2> createNull </h2>
+        
+        <span class="method-types">
+            <p>()</p>
+            <b> returns </b><a href="../lang.annotations/UNKOWN/handle.html">handle</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns a <code>handle</code> that refers to Java null.</p>
+</p>
+     
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/handle.html">handle</a></span>)</li>
+                <li><p>the <code>handle</code> that refers to Java null</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="fromString">
+             <a class="url-link" href="#fromString">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> fromString </h2>
         
         <span class="method-types">
             <p>(<a href="../lang.annotations/UNKOWN/string.html">string</a> value)</p>
@@ -623,7 +753,8 @@
         </span>
         
     </div>
-    <p></p>
+    <p><p>Returns a <code>handle</code> that refers to the Java string representation of the Ballerina <code>string</code>.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -632,7 +763,8 @@
                 <ul>
                     <li> value<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the Ballerina <code>string</code> with which the <code>handle</code> is created</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -645,7 +777,253 @@
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/handle.html">handle</a></span>)</li>
-                <li></li>
+                <li><p>the <code>handle</code> that refers to the Java String representation of the Ballerina <code>string</code></p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="getArrayElement">
+             <a class="url-link" href="#getArrayElement">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> getArrayElement </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.annotations/UNKOWN/handle.html">handle</a> receiver, <a href="../lang.annotations/UNKOWN/int.html">int</a> index)</p>
+            <b> returns </b><a href="../lang.annotations/UNKOWN/handle.html">handle</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns a <code>handle</code> that refers to the element at the specified index in the given Java array.</p>
+<p>This function panics with a <code>JavaNullReferenceError</code> error if the <code>handle</code> refers to Java null.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> receiver<span class="type">  <a href="../lang.annotations/UNKOWN/handle.html">handle</a> </span></li>
+                    <li>
+                        <p><p>the <code>handle</code> which referes to the Java array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> index<span class="type">  <a href="../lang.annotations/UNKOWN/int.html">int</a> </span></li>
+                    <li>
+                        <p><p>the index of the element to be returned</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/handle.html">handle</a></span>)</li>
+                <li><p>the <code>handle</code> that refers to the element at the specified position in the Java array</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="getArrayLength">
+             <a class="url-link" href="#getArrayLength">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> getArrayLength </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.annotations/UNKOWN/handle.html">handle</a> receiver)</p>
+            <b> returns </b><a href="../lang.annotations/UNKOWN/int.html">int</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns the length of the given Java array.</p>
+<p>This function panics with a <code>JavaNullReferenceError</code> error if the <code>handle</code> refers to Java null.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> receiver<span class="type">  <a href="../lang.annotations/UNKOWN/handle.html">handle</a> </span></li>
+                    <li>
+                        <p><p>the <code>handle</code> which referes to the Java array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/int.html">int</a></span>)</li>
+                <li><p>the length of the given Java array</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="isNull">
+             <a class="url-link" href="#isNull">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> isNull </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.annotations/UNKOWN/handle.html">handle</a> value)</p>
+            <b> returns </b><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns <code>true</code> if this handle refers to Java null.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> value<span class="type">  <a href="../lang.annotations/UNKOWN/handle.html">handle</a> </span></li>
+                    <li>
+                        <p><p>the <code>handle</code> whose referred value to be tested with Java null</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a></span>)</li>
+                <li><p><code>true</code> if this handle refers to Java null</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="setArrayElement">
+             <a class="url-link" href="#setArrayElement">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> setArrayElement </h2>
+        
+    </div>
+    <p><p>Replaces the element at the specified index in the given Java array with the specified element.</p>
+<p>This function panics with a <code>JavaNullReferenceError</code> error if the <code>handle</code> refers to Java null.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> receiver<span class="type">  <a href="../lang.annotations/UNKOWN/handle.html">handle</a> </span></li>
+                    <li>
+                        <p><p>the <code>handle</code> which referes to the Java array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> index<span class="type">  <a href="../lang.annotations/UNKOWN/int.html">int</a> </span></li>
+                    <li>
+                        <p><p>the index of the element to be replaced</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> element<span class="type">  <a href="../lang.annotations/UNKOWN/handle.html">handle</a> </span></li>
+                    <li>
+                        <p><p>the element to be stored at the specified index</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="toString">
+             <a class="url-link" href="#toString">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> toString </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.annotations/UNKOWN/handle.html">handle</a> value)</p>
+            <b> returns </b><a href="../lang.annotations/UNKOWN/string.html">string</a>? 
+        </span>
+        
+    </div>
+    <p><p>Returns a Ballerina <code>string</code> representation of the Java object referred by the <code>handle</code>.</p>
+<p>If the <code>handle</code> refers to Java null, then this function returns a <code>nil</code> value.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> value<span class="type">  <a href="../lang.annotations/UNKOWN/handle.html">handle</a> </span></li>
+                    <li>
+                        <p><p>the <code>handle</code> whose referred value to be converted to Ballerina <code>string</code></p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a>?</span>)</li>
+                <li><p>the Ballerina <code>string</code> representation of the Java object referred by the <code>handle</code> or
+returns <code>nil</code> of the <code>handle</code> refers to Java null</p>
+</li>
             </ul>
         </div>
         

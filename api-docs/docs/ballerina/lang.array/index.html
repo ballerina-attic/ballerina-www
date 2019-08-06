@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list module">
     <a href="../lang.array/index.html">
@@ -75,10 +82,6 @@
             <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -137,15 +140,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -300,7 +303,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 
                 <div class="primary-list module">
@@ -332,10 +335,6 @@
                 <div class="primary-list module-list">
     <h3>All Modules</h3>
     <ul>
-        
-        <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
         
         <li>
             <a href="../auth/index.html">auth</a>
@@ -394,15 +393,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -566,7 +565,9 @@
     <img class="breadcrumb-home-icon" src="../html-template-resources/images/home.svg">
 </a>
                     Module : <span class="modules">lang.array</span></h1>
-                    
+                    <h2>Module Overview</h2>
+<p>This module provides lang library list operations defined by the language specification 2019R2.</p>
+
 
             
 
@@ -612,134 +613,173 @@
                         <tr>
                             <td class="module-title truncate functions" id="enumerate"><a
                                     class="functions" href="functions.html#enumerate">enumerate</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns a new array comprising of position and member pairs.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="filter"><a
                                     class="functions" href="functions.html#filter">filter</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns a new array constructed from those elements of 'arr' for which <code>func</code> returns true.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="forEach"><a
                                     class="functions" href="functions.html#forEach">forEach</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Apply function <code>func</code> to each member of array <code>arr</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="fromBase16"><a
                                     class="functions" href="functions.html#fromBase16">fromBase16</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns the byte array that <code>str</code> represents in Base16.
+<code>str</code> must consist of the characters <code>0..9</code>, <code>A..F</code>, <code>a..f</code>
+and whitespace as allowed by a Ballerina Base16Literal.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="fromBase64"><a
                                     class="functions" href="functions.html#fromBase64">fromBase64</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns the byte array that <code>str</code> represents in Base64 encoding.
+<code>str</code> must consist of the characters <code>A..Z</code>, <code>a..z</code>, <code>0..9</code>, <code>+</code>, <code>/</code>, <code>=</code>
+and whitespace as allowed by a Ballerina Base64Literal.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="indexOf"><a
                                     class="functions" href="functions.html#indexOf">indexOf</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns the index of first member of <code>arr</code> that is equal to <code>val</code> if there is one.
+Returns <code>()</code> if not found
+Equality is tested using <code>==</code></p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="iterator"><a
                                     class="functions" href="functions.html#iterator">iterator</a></td>
-                            <td class="module-desc"><p>Returns an iterator over the elements of <code>arr</code>.</p>
+                            <td class="module-desc"><p>Returns an iterator over the members of <code>arr</code></p>
 </td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="length"><a
                                     class="functions" href="functions.html#length">length</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns the number of members contained in <code>arr</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="map"><a
                                     class="functions" href="functions.html#map">map</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns a new array applying function <code>func</code> to each member of array <code>arr</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="pop"><a
                                     class="functions" href="functions.html#pop">pop</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Remove and return the last member of the <code>arr</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="push"><a
                                     class="functions" href="functions.html#push">push</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Add <code>vals</code> to end of the <code>arr</code> array.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="reduce"><a
                                     class="functions" href="functions.html#reduce">reduce</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Reduce operate on each member of <code>arr</code> using combining function <code>func</code> to produce
+a new value combining all members of <code>arr</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="remove"><a
                                     class="functions" href="functions.html#remove">remove</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Removes the member of <code>arr</code> and index <code>i</code> and returns it.
+Panics if <code>i</code> is out of range.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="removeAll"><a
                                     class="functions" href="functions.html#removeAll">removeAll</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Removes all members of <code>arr</code>.
+Panics if any member cannot be removed.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="reverse"><a
                                     class="functions" href="functions.html#reverse">reverse</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Reverse the order of the members of <code>arr</code>.
+Returns <code>arr</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="setLength"><a
                                     class="functions" href="functions.html#setLength">setLength</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Increase or decrease the length.
+<code>setLength(arr, 0)</code> is equivalent to <code>removeAll(arr)</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="shift"><a
                                     class="functions" href="functions.html#shift">shift</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Remove and return first element of the array <code>arr</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="slice"><a
                                     class="functions" href="functions.html#slice">slice</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns a sub array starting from <code>startIndex</code> (inclusive) to <code>endIndex</code> (exclusive).</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="sort"><a
                                     class="functions" href="functions.html#sort">sort</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Sort <code>arr</code> using <code>func</code> to order members.
+Returns <code>arr</code>.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="toBase16"><a
                                     class="functions" href="functions.html#toBase16">toBase16</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns the string representing <code>arr</code> using Base16.
+The representation is the same as used by a Ballerina Base16Literal.
+The result will contain only characters  <code>0..9</code>, <code>a..f</code>.
+There will be no whitespace in the returned string.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="toBase64"><a
                                     class="functions" href="functions.html#toBase64">toBase64</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Returns the string representing <code>arr</code> using Base64 encoding.
+The representation is the same as used by a Ballerina Base64Literal.
+The result will contain only characters  <code>A..Z</code>, <code>a..z</code>, <code>0..9</code>, <code>+</code>, <code>/</code> and <code>=</code>.
+There will be no whitespace in the returned string.</p>
+</td>
                         </tr>
                     
                         <tr>
                             <td class="module-title truncate functions" id="unshift"><a
                                     class="functions" href="functions.html#unshift">unshift</a></td>
-                            <td class="module-desc"></td>
+                            <td class="module-desc"><p>Add <code>vals</code> to beginig of the array <code>arr</code>.</p>
+</td>
                         </tr>
                     
                 </table>

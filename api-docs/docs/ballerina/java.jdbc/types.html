@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list">
                 <h3>Types</h3>
@@ -116,10 +123,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -176,15 +179,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -339,7 +342,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 <div class="primary-list">
                     <h3>Types</h3>
@@ -411,10 +414,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -471,15 +470,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -651,9 +650,9 @@
                                 <li id="Direction"><b>Direction</b><span class="type">  <a href="../java.jdbc/constants.html#DIRECTION_IN">DIRECTION_IN</a> | <a href="../java.jdbc/constants.html#DIRECTION_OUT">DIRECTION_OUT</a> | <a href="../java.jdbc/constants.html#DIRECTION_INOUT">DIRECTION_INOUT</a></span></li>
                                 <li>
                                     <p>The direction of the parameter.</p>
-<p>IN - IN parameters are used to send values to stored procedures
-OUT - OUT parameters are used to get values from stored procedures
-INOUT - INOUT parameters are used to send values and get values from stored procedures</p>
+<p><code>IN</code> - IN parameters are used to send values to stored procedures
+<code>OUT</code> - OUT parameters are used to get values from stored procedures
+<code>INOUT</code> - INOUT parameters are used to send values and get values from stored procedures</p>
 
                                 </li>
                             </ul>
@@ -674,35 +673,35 @@ INOUT - INOUT parameters are used to send values and get values from stored proc
                                 <li id="SQLType"><b>SQLType</b><span class="type">  <a href="../java.jdbc/constants.html#TYPE_VARCHAR">TYPE_VARCHAR</a> | <a href="../java.jdbc/constants.html#TYPE_CHAR">TYPE_CHAR</a> | <a href="../java.jdbc/constants.html#TYPE_LONGVARCHAR">TYPE_LONGVARCHAR</a> | <a href="../java.jdbc/constants.html#TYPE_NCHAR">TYPE_NCHAR</a> | <a href="../java.jdbc/constants.html#TYPE_LONGNVARCHAR">TYPE_LONGNVARCHAR</a> | <a href="../java.jdbc/constants.html#TYPE_NVARCHAR">TYPE_NVARCHAR</a> | <a href="../java.jdbc/constants.html#TYPE_BIT">TYPE_BIT</a> | <a href="../java.jdbc/constants.html#TYPE_BOOLEAN">TYPE_BOOLEAN</a> | <a href="../java.jdbc/constants.html#TYPE_TINYINT">TYPE_TINYINT</a> | <a href="../java.jdbc/constants.html#TYPE_SMALLINT">TYPE_SMALLINT</a> | <a href="../java.jdbc/constants.html#TYPE_INTEGER">TYPE_INTEGER</a> | <a href="../java.jdbc/constants.html#TYPE_BIGINT">TYPE_BIGINT</a> | <a href="../java.jdbc/constants.html#TYPE_NUMERIC">TYPE_NUMERIC</a> | <a href="../java.jdbc/constants.html#TYPE_DECIMAL">TYPE_DECIMAL</a> | <a href="../java.jdbc/constants.html#TYPE_REAL">TYPE_REAL</a> | <a href="../java.jdbc/constants.html#TYPE_FLOAT">TYPE_FLOAT</a> | <a href="../java.jdbc/constants.html#TYPE_DOUBLE">TYPE_DOUBLE</a> | <a href="../java.jdbc/constants.html#TYPE_BINARY">TYPE_BINARY</a> | <a href="../java.jdbc/constants.html#TYPE_BLOB">TYPE_BLOB</a> | <a href="../java.jdbc/constants.html#TYPE_LONGVARBINARY">TYPE_LONGVARBINARY</a> | <a href="../java.jdbc/constants.html#TYPE_VARBINARY">TYPE_VARBINARY</a> | <a href="../java.jdbc/constants.html#TYPE_CLOB">TYPE_CLOB</a> | <a href="../java.jdbc/constants.html#TYPE_NCLOB">TYPE_NCLOB</a> | <a href="../java.jdbc/constants.html#TYPE_DATE">TYPE_DATE</a> | <a href="../java.jdbc/constants.html#TYPE_TIME">TYPE_TIME</a> | <a href="../java.jdbc/constants.html#TYPE_DATETIME">TYPE_DATETIME</a> | <a href="../java.jdbc/constants.html#TYPE_TIMESTAMP">TYPE_TIMESTAMP</a> | <a href="../java.jdbc/constants.html#TYPE_ARRAY">TYPE_ARRAY</a> | <a href="../java.jdbc/constants.html#TYPE_STRUCT">TYPE_STRUCT</a> | <a href="../java.jdbc/constants.html#TYPE_REFCURSOR">TYPE_REFCURSOR</a></span></li>
                                 <li>
                                     <p>The SQL Datatype of the parameter.</p>
-<p>VARCHAR - Small, variable length character string
-CHAR - Small, fixed length character string
-LONGVARCHAR - Large, variable length character string
-NCHAR - Small, fixed length character string with unicode support
-LONGNVARCHAR - Large, variable length character string with unicode support</p>
-<p>BIT - Single bit value that can be zero or one, or nil
-BOOLEAN - Boolean value either True or false
-TINYINT - 8-bit integer value which may be unsigned or signed
-SMALLINT - 16-bit signed integer value which may be unsigned or signed
-INTEGER - 32-bit signed integer value which may be unsigned or signed
-BIGINT - 64-bit signed integer value which may be unsigned or signed</p>
-<p>NUMERIC - Fixed-precision and scaled decimal values
-DECIMAL - Fixed-precision and scaled decimal values
-REAL - Single precision floating point number
-FLOAT - Double precision floating point number
-DOUBLE - Double precision floating point number</p>
-<p>BINARY - Small, fixed-length binary value
-BLOB - Binary Large Object
-LONGVARBINARY - Large, variable length binary value
-VARBINARY - Small, variable length binary value</p>
-<p>CLOB - Character Large Object.
-NCLOB - Character large objects in multibyte national character set</p>
-<p>DATE - Date consisting of day, month, and year
-TIME - Time consisting of hours, minutes, and seconds
-DATETIME - Both DATE and TIME with additional a nanosecond field
-TIMESTAMP - Both DATE and TIME with additional a nanosecond field</p>
-<p>ARRAY - Composite data value that consists of zero or more elements of a specified data type
-STRUCT - User defined structured type, consists of one or more attributes
-REFCURSOR - Cursor value</p>
+<p><code>VARCHAR</code> - Small, variable length character string
+<code>CHAR</code> - Small, fixed length character string
+<code>LONGVARCHAR</code> - Large, variable length character string
+<code>NCHAR</code> - Small, fixed length character string with unicode support
+<code>LONGNVARCHAR</code> - Large, variable length character string with unicode support</p>
+<p><code>BIT</code> - Single bit value that can be zero or one, or nil
+<code>BOOLEAN</code> - Boolean value either True or false
+<code>TINYINT</code> - 8-bit integer value which may be unsigned or signed
+<code>SMALLINT</code> - 16-bit signed integer value which may be unsigned or signed
+<code>INTEGER</code> - 32-bit signed integer value which may be unsigned or signed
+<code>BIGINT</code> - 64-bit signed integer value which may be unsigned or signed</p>
+<p><code>NUMERIC</code> - Fixed-precision and scaled decimal values
+<code>DECIMAL</code> - Fixed-precision and scaled decimal values
+<code>REAL</code> - Single precision floating point number
+<code>FLOAT</code> - Double precision floating point number
+<code>DOUBLE</code> - Double precision floating point number</p>
+<p><code>BINARY</code> - Small, fixed-length binary value
+<code>BLOB</code> - Binary Large Object
+<code>LONGVARBINARY</code> - Large, variable length binary value
+<code>VARBINARY</code> - Small, variable length binary value</p>
+<p><code>CLOB</code> - Character Large Object.
+<code>NCLOB</code> - Character large objects in multibyte national character set</p>
+<p><code>DATE</code> - Date consisting of day, month, and year
+<code>TIME</code> - Time consisting of hours, minutes, and seconds
+<code>DATETIME</code> - Both DATE and TIME with additional a nanosecond field
+<code>TIMESTAMP</code> - Both DATE and TIME with additional a nanosecond field</p>
+<p><code>ARRAY</code> - Composite data value that consists of zero or more elements of a specified data type
+<code>STRUCT</code> - User defined structured type, consists of one or more attributes
+<code>REFCURSOR</code> - Cursor value</p>
 
                                 </li>
                             </ul>

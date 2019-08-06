@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list">
                 <h3>Records</h3>
@@ -191,6 +198,10 @@
                         </li>
                     
                         <li >
+                            <a href="ServiceHttp1Settings.html">ServiceHttp1Settings</a>
+                        </li>
+                    
+                        <li >
                             <a href="ServiceOcspStapling.html">ServiceOcspStapling</a>
                         </li>
                     
@@ -288,10 +299,6 @@
     <ul>
         
         <li>
-            <a href="../../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../../auth/index.html">auth</a>
         </li>
         
@@ -348,15 +355,15 @@
         </li>
         
         <li>
-            <a href="../../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -511,7 +518,7 @@
                 <a href="../../index.html">
     <img class="logo" src="../../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 <div class="primary-list">
                     <h3>Records</h3>
@@ -658,6 +665,10 @@
                             </li>
                         
                             <li >
+                                <a href="ServiceHttp1Settings.html">ServiceHttp1Settings</a>
+                            </li>
+                        
+                            <li >
                                 <a href="ServiceOcspStapling.html">ServiceOcspStapling</a>
                             </li>
                         
@@ -755,10 +766,6 @@
     <ul>
         
         <li>
-            <a href="../../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../../auth/index.html">auth</a>
         </li>
         
@@ -815,15 +822,15 @@
         </li>
         
         <li>
-            <a href="../../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -1008,10 +1015,9 @@
         
     <div class="params-listing">
         <ul>
-            <li> keepAlive<span class="type">  <a href="../../http/types.html#KeepAlive">KeepAlive</a></span> KEEPALIVE_AUTO</li>
+            <li> http1Settings<span class="type">  <a href="../../http/records/ServiceHttp1Settings.html">ServiceHttp1Settings</a></span>  {}</li>
             <li>
-                <p><p>Can be set to either <code>KEEPALIVE_AUTO</code>, which respects the <code>connection</code> header, or <code>KEEPALIVE_ALWAYS</code>,
-which always keeps the connection alive, or <code>KEEPALIVE_NEVER</code>, which always closes the connection</p>
+                <p><p>Configurations related to HTTP/1.x protocol</p>
 </p>
             </li>
         </ul>
@@ -1050,7 +1056,7 @@ communicate through HTTPS.</p>
         
     <div class="params-listing">
         <ul>
-            <li> filters<span class="type">  <a href="../../http/objects/Filter.html">Filter</a>[]</span> []</li>
+            <li> filters<span class="type">  <a href="../../http/objects/RequestFilter.html">RequestFilter</a> | <a href="../../http/objects/ResponseFilter.html">ResponseFilter</a></span> []</li>
             <li>
                 <p><p>If any pre-processing needs to be done to the request before dispatching the request to the
 resource, filters can applied</p>
@@ -1061,22 +1067,10 @@ resource, filters can applied</p>
         
     <div class="params-listing">
         <ul>
-            <li> timeoutMillis<span class="type">  <a href="../../lang.annotations/UNKOWN/int.html">int</a></span> DEFAULT_LISTENER_TIMEOUT</li>
+            <li> timeoutInMillis<span class="type">  <a href="../../lang.annotations/UNKOWN/int.html">int</a></span> DEFAULT_LISTENER_TIMEOUT</li>
             <li>
                 <p><p>Period of time in milliseconds that a connection waits for a read/write operation. Use value 0 to
 disable timeout</p>
-</p>
-            </li>
-        </ul>
-    </div>
-        
-    <div class="params-listing">
-        <ul>
-            <li> maxPipelinedRequests<span class="type">  <a href="../../lang.annotations/UNKOWN/int.html">int</a></span> MAX_PIPELINED_REQUESTS</li>
-            <li>
-                <p><p>Defines the maximum number of requests that can be processed at a given time on a single
-connection. By default, 10 requests can be pipelined on a single connection and the user can
-change this limit appropriately. This will be applicable only for HTTP 1.1</p>
 </p>
             </li>
         </ul>

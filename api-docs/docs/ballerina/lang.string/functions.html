@@ -21,11 +21,18 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/ballerina-common.js"></script>
-<link rel="stylesheet" href="/css/ballerina-io.css">
-<link rel="stylesheet" href="/css/ballerina-io-docs.css">
-<link rel="stylesheet" href="/css/ballerina-io-api-new.css">
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
 <!-- BIO THEME END -->
+
 </head>
 
 
@@ -44,7 +51,7 @@
             <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
             <div class="primary-list">
                 <h3>Functions</h3>
@@ -152,10 +159,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -212,15 +215,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -375,7 +378,7 @@
                 <a href="../index.html">
     <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
 </a>
-<div class="version">v0.991.0</div>
+<div class="version">v1.0.0-alpha</div>
 
                 <div class="primary-list">
                     <h3>Functions</h3>
@@ -483,10 +486,6 @@
     <ul>
         
         <li>
-            <a href="../artemis/index.html">artemis</a>
-        </li>
-        
-        <li>
             <a href="../auth/index.html">auth</a>
         </li>
         
@@ -543,15 +542,15 @@
         </li>
         
         <li>
-            <a href="../java.jms/index.html">java.jms</a>
-        </li>
-        
-        <li>
             <a href="../jvm/index.html">jvm</a>
         </li>
         
         <li>
             <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
         </li>
         
         <li>
@@ -721,7 +720,7 @@
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#codePointCompare">codePointCompare</a></td>
-                                <td width="70%"><p>Lexicographically compare strings using their Unicode code points
+                                <td width="70%"><p>Lexicographically compare strings using their Unicode code points.
 This will allow strings to be ordered in a consistent and well-defined way,
 but the ordering will not typically be consistent with cultural expectations
 for sorted order.</p>
@@ -740,7 +739,8 @@ for sorted order.</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#endsWith">endsWith</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>Returns true if <code>str</code> end with <code>substr</code>.</p>
+</td>
                             </tr>
                         </tbody>
                     
@@ -765,7 +765,8 @@ or is a surrogate (i.e. in the range 0xD800 or 0xDFFF inclusive).</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#getCodePoint">getCodePoint</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>Returns the unicode codepoint at index <code>i</code>.</p>
+</td>
                             </tr>
                         </tbody>
                     
@@ -773,7 +774,7 @@ or is a surrogate (i.e. in the range 0xD800 or 0xDFFF inclusive).</p>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#indexOf">indexOf</a></td>
                                 <td width="70%"><p>Returns the index of the first occurrence of <code>substr</code> in the part of the <code>str</code> starting at <code>startIndex</code>
-or nil if it does not occur</p>
+or nil if it does not occur.</p>
 </td>
                             </tr>
                         </tbody>
@@ -790,35 +791,39 @@ The iterator will return the substrings of length 1 in order.</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#join">join</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>Returns a new string composed of <code>strs</code> elements joined together with <code>separator</code>.</p>
+</td>
                             </tr>
                         </tbody>
                     
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#length">length</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>Returns the length of the string.</p>
+</td>
                             </tr>
                         </tbody>
                     
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#startsWith">startsWith</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>Returns true if <code>str</code> starts with <code>substr</code>.</p>
+</td>
                             </tr>
                         </tbody>
                     
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#substring">substring</a></td>
-                                <td width="70%"></td>
+                                <td width="70%"><p>Returns a string that is a substring of this string.</p>
+</td>
                             </tr>
                         </tbody>
                     
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#toBytes">toBytes</a></td>
-                                <td width="70%"><p>Represents <code>str</code> as an array of bytes using UTF-8</p>
+                                <td width="70%"><p>Represents <code>str</code> as an array of bytes using UTF-8.</p>
 </td>
                             </tr>
                         </tbody>
@@ -834,10 +839,7 @@ The iterator will return the substrings of length 1 in order.</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#toLowerAscii">toLowerAscii</a></td>
-                                <td width="70%"><p>Standard lib (not lang lib) should have a Unicode module (or set of modules)
-to deal with Unicode properly. These will need to be updated as each
-new Unicode version is released.
-Return A-Z into a-z and leave other characters unchanged</p>
+                                <td width="70%"><p>Return A-Z into a-z and leave other characters unchanged.</p>
 </td>
                             </tr>
                         </tbody>
@@ -845,7 +847,7 @@ Return A-Z into a-z and leave other characters unchanged</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#toUpperAscii">toUpperAscii</a></td>
-                                <td width="70%"><p>Return a-z into A-Z and leave other characters unchanged</p>
+                                <td width="70%"><p>Return a-z into A-Z and leave other characters unchanged.</p>
 </td>
                             </tr>
                         </tbody>
@@ -853,7 +855,7 @@ Return A-Z into a-z and leave other characters unchanged</p>
                         <tbody>
                             <tr>
                                 <td width="30%" ><a class="functions" href="#trim">trim</a></td>
-                                <td width="70%"><p>Remove ASCII white space characters (0x9...0xD, 0x20) from start and end of <code>str</code></p>
+                                <td width="70%"><p>Remove ASCII white space characters (0x9...0xD, 0x20) from start and end of <code>str</code>.</p>
 </td>
                             </tr>
                         </tbody>
@@ -876,7 +878,7 @@ Return A-Z into a-z and leave other characters unchanged</p>
         </span>
         
     </div>
-    <p><p>Lexicographically compare strings using their Unicode code points
+    <p><p>Lexicographically compare strings using their Unicode code points.
 This will allow strings to be ordered in a consistent and well-defined way,
 but the ordering will not typically be consistent with cultural expectations
 for sorted order.</p>
@@ -889,7 +891,8 @@ for sorted order.</p>
                 <ul>
                     <li> str1<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>string to compare</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -898,7 +901,8 @@ for sorted order.</p>
                 <ul>
                     <li> str2<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>string to compare</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -911,7 +915,8 @@ for sorted order.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/int.html">int</a></span>)</li>
-                <li></li>
+                <li><p>whether <code>str1</code> is greater than <code>str2</code></p>
+</li>
             </ul>
         </div>
         
@@ -941,7 +946,8 @@ for sorted order.</p>
                 <ul>
                     <li> strs<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a>[] </span></li>
                     <li>
-                        <p></p>
+                        <p><p>strings to concat</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -954,7 +960,8 @@ for sorted order.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a></span>)</li>
-                <li></li>
+                <li><p>concatanated string</p>
+</li>
             </ul>
         </div>
         
@@ -974,7 +981,8 @@ for sorted order.</p>
         </span>
         
     </div>
-    <p></p>
+    <p><p>Returns true if <code>str</code> end with <code>substr</code>.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -983,7 +991,8 @@ for sorted order.</p>
                 <ul>
                     <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -992,7 +1001,8 @@ for sorted order.</p>
                 <ul>
                     <li> substr<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>sub string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1005,7 +1015,8 @@ for sorted order.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a></span>)</li>
-                <li></li>
+                <li><p>whether <code>str</code> ends with <code>substr</code></p>
+</li>
             </ul>
         </div>
         
@@ -1035,7 +1046,8 @@ for sorted order.</p>
                 <ul>
                     <li> bytes<span class="type">  <a href="../lang.annotations/UNKOWN/byte.html">byte</a>[] </span></li>
                     <li>
-                        <p></p>
+                        <p><p>UTF-8 byte array</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1048,7 +1060,8 @@ for sorted order.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a> | <a href="../lang.annotations/errors.html#error">error</a></span>)</li>
-                <li></li>
+                <li><p><code>bytes</code> converted to string or error</p>
+</li>
             </ul>
         </div>
         
@@ -1113,7 +1126,8 @@ or is a surrogate (i.e. in the range 0xD800 or 0xDFFF inclusive).</p>
         </span>
         
     </div>
-    <p></p>
+    <p><p>Returns the unicode codepoint at index <code>i</code>.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -1122,7 +1136,8 @@ or is a surrogate (i.e. in the range 0xD800 or 0xDFFF inclusive).</p>
                 <ul>
                     <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1131,7 +1146,8 @@ or is a surrogate (i.e. in the range 0xD800 or 0xDFFF inclusive).</p>
                 <ul>
                     <li> i<span class="type">  <a href="../lang.annotations/UNKOWN/int.html">int</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>code point index</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1144,7 +1160,8 @@ or is a surrogate (i.e. in the range 0xD800 or 0xDFFF inclusive).</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/int.html">int</a></span>)</li>
-                <li></li>
+                <li><p>code point</p>
+</li>
             </ul>
         </div>
         
@@ -1165,7 +1182,7 @@ or is a surrogate (i.e. in the range 0xD800 or 0xDFFF inclusive).</p>
         
     </div>
     <p><p>Returns the index of the first occurrence of <code>substr</code> in the part of the <code>str</code> starting at <code>startIndex</code>
-or nil if it does not occur</p>
+or nil if it does not occur.</p>
 </p>
      
         <div class="data-wrapper">
@@ -1175,7 +1192,8 @@ or nil if it does not occur</p>
                 <ul>
                     <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1184,7 +1202,8 @@ or nil if it does not occur</p>
                 <ul>
                     <li> substr<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>sub string to search for</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1206,7 +1225,8 @@ or nil if it does not occur</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/int.html">int</a>?</span>)</li>
-                <li></li>
+                <li><p>index of first <code>substr</code> occurrence or nil</p>
+</li>
             </ul>
         </div>
         
@@ -1237,7 +1257,8 @@ The iterator will return the substrings of length 1 in order.</p>
                 <ul>
                     <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1250,7 +1271,8 @@ The iterator will return the substrings of length 1 in order.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.string/objects/$anonType$2.html">$anonType$2</a></span>)</li>
-                <li></li>
+                <li><p>iterator object</p>
+</li>
             </ul>
         </div>
         
@@ -1270,7 +1292,8 @@ The iterator will return the substrings of length 1 in order.</p>
         </span>
         
     </div>
-    <p></p>
+    <p><p>Returns a new string composed of <code>strs</code> elements joined together with <code>separator</code>.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -1288,7 +1311,8 @@ The iterator will return the substrings of length 1 in order.</p>
                 <ul>
                     <li> strs<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a>[] </span></li>
                     <li>
-                        <p></p>
+                        <p><p>strings to join</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1301,7 +1325,8 @@ The iterator will return the substrings of length 1 in order.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a></span>)</li>
-                <li></li>
+                <li><p>joined string</p>
+</li>
             </ul>
         </div>
         
@@ -1321,7 +1346,8 @@ The iterator will return the substrings of length 1 in order.</p>
         </span>
         
     </div>
-    <p></p>
+    <p><p>Returns the length of the string.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -1330,7 +1356,8 @@ The iterator will return the substrings of length 1 in order.</p>
                 <ul>
                     <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1343,7 +1370,8 @@ The iterator will return the substrings of length 1 in order.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/int.html">int</a></span>)</li>
-                <li></li>
+                <li><p>length of the <code>str</code></p>
+</li>
             </ul>
         </div>
         
@@ -1363,7 +1391,8 @@ The iterator will return the substrings of length 1 in order.</p>
         </span>
         
     </div>
-    <p></p>
+    <p><p>Returns true if <code>str</code> starts with <code>substr</code>.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -1372,7 +1401,8 @@ The iterator will return the substrings of length 1 in order.</p>
                 <ul>
                     <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1381,7 +1411,8 @@ The iterator will return the substrings of length 1 in order.</p>
                 <ul>
                     <li> substr<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>sub string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1394,7 +1425,8 @@ The iterator will return the substrings of length 1 in order.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a></span>)</li>
-                <li></li>
+                <li><p>whether <code>str</code> starts with <code>substr</code></p>
+</li>
             </ul>
         </div>
         
@@ -1414,7 +1446,8 @@ The iterator will return the substrings of length 1 in order.</p>
         </span>
         
     </div>
-    <p></p>
+    <p><p>Returns a string that is a substring of this string.</p>
+</p>
      
         <div class="data-wrapper">
             <h3 class="param-title">Parameters</h3>
@@ -1423,7 +1456,8 @@ The iterator will return the substrings of length 1 in order.</p>
                 <ul>
                     <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>source string.</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1432,7 +1466,8 @@ The iterator will return the substrings of length 1 in order.</p>
                 <ul>
                     <li> startIndex<span class="type">  <a href="../lang.annotations/UNKOWN/int.html">int</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the beginning index, inclusive.</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1441,7 +1476,8 @@ The iterator will return the substrings of length 1 in order.</p>
                 <ul>
                     <li> endIndex<span class="type">  <a href="../lang.annotations/UNKOWN/int.html">int</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the ending index, exclusive.</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1454,7 +1490,8 @@ The iterator will return the substrings of length 1 in order.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a></span>)</li>
-                <li></li>
+                <li><p>specified substring.</p>
+</li>
             </ul>
         </div>
         
@@ -1474,7 +1511,7 @@ The iterator will return the substrings of length 1 in order.</p>
         </span>
         
     </div>
-    <p><p>Represents <code>str</code> as an array of bytes using UTF-8</p>
+    <p><p>Represents <code>str</code> as an array of bytes using UTF-8.</p>
 </p>
      
         <div class="data-wrapper">
@@ -1484,7 +1521,8 @@ The iterator will return the substrings of length 1 in order.</p>
                 <ul>
                     <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1497,7 +1535,8 @@ The iterator will return the substrings of length 1 in order.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/byte.html">byte</a>[]</span>)</li>
-                <li></li>
+                <li><p>UTF-8 byte array</p>
+</li>
             </ul>
         </div>
         
@@ -1527,7 +1566,8 @@ The iterator will return the substrings of length 1 in order.</p>
                 <ul>
                     <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1540,7 +1580,8 @@ The iterator will return the substrings of length 1 in order.</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/int.html">int</a>[]</span>)</li>
-                <li></li>
+                <li><p>CodePoint array</p>
+</li>
             </ul>
         </div>
         
@@ -1560,10 +1601,7 @@ The iterator will return the substrings of length 1 in order.</p>
         </span>
         
     </div>
-    <p><p>Standard lib (not lang lib) should have a Unicode module (or set of modules)
-to deal with Unicode properly. These will need to be updated as each
-new Unicode version is released.
-Return A-Z into a-z and leave other characters unchanged</p>
+    <p><p>Return A-Z into a-z and leave other characters unchanged.</p>
 </p>
      
         <div class="data-wrapper">
@@ -1573,7 +1611,8 @@ Return A-Z into a-z and leave other characters unchanged</p>
                 <ul>
                     <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1586,7 +1625,8 @@ Return A-Z into a-z and leave other characters unchanged</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a></span>)</li>
-                <li></li>
+                <li><p>lower Ascii cased string</p>
+</li>
             </ul>
         </div>
         
@@ -1606,7 +1646,7 @@ Return A-Z into a-z and leave other characters unchanged</p>
         </span>
         
     </div>
-    <p><p>Return a-z into A-Z and leave other characters unchanged</p>
+    <p><p>Return a-z into A-Z and leave other characters unchanged.</p>
 </p>
      
         <div class="data-wrapper">
@@ -1616,7 +1656,8 @@ Return A-Z into a-z and leave other characters unchanged</p>
                 <ul>
                     <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1629,7 +1670,8 @@ Return A-Z into a-z and leave other characters unchanged</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a></span>)</li>
-                <li></li>
+                <li><p>Ascii upper cased string</p>
+</li>
             </ul>
         </div>
         
@@ -1649,7 +1691,7 @@ Return A-Z into a-z and leave other characters unchanged</p>
         </span>
         
     </div>
-    <p><p>Remove ASCII white space characters (0x9...0xD, 0x20) from start and end of <code>str</code></p>
+    <p><p>Remove ASCII white space characters (0x9...0xD, 0x20) from start and end of <code>str</code>.</p>
 </p>
      
         <div class="data-wrapper">
@@ -1659,7 +1701,8 @@ Return A-Z into a-z and leave other characters unchanged</p>
                 <ul>
                     <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
                     <li>
-                        <p></p>
+                        <p><p>the string</p>
+</p>
                     </li>
                 </ul>
             </div>
@@ -1672,7 +1715,8 @@ Return A-Z into a-z and leave other characters unchanged</p>
         <div class="returns-listing">
             <ul>
                 <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a></span>)</li>
-                <li></li>
+                <li><p>trimmed string</p>
+</li>
             </ul>
         </div>
         
