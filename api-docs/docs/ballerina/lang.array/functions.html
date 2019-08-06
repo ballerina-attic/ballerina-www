@@ -1,0 +1,2088 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>API Docs - Functions : lang.array</title>
+    <script src="../html-template-resources/jquery.min.js"></script>
+    <link rel="stylesheet" href="../html-template-resources/semantic.min.css">
+    <link rel="stylesheet" href="../html-template-resources/styles/css/styles.css">
+    <link rel="stylesheet" href="../html-template-resources/styles/css/font.css">
+    <script src="../html-template-resources/semantic.min.js"></script>
+    <script src="../vs/monaco.js"></script>
+
+    <!-- BIO THEME START -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://ballerina.io/js/ballerina-common.js"></script>
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-docs.css">
+<link rel="stylesheet" href="https://ballerina.io/css/ballerina-io-api-new.css">
+
+<style>
+    .line-numbers-wrap {
+        display: none;
+    }
+</style>
+<!-- BIO THEME END -->
+
+</head>
+
+
+<body class="cBallerina-io">
+    <div class="row cBallerina-io-top-row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cTopLineContainer">
+        <div class="cTopLine"></div>
+    </div>
+</div>
+<div class="row cBallerina-io-Nav" id="iMainNavigation">
+</div>
+<div class="clearfix"></div>
+    <div class="navi-wrapper">
+        <div class="navi-wrapper-content">
+            <a href="../index.html">
+    <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
+</a>
+<div class="version">v1.0.0-alpha</div>
+
+            <div class="primary-list">
+                <h3>Functions</h3>
+                <ul>
+                    
+                        <li >
+                            <a href="#enumerate">enumerate</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#filter">filter</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#forEach">forEach</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#fromBase16">fromBase16</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#fromBase64">fromBase64</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#indexOf">indexOf</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#iterator">iterator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#length">length</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#map">map</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#pop">pop</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#push">push</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#reduce">reduce</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#remove">remove</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#removeAll">removeAll</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#reverse">reverse</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#setLength">setLength</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#shift">shift</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#slice">slice</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#sort">sort</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#toBase16">toBase16</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#toBase64">toBase64</a>
+                        </li>
+                    
+                        <li >
+                            <a href="#unshift">unshift</a>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="ui divider"></div>
+            <div class="primary-list module">
+    <a href="../lang.array/index.html">
+        <h3>lang.array</h3>
+    </a>
+    <ul>
+        
+        
+            <li>
+                <a  data="objects" href="../lang.array/index.html#objects">Objects</a>
+            </li>
+        
+        
+        
+        
+            <li>
+                <a data="functions" href="../lang.array/index.html#functions">Functions</a>
+            </li>
+        
+        
+        
+        
+        
+    </ul>
+    <div class="ui divider"></div>
+</div>
+
+            <div class="primary-list module-list">
+    <h3>All Modules</h3>
+    <ul>
+        
+        <li>
+            <a href="../auth/index.html">auth</a>
+        </li>
+        
+        <li>
+            <a href="../bir/index.html">bir</a>
+        </li>
+        
+        <li>
+            <a href="../cache/index.html">cache</a>
+        </li>
+        
+        <li>
+            <a href="../config/index.html">config</a>
+        </li>
+        
+        <li>
+            <a href="../crypto/index.html">crypto</a>
+        </li>
+        
+        <li>
+            <a href="../encoding/index.html">encoding</a>
+        </li>
+        
+        <li>
+            <a href="../file/index.html">file</a>
+        </li>
+        
+        <li>
+            <a href="../filepath/index.html">filepath</a>
+        </li>
+        
+        <li>
+            <a href="../grpc/index.html">grpc</a>
+        </li>
+        
+        <li>
+            <a href="../http/index.html">http</a>
+        </li>
+        
+        <li>
+            <a href="../internal/index.html">internal</a>
+        </li>
+        
+        <li>
+            <a href="../io/index.html">io</a>
+        </li>
+        
+        <li>
+            <a href="../java/index.html">java</a>
+        </li>
+        
+        <li>
+            <a href="../java.jdbc/index.html">java.jdbc</a>
+        </li>
+        
+        <li>
+            <a href="../jvm/index.html">jvm</a>
+        </li>
+        
+        <li>
+            <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
+        </li>
+        
+        <li>
+            <a href="../lang.array/index.html">lang.array</a>
+        </li>
+        
+        <li>
+            <a href="../lang.decimal/index.html">lang.decimal</a>
+        </li>
+        
+        <li>
+            <a href="../lang.error/index.html">lang.error</a>
+        </li>
+        
+        <li>
+            <a href="../lang.float/index.html">lang.float</a>
+        </li>
+        
+        <li>
+            <a href="../lang.future/index.html">lang.future</a>
+        </li>
+        
+        <li>
+            <a href="../lang.int/index.html">lang.int</a>
+        </li>
+        
+        <li>
+            <a href="../lang.map/index.html">lang.map</a>
+        </li>
+        
+        <li>
+            <a href="../lang.object/index.html">lang.object</a>
+        </li>
+        
+        <li>
+            <a href="../lang.stream/index.html">lang.stream</a>
+        </li>
+        
+        <li>
+            <a href="../lang.string/index.html">lang.string</a>
+        </li>
+        
+        <li>
+            <a href="../lang.table/index.html">lang.table</a>
+        </li>
+        
+        <li>
+            <a href="../lang.typedesc/index.html">lang.typedesc</a>
+        </li>
+        
+        <li>
+            <a href="../lang.value/index.html">lang.value</a>
+        </li>
+        
+        <li>
+            <a href="../lang.xml/index.html">lang.xml</a>
+        </li>
+        
+        <li>
+            <a href="../ldap/index.html">ldap</a>
+        </li>
+        
+        <li>
+            <a href="../log/index.html">log</a>
+        </li>
+        
+        <li>
+            <a href="../math/index.html">math</a>
+        </li>
+        
+        <li>
+            <a href="../mime/index.html">mime</a>
+        </li>
+        
+        <li>
+            <a href="../nats/index.html">nats</a>
+        </li>
+        
+        <li>
+            <a href="../oauth2/index.html">oauth2</a>
+        </li>
+        
+        <li>
+            <a href="../observe/index.html">observe</a>
+        </li>
+        
+        <li>
+            <a href="../openapi/index.html">openapi</a>
+        </li>
+        
+        <li>
+            <a href="../rabbitmq/index.html">rabbitmq</a>
+        </li>
+        
+        <li>
+            <a href="../reflect/index.html">reflect</a>
+        </li>
+        
+        <li>
+            <a href="../runtime/index.html">runtime</a>
+        </li>
+        
+        <li>
+            <a href="../socket/index.html">socket</a>
+        </li>
+        
+        <li>
+            <a href="../streams/index.html">streams</a>
+        </li>
+        
+        <li>
+            <a href="../system/index.html">system</a>
+        </li>
+        
+        <li>
+            <a href="../task/index.html">task</a>
+        </li>
+        
+        <li>
+            <a href="../test/index.html">test</a>
+        </li>
+        
+        <li>
+            <a href="../time/index.html">time</a>
+        </li>
+        
+        <li>
+            <a href="../transactions/index.html">transactions</a>
+        </li>
+        
+        <li>
+            <a href="../utils/index.html">utils</a>
+        </li>
+        
+        <li>
+            <a href="../websub/index.html">websub</a>
+        </li>
+        
+        <li>
+            <a href="../xslt/index.html">xslt</a>
+        </li>
+        
+    </ul>
+    <div class="ui divider"></div>
+</div>
+        </div>
+    </div>
+
+    <div class="ui vertical sidebar menu">
+        <div class="navi-wrapper-sidebar">
+            <div class="navi-wrapper-content">
+                <a href="../index.html">
+    <img class="logo" src="../html-template-resources/images/ballerina-logo.png">
+</a>
+<div class="version">v1.0.0-alpha</div>
+
+                <div class="primary-list">
+                    <h3>Functions</h3>
+                    <ul>
+                        
+                            <li >
+                                <a href="#enumerate">enumerate</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#filter">filter</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#forEach">forEach</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#fromBase16">fromBase16</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#fromBase64">fromBase64</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#indexOf">indexOf</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#iterator">iterator</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#length">length</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#map">map</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#pop">pop</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#push">push</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#reduce">reduce</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#remove">remove</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#removeAll">removeAll</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#reverse">reverse</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#setLength">setLength</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#shift">shift</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#slice">slice</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#sort">sort</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#toBase16">toBase16</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#toBase64">toBase64</a>
+                            </li>
+                        
+                            <li >
+                                <a href="#unshift">unshift</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+                <div class="ui divider"></div>
+                <div class="primary-list module">
+    <a href="../lang.array/index.html">
+        <h3>lang.array</h3>
+    </a>
+    <ul>
+        
+        
+            <li>
+                <a  data="objects" href="../lang.array/index.html#objects">Objects</a>
+            </li>
+        
+        
+        
+        
+            <li>
+                <a data="functions" href="../lang.array/index.html#functions">Functions</a>
+            </li>
+        
+        
+        
+        
+        
+    </ul>
+    <div class="ui divider"></div>
+</div>
+
+                <div class="primary-list module-list">
+    <h3>All Modules</h3>
+    <ul>
+        
+        <li>
+            <a href="../auth/index.html">auth</a>
+        </li>
+        
+        <li>
+            <a href="../bir/index.html">bir</a>
+        </li>
+        
+        <li>
+            <a href="../cache/index.html">cache</a>
+        </li>
+        
+        <li>
+            <a href="../config/index.html">config</a>
+        </li>
+        
+        <li>
+            <a href="../crypto/index.html">crypto</a>
+        </li>
+        
+        <li>
+            <a href="../encoding/index.html">encoding</a>
+        </li>
+        
+        <li>
+            <a href="../file/index.html">file</a>
+        </li>
+        
+        <li>
+            <a href="../filepath/index.html">filepath</a>
+        </li>
+        
+        <li>
+            <a href="../grpc/index.html">grpc</a>
+        </li>
+        
+        <li>
+            <a href="../http/index.html">http</a>
+        </li>
+        
+        <li>
+            <a href="../internal/index.html">internal</a>
+        </li>
+        
+        <li>
+            <a href="../io/index.html">io</a>
+        </li>
+        
+        <li>
+            <a href="../java/index.html">java</a>
+        </li>
+        
+        <li>
+            <a href="../java.jdbc/index.html">java.jdbc</a>
+        </li>
+        
+        <li>
+            <a href="../jvm/index.html">jvm</a>
+        </li>
+        
+        <li>
+            <a href="../jwt/index.html">jwt</a>
+        </li>
+        
+        <li>
+            <a href="../kafka/index.html">kafka</a>
+        </li>
+        
+        <li>
+            <a href="../lang.array/index.html">lang.array</a>
+        </li>
+        
+        <li>
+            <a href="../lang.decimal/index.html">lang.decimal</a>
+        </li>
+        
+        <li>
+            <a href="../lang.error/index.html">lang.error</a>
+        </li>
+        
+        <li>
+            <a href="../lang.float/index.html">lang.float</a>
+        </li>
+        
+        <li>
+            <a href="../lang.future/index.html">lang.future</a>
+        </li>
+        
+        <li>
+            <a href="../lang.int/index.html">lang.int</a>
+        </li>
+        
+        <li>
+            <a href="../lang.map/index.html">lang.map</a>
+        </li>
+        
+        <li>
+            <a href="../lang.object/index.html">lang.object</a>
+        </li>
+        
+        <li>
+            <a href="../lang.stream/index.html">lang.stream</a>
+        </li>
+        
+        <li>
+            <a href="../lang.string/index.html">lang.string</a>
+        </li>
+        
+        <li>
+            <a href="../lang.table/index.html">lang.table</a>
+        </li>
+        
+        <li>
+            <a href="../lang.typedesc/index.html">lang.typedesc</a>
+        </li>
+        
+        <li>
+            <a href="../lang.value/index.html">lang.value</a>
+        </li>
+        
+        <li>
+            <a href="../lang.xml/index.html">lang.xml</a>
+        </li>
+        
+        <li>
+            <a href="../ldap/index.html">ldap</a>
+        </li>
+        
+        <li>
+            <a href="../log/index.html">log</a>
+        </li>
+        
+        <li>
+            <a href="../math/index.html">math</a>
+        </li>
+        
+        <li>
+            <a href="../mime/index.html">mime</a>
+        </li>
+        
+        <li>
+            <a href="../nats/index.html">nats</a>
+        </li>
+        
+        <li>
+            <a href="../oauth2/index.html">oauth2</a>
+        </li>
+        
+        <li>
+            <a href="../observe/index.html">observe</a>
+        </li>
+        
+        <li>
+            <a href="../openapi/index.html">openapi</a>
+        </li>
+        
+        <li>
+            <a href="../rabbitmq/index.html">rabbitmq</a>
+        </li>
+        
+        <li>
+            <a href="../reflect/index.html">reflect</a>
+        </li>
+        
+        <li>
+            <a href="../runtime/index.html">runtime</a>
+        </li>
+        
+        <li>
+            <a href="../socket/index.html">socket</a>
+        </li>
+        
+        <li>
+            <a href="../streams/index.html">streams</a>
+        </li>
+        
+        <li>
+            <a href="../system/index.html">system</a>
+        </li>
+        
+        <li>
+            <a href="../task/index.html">task</a>
+        </li>
+        
+        <li>
+            <a href="../test/index.html">test</a>
+        </li>
+        
+        <li>
+            <a href="../time/index.html">time</a>
+        </li>
+        
+        <li>
+            <a href="../transactions/index.html">transactions</a>
+        </li>
+        
+        <li>
+            <a href="../utils/index.html">utils</a>
+        </li>
+        
+        <li>
+            <a href="../websub/index.html">websub</a>
+        </li>
+        
+        <li>
+            <a href="../xslt/index.html">xslt</a>
+        </li>
+        
+    </ul>
+    <div class="ui divider"></div>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper pusher">
+        <div>
+    <a class="toc item"> 
+        <img src="../html-template-resources/images/menu.svg">
+    </a>
+</div>
+        <div class="main-wrapper">
+            <h1>
+                <a class="breadcrumb-home" href="../index.html">
+    <img class="breadcrumb-home-icon" src="../html-template-resources/images/home.svg">
+</a>
+                <span class="title-type">Functions - </span> 
+                <a href="../lang.array/index.html">lang.array</a> 
+            </h1>
+            <div class="constants">
+                <table class="ui table details-table">
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#enumerate">enumerate</a></td>
+                                <td width="70%"><p>Returns a new array comprising of position and member pairs.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#filter">filter</a></td>
+                                <td width="70%"><p>Returns a new array constructed from those elements of 'arr' for which <code>func</code> returns true.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#forEach">forEach</a></td>
+                                <td width="70%"><p>Apply function <code>func</code> to each member of array <code>arr</code>.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#fromBase16">fromBase16</a></td>
+                                <td width="70%"><p>Returns the byte array that <code>str</code> represents in Base16.
+<code>str</code> must consist of the characters <code>0..9</code>, <code>A..F</code>, <code>a..f</code>
+and whitespace as allowed by a Ballerina Base16Literal.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#fromBase64">fromBase64</a></td>
+                                <td width="70%"><p>Returns the byte array that <code>str</code> represents in Base64 encoding.
+<code>str</code> must consist of the characters <code>A..Z</code>, <code>a..z</code>, <code>0..9</code>, <code>+</code>, <code>/</code>, <code>=</code>
+and whitespace as allowed by a Ballerina Base64Literal.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#indexOf">indexOf</a></td>
+                                <td width="70%"><p>Returns the index of first member of <code>arr</code> that is equal to <code>val</code> if there is one.
+Returns <code>()</code> if not found
+Equality is tested using <code>==</code></p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#iterator">iterator</a></td>
+                                <td width="70%"><p>Returns an iterator over the members of <code>arr</code></p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#length">length</a></td>
+                                <td width="70%"><p>Returns the number of members contained in <code>arr</code>.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#map">map</a></td>
+                                <td width="70%"><p>Returns a new array applying function <code>func</code> to each member of array <code>arr</code>.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#pop">pop</a></td>
+                                <td width="70%"><p>Remove and return the last member of the <code>arr</code>.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#push">push</a></td>
+                                <td width="70%"><p>Add <code>vals</code> to end of the <code>arr</code> array.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#reduce">reduce</a></td>
+                                <td width="70%"><p>Reduce operate on each member of <code>arr</code> using combining function <code>func</code> to produce
+a new value combining all members of <code>arr</code>.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#remove">remove</a></td>
+                                <td width="70%"><p>Removes the member of <code>arr</code> and index <code>i</code> and returns it.
+Panics if <code>i</code> is out of range.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#removeAll">removeAll</a></td>
+                                <td width="70%"><p>Removes all members of <code>arr</code>.
+Panics if any member cannot be removed.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#reverse">reverse</a></td>
+                                <td width="70%"><p>Reverse the order of the members of <code>arr</code>.
+Returns <code>arr</code>.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#setLength">setLength</a></td>
+                                <td width="70%"><p>Increase or decrease the length.
+<code>setLength(arr, 0)</code> is equivalent to <code>removeAll(arr)</code>.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#shift">shift</a></td>
+                                <td width="70%"><p>Remove and return first element of the array <code>arr</code>.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#slice">slice</a></td>
+                                <td width="70%"><p>Returns a sub array starting from <code>startIndex</code> (inclusive) to <code>endIndex</code> (exclusive).</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#sort">sort</a></td>
+                                <td width="70%"><p>Sort <code>arr</code> using <code>func</code> to order members.
+Returns <code>arr</code>.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#toBase16">toBase16</a></td>
+                                <td width="70%"><p>Returns the string representing <code>arr</code> using Base16.
+The representation is the same as used by a Ballerina Base16Literal.
+The result will contain only characters  <code>0..9</code>, <code>a..f</code>.
+There will be no whitespace in the returned string.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#toBase64">toBase64</a></td>
+                                <td width="70%"><p>Returns the string representing <code>arr</code> using Base64 encoding.
+The representation is the same as used by a Ballerina Base64Literal.
+The result will contain only characters  <code>A..Z</code>, <code>a..z</code>, <code>0..9</code>, <code>+</code>, <code>/</code> and <code>=</code>.
+There will be no whitespace in the returned string.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                        <tbody>
+                            <tr>
+                                <td width="30%" ><a class="functions" href="#unshift">unshift</a></td>
+                                <td width="70%"><p>Add <code>vals</code> to beginig of the array <code>arr</code>.</p>
+</td>
+                            </tr>
+                        </tbody>
+                    
+                </table>
+                <div>
+                    
+                        <div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="enumerate">
+             <a class="url-link" href="#enumerate">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> enumerate </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.array/types.html#Type">Type</a>[] arr)</p>
+            <b> returns </b><span>[</span><a href="../lang.annotations/UNKOWN/int.html">int</a>, <a href="../lang.array/types.html#Type">Type</a><span>]</span> 
+        </span>
+        
+    </div>
+    <p><p>Returns a new array comprising of position and member pairs.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><span>[</span><a href="../lang.annotations/UNKOWN/int.html">int</a>, <a href="../lang.array/types.html#Type">Type</a><span>]</span></span>)</li>
+                <li><p>array of position, member pair</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="filter">
+             <a class="url-link" href="#filter">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> filter </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.array/types.html#Type">Type</a>[] arr, <code> <span>function(</span><a href="../lang.array/types.html#Type">Type</a><span>) </span><span>returns (</span><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a><span>)</span> </code> func)</p>
+            <b> returns </b><a href="../lang.array/types.html#Type">Type</a>[] 
+        </span>
+        
+    </div>
+    <p><p>Returns a new array constructed from those elements of 'arr' for which <code>func</code> returns true.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> func<span class="type">  <code> <span>function(</span><a href="../lang.array/types.html#Type">Type</a><span>) </span><span>returns (</span><a href="../lang.annotations/UNKOWN/boolean.html">boolean</a><span>)</span> </code> </span></li>
+                    <li>
+                        <p><p>a predicate to apply to each element to determine if it should be included</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.array/types.html#Type">Type</a>[]</span>)</li>
+                <li><p>new array only containig members which evaluate function 'func' to true</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="forEach">
+             <a class="url-link" href="#forEach">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> forEach </h2>
+        
+    </div>
+    <p><p>Apply function <code>func</code> to each member of array <code>arr</code>.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> func<span class="type">  <code> <span>function(</span><a href="../lang.array/types.html#Type">Type</a><span>) </span><span>returns (</span><a href="../lang.annotations/UNKOWN/().html">()</a><span>)</span> </code> </span></li>
+                    <li>
+                        <p><p>a function to apply to each member</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="fromBase16">
+             <a class="url-link" href="#fromBase16">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> fromBase16 </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.annotations/UNKOWN/string.html">string</a> str)</p>
+            <b> returns </b><a href="../lang.annotations/UNKOWN/byte.html">byte</a>[] | <a href="../lang.annotations/errors.html#error">error</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns the byte array that <code>str</code> represents in Base16.
+<code>str</code> must consist of the characters <code>0..9</code>, <code>A..F</code>, <code>a..f</code>
+and whitespace as allowed by a Ballerina Base16Literal.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
+                    <li>
+                        <p><p>Base16 string representation</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/byte.html">byte</a>[] | <a href="../lang.annotations/errors.html#error">error</a></span>)</li>
+                <li><p>the byte array or error</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="fromBase64">
+             <a class="url-link" href="#fromBase64">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> fromBase64 </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.annotations/UNKOWN/string.html">string</a> str)</p>
+            <b> returns </b><a href="../lang.annotations/UNKOWN/byte.html">byte</a>[] | <a href="../lang.annotations/errors.html#error">error</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns the byte array that <code>str</code> represents in Base64 encoding.
+<code>str</code> must consist of the characters <code>A..Z</code>, <code>a..z</code>, <code>0..9</code>, <code>+</code>, <code>/</code>, <code>=</code>
+and whitespace as allowed by a Ballerina Base64Literal.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> str<span class="type">  <a href="../lang.annotations/UNKOWN/string.html">string</a> </span></li>
+                    <li>
+                        <p><p>Base64 string representation</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/byte.html">byte</a>[] | <a href="../lang.annotations/errors.html#error">error</a></span>)</li>
+                <li><p>the byte array or error</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="indexOf">
+             <a class="url-link" href="#indexOf">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> indexOf </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.array/types.html#PureType">PureType</a>[] arr, <a href="../lang.array/types.html#PureType">PureType</a> val, <a href="../lang.annotations/UNKOWN/int.html">int</a> startIndex)</p>
+            <b> returns </b><a href="../lang.annotations/UNKOWN/int.html">int</a>? 
+        </span>
+        
+    </div>
+    <p><p>Returns the index of first member of <code>arr</code> that is equal to <code>val</code> if there is one.
+Returns <code>()</code> if not found
+Equality is tested using <code>==</code></p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#PureType">PureType</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> val<span class="type">  <a href="../lang.array/types.html#PureType">PureType</a> </span></li>
+                    <li>
+                        <p><p>member to search for</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> startIndex<span class="type">  <a href="../lang.annotations/UNKOWN/int.html">int</a> </span>- 0</li>
+                    <li>
+                        <p><p>index to start the search from</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/int.html">int</a>?</span>)</li>
+                <li><p>index of the member if found, else <code>()</code></p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="iterator">
+             <a class="url-link" href="#iterator">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> iterator </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.array/types.html#Type">Type</a>[] arr)</p>
+            <b> returns </b><a href="../lang.array/objects/$anonType$2.html">$anonType$2</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns an iterator over the members of <code>arr</code></p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.array/objects/$anonType$2.html">$anonType$2</a></span>)</li>
+                <li><p>iterator object</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="length">
+             <a class="url-link" href="#length">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> length </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.annotations/UNKOWN/any.html">any</a> | <a href="../lang.annotations/errors.html#error">error</a> arr)</p>
+            <b> returns </b><a href="../lang.annotations/UNKOWN/int.html">int</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns the number of members contained in <code>arr</code>.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.annotations/UNKOWN/any.html">any</a> | <a href="../lang.annotations/errors.html#error">error</a> </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/int.html">int</a></span>)</li>
+                <li><p>number of members in the array</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="map">
+             <a class="url-link" href="#map">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> map </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.array/types.html#Type">Type</a>[] arr, <code> <span>function(</span><a href="../lang.array/types.html#Type">Type</a><span>) </span><span>returns (</span><a href="../lang.array/types.html#Type1">Type1</a><span>)</span> </code> func)</p>
+            <b> returns </b><a href="../lang.array/types.html#Type1">Type1</a>[] 
+        </span>
+        
+    </div>
+    <p><p>Returns a new array applying function <code>func</code> to each member of array <code>arr</code>.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> func<span class="type">  <code> <span>function(</span><a href="../lang.array/types.html#Type">Type</a><span>) </span><span>returns (</span><a href="../lang.array/types.html#Type1">Type1</a><span>)</span> </code> </span></li>
+                    <li>
+                        <p><p>a function to apply to each member</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.array/types.html#Type1">Type1</a>[]</span>)</li>
+                <li><p>new array containing result of applying function <code>func</code> to each member</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="pop">
+             <a class="url-link" href="#pop">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> pop </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.array/types.html#Type">Type</a>[] arr)</p>
+            <b> returns </b><a href="../lang.array/types.html#Type">Type</a> 
+        </span>
+        
+    </div>
+    <p><p>Remove and return the last member of the <code>arr</code>.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.array/types.html#Type">Type</a></span>)</li>
+                <li><p>removed member</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="push">
+             <a class="url-link" href="#push">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> push </h2>
+        
+    </div>
+    <p><p>Add <code>vals</code> to end of the <code>arr</code> array.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> vals<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>values to add to the end of the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="reduce">
+             <a class="url-link" href="#reduce">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> reduce </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.array/types.html#Type">Type</a>[] arr, <code> <span>function(</span><a href="../lang.array/types.html#Type1">Type1</a>, <a href="../lang.array/types.html#Type">Type</a><span>) </span><span>returns (</span><a href="../lang.array/types.html#Type1">Type1</a><span>)</span> </code> func, <a href="../lang.array/types.html#Type1">Type1</a> initial)</p>
+            <b> returns </b><a href="../lang.array/types.html#Type1">Type1</a> 
+        </span>
+        
+    </div>
+    <p><p>Reduce operate on each member of <code>arr</code> using combining function <code>func</code> to produce
+a new value combining all members of <code>arr</code>.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> func<span class="type">  <code> <span>function(</span><a href="../lang.array/types.html#Type1">Type1</a>, <a href="../lang.array/types.html#Type">Type</a><span>) </span><span>returns (</span><a href="../lang.array/types.html#Type1">Type1</a><span>)</span> </code> </span></li>
+                    <li>
+                        <p><p>combining function</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> initial<span class="type">  <a href="../lang.array/types.html#Type1">Type1</a> </span></li>
+                    <li>
+                        <p><p>initial value to first evaluation of combining function <code>func</code></p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.array/types.html#Type1">Type1</a></span>)</li>
+                <li><p>result of applying combining function to each member of the array</p>
+<p>Example: Emulating sum function.</p>
+<pre><code># var ar = [1, 2, 3];
+# var a = ar.reduce(function (int i, int j) returns int { return i + j; }, 0);
+# ```
+
+Example: Emulating map behavior.
+</code></pre>
+<h1>var ar = [1, 2, 3];</h1>
+<h1>int[] newArr = [];</h1>
+<h1>int[] a = ar.reduce(function (int[] a, int j) returns int[] { a.push(j*2); return a; }, newArr);</h1>
+<h1>```</h1>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="remove">
+             <a class="url-link" href="#remove">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> remove </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.array/types.html#Type">Type</a>[] arr, <a href="../lang.annotations/UNKOWN/int.html">int</a> i)</p>
+            <b> returns </b><a href="../lang.array/types.html#Type">Type</a> 
+        </span>
+        
+    </div>
+    <p><p>Removes the member of <code>arr</code> and index <code>i</code> and returns it.
+Panics if <code>i</code> is out of range.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> i<span class="type">  <a href="../lang.annotations/UNKOWN/int.html">int</a> </span></li>
+                    <li>
+                        <p><p>index of member to be removed</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.array/types.html#Type">Type</a></span>)</li>
+                <li><p>removed member</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="removeAll">
+             <a class="url-link" href="#removeAll">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> removeAll </h2>
+        
+    </div>
+    <p><p>Removes all members of <code>arr</code>.
+Panics if any member cannot be removed.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.annotations/UNKOWN/any.html">any</a> | <a href="../lang.annotations/errors.html#error">error</a> </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="reverse">
+             <a class="url-link" href="#reverse">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> reverse </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.array/types.html#Type">Type</a>[] arr)</p>
+            <b> returns </b><a href="../lang.array/types.html#Type">Type</a>[] 
+        </span>
+        
+    </div>
+    <p><p>Reverse the order of the members of <code>arr</code>.
+Returns <code>arr</code>.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array to be reversed</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.array/types.html#Type">Type</a>[]</span>)</li>
+                <li><p>reversed <code>arr</code></p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="setLength">
+             <a class="url-link" href="#setLength">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> setLength </h2>
+        
+    </div>
+    <p><p>Increase or decrease the length.
+<code>setLength(arr, 0)</code> is equivalent to <code>removeAll(arr)</code>.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.annotations/UNKOWN/any.html">any</a> | <a href="../lang.annotations/errors.html#error">error</a> </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> i<span class="type">  <a href="../lang.annotations/UNKOWN/int.html">int</a> </span></li>
+                    <li>
+                        <p><p>new length</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="shift">
+             <a class="url-link" href="#shift">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> shift </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.array/types.html#Type">Type</a>[] arr)</p>
+            <b> returns </b><a href="../lang.array/types.html#Type">Type</a> 
+        </span>
+        
+    </div>
+    <p><p>Remove and return first element of the array <code>arr</code>.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.array/types.html#Type">Type</a></span>)</li>
+                <li><p>removed member</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="slice">
+             <a class="url-link" href="#slice">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> slice </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.array/types.html#Type">Type</a>[] arr, <a href="../lang.annotations/UNKOWN/int.html">int</a> startIndex, <a href="../lang.annotations/UNKOWN/int.html">int</a> endIndex)</p>
+            <b> returns </b><a href="../lang.array/types.html#Type">Type</a>[] 
+        </span>
+        
+    </div>
+    <p><p>Returns a sub array starting from <code>startIndex</code> (inclusive) to <code>endIndex</code> (exclusive).</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> startIndex<span class="type">  <a href="../lang.annotations/UNKOWN/int.html">int</a> </span></li>
+                    <li>
+                        <p><p>index of first member to include in the slice</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> endIndex<span class="type">  <a href="../lang.annotations/UNKOWN/int.html">int</a> </span></li>
+                    <li>
+                        <p><p>index of first member not to include in the slice</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.array/types.html#Type">Type</a>[]</span>)</li>
+                <li><p>array slice within specified range</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="sort">
+             <a class="url-link" href="#sort">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> sort </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.array/types.html#Type">Type</a>[] arr, <code> <span>function(</span><a href="../lang.array/types.html#Type">Type</a>, <a href="../lang.array/types.html#Type">Type</a><span>) </span><span>returns (</span><a href="../lang.annotations/UNKOWN/int.html">int</a><span>)</span> </code> func)</p>
+            <b> returns </b><a href="../lang.array/types.html#Type">Type</a>[] 
+        </span>
+        
+    </div>
+    <p><p>Sort <code>arr</code> using <code>func</code> to order members.
+Returns <code>arr</code>.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> func<span class="type">  <code> <span>function(</span><a href="../lang.array/types.html#Type">Type</a>, <a href="../lang.array/types.html#Type">Type</a><span>) </span><span>returns (</span><a href="../lang.annotations/UNKOWN/int.html">int</a><span>)</span> </code> </span></li>
+                    <li>
+                        <p><p>comparator function</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.array/types.html#Type">Type</a>[]</span>)</li>
+                <li><p>sorted <code>arr</code></p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="toBase16">
+             <a class="url-link" href="#toBase16">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> toBase16 </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.annotations/UNKOWN/byte.html">byte</a>[] arr)</p>
+            <b> returns </b><a href="../lang.annotations/UNKOWN/string.html">string</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns the string representing <code>arr</code> using Base16.
+The representation is the same as used by a Ballerina Base16Literal.
+The result will contain only characters  <code>0..9</code>, <code>a..f</code>.
+There will be no whitespace in the returned string.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.annotations/UNKOWN/byte.html">byte</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a></span>)</li>
+                <li><p>Base16 string representation</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="toBase64">
+             <a class="url-link" href="#toBase64">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> toBase64 </h2>
+        
+        <span class="method-types">
+            <p>(<a href="../lang.annotations/UNKOWN/byte.html">byte</a>[] arr)</p>
+            <b> returns </b><a href="../lang.annotations/UNKOWN/string.html">string</a> 
+        </span>
+        
+    </div>
+    <p><p>Returns the string representing <code>arr</code> using Base64 encoding.
+The representation is the same as used by a Ballerina Base64Literal.
+The result will contain only characters  <code>A..Z</code>, <code>a..z</code>, <code>0..9</code>, <code>+</code>, <code>/</code> and <code>=</code>.
+There will be no whitespace in the returned string.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.annotations/UNKOWN/byte.html">byte</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+        
+        <div class="returns-listing">
+            <ul>
+                <li> <h3 class="type">Return Type</h3> (<span class="type"><a href="../lang.annotations/UNKOWN/string.html">string</a></span>)</li>
+                <li><p>Base64 string representation</p>
+</li>
+            </ul>
+        </div>
+        
+    
+</div>
+                            
+                                <div class="method-content">
+    <div class="main-method-title here" id="unshift">
+             <a class="url-link" href="#unshift">
+                <img class="url-link-img" src="../html-template-resources/images/link.svg">
+            </a>
+            <h2> unshift </h2>
+        
+    </div>
+    <p><p>Add <code>vals</code> to beginig of the array <code>arr</code>.</p>
+</p>
+     
+        <div class="data-wrapper">
+            <h3 class="param-title">Parameters</h3>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> arr<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="params-listing">
+                <ul>
+                    <li> vals<span class="type">  <a href="../lang.array/types.html#Type">Type</a>[] </span></li>
+                    <li>
+                        <p><p>values to add to the start of the array</p>
+</p>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    
+
+    
+</div>
+                            
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document)
+    .ready(function() {
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+
+let mainNavLinks = document.querySelectorAll(".primary-list.module ul li a");
+let mainSections = document.querySelectorAll(".main-wrapper section.method-content");
+
+let lastId;
+let cur = [];
+
+let contentWrapper = document.querySelector(".content-wrapper");
+contentWrapper.addEventListener("scroll", event => {
+  let fromTop = contentWrapper.scrollTop;
+
+  mainNavLinks.forEach(link => {
+    let section = document.querySelector("#" + link.attributes.getNamedItem("data").textContent);
+
+    if (
+      section.offsetTop <= fromTop &&
+      section.offsetTop + section.offsetHeight > fromTop
+    ) {
+      link.classList.add("current");
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
+
+</script>
+

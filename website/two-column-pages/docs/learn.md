@@ -19,14 +19,6 @@ The [Quick Tour](/learn/quick-tour/) is the fastest way to try Ballerina. Take t
 
 [Ballerina by Example](/learn/by-example/) teaches you the Ballerina language incrementally with commented examples that cover every nuance of the syntax.
 
-### Ballerina by Guide
-
-[Ballerina by Guide](/learn/by-guide/) are long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, packages, dependencies, coding, unit testing, deployment, and observability.
-
-### Tools and IDEs
-
-The [Tools and IDEs](/learn/tools-ides/) section introduces the language servers, editors, IDEs, and graphical visualization tools that are supported by Ballerina.
-
 ### How to Structure Ballerina Code
 
 [How to Structure Ballerina Code](/learn/how-to-structure-ballerina-code/) demonstrates the development of a Ballerina project and shows how to use Ballerina to fetch, build, create, version, search, and install Ballerina modules with repositories that are local and remote.
@@ -38,10 +30,6 @@ The [Tools and IDEs](/learn/tools-ides/) section introduces the language servers
 ### How to Document Ballerina Code
 
 [How to Document Ballerina Code](/learn/how-to-document-ballerina-code/) provides guidelines on documenting your Ballerina programs and modules in order to generate API documentation.
-
-### How to Write Secure Ballerina Services
-
-[How to Write Secure Ballerina Services](/learn/how-to-write-secure-ballerina-code/) provides guidelines on writing secure Ballerina services, while demonstrating different security features and controls available within Ballerina.
 
 ### How to Publish Ballerina Modules
 
@@ -55,31 +43,15 @@ The [Tools and IDEs](/learn/tools-ides/) section introduces the language servers
 
 [How to Observe Ballerina Services](/learn/how-to-observe-ballerina-code/) instructs you on how to use logging, metrics, and tracing to observe Ballerina services.
 
-### How to Extend Ballerina
-
-[How to Extend Ballerina](/learn/how-to-extend-ballerina/) provides instructions on how developers and third parties can extend the behavior of Ballerina and collate these customizations for use by others.
-
 ## Reference Documentation
-
-### Module and API Documentation
-
-The [API Documentation](/learn/api-docs/) describes the native functions in Ballerina that you can use in your programs.
 
 ### Language Specification
 
 The <a href="https://ballerina.io/learn/language-specification/0.990/">Language Specification</a> is the document that defines Ballerina programming language and will be useful to those who wish to understand, evaluate, or start using the language.
 
-### Ballerina Streaming Guide
-
-The [Ballerina Streaming Guide](/learn/ballerina-streaming-reference/) provides detailed information on Ballerina Streaming concepts and its capabilities. This includes Ballerina streaming language syntax, explanations, and sample queries as well.
-
 ### Ballerina Style Guide
 
 The [Ballerina Style Guide](/learn/style-guide/) provides guidelines to maintain a standard coding style among the Ballerina community.
-
-### FAQ
-
-[Frequently Asked Questions](/learn/faq/) about Ballerina.
 
 ## Events
 

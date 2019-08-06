@@ -29,35 +29,22 @@ In a standard Ballerina project, a module is mapped to a test suite. Unit and in
 
 ### Project Structure
 ```
-/
-  .gitignore
-  Ballerina.toml       # Configuration that defines project intent
-  .ballerina/          # Internal cache management and contains project repository
-                       # Project repository contains compiled module binaries
-    module1.balo
+project-name/
+- Ballerina.toml
+- src/
+-- mymodule/
+--- Module.md      <- module level documentation
+--- main.bal       <- Contains default main method.
+--- resources/     <- resources for the module (available at runtime)
+--- tests/         <- tests for this module (e.g. unit tests)
+---- testmain.bal  <- test file for main
+---- resources/    <- resources for these tests
+- tests/
+-- *.bal           <- integration test code
+-- resources/      <- integration test resources
+- .gitignore       <- git ignore file
 
-  main.bal             # Part of the “unnamed” module, compiled into a main.balx
-                       # You can have many files in the "unnamed" module, though unadvisable
-
-  module1/            # The source in this directory will be named “<org-name>/module1” 
-    Module.md         # Optional, contains descriptive metadata for display at Ballerina Central
-    *.bal              # In this dir and recursively in subdirs except tests/ and resources/
-    [tests/]           # Module-specific unit and integration tests
-    [resources/]       # Module-specific resources
-    
-  modules.can.include.dots.in.dir.name/
-    Module.md
-    *.bal
-    [tests/]         
-    [resources/]     
-
-  [resources/]         # Resources included with every module in the project
-
-  target/              # Compiled executables and other artifacts end up here
-      main.balx
-      modules.can.include.dots.in.dir.name.bal
 ```
-
 The test source files could have any file names. The test functions are just Ballerina functions that use a special annotation to mark the function as a test. Test functions must be specified with the @test:Config annotation and there are no restrictions on the test function name.
 
 The `ballerina test` command can be used to execute tests. 

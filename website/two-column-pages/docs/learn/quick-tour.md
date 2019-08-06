@@ -1,6 +1,6 @@
 # Quick Tour
 
-Now that you know a little bit `Ballerina`, let's take it for a spin! 
+Now that you know a little bit of `Ballerina`, let's take it for a spin! 
 
 ## Install Ballerina
 
@@ -18,7 +18,7 @@ Start your project by navigating to a directory of your choice and running the f
 $ ballerina new quick-start
 ```
 
-You see a response confirming that your project is created and directing you to create a new module withing the project. In order to create the new module, change the working directory to the newly created project folder. Afterwards, run the following command with the module name `sample_service` and the template name `service`
+You see a response confirming that your project is created and directing you to create a new module within the project. In order to create the new module, change the working directory to the newly created project folder. Afterwards, run the following command with the module name `sample_service` and the template name `service`
 
 ```bash
 $ ballerina create sample_service -t service
@@ -26,13 +26,13 @@ $ ballerina create sample_service -t service
 
 This automatically creates a typical Hello World service for you in your directory. A Ballerina service represents a collection of network accessible entry points in Ballerina. A resource within a service represents one such entry point. The generated sample service exposes a network entry point on port 9090.
 
-In order to run the service first you need to build the project using the following command.
+In order to run the service, you need to build the project using the following command.
 
 ```bash
 $ ballerina build
 ```
 
-Now you can ran the service by running the following command. 
+Now, you can run the service by running the following command. 
 
 ```bash
 $ ballerina run /<folder_path>/sample_service-executable.jar
@@ -58,7 +58,7 @@ You get the following response.
 Hello Ballerina!
 ```
 
-You just started Ballerina, created a project, started a service, invoked the service you created, and received a response. Now, let's see how we can make this hello service a bit more interesting. Before that let's setup the editor.
+You just started Ballerina, created a project, started a service, invoked the service you created, and received a response. Now, let's see how we can make this hello service a bit more interesting. Before that, let's set up the editor.
 
 ## Set up the Editor
 
@@ -197,7 +197,7 @@ service sunriseSunset on new http:Listener(9090) {
         http:Response sunriseResp = check sunriseApi->get("/json?lat=51.5074&lng=0.1278");
 
         json sunrisePayload = check sunriseResp.getJsonPayload();
-        // Creates the response payload
+        // Creates the response payload.
         json resPayload = {
             city: "London",
             sunrise: check sunrisePayload.results.sunrise,
@@ -212,15 +212,15 @@ service sunriseSunset on new http:Listener(9090) {
 }
 ```
 
-Now, before we build the module let's change sample_service.bal to sunrise_sunset_service.bal.
+Now, before we build the module, let's change the `sample_service.bal` to `sunrise_sunset_service.bal`.
 
-All set. Once again let's build the module by running the below command.
+All set. Once again, let's build the module by running the below command.
 
 ```bash
 $ ballerina build
 ```
 
-Now you can ran the service by running the following command. 
+Now, you can run the service by running the following command. 
 
 ```bash
 $ ballerina run /<folder_path>/sample_service-executable.jar
@@ -246,7 +246,7 @@ Star [GitHub repo](https://github.com/ballerina-platform/ballerina-lang) and sho
 
 ## What's Next
 
-Now that you have taken Ballerina around for a quick tour, you can explore Ballerina more.
+Now, that you have taken Ballerina around for a quick tour, you can explore Ballerina more.
 
 * Go through [Ballerina by Example](/learn/by-example/) to learn Ballerina incrementally with commented examples that cover every nuance of the syntax.
 * See [Ballerina by Guide](/learn/by-guide/) for long form examples that showcase how to build different types of integrations using a complete development lifecycle including IDE configuration, modules, dependencies, coding, unit testing, deployment, and observability.
