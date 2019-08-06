@@ -12,10 +12,10 @@ Now that you know a little bit of `Ballerina`, let's take it for a spin!
 ## Start a Project, Run a Service, and Invoke It
 
 Start your project by navigating to a directory of your choice and running the following command with the project name 
-`quick-start`.
+`quick-tour`.
 
 ```bash
-$ ballerina new quick-start
+$ ballerina new quick-tour
 ```
 
 You see a response confirming that your project is created and directing you to create a new module within the project. In order to create the new module, change the working directory to the newly created project folder. Afterwards, run the following command with the module name `sample_service` and the template name `service`
